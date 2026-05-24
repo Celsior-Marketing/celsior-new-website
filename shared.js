@@ -353,13 +353,13 @@ a.nav-link{text-decoration:none;}
   const ARROW_SVG = `<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   const navItems = [
-    { key: 'solve',      label: 'Our Focus',           href: 'Our_Focus.html'          },
-    { key: 'how',        label: 'Capabilities',         href: 'Capabilities.html'       },
-    { key: 'deliver',    label: 'Solutions',            href: 'Solutions.html'          },
+    { key: 'solve',      label: 'Our Focus',           href: '/our-focus'          },
+    { key: 'how',        label: 'Capabilities',         href: '/capabilities'       },
+    { key: 'deliver',    label: 'Solutions',            href: '/solutions'          },
     { key: 'ai',         label: 'AI &amp; Innovation',  href: 'ai-innovation.html'      },
     { key: 'industries', label: 'Industries',           href: 'industries.html'         },
-    { key: 'partners',   label: 'Partner Ecosystem',    href: 'partner-ecosystem.html'  },
-    { key: 'about',      label: 'About',                href: 'about.html'              },
+    { key: 'partners',   label: 'Partner Ecosystem',    href: '/partners'  },
+    { key: 'about',      label: 'About',                href: '/about/who-we-are'              },
   ];
 
   const navLinksHTML = navItems.map(it => `
