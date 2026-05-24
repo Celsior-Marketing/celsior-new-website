@@ -1,4 +1,98 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    {
+      "source": "/our-focus",
+      "destination": "/Our_Focus.html"
+    },
+    {
+      "source": "/our-focus/ai-first-digital-engineering",
+      "destination": "/ai-first-digital-engineering.html"
+    },
+    {
+      "source": "/our-focus/ai-adoption",
+      "destination": "/ai-adoption.html"
+    },
+    {
+      "source": "/our-focus/risk-and-compliance",
+      "destination": "/risk-compliance.html"
+    },
+    {
+      "source": "/our-focus/cost-and-efficiency",
+      "destination": "/cost-efficiency.html"
+    },
+    {
+      "source": "/our-focus/digital-experience",
+      "destination": "/digital-experience.html"
+    },
+    {
+      "source": "/capabilities",
+      "destination": "/Capabilities.html"
+    },
+    {
+      "source": "/capabilities/ai-led-engineering",
+      "destination": "/ai-led-engineering.html"
+    },
+    {
+      "source": "/capabilities/cloud-and-infrastructure-engineering",
+      "destination": "/cloud-infrastructure-engineering.html"
+    },
+    {
+      "source": "/capabilities/ai-and-data",
+      "destination": "/ai-and-data.html"
+    },
+    {
+      "source": "/capabilities/digital-operations-and-security",
+      "destination": "/digital-operations.html"
+    },
+    {
+      "source": "/capabilities/security-and-governance",
+      "destination": "/security-governance.html"
+    },
+    {
+      "source": "/solutions",
+      "destination": "/Solutions.html"
+    },
+    {
+      "source": "/solutions/managed-programs",
+      "destination": "/managed-programs.html"
+    },
+    {
+      "source": "/solutions/technology-consulting",
+      "destination": "/technology-consulting.html"
+    },
+    {
+      "source": "/solutions/gcc-and-nearshore",
+      "destination": "/gcc-nearshore.html"
+    },
+    {
+      "source": "/solutions/teams-as-a-service",
+      "destination": "/teams-as-a-service.html"
+    },
+    {
+      "source": "/solutions/ai-upskilling",
+      "destination": "/hire-train-deploy.html"
+    },
+    {
+      "source": "/ai-innovation",
+      "destination": "/ai-innovation.html"
+    },
+    {
+      "source": "/industries",
+      "destination": "/industries.html"
+    },
+    {
+      "source": "/partners",
+      "destination": "/partner-ecosystem.html"
+    },
+    {
+      "source": "/about/who-we-are",
+      "destination": "/about.html"
+    },
+    {
+      "source": "/about",
+      "destination": "/about.html"
+    }
+  ]
 }
