@@ -1038,6 +1038,221 @@ a.nav-link{text-decoration:none;}
   });
   mobileDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
 
+
+
+  /* ─── Celsior HubSpot modal system ──────────────────────────────────
+     Non-invasive CTA enhancement: existing buttons/links keep their
+     current markup and visual styling. Matching CTA clicks are intercepted
+     and routed into a shared, minimal HubSpot modal. No page layout, nav,
+     existing animations, or CTA visuals are modified.
+  ─────────────────────────────────────────────────────────────────── */
+  function initCelsiorHubspotModals() {
+    if (window.__celsiorHubspotModalReady) return;
+    window.__celsiorHubspotModalReady = true;
+
+    const FORM_SCRIPT_SRC = 'https://js.hsforms.net/forms/embed/developer/40221584.js';
+    const PORTAL_ID = '40221584';
+    const REGION = 'na1';
+
+    const modalContent = {
+      general: {
+        title: 'Talk to a Celsior expert',
+        helper: 'Share a few details and our team will get back to you shortly.',
+        formId: '14603611-2306-41db-892b-61dd59e11a31'
+      },
+      assessment: {
+        title: 'Request an assessment',
+        helper: 'Tell us what you would like to evaluate, and we will help route the next step.',
+        formId: 'f1c2bdcb-202d-49df-8698-b41c6abbb67d'
+      },
+      download: {
+        title: 'Request the resource',
+        helper: 'Submit your details and our team will share the relevant material.',
+        formId: 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8'
+      },
+      partner: {
+        title: 'Start a partnership conversation',
+        helper: 'Share your inquiry and the right team member will follow up.',
+        formId: '982fe6de-6215-4904-916b-fd062836bddc'
+      }
+    };
+
+    const ctaRules = [
+      { type: 'assessment', phrases: [
+        'assess your readiness',
+        'request ai readiness assessment',
+        'start ai readiness assessment',
+        'start assessment',
+        'modernization assessment',
+        'request assessment'
+      ] },
+      { type: 'download', phrases: [
+        'download capability brief',
+        'download guide',
+        'download the ai readiness framework',
+        'download ai readiness framework',
+        'access report',
+        'view case study',
+        'get the brief',
+        'request resource'
+      ] },
+      { type: 'partner', phrases: [
+        'partner with us',
+        'explore partnership',
+        'alliance inquiry',
+        'vendor inquiry',
+        'send inquiry'
+      ] },
+      { type: 'general', phrases: [
+        'talk to an expert',
+        'talk to a celsior expert',
+        'talk to us',
+        'talk to our practice lead',
+        'speak to our team',
+        'start the conversation',
+        'book a discovery call',
+        'schedule consultation',
+        'schedule a consultation',
+        'schedule a conversation',
+        'get in touch',
+        'get started',
+        'start your transformation',
+        'start your cloud journey',
+        'submit request'
+      ] }
+    ];
+
+    function normaliseText(text) {
+      return (text || '')
+        .replace(/\s+/g, ' ')
+        .replace(/[→›»]/g, '')
+        .trim()
+        .toLowerCase();
+    }
+
+    function getModalTypeFromElement(el) {
+      if (!el) return null;
+      if (el.dataset && el.dataset.celsiorForm) return el.dataset.celsiorForm;
+      const label = normaliseText(el.textContent);
+      if (!label) return null;
+      for (const rule of ctaRules) {
+        if (rule.phrases.some(phrase => label === phrase || label.includes(phrase))) {
+          return rule.type;
+        }
+      }
+      return null;
+    }
+
+    function ensureModalStyles() {
+      if (document.getElementById('celsior-hs-modal-styles')) return;
+      const style = document.createElement('style');
+      style.id = 'celsior-hs-modal-styles';
+      style.textContent = `
+        .celsior-hs-modal-open{overflow:hidden;}
+        .celsior-hs-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:22px;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+        .celsior-hs-modal.is-open{display:flex;}
+        .celsior-hs-modal__overlay{position:absolute;inset:0;background:rgba(2,10,26,.80);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);}
+        .celsior-hs-modal__dialog{position:relative;width:min(540px,100%);max-height:min(86vh,720px);overflow-y:auto;overflow-x:hidden;background:transparent!important;border:0!important;border-radius:18px!important;box-shadow:none!important;padding:0;color:#fff;scrollbar-width:thin;scrollbar-color:rgba(170,178,188,.55) rgba(255,255,255,.08);}
+        .celsior-hs-modal__dialog::-webkit-scrollbar{width:4px;height:4px;}
+        .celsior-hs-modal__dialog::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:999px;}
+        .celsior-hs-modal__dialog::-webkit-scrollbar-thumb{background:rgba(170,178,188,.58);border-radius:999px;}
+        .celsior-hs-modal__dialog::-webkit-scrollbar-thumb:hover{background:rgba(200,206,214,.72);}
+        .celsior-hs-modal__close{position:absolute;top:12px;right:12px;width:28px;height:28px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:19px;line-height:1;z-index:2;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+        .celsior-hs-modal__close:hover{background:rgba(255,255,255,.16);}
+        .celsior-hs-modal__form-panel{display:none;}
+        .celsior-hs-modal__form-panel.is-active{display:block;background:rgba(5,16,32,.20);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:22px 28px 20px;box-shadow:0 24px 70px rgba(0,0,0,.28);}
+        .celsior-hs-modal__head{padding:0 42px 11px 0;margin:0 0 14px;border-bottom:1px solid rgba(255,255,255,.20);}
+        .celsior-hs-modal__title{margin:0;color:#fff;font-size:24px;line-height:1.12;font-weight:760;letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.28);}
+        .celsior-hs-modal__helper{margin:6px 0 0;color:rgba(255,255,255,.78);font-size:13.5px;line-height:1.35;}
+        .celsior-hs-modal .hs-form-html,.celsior-hs-modal .hs-form{width:100%;background:transparent!important;}
+        .celsior-hs-modal .hs-form fieldset{max-width:100%!important;background:transparent!important;margin-bottom:8px!important;}
+        .celsior-hs-modal .hs-form .hs-form-field{background:transparent!important;margin-bottom:10px!important;}
+        .celsior-hs-modal .hs-form label{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:rgba(255,255,255,.92)!important;font-size:12.5px!important;font-weight:650!important;line-height:1.25!important;margin-bottom:5px!important;text-shadow:0 1px 12px rgba(0,0,0,.28);}
+        .celsior-hs-modal .hs-form input,.celsior-hs-modal .hs-form select,.celsior-hs-modal .hs-form textarea{min-height:38px!important;height:38px!important;padding:8px 10px!important;border-radius:7px!important;border:1px solid rgba(255,255,255,.45)!important;box-shadow:0 8px 22px rgba(0,0,0,.14)!important;background:rgba(255,255,255,.96)!important;color:#101820!important;font-size:14px!important;}
+        .celsior-hs-modal .hs-form textarea{height:64px!important;min-height:64px!important;}
+        .celsior-hs-modal .hs-form input:focus,.celsior-hs-modal .hs-form select:focus,.celsior-hs-modal .hs-form textarea:focus{outline:2px solid rgba(255,255,255,.48)!important;outline-offset:1px!important;}
+        .celsior-hs-modal .hs-form .hs-submit{margin-top:8px!important;}
+        .celsior-hs-modal .hs-form input[type="submit"],.celsior-hs-modal .hs-button{height:38px!important;min-height:38px!important;padding:8px 18px!important;background:#005687!important;border-color:#005687!important;border-radius:7px!important;font-weight:700!important;color:#fff!important;box-shadow:0 10px 24px rgba(0,86,135,.24)!important;}
+        @media (max-height:760px){.celsior-hs-modal{align-items:center;padding:14px 18px;}.celsior-hs-modal__dialog{max-height:calc(100vh - 28px);width:min(500px,100%);}.celsior-hs-modal__form-panel.is-active{padding:18px 24px 16px;border-radius:16px;}.celsior-hs-modal__close{top:9px;right:9px;}.celsior-hs-modal__head{margin-bottom:12px;padding-bottom:10px;}.celsior-hs-modal__title{font-size:22px;}.celsior-hs-modal__helper{font-size:13px;}.celsior-hs-modal .hs-form .hs-form-field{margin-bottom:7px!important;}.celsior-hs-modal .hs-form input,.celsior-hs-modal .hs-form select,.celsior-hs-modal .hs-form textarea{height:34px!important;min-height:34px!important;padding:6px 10px!important;}.celsior-hs-modal .hs-form textarea{height:52px!important;min-height:52px!important;}.celsior-hs-modal .hs-form input[type="submit"],.celsior-hs-modal .hs-button{height:36px!important;min-height:36px!important;}}
+        @media (max-width:640px){.celsior-hs-modal{align-items:flex-start;overflow:auto;padding:18px 16px;}.celsior-hs-modal__dialog{width:100%;max-height:calc(100vh - 36px);margin:4px 0;padding:0;}.celsior-hs-modal__form-panel.is-active{padding:18px 18px 16px;border-radius:16px;}.celsior-hs-modal__close{top:8px;right:8px;}.celsior-hs-modal__title{font-size:22px;}.celsior-hs-modal__helper{font-size:13px;}}
+      `;
+      document.head.appendChild(style);
+    }
+
+    function ensureModalMarkup() {
+      let modal = document.getElementById('celsiorHsModal');
+      if (modal) return modal;
+      ensureModalStyles();
+      modal = document.createElement('div');
+      modal.id = 'celsiorHsModal';
+      modal.className = 'celsior-hs-modal';
+      modal.setAttribute('aria-hidden', 'true');
+      modal.innerHTML = `
+        <div class="celsior-hs-modal__overlay" data-celsior-modal-close></div>
+        <div class="celsior-hs-modal__dialog" role="dialog" aria-modal="true" aria-label="Celsior form">
+          <button class="celsior-hs-modal__close" type="button" aria-label="Close form" data-celsior-modal-close>×</button>
+          ${Object.keys(modalContent).map(type => `<div class="celsior-hs-modal__form-panel" data-celsior-form-panel="${type}"><div class="celsior-hs-modal__head"><h2 class="celsior-hs-modal__title">${modalContent[type].title}</h2><p class="celsior-hs-modal__helper">${modalContent[type].helper}</p></div><div class="hs-form-html" data-region="${REGION}" data-form-id="${modalContent[type].formId}" data-portal-id="${PORTAL_ID}"></div></div>`).join('')}
+        </div>
+      `;
+      document.body.appendChild(modal);
+
+      if (!document.querySelector(`script[src="${FORM_SCRIPT_SRC}"]`)) {
+        const hsScript = document.createElement('script');
+        hsScript.src = FORM_SCRIPT_SRC;
+        hsScript.defer = true;
+        document.body.appendChild(hsScript);
+      }
+
+      modal.addEventListener('click', (event) => {
+        if (event.target.closest('[data-celsior-modal-close]')) closeModal();
+      });
+
+      return modal;
+    }
+
+    function openModal(type) {
+      const content = modalContent[type] || modalContent.general;
+      const modal = ensureModalMarkup();
+      const dialog = modal.querySelector('.celsior-hs-modal__dialog');
+      if (dialog) dialog.setAttribute('aria-label', content.title);
+      modal.querySelectorAll('[data-celsior-form-panel]').forEach(panel => {
+        panel.classList.toggle('is-active', panel.dataset.celsiorFormPanel === type);
+      });
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('celsior-hs-modal-open');
+      setTimeout(() => {
+        const firstInput = modal.querySelector('.celsior-hs-modal__form-panel.is-active input, .celsior-hs-modal__form-panel.is-active select, .celsior-hs-modal__form-panel.is-active textarea, .celsior-hs-modal__close');
+        if (firstInput) firstInput.focus({ preventScroll: true });
+      }, 250);
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('celsiorHsModal');
+      if (!modal) return;
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('celsior-hs-modal-open');
+    }
+
+    document.addEventListener('keydown', (event) => {
+      if (event.key === 'Escape') closeModal();
+    });
+
+    document.addEventListener('click', (event) => {
+      const trigger = event.target.closest('a,button,[role="button"]');
+      if (!trigger) return;
+      if (trigger.closest('#celsiorHsModal')) return;
+      const type = getModalTypeFromElement(trigger);
+      if (!type) return;
+      event.preventDefault();
+      openModal(type);
+    });
+  }
+
+  initCelsiorHubspotModals();
+
+
   /* ─── 6.  READY SIGNAL ───────────────────────────────────────────────
      Lets pages defer work (e.g. footer entrance animations) until after
      the nav + footer are safely in the DOM.
