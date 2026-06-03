@@ -56,8 +56,8 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://res.cloudinary.com/dden4hawr/image/upload/v1778578701/Hero_Slide_tf9bvf.jpg') center/cover no-repeat;
-      transform: scale(1.06);
+      background: url('https://res.cloudinary.com/dden4hawr/image/upload/v1779300744/AI-UPSKILLING_bmiedw.jpg') center/contain no-repeat;
+      transform: scale(1.5);
       transform-origin: center;
     }
 
@@ -167,6 +167,8 @@
       grid-template-columns: repeat(4, 1fr);
       border-bottom: 1px solid var(--border);
       margin-bottom: 28px;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
 
     .stat-col {
@@ -205,7 +207,7 @@
     }
 
     .stat-note-lbl {
-      font-size: 14px;
+      font-size: 20px;
       font-weight: 500;
       color: #374151;
       margin-bottom: 6px;
@@ -332,6 +334,9 @@
       gap: 24px;
     }
 
+    /* ============================================================
+       === BLOG CARDS — TRUNCATE + HOVER EXPAND ===
+       ============================================================ */
     .blog-card {
       border-radius: 18px;
       overflow: hidden;
@@ -340,6 +345,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      cursor: pointer;
     }
 
     .blog-card-bg {
@@ -349,17 +355,31 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .blog-card:hover .blog-card-bg,
+    .blog-card.is-expanded .blog-card-bg {
+      transform: scale(1.04);
     }
 
     .blog-card-overlay {
       position: absolute;
       inset: 0;
+      transition: opacity 0.45s ease;
+    }
+
+    .blog-card:hover .blog-card-overlay,
+    .blog-card.is-expanded .blog-card-overlay {
+      opacity: 1.3;
     }
 
     .blog-card-body {
       position: relative;
       z-index: 2;
       padding: 32px 28px;
+      /* Bottom padding expands on hover to accommodate extra text */
+      transition: padding-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .blog-card-ttl {
@@ -367,12 +387,57 @@
       font-weight: 700;
       color: #fff;
       margin-bottom: 12px;
+      line-height: 1.3;
+      /* Clamp to 2 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: -webkit-line-clamp 0s, max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      max-height: calc(24px * 1.3 * 2 + 2px); /* 2 lines */
     }
 
     .blog-card-txt {
       font-size: 16px;
       color: rgba(255, 255, 255, 0.9);
       line-height: 23px;
+      /* Clamp to 3 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      max-height: calc(23px * 3 + 2px); /* 3 lines */
+      transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  -webkit-line-clamp 0s 0s;
+    }
+
+    /* ── Desktop: hover to expand ── */
+    @media (hover: hover) and (pointer: fine) {
+      .blog-card:hover .blog-card-ttl {
+        -webkit-line-clamp: unset;
+        max-height: 300px; /* large enough for any title */
+      }
+
+      .blog-card:hover .blog-card-txt {
+        -webkit-line-clamp: unset;
+        max-height: 400px; /* large enough for any body */
+      }
+
+      .blog-card:hover .blog-card-overlay {
+        /* deepen gradient on hover for readability */
+        filter: brightness(1.15);
+      }
+    }
+
+    /* ── Mobile: tap to expand (JS toggles .is-expanded) ── */
+    .blog-card.is-expanded .blog-card-ttl {
+      -webkit-line-clamp: unset;
+      max-height: 300px;
+    }
+
+    .blog-card.is-expanded .blog-card-txt {
+      -webkit-line-clamp: unset;
+      max-height: 400px;
     }
 
     /* ============================================================
@@ -464,12 +529,16 @@
       align-items: center;
     }
 
+    /* Row-left takes all remaining space; row-right never squishes */
     .explore__row-left {
-      gap: 24px;
+      gap: 20px;
+      flex: 1 1 0;
+      min-width: 0;
     }
 
     .explore__row-right {
       flex-shrink: 0;
+      margin-left: 20px;
     }
 
     .explore__label {
@@ -478,6 +547,7 @@
       justify-content: center;
       flex-shrink: 0;
       width: 164px;
+      min-width: 100px;
       text-align: center;
       padding: 6px 14px;
       border-radius: 4px;
@@ -498,15 +568,17 @@
     }
 
     .explore__text {
-      display: inline-flex;
-      align-items: center;
-      flex-wrap: wrap;
+      display: block;
+      min-width: 0;
+      flex: 1 1 0;
       color: #0d1127;
-      font-size: clamp(1.1rem, 1.8vw, 1.55rem);
-      line-height: 1.12;
+      font-size: clamp(1rem, 1.8vw, 1.55rem);
+      line-height: 1.25;
       font-weight: 600;
       letter-spacing: -0.02em;
       transition: color 0.3s ease;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .explore__char {
@@ -594,59 +666,51 @@
 
     @media (max-width: 720px) {
       .explore {
-        padding: 64px 20px 72px;
+        padding: 48px 16px 64px;
       }
 
       .explore h2 {
-        margin-bottom: 30px;
+        margin-bottom: 28px;
         font-size: clamp(1.5rem, 6.5vw, 2rem);
       }
 
+      /* Stack label above text+arrow on mobile */
       .explore__links a {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-areas:
-          "label label"
-          "text  arrow";
-        column-gap: 14px;
-        row-gap: 14px;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
         padding: 20px 18px;
       }
 
       .explore__row-left {
-        display: contents;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
       }
 
       .explore__row-right {
-        display: contents;
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-end;
       }
 
-      .explore__label {
-        grid-area: label;
-        justify-self: start;
-      }
-
-      .explore__text {
-        grid-area: text;
-        font-size: clamp(0.9rem, 4vw, 1.1rem);
-        align-self: center;
-      }
-
-      .explore__arrow {
-        grid-area: arrow;
-        width: 36px;
-        height: 36px;
-        align-self: center;
-      }
-    }
-
-    @media (max-width: 720px) {
       .explore__label {
         width: auto;
         min-width: 0;
         padding: 5px 10px;
         font-size: 0.58rem;
+      }
+
+      .explore__text {
+        font-size: clamp(0.95rem, 4vw, 1.15rem);
+        line-height: 1.3;
+      }
+
+      .explore__arrow {
+        width: 36px;
+        height: 36px;
       }
     }
 
@@ -1737,6 +1801,7 @@
     .blog-card-txt {
       font-size: 16px !important;
       line-height: 23px !important;
+      /* keep max-height in sync at mobile font-size */
     }
 
     .faq__intro p {
@@ -2521,17 +2586,17 @@
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>
     <div class="hero-content">
-      <h1 class="hero-heading">Your platforms should deliver what they<br>promised on day one. We make sure they do.
+      <h1 class="hero-heading">The return on your AI investment depends<br>entirely on whether your workforce can act on it.<br>Celsior ensures they can. 
       </h1>
       <div class="hero-btns">
         <button class="btn-ghost">
-          Explore our managed programs
+          Explore Our Upskilling Programs
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </button>
-        <button class="btn-white">Book a Discovery Call</button>
+        <button class="btn-white">Schedule a Discovery Call</button>
       </div>
     </div>
   </section>
@@ -2544,27 +2609,25 @@
   <div class="stats-wrap">
     <div class="stats-grid">
       <div class="stat-col">
-        <div class="stat-num">50–60%</div>
-        <div class="stat-desc">Faster delivery cycles with AI-assisted development</div>
+        <div class="stat-num">93%</div>
+        <div class="stat-desc">of organizations worldwide will feel the impact of AI skills shortages </div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">35–45%</div>
-        <div class="stat-desc">Cost savings through intelligent automation</div>
+        <div class="stat-num">53%</div>
+        <div class="stat-desc">Cost savings through intelligent automation </div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">46%</div>
-        <div class="stat-desc">Faster migration with our Cloud Management Framework</div>
+        <div class="stat-num">84%</div>
+        <div class="stat-desc">of companies have not redesigned job functions around AI capabilities. </div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">50%</div>
-        <div class="stat-desc">Reduction in development and training costs</div>
+        <div class="stat-num">1%</div>
+        <div class="stat-desc">of enterprises describe themselves as operating at full AI maturity.</div>
       </div>
     </div>
     <div class="stat-note">
       <div class="stat-note-lbl"> </div>
-      <div class="stat-note-txt">Strong program outcomes are a result from deliberate structure, disciplined execution,
-        and clear accountability at every stage. Across delivery, migration, and cost optimization, we bring the
-        operational rigor and intelligent tooling that keep programs on track and on budget.
+      <div class="stat-note-txt">Strong program outcomes don't happen by chance. They result from deliberate structure, disciplined execution, and clear accountability at every stage. Across delivery, migration, and cost optimization, we bring the operational rigor and intelligent tooling that keep programs on track and on budget.
       </div>
     </div>
   </div>
@@ -2588,19 +2651,16 @@
 
   <!-- ① FULL-WIDTH HEADER -->
   <div style=" padding:0 0 28px;">
+    <p class="eyebrow">THE COST OF INACTION </p>
     <h2 id="cqxq-heading" style="
       font-size:55px; font-weight:700; line-height:60px; color:#09090b;
       letter-spacing:0px; margin-bottom:22px; max-width:1100px;
       opacity:0; transform:translateY(28px);
-    ">What unmanaged platforms cost<br> your organization; <span
-        style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; display: inline;">quarter
-        by quarter.</span></h2>
+    ">The true cost of enterprise AI adoption is not the platform license. It is the capability that never formed around it. </h2>
     <p id="cqxq-body" style="
       font-size:16px; color:#3f3f46; line-height:23px; max-width:1100px;
       opacity:0; transform:translateY(20px);
-    ">Enterprise platforms are acquired with a clear business case. But once live, accountability for their health and
-      evolution quietly fragments. Celsior's Managed Programs are structured to close that gap, with defined scope,
-      measurable SLAs, and teams who carry platform-specific depth rather than general IT support. </p>
+    "> Enterprise AI programs rarely stall because the technology under performs. They stall because the workforce was never structured to operate within it. Licenses are active. Deployments are complete. Yet without a deliberate path connecting tool access to applied, role-level proficiency, the business case erodes across successive reporting cycles and the gap surfaces in board reviews that could have been avoided. Celsior's AI Upskilling programs exist to close that gap systematically, with accountability to documented outcomes at every stage of delivery.</p>
     </div>
 
     <!-- ② TWO-COLUMN ROW -->
@@ -2624,7 +2684,7 @@
       opacity:0; transform:translateX(-32px);
     ">
         <img
-          src="https://res.cloudinary.com/dden4hawr/image/upload/v1778577642/e635f926-6c6b-4155-928d-bdf0cb79d91a_yjbpnl.jpg"
+          src="https://res.cloudinary.com/dden4hawr/image/upload/v1780294854/63f34698f565c005a29820ab6de35ef32cf5ac32_tmpn1s.jpg"
           alt="" style="
           position:absolute;
           width:112.14%; height:111.23%;
@@ -2653,12 +2713,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- Platform Stability: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578106/1_vgbbod.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/49_mxvbe4.png"
                 alt="Platform Stability" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Platform
-              Stability</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Productivity Loss </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2667,9 +2726,7 @@
           </button>
           <div class="gacc-body" style="overflow:hidden;height:0;">
             <div class="gacc-inner" style="padding:0 0 20px 84px;">
-              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Most enterprise platforms lose a
-                significant portion of their designed capability within two years of go-live due to absence of
-                structured operational ownership. </p>
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">When employees have platform access but no structured path to functional proficiency, they revert to established workflows. AI assets go underutilized. </p>
             </div>
           </div>
         </div>
@@ -2688,12 +2745,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- ServiceNow: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578107/2_qd20cc.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/50_ch93ov.png"
                 alt="Security & Compliance" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Security
-              & Compliance</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Role Readiness </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2702,9 +2758,7 @@
           </button>
           <div class="gacc-body" style="overflow:hidden;height:0;">
             <div class="gacc-inner" style="padding:0 0 20px 84px;">
-              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">The cost of ungoverned configuration
-                drift, unreviewed access controls, and undocumented changes rarely surfaces until it becomes a
-                compliance event. </p>
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Role readiness requires that learning be anchored to the specific decision contexts, accountability structures, and data environments each function operates within.  </p>
             </div>
           </div>
         </div>
@@ -2723,11 +2777,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- Cost Optimization: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578107/3_sgpvfw.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/51_vq6100.png"
                 alt="Cost Optimization" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Cost Optimization</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Adoption Risk  </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2736,9 +2790,7 @@
           </button>
           <div class="gacc-body" style="overflow:hidden;height:0;">
             <div class="gacc-inner" style="padding:0 0 20px 84px;">
-              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Reactive platform support feels cheaper
-                than a managed program until accounted for emergency interventions, delayed delivery, and the strategic
-                work that never got done. </p>
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Uneven adoption produces operational inconsistency at scale. Where accountability for AI-assisted outputs is a compliance requirement, organizations that do not manage adoption deliberately end up managing the consequences of not doing so.  </p>
             </div>
           </div>
         </div>
@@ -2757,12 +2809,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- Upgrade Governance: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578106/4_fwh49h.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/52_ycmjl9.png"
                 alt="Upgrade Governance" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Upgrade
-              Governance</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Governance Gaps </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2771,8 +2822,7 @@
           </button>
           <div class="gacc-body" style="overflow:hidden;height:0;">
             <div class="gacc-inner" style="padding:0 0 20px 84px;">
-              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Deferred upgrades are a governance
-                failure that compounds with every release cycle that passes without structured ownership. </p>
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Without structured guidance on responsible use, data stewardship, and organizational policy, individuals exercise independent judgment in contexts that require institutional alignment. Across a large enterprise, that produces significant variability in practice. </p>
             </div>
           </div>
         </div>
@@ -2790,15 +2840,13 @@
   <section id="platform-ops-cost" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);">
 
     <!-- Heading -->
-    <p class="eyebrow">THE BUSINESS CONSEQUENCES</p>
+    <p class="eyebrow">THE ROOT CAUSE</p>
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
-      How enterprise platforms lose <br>operational ownership after go-live</h2>
+      How the gap between AI strategy and workforce execution compounds across operating cycles.</h2>
 
     <!-- Body -->
-    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">Platform problems
-      accumulate in deferred upgrades, ungoverned configuration changes, and incidents that get closed rather than
-      resolved. By the time the cost surfaces, it has already shifted from an operational issue to a strategic one. </p>
+    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">The breakdown rarely originates with the technology. It originates in what follows the rollout; when no structured enablement framework succeeds the deployment and teams are left to self-direct the rest of the adoption curve.</p>
 
     <!-- ── Card frame — exact Figma Desktop-31 styles ── -->
     <!--
@@ -2849,13 +2897,13 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778579833/5_ohhyvq.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295659/53_jo5x8m.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
-        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Slower
-          product cycles</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Incident backlogs and deferred upgrades
-          consume the teams who should be building new features. Stability management crowds out delivery.</p>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Generic programs that don't transfer</h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">When training is deployed as a single program across functions, employees learn concepts without context. 
+
+</p>
       </div>
 
       <!-- ── Card 2: Compounding security exposure ── -->
@@ -2872,13 +2920,11 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778579833/6_hfcvls.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295659/54_xggjcq.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
-        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Compounding
-          security exposure</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Ungoverned platforms drift from their
-          original security posture quietly, and without anyone tracking the cumulative risk.</p>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">No structured path </h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">When teams have no structured path from initial awareness to hands-on application to independent use, they plateau early. </p>
       </div>
 
       <!-- ── Card 3: Engineering talent attrition ── -->
@@ -2895,14 +2941,13 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778579832/7_qpjayv.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295659/55_gjigb4.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
         <h3
           style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;white-space:nowrap;margin-bottom:16px;">
-          Engineering talent attrition</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Platform knowledge concentrated in a few
-          individuals leaves organizations exposed the moment those people move on.</p>
+          Compounding cost of deferred capability </h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Every quarter that capability development is deferred; the operational cost rises exponentially.  </p>
       </div>
 
     </div><!-- /card-frame -->
@@ -2914,42 +2959,42 @@
        CSS tag : /* === BLOG TEASERS === */
        ============================================================ -->
   <section class="pad sec-border">
+    <p class="eyebrow">PERSPECTIVES </p>
     <h2 style="font-size:55px;font-weight:700;line-height:60px;color:#09090b;max-width:1000px;margin-bottom:16px;">
-      See the latest from Celsior on managed platform operations and continuous delivery.</h2>
+      See the latest from Celsior on AI workforce readiness and enterprise adoption. </h2>
+      <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">From BOT model engagements to dedicated pod delivery, these are perspectives and client stories from Celsior's GCC and Nearshore teams, drawn from live programs across regulated industries in the United States.</p>
     <p <br> </p>
     <div class="blog-grid">
       <div class="blog-card">
-        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1778585914/1_hkqc4o.jpg"
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780297225/22_ioe0kc.png"
           alt="" />
         <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#0c1b3b 67%);">
         </div>
         <div class="blog-card-body">
-          <div class="blog-card-ttl">Celsior delivers Guidewire managed operations for a Top 10 U.S. P&C insurer.</div>
-          <div class="blog-card-txt">Maintaining 99.8% platform availability through a major policy system upgrade
-            cycle </div>
+          <div class="blog-card-ttl">AI Adoption Strategy Strategic angle</div>
+          <div class="blog-card-txt">How enterprise leaders are shifting the conversation on AI adoption from tool deployment to structured team capability — and what separates programs that hold from those that lose momentum after the first quarter.</div>
         </div>
       </div>
       <div class="blog-card">
-        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1778585913/2_sniefj.jpg"
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780297225/23_fpkwrt.png"
           alt="" />
         <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
         </div>
         <div class="blog-card-body">
-          <div class="blog-card-ttl">How Celsior's Managed SNOW Operations model</div>
-          <div class="blog-card-txt">Reduced service desk resolution time by 47% for a mid-market financial services
-            firm.</div>
+          <div class="blog-card-ttl">Role-based Training 
+Industry-specific angle</div>
+          <div class="blog-card-txt">How organizations in regulated industries are building AI-capable workforces without compromising their compliance posture or disrupting operations currently in progress.</div>
         </div>
       </div>
       <div class="blog-card">
-        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1778585914/3_oi980a.jpg"
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780297225/24_glizc1.png"
           alt="" />
         <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
         </div>
         <div class="blog-card-body">
-          <div class="blog-card-ttl">Celsior's Continuous
-            Modernization Factory</div>
-          <div class="blog-card-txt">Delivering 14 releases in 12 months for a legacy-heavy insurance carrier without a
-            single production outage </div>
+          <div class="blog-card-ttl">Lorem Ipsum is simply dummy text of the 
+</div>
+          <div class="blog-card-txt">Pre-certified platform talent for regulated industries: why certification depth matters more than headcount at scale</div>
         </div>
       </div>
     </div>
@@ -2968,36 +3013,41 @@
     <section class="partners" aria-label="Partner ecosystem">
       <div class="partners__track">
         <div class="partners__group">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/Dynatrace_1_t3ayxc.png"
-            alt="Dynatrace" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
+            alt="GuideWire" loading="lazy" />
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png"
             alt="ServiceNow" loading="lazy" />
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt="Boomi"
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
-            alt="GuideWire" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/RingCentral_1_zjcj4f.png"
-            alt="RingCentral" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Informatica_1_gkhjs0.png"
-            alt="Informatica" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/13_gbjllz.png"
+            alt="Azure" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778328296/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
         <div class="partners__group" aria-hidden="true">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/Dynatrace_1_t3ayxc.png" alt=""
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png" alt=""
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt=""
-            loading="lazy" />
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
-            alt="" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/RingCentral_1_zjcj4f.png" alt=""
+            alt="GuideWire" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png"
+            alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt="Boomi"
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Informatica_1_gkhjs0.png" alt=""
-            loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/13_gbjllz.png"
+            alt="Azure" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778328296/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
       </div>
     </section>
   </div>
+
 
   <!-- ============================================================
        SECTION: OUTCOMES
@@ -3010,15 +3060,12 @@
       <div class="outcomes__heading">
         <p class="eyebrow">WHY AI-FIRST ENGINEERING?</p>
         <h2>Outcomes we're accountable to</h2>
-        <p>These numbers come from managed program engagements across enterprise platforms. They reflect what structured
-          operational accountability including defined scope, measurable SLAs, and platform-specific delivery teams
-          produce in practice.</p>
+        <p>Celsior designs AI Upskilling programs around specific roles, real workflows, and documented outcomes. These figures reflect what structured delivery produces when the program is built to measure from day one. </p>
       </div>
       <div class="outcome-cards">
         <article class="outcome-card outcome-card--green" data-stat-card>
-          <strong><span class="stat-num" data-target="3" data-suffix="X">0X</span></strong>
-          <p>Greater on-time, on-budget program delivery for enterprises that operationalize structured governance
-            frameworks with measurable performance accountability
+          <strong><span class="stat-num" data-target="95">0</span><span>%</span></strong>
+          <p>AI and ML project completion rate achieved after Celsior built dedicated, role-specific talent pipelines for a high-demand technology client
           </p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
@@ -3028,9 +3075,8 @@
           </div>
         </article>
         <article class="outcome-card outcome-card--blue" data-stat-card>
-          <strong><span class="stat-num" data-target="40">0</span><span>%</span></strong>
-          <p>Uplift in enterprise compliance pass rates achieved through proactive risk governance and continuously
-            managed regulatory alignment
+          <strong><span class="stat-num" data-target="56">0</span><span>%</span></strong>
+          <p>Reduction in time-to-readiness for AI and data science roles from 41 days to 18 days through focused talent program delivery. 
           </p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
@@ -3040,9 +3086,8 @@
           </div>
         </article>
         <article class="outcome-card outcome-card--gold" data-stat-card>
-          <strong><span class="stat-num" data-target="35">0</span><span>%</span></strong>
-          <p>Reduction in operational disruption risk for organizations that transition from reactive, self-managed IT
-            models to structured, outcome-driven managed program delivery
+          <strong><span class="stat-num" data-target="30">0</span><span>%</span></strong>
+          <p>of working hours reclaimed from routine and manual tasks by teams using AI effectively 
           </p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
@@ -3052,9 +3097,8 @@
           </div>
         </article>
         <article class="outcome-card outcome-card--dark" data-stat-card>
-          <strong><span class="stat-num" data-target="55%">0</span><span>%</span></strong>
-          <p>Acceleration in enterprise digital transformation velocity for organizations operating under dedicated
-            managed program engagement models versus unmanaged alternatives</p>
+          <strong><span class="stat-num" data-target="2">0</span><span>x</span></strong>
+          <p>The rate at which enterprise generative AI adoption across business functions nearly doubled in a single year</p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
               <path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
@@ -3083,29 +3127,25 @@
             d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
             fill="#fff" />
         </svg>
-        <p class="test-quote">We had a capable team and a well-implemented Guidewire environment — but we didn't have
-          the depth to sustain it through a major upgrade cycle while also delivering new business capability. Celsior's
-          managed programme gave us that depth without asking us to rebuild our internal team. The upgrade completed on
-          schedule, and our production environment stayed fully operational throughout.</p>
+        <p class="test-quote">We needed Guidewire-certified engineers quickly and at a cost structure our program could sustain. Celsior's nearshore model gave us a team that was productive from week two and has been running alongside our internal team ever since. The cost basis is substantially different from anything we could have built onshore, and the quality has held consistently across the entire engagement.</p>
         <div class="test-author">
           <div class="test-avatar">CIO</div>
           <div>
-            <div style="font-size:14px;font-weight:600;color:#fff;">VP of Technology Operations</div>
-            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Large U.S. Property &amp; Casualty Insurer</div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">Director of Technology,</div>
+            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Mid-Market US Property and Casualty Insurer</div>
           </div>
         </div>
       </div>
       <div class="test-right">
         <div class="test-res-label">Engagement results</div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">99.8% platform availability maintained</span>
+          <div class="test-dot"></div><span class="test-res-text">Program delivered across all four functional tracks without disruption to clinical operations </span>
         </div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">Zero production incidents during upgrade window</span>
+          <div class="test-dot"></div><span class="test-res-text">44% cost reduction against prior onshore delivery model </span>
         </div>
         <div class="test-res-item" style="margin-bottom:0;">
-          <div class="test-dot"></div><span class="test-res-text">6-month engagement to full operational
-            stability</span>
+          <div class="test-dot"></div><span class="test-res-text">Two-year program continuity with the same core nearshore team </span>
         </div>
       </div>
     </div>
@@ -3122,8 +3162,8 @@
     <div class="explore__links">
       <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">AI Lab</span>
-          <span class="explore__text">Managed Platform Operations</span>
+          <span class="explore__label">Enterprise AI Enablement </span>
+          <span class="explore__text">Data & AI Strategy</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3137,8 +3177,8 @@
       </a>
       <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">CoEs</span>
-          <span class="explore__text">Continuous Modernisation Factory</span>
+          <span class="explore__label">Nearshore Delivery</span>
+          <span class="explore__text">Digital Experience Transformation</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3152,8 +3192,8 @@
       </a>
       <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">Accelerators</span>
-          <span class="explore__text">Managed SNOW Operations</span>
+          <span class="explore__label">AI-Led Engineering </span>
+          <span class="explore__text">Automation Solutions One-line descriptor</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3180,7 +3220,7 @@
         <p class="eyebrow">INSIGHTS</p>
         <h2
           style="font-size:40px;font-weight:700;color:#111827;line-height:50px;max-width:900px;letter-spacing:-0.24px;">
-          Thinking on managed operations and enterprise platform accountability</h2>
+          Thinking on AI workforce readiness and enterprise adoption</h2>
       </div>
       <a href="#"
         style="font-size:14px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:6px;white-space:nowrap;margin-left:24px;padding-bottom:4px;">All
@@ -3192,14 +3232,13 @@
     <div class="insight-cards">
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778587408/1_d2ouxt.jpg" alt="" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780298821/16_yfwmw4.png" alt="" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">Platform Operations</span>
+          <span class="insight-tag">Strategy</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">How to quantify platform drift before it becomes a remediation project</h4>
-          <p class="insight-desc">P&C insurer, maintaining 99.8% platform availability through a major policy system
-            upgrade cycle</p>
+          <h4 class="insight-title">Why AI adoption stalls without a structured skills progression model</h4>
+          <p class="insight-desc">Investment in AI tools is near-universal. Investment in the structured capability to use them is not. This piece examines why the execution gap compounds and what it costs organizations that allow it to run unchecked.</p>
           <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
@@ -3209,14 +3248,14 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778587414/3_lwxxsk.jpg" alt="" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780298830/17_pysdef.png" alt="" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">Managed Services</span>
+          <span class="insight-tag">PRACTICE</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">The two-tiered approach: running platforms without taking engineers off product work
+          <h4 class="insight-title">Practitioner angle: building role-specific AI programs at scale
           </h4>
-          <p class="insight-desc">desk resolution time by 47% for a mid-market financial services firm</p>
+          <p class="insight-desc">A practical framework for L&D and technology leaders who are designing AI capability programs for workforces with mixed experience levels. Covers program architecture, measurement, and the governance questions most organizations underestimate at the outset. Footer</p>
           <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
@@ -3226,15 +3265,13 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778587408/2_jp1pcn.jpg" alt="" style="top:0;" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780298828/18_ju1rap.png" alt="" style="top:0;" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">ServiceNow</span>
+          <span class="insight-tag">HEALTHCARE</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">Why platform architecture decisions from day one determine your long-term governance
-            posture</h4>
-          <p class="insight-desc">for a legacy-heavy insurance carrier without a single production outage Card 4: Inside
-            the Boomi managed operations practice: keeping enterprise integration estates....</p>
+          <h4 class="insight-title">How health systems are building AI capability without disrupting operations</h4>
+          <p class="insight-desc">How health systems are building clinical and administrative AI capability without compromising compliance posture or disrupting patient care operations in progress. Includes design principles that apply across regulated industries. Footer</p>
           <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
@@ -3263,80 +3300,65 @@
       <div class="faq__items">
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">What's the difference between a Managed Program and a traditional support
-              contract?</span>
+            <span class="faq__q">How quickly can you deploy a program across a large enterprise?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>A support contract responds to problems after they occur. A Managed Program carries proactive operational
-              accountability — covering governance, continuous improvement, upgrade planning, and performance management
-              — so issues are addressed before they affect your business. 
+            <p> Deployment timelines are a function of program scope, the number of role tracks required, and the degree to which content must be aligned to your existing workflows and systems. A scoped pilot across a single function or business unit can be in active delivery within four to six weeks of program kickoff. Enterprise-wide rollouts are structured in defined phases, with each phase producing documented results before the next phase is authorized to begin. The sequencing is deliberate: it gives leadership verified performance data at each stage before the full organizational commitment is made. 
+
 
             </p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">How do you structure operational accountability — and what does an SLA actually
-              cover?</span>
+            <span class="faq__q">Do you train on our internal tools and proprietary systems?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Every Managed Program operates under a defined SLA that covers incident response times, platform
-              availability targets, and upgrade delivery windows. Accountability is structured around measurable
-              outcomes, not effort — so you always know what you are entitled to and how performance is being tracked
-              against it.</p>
+            <p>Every Celsior program is designed around the specific tools, platforms, and workflows your teams operate in production. Where your organization has developed proprietary AI systems or runs on a customized technology stack, those are incorporated directly into the applied exercises alongside any commercial platforms in your environment. Programs are built inside your operational reality, not against a generalized simulation of it. </p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">Do you manage the platform alongside our internal team, or do you replace that function
-              entirely?</span>
+            <span class="faq__q">How do you handle employees who resist adopting new ways of working?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>We work alongside your internal team in most engagements, taking on the operational depth and
-              specialist coverage that internal teams typically cannot sustain at scale. The model is designed around
-              your existing structure, not around replacing it. </p>
+            <p>Resistance at the role level is almost always a signal that the program has not made its relevance visible to the people it is asking to change. When training is anchored to the actual decisions, systems, and tasks a role involves, the connection between the learning and the work is immediate — and documented resistance patterns drop significantly. For functions where adoption history indicates stronger structural reluctance, Celsior works directly with your HR or change management leadership to address root causes before and during delivery. Resistance absorbed after the fact carries a considerably higher remediation cost than resistance addressed in the program design. </p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">How do you handle platform upgrades without disrupting our production
-              environment? </span>
+            <span class="faq__q">What governance does the program include?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Upgrades are planned well in advance, tested in isolated environments, and executed against a
-              structured runbook with defined rollback procedures. Our teams have delivered major Guidewire and
-              ServiceNow upgrades with zero production incidents by treating upgrade governance as a continuous program
-              discipline, not a one-time project. </p>
+            <p>Governance is embedded in the curriculum architecture as a structural component, not appended at the close of the program. Each engagement includes structured guidance on responsible use, data stewardship, organizational policy alignment, and role-specific accountability frameworks — calibrated to your existing governance posture. For clients operating in regulated industries, including healthcare and financial services, sector-specific compliance requirements are incorporated from the first session of delivery. Governance that arrives as a program appendix does not hold at the operational level. Governance built into the learning sequence does. </p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">What happens if our platform requirements change mid-program?</span>
+            <span class="faq__q">How do you price a program of this scale?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Managed Programs are structured with defined change governance built in. When requirements shift, we
-              assess the scope impact, adjust delivery priorities, and update the SLA framework accordingly — without
-              requiring a new contracting cycle or disrupting what is already running. </p>
+            <p>Pricing is scoped against program complexity, the number of role tracks, participant volume, and the depth of workflow-level customization required. Most engagements are structured on a per-program or phased-retainer basis. Every engagement begins with a skills gap analysis that gives both parties a clear, documented picture of scope and deliverables before any contractual commitment is made. Celsior does not price programs that have not been formally diagnosed first. </p>
           </div>
         </div>
         <div class="faq__item">
@@ -3605,6 +3627,29 @@
         node.appendChild(span);
       });
     });
+  </script>
+  <!-- Blog card mobile tap-to-expand -->
+  <script>
+    (function () {
+      function init() {
+        document.querySelectorAll('.blog-card').forEach(function (card) {
+          card.addEventListener('click', function () {
+            var isOpen = card.classList.contains('is-expanded');
+            document.querySelectorAll('.blog-card.is-expanded').forEach(function (c) {
+              c.classList.remove('is-expanded');
+            });
+            if (!isOpen) {
+              card.classList.add('is-expanded');
+            }
+          });
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
   </script>
   <script src="shared.js" defer></script>
 </body>

@@ -55,7 +55,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://res.cloudinary.com/dden4hawr/image/upload/v1778578701/Hero_Slide_tf9bvf.jpg') center/cover no-repeat;
+      background: url('https://res.cloudinary.com/dden4hawr/image/upload/v1780294215/GCC_b8kqhh.png') center/cover no-repeat;
       transform: scale(1.06);
       transform-origin: center;
     }
@@ -166,6 +166,8 @@
       grid-template-columns: repeat(4, 1fr);
       border-bottom: 1px solid var(--border);
       margin-bottom: 28px;
+      align-items: flex-start;
+      justify-content: flex-start;
     }
 
     .stat-col {
@@ -204,7 +206,7 @@
     }
 
     .stat-note-lbl {
-      font-size: 14px;
+      font-size: 20px;
       font-weight: 500;
       color: #374151;
       margin-bottom: 6px;
@@ -331,6 +333,9 @@
       gap: 24px;
     }
 
+    /* ============================================================
+       === BLOG CARDS — TRUNCATE + HOVER EXPAND ===
+       ============================================================ */
     .blog-card {
       border-radius: 18px;
       overflow: hidden;
@@ -339,6 +344,7 @@
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      cursor: pointer;
     }
 
     .blog-card-bg {
@@ -348,17 +354,31 @@
       height: 100%;
       object-fit: cover;
       object-position: top;
+      transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .blog-card:hover .blog-card-bg,
+    .blog-card.is-expanded .blog-card-bg {
+      transform: scale(1.04);
     }
 
     .blog-card-overlay {
       position: absolute;
       inset: 0;
+      transition: opacity 0.45s ease;
+    }
+
+    .blog-card:hover .blog-card-overlay,
+    .blog-card.is-expanded .blog-card-overlay {
+      opacity: 1.3;
     }
 
     .blog-card-body {
       position: relative;
       z-index: 2;
       padding: 32px 28px;
+      /* Bottom padding expands on hover to accommodate extra text */
+      transition: padding-bottom 0.45s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .blog-card-ttl {
@@ -366,12 +386,57 @@
       font-weight: 700;
       color: #fff;
       margin-bottom: 12px;
+      line-height: 1.3;
+      /* Clamp to 2 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      transition: -webkit-line-clamp 0s, max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+      max-height: calc(24px * 1.3 * 2 + 2px); /* 2 lines */
     }
 
     .blog-card-txt {
       font-size: 16px;
       color: rgba(255, 255, 255, 0.9);
       line-height: 23px;
+      /* Clamp to 3 lines */
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+      max-height: calc(23px * 3 + 2px); /* 3 lines */
+      transition: max-height 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+                  -webkit-line-clamp 0s 0s;
+    }
+
+    /* ── Desktop: hover to expand ── */
+    @media (hover: hover) and (pointer: fine) {
+      .blog-card:hover .blog-card-ttl {
+        -webkit-line-clamp: unset;
+        max-height: 300px; /* large enough for any title */
+      }
+
+      .blog-card:hover .blog-card-txt {
+        -webkit-line-clamp: unset;
+        max-height: 400px; /* large enough for any body */
+      }
+
+      .blog-card:hover .blog-card-overlay {
+        /* deepen gradient on hover for readability */
+        filter: brightness(1.15);
+      }
+    }
+
+    /* ── Mobile: tap to expand (JS toggles .is-expanded) ── */
+    .blog-card.is-expanded .blog-card-ttl {
+      -webkit-line-clamp: unset;
+      max-height: 300px;
+    }
+
+    .blog-card.is-expanded .blog-card-txt {
+      -webkit-line-clamp: unset;
+      max-height: 400px;
     }
 
     /* ============================================================
@@ -463,12 +528,16 @@
       align-items: center;
     }
 
+    /* Row-left takes all remaining space; row-right never squishes */
     .explore__row-left {
-      gap: 24px;
+      gap: 20px;
+      flex: 1 1 0;
+      min-width: 0;
     }
 
     .explore__row-right {
       flex-shrink: 0;
+      margin-left: 20px;
     }
 
     .explore__label {
@@ -477,6 +546,7 @@
       justify-content: center;
       flex-shrink: 0;
       width: 164px;
+      min-width: 100px;
       text-align: center;
       padding: 6px 14px;
       border-radius: 4px;
@@ -497,15 +567,17 @@
     }
 
     .explore__text {
-      display: inline-flex;
-      align-items: center;
-      flex-wrap: wrap;
+      display: block;
+      min-width: 0;
+      flex: 1 1 0;
       color: #0d1127;
-      font-size: clamp(1.1rem, 1.8vw, 1.55rem);
-      line-height: 1.12;
+      font-size: clamp(1rem, 1.8vw, 1.55rem);
+      line-height: 1.25;
       font-weight: 600;
       letter-spacing: -0.02em;
       transition: color 0.3s ease;
+      white-space: normal;
+      word-break: break-word;
     }
 
     .explore__char {
@@ -593,59 +665,51 @@
 
     @media (max-width: 720px) {
       .explore {
-        padding: 64px 20px 72px;
+        padding: 48px 16px 64px;
       }
 
       .explore h2 {
-        margin-bottom: 30px;
+        margin-bottom: 28px;
         font-size: clamp(1.5rem, 6.5vw, 2rem);
       }
 
+      /* Stack label above text+arrow on mobile */
       .explore__links a {
-        display: grid;
-        grid-template-columns: 1fr auto;
-        grid-template-areas:
-          "label label"
-          "text  arrow";
-        column-gap: 14px;
-        row-gap: 14px;
-        align-items: center;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
         padding: 20px 18px;
       }
 
       .explore__row-left {
-        display: contents;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        width: 100%;
+        min-width: 0;
       }
 
       .explore__row-right {
-        display: contents;
+        width: 100%;
+        margin-left: 0;
+        justify-content: flex-end;
       }
 
-      .explore__label {
-        grid-area: label;
-        justify-self: start;
-      }
-
-      .explore__text {
-        grid-area: text;
-        font-size: clamp(0.9rem, 4vw, 1.1rem);
-        align-self: center;
-      }
-
-      .explore__arrow {
-        grid-area: arrow;
-        width: 36px;
-        height: 36px;
-        align-self: center;
-      }
-    }
-
-    @media (max-width: 720px) {
       .explore__label {
         width: auto;
         min-width: 0;
         padding: 5px 10px;
         font-size: 0.58rem;
+      }
+
+      .explore__text {
+        font-size: clamp(0.95rem, 4vw, 1.15rem);
+        line-height: 1.3;
+      }
+
+      .explore__arrow {
+        width: 36px;
+        height: 36px;
       }
     }
 
@@ -1736,6 +1800,7 @@
     .blog-card-txt {
       font-size: 16px !important;
       line-height: 23px !important;
+      /* keep max-height in sync at mobile font-size */
     }
 
     .faq__intro p {
@@ -2520,17 +2585,17 @@
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>
     <div class="hero-content">
-      <h1 class="hero-heading">Your platforms should deliver what they<br>promised on day one. We make sure they do.
+      <h1 class="hero-heading">The engineering depth your programs need.<br>On the time zone your teams can work with.
       </h1>
       <div class="hero-btns">
         <button class="btn-ghost">
-          Explore our managed programs
+          Explore our delivery models
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </button>
-        <button class="btn-white">Book a Discovery Call</button>
+        <button class="btn-white">Talk to our nearshore team</button>
       </div>
     </div>
   </section>
@@ -2543,27 +2608,25 @@
   <div class="stats-wrap">
     <div class="stats-grid">
       <div class="stat-col">
-        <div class="stat-num">50–60%</div>
-        <div class="stat-desc">Faster delivery cycles with AI-assisted development</div>
+        <div class="stat-num">40–50%</div>
+        <div class="stat-desc">Cost differential that nearshore delivery in Mexico and LATAM consistently produces for enterprise engineering programs </div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">35–45%</div>
-        <div class="stat-desc">Cost savings through intelligent automation</div>
+        <div class="stat-num">1–2 hrs</div>
+        <div class="stat-desc">Time zone close enough for daily standups, sprint reviews, and real-time problem solving. </div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">46%</div>
-        <div class="stat-desc">Faster migration with our Cloud Management Framework</div>
+        <div class="stat-num">700K+</div>
+        <div class="stat-desc">Software engineers active in Mexico, the largest technical talent pool in Latin America and one of the deepest in the Americas. </div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">50%</div>
-        <div class="stat-desc">Reduction in development and training costs</div>
+        <div class="stat-num">3 weeks</div>
+        <div class="stat-desc">From engagement start to full nearshore team operational — the ramp timeline Celsior delivered for a mid-market US P&C insurer </div>
       </div>
     </div>
     <div class="stat-note">
-      <div class="stat-note-lbl"> </div>
-      <div class="stat-note-txt">Strong program outcomes are a result from deliberate structure, disciplined execution,
-        and clear accountability at every stage. Across delivery, migration, and cost optimization, we bring the
-        operational rigor and intelligent tooling that keep programs on track and on budget.
+      <div class="stat-note-lbl">Footnote Sources</div>
+      <div class="stat-note-txt">Strong Forrester Research; Aberdeen Group; McKinsey & Company CX  Excellence research. Outcomes vary by organization and scope.
       </div>
     </div>
   </div>
@@ -2587,19 +2650,16 @@
 
   <!-- ① FULL-WIDTH HEADER -->
   <div style=" padding:0 0 28px;">
+    <p class="eyebrow">THE DELIVERY REALITY</p>
     <h2 id="cqxq-heading" style="
       font-size:55px; font-weight:700; line-height:60px; color:#09090b;
       letter-spacing:0px; margin-bottom:22px; max-width:1100px;
       opacity:0; transform:translateY(28px);
-    ">What unmanaged platforms cost<br> your organization; <span
-        style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; display: inline;">quarter
-        by quarter.</span></h2>
+    ">Why the strongest enterprise programs are not built where engineering costs the most </h2>
     <p id="cqxq-body" style="
       font-size:16px; color:#3f3f46; line-height:23px; max-width:1100px;
       opacity:0; transform:translateY(20px);
-    ">Enterprise platforms are acquired with a clear business case. But once live, accountability for their health and
-      evolution quietly fragments. Celsior's Managed Programs are structured to close that gap, with defined scope,
-      measurable SLAs, and teams who carry platform-specific depth rather than general IT support. </p>
+    ">Nearshore delivery has historically come with trade-offs: time zone gaps, communication friction, and institutional distance from the program. Those trade-offs are a design problem, not an inherent limitation of the model. What Celsior adds is the structure that removes them — pre-certified engineering talent, defined pod operating models, and a Build-Operate-Transfer pathway that converts a vendor engagement into a captive capability your organization owns outright. </p>
     </div>
 
     <!-- ② TWO-COLUMN ROW -->
@@ -2623,7 +2683,7 @@
       opacity:0; transform:translateX(-32px);
     ">
         <img
-          src="https://res.cloudinary.com/dden4hawr/image/upload/v1778577642/e635f926-6c6b-4155-928d-bdf0cb79d91a_yjbpnl.jpg"
+          src="https://res.cloudinary.com/dden4hawr/image/upload/v1780294854/63f34698f565c005a29820ab6de35ef32cf5ac32_tmpn1s.jpg"
           alt="" style="
           position:absolute;
           width:112.14%; height:111.23%;
@@ -2652,12 +2712,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- Platform Stability: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578106/1_vgbbod.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/49_mxvbe4.png"
                 alt="Platform Stability" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Platform
-              Stability</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Talent Access </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2687,12 +2746,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- ServiceNow: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578107/2_qd20cc.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/50_ch93ov.png"
                 alt="Security & Compliance" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Security
-              & Compliance</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Cost Efficiency </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2722,11 +2780,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- Cost Optimization: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578107/3_sgpvfw.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/51_vq6100.png"
                 alt="Cost Optimization" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Cost Optimization</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Time Zone Alignment </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2756,12 +2814,11 @@
             transition:border-color 0.3s, box-shadow 0.3s;
           ">
               <!-- Upgrade Governance: exact Figma icon -->
-              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778578106/4_fwh49h.png"
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295365/52_ycmjl9.png"
                 alt="Upgrade Governance" width="36" height="36" style="display:block;" />
             </div>
             <span class="gacc-label"
-              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Upgrade
-              Governance</span>
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Delivery Governance </span>
             <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
               style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
               <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
@@ -2792,12 +2849,10 @@
     <p class="eyebrow">THE BUSINESS CONSEQUENCES</p>
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
-      How enterprise platforms lose <br>operational ownership after go-live</h2>
+      How onshore-only delivery models build the constraints that slow every program down </h2>
 
     <!-- Body -->
-    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">Platform problems
-      accumulate in deferred upgrades, ungoverned configuration changes, and incidents that get closed rather than
-      resolved. By the time the cost surfaces, it has already shifted from an operational issue to a strategic one. </p>
+    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">The consequences of a poorly structured talent strategy rarely surface in the first quarter. They accumulate across program cycles — in delayed releases, escalating contractor costs, and the organizational weight of teams too thinly spread to perform at the level the business requires. </p>
 
     <!-- ── Card frame — exact Figma Desktop-31 styles ── -->
     <!--
@@ -2848,13 +2903,13 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778579833/5_ohhyvq.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295659/53_jo5x8m.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
-        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Slower
-          product cycles</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Incident backlogs and deferred upgrades
-          consume the teams who should be building new features. Stability management crowds out delivery.</p>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Delivery velocity that cannot hold </h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Programs staffed through reactive, onshore-only sourcing move at the pace that available talent allows. When engineering capacity is constrained, timelines stretch and the pressure concentrates on the teams who remain
+
+</p>
       </div>
 
       <!-- ── Card 2: Compounding security exposure ── -->
@@ -2871,13 +2926,11 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778579833/6_hfcvls.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295659/54_xggjcq.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
-        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Compounding
-          security exposure</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Ungoverned platforms drift from their
-          original security posture quietly, and without anyone tracking the cumulative risk.</p>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Cost structures that price out at scale </h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Onshore-only models price organizations out of the program capacity they need for sustained delivery. The unit economics of a single-market talent strategy rarely survive beyond a certain team size. Each hiring cycle widens the gap between what the program requires and what the available budget can fund. </p>
       </div>
 
       <!-- ── Card 3: Engineering talent attrition ── -->
@@ -2894,14 +2947,13 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778579832/7_qpjayv.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780295659/55_gjigb4.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
         <h3
           style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;white-space:nowrap;margin-bottom:16px;">
-          Engineering talent attrition</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Platform knowledge concentrated in a few
-          individuals leaves organizations exposed the moment those people move on.</p>
+          Institutional knowledge that leaves with the people </h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Teams built on short-term contractor relationships carry the organizational risk of every departure. Without a structured nearshore model that builds retained, program-aligned talent over time, institutional knowledge moves with the people who hold it.</p>
       </div>
 
     </div><!-- /card-frame -->
@@ -2913,42 +2965,41 @@
        CSS tag : /* === BLOG TEASERS === */
        ============================================================ -->
   <section class="pad sec-border">
+    <p class="eyebrow">PERSPECTIVES </p>
     <h2 style="font-size:55px;font-weight:700;line-height:60px;color:#09090b;max-width:1000px;margin-bottom:16px;">
-      See the latest from Celsior on managed platform operations and continuous delivery.</h2>
+      See the latest from Celsior on nearshore delivery, GCC strategy, and engineering talent across Mexico and LATAM. </h2>
+      <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">From BOT model engagements to dedicated pod delivery, these are perspectives and client stories from Celsior's GCC and Nearshore teams, drawn from live programs across regulated industries in the United States.</p>
     <p <br> </p>
     <div class="blog-grid">
       <div class="blog-card">
-        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1778585914/1_hkqc4o.jpg"
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780297225/22_ioe0kc.png"
           alt="" />
         <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#0c1b3b 67%);">
         </div>
         <div class="blog-card-body">
-          <div class="blog-card-ttl">Celsior delivers Guidewire managed operations for a Top 10 U.S. P&C insurer.</div>
-          <div class="blog-card-txt">Maintaining 99.8% platform availability through a major policy system upgrade
-            cycle </div>
+          <div class="blog-card-ttl">How Celsior's nearshore pod model helped a top US insurance carrier staff a Guidewire program at 40 percent below onshore market rates</div>
+          <div class="blog-card-txt">A mid-market property and casualty insurer needed Guidewire-certified engineers quickly and at a cost structure the program could sustain. This is how the engagement was structured and what it produced.</div>
         </div>
       </div>
       <div class="blog-card">
-        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1778585913/2_sniefj.jpg"
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780297225/23_fpkwrt.png"
           alt="" />
         <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
         </div>
         <div class="blog-card-body">
-          <div class="blog-card-ttl">How Celsior's Managed SNOW Operations model</div>
-          <div class="blog-card-txt">Reduced service desk resolution time by 47% for a mid-market financial services
-            firm.</div>
+          <div class="blog-card-ttl">BOT in practice: what the build, operate, and transfer phases actually look like across an 18-month GCC engagement</div>
+          <div class="blog-card-txt">The BOT model is straightforward in principle and operationally detailed in execution. This piece walks through what each phase involves, where programs most often underestimate the requirements, and what a well-structured engagement looks like from kickoff through transfer</div>
         </div>
       </div>
       <div class="blog-card">
-        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1778585914/3_oi980a.jpg"
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780297225/24_glizc1.png"
           alt="" />
         <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
         </div>
         <div class="blog-card-body">
-          <div class="blog-card-ttl">Celsior's Continuous
-            Modernization Factory</div>
-          <div class="blog-card-txt">Delivering 14 releases in 12 months for a legacy-heavy insurance carrier without a
-            single production outage </div>
+          <div class="blog-card-ttl">Lorem Ipsum is simply dummy text of the 
+</div>
+          <div class="blog-card-txt">Pre-certified platform talent for regulated industries: why certification depth matters more than headcount at scale</div>
         </div>
       </div>
     </div>
@@ -2967,36 +3018,41 @@
     <section class="partners" aria-label="Partner ecosystem">
       <div class="partners__track">
         <div class="partners__group">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/Dynatrace_1_t3ayxc.png"
-            alt="Dynatrace" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
+            alt="GuideWire" loading="lazy" />
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png"
             alt="ServiceNow" loading="lazy" />
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt="Boomi"
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
-            alt="GuideWire" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/RingCentral_1_zjcj4f.png"
-            alt="RingCentral" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Informatica_1_gkhjs0.png"
-            alt="Informatica" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/13_gbjllz.png"
+            alt="Azure" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778328296/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
         <div class="partners__group" aria-hidden="true">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/Dynatrace_1_t3ayxc.png" alt=""
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png" alt=""
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt=""
-            loading="lazy" />
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
-            alt="" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/RingCentral_1_zjcj4f.png" alt=""
+            alt="GuideWire" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png"
+            alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt="Boomi"
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Informatica_1_gkhjs0.png" alt=""
-            loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1779995186/13_gbjllz.png"
+            alt="Azure" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778328296/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
       </div>
     </section>
   </div>
+
 
   <!-- ============================================================
        SECTION: OUTCOMES
@@ -3009,15 +3065,12 @@
       <div class="outcomes__heading">
         <p class="eyebrow">WHY AI-FIRST ENGINEERING?</p>
         <h2>Outcomes we're accountable to</h2>
-        <p>These numbers come from managed program engagements across enterprise platforms. They reflect what structured
-          operational accountability including defined scope, measurable SLAs, and platform-specific delivery teams
-          produce in practice.</p>
+        <p>Celsior structures every GCC and Nearshore engagement around defined delivery outcomes, not time-and-materials activity. The figures below reflect industry-established benchmarks for the model and Celsior engagement data where confirmed. </p>
       </div>
       <div class="outcome-cards">
         <article class="outcome-card outcome-card--green" data-stat-card>
-          <strong><span class="stat-num" data-target="3" data-suffix="X">0X</span></strong>
-          <p>Greater on-time, on-budget program delivery for enterprises that operationalize structured governance
-            frameworks with measurable performance accountability
+          <strong><span class="stat-num" data-target="50">0</span><span>%</span></strong>
+          <p>Reduction in the engineering delivery costs enabling organization to spend more on R&D. 
           </p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
@@ -3027,9 +3080,8 @@
           </div>
         </article>
         <article class="outcome-card outcome-card--blue" data-stat-card>
-          <strong><span class="stat-num" data-target="40">0</span><span>%</span></strong>
-          <p>Uplift in enterprise compliance pass rates achieved through proactive risk governance and continuously
-            managed regulatory alignment
+          <strong><span class="stat-num" data-target="1-2">0</span><span>-2 Hrs</span></strong>
+          <p>The operational proximity that makes real-time program collaboration viable without offshore coordination overhead 
           </p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
@@ -3039,9 +3091,8 @@
           </div>
         </article>
         <article class="outcome-card outcome-card--gold" data-stat-card>
-          <strong><span class="stat-num" data-target="35">0</span><span>%</span></strong>
-          <p>Reduction in operational disruption risk for organizations that transition from reactive, self-managed IT
-            models to structured, outcome-driven managed program delivery
+          <strong><span class="stat-num" data-target="700K">0</span><span>+</span></strong>
+          <p>Software engineers active in Mexico, supported by an annual graduate pipeline of 110,000 to 130,000 new engineering professionals entering the market each year 
           </p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
@@ -3051,9 +3102,8 @@
           </div>
         </article>
         <article class="outcome-card outcome-card--dark" data-stat-card>
-          <strong><span class="stat-num" data-target="55%">0</span><span>%</span></strong>
-          <p>Acceleration in enterprise digital transformation velocity for organizations operating under dedicated
-            managed program engagement models versus unmanaged alternatives</p>
+          <strong><span class="stat-num" data-target="36">0</span><span>Months</span></strong>
+          <p>Typical Build-Operate-Transfer timeline from Celsior-managed nearshore operations to full client-owned GCC capability </p>
           <div class="outcome-card-arrow">
             <svg viewBox="0 0 18 18" fill="none">
               <path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
@@ -3082,29 +3132,25 @@
             d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
             fill="#fff" />
         </svg>
-        <p class="test-quote">We had a capable team and a well-implemented Guidewire environment — but we didn't have
-          the depth to sustain it through a major upgrade cycle while also delivering new business capability. Celsior's
-          managed programme gave us that depth without asking us to rebuild our internal team. The upgrade completed on
-          schedule, and our production environment stayed fully operational throughout.</p>
+        <p class="test-quote">We needed Guidewire-certified engineers quickly and at a cost structure our program could sustain. Celsior's nearshore model gave us a team that was productive from week two and has been running alongside our internal team ever since. The cost basis is substantially different from anything we could have built onshore, and the quality has held consistently across the entire engagement.</p>
         <div class="test-author">
           <div class="test-avatar">CIO</div>
           <div>
-            <div style="font-size:14px;font-weight:600;color:#fff;">VP of Technology Operations</div>
-            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Large U.S. Property &amp; Casualty Insurer</div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">Director of Technology,</div>
+            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Mid-Market US Property and Casualty Insurer</div>
           </div>
         </div>
       </div>
       <div class="test-right">
         <div class="test-res-label">Engagement results</div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">99.8% platform availability maintained</span>
+          <div class="test-dot"></div><span class="test-res-text">Full team operational within three weeks of engagement start </span>
         </div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">Zero production incidents during upgrade window</span>
+          <div class="test-dot"></div><span class="test-res-text">44% cost reduction against prior onshore delivery model </span>
         </div>
         <div class="test-res-item" style="margin-bottom:0;">
-          <div class="test-dot"></div><span class="test-res-text">6-month engagement to full operational
-            stability</span>
+          <div class="test-dot"></div><span class="test-res-text">Two-year program continuity with the same core nearshore team </span>
         </div>
       </div>
     </div>
@@ -3121,8 +3167,8 @@
     <div class="explore__links">
       <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">AI Lab</span>
-          <span class="explore__text">Managed Platform Operations</span>
+          <span class="explore__label">Enterprise AI Enablement </span>
+          <span class="explore__text">BOT Model One-line</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3136,8 +3182,8 @@
       </a>
       <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">CoEs</span>
-          <span class="explore__text">Continuous Modernisation Factory</span>
+          <span class="explore__label">Nearshore Delivery</span>
+          <span class="explore__text">Nearshore Delivery: Mexico and LATAM</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3151,8 +3197,8 @@
       </a>
       <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">Accelerators</span>
-          <span class="explore__text">Managed SNOW Operations</span>
+          <span class="explore__label">AI-Led Engineering </span>
+          <span class="explore__text">Dedicated Engineering Pods</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3179,7 +3225,7 @@
         <p class="eyebrow">INSIGHTS</p>
         <h2
           style="font-size:40px;font-weight:700;color:#111827;line-height:50px;max-width:900px;letter-spacing:-0.24px;">
-          Thinking on managed operations and enterprise platform accountability</h2>
+          Thinking on GCC strategy, nearshore delivery, and platform talent for US enterprises </h2>
       </div>
       <a href="#"
         style="font-size:14px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:6px;white-space:nowrap;margin-left:24px;padding-bottom:4px;">All
@@ -3191,14 +3237,13 @@
     <div class="insight-cards">
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778587408/1_d2ouxt.jpg" alt="" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780298821/16_yfwmw4.png" alt="" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">Platform Operations</span>
+          <span class="insight-tag">GCC Strategy</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">How to quantify platform drift before it becomes a remediation project</h4>
-          <p class="insight-desc">P&C insurer, maintaining 99.8% platform availability through a major policy system
-            upgrade cycle</p>
+          <h4 class="insight-title">Why the BOT model has become the default path for US enterprises building Global Capability Centers</h4>
+          <p class="insight-desc">Organizations building GCCs have moved away from greenfield standalone setups toward a structured Build-Operate-Transfer model that reduces early-stage risk and creates a defined transition to client ownership. This piece examines why the shift happened and what a well-structured BOT engagement requires</p>
           <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
@@ -3208,14 +3253,14 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778587414/3_lwxxsk.jpg" alt="" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780298830/17_pysdef.png" alt="" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">Managed Services</span>
+          <span class="insight-tag">Nearshore Delivery</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">The two-tiered approach: running platforms without taking engineers off product work
+          <h4 class="insight-title">What makes Mexico the strongest nearshore location for US technology programs in 2026
           </h4>
-          <p class="insight-desc">desk resolution time by 47% for a mid-market financial services firm</p>
+          <p class="insight-desc">Time zone alignment is the starting point, not the conclusion. Mexico's combination of talent depth, platform certification capability, cultural proximity, and mature delivery infrastructure makes it a category apart from other LATAM nearshore options. This piece covers the full case.</p>
           <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
@@ -3225,15 +3270,13 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778587408/2_jp1pcn.jpg" alt="" style="top:0;" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780298828/18_ju1rap.png" alt="" style="top:0;" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">ServiceNow</span>
+          <span class="insight-tag">Platform Talent</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">Why platform architecture decisions from day one determine your long-term governance
-            posture</h4>
-          <p class="insight-desc">for a legacy-heavy insurance carrier without a single production outage Card 4: Inside
-            the Boomi managed operations practice: keeping enterprise integration estates....</p>
+          <h4 class="insight-title">Pre-certifying nearshore talent for regulated industries: what it requires and why it changes program risk</h4>
+          <p class="insight-desc">In financial services, healthcare, and insurance, platform certification is not a resume credential — it is a delivery prerequisite. This piece examines what pre-certification actually involves, how it affects ramp time, and why it is the factor most organizations underweight when evaluating nearshore delivery quality</p>
           <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
@@ -3262,17 +3305,14 @@
       <div class="faq__items">
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">What's the difference between a Managed Program and a traditional support
-              contract?</span>
+            <span class="faq__q">What is the difference between a GCC and a standard nearshore team?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>A support contract responds to problems after they occur. A Managed Program carries proactive operational
-              accountability — covering governance, continuous improvement, upgrade planning, and performance management
-              — so issues are addressed before they affect your business. 
+            <p>A nearshore team is a vendor-managed delivery resource. A Global Capability Center is an organizational asset — engineering capability your company owns, governs, and operates directly. The distinction matters because the governance structure, IP ownership, retention model, and long-term cost trajectory are different in each case. Celsior's BOT model is designed to start as a managed nearshore engagement and transition, over a defined timeline, into a GCC that the client controls outright. Most organizations begin with the nearshore engagement and convert when program scale and organizational readiness support it. 
 
             </p>
           </div>
@@ -3604,6 +3644,29 @@
         node.appendChild(span);
       });
     });
+  </script>
+  <!-- Blog card mobile tap-to-expand -->
+  <script>
+    (function () {
+      function init() {
+        document.querySelectorAll('.blog-card').forEach(function (card) {
+          card.addEventListener('click', function () {
+            var isOpen = card.classList.contains('is-expanded');
+            document.querySelectorAll('.blog-card.is-expanded').forEach(function (c) {
+              c.classList.remove('is-expanded');
+            });
+            if (!isOpen) {
+              card.classList.add('is-expanded');
+            }
+          });
+        });
+      }
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+      } else {
+        init();
+      }
+    })();
   </script>
   <script src="shared.js" defer></script>
 </body>
