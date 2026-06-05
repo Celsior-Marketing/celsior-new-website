@@ -167,6 +167,7 @@ a{text-decoration:none;color:inherit;}ul{list-style:none;}
 .nav-item.nav-current>.nav-link{color:var(--white) !important;background:rgba(255,255,255,.15) !important;}
 #navbar.scrolled .nav-item.nav-current>.nav-link{color:var(--accent) !important;background:var(--accent-lt) !important;}
 a.nav-link{text-decoration:none;}
+button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 .chevron{width:11px;height:11px;opacity:.5;transition:transform .25s var(--ease-expo),opacity .2s;flex-shrink:0;}
 .nav-item.active>.nav-link .chevron{transform:rotate(180deg);opacity:1;}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:12px;flex-shrink:0;}
@@ -364,7 +365,7 @@ a.nav-link{text-decoration:none;}
 
   const navLinksHTML = navItems.map(it => `
     <li class="nav-item${activePage === it.key ? ' nav-current' : ''}" data-menu="${it.key}">
-      <a class="nav-link" href="${it.href}">${it.label} ${CHEVRON_SVG}</a>
+      <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">${it.label} ${CHEVRON_SVG}</button>
     </li>`).join('');
 
   const drawerDivHTML = `
@@ -1008,6 +1009,13 @@ a.nav-link{text-decoration:none;}
   navItemEls.forEach(li => {
     li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
     li.addEventListener('mouseleave', sched);
+    const trigger = li.querySelector('.nav-link');
+    if (trigger) {
+      trigger.addEventListener('click', event => {
+        event.preventDefault();
+        active === li.dataset.menu ? killPanel(active) : openPanel(li.dataset.menu);
+      });
+    }
   });
   megaRoot.addEventListener('mouseenter', cancel);
   megaRoot.addEventListener('mouseleave', sched);
