@@ -1736,7 +1736,7 @@
     }
 
     #celsior-wrapper .body-text {
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.58);
       margin-bottom: 14px;
@@ -1753,7 +1753,8 @@
       display: flex;
       align-items: center;
       gap: 16px;
-      font-size: 13px;
+      font-size: 14px;
+      line-height: 1.8;
       color: rgba(255, 255, 255, 0.65);
     }
 
@@ -1846,7 +1847,7 @@
     }
 
     #celsior-wrapper .tg-body {
-      font-size: 13.5px;
+      font-size: 14px;
       line-height: 1.8;
       color: rgba(255, 255, 255, 0.55);
       margin-bottom: 40px;
@@ -2211,7 +2212,8 @@
       }
 
       #celsior-wrapper .legend-row {
-        font-size: 11.5px;
+        font-size: 13px;
+        line-height: 1.7;
         gap: 10px;
       }
 
@@ -2271,10 +2273,35 @@
 
     #celsior-wrapper .hero-title {
       margin-bottom: 0;
+      color: #ffffff;
+      text-shadow: 0 0 22px rgba(255, 255, 255, 0.16);
+    }
+
+    #celsior-wrapper .hero-title .cw-blue {
+      color: #8AB4FC;
+      text-shadow: 0 0 24px rgba(138, 180, 252, 0.28);
+    }
+
+    #celsior-wrapper .sec-heading .cw-mustard {
+      color: #F3D25F;
+    }
+
+    #celsior-wrapper .cw-nowrap {
+      white-space: nowrap;
+    }
+
+    @media (max-width: 640px) {
+      #celsior-wrapper .cw-nowrap {
+        white-space: normal;
+      }
     }
 
     #celsior-wrapper .sec-eyebrow {
       margin-bottom: 20px;
+    }
+
+    #celsior-wrapper .sec-eyebrow-white {
+      color: #ffffff;
     }
 
     @media (max-width: 768px) {
@@ -2307,7 +2334,7 @@
 
       <!-- 1. HERO -->
       <section id="sec-hero">
-        <h1 class="hero-title">From systems that <br>hold your business back, <br> to AI <br>that moves it forward.</h1>
+        <h1 class="hero-title">From systems that <br>hold your business back, <br> to <span class="cw-blue">AI</span> <br>that moves it forward.</h1>
         <p class="hero-scroll-hint">Scroll to explore</p>
       </section>
 
@@ -2315,9 +2342,7 @@
       <section id="sec-fix">
         <div class="fix-inner">
           <p class="sec-eyebrow anim-up">The Challenge</p>
-          <h2 class="sec-heading anim-up">The same five problems.<br>Every organization carries <br>decades of
-            technology
-            debt.<span class="cw-blue"> Every year.</span></h2>
+          <h2 class="sec-heading anim-up"><span class="cw-nowrap">The same five problems.</span><br>Every organization <span class="cw-nowrap">carries decades of</span><br>technology debt.<span class="cw-mustard"> Every year.</span></h2>
           <style>
             #celsior-wrapper .fix-list {
               gap: 0;
@@ -2508,11 +2533,11 @@
       <!-- 3. LAYERS / DISPERSION COATINGS -->
       <section id="sec-layers">
         <div class="layers-inner">
-          <p class="sec-eyebrow anim-up"> Celsior’s AI-First Digital Engineering Platform </p>
+          <p class="sec-eyebrow sec-eyebrow-white anim-up"> Celsior’s AI-First Digital Engineering Platform </p>
           <h2 class="sec-heading anim-up">
             <span class="cw-blue">The months</span><br>
-            your program spends<br>
-            understanding your legacy systems;<br>
+            your program <span class="cw-nowrap">spends understanding</span><br>
+            your legacy systems;<br>
             we do it in weeks.
           </h2>
 
