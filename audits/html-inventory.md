@@ -1,0 +1,63 @@
+# HTML Page Inventory
+
+Generated on: Fri Jun  5 22:05:29 IST 2026
+
+## All HTML files
+
+- about-leadership/index.html
+- about.html
+- about/who-we-are/index.html
+- ai-adoption.html
+- ai-and-data.html
+- ai-first-digital-engineering.html
+- ai-innovation.html
+- ai-led-engineering.html
+- ai-upskilling.html
+- banking-financial-services.html
+- banking-financial-services/index.html
+- Capabilities.html
+- capabilities/ai-and-data/index.html
+- capabilities/ai-led-engineering/index.html
+- capabilities/cloud-and-infrastructure-engineering/index.html
+- capabilities/digital-operations-and-security/index.html
+- capabilities/index.html
+- capabilities/security-and-governance/index.html
+- celsior-ai-lab.html
+- celsior-ai-lab/index.html
+- cloud-infrastructure-engineering.html
+- cost-efficiency.html
+- design-lab.html
+- design-lab/index.html
+- digital-experience.html
+- digital-operations.html
+- frameworks-accelerators.html
+- frameworks-accelerators/index.html
+- gcc-nearshore.html
+- hire-train-deploy.html
+- how-we-deliver.html
+- how-we-do-it.html
+- index.html
+- industries.html
+- managed-programs.html
+- Our_Focus.html
+- our-focus/ai-adoption/index.html
+- our-focus/ai-first-digital-engineering/index.html
+- our-focus/cost-and-efficiency/index.html
+- our-focus/digital-experience/index.html
+- our-focus/index.html
+- our-focus/risk-and-compliance/index.html
+- partner-ecosystem.html
+- partners/index.html
+- risk-compliance.html
+- security-governance.html
+- Solutions.html
+- solutions/ai-upskilling/index.html
+- solutions/gcc-and-nearshore/index.html
+- solutions/index.html
+- solutions/managed-programs/index.html
+- solutions/teams-as-a-service/index.html
+- solutions/technology-consulting/index.html
+- success-stories/index.html
+- teams-as-a-service.html
+- technology-consulting.html
+- what-we-solve.html
