@@ -1,0 +1,845 @@
+source_file,source_url,label,href,class
+Capabilities.html,/Capabilities,Read more,#,acc-readmore
+Capabilities.html,/Capabilities,Read more,#,acc-readmore
+Capabilities.html,/Capabilities,Read more,#,acc-readmore
+Capabilities.html,/Capabilities,"AI LAB 
+           Application &amp; Platform Engineering",#,
+Capabilities.html,/Capabilities,"COES 
+           Microservices &amp; Modern Architectures",#,
+Capabilities.html,/Capabilities,"ACCELERATORS 
+           Cloud Engineering &amp; Transformation",#,
+Capabilities.html,/Capabilities,"INTELLIGENT OPS 
+           Cloud Engineering &amp; Transformation",#,
+Capabilities.html,/Capabilities,"All
+        insights",#,
+Capabilities.html,/Capabilities,Read,#,insight-readlink
+Capabilities.html,/Capabilities,Read,#,insight-readlink
+Capabilities.html,/Capabilities,Read,#,insight-readlink
+Capabilities.html,/Capabilities,Speak to our team  →,#,
+Capabilities.html,/Capabilities,Start the conversation,#contact,cta-btn cta-band-btn
+Our_Focus.html,/Our_Focus,Explore Modernization →,#,solution-link
+Our_Focus.html,/Our_Focus,Explore Cloud Engineering →,#,solution-link
+Our_Focus.html,/Our_Focus,Learn About Teams-as-a-Service →,#,solution-link
+Our_Focus.html,/Our_Focus,Get Started,#consultation,em-cta
+Our_Focus.html,/Our_Focus,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+Our_Focus.html,/Our_Focus,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+Our_Focus.html,/Our_Focus,"AI Accelerators 
+           Enterprise AI Enablement",#,
+Our_Focus.html,/Our_Focus,"Intelligent Ops 
+           Digital Operations",#,
+Our_Focus.html,/Our_Focus,"All
+        insights",#,
+Our_Focus.html,/Our_Focus,Read,#,insight-readlink
+Our_Focus.html,/Our_Focus,Read,#,insight-readlink
+Our_Focus.html,/Our_Focus,Read,#,insight-readlink
+Our_Focus.html,/Our_Focus,Speak to our team  →,#,
+Our_Focus.html,/Our_Focus,Start the conversation,#contact,cta-btn cta-band-btn
+Solutions.html,/Solutions,"AI Lab 
+           Managed Platform Operations",#,
+Solutions.html,/Solutions,"CoEs 
+           Continuous Modernisation Factory",#,
+Solutions.html,/Solutions,"Accelerators 
+           Managed SNOW Operations",#,
+Solutions.html,/Solutions,"All
+        insights",#,
+Solutions.html,/Solutions,Read,#,insight-readlink
+Solutions.html,/Solutions,Read,#,insight-readlink
+Solutions.html,/Solutions,Read,#,insight-readlink
+Solutions.html,/Solutions,Speak to our team  →,#,
+Solutions.html,/Solutions,Start the conversation,#contact,cta-btn cta-band-btn
+about/who-we-are/index.html,/about/who-we-are,Talk to us,index.html#contact,btn-p
+about/who-we-are/index.html,/about/who-we-are,Back to Home,index.html,btn-g
+about/who-we-are/index.html,/about/who-we-are,Get in touch,index.html#contact,btn-p
+about/who-we-are/index.html,/about/who-we-are,← Homepage,index.html,dummy-nav-link
+about/who-we-are/index.html,/about/who-we-are,What we Solve,what-we-solve.html,dummy-nav-link
+about/who-we-are/index.html,/about/who-we-are,How we Do it,how-we-do-it.html,dummy-nav-link
+about/who-we-are/index.html,/about/who-we-are,How we Deliver,how-we-deliver.html,dummy-nav-link
+about/who-we-are/index.html,/about/who-we-are,AI &amp; Innovation,ai-innovation.html,dummy-nav-link
+about/who-we-are/index.html,/about/who-we-are,Industries,industries.html,dummy-nav-link
+about/who-we-are/index.html,/about/who-we-are,Partner Ecosystem,partner-ecosystem.html,dummy-nav-link
+about/who-we-are/index.html,/about/who-we-are,About,about.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,Talk to us,index.html#contact,btn-p
+about-leadership/index.html,/about-leadership,Back to Home,index.html,btn-g
+about-leadership/index.html,/about-leadership,Get in touch,index.html#contact,btn-p
+about-leadership/index.html,/about-leadership,← Homepage,index.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,What we Solve,what-we-solve.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,How we Do it,how-we-do-it.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,How we Deliver,how-we-deliver.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,AI &amp; Innovation,ai-innovation.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,Industries,industries.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,Partner Ecosystem,partner-ecosystem.html,dummy-nav-link
+about-leadership/index.html,/about-leadership,About,about.html,dummy-nav-link
+about.html,/about,Talk to us,index.html#contact,btn-p
+about.html,/about,Back to Home,index.html,btn-g
+about.html,/about,Get in touch,index.html#contact,btn-p
+about.html,/about,← Homepage,index.html,dummy-nav-link
+about.html,/about,What we Solve,what-we-solve.html,dummy-nav-link
+about.html,/about,How we Do it,how-we-do-it.html,dummy-nav-link
+about.html,/about,How we Deliver,how-we-deliver.html,dummy-nav-link
+about.html,/about,AI &amp; Innovation,ai-innovation.html,dummy-nav-link
+about.html,/about,Industries,industries.html,dummy-nav-link
+about.html,/about,Partner Ecosystem,partner-ecosystem.html,dummy-nav-link
+about.html,/about,About,about.html,dummy-nav-link
+ai-adoption.html,/ai-adoption,Explore CAFE Framework →,#,solution-link
+ai-adoption.html,/ai-adoption,Explore HALO Framework →,#,solution-link
+ai-adoption.html,/ai-adoption,Explore PACE Platform →,#,solution-link
+ai-adoption.html,/ai-adoption,Get Started,#consultation,em-cta
+ai-adoption.html,/ai-adoption,"AI LAB 
+           AI Readiness & Strategic Planning",#,
+ai-adoption.html,/ai-adoption,"CoEs 
+           Responsible AI & Production Governance",#,
+ai-adoption.html,/ai-adoption,"Accelerators 
+           Enterprise AI Pilots",#,
+ai-adoption.html,/ai-adoption,"All
+        insights",#,
+ai-adoption.html,/ai-adoption,Read,#,insight-readlink
+ai-adoption.html,/ai-adoption,Read,#,insight-readlink
+ai-adoption.html,/ai-adoption,Read,#,insight-readlink
+ai-adoption.html,/ai-adoption,Speak to our team  →,#,
+ai-adoption.html,/ai-adoption,Start the conversation,#contact,cta-btn cta-band-btn
+ai-and-data.html,/ai-and-data,Read more,#,acc-readmore
+ai-and-data.html,/ai-and-data,Read more,#,acc-readmore
+ai-and-data.html,/ai-and-data,Read more,#,acc-readmore
+ai-and-data.html,/ai-and-data,"AI LAB 
+           Data Strategy & Engineering",#,
+ai-and-data.html,/ai-and-data,"COES 
+           Advanced Analytics & AI",#,
+ai-and-data.html,/ai-and-data,"ACCELERATORS 
+           Visualization & Decision-Making",#,
+ai-and-data.html,/ai-and-data,"All
+        insights",#,
+ai-and-data.html,/ai-and-data,Read,#,insight-readlink
+ai-and-data.html,/ai-and-data,Read,#,insight-readlink
+ai-and-data.html,/ai-and-data,Read,#,insight-readlink
+ai-and-data.html,/ai-and-data,Speak to our team  →,#,
+ai-and-data.html,/ai-and-data,Request a Data Assessment,#contact,cta-btn cta-band-btn
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Explore Modernization →,#,solution-link
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Explore Cloud Engineering →,#,solution-link
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Learn About Teams-as-a-Service →,#,solution-link
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Get Started,#consultation,em-cta
+ai-first-digital-engineering.html,/ai-first-digital-engineering,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+ai-first-digital-engineering.html,/ai-first-digital-engineering,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+ai-first-digital-engineering.html,/ai-first-digital-engineering,"AI Accelerators 
+           Enterprise AI Enablement",#,
+ai-first-digital-engineering.html,/ai-first-digital-engineering,"Intelligent Ops 
+           Digital Operations",#,
+ai-first-digital-engineering.html,/ai-first-digital-engineering,"All
+        insights",#,
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Read,#,insight-readlink
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Read,#,insight-readlink
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Read,#,insight-readlink
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Speak to our team  →,#,
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+ai-innovation.html,/ai-innovation,Talk to us,index.html#contact,btn-p
+ai-innovation.html,/ai-innovation,Back to Home,index.html,btn-g
+ai-innovation.html,/ai-innovation,Get in touch,index.html#contact,btn-p
+ai-innovation.html,/ai-innovation,← Homepage,index.html,dummy-nav-link
+ai-innovation.html,/ai-innovation,What we Solve,what-we-solve.html,dummy-nav-link
+ai-innovation.html,/ai-innovation,How we Do it,how-we-do-it.html,dummy-nav-link
+ai-innovation.html,/ai-innovation,How we Deliver,how-we-deliver.html,dummy-nav-link
+ai-innovation.html,/ai-innovation,AI &amp; Innovation,ai-innovation.html,dummy-nav-link
+ai-innovation.html,/ai-innovation,Industries,industries.html,dummy-nav-link
+ai-innovation.html,/ai-innovation,Partner Ecosystem,partner-ecosystem.html,dummy-nav-link
+ai-innovation.html,/ai-innovation,About,about.html,dummy-nav-link
+ai-led-engineering.html,/ai-led-engineering,Read more,#,acc-readmore
+ai-led-engineering.html,/ai-led-engineering,Read more,#,acc-readmore
+ai-led-engineering.html,/ai-led-engineering,Read more,#,acc-readmore
+ai-led-engineering.html,/ai-led-engineering,"AI LAB 
+           Application &amp; Platform Engineering",#,
+ai-led-engineering.html,/ai-led-engineering,"COES 
+           Microservices &amp; Modern Architectures",#,
+ai-led-engineering.html,/ai-led-engineering,"ACCELERATORS 
+           Cloud Engineering &amp; Transformation",#,
+ai-led-engineering.html,/ai-led-engineering,"INTELLIGENT OPS 
+           Cloud Engineering &amp; Transformation",#,
+ai-led-engineering.html,/ai-led-engineering,"All
+        insights",#,
+ai-led-engineering.html,/ai-led-engineering,Read,#,insight-readlink
+ai-led-engineering.html,/ai-led-engineering,Read,#,insight-readlink
+ai-led-engineering.html,/ai-led-engineering,Read,#,insight-readlink
+ai-led-engineering.html,/ai-led-engineering,Speak to our team  →,#,
+ai-led-engineering.html,/ai-led-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+ai-upskilling.html,/ai-upskilling,"Enterprise AI Enablement  
+           Data & AI Strategy",#,
+ai-upskilling.html,/ai-upskilling,"Nearshore Delivery 
+           Digital Experience Transformation",#,
+ai-upskilling.html,/ai-upskilling,"AI-Led Engineering  
+           Automation Solutions One-line descriptor",#,
+ai-upskilling.html,/ai-upskilling,"All
+        insights",#,
+ai-upskilling.html,/ai-upskilling,Read,#,insight-readlink
+ai-upskilling.html,/ai-upskilling,Read,#,insight-readlink
+ai-upskilling.html,/ai-upskilling,Read,#,insight-readlink
+ai-upskilling.html,/ai-upskilling,Speak to our team  →,#,
+ai-upskilling.html,/ai-upskilling,Start the conversation,#contact,cta-btn cta-band-btn
+banking-financial-services/index.html,/banking-financial-services,All insights,#,
+banking-financial-services/index.html,/banking-financial-services,Read more,#,insight-readlink
+banking-financial-services/index.html,/banking-financial-services,Read more,#,insight-readlink
+banking-financial-services/index.html,/banking-financial-services,Read more,#,insight-readlink
+banking-financial-services/index.html,/banking-financial-services,Schedule a Discovery Call,#contact,cta-band-btn-primary cta-band-btn
+banking-financial-services/index.html,/banking-financial-services,Download Capabilities Deck,#,cta-band-btn-outline
+banking-financial-services.html,/banking-financial-services,All insights,#,
+banking-financial-services.html,/banking-financial-services,Read more,#,insight-readlink
+banking-financial-services.html,/banking-financial-services,Read more,#,insight-readlink
+banking-financial-services.html,/banking-financial-services,Read more,#,insight-readlink
+banking-financial-services.html,/banking-financial-services,Schedule a Discovery Call,#contact,cta-band-btn-primary cta-band-btn
+banking-financial-services.html,/banking-financial-services,Download Capabilities Deck,#,cta-band-btn-outline
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Read more,#,acc-readmore
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Read more,#,acc-readmore
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Read more,#,acc-readmore
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,"AI LAB 
+           Data Strategy & Engineering",#,
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,"COES 
+           Advanced Analytics & AI",#,
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,"ACCELERATORS 
+           Visualization & Decision-Making",#,
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,"All
+        insights",#,
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Read,#,insight-readlink
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Read,#,insight-readlink
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Read,#,insight-readlink
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Speak to our team  →,#,
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Request a Data Assessment,#contact,cta-btn cta-band-btn
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Read more,#,acc-readmore
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Read more,#,acc-readmore
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Read more,#,acc-readmore
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,"AI LAB 
+           Application &amp; Platform Engineering",#,
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,"COES 
+           Microservices &amp; Modern Architectures",#,
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,"ACCELERATORS 
+           Cloud Engineering &amp; Transformation",#,
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,"INTELLIGENT OPS 
+           Cloud Engineering &amp; Transformation",#,
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,"All
+        insights",#,
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Read,#,insight-readlink
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Read,#,insight-readlink
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Read,#,insight-readlink
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Speak to our team  →,#,
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Read more,#,acc-readmore
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Read more,#,acc-readmore
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Read more,#,acc-readmore
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,"AI LAB 
+           Cloud Strategy & Migration",#,
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,"COES 
+           DevOps & Site Reliability Engineering",#,
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,"ACCELERATORS 
+           Observability & Infrastructure Automation",#,
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,"All
+        insights",#,
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Read,#,insight-readlink
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Read,#,insight-readlink
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Read,#,insight-readlink
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Speak to our team  →,#,
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Explore Our Framework,#contact,cta-btn cta-band-btn
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Read more,#,acc-readmore
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Read more,#,acc-readmore
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Read more,#,acc-readmore
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,"AI LAB 
+           IT Service Management & Automation",#,
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,"COES 
+           Security & Governance",#,
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,"ACCELERATORS 
+           Identity & Access Management",#,
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,"All
+        insights",#,
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Read,#,insight-readlink
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Read,#,insight-readlink
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Read,#,insight-readlink
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Speak to our team  →,#,
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Request an Operations Assessment,#contact,cta-btn cta-band-btn
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+capabilities/index.html,/capabilities,Read more,#,acc-readmore
+capabilities/index.html,/capabilities,Read more,#,acc-readmore
+capabilities/index.html,/capabilities,Read more,#,acc-readmore
+capabilities/index.html,/capabilities,"AI LAB 
+           Application &amp; Platform Engineering",#,
+capabilities/index.html,/capabilities,"COES 
+           Microservices &amp; Modern Architectures",#,
+capabilities/index.html,/capabilities,"ACCELERATORS 
+           Cloud Engineering &amp; Transformation",#,
+capabilities/index.html,/capabilities,"INTELLIGENT OPS 
+           Cloud Engineering &amp; Transformation",#,
+capabilities/index.html,/capabilities,"All
+        insights",#,
+capabilities/index.html,/capabilities,Read,#,insight-readlink
+capabilities/index.html,/capabilities,Read,#,insight-readlink
+capabilities/index.html,/capabilities,Read,#,insight-readlink
+capabilities/index.html,/capabilities,Speak to our team  →,#,
+capabilities/index.html,/capabilities,Start the conversation,#contact,cta-btn cta-band-btn
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Read more,#,acc-readmore
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Read more,#,acc-readmore
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Read more,#,acc-readmore
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,"AI LAB 
+           Governance Automation",#,
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,"COES 
+           Explainable AI & Responsible AI",#,
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,"ACCELERATORS 
+           Zero-Trust Security Engineering",#,
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,"All
+        insights",#,
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Read,#,insight-readlink
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Read,#,insight-readlink
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Read,#,insight-readlink
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Speak to our team  →,#,
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Request a Governance Assessment,#contact,cta-btn cta-band-btn
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+celsior-ai-lab/index.html,/celsior-ai-lab,Explore Modernization →,#,solution-link
+celsior-ai-lab/index.html,/celsior-ai-lab,Explore Cloud Engineering →,#,solution-link
+celsior-ai-lab/index.html,/celsior-ai-lab,Learn About Teams-as-a-Service →,#,solution-link
+celsior-ai-lab/index.html,/celsior-ai-lab,Read More,#,approach-btn
+celsior-ai-lab/index.html,/celsior-ai-lab,"AI STRATEGY Capability 
+           Enterprise AI Pilots",#,
+celsior-ai-lab/index.html,/celsior-ai-lab,"AI DELIVERY Capability 
+           Agentic Workflows",#,
+celsior-ai-lab/index.html,/celsior-ai-lab,"AI ACCELERATION Capability 
+           GenAI Accelerators",#,
+celsior-ai-lab/index.html,/celsior-ai-lab,"All
+        insights",#,
+celsior-ai-lab/index.html,/celsior-ai-lab,Read,#,insight-readlink
+celsior-ai-lab/index.html,/celsior-ai-lab,Read,#,insight-readlink
+celsior-ai-lab/index.html,/celsior-ai-lab,Read,#,insight-readlink
+celsior-ai-lab/index.html,/celsior-ai-lab,Speak to an AI Lab Architect  →,#,
+celsior-ai-lab/index.html,/celsior-ai-lab,Start with an AI Readiness Assessment,#contact,cta-btn cta-band-btn
+celsior-ai-lab.html,/celsior-ai-lab,Explore Modernization →,#,solution-link
+celsior-ai-lab.html,/celsior-ai-lab,Explore Cloud Engineering →,#,solution-link
+celsior-ai-lab.html,/celsior-ai-lab,Learn About Teams-as-a-Service →,#,solution-link
+celsior-ai-lab.html,/celsior-ai-lab,Read More,#,approach-btn
+celsior-ai-lab.html,/celsior-ai-lab,"AI STRATEGY Capability 
+           Enterprise AI Pilots",#,
+celsior-ai-lab.html,/celsior-ai-lab,"AI DELIVERY Capability 
+           Agentic Workflows",#,
+celsior-ai-lab.html,/celsior-ai-lab,"AI ACCELERATION Capability 
+           GenAI Accelerators",#,
+celsior-ai-lab.html,/celsior-ai-lab,"All
+        insights",#,
+celsior-ai-lab.html,/celsior-ai-lab,Read,#,insight-readlink
+celsior-ai-lab.html,/celsior-ai-lab,Read,#,insight-readlink
+celsior-ai-lab.html,/celsior-ai-lab,Read,#,insight-readlink
+celsior-ai-lab.html,/celsior-ai-lab,Speak to an AI Lab Architect  →,#,
+celsior-ai-lab.html,/celsior-ai-lab,Start with an AI Readiness Assessment,#contact,cta-btn cta-band-btn
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Read more,#,acc-readmore
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Read more,#,acc-readmore
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Read more,#,acc-readmore
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,"AI LAB 
+           Cloud Strategy & Migration",#,
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,"COES 
+           DevOps & Site Reliability Engineering",#,
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,"ACCELERATORS 
+           Observability & Infrastructure Automation",#,
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,"All
+        insights",#,
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Read,#,insight-readlink
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Read,#,insight-readlink
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Read,#,insight-readlink
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Speak to our team  →,#,
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Explore Our Framework,#contact,cta-btn cta-band-btn
+cost-efficiency.html,/cost-efficiency,Explore Further →,#,solution-link
+cost-efficiency.html,/cost-efficiency,Explore Further →,#,solution-link
+cost-efficiency.html,/cost-efficiency,Explore Further →,#,solution-link
+cost-efficiency.html,/cost-efficiency,Get Started,#consultation,em-cta
+cost-efficiency.html,/cost-efficiency,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+cost-efficiency.html,/cost-efficiency,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+cost-efficiency.html,/cost-efficiency,"AI Accelerators 
+           Enterprise AI Enablement",#,
+cost-efficiency.html,/cost-efficiency,"All
+        insights",#,
+cost-efficiency.html,/cost-efficiency,Read,#,insight-readlink
+cost-efficiency.html,/cost-efficiency,Read,#,insight-readlink
+cost-efficiency.html,/cost-efficiency,Read,#,insight-readlink
+cost-efficiency.html,/cost-efficiency,Speak with our Cost & Efficiency practice  →,#,
+cost-efficiency.html,/cost-efficiency,Assess Your Cost Structure →,#contact,cta-btn cta-band-btn
+cost-efficiency.html,/cost-efficiency,Speak with Our Cost & Efficiency Practice,#assessment,cta-btn cta-band-btn-white
+design-lab/index.html,/design-lab,Read more,#,acc-readmore
+design-lab/index.html,/design-lab,Read more,#,acc-readmore
+design-lab/index.html,/design-lab,Read more,#,acc-readmore
+design-lab/index.html,/design-lab,"3 Disciplines 
+           CX Journey Design, Service Blueprinting
+Digital Product Prototyping",#,
+design-lab/index.html,/design-lab,"3 Industries 
+           Banking & Finance, Healthcare, Insurance",#,
+design-lab/index.html,/design-lab,"End-to-End 
+           From strategy and research to managed delivery and user support",#,
+design-lab/index.html,/design-lab,"All
+        insights",#,
+design-lab/index.html,/design-lab,Read,#,insight-readlink
+design-lab/index.html,/design-lab,Read,#,insight-readlink
+design-lab/index.html,/design-lab,Read,#,insight-readlink
+design-lab/index.html,/design-lab,Speak to an AI Lab Architect  →,#,
+design-lab/index.html,/design-lab,Start the conversation,#contact,cta-btn cta-band-btn
+design-lab.html,/design-lab,Read more,#,acc-readmore
+design-lab.html,/design-lab,Read more,#,acc-readmore
+design-lab.html,/design-lab,Read more,#,acc-readmore
+design-lab.html,/design-lab,"3 Disciplines 
+           CX Journey Design, Service Blueprinting
+Digital Product Prototyping",#,
+design-lab.html,/design-lab,"3 Industries 
+           Banking & Finance, Healthcare, Insurance",#,
+design-lab.html,/design-lab,"End-to-End 
+           From strategy and research to managed delivery and user support",#,
+design-lab.html,/design-lab,"All
+        insights",#,
+design-lab.html,/design-lab,Read,#,insight-readlink
+design-lab.html,/design-lab,Read,#,insight-readlink
+design-lab.html,/design-lab,Read,#,insight-readlink
+design-lab.html,/design-lab,Speak to an AI Lab Architect  →,#,
+design-lab.html,/design-lab,Start the conversation,#contact,cta-btn cta-band-btn
+digital-experience.html,/digital-experience,Explore Further →,#,solution-link
+digital-experience.html,/digital-experience,Explore Further →,#,solution-link
+digital-experience.html,/digital-experience,Explore Further →,#,solution-link
+digital-experience.html,/digital-experience,Get Started,#consultation,em-cta
+digital-experience.html,/digital-experience,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+digital-experience.html,/digital-experience,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+digital-experience.html,/digital-experience,"AI Accelerators 
+           Enterprise AI Enablement",#,
+digital-experience.html,/digital-experience,"All
+        insights",#,
+digital-experience.html,/digital-experience,Read,#,insight-readlink
+digital-experience.html,/digital-experience,Read,#,insight-readlink
+digital-experience.html,/digital-experience,Read,#,insight-readlink
+digital-experience.html,/digital-experience,Speak with our Digital Experience practice  →,#,
+digital-experience.html,/digital-experience,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+digital-experience.html,/digital-experience,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+digital-operations.html,/digital-operations,Read more,#,acc-readmore
+digital-operations.html,/digital-operations,Read more,#,acc-readmore
+digital-operations.html,/digital-operations,Read more,#,acc-readmore
+digital-operations.html,/digital-operations,"AI LAB 
+           IT Service Management & Automation",#,
+digital-operations.html,/digital-operations,"COES 
+           Security & Governance",#,
+digital-operations.html,/digital-operations,"ACCELERATORS 
+           Identity & Access Management",#,
+digital-operations.html,/digital-operations,"All
+        insights",#,
+digital-operations.html,/digital-operations,Read,#,insight-readlink
+digital-operations.html,/digital-operations,Read,#,insight-readlink
+digital-operations.html,/digital-operations,Read,#,insight-readlink
+digital-operations.html,/digital-operations,Speak to our team  →,#,
+digital-operations.html,/digital-operations,Request an Operations Assessment,#contact,cta-btn cta-band-btn
+digital-operations.html,/digital-operations,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+frameworks-accelerators/index.html,/frameworks-accelerators,Speak to a specialist  →,#,
+frameworks-accelerators/index.html,/frameworks-accelerators,Talk to Our Healthcare Team,#contact,cta-band-btn-primary cta-band-btn
+frameworks-accelerators/index.html,/frameworks-accelerators,Download Our Capabilities Overview,#,cta-band-btn-outline
+frameworks-accelerators.html,/frameworks-accelerators,Speak to a specialist  →,#,
+frameworks-accelerators.html,/frameworks-accelerators,Talk to Our Healthcare Team,#contact,cta-band-btn-primary cta-band-btn
+frameworks-accelerators.html,/frameworks-accelerators,Download Our Capabilities Overview,#,cta-band-btn-outline
+gcc-nearshore.html,/gcc-nearshore,"Enterprise AI Enablement  
+           BOT Model One-line",#,
+gcc-nearshore.html,/gcc-nearshore,"Nearshore Delivery 
+           Nearshore Delivery: Mexico and LATAM",#,
+gcc-nearshore.html,/gcc-nearshore,"AI-Led Engineering  
+           Dedicated Engineering Pods",#,
+gcc-nearshore.html,/gcc-nearshore,"All
+        insights",#,
+gcc-nearshore.html,/gcc-nearshore,Read,#,insight-readlink
+gcc-nearshore.html,/gcc-nearshore,Read,#,insight-readlink
+gcc-nearshore.html,/gcc-nearshore,Read,#,insight-readlink
+gcc-nearshore.html,/gcc-nearshore,Speak to our team  →,#,
+gcc-nearshore.html,/gcc-nearshore,Start the conversation,#contact,cta-btn cta-band-btn
+hire-train-deploy.html,/hire-train-deploy,"AI Lab 
+           Managed Platform Operations",#,
+hire-train-deploy.html,/hire-train-deploy,"CoEs 
+           Continuous Modernisation Factory",#,
+hire-train-deploy.html,/hire-train-deploy,"Accelerators 
+           Managed SNOW Operations",#,
+hire-train-deploy.html,/hire-train-deploy,"All
+        insights",#,
+hire-train-deploy.html,/hire-train-deploy,Read,#,insight-readlink
+hire-train-deploy.html,/hire-train-deploy,Read,#,insight-readlink
+hire-train-deploy.html,/hire-train-deploy,Read,#,insight-readlink
+hire-train-deploy.html,/hire-train-deploy,Speak to our team  →,#,
+hire-train-deploy.html,/hire-train-deploy,Start the conversation,#contact,cta-btn cta-band-btn
+how-we-deliver.html,/how-we-deliver,Talk to us,index.html#contact,btn-p
+how-we-deliver.html,/how-we-deliver,Back to Home,index.html,btn-g
+how-we-deliver.html,/how-we-deliver,Get in touch,index.html#contact,btn-p
+how-we-deliver.html,/how-we-deliver,← Homepage,index.html,dummy-nav-link
+how-we-deliver.html,/how-we-deliver,What we Solve,what-we-solve.html,dummy-nav-link
+how-we-deliver.html,/how-we-deliver,How we Do it,how-we-do-it.html,dummy-nav-link
+how-we-deliver.html,/how-we-deliver,How we Deliver,how-we-deliver.html,dummy-nav-link
+how-we-deliver.html,/how-we-deliver,AI &amp; Innovation,ai-innovation.html,dummy-nav-link
+how-we-deliver.html,/how-we-deliver,Industries,industries.html,dummy-nav-link
+how-we-deliver.html,/how-we-deliver,Partner Ecosystem,partner-ecosystem.html,dummy-nav-link
+how-we-deliver.html,/how-we-deliver,About,about.html,dummy-nav-link
+how-we-do-it.html,/how-we-do-it,Explore AI Readiness,index.html,bridge-card-link
+how-we-do-it.html,/how-we-do-it,Explore AI Enablement,index.html,bridge-card-link
+how-we-do-it.html,/how-we-do-it,Explore Automation,index.html,bridge-card-link
+how-we-do-it.html,/how-we-do-it,Explore Delivery Model,index.html,fwd-card-cta
+how-we-do-it.html,/how-we-do-it,Explore Engineering Pods,index.html,fwd-card-cta
+how-we-do-it.html,/how-we-do-it,See Industry Practices,index.html,fwd-card-cta
+how-we-do-it.html,/how-we-do-it,Request an Architecture Review,index.html#contact,faq-cta-btn
+how-we-do-it.html,/how-we-do-it,Request an Architecture Review,index.html#contact,btn-primary
+how-we-do-it.html,/how-we-do-it,Download Capability Brief,#,btn-ghost
+index.html,/,Talk to an Expert,#contact,cta-primary
+index.html,/,"Explore the AI-First Digital Engineering
+          Platform",#capabilities,cta-secondary
+index.html,/,"→ Go to
+              Business Challenges",#,spec-link
+index.html,/,"→
+              Go to Technology Capabilities",#,spec-link
+index.html,/,"→ Go to
+              Platforms & Ecosystem",#,spec-link
+index.html,/,"→ Go to
+              Delivery Models",#,spec-link
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Get Started,#contact,em-cta
+index.html,/,"AI Lab 
+             
+               P  i  l  o  t  s     &amp;     c  o  p  i  l  o  t  s",#,careers-row careers-row--featured
+index.html,/,"CoEs 
+             
+               S  e  r  v  i  c  e  N  o  w  
+                /     G  u  i  d  e  w  i  r  e     /  
+                C  l  o  u  d",#,careers-row
+index.html,/,"Accelerators 
+             
+               P  r  e  -  b  u  i  l  t     u  s  e  
+                c  a  s  e  s",#,careers-row
+index.html,/,,#,nc-arrow
+index.html,/,,#,nc-arrow
+index.html,/,,#,nc-arrow
+index.html,/,All case studies  →,#,outcomes-all
+index.html,/,Read  →,#,oc-read
+index.html,/,Read  →,#,oc-read
+index.html,/,Read  →,#,oc-read
+index.html,/,Start the conversation,#contact,cta-band-btn
+industries.html,/industries,Talk to us,index.html#contact,btn-p
+industries.html,/industries,Back to Home,index.html,btn-g
+industries.html,/industries,Get in touch,index.html#contact,btn-p
+industries.html,/industries,← Homepage,index.html,dummy-nav-link
+industries.html,/industries,What we Solve,what-we-solve.html,dummy-nav-link
+industries.html,/industries,How we Do it,how-we-do-it.html,dummy-nav-link
+industries.html,/industries,How we Deliver,how-we-deliver.html,dummy-nav-link
+industries.html,/industries,AI &amp; Innovation,ai-innovation.html,dummy-nav-link
+industries.html,/industries,Industries,industries.html,dummy-nav-link
+industries.html,/industries,Partner Ecosystem,partner-ecosystem.html,dummy-nav-link
+industries.html,/industries,About,about.html,dummy-nav-link
+managed-programs.html,/managed-programs,"AI Lab 
+           Managed Platform Operations",#,
+managed-programs.html,/managed-programs,"CoEs 
+           Continuous Modernisation Factory",#,
+managed-programs.html,/managed-programs,"Accelerators 
+           Managed SNOW Operations",#,
+managed-programs.html,/managed-programs,"All
+        insights",#,
+managed-programs.html,/managed-programs,Read,#,insight-readlink
+managed-programs.html,/managed-programs,Read,#,insight-readlink
+managed-programs.html,/managed-programs,Read,#,insight-readlink
+managed-programs.html,/managed-programs,Speak to our team  →,#,
+managed-programs.html,/managed-programs,Start the conversation,#contact,cta-btn cta-band-btn
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Explore CAFE Framework →,#,solution-link
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Explore HALO Framework →,#,solution-link
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Explore PACE Platform →,#,solution-link
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Get Started,#consultation,em-cta
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,"AI LAB 
+           AI Readiness & Strategic Planning",#,
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,"CoEs 
+           Responsible AI & Production Governance",#,
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,"Accelerators 
+           Enterprise AI Pilots",#,
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,"All
+        insights",#,
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Read,#,insight-readlink
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Read,#,insight-readlink
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Read,#,insight-readlink
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Speak to our team  →,#,
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Start the conversation,#contact,cta-btn cta-band-btn
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Explore Modernization →,#,solution-link
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Explore Cloud Engineering →,#,solution-link
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Learn About Teams-as-a-Service →,#,solution-link
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Get Started,#consultation,em-cta
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,"AI Accelerators 
+           Enterprise AI Enablement",#,
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,"Intelligent Ops 
+           Digital Operations",#,
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,"All
+        insights",#,
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Read,#,insight-readlink
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Read,#,insight-readlink
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Read,#,insight-readlink
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Speak to our team  →,#,
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Explore Further →,#,solution-link
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Explore Further →,#,solution-link
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Explore Further →,#,solution-link
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Get Started,#consultation,em-cta
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,"AI Accelerators 
+           Enterprise AI Enablement",#,
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,"All
+        insights",#,
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Read,#,insight-readlink
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Read,#,insight-readlink
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Read,#,insight-readlink
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Speak with our Cost & Efficiency practice  →,#,
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Assess Your Cost Structure →,#contact,cta-btn cta-band-btn
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Speak with Our Cost & Efficiency Practice,#assessment,cta-btn cta-band-btn-white
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Explore Further →,#,solution-link
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Explore Further →,#,solution-link
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Explore Further →,#,solution-link
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Get Started,#consultation,em-cta
+our-focus/digital-experience/index.html,/our-focus/digital-experience,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+our-focus/digital-experience/index.html,/our-focus/digital-experience,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+our-focus/digital-experience/index.html,/our-focus/digital-experience,"AI Accelerators 
+           Enterprise AI Enablement",#,
+our-focus/digital-experience/index.html,/our-focus/digital-experience,"All
+        insights",#,
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Read,#,insight-readlink
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Read,#,insight-readlink
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Read,#,insight-readlink
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Speak with our Digital Experience practice  →,#,
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+our-focus/index.html,/our-focus,Explore Modernization →,#,solution-link
+our-focus/index.html,/our-focus,Explore Cloud Engineering →,#,solution-link
+our-focus/index.html,/our-focus,Learn About Teams-as-a-Service →,#,solution-link
+our-focus/index.html,/our-focus,Get Started,#consultation,em-cta
+our-focus/index.html,/our-focus,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+our-focus/index.html,/our-focus,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+our-focus/index.html,/our-focus,"AI Accelerators 
+           Enterprise AI Enablement",#,
+our-focus/index.html,/our-focus,"Intelligent Ops 
+           Digital Operations",#,
+our-focus/index.html,/our-focus,"All
+        insights",#,
+our-focus/index.html,/our-focus,Read,#,insight-readlink
+our-focus/index.html,/our-focus,Read,#,insight-readlink
+our-focus/index.html,/our-focus,Read,#,insight-readlink
+our-focus/index.html,/our-focus,Speak to our team  →,#,
+our-focus/index.html,/our-focus,Start the conversation,#contact,cta-btn cta-band-btn
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Explore Further →,#,solution-link
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Explore Further →,#,solution-link
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Explore Further →,#,solution-link
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Get Started,#consultation,em-cta
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,"AI Accelerators 
+           Enterprise AI Enablement",#,
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,"All
+        insights",#,
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Read,#,insight-readlink
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Read,#,insight-readlink
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Read,#,insight-readlink
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,beneath heading Speak with our R&C practice  →,#,
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+partner-ecosystem.html,/partner-ecosystem,Explore Guidewire Practice,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Explore Jack Henry Practice,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Explore ServiceNow Practice,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Contact Us About Dynatrace,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Talk to a Practice Lead,#contact,cta-band-btn-primary cta-band-btn
+partner-ecosystem.html,/partner-ecosystem,Explore Individual Partner Pages,#,cta-band-btn-outline
+partners/guidewire/index.html,/partners/guidewire,Download Case Study,#,jh-acc-cta
+partners/guidewire/index.html,/partners/guidewire,Download Case Study,#,jh-acc-cta
+partners/guidewire/index.html,/partners/guidewire,Download Case Study,#,jh-acc-cta
+partners/guidewire/index.html,/partners/guidewire,Explore Guidewire Practice,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Explore Jack Henry Practice,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Explore ServiceNow Practice,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Contact Us About Dynatrace,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Book Your Free Consultation,#contact,cta-band-btn-primary cta-band-btn
+partners/index.html,/partners,Explore Guidewire Practice,#,acc-readmore
+partners/index.html,/partners,Explore Jack Henry Practice,#,acc-readmore
+partners/index.html,/partners,Explore ServiceNow Practice,#,acc-readmore
+partners/index.html,/partners,Contact Us About Dynatrace,#,acc-readmore
+partners/index.html,/partners,Talk to a Practice Lead,#contact,cta-band-btn-primary cta-band-btn
+partners/index.html,/partners,Explore Individual Partner Pages,#,cta-band-btn-outline
+partners/jack-henry/index.html,/partners/jack-henry,Download Case Study,#,jh-acc-cta
+partners/jack-henry/index.html,/partners/jack-henry,Download Case Study,#,jh-acc-cta
+partners/jack-henry/index.html,/partners/jack-henry,Explore Guidewire Practice,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Explore Jack Henry Practice,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Explore ServiceNow Practice,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Contact Us About Dynatrace,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Book Your Free Consultation,#contact,cta-band-btn-primary cta-band-btn
+partners/servicenow/index.html,/partners/servicenow,Download Case Study,#,jh-acc-cta
+partners/servicenow/index.html,/partners/servicenow,Download Case Study,#,jh-acc-cta
+partners/servicenow/index.html,/partners/servicenow,Explore Guidewire Practice,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Explore Jack Henry Practice,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Explore ServiceNow Practice,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Contact Us About Dynatrace,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Book Your Platform Assessment,#contact,cta-band-btn-primary cta-band-btn
+risk-compliance.html,/risk-compliance,Explore Further →,#,solution-link
+risk-compliance.html,/risk-compliance,Explore Further →,#,solution-link
+risk-compliance.html,/risk-compliance,Explore Further →,#,solution-link
+risk-compliance.html,/risk-compliance,Get Started,#consultation,em-cta
+risk-compliance.html,/risk-compliance,"Modernization Hub 
+           Core &amp; Legacy Modernization",#,
+risk-compliance.html,/risk-compliance,"Cloud CoE 
+           Cloud Transformation &amp; Continuous Modernization",#,
+risk-compliance.html,/risk-compliance,"AI Accelerators 
+           Enterprise AI Enablement",#,
+risk-compliance.html,/risk-compliance,"All
+        insights",#,
+risk-compliance.html,/risk-compliance,Read,#,insight-readlink
+risk-compliance.html,/risk-compliance,Read,#,insight-readlink
+risk-compliance.html,/risk-compliance,Read,#,insight-readlink
+risk-compliance.html,/risk-compliance,beneath heading Speak with our R&C practice  →,#,
+risk-compliance.html,/risk-compliance,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+risk-compliance.html,/risk-compliance,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+security-governance.html,/security-governance,Read more,#,acc-readmore
+security-governance.html,/security-governance,Read more,#,acc-readmore
+security-governance.html,/security-governance,Read more,#,acc-readmore
+security-governance.html,/security-governance,"AI LAB 
+           Governance Automation",#,
+security-governance.html,/security-governance,"COES 
+           Explainable AI & Responsible AI",#,
+security-governance.html,/security-governance,"ACCELERATORS 
+           Zero-Trust Security Engineering",#,
+security-governance.html,/security-governance,"All
+        insights",#,
+security-governance.html,/security-governance,Read,#,insight-readlink
+security-governance.html,/security-governance,Read,#,insight-readlink
+security-governance.html,/security-governance,Read,#,insight-readlink
+security-governance.html,/security-governance,Speak to our team  →,#,
+security-governance.html,/security-governance,Request a Governance Assessment,#contact,cta-btn cta-band-btn
+security-governance.html,/security-governance,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,"Enterprise AI Enablement  
+           Data & AI Strategy",#,
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,"Nearshore Delivery 
+           Digital Experience Transformation",#,
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,"AI-Led Engineering  
+           Automation Solutions One-line descriptor",#,
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,"All
+        insights",#,
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Read,#,insight-readlink
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Read,#,insight-readlink
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Read,#,insight-readlink
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Speak to our team  →,#,
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"Enterprise AI Enablement  
+           BOT Model One-line",#,
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"Nearshore Delivery 
+           Nearshore Delivery: Mexico and LATAM",#,
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"AI-Led Engineering  
+           Dedicated Engineering Pods",#,
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"All
+        insights",#,
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Read,#,insight-readlink
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Read,#,insight-readlink
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Read,#,insight-readlink
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Speak to our team  →,#,
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/index.html,/solutions,"AI Lab 
+           Managed Platform Operations",#,
+solutions/index.html,/solutions,"CoEs 
+           Continuous Modernisation Factory",#,
+solutions/index.html,/solutions,"Accelerators 
+           Managed SNOW Operations",#,
+solutions/index.html,/solutions,"All
+        insights",#,
+solutions/index.html,/solutions,Read,#,insight-readlink
+solutions/index.html,/solutions,Read,#,insight-readlink
+solutions/index.html,/solutions,Read,#,insight-readlink
+solutions/index.html,/solutions,Speak to our team  →,#,
+solutions/index.html,/solutions,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/managed-programs/index.html,/solutions/managed-programs,"AI Lab 
+           Managed Platform Operations",#,
+solutions/managed-programs/index.html,/solutions/managed-programs,"CoEs 
+           Continuous Modernisation Factory",#,
+solutions/managed-programs/index.html,/solutions/managed-programs,"Accelerators 
+           Managed SNOW Operations",#,
+solutions/managed-programs/index.html,/solutions/managed-programs,"All
+        insights",#,
+solutions/managed-programs/index.html,/solutions/managed-programs,Read,#,insight-readlink
+solutions/managed-programs/index.html,/solutions/managed-programs,Read,#,insight-readlink
+solutions/managed-programs/index.html,/solutions/managed-programs,Read,#,insight-readlink
+solutions/managed-programs/index.html,/solutions/managed-programs,Speak to our team  →,#,
+solutions/managed-programs/index.html,/solutions/managed-programs,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"AI Lab 
+           Managed Platform Operations",#,
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"CoEs 
+           Continuous Modernisation Factory",#,
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"Accelerators 
+           Managed SNOW Operations",#,
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"All
+        insights",#,
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Read,#,insight-readlink
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Read,#,insight-readlink
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Read,#,insight-readlink
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Speak to our team  →,#,
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"Legacy 
+           Core & Legacy Modernization",#,
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"Transformation 
+           Continuous Modernisation Factory",#,
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"Application 
+           Application Modernization",#,
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"All
+        insights",#,
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Read,#,insight-readlink
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Read,#,insight-readlink
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Read,#,insight-readlink
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Speak to our team  →,#,
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Start a conversation about your architecture →,#contact,cta-btn cta-band-btn
+success-stories/index.html,/success-stories,Talk to us,index.html#contact,btn-p
+success-stories/index.html,/success-stories,Back to Home,index.html,btn-g
+success-stories/index.html,/success-stories,Get in touch,index.html#contact,btn-p
+success-stories/index.html,/success-stories,← Homepage,index.html,dummy-nav-link
+success-stories/index.html,/success-stories,What we Solve,what-we-solve.html,dummy-nav-link
+success-stories/index.html,/success-stories,How we Do it,how-we-do-it.html,dummy-nav-link
+success-stories/index.html,/success-stories,How we Deliver,how-we-deliver.html,dummy-nav-link
+success-stories/index.html,/success-stories,AI &amp; Innovation,ai-innovation.html,dummy-nav-link
+success-stories/index.html,/success-stories,Industries,industries.html,dummy-nav-link
+success-stories/index.html,/success-stories,Partner Ecosystem,partner-ecosystem.html,dummy-nav-link
+success-stories/index.html,/success-stories,About,about.html,dummy-nav-link
+teams-as-a-service.html,/teams-as-a-service,"AI Lab 
+           Managed Platform Operations",#,
+teams-as-a-service.html,/teams-as-a-service,"CoEs 
+           Continuous Modernisation Factory",#,
+teams-as-a-service.html,/teams-as-a-service,"Accelerators 
+           Managed SNOW Operations",#,
+teams-as-a-service.html,/teams-as-a-service,"All
+        insights",#,
+teams-as-a-service.html,/teams-as-a-service,Read,#,insight-readlink
+teams-as-a-service.html,/teams-as-a-service,Read,#,insight-readlink
+teams-as-a-service.html,/teams-as-a-service,Read,#,insight-readlink
+teams-as-a-service.html,/teams-as-a-service,Speak to our team  →,#,
+teams-as-a-service.html,/teams-as-a-service,Start the conversation,#contact,cta-btn cta-band-btn
+technology-consulting.html,/technology-consulting,"Legacy 
+           Core & Legacy Modernization",#,
+technology-consulting.html,/technology-consulting,"Transformation 
+           Continuous Modernisation Factory",#,
+technology-consulting.html,/technology-consulting,"Application 
+           Application Modernization",#,
+technology-consulting.html,/technology-consulting,"All
+        insights",#,
+technology-consulting.html,/technology-consulting,Read,#,insight-readlink
+technology-consulting.html,/technology-consulting,Read,#,insight-readlink
+technology-consulting.html,/technology-consulting,Read,#,insight-readlink
+technology-consulting.html,/technology-consulting,Speak to our team  →,#,
+technology-consulting.html,/technology-consulting,Start a conversation about your architecture →,#contact,cta-btn cta-band-btn
+what-we-solve.html,/what-we-solve,Start AI Readiness Assessment,#sec-assess,btn btn-dk
+what-we-solve.html,/what-we-solve,See Why AI Stalls,#sec-challenge,btn btn-ow
+what-we-solve.html,/what-we-solve,See the Assessment Framework,#sec-assess,imp-lnk gu
+what-we-solve.html,/what-we-solve,Read Story,#,sc-link
+what-we-solve.html,/what-we-solve,Read Story,#,sc-link
+what-we-solve.html,/what-we-solve,Read Story,#,sc-link
+what-we-solve.html,/what-we-solve,Read Story,#,sc-link
+what-we-solve.html,/what-we-solve,Explore,#,br-arrow
+what-we-solve.html,/what-we-solve,Explore,#,br-arrow
+what-we-solve.html,/what-we-solve,Explore,#,br-arrow

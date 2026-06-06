@@ -1,0 +1,797 @@
+source_file,source_url,button_label,href,class
+Capabilities.html,/Capabilities,Start the conversation,#contact,cta-btn cta-band-btn
+Capabilities.html,/Capabilities,Start Your Transformation →,(button/no href),btn-ghost
+Capabilities.html,/Capabilities,Book a Discovery Call,(button/no href),btn-white
+Capabilities.html,/Capabilities,,(button/no href),ch-arr
+Capabilities.html,/Capabilities,,(button/no href),ch-arr
+Capabilities.html,/Capabilities,How do you ensure continuity when modernizing critical systems?,(button/no href),faq__trigger
+Capabilities.html,/Capabilities,What's different about AI-led engineering compared to traditional development?,(button/no href),faq__trigger
+Capabilities.html,/Capabilities,Can you work with our existing technology stack and vendor relationships?,(button/no href),faq__trigger
+Capabilities.html,/Capabilities,How quickly can engineering teams start seeing results?,(button/no href),faq__trigger
+Capabilities.html,/Capabilities,Do you provide ongoing support after initial development or modernization?,(button/no href),faq__trigger
+Capabilities.html,/Capabilities,How do you handle data security and regulatory compliance?,(button/no href),faq__trigger
+Capabilities.html,/Capabilities,View case study,(button/no href),c-cta
+Our_Focus.html,/Our_Focus,Explore Modernization →,#,solution-link
+Our_Focus.html,/Our_Focus,Explore Cloud Engineering →,#,solution-link
+Our_Focus.html,/Our_Focus,Learn About Teams-as-a-Service →,#,solution-link
+Our_Focus.html,/Our_Focus,Get Started,#consultation,em-cta
+Our_Focus.html,/Our_Focus,Start the conversation,#contact,cta-btn cta-band-btn
+Our_Focus.html,/Our_Focus,Explore Our Approach,(button/no href),btn-ghost
+Our_Focus.html,/Our_Focus,Schedule Consultation →,(button/no href),btn-white
+Our_Focus.html,/Our_Focus,How is AI-first engineering different from traditional modernization consulting?,(button/no href),faq__trigger
+Our_Focus.html,/Our_Focus,What happens to our institutional knowledge during modernization?,(button/no href),faq__trigger
+Our_Focus.html,/Our_Focus,Can you modernize systems while they're still running production workloads?,(button/no href),faq__trigger
+Our_Focus.html,/Our_Focus,"How do you ensure cloud transformation doesn't just move our cost problem to a
+              different platform?",(button/no href),faq__trigger
+Our_Focus.html,/Our_Focus,What level of access do you need to our existing systems?,(button/no href),faq__trigger
+Our_Focus.html,/Our_Focus,How long until we see measurable results?,(button/no href),faq__trigger
+Solutions.html,/Solutions,Start the conversation,#contact,cta-btn cta-band-btn
+Solutions.html,/Solutions,Explore our managed programs,(button/no href),btn-ghost
+Solutions.html,/Solutions,Book a Discovery Call,(button/no href),btn-white
+Solutions.html,/Solutions,"Platform
+              Stability",(button/no href),gacc-btn
+Solutions.html,/Solutions,"Security
+              & Compliance",(button/no href),gacc-btn
+Solutions.html,/Solutions,Cost Optimization,(button/no href),gacc-btn
+Solutions.html,/Solutions,"Upgrade
+              Governance",(button/no href),gacc-btn
+Solutions.html,/Solutions,"What's the difference between a Managed Program and a traditional support
+              contract?",(button/no href),faq__trigger
+Solutions.html,/Solutions,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+Solutions.html,/Solutions,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+Solutions.html,/Solutions,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+Solutions.html,/Solutions,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+Solutions.html,/Solutions,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+about/who-we-are/index.html,/about/who-we-are,Talk to us,index.html#contact,btn-p
+about/who-we-are/index.html,/about/who-we-are,Back to Home,index.html,btn-g
+about/who-we-are/index.html,/about/who-we-are,Get in touch,index.html#contact,btn-p
+about-leadership/index.html,/about-leadership,Talk to us,index.html#contact,btn-p
+about-leadership/index.html,/about-leadership,Back to Home,index.html,btn-g
+about-leadership/index.html,/about-leadership,Get in touch,index.html#contact,btn-p
+about.html,/about,Talk to us,index.html#contact,btn-p
+about.html,/about,Back to Home,index.html,btn-g
+about.html,/about,Get in touch,index.html#contact,btn-p
+ai-adoption.html,/ai-adoption,Explore CAFE Framework →,#,solution-link
+ai-adoption.html,/ai-adoption,Explore HALO Framework →,#,solution-link
+ai-adoption.html,/ai-adoption,Explore PACE Platform →,#,solution-link
+ai-adoption.html,/ai-adoption,Get Started,#consultation,em-cta
+ai-adoption.html,/ai-adoption,Start the conversation,#contact,cta-btn cta-band-btn
+ai-adoption.html,/ai-adoption,Assess Your Readiness,(button/no href),btn-ghost
+ai-adoption.html,/ai-adoption,Explore Our Approach,(button/no href),btn-white
+ai-adoption.html,/ai-adoption,How is enterprise AI adoption different from running pilots?,(button/no href),faq__trigger
+ai-adoption.html,/ai-adoption,"What does ""responsible AI"" actually mean in production?",(button/no href),faq__trigger
+ai-adoption.html,/ai-adoption,We already have agents deployed. Why would we need PACE?,(button/no href),faq__trigger
+ai-adoption.html,/ai-adoption,How does CAFE compress development from 12 months to 90 days?,(button/no href),faq__trigger
+ai-adoption.html,/ai-adoption,What's required from our team during AI adoption?,(button/no href),faq__trigger
+ai-adoption.html,/ai-adoption,How do you ensure AI systems meet regulatory requirements like EU AI Act or HIPAA?,(button/no href),faq__trigger
+ai-and-data.html,/ai-and-data,Request a Data Assessment,#contact,cta-btn cta-band-btn
+ai-and-data.html,/ai-and-data,Transform Your Data Estate →,(button/no href),btn-ghost
+ai-and-data.html,/ai-and-data,,(button/no href),ch-arr
+ai-and-data.html,/ai-and-data,,(button/no href),ch-arr
+ai-and-data.html,/ai-and-data,How do you handle sensitive data in regulated industries like healthcare and banking?,(button/no href),faq__trigger
+ai-and-data.html,/ai-and-data,What's the difference between your data platform approach and traditional BI implementations?,(button/no href),faq__trigger
+ai-and-data.html,/ai-and-data,Can you work with our existing data investments and vendor relationships?,(button/no href),faq__trigger
+ai-and-data.html,/ai-and-data,How quickly can we start seeing results from data and AI projects?,(button/no href),faq__trigger
+ai-and-data.html,/ai-and-data,What happens when data quality issues surface during implementation?,(button/no href),faq__trigger
+ai-and-data.html,/ai-and-data,Do you provide ongoing support for data platforms and AI models?,(button/no href),faq__trigger
+ai-and-data.html,/ai-and-data,View case study,(button/no href),c-cta
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Explore Modernization →,#,solution-link
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Explore Cloud Engineering →,#,solution-link
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Learn About Teams-as-a-Service →,#,solution-link
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Get Started,#consultation,em-cta
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Explore Our Approach,(button/no href),btn-ghost
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Schedule Consultation →,(button/no href),btn-white
+ai-first-digital-engineering.html,/ai-first-digital-engineering,How is AI-first engineering different from traditional modernization consulting?,(button/no href),faq__trigger
+ai-first-digital-engineering.html,/ai-first-digital-engineering,What happens to our institutional knowledge during modernization?,(button/no href),faq__trigger
+ai-first-digital-engineering.html,/ai-first-digital-engineering,Can you modernize systems while they're still running production workloads?,(button/no href),faq__trigger
+ai-first-digital-engineering.html,/ai-first-digital-engineering,"How do you ensure cloud transformation doesn't just move our cost problem to a
+              different platform?",(button/no href),faq__trigger
+ai-first-digital-engineering.html,/ai-first-digital-engineering,What level of access do you need to our existing systems?,(button/no href),faq__trigger
+ai-first-digital-engineering.html,/ai-first-digital-engineering,How long until we see measurable results?,(button/no href),faq__trigger
+ai-innovation.html,/ai-innovation,Talk to us,index.html#contact,btn-p
+ai-innovation.html,/ai-innovation,Back to Home,index.html,btn-g
+ai-innovation.html,/ai-innovation,Get in touch,index.html#contact,btn-p
+ai-led-engineering.html,/ai-led-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+ai-led-engineering.html,/ai-led-engineering,Start Your Transformation →,(button/no href),btn-ghost
+ai-led-engineering.html,/ai-led-engineering,Book a Discovery Call,(button/no href),btn-white
+ai-led-engineering.html,/ai-led-engineering,,(button/no href),ch-arr
+ai-led-engineering.html,/ai-led-engineering,,(button/no href),ch-arr
+ai-led-engineering.html,/ai-led-engineering,How do you ensure continuity when modernizing critical systems?,(button/no href),faq__trigger
+ai-led-engineering.html,/ai-led-engineering,What's different about AI-led engineering compared to traditional development?,(button/no href),faq__trigger
+ai-led-engineering.html,/ai-led-engineering,Can you work with our existing technology stack and vendor relationships?,(button/no href),faq__trigger
+ai-led-engineering.html,/ai-led-engineering,How quickly can engineering teams start seeing results?,(button/no href),faq__trigger
+ai-led-engineering.html,/ai-led-engineering,Do you provide ongoing support after initial development or modernization?,(button/no href),faq__trigger
+ai-led-engineering.html,/ai-led-engineering,How do you handle data security and regulatory compliance?,(button/no href),faq__trigger
+ai-led-engineering.html,/ai-led-engineering,View case study,(button/no href),c-cta
+ai-upskilling.html,/ai-upskilling,Start the conversation,#contact,cta-btn cta-band-btn
+ai-upskilling.html,/ai-upskilling,Explore Our Upskilling Programs,(button/no href),btn-ghost
+ai-upskilling.html,/ai-upskilling,Schedule a Discovery Call,(button/no href),btn-white
+ai-upskilling.html,/ai-upskilling,Productivity Loss,(button/no href),gacc-btn
+ai-upskilling.html,/ai-upskilling,Role Readiness,(button/no href),gacc-btn
+ai-upskilling.html,/ai-upskilling,Adoption Risk,(button/no href),gacc-btn
+ai-upskilling.html,/ai-upskilling,Governance Gaps,(button/no href),gacc-btn
+ai-upskilling.html,/ai-upskilling,How quickly can you deploy a program across a large enterprise?,(button/no href),faq__trigger
+ai-upskilling.html,/ai-upskilling,Do you train on our internal tools and proprietary systems?,(button/no href),faq__trigger
+ai-upskilling.html,/ai-upskilling,How do you handle employees who resist adopting new ways of working?,(button/no href),faq__trigger
+ai-upskilling.html,/ai-upskilling,What governance does the program include?,(button/no href),faq__trigger
+ai-upskilling.html,/ai-upskilling,How do you price a program of this scale?,(button/no href),faq__trigger
+ai-upskilling.html,/ai-upskilling,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+banking-financial-services/index.html,/banking-financial-services,Schedule a Discovery Call,#contact,cta-band-btn-primary cta-band-btn
+banking-financial-services/index.html,/banking-financial-services,Download Capabilities Deck,#,cta-band-btn-outline
+banking-financial-services/index.html,/banking-financial-services,Schedule a Discovery Call,(button/no href),btn-ghost
+banking-financial-services/index.html,/banking-financial-services,Explore Our Focus Areas,(button/no href),btn-white
+banking-financial-services/index.html,/banking-financial-services,,(button/no href),ks-nav-btn
+banking-financial-services/index.html,/banking-financial-services,,(button/no href),ks-nav-btn
+banking-financial-services/index.html,/banking-financial-services,,(button/no href),oa-arrow
+banking-financial-services/index.html,/banking-financial-services,,(button/no href),oa-arrow
+banking-financial-services/index.html,/banking-financial-services,Front-End Modernization at Scale,(button/no href),ci-tab
+banking-financial-services/index.html,/banking-financial-services,Enterprise Platform Rollout,(button/no href),ci-tab
+banking-financial-services/index.html,/banking-financial-services,Digital Market Expansion,(button/no href),ci-tab
+banking-financial-services.html,/banking-financial-services,Schedule a Discovery Call,#contact,cta-band-btn-primary cta-band-btn
+banking-financial-services.html,/banking-financial-services,Download Capabilities Deck,#,cta-band-btn-outline
+banking-financial-services.html,/banking-financial-services,Schedule a Discovery Call,(button/no href),btn-ghost
+banking-financial-services.html,/banking-financial-services,Explore Our Focus Areas,(button/no href),btn-white
+banking-financial-services.html,/banking-financial-services,,(button/no href),ks-nav-btn
+banking-financial-services.html,/banking-financial-services,,(button/no href),ks-nav-btn
+banking-financial-services.html,/banking-financial-services,,(button/no href),oa-arrow
+banking-financial-services.html,/banking-financial-services,,(button/no href),oa-arrow
+banking-financial-services.html,/banking-financial-services,Front-End Modernization at Scale,(button/no href),ci-tab
+banking-financial-services.html,/banking-financial-services,Enterprise Platform Rollout,(button/no href),ci-tab
+banking-financial-services.html,/banking-financial-services,Digital Market Expansion,(button/no href),ci-tab
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Request a Data Assessment,#contact,cta-btn cta-band-btn
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Transform Your Data Estate →,(button/no href),btn-ghost
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,,(button/no href),ch-arr
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,,(button/no href),ch-arr
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,How do you handle sensitive data in regulated industries like healthcare and banking?,(button/no href),faq__trigger
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,What's the difference between your data platform approach and traditional BI implementations?,(button/no href),faq__trigger
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Can you work with our existing data investments and vendor relationships?,(button/no href),faq__trigger
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,How quickly can we start seeing results from data and AI projects?,(button/no href),faq__trigger
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,What happens when data quality issues surface during implementation?,(button/no href),faq__trigger
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,Do you provide ongoing support for data platforms and AI models?,(button/no href),faq__trigger
+capabilities/ai-and-data/index.html,/capabilities/ai-and-data,View case study,(button/no href),c-cta
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Start Your Transformation →,(button/no href),btn-ghost
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Book a Discovery Call,(button/no href),btn-white
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,,(button/no href),ch-arr
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,,(button/no href),ch-arr
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,How do you ensure continuity when modernizing critical systems?,(button/no href),faq__trigger
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,What's different about AI-led engineering compared to traditional development?,(button/no href),faq__trigger
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Can you work with our existing technology stack and vendor relationships?,(button/no href),faq__trigger
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,How quickly can engineering teams start seeing results?,(button/no href),faq__trigger
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,Do you provide ongoing support after initial development or modernization?,(button/no href),faq__trigger
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,How do you handle data security and regulatory compliance?,(button/no href),faq__trigger
+capabilities/ai-led-engineering/index.html,/capabilities/ai-led-engineering,View case study,(button/no href),c-cta
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Explore Our Framework,#contact,cta-btn cta-band-btn
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Start Your Cloud Journey →,(button/no href),btn-ghost
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,,(button/no href),ch-arr
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,,(button/no href),ch-arr
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,How do you handle cloud migrations for applications we can't afford to take offline?,(button/no href),faq__trigger
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,"What makes your cloud approach different from working directly with AWS, Azure, or Google Cloud?",(button/no href),faq__trigger
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Can you help optimize cloud costs for environments already running in production?,(button/no href),faq__trigger
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,How quickly can we see results from cloud migration initiatives?,(button/no href),faq__trigger
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,What happens when applications break in cloud environments?,(button/no href),faq__trigger
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,Do you provide ongoing infrastructure management after migration?,(button/no href),faq__trigger
+capabilities/cloud-and-infrastructure-engineering/index.html,/capabilities/cloud-and-infrastructure-engineering,View case study,(button/no href),c-cta
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Request an Operations Assessment,#contact,cta-btn cta-band-btn
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Strengthen Your Operations →,(button/no href),btn-ghost
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,,(button/no href),ch-arr
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,,(button/no href),ch-arr
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,How do you automate operations without losing control or creating new risks?,(button/no href),faq__trigger
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,What makes your ServiceNow approach different from standard implementations?,(button/no href),faq__trigger
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Can you help secure environments that are already in production?,(button/no href),faq__trigger
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,How quickly can we see results from automation initiatives?,(button/no href),faq__trigger
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,What happens when automated processes fail or need human oversight?,(button/no href),faq__trigger
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,Do you provide ongoing management for operations and security platforms?,(button/no href),faq__trigger
+capabilities/digital-operations-and-security/index.html,/capabilities/digital-operations-and-security,View case study,(button/no href),c-cta
+capabilities/index.html,/capabilities,Start the conversation,#contact,cta-btn cta-band-btn
+capabilities/index.html,/capabilities,Start Your Transformation →,(button/no href),btn-ghost
+capabilities/index.html,/capabilities,Book a Discovery Call,(button/no href),btn-white
+capabilities/index.html,/capabilities,,(button/no href),ch-arr
+capabilities/index.html,/capabilities,,(button/no href),ch-arr
+capabilities/index.html,/capabilities,How do you ensure continuity when modernizing critical systems?,(button/no href),faq__trigger
+capabilities/index.html,/capabilities,What's different about AI-led engineering compared to traditional development?,(button/no href),faq__trigger
+capabilities/index.html,/capabilities,Can you work with our existing technology stack and vendor relationships?,(button/no href),faq__trigger
+capabilities/index.html,/capabilities,How quickly can engineering teams start seeing results?,(button/no href),faq__trigger
+capabilities/index.html,/capabilities,Do you provide ongoing support after initial development or modernization?,(button/no href),faq__trigger
+capabilities/index.html,/capabilities,How do you handle data security and regulatory compliance?,(button/no href),faq__trigger
+capabilities/index.html,/capabilities,View case study,(button/no href),c-cta
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Request a Governance Assessment,#contact,cta-btn cta-band-btn
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Build Governance That Scales  →,(button/no href),btn-ghost
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,,(button/no href),ch-arr
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,,(button/no href),ch-arr
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,How do you build governance into AI systems without slowing down deployment?,(button/no href),faq__trigger
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,What makes your explainable AI different from standard machine learning implementations?,(button/no href),faq__trigger
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Can you add governance to AI systems already running in production?,(button/no href),faq__trigger
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,How quickly can we deploy AI with full regulatory compliance?,(button/no href),faq__trigger
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,What happens when AI models drift or regulations change?,(button/no href),faq__trigger
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,Do you provide ongoing governance management for AI and data systems?,(button/no href),faq__trigger
+capabilities/security-and-governance/index.html,/capabilities/security-and-governance,View case study,(button/no href),c-cta
+celsior-ai-lab/index.html,/celsior-ai-lab,Explore Modernization →,#,solution-link
+celsior-ai-lab/index.html,/celsior-ai-lab,Explore Cloud Engineering →,#,solution-link
+celsior-ai-lab/index.html,/celsior-ai-lab,Learn About Teams-as-a-Service →,#,solution-link
+celsior-ai-lab/index.html,/celsior-ai-lab,Read More,#,approach-btn
+celsior-ai-lab/index.html,/celsior-ai-lab,Start with an AI Readiness Assessment,#contact,cta-btn cta-band-btn
+celsior-ai-lab/index.html,/celsior-ai-lab,Explore The Lab,(button/no href),btn-ghost
+celsior-ai-lab/index.html,/celsior-ai-lab,Schedule a Pilot Review →,(button/no href),btn-white
+celsior-ai-lab/index.html,/celsior-ai-lab,What is the starting point for a Celsior AI Lab engagement?,(button/no href),faq__trigger
+celsior-ai-lab/index.html,/celsior-ai-lab,How does the AI Lab differ from a standard implementation partner?,(button/no href),faq__trigger
+celsior-ai-lab/index.html,/celsior-ai-lab,At what stage does a program transition to managed operations?,(button/no href),faq__trigger
+celsior-ai-lab/index.html,/celsior-ai-lab,How does the AI Lab address regulatory requirements in Banking and Insurance?,(button/no href),faq__trigger
+celsior-ai-lab/index.html,/celsior-ai-lab,Can the AI Lab operate within our existing technology stack?,(button/no href),faq__trigger
+celsior-ai-lab/index.html,/celsior-ai-lab,What does a typical pilot-to-production timeline look like?,(button/no href),faq__trigger
+celsior-ai-lab.html,/celsior-ai-lab,Explore Modernization →,#,solution-link
+celsior-ai-lab.html,/celsior-ai-lab,Explore Cloud Engineering →,#,solution-link
+celsior-ai-lab.html,/celsior-ai-lab,Learn About Teams-as-a-Service →,#,solution-link
+celsior-ai-lab.html,/celsior-ai-lab,Read More,#,approach-btn
+celsior-ai-lab.html,/celsior-ai-lab,Start with an AI Readiness Assessment,#contact,cta-btn cta-band-btn
+celsior-ai-lab.html,/celsior-ai-lab,Explore The Lab,(button/no href),btn-ghost
+celsior-ai-lab.html,/celsior-ai-lab,Schedule a Pilot Review →,(button/no href),btn-white
+celsior-ai-lab.html,/celsior-ai-lab,What is the starting point for a Celsior AI Lab engagement?,(button/no href),faq__trigger
+celsior-ai-lab.html,/celsior-ai-lab,How does the AI Lab differ from a standard implementation partner?,(button/no href),faq__trigger
+celsior-ai-lab.html,/celsior-ai-lab,At what stage does a program transition to managed operations?,(button/no href),faq__trigger
+celsior-ai-lab.html,/celsior-ai-lab,How does the AI Lab address regulatory requirements in Banking and Insurance?,(button/no href),faq__trigger
+celsior-ai-lab.html,/celsior-ai-lab,Can the AI Lab operate within our existing technology stack?,(button/no href),faq__trigger
+celsior-ai-lab.html,/celsior-ai-lab,What does a typical pilot-to-production timeline look like?,(button/no href),faq__trigger
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Explore Our Framework,#contact,cta-btn cta-band-btn
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Start Your Cloud Journey →,(button/no href),btn-ghost
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,,(button/no href),ch-arr
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,,(button/no href),ch-arr
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,How do you handle cloud migrations for applications we can't afford to take offline?,(button/no href),faq__trigger
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,"What makes your cloud approach different from working directly with AWS, Azure, or Google Cloud?",(button/no href),faq__trigger
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Can you help optimize cloud costs for environments already running in production?,(button/no href),faq__trigger
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,How quickly can we see results from cloud migration initiatives?,(button/no href),faq__trigger
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,What happens when applications break in cloud environments?,(button/no href),faq__trigger
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,Do you provide ongoing infrastructure management after migration?,(button/no href),faq__trigger
+cloud-infrastructure-engineering.html,/cloud-infrastructure-engineering,View case study,(button/no href),c-cta
+cost-efficiency.html,/cost-efficiency,Explore Further →,#,solution-link
+cost-efficiency.html,/cost-efficiency,Explore Further →,#,solution-link
+cost-efficiency.html,/cost-efficiency,Explore Further →,#,solution-link
+cost-efficiency.html,/cost-efficiency,Get Started,#consultation,em-cta
+cost-efficiency.html,/cost-efficiency,Assess Your Cost Structure →,#contact,cta-btn cta-band-btn
+cost-efficiency.html,/cost-efficiency,Speak with Our Cost & Efficiency Practice,#assessment,cta-btn cta-band-btn-white
+cost-efficiency.html,/cost-efficiency,Assess Your Core Structure,(button/no href),btn-ghost
+cost-efficiency.html,/cost-efficiency,Book a Meeting,(button/no href),btn-white
+cost-efficiency.html,/cost-efficiency,How is this different from a standard cost-reduction program?,(button/no href),faq__trigger
+cost-efficiency.html,/cost-efficiency,We have already moved to the cloud. Why are our costs still growing?,(button/no href),faq__trigger
+cost-efficiency.html,/cost-efficiency,How quickly can we expect to see measurable cost reduction?,(button/no href),faq__trigger
+cost-efficiency.html,/cost-efficiency,Will consolidating our platforms disrupt our current delivery programs?,(button/no href),faq__trigger
+cost-efficiency.html,/cost-efficiency,"How do you handle multi-cloud environments where spend is spread across AWS, Azure, and Google Cloud?",(button/no href),faq__trigger
+design-lab/index.html,/design-lab,Start the conversation,#contact,cta-btn cta-band-btn
+design-lab/index.html,/design-lab,Explore The Lab,(button/no href),btn-ghost
+design-lab/index.html,/design-lab,Schedule a Pilot Review →,(button/no href),btn-white
+design-lab/index.html,/design-lab,What is the starting point for a Design Lab engagement?,(button/no href),faq__trigger
+design-lab/index.html,/design-lab,How long does a typical Design Lab engagement take?,(button/no href),faq__trigger
+design-lab/index.html,/design-lab,What does a service blueprint actually contain?,(button/no href),faq__trigger
+design-lab/index.html,/design-lab,At what stage in a program should we bring in the Design Lab?,(button/no href),faq__trigger
+design-lab/index.html,/design-lab,How does the Design Lab hand off to engineering?,(button/no href),faq__trigger
+design-lab/index.html,/design-lab,Does the Design Lab work within regulated industries?,(button/no href),faq__trigger
+design-lab/index.html,/design-lab,"What delivery model do you use — project-based, embedded, or managed service?",(button/no href),faq__trigger
+design-lab/index.html,/design-lab,"What does knowledge transfer look like, and how do we retain capability after you leave?",(button/no href),faq__trigger
+design-lab.html,/design-lab,Start the conversation,#contact,cta-btn cta-band-btn
+design-lab.html,/design-lab,Explore The Lab,(button/no href),btn-ghost
+design-lab.html,/design-lab,Schedule a Pilot Review →,(button/no href),btn-white
+design-lab.html,/design-lab,What is the starting point for a Design Lab engagement?,(button/no href),faq__trigger
+design-lab.html,/design-lab,How long does a typical Design Lab engagement take?,(button/no href),faq__trigger
+design-lab.html,/design-lab,What does a service blueprint actually contain?,(button/no href),faq__trigger
+design-lab.html,/design-lab,At what stage in a program should we bring in the Design Lab?,(button/no href),faq__trigger
+design-lab.html,/design-lab,How does the Design Lab hand off to engineering?,(button/no href),faq__trigger
+design-lab.html,/design-lab,Does the Design Lab work within regulated industries?,(button/no href),faq__trigger
+design-lab.html,/design-lab,"What delivery model do you use — project-based, embedded, or managed service?",(button/no href),faq__trigger
+design-lab.html,/design-lab,"What does knowledge transfer look like, and how do we retain capability after you leave?",(button/no href),faq__trigger
+digital-experience.html,/digital-experience,Explore Further →,#,solution-link
+digital-experience.html,/digital-experience,Explore Further →,#,solution-link
+digital-experience.html,/digital-experience,Explore Further →,#,solution-link
+digital-experience.html,/digital-experience,Get Started,#consultation,em-cta
+digital-experience.html,/digital-experience,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+digital-experience.html,/digital-experience,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+digital-experience.html,/digital-experience,Assess Your Control Environment,(button/no href),btn-ghost
+digital-experience.html,/digital-experience,Schedule a Conversation,(button/no href),btn-white
+digital-experience.html,/digital-experience,How is Celsior's approach different from a digital agency or a pure UX consultancy?,(button/no href),faq__trigger
+digital-experience.html,/digital-experience,We have significant legacy infrastructure. Can Celsior improve our customer experience without a full re-platform?,(button/no href),faq__trigger
+digital-experience.html,/digital-experience,How do you approach omnichannel delivery when our channels are owned by different internal teams?,(button/no href),faq__trigger
+digital-experience.html,/digital-experience,"What does ""do-it-together"" mean for digital product engagements?",(button/no href),faq__trigger
+digital-experience.html,/digital-experience,How quickly can we expect to see measurable improvement in customer experience outcomes?,(button/no href),faq__trigger
+digital-operations.html,/digital-operations,Request an Operations Assessment,#contact,cta-btn cta-band-btn
+digital-operations.html,/digital-operations,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+digital-operations.html,/digital-operations,Strengthen Your Operations →,(button/no href),btn-ghost
+digital-operations.html,/digital-operations,,(button/no href),ch-arr
+digital-operations.html,/digital-operations,,(button/no href),ch-arr
+digital-operations.html,/digital-operations,How do you automate operations without losing control or creating new risks?,(button/no href),faq__trigger
+digital-operations.html,/digital-operations,What makes your ServiceNow approach different from standard implementations?,(button/no href),faq__trigger
+digital-operations.html,/digital-operations,Can you help secure environments that are already in production?,(button/no href),faq__trigger
+digital-operations.html,/digital-operations,How quickly can we see results from automation initiatives?,(button/no href),faq__trigger
+digital-operations.html,/digital-operations,What happens when automated processes fail or need human oversight?,(button/no href),faq__trigger
+digital-operations.html,/digital-operations,Do you provide ongoing management for operations and security platforms?,(button/no href),faq__trigger
+digital-operations.html,/digital-operations,View case study,(button/no href),c-cta
+frameworks-accelerators/index.html,/frameworks-accelerators,Talk to Our Healthcare Team,#contact,cta-band-btn-primary cta-band-btn
+frameworks-accelerators/index.html,/frameworks-accelerators,Download Our Capabilities Overview,#,cta-band-btn-outline
+frameworks-accelerators/index.html,/frameworks-accelerators,Request a Briefing,(button/no href),btn-ghost
+frameworks-accelerators/index.html,/frameworks-accelerators,Explore the Portfolio,(button/no href),btn-white
+frameworks-accelerators/index.html,/frameworks-accelerators,Automation and Intelligence Tools,(button/no href),fp-pill is-active
+frameworks-accelerators/index.html,/frameworks-accelerators,Vertical AI Solutions,(button/no href),fp-pill
+frameworks-accelerators/index.html,/frameworks-accelerators,AI Enterprise Platforms,(button/no href),fp-pill
+frameworks-accelerators/index.html,/frameworks-accelerators,What is the starting point for a Design Lab engagement?,(button/no href),faq__trigger
+frameworks-accelerators/index.html,/frameworks-accelerators,How long does a typical Design Lab engagement take?,(button/no href),faq__trigger
+frameworks-accelerators/index.html,/frameworks-accelerators,What does a service blueprint actually contain?,(button/no href),faq__trigger
+frameworks-accelerators/index.html,/frameworks-accelerators,At what stage in a program should we bring in the Design Lab?,(button/no href),faq__trigger
+frameworks-accelerators/index.html,/frameworks-accelerators,How does the Design Lab hand off to engineering?,(button/no href),faq__trigger
+frameworks-accelerators/index.html,/frameworks-accelerators,Does the Design Lab work within regulated industries?,(button/no href),faq__trigger
+frameworks-accelerators/index.html,/frameworks-accelerators,"What delivery model do you use — project-based, embedded, or managed service?",(button/no href),faq__trigger
+frameworks-accelerators/index.html,/frameworks-accelerators,"What does knowledge transfer look like, and how do we retain capability after you leave?",(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,Talk to Our Healthcare Team,#contact,cta-band-btn-primary cta-band-btn
+frameworks-accelerators.html,/frameworks-accelerators,Download Our Capabilities Overview,#,cta-band-btn-outline
+frameworks-accelerators.html,/frameworks-accelerators,Request a Briefing,(button/no href),btn-ghost
+frameworks-accelerators.html,/frameworks-accelerators,Explore the Portfolio,(button/no href),btn-white
+frameworks-accelerators.html,/frameworks-accelerators,Automation and Intelligence Tools,(button/no href),fp-pill is-active
+frameworks-accelerators.html,/frameworks-accelerators,Vertical AI Solutions,(button/no href),fp-pill
+frameworks-accelerators.html,/frameworks-accelerators,AI Enterprise Platforms,(button/no href),fp-pill
+frameworks-accelerators.html,/frameworks-accelerators,What is the starting point for a Design Lab engagement?,(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,How long does a typical Design Lab engagement take?,(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,What does a service blueprint actually contain?,(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,At what stage in a program should we bring in the Design Lab?,(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,How does the Design Lab hand off to engineering?,(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,Does the Design Lab work within regulated industries?,(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,"What delivery model do you use — project-based, embedded, or managed service?",(button/no href),faq__trigger
+frameworks-accelerators.html,/frameworks-accelerators,"What does knowledge transfer look like, and how do we retain capability after you leave?",(button/no href),faq__trigger
+gcc-nearshore.html,/gcc-nearshore,Start the conversation,#contact,cta-btn cta-band-btn
+gcc-nearshore.html,/gcc-nearshore,Explore our delivery models,(button/no href),btn-ghost
+gcc-nearshore.html,/gcc-nearshore,Talk to our nearshore team,(button/no href),btn-white
+gcc-nearshore.html,/gcc-nearshore,Talent Access,(button/no href),gacc-btn
+gcc-nearshore.html,/gcc-nearshore,Cost Efficiency,(button/no href),gacc-btn
+gcc-nearshore.html,/gcc-nearshore,Time Zone Alignment,(button/no href),gacc-btn
+gcc-nearshore.html,/gcc-nearshore,Delivery Governance,(button/no href),gacc-btn
+gcc-nearshore.html,/gcc-nearshore,What is the difference between a GCC and a standard nearshore team?,(button/no href),faq__trigger
+gcc-nearshore.html,/gcc-nearshore,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+gcc-nearshore.html,/gcc-nearshore,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+gcc-nearshore.html,/gcc-nearshore,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+gcc-nearshore.html,/gcc-nearshore,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+gcc-nearshore.html,/gcc-nearshore,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+hire-train-deploy.html,/hire-train-deploy,Start the conversation,#contact,cta-btn cta-band-btn
+hire-train-deploy.html,/hire-train-deploy,Explore our managed programs,(button/no href),btn-ghost
+hire-train-deploy.html,/hire-train-deploy,Book a Discovery Call,(button/no href),btn-white
+hire-train-deploy.html,/hire-train-deploy,"Platform
+              Stability",(button/no href),gacc-btn
+hire-train-deploy.html,/hire-train-deploy,"Security
+              & Compliance",(button/no href),gacc-btn
+hire-train-deploy.html,/hire-train-deploy,Cost Optimization,(button/no href),gacc-btn
+hire-train-deploy.html,/hire-train-deploy,"Upgrade
+              Governance",(button/no href),gacc-btn
+hire-train-deploy.html,/hire-train-deploy,"What's the difference between a Managed Program and a traditional support
+              contract?",(button/no href),faq__trigger
+hire-train-deploy.html,/hire-train-deploy,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+hire-train-deploy.html,/hire-train-deploy,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+hire-train-deploy.html,/hire-train-deploy,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+hire-train-deploy.html,/hire-train-deploy,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+hire-train-deploy.html,/hire-train-deploy,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+how-we-deliver.html,/how-we-deliver,Talk to us,index.html#contact,btn-p
+how-we-deliver.html,/how-we-deliver,Back to Home,index.html,btn-g
+how-we-deliver.html,/how-we-deliver,Get in touch,index.html#contact,btn-p
+how-we-do-it.html,/how-we-do-it,Explore AI Readiness,index.html,bridge-card-link
+how-we-do-it.html,/how-we-do-it,Explore AI Enablement,index.html,bridge-card-link
+how-we-do-it.html,/how-we-do-it,Explore Automation,index.html,bridge-card-link
+how-we-do-it.html,/how-we-do-it,Explore Delivery Model,index.html,fwd-card-cta
+how-we-do-it.html,/how-we-do-it,Explore Engineering Pods,index.html,fwd-card-cta
+how-we-do-it.html,/how-we-do-it,See Industry Practices,index.html,fwd-card-cta
+how-we-do-it.html,/how-we-do-it,Request an Architecture Review,index.html#contact,faq-cta-btn
+how-we-do-it.html,/how-we-do-it,Request an Architecture Review,index.html#contact,btn-primary
+how-we-do-it.html,/how-we-do-it,Download Capability Brief,#,btn-ghost
+how-we-do-it.html,/how-we-do-it,How does Celsior integrate with an existing development team?,(button/no href),faq-trigger
+how-we-do-it.html,/how-we-do-it,What differentiates this from hyperscaler AI professional services?,(button/no href),faq-trigger
+how-we-do-it.html,/how-we-do-it,How does Celsior handle model drift after the engagement ends?,(button/no href),faq-trigger
+how-we-do-it.html,/how-we-do-it,Which regulatory frameworks does the governance layer address?,(button/no href),faq-trigger
+index.html,/,Talk to an Expert,#contact,cta-primary
+index.html,/,"Explore the AI-First Digital Engineering
+          Platform",#capabilities,cta-secondary
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Learn More,#contact,fc-back-cta
+index.html,/,Get Started,#contact,em-cta
+index.html,/,Start the conversation,#contact,cta-band-btn
+index.html,/,,(button/no href),hero-arrow
+index.html,/,,(button/no href),hero-arrow
+index.html,/,Business Leaders,(button/no href),spec-header
+index.html,/,Technology Leaders,(button/no href),spec-header
+index.html,/,Platform Owners,(button/no href),spec-header
+index.html,/,"Operations, Vendors, Program Managers",(button/no href),spec-header
+index.html,/,,(button/no href),flip-btn
+index.html,/,,(button/no href),flip-btn
+index.html,/,"Why Most
+              Modernization Programs Fail Before Any Code Is Written",(button/no href),faq-trigger
+index.html,/,"AI Is Not a
+              Capability Problem — It's an Operational Risk Problem",(button/no href),faq-trigger
+index.html,/,"The Hidden Cost of
+              ""Stable"" Legacy Systems",(button/no href),faq-trigger
+index.html,/,"Platform
+              Transformation vs. Platform Replacement: A Decision Framework for CIOs",(button/no href),faq-trigger
+index.html,/,"Reliability Is the
+              New Velocity: How Mature Engineering Teams Ship Faster by Releasing Less",(button/no href),faq-trigger
+index.html,/,,(button/no href),news-nav-btn
+index.html,/,,(button/no href),news-nav-btn
+industries.html,/industries,Talk to us,index.html#contact,btn-p
+industries.html,/industries,Back to Home,index.html,btn-g
+industries.html,/industries,Get in touch,index.html#contact,btn-p
+managed-programs.html,/managed-programs,Start the conversation,#contact,cta-btn cta-band-btn
+managed-programs.html,/managed-programs,Explore our managed programs,(button/no href),btn-ghost
+managed-programs.html,/managed-programs,Book a Discovery Call,(button/no href),btn-white
+managed-programs.html,/managed-programs,"Platform
+              Stability",(button/no href),gacc-btn
+managed-programs.html,/managed-programs,"Security
+              & Compliance",(button/no href),gacc-btn
+managed-programs.html,/managed-programs,Cost Optimization,(button/no href),gacc-btn
+managed-programs.html,/managed-programs,"Upgrade
+              Governance",(button/no href),gacc-btn
+managed-programs.html,/managed-programs,"What's the difference between a Managed Program and a traditional support
+              contract?",(button/no href),faq__trigger
+managed-programs.html,/managed-programs,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+managed-programs.html,/managed-programs,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+managed-programs.html,/managed-programs,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+managed-programs.html,/managed-programs,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+managed-programs.html,/managed-programs,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Explore CAFE Framework →,#,solution-link
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Explore HALO Framework →,#,solution-link
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Explore PACE Platform →,#,solution-link
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Get Started,#consultation,em-cta
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Start the conversation,#contact,cta-btn cta-band-btn
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Assess Your Readiness,(button/no href),btn-ghost
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,Explore Our Approach,(button/no href),btn-white
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,How is enterprise AI adoption different from running pilots?,(button/no href),faq__trigger
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,"What does ""responsible AI"" actually mean in production?",(button/no href),faq__trigger
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,We already have agents deployed. Why would we need PACE?,(button/no href),faq__trigger
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,How does CAFE compress development from 12 months to 90 days?,(button/no href),faq__trigger
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,What's required from our team during AI adoption?,(button/no href),faq__trigger
+our-focus/ai-adoption/index.html,/our-focus/ai-adoption,How do you ensure AI systems meet regulatory requirements like EU AI Act or HIPAA?,(button/no href),faq__trigger
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Explore Modernization →,#,solution-link
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Explore Cloud Engineering →,#,solution-link
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Learn About Teams-as-a-Service →,#,solution-link
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Get Started,#consultation,em-cta
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Start the conversation,#contact,cta-btn cta-band-btn
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Explore Our Approach,(button/no href),btn-ghost
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Schedule Consultation →,(button/no href),btn-white
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,How is AI-first engineering different from traditional modernization consulting?,(button/no href),faq__trigger
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,What happens to our institutional knowledge during modernization?,(button/no href),faq__trigger
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,Can you modernize systems while they're still running production workloads?,(button/no href),faq__trigger
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,"How do you ensure cloud transformation doesn't just move our cost problem to a
+              different platform?",(button/no href),faq__trigger
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,What level of access do you need to our existing systems?,(button/no href),faq__trigger
+our-focus/ai-first-digital-engineering/index.html,/our-focus/ai-first-digital-engineering,How long until we see measurable results?,(button/no href),faq__trigger
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Explore Further →,#,solution-link
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Explore Further →,#,solution-link
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Explore Further →,#,solution-link
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Get Started,#consultation,em-cta
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Assess Your Cost Structure →,#contact,cta-btn cta-band-btn
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Speak with Our Cost & Efficiency Practice,#assessment,cta-btn cta-band-btn-white
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Assess Your Core Structure,(button/no href),btn-ghost
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Book a Meeting,(button/no href),btn-white
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,How is this different from a standard cost-reduction program?,(button/no href),faq__trigger
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,We have already moved to the cloud. Why are our costs still growing?,(button/no href),faq__trigger
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,How quickly can we expect to see measurable cost reduction?,(button/no href),faq__trigger
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,Will consolidating our platforms disrupt our current delivery programs?,(button/no href),faq__trigger
+our-focus/cost-and-efficiency/index.html,/our-focus/cost-and-efficiency,"How do you handle multi-cloud environments where spend is spread across AWS, Azure, and Google Cloud?",(button/no href),faq__trigger
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Explore Further →,#,solution-link
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Explore Further →,#,solution-link
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Explore Further →,#,solution-link
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Get Started,#consultation,em-cta
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Assess Your Control Environment,(button/no href),btn-ghost
+our-focus/digital-experience/index.html,/our-focus/digital-experience,Schedule a Conversation,(button/no href),btn-white
+our-focus/digital-experience/index.html,/our-focus/digital-experience,How is Celsior's approach different from a digital agency or a pure UX consultancy?,(button/no href),faq__trigger
+our-focus/digital-experience/index.html,/our-focus/digital-experience,We have significant legacy infrastructure. Can Celsior improve our customer experience without a full re-platform?,(button/no href),faq__trigger
+our-focus/digital-experience/index.html,/our-focus/digital-experience,How do you approach omnichannel delivery when our channels are owned by different internal teams?,(button/no href),faq__trigger
+our-focus/digital-experience/index.html,/our-focus/digital-experience,"What does ""do-it-together"" mean for digital product engagements?",(button/no href),faq__trigger
+our-focus/digital-experience/index.html,/our-focus/digital-experience,How quickly can we expect to see measurable improvement in customer experience outcomes?,(button/no href),faq__trigger
+our-focus/index.html,/our-focus,Explore Modernization →,#,solution-link
+our-focus/index.html,/our-focus,Explore Cloud Engineering →,#,solution-link
+our-focus/index.html,/our-focus,Learn About Teams-as-a-Service →,#,solution-link
+our-focus/index.html,/our-focus,Get Started,#consultation,em-cta
+our-focus/index.html,/our-focus,Start the conversation,#contact,cta-btn cta-band-btn
+our-focus/index.html,/our-focus,Explore Our Approach,(button/no href),btn-ghost
+our-focus/index.html,/our-focus,Schedule Consultation →,(button/no href),btn-white
+our-focus/index.html,/our-focus,How is AI-first engineering different from traditional modernization consulting?,(button/no href),faq__trigger
+our-focus/index.html,/our-focus,What happens to our institutional knowledge during modernization?,(button/no href),faq__trigger
+our-focus/index.html,/our-focus,Can you modernize systems while they're still running production workloads?,(button/no href),faq__trigger
+our-focus/index.html,/our-focus,"How do you ensure cloud transformation doesn't just move our cost problem to a
+              different platform?",(button/no href),faq__trigger
+our-focus/index.html,/our-focus,What level of access do you need to our existing systems?,(button/no href),faq__trigger
+our-focus/index.html,/our-focus,How long until we see measurable results?,(button/no href),faq__trigger
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Explore Further →,#,solution-link
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Explore Further →,#,solution-link
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Explore Further →,#,solution-link
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Get Started,#consultation,em-cta
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Assess Your Control Environment,(button/no href),btn-ghost
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Schedule a Conversation,(button/no href),btn-white
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,How is Celsior's approach different from what a Big 4 audit firm provides?,(button/no href),faq__trigger
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,"How do you handle multiple regulatory frameworks simultaneously including DORA, SOX, Basel, HIPAA, and others?",(button/no href),faq__trigger
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,Does modernizing our technology create new compliance risk during the transition?,(button/no href),faq__trigger
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,How quickly can Celsior establish audit-ready controls in a legacy environment?,(button/no href),faq__trigger
+our-focus/risk-and-compliance/index.html,/our-focus/risk-and-compliance,"What does it mean in practice to ""engineer compliance into the architecture""?",(button/no href),faq__trigger
+partner-ecosystem.html,/partner-ecosystem,Explore Guidewire Practice,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Explore Jack Henry Practice,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Explore ServiceNow Practice,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Contact Us About Dynatrace,#,acc-readmore
+partner-ecosystem.html,/partner-ecosystem,Talk to a Practice Lead,#contact,cta-band-btn-primary cta-band-btn
+partner-ecosystem.html,/partner-ecosystem,Explore Individual Partner Pages,#,cta-band-btn-outline
+partner-ecosystem.html,/partner-ecosystem,Explore Our Partner Practices,(button/no href),btn-ghost
+partner-ecosystem.html,/partner-ecosystem,Talk to a Practice Lead,(button/no href),btn-white
+partner-ecosystem.html,/partner-ecosystem,,(button/no href),pr-arrow
+partner-ecosystem.html,/partner-ecosystem,,(button/no href),pr-arrow
+partner-ecosystem.html,/partner-ecosystem,,(button/no href),pr-arrow
+partner-ecosystem.html,/partner-ecosystem,,(button/no href),pr-arrow
+partner-ecosystem.html,/partner-ecosystem,What does it mean for Celsior to be a Guidewire Technical Partner?,(button/no href),faq__trigger
+partner-ecosystem.html,/partner-ecosystem,How is Celsior's Jack Henry engagement different from a standard system integrator relationship?,(button/no href),faq__trigger
+partner-ecosystem.html,/partner-ecosystem,What industries does the Partner Ecosystem practice serve?,(button/no href),faq__trigger
+partner-ecosystem.html,/partner-ecosystem,"Does Celsior offer managed operations, or only implementation?",(button/no href),faq__trigger
+partner-ecosystem.html,/partner-ecosystem,Can Celsior work alongside an existing system integrator already on a platform program?,(button/no href),faq__trigger
+partner-ecosystem.html,/partner-ecosystem,How do we begin a conversation about a specific partner practice?,(button/no href),faq__trigger
+partners/guidewire/index.html,/partners/guidewire,Download Case Study,#,jh-acc-cta
+partners/guidewire/index.html,/partners/guidewire,Download Case Study,#,jh-acc-cta
+partners/guidewire/index.html,/partners/guidewire,Download Case Study,#,jh-acc-cta
+partners/guidewire/index.html,/partners/guidewire,Explore Guidewire Practice,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Explore Jack Henry Practice,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Explore ServiceNow Practice,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Contact Us About Dynatrace,#,acc-readmore
+partners/guidewire/index.html,/partners/guidewire,Book Your Free Consultation,#contact,cta-band-btn-primary cta-band-btn
+partners/guidewire/index.html,/partners/guidewire,BOOK A FREE CONSULTATION,(button/no href),btn-white
+partners/guidewire/index.html,/partners/guidewire,,(button/no href),pr-arrow
+partners/guidewire/index.html,/partners/guidewire,,(button/no href),pr-arrow
+partners/guidewire/index.html,/partners/guidewire,What makes Celsior different from a standard Guidewire implementation partner?,(button/no href),faq__trigger
+partners/guidewire/index.html,/partners/guidewire,Which Guidewire products and programs does Celsior work across?,(button/no href),faq__trigger
+partners/guidewire/index.html,/partners/guidewire,Can Celsior help us integrate third-party tools with our Guidewire environment?,(button/no href),faq__trigger
+partners/guidewire/index.html,/partners/guidewire,Do you support cloud upgrades and version migrations for Guidewire programs?,(button/no href),faq__trigger
+partners/guidewire/index.html,/partners/guidewire,What happens during the free Guidewire Program Audit?,(button/no href),faq__trigger
+partners/index.html,/partners,Explore Guidewire Practice,#,acc-readmore
+partners/index.html,/partners,Explore Jack Henry Practice,#,acc-readmore
+partners/index.html,/partners,Explore ServiceNow Practice,#,acc-readmore
+partners/index.html,/partners,Contact Us About Dynatrace,#,acc-readmore
+partners/index.html,/partners,Talk to a Practice Lead,#contact,cta-band-btn-primary cta-band-btn
+partners/index.html,/partners,Explore Individual Partner Pages,#,cta-band-btn-outline
+partners/index.html,/partners,Explore Our Partner Practices,(button/no href),btn-ghost
+partners/index.html,/partners,Talk to a Practice Lead,(button/no href),btn-white
+partners/index.html,/partners,,(button/no href),pr-arrow
+partners/index.html,/partners,,(button/no href),pr-arrow
+partners/index.html,/partners,,(button/no href),pr-arrow
+partners/index.html,/partners,,(button/no href),pr-arrow
+partners/index.html,/partners,What does it mean for Celsior to be a Guidewire Technical Partner?,(button/no href),faq__trigger
+partners/index.html,/partners,How is Celsior's Jack Henry engagement different from a standard system integrator relationship?,(button/no href),faq__trigger
+partners/index.html,/partners,What industries does the Partner Ecosystem practice serve?,(button/no href),faq__trigger
+partners/index.html,/partners,"Does Celsior offer managed operations, or only implementation?",(button/no href),faq__trigger
+partners/index.html,/partners,Can Celsior work alongside an existing system integrator already on a platform program?,(button/no href),faq__trigger
+partners/index.html,/partners,How do we begin a conversation about a specific partner practice?,(button/no href),faq__trigger
+partners/jack-henry/index.html,/partners/jack-henry,Download Case Study,#,jh-acc-cta
+partners/jack-henry/index.html,/partners/jack-henry,Download Case Study,#,jh-acc-cta
+partners/jack-henry/index.html,/partners/jack-henry,Explore Guidewire Practice,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Explore Jack Henry Practice,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Explore ServiceNow Practice,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Contact Us About Dynatrace,#,acc-readmore
+partners/jack-henry/index.html,/partners/jack-henry,Book Your Free Consultation,#contact,cta-band-btn-primary cta-band-btn
+partners/jack-henry/index.html,/partners/jack-henry,BOOK A FREE CONSULTATION,(button/no href),btn-white
+partners/jack-henry/index.html,/partners/jack-henry,,(button/no href),pr-arrow
+partners/jack-henry/index.html,/partners/jack-henry,,(button/no href),pr-arrow
+partners/jack-henry/index.html,/partners/jack-henry,What makes Celsior different from a standard Jack Henry implementation partner?,(button/no href),faq__trigger
+partners/jack-henry/index.html,/partners/jack-henry,Which Jack Henry platforms and divisions does Celsior work across?,(button/no href),faq__trigger
+partners/jack-henry/index.html,/partners/jack-henry,Can Celsior help us connect third-party fintech tools to our Jack Henry core?,(button/no href),faq__trigger
+partners/jack-henry/index.html,/partners/jack-henry,Do you support cloud data migrations for Jack Henry institutions?,(button/no href),faq__trigger
+partners/jack-henry/index.html,/partners/jack-henry,What happens during the free Integration Audit?,(button/no href),faq__trigger
+partners/servicenow/index.html,/partners/servicenow,Download Case Study,#,jh-acc-cta
+partners/servicenow/index.html,/partners/servicenow,Download Case Study,#,jh-acc-cta
+partners/servicenow/index.html,/partners/servicenow,Explore Guidewire Practice,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Explore Jack Henry Practice,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Explore ServiceNow Practice,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Contact Us About Dynatrace,#,acc-readmore
+partners/servicenow/index.html,/partners/servicenow,Book Your Platform Assessment,#contact,cta-band-btn-primary cta-band-btn
+partners/servicenow/index.html,/partners/servicenow,BOOK A FREE CONSULTATION,(button/no href),btn-white
+partners/servicenow/index.html,/partners/servicenow,,(button/no href),pr-arrow
+partners/servicenow/index.html,/partners/servicenow,,(button/no href),pr-arrow
+partners/servicenow/index.html,/partners/servicenow,What makes Celsior different from a standard ServiceNow implementation partner?,(button/no href),faq__trigger
+partners/servicenow/index.html,/partners/servicenow,Which ServiceNow modules and product areas does Celsior work across?,(button/no href),faq__trigger
+partners/servicenow/index.html,/partners/servicenow,Can Celsior support our platform operations after the initial implementation?,(button/no href),faq__trigger
+partners/servicenow/index.html,/partners/servicenow,How does Celsior handle ServiceNow upgrades for organizations with significant customization?,(button/no href),faq__trigger
+partners/servicenow/index.html,/partners/servicenow,What happens during the free Platform Health Check?,(button/no href),faq__trigger
+risk-compliance.html,/risk-compliance,Explore Further →,#,solution-link
+risk-compliance.html,/risk-compliance,Explore Further →,#,solution-link
+risk-compliance.html,/risk-compliance,Explore Further →,#,solution-link
+risk-compliance.html,/risk-compliance,Get Started,#consultation,em-cta
+risk-compliance.html,/risk-compliance,Speak with Our R&C Practice →,#contact,cta-btn cta-band-btn
+risk-compliance.html,/risk-compliance,Assess Your Control Environment →,#assessment,cta-btn cta-band-btn-white
+risk-compliance.html,/risk-compliance,Assess Your Control Environment,(button/no href),btn-ghost
+risk-compliance.html,/risk-compliance,Schedule a Conversation,(button/no href),btn-white
+risk-compliance.html,/risk-compliance,How is Celsior's approach different from what a Big 4 audit firm provides?,(button/no href),faq__trigger
+risk-compliance.html,/risk-compliance,"How do you handle multiple regulatory frameworks simultaneously including DORA, SOX, Basel, HIPAA, and others?",(button/no href),faq__trigger
+risk-compliance.html,/risk-compliance,Does modernizing our technology create new compliance risk during the transition?,(button/no href),faq__trigger
+risk-compliance.html,/risk-compliance,How quickly can Celsior establish audit-ready controls in a legacy environment?,(button/no href),faq__trigger
+risk-compliance.html,/risk-compliance,"What does it mean in practice to ""engineer compliance into the architecture""?",(button/no href),faq__trigger
+security-governance.html,/security-governance,Request a Governance Assessment,#contact,cta-btn cta-band-btn
+security-governance.html,/security-governance,Explore Our Frameworks,#assessment,cta-btn cta-band-btn-white
+security-governance.html,/security-governance,Build Governance That Scales  →,(button/no href),btn-ghost
+security-governance.html,/security-governance,,(button/no href),ch-arr
+security-governance.html,/security-governance,,(button/no href),ch-arr
+security-governance.html,/security-governance,How do you build governance into AI systems without slowing down deployment?,(button/no href),faq__trigger
+security-governance.html,/security-governance,What makes your explainable AI different from standard machine learning implementations?,(button/no href),faq__trigger
+security-governance.html,/security-governance,Can you add governance to AI systems already running in production?,(button/no href),faq__trigger
+security-governance.html,/security-governance,How quickly can we deploy AI with full regulatory compliance?,(button/no href),faq__trigger
+security-governance.html,/security-governance,What happens when AI models drift or regulations change?,(button/no href),faq__trigger
+security-governance.html,/security-governance,Do you provide ongoing governance management for AI and data systems?,(button/no href),faq__trigger
+security-governance.html,/security-governance,View case study,(button/no href),c-cta
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Explore Our Upskilling Programs,(button/no href),btn-ghost
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Schedule a Discovery Call,(button/no href),btn-white
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Productivity Loss,(button/no href),gacc-btn
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Role Readiness,(button/no href),gacc-btn
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Adoption Risk,(button/no href),gacc-btn
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Governance Gaps,(button/no href),gacc-btn
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,How quickly can you deploy a program across a large enterprise?,(button/no href),faq__trigger
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,Do you train on our internal tools and proprietary systems?,(button/no href),faq__trigger
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,How do you handle employees who resist adopting new ways of working?,(button/no href),faq__trigger
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,What governance does the program include?,(button/no href),faq__trigger
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,How do you price a program of this scale?,(button/no href),faq__trigger
+solutions/ai-upskilling/index.html,/solutions/ai-upskilling,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Explore our delivery models,(button/no href),btn-ghost
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Talk to our nearshore team,(button/no href),btn-white
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Talent Access,(button/no href),gacc-btn
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Cost Efficiency,(button/no href),gacc-btn
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Time Zone Alignment,(button/no href),gacc-btn
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,Delivery Governance,(button/no href),gacc-btn
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,What is the difference between a GCC and a standard nearshore team?,(button/no href),faq__trigger
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+solutions/gcc-and-nearshore/index.html,/solutions/gcc-and-nearshore,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+solutions/index.html,/solutions,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/index.html,/solutions,Explore our managed programs,(button/no href),btn-ghost
+solutions/index.html,/solutions,Book a Discovery Call,(button/no href),btn-white
+solutions/index.html,/solutions,"Platform
+              Stability",(button/no href),gacc-btn
+solutions/index.html,/solutions,"Security
+              & Compliance",(button/no href),gacc-btn
+solutions/index.html,/solutions,Cost Optimization,(button/no href),gacc-btn
+solutions/index.html,/solutions,"Upgrade
+              Governance",(button/no href),gacc-btn
+solutions/index.html,/solutions,"What's the difference between a Managed Program and a traditional support
+              contract?",(button/no href),faq__trigger
+solutions/index.html,/solutions,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+solutions/index.html,/solutions,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+solutions/index.html,/solutions,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+solutions/index.html,/solutions,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+solutions/index.html,/solutions,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+solutions/managed-programs/index.html,/solutions/managed-programs,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/managed-programs/index.html,/solutions/managed-programs,Explore our managed programs,(button/no href),btn-ghost
+solutions/managed-programs/index.html,/solutions/managed-programs,Book a Discovery Call,(button/no href),btn-white
+solutions/managed-programs/index.html,/solutions/managed-programs,"Platform
+              Stability",(button/no href),gacc-btn
+solutions/managed-programs/index.html,/solutions/managed-programs,"Security
+              & Compliance",(button/no href),gacc-btn
+solutions/managed-programs/index.html,/solutions/managed-programs,Cost Optimization,(button/no href),gacc-btn
+solutions/managed-programs/index.html,/solutions/managed-programs,"Upgrade
+              Governance",(button/no href),gacc-btn
+solutions/managed-programs/index.html,/solutions/managed-programs,"What's the difference between a Managed Program and a traditional support
+              contract?",(button/no href),faq__trigger
+solutions/managed-programs/index.html,/solutions/managed-programs,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+solutions/managed-programs/index.html,/solutions/managed-programs,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+solutions/managed-programs/index.html,/solutions/managed-programs,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+solutions/managed-programs/index.html,/solutions/managed-programs,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+solutions/managed-programs/index.html,/solutions/managed-programs,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Start the conversation,#contact,cta-btn cta-band-btn
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Explore our managed programs,(button/no href),btn-ghost
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Book a Discovery Call,(button/no href),btn-white
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"Platform
+              Stability",(button/no href),gacc-btn
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"Security
+              & Compliance",(button/no href),gacc-btn
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,Cost Optimization,(button/no href),gacc-btn
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"Upgrade
+              Governance",(button/no href),gacc-btn
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"What's the difference between a Managed Program and a traditional support
+              contract?",(button/no href),faq__trigger
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+solutions/teams-as-a-service/index.html,/solutions/teams-as-a-service,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Start a conversation about your architecture →,#contact,cta-btn cta-band-btn
+solutions/technology-consulting/index.html,/solutions/technology-consulting,See our approach,(button/no href),btn-ghost
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Explore our work,(button/no href),btn-white
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Architecture Debt,(button/no href),gacc-btn
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Integration Complexity,(button/no href),gacc-btn
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Regulatory Exposure,(button/no href),gacc-btn
+solutions/technology-consulting/index.html,/solutions/technology-consulting,Talent Retention,(button/no href),gacc-btn
+solutions/technology-consulting/index.html,/solutions/technology-consulting,How do you balance modernization work with ongoing business operations?,(button/no href),faq__trigger
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+solutions/technology-consulting/index.html,/solutions/technology-consulting,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+solutions/technology-consulting/index.html,/solutions/technology-consulting,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+success-stories/index.html,/success-stories,Talk to us,index.html#contact,btn-p
+success-stories/index.html,/success-stories,Back to Home,index.html,btn-g
+success-stories/index.html,/success-stories,Get in touch,index.html#contact,btn-p
+teams-as-a-service.html,/teams-as-a-service,Start the conversation,#contact,cta-btn cta-band-btn
+teams-as-a-service.html,/teams-as-a-service,Explore our managed programs,(button/no href),btn-ghost
+teams-as-a-service.html,/teams-as-a-service,Book a Discovery Call,(button/no href),btn-white
+teams-as-a-service.html,/teams-as-a-service,"Platform
+              Stability",(button/no href),gacc-btn
+teams-as-a-service.html,/teams-as-a-service,"Security
+              & Compliance",(button/no href),gacc-btn
+teams-as-a-service.html,/teams-as-a-service,Cost Optimization,(button/no href),gacc-btn
+teams-as-a-service.html,/teams-as-a-service,"Upgrade
+              Governance",(button/no href),gacc-btn
+teams-as-a-service.html,/teams-as-a-service,"What's the difference between a Managed Program and a traditional support
+              contract?",(button/no href),faq__trigger
+teams-as-a-service.html,/teams-as-a-service,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+teams-as-a-service.html,/teams-as-a-service,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+teams-as-a-service.html,/teams-as-a-service,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+teams-as-a-service.html,/teams-as-a-service,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+teams-as-a-service.html,/teams-as-a-service,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+technology-consulting.html,/technology-consulting,Start a conversation about your architecture →,#contact,cta-btn cta-band-btn
+technology-consulting.html,/technology-consulting,See our approach,(button/no href),btn-ghost
+technology-consulting.html,/technology-consulting,Explore our work,(button/no href),btn-white
+technology-consulting.html,/technology-consulting,Architecture Debt,(button/no href),gacc-btn
+technology-consulting.html,/technology-consulting,Integration Complexity,(button/no href),gacc-btn
+technology-consulting.html,/technology-consulting,Regulatory Exposure,(button/no href),gacc-btn
+technology-consulting.html,/technology-consulting,Talent Retention,(button/no href),gacc-btn
+technology-consulting.html,/technology-consulting,How do you balance modernization work with ongoing business operations?,(button/no href),faq__trigger
+technology-consulting.html,/technology-consulting,"How do you structure operational accountability — and what does an SLA actually
+              cover?",(button/no href),faq__trigger
+technology-consulting.html,/technology-consulting,"Do you manage the platform alongside our internal team, or do you replace that function
+              entirely?",(button/no href),faq__trigger
+technology-consulting.html,/technology-consulting,"How do you handle platform upgrades without disrupting our production
+              environment?",(button/no href),faq__trigger
+technology-consulting.html,/technology-consulting,What happens if our platform requirements change mid-program?,(button/no href),faq__trigger
+technology-consulting.html,/technology-consulting,"How does a Managed Program begin — and how long before we see operational
+              stability?",(button/no href),faq__trigger
+what-we-solve.html,/what-we-solve,Start AI Readiness Assessment,#sec-assess,btn btn-dk
+what-we-solve.html,/what-we-solve,See Why AI Stalls,#sec-challenge,btn btn-ow
+what-we-solve.html,/what-we-solve,Explore,#,br-arrow
+what-we-solve.html,/what-we-solve,Explore,#,br-arrow
+what-we-solve.html,/what-we-solve,Explore,#,br-arrow
+what-we-solve.html,/what-we-solve,Request AI Readiness Assessment,(button/no href),btn btn-dk
+what-we-solve.html,/what-we-solve,Download the AI Readiness Framework,(button/no href),btn btn-ow
