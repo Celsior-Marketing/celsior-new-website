@@ -423,3 +423,28 @@ Refer to `docs/pending-pages.md` for URLs that may currently be pending develope
 - `audits/backend-readiness/scripts.csv`
 - `audits/backend-readiness/issues.csv`
 
+
+
+## Analytics, Search Console, Robots and Sitemap - Current Finding
+
+Current repo scan result:
+
+- GA/GTM tracking snippets are not currently present in the static site files.
+- Google Search Console verification tag/file is not currently present.
+- `robots.txt` is not currently present.
+- `sitemap.xml` is not currently present.
+
+Decision needed before implementation:
+
+- Confirm GA4 Measurement ID.
+- Confirm whether GTM is used and provide GTM Container ID.
+- Confirm Google Search Console verification method.
+- Confirm whether `dev.celsiortech.us` should be tracked or excluded.
+- Confirm final production domain before sitemap and robots rules are finalized.
+
+Recommendation:
+
+- Avoid adding production analytics blindly to the dev domain.
+- Prefer site-wide GA/GTM injection through `shared.js` once IDs and tracking strategy are confirmed.
+- Add `robots.txt` and `sitemap.xml` only after final URL structure and production domain are confirmed.
+
