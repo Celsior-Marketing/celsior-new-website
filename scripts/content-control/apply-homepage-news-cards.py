@@ -67,11 +67,20 @@ def replace_titles(block, new_titles):
 
     def repl(match):
         nonlocal idx
-        new_text = html.escape(new_titles[idx], quote=False)
+        original_inner_html = match.group(1)
+        current_text = html.unescape(original_inner_html).strip()
+        proposed_text = new_titles[idx]
         idx += 1
+
+        # Preserve original HTML exactly when text is unchanged.
+        # This avoids converting entities like &mdash; and &rsquo; unnecessarily.
+        if current_text == proposed_text:
+            return match.group(0)
+
+        new_text = html.escape(proposed_text, quote=False)
         return f'<h3 class="sc-news-title">{new_text}</h3>'
 
-    return re.sub(r'<h3 class="sc-news-title">.*?</h3>', repl, block, flags=re.S)
+    return re.sub(r'<h3 class="sc-news-title">(.*?)</h3>', repl, block, flags=re.S)
 
 
 def update_changelog(export_path, changes, old_titles, new_titles, approved_by):
@@ -166,7 +175,7 @@ def main():
 
     INDEX.write_text(new_index, encoding="utf-8")
     update_changelog(
-        export_path.relative_to(ROOT),
+        export_path if not str(export_path).startswith(str(ROOT)) else export_path.relative_to(ROOT),
         data["changes"],
         old_titles,
         new_titles,
