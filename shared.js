@@ -239,6 +239,16 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 .feat-card-title{font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.35;}
 .feat-card-desc{font-size:.73rem;color:var(--muted);line-height:1.55;}
 .partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:16px;}
+/* Partner logo cards */
+.partner-logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;}
+.partner-logo-card{display:flex;align-items:center;justify-content:center;padding:10px 14px;background:#fff;border:1px solid rgba(13,17,39,.10);border-radius:8px;min-height:54px;text-decoration:none;transition:border-color .18s,box-shadow .18s,transform .18s;overflow:hidden;}
+.partner-logo-card:hover{border-color:rgba(34,84,244,.30);box-shadow:0 4px 18px rgba(34,84,244,.10);transform:translateY(-1px);}
+.partner-logo-img{max-height:26px;max-width:100%;width:auto;height:auto;object-fit:contain;display:block;transition:opacity .15s;}
+.drawer-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:8px;padding-bottom:4px;}
+.drawer-partner-card{display:flex;align-items:center;justify-content:center;padding:10px 8px;background:rgba(13,17,39,.04);border:1px solid rgba(13,17,39,.09);border-radius:8px;min-height:46px;text-decoration:none;transition:background .15s,border-color .15s;overflow:hidden;}
+.drawer-partner-card:hover{background:rgba(34,84,244,.07);border-color:rgba(34,84,244,.22);}
+.drawer-partner-logo{max-height:22px;max-width:100%;width:auto;height:auto;object-fit:contain;display:block;}
+
 .partner-pill{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:6px;border:1px solid var(--border);font-size:.75rem;font-weight:600;color:var(--ink-mid);background:rgba(255,255,255,.72);cursor:pointer;transition:border-color .15s,color .15s,box-shadow .15s;}
 .partner-pill:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 12px rgba(34,84,244,.1);}
 .p-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
@@ -486,10 +496,38 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
       <div class="drawer-sub" id="d-part">
 
         <div class="drawer-sub-group">
-          <a href="/partners">Partners</a>                           /* ← LINK */
-          <a href="/partners/guidewire">Guidewire</a>                 /* ← LINK */
-          <a href="/partners/jack-henry">Jack Henry</a>               /* ← LINK */
-          <a href="/partners/servicenow">ServiceNow</a>               /* ← LINK */
+
+          <!-- Partner logos — 2×2 responsive grid -->
+          <div class="drawer-partner-grid">
+
+            <a href="/partners/jack-henry" class="drawer-partner-card" title="Jack Henry">
+              <img class="drawer-partner-logo"
+                   src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png"
+                   alt="Jack Henry" loading="lazy" />
+            </a>
+
+            <a href="/partners/servicenow" class="drawer-partner-card" title="ServiceNow">
+              <img class="drawer-partner-logo"
+                   src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png"
+                   alt="ServiceNow" loading="lazy" />
+            </a>
+
+            <a href="/partners/guidewire" class="drawer-partner-card" title="Guidewire">
+              <img class="drawer-partner-logo"
+                   src="https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png"
+                   alt="Guidewire" loading="lazy" />
+            </a>
+
+            <a href="/partners" class="drawer-partner-card" title="Dynatrace">
+              <img class="drawer-partner-logo"
+                   src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png"
+                   alt="Dynatrace" loading="lazy" />
+            </a>
+
+          </div>
+
+          <a href="/partners" style="margin-top:10px;display:block;font-size:.78rem;color:var(--accent);font-weight:600;">View all partners →</a>
+
         </div>
 
       </div>
@@ -767,16 +805,33 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
             <li><a href="/partners/servicenow">ServiceNow</a></li>              <!-- ← LINK -->
           </ul>
         </div>
-        <div class="partner-grid">
-          <a class="partner-pill" href="/partners/servicenow"><span class="p-dot"></span>ServiceNow</a>
-          <a class="partner-pill" href="/partners/guidewire"><span class="p-dot"></span>Guidewire</a>
-          <a class="partner-pill" href="/partners/jack-henry"><span class="p-dot"></span>Jack Henry</a>
-          <span class="partner-pill"><span class="p-dot"></span>AWS</span>
-          <span class="partner-pill"><span class="p-dot"></span>Azure</span>
-          <span class="partner-pill"><span class="p-dot"></span>Google Cloud</span>
-          <span class="partner-pill"><span class="p-dot"></span>Snowflake</span>
-          <span class="partner-pill"><span class="p-dot"></span>Dynatrace</span>
-          <span class="partner-pill"><span class="p-dot"></span>UiPath</span>
+        <!-- Partner logo grid -->
+        <div class="partner-logo-grid">
+
+          <a href="/partners/jack-henry" class="partner-logo-card" title="Jack Henry">
+            <img class="partner-logo-img"
+                 src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png"
+                 alt="Jack Henry" loading="lazy" />
+          </a>
+
+          <a href="/partners/servicenow" class="partner-logo-card" title="ServiceNow">
+            <img class="partner-logo-img"
+                 src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png"
+                 alt="ServiceNow" loading="lazy" />
+          </a>
+
+          <a href="/partners/guidewire" class="partner-logo-card" title="Guidewire">
+            <img class="partner-logo-img"
+                 src="https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png"
+                 alt="Guidewire" loading="lazy" />
+          </a>
+
+          <a href="/partners" class="partner-logo-card" title="Dynatrace">
+            <img class="partner-logo-img"
+                 src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png"
+                 alt="Dynatrace" loading="lazy" />
+          </a>
+
         </div>
       </div>
 
