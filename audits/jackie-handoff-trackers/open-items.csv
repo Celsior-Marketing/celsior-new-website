@@ -1,0 +1,9 @@
+Category,Open Item,Owner,Priority,Status,Notes
+Analytics,Confirm GA4 Measurement ID and whether to use existing old-site property or separate dev/prod setup.,,High,Open,
+Search Console,Confirm if existing property covers dev/prod domain and what verification method is used.,,High,Open,
+Forms,No native forms found in audit; confirm HubSpot forms/modal behavior and final form IDs.,,High,Open,
+SEO,Several pages missing meta descriptions or using generic titles; needs page-by-page cleanup.,,High,Open,
+Accessibility,Raw audit found many missing alt text instances; needs prioritization for meaningful images only.,,High,Open,
+Legal,"Privacy, Terms, Cookie Policy, Accessibility Statement and CCPA mechanism need confirmation.",,High,Open,
+Sitemap/robots,Need sitemap.xml and robots.txt strategy for dev vs production.,,High,Open,
+Pending pages,Some 404s may be expected until developer delivers remaining pages.,,High,Open,
