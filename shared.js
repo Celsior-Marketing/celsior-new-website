@@ -462,7 +462,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Products</div>
-          <a href="/synthetix">Synthetix</a>                              /* ← LINK */
+          <a href="/frameworks-accelerators/synthetix">Synthetix</a>                              /* ← LINK */
           <a href="/celsior-ai-lab">Celsior AI Lab</a>                         /* ← LINK */
           <a href="/design-lab">Design Lab</a>                             /* ← LINK */
         </div>
@@ -483,8 +483,8 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
         <div class="drawer-sub-group">
           <a href="/banking-financial-services">Banking &amp; Financial Services</a>          /* ← LINK */
-          <a href="/insurance">Insurance</a>                                 /* ← LINK */
-          <a href="/healthcare">Healthcare</a>                                /* ← LINK */
+          <a href="/industries/insurance">Insurance</a>                                 /* ← LINK */
+          <a href="/industries/healthcare">Healthcare</a>                                /* ← LINK */
         </div>
 
       </div>
@@ -719,7 +719,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head">Products</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/synthetix">Synthetix</a></li>                              <!-- ← LINK -->
+            <li><a href="/frameworks-accelerators/synthetix">Synthetix</a></li>                              <!-- ← LINK -->
             <li><a href="/celsior-ai-lab">Celsior AI Lab</a></li>                         <!-- ← LINK -->
             <li><a href="/design-lab">Design Lab</a></li>                             <!-- ← LINK -->
           </ul>
@@ -765,8 +765,8 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-group">
           <ul class="mega-links">
             <li><a href="/banking-financial-services">Banking &amp; Financial Services</a></li>          <!-- ← LINK -->
-            <li><a href="/insurance">Insurance</a></li>                                 <!-- ← LINK -->
-            <li><a href="/healthcare">Healthcare</a></li>                                <!-- ← LINK -->
+            <li><a href="/industries/insurance">Insurance</a></li>                                 <!-- ← LINK -->
+            <li><a href="/industries/healthcare">Healthcare</a></li>                                <!-- ← LINK -->
           </ul>
         </div>
       </div>
