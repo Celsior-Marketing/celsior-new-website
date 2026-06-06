@@ -37,6 +37,15 @@ echo "---- POSSIBLE LEGACY FLAT HTML FILES ----"
 find . -maxdepth 1 -name "*.html" -not -name "index.html" | sed 's#^./##' | sort
 
 echo ""
+echo "---- PENDING PAGES NOTE ----"
+if [[ -f "docs/pending-pages.md" ]]; then
+  echo "Some missing URLs may be expected pending developer pages."
+  echo "Review docs/pending-pages.md before treating 404s as cleanup issues."
+else
+  echo "No pending pages tracker found."
+fi
+
+echo ""
 echo "---- VERCEL CONFIG ----"
 cat vercel.json
 
