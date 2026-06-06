@@ -41,6 +41,66 @@
       "approved_by": "Sample Approver",
       "approval_date": "2026-06-06",
       "notes": "Sample export row. No website change intended."
+    },
+    {
+      "item_id": "news_004",
+      "current_text": "Recognized as 'Challenger' in Avasant’s GCC Services 2025 Report",
+      "proposed_text": "Recognized as 'Challenger' in Avasant’s GCC Services 2025 Report",
+      "link_url": "",
+      "display_order": 4,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
+    },
+    {
+      "item_id": "news_005",
+      "current_text": "Celsior Launches AI-First Digital Engineering Accelerator",
+      "proposed_text": "Celsior Launches AI-First Digital Engineering Accelerator",
+      "link_url": "",
+      "display_order": 5,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
+    },
+    {
+      "item_id": "news_006",
+      "current_text": "Asia Inc. 500 Excellence in Digital Assurance",
+      "proposed_text": "Asia Inc. 500 Excellence in Digital Assurance",
+      "link_url": "",
+      "display_order": 6,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
+    },
+    {
+      "item_id": "news_007",
+      "current_text": "Atlanta Technology Professionals — Top Technology Service Provider",
+      "proposed_text": "Atlanta Technology Professionals — Top Technology Service Provider",
+      "link_url": "",
+      "display_order": 7,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
+    },
+    {
+      "item_id": "news_008",
+      "current_text": "TAG — Inclusion Technology Leadership Award",
+      "proposed_text": "TAG — Inclusion Technology Leadership Award",
+      "link_url": "",
+      "display_order": 8,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
     }
   ]
 }
