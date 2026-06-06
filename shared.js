@@ -487,6 +487,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
         <div class="drawer-sub-group">
           <a href="/partners">Partners</a>                           /* ← LINK */
+          <a href="/partners/guidewire">Guidewire</a>                 /* ← LINK */
+          <a href="/partners/jack-henry">Jack Henry</a>               /* ← LINK */
+          <a href="/partners/servicenow">ServiceNow</a>               /* ← LINK */
         </div>
 
       </div>
@@ -759,11 +762,15 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-group">
           <ul class="mega-links">
             <li><a href="/partners">Partners</a></li>                           <!-- ← LINK -->
+            <li><a href="/partners/guidewire">Guidewire</a></li>                <!-- ← LINK -->
+            <li><a href="/partners/jack-henry">Jack Henry</a></li>              <!-- ← LINK -->
+            <li><a href="/partners/servicenow">ServiceNow</a></li>              <!-- ← LINK -->
           </ul>
         </div>
         <div class="partner-grid">
-          <span class="partner-pill"><span class="p-dot"></span>ServiceNow</span>
-          <span class="partner-pill"><span class="p-dot"></span>Guidewire</span>
+          <a class="partner-pill" href="/partners/servicenow"><span class="p-dot"></span>ServiceNow</a>
+          <a class="partner-pill" href="/partners/guidewire"><span class="p-dot"></span>Guidewire</a>
+          <a class="partner-pill" href="/partners/jack-henry"><span class="p-dot"></span>Jack Henry</a>
           <span class="partner-pill"><span class="p-dot"></span>AWS</span>
           <span class="partner-pill"><span class="p-dot"></span>Azure</span>
           <span class="partner-pill"><span class="p-dot"></span>Google Cloud</span>
