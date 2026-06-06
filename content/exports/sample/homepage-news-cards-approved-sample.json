@@ -1,0 +1,46 @@
+{
+  "export_version": "1.0",
+  "site": "celsior-static",
+  "exported_at": "2026-06-06",
+  "source": "google-sheet-approved-export",
+  "approved_by": "Sample Approver",
+  "content_area": "homepage_news_cards",
+  "changes": [
+    {
+      "item_id": "news_001",
+      "current_text": "Celsior Joins Jack Henry Fintech Integration Network",
+      "proposed_text": "Celsior Joins Jack Henry Fintech Integration Network",
+      "link_url": "",
+      "display_order": 1,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
+    },
+    {
+      "item_id": "news_002",
+      "current_text": "Celsior Named Among Georgia TITAN 100",
+      "proposed_text": "Celsior Named Among Georgia TITAN 100",
+      "link_url": "",
+      "display_order": 2,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
+    },
+    {
+      "item_id": "news_003",
+      "current_text": "Celsior - Now an Official Guidewire Technology Partner",
+      "proposed_text": "Celsior - Now an Official Guidewire Technology Partner",
+      "link_url": "",
+      "display_order": 3,
+      "active": true,
+      "status": "Approved",
+      "approved_by": "Sample Approver",
+      "approval_date": "2026-06-06",
+      "notes": "Sample export row. No website change intended."
+    }
+  ]
+}
