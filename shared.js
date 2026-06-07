@@ -167,7 +167,6 @@ a{text-decoration:none;color:inherit;}ul{list-style:none;}
 .nav-item.nav-current>.nav-link{color:var(--white) !important;background:rgba(255,255,255,.15) !important;}
 #navbar.scrolled .nav-item.nav-current>.nav-link{color:var(--accent) !important;background:var(--accent-lt) !important;}
 a.nav-link{text-decoration:none;}
-button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 .chevron{width:11px;height:11px;opacity:.5;transition:transform .25s var(--ease-expo),opacity .2s;flex-shrink:0;}
 .nav-item.active>.nav-link .chevron{transform:rotate(180deg);opacity:1;}
 .nav-right{margin-left:auto;display:flex;align-items:center;gap:12px;flex-shrink:0;}
@@ -238,8 +237,6 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 .feat-card:hover{border-color:var(--accent);background:rgba(255,255,255,.95);transform:translateY(-2px);box-shadow:0 6px 24px rgba(34,84,244,.12);}
 .feat-card-title{font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.35;}
 .feat-card-desc{font-size:.73rem;color:var(--muted);line-height:1.55;}
-.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:16px;}
-/* Partner logo cards */
 .partner-logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:14px;}
 .partner-logo-card{display:flex;align-items:center;justify-content:center;padding:10px 14px;background:#fff;border:1px solid rgba(13,17,39,.10);border-radius:8px;min-height:54px;text-decoration:none;transition:border-color .18s,box-shadow .18s,transform .18s;overflow:hidden;}
 .partner-logo-card:hover{border-color:rgba(34,84,244,.30);box-shadow:0 4px 18px rgba(34,84,244,.10);transform:translateY(-1px);}
@@ -248,10 +245,6 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 .drawer-partner-card{display:flex;align-items:center;justify-content:center;padding:10px 8px;background:rgba(13,17,39,.04);border:1px solid rgba(13,17,39,.09);border-radius:8px;min-height:46px;text-decoration:none;transition:background .15s,border-color .15s;overflow:hidden;}
 .drawer-partner-card:hover{background:rgba(34,84,244,.07);border-color:rgba(34,84,244,.22);}
 .drawer-partner-logo{max-height:22px;max-width:100%;width:auto;height:auto;object-fit:contain;display:block;}
-
-.partner-pill{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:6px;border:1px solid var(--border);font-size:.75rem;font-weight:600;color:var(--ink-mid);background:rgba(255,255,255,.72);cursor:pointer;transition:border-color .15s,color .15s,box-shadow .15s;}
-.partner-pill:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 12px rgba(34,84,244,.1);}
-.p-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
 .about-links{display:flex;flex-direction:column;gap:4px;}
 .about-link{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:background .15s;}
 .about-link:hover{background:rgba(255,255,255,.6);}
@@ -364,18 +357,18 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
   const ARROW_SVG = `<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   const navItems = [
-    { key: 'solve',      label: 'Our Focus' },
-    { key: 'how',        label: 'Capabilities' },
-    { key: 'deliver',    label: 'Solutions' },
-    { key: 'ai',         label: 'AI &amp; Innovation' },
-    { key: 'industries', label: 'Industries' },
-    { key: 'partners',   label: 'Partner Ecosystem' },
-    { key: 'about',      label: 'About' },
+    { key: 'solve',      label: 'Our Focus',           href: 'Our_Focus.html'          },
+    { key: 'how',        label: 'Capabilities',         href: 'Capabilities.html'       },
+    { key: 'deliver',    label: 'Solutions',            href: 'Solutions.html'          },
+    { key: 'ai',         label: 'AI &amp; Innovation',  href: 'ai-innovation.html'      },
+    { key: 'industries', label: 'Industries',           href: 'industries.html'         },
+    { key: 'partners',   label: 'Partner Ecosystem',    href: 'partner-ecosystem.html'  },
+    { key: 'about',      label: 'About',                href: 'about.html'              },
   ];
 
   const navLinksHTML = navItems.map(it => `
     <li class="nav-item${activePage === it.key ? ' nav-current' : ''}" data-menu="${it.key}">
-      <button class="nav-link" type="button" aria-haspopup="true" aria-expanded="false">${it.label} ${CHEVRON_SVG}</button>
+      <a class="nav-link" href="${it.href}">${it.label} ${CHEVRON_SVG}</a>
     </li>`).join('');
 
   const drawerDivHTML = `
@@ -383,7 +376,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
     <!-- ═══════════════════════════════════════════════════════════
          MOBILE DRAWER  —  one <a href="..."> per line for easy editing
          Placeholder links point to the parent page.
-         Search for "/* ← LINK */" to jump to any individual URL.
+         Search for LINK markers to jump to any individual URL.
          ═══════════════════════════════════════════════════════════ -->
 
     <!-- ── OUR FOCUS ──────────────────────────────────────────── -->
@@ -393,15 +386,15 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Priorities</div>
-          <a href="/our-focus/ai-first-digital-engineering">AI-First Digital Engineering</a>   /* ← LINK */
-          <a href="/our-focus/ai-adoption">AI Adoption</a>                    /* ← LINK */
-          <a href="/our-focus/risk-and-compliance">Risk &amp; Compliance</a>          /* ← LINK */
+          <a href="Our_Focus.html">AI-First Digital Engineering</a>   <!-- ← LINK -->
+          <a href="Our_Focus.html">AI Adoption</a>                    <!-- ← LINK -->
+          <a href="Our_Focus.html">Risk &amp; Compliance</a>          <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Outcomes</div>
-          <a href="/our-focus/cost-and-efficiency">Cost &amp; Efficiency</a>          /* ← LINK */
-          <a href="/our-focus/digital-experience">Digital Experience</a>             /* ← LINK */
+          <a href="Our_Focus.html">Cost &amp; Efficiency</a>          <!-- ← LINK -->
+          <a href="Our_Focus.html">Digital Experience</a>             <!-- ← LINK -->
         </div>
 
       </div>
@@ -414,15 +407,15 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Engineering</div>
-          <a href="/capabilities/ai-led-engineering">AI Led Engineering</a>                       /* ← LINK */
-          <a href="/capabilities/cloud-and-infrastructure-engineering">Cloud &amp; Infrastructure Engineering</a>  /* ← LINK */
-          <a href="/capabilities/ai-and-data">AI &amp; Data</a>                           /* ← LINK */
+          <a href="Capabilities.html">AI Led Engineering</a>                       <!-- ← LINK -->
+          <a href="Capabilities.html">Cloud &amp; Infrastructure Engineering</a>  <!-- ← LINK -->
+          <a href="Capabilities.html">AI &amp; Data</a>                           <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Operations</div>
-          <a href="/capabilities/digital-operations-and-security">Digital Operations &amp; Security</a>       /* ← LINK */
-          <a href="/capabilities/security-and-governance">Security &amp; Governance</a>               /* ← LINK */
+          <a href="Capabilities.html">Digital Operations &amp; Security</a>       <!-- ← LINK -->
+          <a href="Capabilities.html">Security &amp; Governance</a>               <!-- ← LINK -->
         </div>
 
 
@@ -437,19 +430,20 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Programs</div>
-          <a href="/solutions/managed-programs">Managed Programs</a>                           /* ← LINK */
-          <a href="/solutions/technology-consulting">Technology Consulting</a>                      /* ← LINK */
+          <a href="Solutions.html">Managed Programs</a>                           <!-- ← LINK -->
+          <a href="Solutions.html">Technology Consulting</a>                      <!-- ← LINK -->
+          <a href="/ai-upskilling">AI Upskilling</a>                          <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Global Delivery</div>
-          <a href="/solutions/gcc-and-nearshore">GCC &amp; Nearshore</a>                        /* ← LINK */
+          <a href="Solutions.html">GCC &amp; Nearshore</a>                        <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Talent Models</div>
-          <a href="/solutions/teams-as-a-service">Teams-as-a-Service</a>                         /* ← LINK */
-          <a href="/solutions/ai-upskilling">Hire-Train-Deploy</a>                          /* ← LINK */
+          <a href="Solutions.html">Teams-as-a-Service</a>                         <!-- ← LINK -->
+          <a href="Solutions.html">Hire-Train-Deploy</a>                          <!-- ← LINK -->
         </div>
 
       </div>
@@ -462,15 +456,15 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Products</div>
-          <a href="/frameworks-accelerators/synthetix">Synthetix</a>                              /* ← LINK */
-          <a href="/celsior-ai-lab">Celsior AI Lab</a>                         /* ← LINK */
-          <a href="/design-lab">Design Lab</a>                             /* ← LINK */
+          <a href="/celsior-ai-lab">Synthetix</a>                              <!-- ← LINK -->
+          <a href="/celsior-ai-lab">Celsior AI Lab</a>                         <!-- ← LINK -->
+          <a href="/celsior-ai-lab">Design Lab</a>                             <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Programs</div>
-          <a href="/centers-of-excellence">Centers of Excellence</a>                  /* ← LINK */
-          <a href="/frameworks-accelerators">Frameworks &amp; Accelerators</a>          /* ← LINK */
+          <a href="/celsior-ai-lab">Centers of Excellence</a>                  <!-- ← LINK -->
+          <a href="/celsior-ai-lab">Frameworks &amp; Accelerators</a>          <!-- ← LINK -->
         </div>
 
       </div>
@@ -482,9 +476,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
       <div class="drawer-sub" id="d-ind">
 
         <div class="drawer-sub-group">
-          <a href="/banking-financial-services">Banking &amp; Financial Services</a>          /* ← LINK */
-          <a href="/industries/insurance">Insurance</a>                                 /* ← LINK */
-          <a href="/industries/healthcare">Healthcare</a>                                /* ← LINK */
+          <a href="/industries">Banking &amp; Financial Services</a>          <!-- ← LINK -->
+          <a href="/industries/insurance">Insurance</a>                                 <!-- ← LINK -->
+          <a href="/industries/healthcare">Healthcare</a>                                <!-- ← LINK -->
         </div>
 
       </div>
@@ -500,25 +494,25 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
           <!-- Partner logos — 2×2 responsive grid -->
           <div class="drawer-partner-grid">
 
-            <a href="/partners/jack-henry" class="drawer-partner-card" title="Jack Henry">
+            <a href="/partners/jack-henry" class="drawer-partner-card" title="Jack Henry">    <!-- ← LINK -->
               <img class="drawer-partner-logo"
                    src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png"
                    alt="Jack Henry" loading="lazy" />
             </a>
 
-            <a href="/partners/servicenow" class="drawer-partner-card" title="ServiceNow">
+            <a href="/partners/servicenow" class="drawer-partner-card" title="ServiceNow">    <!-- ← LINK -->
               <img class="drawer-partner-logo"
                    src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png"
                    alt="ServiceNow" loading="lazy" />
             </a>
 
-            <a href="/partners/guidewire" class="drawer-partner-card" title="Guidewire">
+            <a href="/partners/guidewire" class="drawer-partner-card" title="Guidewire">      <!-- ← LINK -->
               <img class="drawer-partner-logo"
                    src="https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png"
                    alt="Guidewire" loading="lazy" />
             </a>
 
-            <a href="/partners" class="drawer-partner-card" title="Dynatrace">
+            <a href="/partners" class="drawer-partner-card" title="Dynatrace">      <!-- ← LINK -->
               <img class="drawer-partner-logo"
                    src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png"
                    alt="Dynatrace" loading="lazy" />
@@ -526,7 +520,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
 
           </div>
 
-          <a href="/partners" style="margin-top:10px;display:block;font-size:.78rem;color:var(--accent);font-weight:600;">View all partners →</a>
+          <a href="/partners" style="margin-top:10px;display:block;font-size:.78rem;color:var(--accent);font-weight:600;">View all partners →</a>   <!-- ← LINK -->
 
         </div>
 
@@ -539,12 +533,12 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
       <div class="drawer-sub" id="d-about">
 
         <div class="drawer-sub-group">
-          <a href="/about-leadership">Who we are + Our Leadership</a>                    /* ← LINK */
-          <a href="/ai-first-philosophy">AI-first Philosophy</a>                            /* ← LINK */
-          <a href="/success-stories">Success Stories</a>                                /* ← LINK */
-          <a href="/blogs">Blogs</a>                                          /* ← LINK */
-          <a href="/careers">Careers</a>                                        /* ← LINK */
-          <a href="/events-news">Events &amp; News</a>                              /* ← LINK */
+          <a href="/about">Who we are + Our Leadership</a>                    <!-- ← LINK -->
+          <a href="/about">AI-first Philosophy</a>                            <!-- ← LINK -->
+          <a href="/about">Success Stories</a>                                <!-- ← LINK -->
+          <a href="/about">Blogs</a>                                          <!-- ← LINK -->
+          <a href="/about">Careers</a>                                        <!-- ← LINK -->
+          <a href="/about">Events &amp; News</a>                              <!-- ← LINK -->
         </div>
 
       </div>
@@ -557,7 +551,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
   <!-- ═══════════════════════════════════════════════════════════════
        MEGA PANELS  —  one <a href="..."> per line for easy editing.
        Placeholder hrefs point to the parent page section.
-       Search "/* ← LINK */" to jump to any individual URL.
+       Search LINK markers to jump to any individual URL.
        ═══════════════════════════════════════════════════════════════ -->
 
   <!-- ╔══════════════════════════════════════╗
@@ -572,9 +566,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head">Priorities</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/our-focus/ai-first-digital-engineering">AI-First Digital Engineering</a></li>  <!-- ← LINK -->
-            <li><a href="/our-focus/ai-adoption">AI Adoption</a></li>                   <!-- ← LINK -->
-            <li><a href="/our-focus/risk-and-compliance">Risk &amp; Compliance</a></li>         <!-- ← LINK -->
+            <li><a href="Our_Focus.html">AI-First Digital Engineering</a></li>  <!-- ← LINK -->
+            <li><a href="Our_Focus.html">AI Adoption</a></li>                   <!-- ← LINK -->
+            <li><a href="Our_Focus.html">Risk &amp; Compliance</a></li>         <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -584,8 +578,8 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head" style="margin-top:26px">Outcomes</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/our-focus/cost-and-efficiency">Cost &amp; Efficiency</a></li>         <!-- ← LINK -->
-            <li><a href="/our-focus/digital-experience">Digital Experience</a></li>            <!-- ← LINK -->
+            <li><a href="Our_Focus.html">Cost &amp; Efficiency</a></li>         <!-- ← LINK -->
+            <li><a href="Our_Focus.html">Digital Experience</a></li>            <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -621,9 +615,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head">Engineering</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/capabilities/ai-led-engineering">AI Led Engineering</a></li>                      <!-- ← LINK -->
-            <li><a href="/capabilities/cloud-and-infrastructure-engineering">Cloud &amp; Infrastructure Engineering</a></li>  <!-- ← LINK -->
-            <li><a href="/capabilities/ai-and-data">AI &amp; Data</a></li>                           <!-- ← LINK -->
+            <li><a href="Capabilities.html">AI Led Engineering</a></li>                      <!-- ← LINK -->
+            <li><a href="Capabilities.html">Cloud &amp; Infrastructure Engineering</a></li>  <!-- ← LINK -->
+            <li><a href="Capabilities.html">AI &amp; Data</a></li>                           <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -633,8 +627,8 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head" style="margin-top:26px">Operations</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/capabilities/digital-operations-and-security">Digital Operations &amp; Security</a></li>       <!-- ← LINK -->
-            <li><a href="/capabilities/security-and-governance">Security &amp; Governance</a></li>               <!-- ← LINK -->
+            <li><a href="Capabilities.html">Digital Operations &amp; Security</a></li>       <!-- ← LINK -->
+            <li><a href="Capabilities.html">Security &amp; Governance</a></li>               <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -666,8 +660,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head">Programs</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/solutions/managed-programs">Managed Programs</a></li>                           <!-- ← LINK -->
-            <li><a href="/solutions/technology-consulting">Technology Consulting</a></li>                      <!-- ← LINK -->
+            <li><a href="Solutions.html">Managed Programs</a></li>                           <!-- ← LINK -->
+            <li><a href="Solutions.html">Technology Consulting</a></li>                      <!-- ← LINK -->
+            <li><a href="/ai-upskilling">AI Upskilling</a></li>                          <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -677,7 +672,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head" style="margin-top:26px">Global Delivery</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/solutions/gcc-and-nearshore">GCC &amp; Nearshore</a></li>                        <!-- ← LINK -->
+            <li><a href="Solutions.html">GCC &amp; Nearshore</a></li>                        <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -687,8 +682,8 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head" style="margin-top:26px">Talent Models</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/solutions/teams-as-a-service">Teams-as-a-Service</a></li>                         <!-- ← LINK -->
-            <li><a href="/solutions/ai-upskilling">Hire-Train-Deploy
+            <li><a href="Solutions.html">Teams-as-a-Service</a></li>                         <!-- ← LINK -->
+            <li><a href="Solutions.html">Hire-Train-Deploy
               <span style="display:inline-flex;align-items:center;padding:1px 7px;background:#0d1127;color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.06em;border-radius:3px;text-transform:uppercase;margin-left:4px;">New</span>
             </a></li>                                                                        <!-- ← LINK -->
           </ul>
@@ -719,9 +714,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head">Products</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/frameworks-accelerators/synthetix">Synthetix</a></li>                              <!-- ← LINK -->
+            <li><a href="/celsior-ai-lab">Synthetix</a></li>                              <!-- ← LINK -->
             <li><a href="/celsior-ai-lab">Celsior AI Lab</a></li>                         <!-- ← LINK -->
-            <li><a href="/design-lab">Design Lab</a></li>                             <!-- ← LINK -->
+            <li><a href="/celsior-ai-lab">Design Lab</a></li>                             <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -731,8 +726,8 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head" style="margin-top:26px">Programs</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/centers-of-excellence">Centers of Excellence</a></li>                  <!-- ← LINK -->
-            <li><a href="/frameworks-accelerators">Frameworks &amp; Accelerators</a></li>          <!-- ← LINK -->
+            <li><a href="/celsior-ai-lab">Centers of Excellence</a></li>                  <!-- ← LINK -->
+            <li><a href="/celsior-ai-lab">Frameworks &amp; Accelerators</a></li>          <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -764,7 +759,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head">Sectors</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/banking-financial-services">Banking &amp; Financial Services</a></li>          <!-- ← LINK -->
+            <li><a href="/industries">Banking &amp; Financial Services</a></li>          <!-- ← LINK -->
             <li><a href="/industries/insurance">Insurance</a></li>                                 <!-- ← LINK -->
             <li><a href="/industries/healthcare">Healthcare</a></li>                                <!-- ← LINK -->
           </ul>
@@ -800,33 +795,30 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-group">
           <ul class="mega-links">
             <li><a href="/partners">Partners</a></li>                           <!-- ← LINK -->
-            <li><a href="/partners/guidewire">Guidewire</a></li>                <!-- ← LINK -->
-            <li><a href="/partners/jack-henry">Jack Henry</a></li>              <!-- ← LINK -->
-            <li><a href="/partners/servicenow">ServiceNow</a></li>              <!-- ← LINK -->
           </ul>
         </div>
-        <!-- Partner logo grid -->
+        <!-- Partner logo grid — add more logos by duplicating a .partner-logo-card -->
         <div class="partner-logo-grid">
 
-          <a href="/partners/jack-henry" class="partner-logo-card" title="Jack Henry">
+          <a href="/partners/jack-henry" class="partner-logo-card" title="Jack Henry">   <!-- ← LINK -->
             <img class="partner-logo-img"
                  src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png"
                  alt="Jack Henry" loading="lazy" />
           </a>
 
-          <a href="/partners/servicenow" class="partner-logo-card" title="ServiceNow">
+          <a href="/partners/servicenow" class="partner-logo-card" title="ServiceNow">   <!-- ← LINK -->
             <img class="partner-logo-img"
                  src="https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png"
                  alt="ServiceNow" loading="lazy" />
           </a>
 
-          <a href="/partners/guidewire" class="partner-logo-card" title="Guidewire">
+          <a href="/partners/guidewire" class="partner-logo-card" title="Guidewire">     <!-- ← LINK -->
             <img class="partner-logo-img"
                  src="https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png"
                  alt="Guidewire" loading="lazy" />
           </a>
 
-          <a href="/partners" class="partner-logo-card" title="Dynatrace">
+          <a href="/partners" class="partner-logo-card" title="Dynatrace">     <!-- ← LINK -->
             <img class="partner-logo-img"
                  src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png"
                  alt="Dynatrace" loading="lazy" />
@@ -863,9 +855,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head">Company</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/about-leadership">Who we are + Our Leadership</a></li>                    <!-- ← LINK -->
-            <li><a href="/ai-first-philosophy">AI-first Philosophy</a></li>                            <!-- ← LINK -->
-            <li><a href="/success-stories">Success Stories</a></li>                                <!-- ← LINK -->
+            <li><a href="/about">Who we are + Our Leadership</a></li>                    <!-- ← LINK -->
+            <li><a href="/about">AI-first Philosophy</a></li>                            <!-- ← LINK -->
+            <li><a href="/about">Success Stories</a></li>                                <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -875,9 +867,9 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
         <div class="mega-col-head" style="margin-top:26px">News &amp; Careers</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="/blogs">Blogs</a></li>                                          <!-- ← LINK -->
-            <li><a href="/careers">Careers</a></li>                                        <!-- ← LINK -->
-            <li><a href="/events-news">Events &amp; News</a></li>                              <!-- ← LINK -->
+            <li><a href="/about">Blogs</a></li>                                          <!-- ← LINK -->
+            <li><a href="/about">Careers</a></li>                                        <!-- ← LINK -->
+            <li><a href="/about">Events &amp; News</a></li>                              <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -989,11 +981,11 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
   </div>
 
   <div class="fl-grid">
-    <div class="fl-col"><p class="fl-col-head">Solutions</p><nav class="fl-col-links"><a href="/our-focus" class="fl-col-link">Core Banking Modernization</a><a href="/our-focus" class="fl-col-link">Cloud Transformation</a><a href="/our-focus" class="fl-col-link">Technical Debt Reduction</a><a href="/our-focus" class="fl-col-link">Regulatory Readiness</a><a href="/our-focus" class="fl-col-link">Digital Experience</a><a href="/our-focus" class="fl-col-link">Enterprise AI Enablement</a></nav></div>
-    <div class="fl-col"><p class="fl-col-head">Services</p><nav class="fl-col-links"><a href="/capabilities" class="fl-col-link">Application Engineering</a><a href="/capabilities" class="fl-col-link">Platform Engineering</a><a href="/capabilities" class="fl-col-link">Cloud &amp; DevOps</a><a href="/capabilities" class="fl-col-link">Data &amp; AI Engineering</a><a href="/capabilities" class="fl-col-link">Security &amp; Governance</a><a href="/capabilities" class="fl-col-link">ITSM &amp; Operations</a></nav></div>
-    <div class="fl-col"><p class="fl-col-head">Delivery</p><nav class="fl-col-links"><a href="/solutions" class="fl-col-link">GCC Build &amp; Operate</a><a href="/solutions" class="fl-col-link">BOT Model</a><a href="/solutions" class="fl-col-link">Mexico &amp; LATAM Nearshore</a><a href="/solutions" class="fl-col-link">Engineering Pods</a><a href="/solutions" class="fl-col-link">Hire-Train-Deploy <span class="fl-badge">New</span></a></nav></div>
-    <div class="fl-col"><p class="fl-col-head">AI &amp; Innovation</p><nav class="fl-col-links"><a href="/ai-innovation" class="fl-col-link">Celsior AI Lab</a><a href="/ai-innovation" class="fl-col-link">Agentic Workflows</a><a href="/ai-innovation" class="fl-col-link">AI Copilots</a><a href="/ai-innovation" class="fl-col-link">CAFE Framework</a><a href="/ai-innovation" class="fl-col-link">HALO Framework</a><a href="/ai-innovation" class="fl-col-link">GenAI Accelerators</a></nav></div>
-    <div class="fl-col"><p class="fl-col-head">Company</p><nav class="fl-col-links"><a href="/about/who-we-are" class="fl-col-link">Who We Are</a><a href="/about/who-we-are" class="fl-col-link">Our Leadership</a><a href="/about/who-we-are" class="fl-col-link">AI-first Philosophy</a><a href="/about/who-we-are" class="fl-col-link">Success Stories</a><a href="/about/who-we-are" class="fl-col-link">Newsroom</a><a href="/about/who-we-are" class="fl-col-link">Careers</a><a href="/#contact" class="fl-col-link">Contact Us</a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">Solutions</p><nav class="fl-col-links"><a href="Our_Focus.html" class="fl-col-link">Core Banking Modernization</a><a href="Our_Focus.html" class="fl-col-link">Cloud Transformation</a><a href="Our_Focus.html" class="fl-col-link">Technical Debt Reduction</a><a href="Our_Focus.html" class="fl-col-link">Regulatory Readiness</a><a href="Our_Focus.html" class="fl-col-link">Digital Experience</a><a href="Our_Focus.html" class="fl-col-link">Enterprise AI Enablement</a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">Services</p><nav class="fl-col-links"><a href="Capabilities.html" class="fl-col-link">Application Engineering</a><a href="Capabilities.html" class="fl-col-link">Platform Engineering</a><a href="Capabilities.html" class="fl-col-link">Cloud &amp; DevOps</a><a href="Capabilities.html" class="fl-col-link">Data &amp; AI Engineering</a><a href="Capabilities.html" class="fl-col-link">Security &amp; Governance</a><a href="Capabilities.html" class="fl-col-link">ITSM &amp; Operations</a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">Delivery</p><nav class="fl-col-links"><a href="Solutions.html" class="fl-col-link">GCC Build &amp; Operate</a><a href="Solutions.html" class="fl-col-link">BOT Model</a><a href="Solutions.html" class="fl-col-link">Mexico &amp; LATAM Nearshore</a><a href="Solutions.html" class="fl-col-link">Engineering Pods</a><a href="Solutions.html" class="fl-col-link">Hire-Train-Deploy <span class="fl-badge">New</span></a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">AI &amp; Innovation</p><nav class="fl-col-links"><a href="/celsior-ai-lab" class="fl-col-link">Celsior AI Lab</a><a href="/celsior-ai-lab" class="fl-col-link">Agentic Workflows</a><a href="/celsior-ai-lab" class="fl-col-link">AI Copilots</a><a href="/celsior-ai-lab" class="fl-col-link">CAFE Framework</a><a href="/celsior-ai-lab" class="fl-col-link">HALO Framework</a><a href="/celsior-ai-lab" class="fl-col-link">GenAI Accelerators</a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">Company</p><nav class="fl-col-links"><a href="/about" class="fl-col-link">Who We Are</a><a href="/about" class="fl-col-link">Our Leadership</a><a href="/about" class="fl-col-link">AI-first Philosophy</a><a href="/about" class="fl-col-link">Success Stories</a><a href="/about" class="fl-col-link">Newsroom</a><a href="/about" class="fl-col-link">Careers</a><a href="/#contact" class="fl-col-link">Contact Us</a></nav></div>
   </div>
 
   <div class="fl-locations">
@@ -1045,7 +1037,7 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
     if (typeof gsap !== 'undefined') {
       gsap.killTweensOf(panel);
       gsap.to(panel, { opacity: 1, y: 0, duration: 0.36, ease: 'power3.out' });
-      gsap.from(panel.querySelectorAll('.mega-links a,.partner-pill,.about-link,.feat-card'), { opacity: 0, y: 7, duration: 0.26, stagger: 0.018, ease: 'power2.out', delay: 0.06, clearProps: 'opacity,y' });
+      gsap.from(panel.querySelectorAll('.mega-links a,.partner-logo-card,.about-link,.feat-card'), { opacity: 0, y: 7, duration: 0.26, stagger: 0.018, ease: 'power2.out', delay: 0.06, clearProps: 'opacity,y' });
     } else {
       panel.style.opacity = '1'; panel.style.transform = 'translateY(0)';
     }
@@ -1071,13 +1063,6 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
   navItemEls.forEach(li => {
     li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
     li.addEventListener('mouseleave', sched);
-    const trigger = li.querySelector('.nav-link');
-    if (trigger) {
-      trigger.addEventListener('click', event => {
-        event.preventDefault();
-        active === li.dataset.menu ? killPanel(active) : openPanel(li.dataset.menu);
-      });
-    }
   });
   megaRoot.addEventListener('mouseenter', cancel);
   megaRoot.addEventListener('mouseleave', sched);
@@ -1107,221 +1092,6 @@ button.nav-link{border:0;background:transparent;font-family:var(--font-body);}
     });
   });
   mobileDrawer.querySelectorAll('a').forEach(a => a.addEventListener('click', closeDrawer));
-
-
-
-  /* ─── Celsior HubSpot modal system ──────────────────────────────────
-     Non-invasive CTA enhancement: existing buttons/links keep their
-     current markup and visual styling. Matching CTA clicks are intercepted
-     and routed into a shared, minimal HubSpot modal. No page layout, nav,
-     existing animations, or CTA visuals are modified.
-  ─────────────────────────────────────────────────────────────────── */
-  function initCelsiorHubspotModals() {
-    if (window.__celsiorHubspotModalReady) return;
-    window.__celsiorHubspotModalReady = true;
-
-    const FORM_SCRIPT_SRC = 'https://js.hsforms.net/forms/embed/developer/40221584.js';
-    const PORTAL_ID = '40221584';
-    const REGION = 'na1';
-
-    const modalContent = {
-      general: {
-        title: 'Talk to a Celsior expert',
-        helper: 'Share a few details and our team will get back to you shortly.',
-        formId: '14603611-2306-41db-892b-61dd59e11a31'
-      },
-      assessment: {
-        title: 'Request an assessment',
-        helper: 'Tell us what you would like to evaluate, and we will help route the next step.',
-        formId: 'f1c2bdcb-202d-49df-8698-b41c6abbb67d'
-      },
-      download: {
-        title: 'Request the resource',
-        helper: 'Submit your details and our team will share the relevant material.',
-        formId: 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8'
-      },
-      partner: {
-        title: 'Start a partnership conversation',
-        helper: 'Share your inquiry and the right team member will follow up.',
-        formId: '982fe6de-6215-4904-916b-fd062836bddc'
-      }
-    };
-
-    const ctaRules = [
-      { type: 'assessment', phrases: [
-        'assess your readiness',
-        'request ai readiness assessment',
-        'start ai readiness assessment',
-        'start assessment',
-        'modernization assessment',
-        'request assessment'
-      ] },
-      { type: 'download', phrases: [
-        'download capability brief',
-        'download guide',
-        'download the ai readiness framework',
-        'download ai readiness framework',
-        'access report',
-        'view case study',
-        'get the brief',
-        'request resource'
-      ] },
-      { type: 'partner', phrases: [
-        'partner with us',
-        'explore partnership',
-        'alliance inquiry',
-        'vendor inquiry',
-        'send inquiry'
-      ] },
-      { type: 'general', phrases: [
-        'talk to an expert',
-        'talk to a celsior expert',
-        'talk to us',
-        'talk to our practice lead',
-        'speak to our team',
-        'start the conversation',
-        'book a discovery call',
-        'schedule consultation',
-        'schedule a consultation',
-        'schedule a conversation',
-        'get in touch',
-        'get started',
-        'start your transformation',
-        'start your cloud journey',
-        'submit request'
-      ] }
-    ];
-
-    function normaliseText(text) {
-      return (text || '')
-        .replace(/\s+/g, ' ')
-        .replace(/[→›»]/g, '')
-        .trim()
-        .toLowerCase();
-    }
-
-    function getModalTypeFromElement(el) {
-      if (!el) return null;
-      if (el.dataset && el.dataset.celsiorForm) return el.dataset.celsiorForm;
-      const label = normaliseText(el.textContent);
-      if (!label) return null;
-      for (const rule of ctaRules) {
-        if (rule.phrases.some(phrase => label === phrase || label.includes(phrase))) {
-          return rule.type;
-        }
-      }
-      return null;
-    }
-
-    function ensureModalStyles() {
-      if (document.getElementById('celsior-hs-modal-styles')) return;
-      const style = document.createElement('style');
-      style.id = 'celsior-hs-modal-styles';
-      style.textContent = `
-        .celsior-hs-modal-open{overflow:hidden;}
-        .celsior-hs-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:22px;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
-        .celsior-hs-modal.is-open{display:flex;}
-        .celsior-hs-modal__overlay{position:absolute;inset:0;background:rgba(2,10,26,.80);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);}
-        .celsior-hs-modal__dialog{position:relative;width:min(540px,100%);max-height:min(86vh,720px);overflow-y:auto;overflow-x:hidden;background:transparent!important;border:0!important;border-radius:18px!important;box-shadow:none!important;padding:0;color:#fff;scrollbar-width:thin;scrollbar-color:rgba(170,178,188,.55) rgba(255,255,255,.08);}
-        .celsior-hs-modal__dialog::-webkit-scrollbar{width:4px;height:4px;}
-        .celsior-hs-modal__dialog::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:999px;}
-        .celsior-hs-modal__dialog::-webkit-scrollbar-thumb{background:rgba(170,178,188,.58);border-radius:999px;}
-        .celsior-hs-modal__dialog::-webkit-scrollbar-thumb:hover{background:rgba(200,206,214,.72);}
-        .celsior-hs-modal__close{position:absolute;top:12px;right:12px;width:28px;height:28px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:19px;line-height:1;z-index:2;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
-        .celsior-hs-modal__close:hover{background:rgba(255,255,255,.16);}
-        .celsior-hs-modal__form-panel{display:none;}
-        .celsior-hs-modal__form-panel.is-active{display:block;background:rgba(5,16,32,.20);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:22px 28px 20px;box-shadow:0 24px 70px rgba(0,0,0,.28);}
-        .celsior-hs-modal__head{padding:0 42px 11px 0;margin:0 0 14px;border-bottom:1px solid rgba(255,255,255,.20);}
-        .celsior-hs-modal__title{margin:0;color:#fff;font-size:24px;line-height:1.12;font-weight:760;letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.28);}
-        .celsior-hs-modal__helper{margin:6px 0 0;color:rgba(255,255,255,.78);font-size:13.5px;line-height:1.35;}
-        .celsior-hs-modal .hs-form-html,.celsior-hs-modal .hs-form{width:100%;background:transparent!important;}
-        .celsior-hs-modal .hs-form fieldset{max-width:100%!important;background:transparent!important;margin-bottom:8px!important;}
-        .celsior-hs-modal .hs-form .hs-form-field{background:transparent!important;margin-bottom:10px!important;}
-        .celsior-hs-modal .hs-form label{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:rgba(255,255,255,.92)!important;font-size:12.5px!important;font-weight:650!important;line-height:1.25!important;margin-bottom:5px!important;text-shadow:0 1px 12px rgba(0,0,0,.28);}
-        .celsior-hs-modal .hs-form input,.celsior-hs-modal .hs-form select,.celsior-hs-modal .hs-form textarea{min-height:38px!important;height:38px!important;padding:8px 10px!important;border-radius:7px!important;border:1px solid rgba(255,255,255,.45)!important;box-shadow:0 8px 22px rgba(0,0,0,.14)!important;background:rgba(255,255,255,.96)!important;color:#101820!important;font-size:14px!important;}
-        .celsior-hs-modal .hs-form textarea{height:64px!important;min-height:64px!important;}
-        .celsior-hs-modal .hs-form input:focus,.celsior-hs-modal .hs-form select:focus,.celsior-hs-modal .hs-form textarea:focus{outline:2px solid rgba(255,255,255,.48)!important;outline-offset:1px!important;}
-        .celsior-hs-modal .hs-form .hs-submit{margin-top:8px!important;}
-        .celsior-hs-modal .hs-form input[type="submit"],.celsior-hs-modal .hs-button{height:38px!important;min-height:38px!important;padding:8px 18px!important;background:#005687!important;border-color:#005687!important;border-radius:7px!important;font-weight:700!important;color:#fff!important;box-shadow:0 10px 24px rgba(0,86,135,.24)!important;}
-        @media (max-height:760px){.celsior-hs-modal{align-items:center;padding:14px 18px;}.celsior-hs-modal__dialog{max-height:calc(100vh - 28px);width:min(500px,100%);}.celsior-hs-modal__form-panel.is-active{padding:18px 24px 16px;border-radius:16px;}.celsior-hs-modal__close{top:9px;right:9px;}.celsior-hs-modal__head{margin-bottom:12px;padding-bottom:10px;}.celsior-hs-modal__title{font-size:22px;}.celsior-hs-modal__helper{font-size:13px;}.celsior-hs-modal .hs-form .hs-form-field{margin-bottom:7px!important;}.celsior-hs-modal .hs-form input,.celsior-hs-modal .hs-form select,.celsior-hs-modal .hs-form textarea{height:34px!important;min-height:34px!important;padding:6px 10px!important;}.celsior-hs-modal .hs-form textarea{height:52px!important;min-height:52px!important;}.celsior-hs-modal .hs-form input[type="submit"],.celsior-hs-modal .hs-button{height:36px!important;min-height:36px!important;}}
-        @media (max-width:640px){.celsior-hs-modal{align-items:flex-start;overflow:auto;padding:18px 16px;}.celsior-hs-modal__dialog{width:100%;max-height:calc(100vh - 36px);margin:4px 0;padding:0;}.celsior-hs-modal__form-panel.is-active{padding:18px 18px 16px;border-radius:16px;}.celsior-hs-modal__close{top:8px;right:8px;}.celsior-hs-modal__title{font-size:22px;}.celsior-hs-modal__helper{font-size:13px;}}
-      `;
-      document.head.appendChild(style);
-    }
-
-    function ensureModalMarkup() {
-      let modal = document.getElementById('celsiorHsModal');
-      if (modal) return modal;
-      ensureModalStyles();
-      modal = document.createElement('div');
-      modal.id = 'celsiorHsModal';
-      modal.className = 'celsior-hs-modal';
-      modal.setAttribute('aria-hidden', 'true');
-      modal.innerHTML = `
-        <div class="celsior-hs-modal__overlay" data-celsior-modal-close></div>
-        <div class="celsior-hs-modal__dialog" role="dialog" aria-modal="true" aria-label="Celsior form">
-          <button class="celsior-hs-modal__close" type="button" aria-label="Close form" data-celsior-modal-close>×</button>
-          ${Object.keys(modalContent).map(type => `<div class="celsior-hs-modal__form-panel" data-celsior-form-panel="${type}"><div class="celsior-hs-modal__head"><h2 class="celsior-hs-modal__title">${modalContent[type].title}</h2><p class="celsior-hs-modal__helper">${modalContent[type].helper}</p></div><div class="hs-form-html" data-region="${REGION}" data-form-id="${modalContent[type].formId}" data-portal-id="${PORTAL_ID}"></div></div>`).join('')}
-        </div>
-      `;
-      document.body.appendChild(modal);
-
-      if (!document.querySelector(`script[src="${FORM_SCRIPT_SRC}"]`)) {
-        const hsScript = document.createElement('script');
-        hsScript.src = FORM_SCRIPT_SRC;
-        hsScript.defer = true;
-        document.body.appendChild(hsScript);
-      }
-
-      modal.addEventListener('click', (event) => {
-        if (event.target.closest('[data-celsior-modal-close]')) closeModal();
-      });
-
-      return modal;
-    }
-
-    function openModal(type) {
-      const content = modalContent[type] || modalContent.general;
-      const modal = ensureModalMarkup();
-      const dialog = modal.querySelector('.celsior-hs-modal__dialog');
-      if (dialog) dialog.setAttribute('aria-label', content.title);
-      modal.querySelectorAll('[data-celsior-form-panel]').forEach(panel => {
-        panel.classList.toggle('is-active', panel.dataset.celsiorFormPanel === type);
-      });
-      modal.classList.add('is-open');
-      modal.setAttribute('aria-hidden', 'false');
-      document.body.classList.add('celsior-hs-modal-open');
-      setTimeout(() => {
-        const firstInput = modal.querySelector('.celsior-hs-modal__form-panel.is-active input, .celsior-hs-modal__form-panel.is-active select, .celsior-hs-modal__form-panel.is-active textarea, .celsior-hs-modal__close');
-        if (firstInput) firstInput.focus({ preventScroll: true });
-      }, 250);
-    }
-
-    function closeModal() {
-      const modal = document.getElementById('celsiorHsModal');
-      if (!modal) return;
-      modal.classList.remove('is-open');
-      modal.setAttribute('aria-hidden', 'true');
-      document.body.classList.remove('celsior-hs-modal-open');
-    }
-
-    document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape') closeModal();
-    });
-
-    document.addEventListener('click', (event) => {
-      const trigger = event.target.closest('a,button,[role="button"]');
-      if (!trigger) return;
-      if (trigger.closest('#celsiorHsModal')) return;
-      const type = getModalTypeFromElement(trigger);
-      if (!type) return;
-      event.preventDefault();
-      openModal(type);
-    });
-  }
-
-  initCelsiorHubspotModals();
-
 
   /* ─── 6.  READY SIGNAL ───────────────────────────────────────────────
      Lets pages defer work (e.g. footer entrance animations) until after
