@@ -386,15 +386,15 @@ a.nav-link{text-decoration:none;}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Priorities</div>
-          <a href="Our_Focus.html">AI-First Digital Engineering</a>   <!-- ← LINK -->
-          <a href="Our_Focus.html">AI Adoption</a>                    <!-- ← LINK -->
-          <a href="Our_Focus.html">Risk &amp; Compliance</a>          <!-- ← LINK -->
+          <a href="/our-focus">AI-First Digital Engineering</a>   <!-- ← LINK -->
+          <a href="/our-focus">AI Adoption</a>                    <!-- ← LINK -->
+          <a href="/our-focus">Risk &amp; Compliance</a>          <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Outcomes</div>
-          <a href="Our_Focus.html">Cost &amp; Efficiency</a>          <!-- ← LINK -->
-          <a href="Our_Focus.html">Digital Experience</a>             <!-- ← LINK -->
+          <a href="/our-focus">Cost &amp; Efficiency</a>          <!-- ← LINK -->
+          <a href="/our-focus">Digital Experience</a>             <!-- ← LINK -->
         </div>
 
       </div>
@@ -407,15 +407,15 @@ a.nav-link{text-decoration:none;}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Engineering</div>
-          <a href="Capabilities.html">AI Led Engineering</a>                       <!-- ← LINK -->
-          <a href="Capabilities.html">Cloud &amp; Infrastructure Engineering</a>  <!-- ← LINK -->
-          <a href="Capabilities.html">AI &amp; Data</a>                           <!-- ← LINK -->
+          <a href="/capabilities">AI Led Engineering</a>                       <!-- ← LINK -->
+          <a href="/capabilities">Cloud &amp; Infrastructure Engineering</a>  <!-- ← LINK -->
+          <a href="/capabilities">AI &amp; Data</a>                           <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Operations</div>
-          <a href="Capabilities.html">Digital Operations &amp; Security</a>       <!-- ← LINK -->
-          <a href="Capabilities.html">Security &amp; Governance</a>               <!-- ← LINK -->
+          <a href="/capabilities">Digital Operations &amp; Security</a>       <!-- ← LINK -->
+          <a href="/capabilities">Security &amp; Governance</a>               <!-- ← LINK -->
         </div>
 
 
@@ -430,20 +430,20 @@ a.nav-link{text-decoration:none;}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Programs</div>
-          <a href="Solutions.html">Managed Programs</a>                           <!-- ← LINK -->
-          <a href="Solutions.html">Technology Consulting</a>                      <!-- ← LINK -->
+          <a href="/solutions">Managed Programs</a>                           <!-- ← LINK -->
+          <a href="/solutions">Technology Consulting</a>                      <!-- ← LINK -->
           <a href="/ai-upskilling">AI Upskilling</a>                          <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Global Delivery</div>
-          <a href="Solutions.html">GCC &amp; Nearshore</a>                        <!-- ← LINK -->
+          <a href="/solutions">GCC &amp; Nearshore</a>                        <!-- ← LINK -->
         </div>
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Talent Models</div>
-          <a href="Solutions.html">Teams-as-a-Service</a>                         <!-- ← LINK -->
-          <a href="Solutions.html">Hire-Train-Deploy</a>                          <!-- ← LINK -->
+          <a href="/solutions">Teams-as-a-Service</a>                         <!-- ← LINK -->
+          <a href="/solutions">Hire-Train-Deploy</a>                          <!-- ← LINK -->
         </div>
 
       </div>
@@ -566,9 +566,9 @@ a.nav-link{text-decoration:none;}
         <div class="mega-col-head">Priorities</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="Our_Focus.html">AI-First Digital Engineering</a></li>  <!-- ← LINK -->
-            <li><a href="Our_Focus.html">AI Adoption</a></li>                   <!-- ← LINK -->
-            <li><a href="Our_Focus.html">Risk &amp; Compliance</a></li>         <!-- ← LINK -->
+            <li><a href="/our-focus">AI-First Digital Engineering</a></li>  <!-- ← LINK -->
+            <li><a href="/our-focus">AI Adoption</a></li>                   <!-- ← LINK -->
+            <li><a href="/our-focus">Risk &amp; Compliance</a></li>         <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -578,8 +578,8 @@ a.nav-link{text-decoration:none;}
         <div class="mega-col-head" style="margin-top:26px">Outcomes</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="Our_Focus.html">Cost &amp; Efficiency</a></li>         <!-- ← LINK -->
-            <li><a href="Our_Focus.html">Digital Experience</a></li>            <!-- ← LINK -->
+            <li><a href="/our-focus">Cost &amp; Efficiency</a></li>         <!-- ← LINK -->
+            <li><a href="/our-focus">Digital Experience</a></li>            <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -615,9 +615,9 @@ a.nav-link{text-decoration:none;}
         <div class="mega-col-head">Engineering</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="Capabilities.html">AI Led Engineering</a></li>                      <!-- ← LINK -->
-            <li><a href="Capabilities.html">Cloud &amp; Infrastructure Engineering</a></li>  <!-- ← LINK -->
-            <li><a href="Capabilities.html">AI &amp; Data</a></li>                           <!-- ← LINK -->
+            <li><a href="/capabilities">AI Led Engineering</a></li>                      <!-- ← LINK -->
+            <li><a href="/capabilities">Cloud &amp; Infrastructure Engineering</a></li>  <!-- ← LINK -->
+            <li><a href="/capabilities">AI &amp; Data</a></li>                           <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -627,8 +627,8 @@ a.nav-link{text-decoration:none;}
         <div class="mega-col-head" style="margin-top:26px">Operations</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="Capabilities.html">Digital Operations &amp; Security</a></li>       <!-- ← LINK -->
-            <li><a href="Capabilities.html">Security &amp; Governance</a></li>               <!-- ← LINK -->
+            <li><a href="/capabilities">Digital Operations &amp; Security</a></li>       <!-- ← LINK -->
+            <li><a href="/capabilities">Security &amp; Governance</a></li>               <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -660,8 +660,8 @@ a.nav-link{text-decoration:none;}
         <div class="mega-col-head">Programs</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="Solutions.html">Managed Programs</a></li>                           <!-- ← LINK -->
-            <li><a href="Solutions.html">Technology Consulting</a></li>                      <!-- ← LINK -->
+            <li><a href="/solutions">Managed Programs</a></li>                           <!-- ← LINK -->
+            <li><a href="/solutions">Technology Consulting</a></li>                      <!-- ← LINK -->
             <li><a href="/ai-upskilling">AI Upskilling</a></li>                          <!-- ← LINK -->
           </ul>
         </div>
@@ -672,7 +672,7 @@ a.nav-link{text-decoration:none;}
         <div class="mega-col-head" style="margin-top:26px">Global Delivery</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="Solutions.html">GCC &amp; Nearshore</a></li>                        <!-- ← LINK -->
+            <li><a href="/solutions">GCC &amp; Nearshore</a></li>                        <!-- ← LINK -->
           </ul>
         </div>
       </div>
@@ -682,8 +682,8 @@ a.nav-link{text-decoration:none;}
         <div class="mega-col-head" style="margin-top:26px">Talent Models</div>
         <div class="mega-group">
           <ul class="mega-links">
-            <li><a href="Solutions.html">Teams-as-a-Service</a></li>                         <!-- ← LINK -->
-            <li><a href="Solutions.html">Hire-Train-Deploy
+            <li><a href="/solutions">Teams-as-a-Service</a></li>                         <!-- ← LINK -->
+            <li><a href="/solutions">Hire-Train-Deploy
               <span style="display:inline-flex;align-items:center;padding:1px 7px;background:#0d1127;color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.06em;border-radius:3px;text-transform:uppercase;margin-left:4px;">New</span>
             </a></li>                                                                        <!-- ← LINK -->
           </ul>
@@ -981,9 +981,9 @@ a.nav-link{text-decoration:none;}
   </div>
 
   <div class="fl-grid">
-    <div class="fl-col"><p class="fl-col-head">Solutions</p><nav class="fl-col-links"><a href="Our_Focus.html" class="fl-col-link">Core Banking Modernization</a><a href="Our_Focus.html" class="fl-col-link">Cloud Transformation</a><a href="Our_Focus.html" class="fl-col-link">Technical Debt Reduction</a><a href="Our_Focus.html" class="fl-col-link">Regulatory Readiness</a><a href="Our_Focus.html" class="fl-col-link">Digital Experience</a><a href="Our_Focus.html" class="fl-col-link">Enterprise AI Enablement</a></nav></div>
-    <div class="fl-col"><p class="fl-col-head">Services</p><nav class="fl-col-links"><a href="Capabilities.html" class="fl-col-link">Application Engineering</a><a href="Capabilities.html" class="fl-col-link">Platform Engineering</a><a href="Capabilities.html" class="fl-col-link">Cloud &amp; DevOps</a><a href="Capabilities.html" class="fl-col-link">Data &amp; AI Engineering</a><a href="Capabilities.html" class="fl-col-link">Security &amp; Governance</a><a href="Capabilities.html" class="fl-col-link">ITSM &amp; Operations</a></nav></div>
-    <div class="fl-col"><p class="fl-col-head">Delivery</p><nav class="fl-col-links"><a href="Solutions.html" class="fl-col-link">GCC Build &amp; Operate</a><a href="Solutions.html" class="fl-col-link">BOT Model</a><a href="Solutions.html" class="fl-col-link">Mexico &amp; LATAM Nearshore</a><a href="Solutions.html" class="fl-col-link">Engineering Pods</a><a href="Solutions.html" class="fl-col-link">Hire-Train-Deploy <span class="fl-badge">New</span></a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">Solutions</p><nav class="fl-col-links"><a href="/our-focus" class="fl-col-link">Core Banking Modernization</a><a href="/our-focus" class="fl-col-link">Cloud Transformation</a><a href="/our-focus" class="fl-col-link">Technical Debt Reduction</a><a href="/our-focus" class="fl-col-link">Regulatory Readiness</a><a href="/our-focus" class="fl-col-link">Digital Experience</a><a href="/our-focus" class="fl-col-link">Enterprise AI Enablement</a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">Services</p><nav class="fl-col-links"><a href="/capabilities" class="fl-col-link">Application Engineering</a><a href="/capabilities" class="fl-col-link">Platform Engineering</a><a href="/capabilities" class="fl-col-link">Cloud &amp; DevOps</a><a href="/capabilities" class="fl-col-link">Data &amp; AI Engineering</a><a href="/capabilities" class="fl-col-link">Security &amp; Governance</a><a href="/capabilities" class="fl-col-link">ITSM &amp; Operations</a></nav></div>
+    <div class="fl-col"><p class="fl-col-head">Delivery</p><nav class="fl-col-links"><a href="/solutions" class="fl-col-link">GCC Build &amp; Operate</a><a href="/solutions" class="fl-col-link">BOT Model</a><a href="/solutions" class="fl-col-link">Mexico &amp; LATAM Nearshore</a><a href="/solutions" class="fl-col-link">Engineering Pods</a><a href="/solutions" class="fl-col-link">Hire-Train-Deploy <span class="fl-badge">New</span></a></nav></div>
     <div class="fl-col"><p class="fl-col-head">AI &amp; Innovation</p><nav class="fl-col-links"><a href="/celsior-ai-lab" class="fl-col-link">Celsior AI Lab</a><a href="/celsior-ai-lab" class="fl-col-link">Agentic Workflows</a><a href="/celsior-ai-lab" class="fl-col-link">AI Copilots</a><a href="/celsior-ai-lab" class="fl-col-link">CAFE Framework</a><a href="/celsior-ai-lab" class="fl-col-link">HALO Framework</a><a href="/celsior-ai-lab" class="fl-col-link">GenAI Accelerators</a></nav></div>
     <div class="fl-col"><p class="fl-col-head">Company</p><nav class="fl-col-links"><a href="/about" class="fl-col-link">Who We Are</a><a href="/about" class="fl-col-link">Our Leadership</a><a href="/about" class="fl-col-link">AI-first Philosophy</a><a href="/about" class="fl-col-link">Success Stories</a><a href="/about" class="fl-col-link">Newsroom</a><a href="/about" class="fl-col-link">Careers</a><a href="/#contact" class="fl-col-link">Contact Us</a></nav></div>
   </div>
