@@ -353,6 +353,14 @@ a.nav-link{text-decoration:none;}
 .mz-item svg{width:14px;height:14px;color:var(--muted);transition:transform .3s var(--ease-expo),color .2s;flex-shrink:0;}
 .mz-item:hover svg{color:var(--accent);transform:translateX(3px);}
 .mz-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
+.partner-logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+.partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:56px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
+.partner-logo-card:hover{transform:translateY(-1px);border-color:rgba(32,86,255,.28);box-shadow:0 10px 24px rgba(20,30,70,.10);}
+.partner-logo-img{max-width:100%;max-height:28px;width:auto;height:auto;object-fit:contain;display:block;}
+.drawer-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+.drawer-partner-card{display:flex;align-items:center;justify-content:center;min-height:48px;padding:9px 10px;background:#fff;border:1px solid var(--border);border-radius:9px;text-decoration:none;overflow:hidden;}
+.drawer-partner-logo{max-width:100%;max-height:24px;width:auto;height:auto;object-fit:contain;display:block;}
+
 .mz-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);font-size:.74rem;font-weight:600;color:var(--ink-mid);background:#fff;transition:border-color .2s,color .2s,transform .25s var(--ease-expo);}
 .mz-pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
 .mz-pill .p-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
@@ -789,7 +797,12 @@ a.nav-link{text-decoration:none;}
       items:[
         {label:'Partners', href:'/partners'},
       ],
-      pills:['ServiceNow','Guidewire','AWS','Azure','Google Cloud','Snowflake','Dynatrace','UiPath'],
+      partnerLogos:[
+        {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png'},
+        {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png'},
+        {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png'},
+        {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png'},
+      ],
       feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.'},
       assessTag:'Partnerships',
       assess:[
@@ -820,7 +833,9 @@ a.nav-link{text-decoration:none;}
 
   function buildMegaPanel(d) {
     const items = d.items.map(it => `<a class="mz-item" href="${it.href}">${it.label} ${ITEM_CHEV}</a>`).join('');
-    const pills = d.pills ? `<div class="mz-pills">${d.pills.map(p => `<a class="mz-pill" href="${d.items[0].href}"><span class="p-dot"></span>${p}</a>`).join('')}</div>` : '';
+    const pills = d.partnerLogos
+      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card" href="${p.href}" title="${p.label}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
+      : (d.pills ? `<div class="mz-pills">${d.pills.map(p => `<a class="mz-pill" href="${d.items[0].href}"><span class="p-dot"></span>${p}</a>`).join('')}</div>` : '');
     const assess = d.assess.map((a,i) => `
         <a class="mz-assess-card" href="${d.explore.href}">
           <div class="mz-assess-icon">${ASSESS_ICONS[i % ASSESS_ICONS.length]}</div>
@@ -934,9 +949,9 @@ a.nav-link{text-decoration:none;}
       if (!sub) return;
       const data = MEGA_DATA.find(function(m){ return m.id === DRAWER_MEGA_MAP[subId]; });
       if (!data) return;
-      const pillsHTML = data.pills
-        ? `<div class="drawer-mega-pills">${data.pills.map(function(p){ return `<a href="${data.items[0].href}"><span class="p-dot"></span>${p}</a>`; }).join('')}</div>`
-        : '';
+      const pillsHTML = data.partnerLogos
+        ? `<div class="drawer-partner-grid">${data.partnerLogos.map(function(p){ return `<a class="drawer-partner-card" href="${p.href}" title="${p.label}"><img class="drawer-partner-logo" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`; }).join('')}</div>`
+        : (data.pills ? `<div class="drawer-mega-pills">${data.pills.map(function(p){ return `<a href="${data.items[0].href}"><span class="p-dot"></span>${p}</a>`; }).join('')}</div>` : '');
       const assessHTML = (data.assess || []).map(function(a,i){
         return `<a class="drawer-mega-card" href="${data.explore.href}">
           <div class="ic">${ASSESS_ICONS[i % ASSESS_ICONS.length]}</div>
