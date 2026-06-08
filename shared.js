@@ -520,8 +520,10 @@ a.nav-link{text-decoration:none;}
     'how-we-deliver.html':'deliver',
     'ai-innovation.html':'ai',
     'industries.html':   'industries',
-    '/partners':'partners',
+    'partner-ecosystem.html':'partners',
     'about.html':        'about',
+    'blogs.html':        'blog',
+    'blog.html':         'blog',
   };
   let activePage = (document.body.dataset.page || '').toLowerCase();
   if (!activePage) {
@@ -681,9 +683,9 @@ a.nav-link{text-decoration:none;}
 
         <div class="drawer-sub-group">
           <a href="/about/who-we-are">Who we are + Our Leadership</a>
-          <a href="/about">AI-first Philosophy</a>
+          <a href="/about/ai-first-philosophy">AI-first Philosophy</a>
           <a href="/about">Success Stories</a>
-          <a href="/about">Blogs</a>
+          <a href="/blogs">Blogs</a>
           <a href="/about">Careers</a>
           <a href="/about">Events &amp; News</a>
         </div>
@@ -816,9 +818,9 @@ a.nav-link{text-decoration:none;}
       explore:{label:'Explore About', href:'/about'},
       items:[
         {label:'Who we are + Our Leadership', href:'/about/who-we-are'},
-        {label:'AI-first Philosophy', href:'/about'},
+        {label:'AI-first Philosophy', href:'/about/ai-first-philosophy'},
         {label:'Success Stories', href:'/about'},
-        {label:'Blogs', href:'/about'},
+        {label:'Blogs', href:'/blogs'},
         {label:'Careers', href:'/about'},
         {label:'Events &amp; News', href:'/about'},
       ],
@@ -1059,8 +1061,8 @@ a.nav-link{text-decoration:none;}
         {label:'Careers', href:'/about'},
       ])}
       ${cfCol('Resources',[
-        {label:'Insights', href:'/about'},
-        {label:'Whitepapers', href:'/about'},
+        {label:'Insights', href:'/blogs'},
+        {label:'Whitepapers', href:'/blogs'},
         {label:'Webinars', href:'/about'},
         {label:'Newsroom', href:'/about'},
         {label:'Events', href:'/about'},
@@ -1141,10 +1143,18 @@ a.nav-link{text-decoration:none;}
 
   /* ─── 5.  NAV JAVASCRIPT ──────────────────────────────────────────── */
   // Scroll state
+  // Blog page: always show the "scrolled" (light) nav styling because the
+  // page background is white from the top.
+  const forceScrolled = activePage === 'blog';
+  if (forceScrolled) {
+    navEl.classList.add('scrolled', 'force-scrolled');
+  }
   window.addEventListener('scroll', () => {
+    if (forceScrolled) { navEl.classList.add('scrolled'); return; }
     navEl.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
-  navEl.classList.toggle('scrolled', window.scrollY > 40);
+  if (!forceScrolled) navEl.classList.toggle('scrolled', window.scrollY > 40);
+
 
   // Desktop mega menu
   const navItemEls = navEl.querySelectorAll('.nav-item[data-menu]');
