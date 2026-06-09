@@ -1,0 +1,11 @@
+--- ours/technology-consulting.html
++++ jackie/technology-consulting.html
+@@ -3574,7 +3574,7 @@
+       });
+     });
+   </script>
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ </body>
+ 
+ </html>

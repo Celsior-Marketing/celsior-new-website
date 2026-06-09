@@ -1,0 +1,10 @@
+--- ours/Capabilities.html
++++ jackie/Capabilities.html
+@@ -4531,6 +4531,6 @@
+   })();
+   </script>
+ 
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ </body>
+ </html>

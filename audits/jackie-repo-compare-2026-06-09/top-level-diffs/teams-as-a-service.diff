@@ -1,0 +1,11 @@
+--- ours/teams-as-a-service.html
++++ jackie/teams-as-a-service.html
+@@ -3605,7 +3605,7 @@
+       });
+     });
+   </script>
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ </body>
+ 
+ </html>

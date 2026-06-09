@@ -1,0 +1,1877 @@
+--- ours/shared.js
++++ jackie/shared.js
+@@ -15,125 +15,6 @@
+ (function () {
+   if (window.__celsiorSharedLoaded) return;
+   window.__celsiorSharedLoaded = true;
+-
+-  /* ─── 0a. SITE-WIDE CONFIG (edit IDs once they exist) ───────────────
+-     Leave any value as '' to disable that integration. See SETUP.md.
+-  ─────────────────────────────────────────────────────────────────── */
+-  const SITE_CONFIG = (window.SITE_CONFIG = Object.assign({
+-    favicon: 'https://res.cloudinary.com/dden4hawr/image/upload/v1780826237/Favicon_l8iwo5.png',
+-    siteName: 'Pyramid Consulting',
+-    defaultDescription: 'AI-first digital engineering partner for regulated industries — modernizing critical systems, operationalizing AI, and building resilience at scale.',
+-    defaultOgImage: '',           // optional absolute URL
+-    twitterHandle: '',            // e.g. '@pyramidci'
+-    ga4MeasurementId: '',         // e.g. 'G-XXXXXXX'
+-    gtmContainerId: '',           // e.g. 'GTM-XXXXXXX'
+-    gscVerificationCode: '',      // Search Console meta-tag content
+-    recaptchaSiteKey: '',         // reCAPTCHA v3 site key
+-    policiesBase: 'policies/',    // folder where the 7 PDFs live, relative to site root
+-  }, window.SITE_CONFIG || {}));
+-
+-  /* ─── 0b. FAVICON + SEO META + GTM/GA + GSC ─────────────────────── */
+-  (function injectHead(){
+-    const head = document.head;
+-    const link = (rel, href, extra) => { const l = document.createElement('link'); l.rel = rel; l.href = href; if (extra) Object.assign(l, extra); return l; };
+-    const meta = (attr, val, content) => { const m = document.createElement('meta'); m.setAttribute(attr, val); m.content = content; return m; };
+-
+-    if (SITE_CONFIG.favicon) {
+-      head.querySelectorAll('link[rel~="icon"], link[rel="apple-touch-icon"], link[rel="shortcut icon"]').forEach(n => n.remove());
+-      head.appendChild(link('icon', SITE_CONFIG.favicon, { type: 'image/png' }));
+-      head.appendChild(link('apple-touch-icon', SITE_CONFIG.favicon));
+-      head.appendChild(link('shortcut icon', SITE_CONFIG.favicon));
+-    }
+-
+-    if (!document.querySelector('meta[name="viewport"]')) head.appendChild(meta('name','viewport','width=device-width, initial-scale=1, viewport-fit=cover'));
+-    if (!document.querySelector('meta[name="description"]')) head.appendChild(meta('name','description', SITE_CONFIG.defaultDescription));
+-    if (!document.querySelector('meta[name="theme-color"]')) head.appendChild(meta('name','theme-color','#3B6FFF'));
+-    if (!document.querySelector('meta[name="robots"]')) head.appendChild(meta('name','robots','index, follow, max-image-preview:large'));
+-
+-    const titleText = (document.title && document.title.trim()) || SITE_CONFIG.siteName;
+-    if (!document.title) document.title = titleText;
+-    const descEl = document.querySelector('meta[name="description"]');
+-    const descText = (descEl && descEl.content) || SITE_CONFIG.defaultDescription;
+-    const pageUrl = location.origin + location.pathname;
+-
+-    const og = [
+-      ['og:title', titleText], ['og:description', descText],
+-      ['og:type', 'website'], ['og:url', pageUrl], ['og:site_name', SITE_CONFIG.siteName],
+-    ];
+-    if (SITE_CONFIG.defaultOgImage) og.push(['og:image', SITE_CONFIG.defaultOgImage]);
+-    og.forEach(([p, c]) => { if (!document.querySelector('meta[property="'+p+'"]')) head.appendChild(meta('property', p, c)); });
+-
+-    const tw = [
+-      ['twitter:card', SITE_CONFIG.defaultOgImage ? 'summary_large_image' : 'summary'],
+-      ['twitter:title', titleText], ['twitter:description', descText],
+-    ];
+-    if (SITE_CONFIG.twitterHandle) tw.push(['twitter:site', SITE_CONFIG.twitterHandle]);
+-    if (SITE_CONFIG.defaultOgImage) tw.push(['twitter:image', SITE_CONFIG.defaultOgImage]);
+-    tw.forEach(([n, c]) => { if (!document.querySelector('meta[name="'+n+'"]')) head.appendChild(meta('name', n, c)); });
+-
+-    if (!document.querySelector('link[rel="canonical"]')) head.appendChild(link('canonical', pageUrl));
+-
+-    if (SITE_CONFIG.gscVerificationCode && !document.querySelector('meta[name="google-site-verification"]')) {
+-      head.appendChild(meta('name','google-site-verification', SITE_CONFIG.gscVerificationCode));
+-    }
+-
+-    if (!document.querySelector('script[data-ld="org"]')) {
+-      const s = document.createElement('script');
+-      s.type = 'application/ld+json'; s.setAttribute('data-ld','org');
+-      s.textContent = JSON.stringify({
+-        '@context':'https://schema.org','@type':'Organization',
+-        name:'Pyramid Consulting, Inc.', url: location.origin, logo: SITE_CONFIG.favicon
+-      });
+-      head.appendChild(s);
+-    }
+-
+-    // Consent-gated loader; cookie banner calls this on Accept
+-    window.__loadAnalytics = function loadAnalytics(){
+-      if (window.__analyticsLoaded) return;
+-      window.__analyticsLoaded = true;
+-      if (SITE_CONFIG.gtmContainerId) {
+-        window.dataLayer = window.dataLayer || [];
+-        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+-        const gtm = document.createElement('script');
+-        gtm.async = true;
+-        gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + SITE_CONFIG.gtmContainerId;
+-        head.appendChild(gtm);
+-      }
+-      if (SITE_CONFIG.ga4MeasurementId) {
+-        const ga = document.createElement('script');
+-        ga.async = true;
+-        ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + SITE_CONFIG.ga4MeasurementId;
+-        head.appendChild(ga);
+-        window.dataLayer = window.dataLayer || [];
+-        window.gtag = function(){ window.dataLayer.push(arguments); };
+-        window.gtag('js', new Date());
+-        const ccpaOut = localStorage.getItem('ccpa_opt_out') === '1';
+-        window.gtag('config', SITE_CONFIG.ga4MeasurementId, {
+-          anonymize_ip: true,
+-          allow_ad_personalization_signals: !ccpaOut,
+-        });
+-      }
+-      if (SITE_CONFIG.recaptchaSiteKey && !window.grecaptcha) {
+-        const rc = document.createElement('script');
+-        rc.async = true; rc.defer = true;
+-        rc.src = 'https://www.google.com/recaptcha/api.js?render=' + SITE_CONFIG.recaptchaSiteKey;
+-        head.appendChild(rc);
+-      }
+-    };
+-  })();
+-
+-  /* ─── 0c. SKIP-LINK for keyboard accessibility ─────────────────── */
+-  (function skipLink(){
+-    if (document.getElementById('skipToMain')) return;
+-    const a = document.createElement('a');
+-    a.id = 'skipToMain'; a.href = '#main'; a.textContent = 'Skip to main content';
+-    a.style.cssText = 'position:fixed;top:-100px;left:8px;z-index:99999;background:#0F172A;color:#fff;padding:10px 16px;border-radius:8px;font:600 14px/1 system-ui,sans-serif;transition:top .15s;';
+-    a.addEventListener('focus', () => { a.style.top = '8px'; });
+-    a.addEventListener('blur',  () => { a.style.top = '-100px'; });
+-    document.addEventListener('DOMContentLoaded', () => document.body.prepend(a), { once: true });
+-  })();
+-
+-
+ 
+   /* ─── 0.  LEGACY LINK NORMALIZER ────────────────────────────────────
+      Some existing pages, especially index.html, ship their own header and
+@@ -335,175 +216,112 @@
+ #mega-backdrop{position:fixed;inset:0;z-index:800;background:transparent;pointer-events:none;transition:background .3s;}
+ #mega-backdrop.on{background:rgba(7,9,20,.45);pointer-events:auto;}
+ .mega-root{position:fixed;top:var(--nav-h);left:0;right:0;z-index:850;pointer-events:none;}
+-.mega-panel{position:absolute;inset:0 auto auto 0;width:100%;background:linear-gradient(118deg,#fbfcff 0%,#f3f8ff 46%,#e9f1ff 100%);border-bottom:1px solid rgba(34,84,244,.12);box-shadow:0 30px 80px rgba(15,20,80,.16);padding:46px 52px 50px;display:none;opacity:0;transform:translateY(-10px);pointer-events:none;overflow:hidden;}
+-.mega-panel.open{display:block;pointer-events:auto;}
+-.mega-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.16fr .92fr;gap:0;}
+-.mega-zone{padding:0 42px;border-right:1px solid var(--border);min-width:0;}
+-.mega-zone:first-child{padding-left:0;}
+-.mega-zone:last-child{padding-right:0;border-right:none;}
+-
+-/* — left intro zone — */
+-.mz-label{font-family:var(--font-head);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
+-.mz-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-md),transparent);}
+-.mz-title{font-family:var(--font-head);font-size:1.34rem;font-weight:700;line-height:1.18;color:var(--ink);margin-bottom:12px;letter-spacing:-.02em;}
+-.mz-desc{font-size:.82rem;line-height:1.6;color:var(--muted);margin-bottom:22px;max-width:300px;}
+-.mz-list{display:flex;flex-direction:column;gap:8px;}
+-.mz-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#fff;border:1px solid var(--border);border-radius:10px;font-size:.84rem;font-weight:600;color:var(--ink);box-shadow:0 1px 2px rgba(15,20,80,.03);transition:border-color .3s var(--ease-expo),transform .3s var(--ease-expo),box-shadow .3s,color .2s;}
+-.mz-item:hover{border-color:var(--accent);color:var(--accent);transform:translateX(5px);box-shadow:0 10px 26px rgba(34,84,244,.13);}
+-.mz-item svg{width:14px;height:14px;color:var(--muted);transition:transform .3s var(--ease-expo),color .2s;flex-shrink:0;}
+-.mz-item:hover svg{color:var(--accent);transform:translateX(3px);}
+-.mz-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
+-.partner-logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+-.partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:56px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
+-.partner-logo-card:hover{transform:translateY(-1px);border-color:rgba(32,86,255,.28);box-shadow:0 10px 24px rgba(20,30,70,.10);}
+-.partner-logo-img{max-width:100%;max-height:28px;width:auto;height:auto;object-fit:contain;display:block;}
+-.drawer-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+-.drawer-partner-card{display:flex;align-items:center;justify-content:center;min-height:48px;padding:9px 10px;background:#fff;border:1px solid var(--border);border-radius:9px;text-decoration:none;overflow:hidden;}
+-.drawer-partner-logo{max-width:100%;max-height:24px;width:auto;height:auto;object-fit:contain;display:block;}
+-
+-.mz-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);font-size:.74rem;font-weight:600;color:var(--ink-mid);background:#fff;transition:border-color .2s,color .2s,transform .25s var(--ease-expo);}
+-.mz-pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
+-.mz-pill .p-dot{width:6px;height:6px;border-radius:50%;background:var(--accent);flex-shrink:0;}
+-
+-/* — center feature zone — */
+-.mz-feature-card{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 14px 38px rgba(15,20,80,.12);background:#0b1020;position:relative;aspect-ratio:16/8;}
+-.mz-feature-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform .9s var(--ease-expo);}
+-.mz-feature-card:hover .mz-feature-img{transform:scale(1.12);}
+-.mz-feature-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,11,26,.82),rgba(7,11,26,.12) 62%,transparent);}
+-.mz-feature-cap{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.94rem;font-weight:700;line-height:1.3;}
+-.mz-feature-cap em{color:#3ddc97;font-style:normal;}
+-.mz-feature-body{margin-top:18px;}
+-.mz-feature-title{font-family:var(--font-head);font-size:1.06rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+-.mz-feature-desc{font-size:.82rem;line-height:1.62;color:var(--muted);margin-bottom:18px;}
+-.mz-explore{display:inline-flex;align-items:center;gap:9px;padding:11px 22px;background:var(--accent);color:#fff;font-size:.8rem;font-weight:700;border-radius:8px;transition:transform .3s var(--ease-expo),box-shadow .3s,background .2s;}
+-.mz-explore svg{transition:transform .3s var(--ease-expo);}
+-.mz-explore:hover{background:#1b46d8;transform:translateY(-2px);box-shadow:0 12px 28px rgba(34,84,244,.34);}
+-.mz-explore:hover svg{transform:translateX(4px);}
+-
+-/* — right assessment zone — */
+-.mz-assess-label{font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;}
+-.mz-assess-cards{display:flex;flex-direction:column;gap:14px;}
+-.mz-assess-card{display:flex;gap:14px;padding:18px;background:#fff;border:1px solid var(--border);border-radius:12px;box-shadow:0 1px 2px rgba(15,20,80,.03);cursor:pointer;transition:border-color .3s var(--ease-expo),transform .3s var(--ease-expo),box-shadow .3s;}
+-.mz-assess-card:hover{border-color:var(--accent);transform:translateY(-3px);box-shadow:0 16px 36px rgba(34,84,244,.15);}
+-.mz-assess-icon{width:42px;height:42px;flex-shrink:0;border-radius:10px;background:var(--accent-lt);display:grid;place-items:center;color:var(--accent);transition:background .25s,color .25s;}
+-.mz-assess-card:hover .mz-assess-icon{background:var(--accent);color:#fff;}
+-.mz-assess-icon svg{width:20px;height:20px;}
+-.mz-assess-title{font-family:var(--font-head);font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.25;}
+-.mz-assess-desc{font-size:.78rem;line-height:1.55;color:var(--muted);}
+-
+-@media(max-width:1180px){.mega-inner{grid-template-columns:1fr 1fr;}.mega-zone{padding:0 30px;}.mega-zone:last-child{grid-column:1/-1;border-top:1px solid var(--border);border-right:none;margin-top:30px;padding:30px 0 0;}.mz-assess-cards{flex-direction:row;}.mz-assess-card{flex:1;}}
+-@media(max-width:1024px){.mega-panel{padding:32px;}}
+-
++.mega-panel{position:absolute;inset:0 auto auto 0;width:100%;background:#f0f6ff;border-bottom:1px solid rgba(34,84,244,.14);box-shadow:0 24px 80px rgba(15,20,80,.16);padding:36px 52px 44px;display:none;opacity:0;transform:translateY(-10px);pointer-events:none;overflow:hidden;}
++.mega-panel::after{content:'';position:absolute;right:-8%;top:-80%;width:58%;height:320%;background:url('https://images.pexels.com/photos/34062752/pexels-photo-34062752.jpeg') center/cover no-repeat;transform:rotate(-18deg);opacity:.42;z-index:0;pointer-events:none;border-radius:32px;}
++.mega-panel::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,#f0f6ff 0%,#f0f6ff 38%,rgba(240,246,255,.82) 58%,rgba(240,246,255,.18) 78%,transparent 100%);z-index:1;pointer-events:none;}
++.mega-panel.open{display:flex;pointer-events:auto;}
++.mega-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:flex;}
++.mega-label{font-family:var(--font-head);font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
++.mega-label::after{content:'';flex:1;height:1px;background:var(--border);}
++.mega-col{flex:1;padding-right:28px;border-right:1px solid var(--border);margin-right:28px;}
++.mega-col:last-child{border-right:none;margin-right:0;padding-right:0;}
++.mega-col-head{font-family:var(--font-head);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
++.mega-group{margin-bottom:20px;}
++.mega-group-title{font-family:var(--font-body);font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:8px;padding-left:10px;border-left:2px solid var(--accent);}
++.mega-links{display:flex;flex-direction:column;gap:1px;}
++.mega-links a{display:block;padding:5px 10px;font-size:.78rem;font-weight:500;color:var(--muted);border-radius:5px;transition:color .15s,background .15s,padding-left .18s;}
++.mega-links a:hover{color:var(--accent);background:var(--accent-lt);padding-left:15px;}
++.mega-featured{width:226px;flex-shrink:0;padding-left:28px;border-left:1px solid var(--border);}
++.feat-tag{font-size:.58rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px;}
++.feat-card{background:rgba(255,255,255,.78);border:1px solid rgba(34,84,244,.12);border-radius:10px;padding:18px;margin-bottom:12px;cursor:pointer;backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:border-color .2s,transform .2s,box-shadow .2s;}
++.feat-card:hover{border-color:var(--accent);background:rgba(255,255,255,.95);transform:translateY(-2px);box-shadow:0 6px 24px rgba(34,84,244,.12);}
++.feat-card-title{font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--ink);margin-bottom:6px;line-height:1.35;}
++.feat-card-desc{font-size:.73rem;color:var(--muted);line-height:1.55;}
++.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:16px;}
++.partner-pill{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:6px;border:1px solid var(--border);font-size:.75rem;font-weight:600;color:var(--ink-mid);background:rgba(255,255,255,.72);cursor:pointer;transition:border-color .15s,color .15s,box-shadow .15s;}
++.partner-pill:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 12px rgba(34,84,244,.1);}
++.p-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;}
++.about-links{display:flex;flex-direction:column;gap:4px;}
++.about-link{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:background .15s;}
++.about-link:hover{background:rgba(255,255,255,.6);}
++.about-icon{width:34px;height:34px;background:rgba(255,255,255,.72);border-radius:8px;display:grid;place-items:center;font-size:1rem;flex-shrink:0;border:1px solid var(--border);}
++.about-link-text{font-size:.82rem;font-weight:600;color:var(--ink-mid);}
++.about-link:hover .about-link-text{color:var(--accent);}
++.about-logos-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:16px;margin-bottom:8px;}
++.about-logos-grid{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
++.about-logo-img{height:22px;width:auto;filter:brightness(0) saturate(100%);opacity:.65;transition:opacity .2s;}
++.about-logo-img:hover{opacity:1;}
++@media(max-width:1024px){.mega-panel::after{display:none;}.mega-panel::before{background:#fff;}.mega-panel{background:#fff;padding:28px 32px 36px;}}
+ 
+ /* ═══════════════════════ FOOTER ════════════════════════════════════ */
+ .site-footer-light{
+-  --cf-bg:#080b18;--cf-bg2:#0b0f20;--cf-ink:#e9edf6;--cf-mid:#aab3c9;
+-  --cf-soft:#828ca6;--cf-muted:#5c6580;--cf-border:rgba(255,255,255,0.08);
+-  --cf-border2:rgba(255,255,255,0.15);--cf-accent:#3b6fff;
+-  --cf-font:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Inter',system-ui,sans-serif;
+-  background:var(--cf-bg);color:var(--cf-ink);font-family:var(--cf-font);
+-  -webkit-font-smoothing:antialiased;position:relative;z-index:2;overflow:hidden;border-top:1px solid var(--cf-border);
++  --fl-bg:#ffffff;--fl-bg-top:#ffffff;--fl-bg-bot:#f8f9fc;
++  --fl-ink:#1a1a1a;--fl-ink-mid:#3d3b36;--fl-ink-soft:#6b6760;
++  --fl-muted:#9e9b94;--fl-ghost:#bab7b0;--fl-border:rgba(26,26,26,0.10);
++  --fl-border-md:rgba(26,26,26,0.16);--fl-accent:#2254f4;
++  --fl-accent-lt:rgba(34,84,244,0.08);--fl-hover:rgba(26,26,26,0.055);
++  --fl-font:'SF Pro Display',-apple-system,BlinkMacSystemFont,'Inter',system-ui,sans-serif;
++  background:var(--fl-bg);color:var(--fl-ink);font-family:var(--fl-font);
++  -webkit-font-smoothing:antialiased;position:relative;z-index:2;overflow:hidden;
+ }
+-.site-footer-light::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:1100px;height:500px;background:radial-gradient(ellipse,rgba(59,111,255,.10) 0%,transparent 70%);pointer-events:none;z-index:0;}
+-.cf-wrap{position:relative;z-index:1;max-width:1340px;margin:0 auto;padding:0 56px;}
+-.cf-top{display:grid;grid-template-columns:1.5fr repeat(5,1fr);gap:44px 28px;padding:66px 0 52px;}
+-.cf-brand{display:flex;flex-direction:column;}
+-.cf-logo{height:26px;width:auto;filter:brightness(0) invert(1);display:block;transition:opacity .25s;}
+-.cf-logo:hover{opacity:.7;}
+-.cf-tagline{font-size:.85rem;line-height:1.72;color:var(--cf-mid);margin-top:22px;max-width:300px;}
+-.cf-sub-head{font-size:.98rem;font-weight:700;color:var(--cf-ink);margin-top:30px;}
+-.cf-sub-desc{font-size:.78rem;line-height:1.6;color:var(--cf-soft);margin-top:9px;max-width:280px;}
+-.cf-subscribe{display:flex;margin-top:15px;max-width:300px;}
+-.cf-subscribe input{flex:1;min-width:0;background:rgba(255,255,255,.04);border:1px solid var(--cf-border2);border-right:none;border-radius:8px 0 0 8px;padding:11px 14px;font-family:inherit;font-size:.8rem;color:var(--cf-ink);outline:none;transition:border-color .2s,background .2s;}
+-.cf-subscribe input::placeholder{color:var(--cf-muted);}
+-.cf-subscribe input:focus{border-color:var(--cf-accent);background:rgba(255,255,255,.07);}
+-.cf-subscribe button{padding:0 20px;background:var(--cf-accent);border:none;border-radius:0 8px 8px 0;font-family:inherit;font-size:.8rem;font-weight:700;color:#fff;cursor:pointer;white-space:nowrap;transition:background .2s;}
+-.cf-subscribe button:hover{background:#2a5cf0;}
+-.cf-connect{font-size:.98rem;font-weight:700;color:var(--cf-ink);margin-top:32px;}
+-.cf-social{display:flex;gap:10px;margin-top:15px;}
+-.cf-social a{width:38px;height:38px;border-radius:9px;border:1px solid var(--cf-border2);background:rgba(255,255,255,.03);display:grid;place-items:center;color:var(--cf-mid);transition:background .22s,color .22s,transform .22s cubic-bezier(.16,1,.3,1),border-color .22s;}
+-.cf-social a:hover{background:var(--cf-accent);border-color:transparent;color:#fff;transform:translateY(-3px);}
+-.cf-social svg{width:16px;height:16px;}
+-.cf-col-head{font-size:.92rem;font-weight:700;color:var(--cf-ink);margin-bottom:18px;}
+-.cf-col-links{display:flex;flex-direction:column;gap:1px;}
+-.cf-col-link{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:7px 0;font-size:.8rem;color:var(--cf-soft);transition:color .18s,padding-left .24s cubic-bezier(.16,1,.3,1);}
+-.cf-col-link span{flex:1;}
+-.cf-col-link svg{width:11px;height:11px;opacity:.35;transform:translateX(0);transition:opacity .2s,transform .24s cubic-bezier(.16,1,.3,1),color .2s;flex-shrink:0;color:var(--cf-soft);}
+-.cf-col-link:hover{color:var(--cf-ink);padding-left:6px;}
+-.cf-col-link:hover svg{opacity:1;transform:translateX(3px);color:var(--cf-accent);}
+-.cf-divider{position:relative;z-index:1;height:1px;background:var(--cf-border);max-width:1340px;margin:0 auto;}
+-.cf-mid{display:grid;grid-template-columns:repeat(4,1fr) 1.6fr;gap:36px 28px;padding:50px 0;align-items:start;}
+-.cf-contact-line{display:flex;gap:9px;font-size:.8rem;line-height:1.55;color:var(--cf-soft);margin-bottom:15px;align-items:flex-start;}
+-.cf-contact-line svg{width:14px;height:14px;flex-shrink:0;margin-top:2px;color:var(--cf-accent);}
+-.cf-contact-line a:hover{color:var(--cf-ink);}
+-.cf-cta{background:linear-gradient(135deg,rgba(59,111,255,.14),rgba(59,111,255,.02));border:1px solid var(--cf-border2);border-radius:16px;padding:30px;display:flex;align-items:center;gap:24px;}
+-.cf-cta-circle{width:64px;height:64px;flex-shrink:0;border-radius:50%;border:1px solid var(--cf-accent);display:grid;place-items:center;color:var(--cf-accent);transition:background .3s,color .3s,transform .35s cubic-bezier(.16,1,.3,1);}
+-.cf-cta:hover .cf-cta-circle{background:var(--cf-accent);color:#fff;transform:rotate(-12deg) scale(1.05);}
+-.cf-cta-circle svg{width:24px;height:24px;}
+-.cf-cta-title{font-size:1.14rem;font-weight:700;color:var(--cf-ink);line-height:1.25;}
+-.cf-cta-desc{font-size:.8rem;color:var(--cf-soft);margin:9px 0 13px;}
+-.cf-cta-link{display:inline-flex;align-items:center;gap:7px;font-size:.85rem;font-weight:700;color:var(--cf-accent);}
+-.cf-cta-link svg{width:14px;height:14px;transition:transform .24s cubic-bezier(.16,1,.3,1);}
+-.cf-cta-link:hover svg{transform:translateX(4px);}
+-.cf-bottom{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;max-width:1340px;margin:0 auto;padding:24px 56px 36px;border-top:1px solid var(--cf-border);}
+-.cf-copyright{font-size:.74rem;color:var(--cf-muted);line-height:1.5;}
+-.cf-legal{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;flex:1;justify-content:center;}
+-.cf-legal a{font-size:.74rem;color:var(--cf-soft);transition:color .15s;}
+-.cf-legal a:hover{color:var(--cf-ink);}
+-.cf-lang{display:flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid var(--cf-border2);border-radius:8px;font-size:.78rem;color:var(--cf-mid);cursor:pointer;transition:border-color .2s,background .2s;}
+-.cf-lang:hover{border-color:var(--cf-accent);background:rgba(255,255,255,.03);}
+-.cf-lang svg{width:13px;height:13px;}
+-.cf-lang .cf-globe{color:var(--cf-accent);}
+-@media(max-width:1100px){.cf-top{grid-template-columns:repeat(3,1fr);}.cf-brand{grid-column:1/-1;}.cf-mid{grid-template-columns:repeat(2,1fr);}.cf-cta{grid-column:1/-1;}}
+-@media(max-width:680px){.cf-wrap{padding:0 24px;}.cf-top{grid-template-columns:1fr 1fr;padding:48px 0 40px;}.cf-mid{grid-template-columns:1fr;}.cf-cta{flex-direction:column;text-align:left;align-items:flex-start;}.cf-bottom{flex-direction:column;align-items:flex-start;padding:22px 24px 32px;}.cf-legal{justify-content:flex-start;}}
+-
+-/* ═══════════════════════ MOBILE DRAWER — MEGA CARDS ════════════════
+-   Rich content (feature card + assessment cards) injected into each
+-   drawer-sub from MEGA_DATA so mobile users see the same depth as the
+-   desktop mega menu. Fully responsive across phones and tablets.
+-─────────────────────────────────────────────────────────────────── */
+-.drawer-mega{padding:14px 20px 18px;display:flex;flex-direction:column;gap:14px;}
+-.drawer-mega-feature{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#0b1020;aspect-ratio:16/9;box-shadow:0 10px 28px rgba(15,20,80,.14);}
+-.drawer-mega-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+-.drawer-mega-feature::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,11,26,.85),rgba(7,11,26,.15) 60%,transparent);}
+-.drawer-mega-cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.82rem;font-weight:700;line-height:1.3;}
+-.drawer-mega-cap em{color:#3ddc97;font-style:normal;}
+-.drawer-mega-explore{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;border-radius:8px;transition:background .2s,transform .2s;}
+-.drawer-mega-explore:hover{background:#1b46d8;transform:translateY(-1px);}
+-.drawer-mega-explore svg{width:12px;height:12px;}
+-.drawer-mega-assess-label{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-top:4px;}
+-.drawer-mega-assess{display:flex;flex-direction:column;gap:10px;}
+-.drawer-mega-card{display:flex;gap:12px;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 2px rgba(15,20,80,.04);transition:border-color .2s,transform .2s,box-shadow .2s;}
+-.drawer-mega-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 22px rgba(34,84,244,.14);}
+-.drawer-mega-card .ic{width:34px;height:34px;flex-shrink:0;border-radius:8px;background:var(--accent-lt);display:grid;place-items:center;color:var(--accent);}
+-.drawer-mega-card .ic svg{width:16px;height:16px;}
+-.drawer-mega-card .bd{min-width:0;}
+-.drawer-mega-card .t{font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:3px;}
+-.drawer-mega-card .d{font-size:.72rem;line-height:1.5;color:var(--muted);}
+-.drawer-mega-pills{display:flex;flex-wrap:wrap;gap:6px;}
+-.drawer-mega-pills a{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-size:.7rem;font-weight:600;color:var(--ink-mid);background:#fff;}
+-.drawer-mega-pills a .p-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+-
+-/* Drawer link list tightening on narrow screens */
+-@media(max-width:480px){
+-  .drawer-panel{width:min(420px,100vw);}
+-  .drawer-header{padding:16px 18px;}
+-  .drawer-link{padding:14px 18px;font-size:.88rem;}
+-  .drawer-sub-group{padding:10px 18px 4px;}
+-  .drawer-sub a{padding:6px 18px 6px 30px;font-size:.78rem;}
+-  .drawer-cta{padding:16px 18px;}
+-  .drawer-mega{padding:12px 16px 16px;}
+-}
+-@media(max-width:360px){
+-  .drawer-panel{width:100vw;}
+-  .drawer-mega-feature{aspect-ratio:16/10;}
+-}
+-
+-/* Make the rest of the page more bulletproof on small screens */
+-@media(max-width:1139px){
+-  body.menu-open{position:fixed;width:100%;}
+-}
+-
++.site-footer-light::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:0;}
++.site-footer-light::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:900px;height:400px;background:radial-gradient(ellipse,rgba(34,84,244,.04) 0%,transparent 70%);pointer-events:none;z-index:0;}
++.fl-top{position:relative;z-index:1;background:var(--fl-bg-top);padding:72px 64px 60px;display:grid;grid-template-columns:1fr auto;align-items:start;gap:56px;border-bottom:1px solid var(--fl-border-md);}
++.fl-brand{display:flex;flex-direction:column;gap:18px;max-width:560px;}
++.fl-logo{height:28px;width:auto;filter:brightness(0);display:block;transition:opacity .25s ease;}
++.fl-logo:hover{opacity:.6;}
++.fl-tagline{font-size:clamp(.84rem,1vw,.92rem);font-weight:400;color:var(--fl-ink-soft);line-height:1.76;max-width:420px;letter-spacing:.01em;}
++.fl-subscribe{display:flex;align-items:stretch;margin-top:4px;}
++.fl-subscribe input{flex:1;max-width:256px;background:#f5f6fa;border:1.5px solid var(--fl-border-md);border-right:none;border-radius:7px 0 0 7px;padding:11px 16px;font-family:var(--fl-font);font-size:.8rem;color:var(--fl-ink);outline:none;transition:border-color .2s,background .2s;}
++.fl-subscribe input::placeholder{color:var(--fl-muted);}
++.fl-subscribe input:focus{border-color:var(--fl-accent);background:#fff;}
++.fl-subscribe button{padding:0 22px;background:#000;border:none;border-radius:0 7px 7px 0;font-family:var(--fl-font);font-size:.78rem;font-weight:700;color:#fff;cursor:pointer;white-space:nowrap;transition:opacity .2s;}
++.fl-subscribe button:hover{opacity:.85;}
++.fl-social{display:flex;flex-direction:column;align-items:flex-end;gap:16px;padding-top:2px;}
++.fl-social-label{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--fl-muted);}
++.fl-social-icons{display:flex;align-items:center;gap:7px;}
++.fl-social-btn{width:40px;height:40px;border-radius:9px;border:1.5px solid var(--fl-border-md);background:#f5f6fa;display:flex;align-items:center;justify-content:center;text-decoration:none;color:var(--fl-ink-soft);transition:background .22s,border-color .22s,color .22s,transform .22s cubic-bezier(.16,1,.3,1),box-shadow .22s;}
++.fl-social-btn:hover{background:#000;border-color:transparent;color:#fff;transform:translateY(-3px);box-shadow:0 8px 20px rgba(0,0,0,.22);}
++.fl-social-btn svg{width:16px;height:16px;display:block;}
++.fl-grid{position:relative;z-index:1;display:grid;grid-template-columns:repeat(5,1fr);padding:0 64px;border-bottom:1px solid var(--fl-border);}
++.fl-col{padding:48px 28px 48px 0;border-right:1px solid var(--fl-border);}
++.fl-col:last-child{border-right:none;padding-right:0;}
++.fl-col:first-child{padding-left:0;}
++.fl-col-head{font-size:.6rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--fl-muted);margin-bottom:20px;display:flex;align-items:center;gap:8px;}
++.fl-col-head::after{content:'';flex:1;height:1px;background:var(--fl-ghost);}
++.fl-col-links{display:flex;flex-direction:column;gap:1px;}
++.fl-col-link{display:inline-flex;align-items:center;gap:8px;padding:7px 9px;border-radius:7px;font-size:.8rem;font-weight:500;color:var(--fl-ink-soft);text-decoration:none;transition:color .17s,background .17s,padding-left .2s cubic-bezier(.16,1,.3,1);position:relative;}
++.fl-col-link::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:2px;height:0;border-radius:2px;background:var(--fl-accent);transition:height .22s cubic-bezier(.16,1,.3,1);}
++.fl-col-link:hover{color:var(--fl-accent);background:var(--fl-accent-lt);padding-left:15px;}
++.fl-col-link:hover::before{height:16px;}
++.fl-badge{display:inline-block;padding:2px 7px;background:rgba(34,84,244,.1);border:1px solid rgba(34,84,244,.22);border-radius:20px;font-size:.57rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--fl-accent);flex-shrink:0;line-height:1.4;}
++.fl-locations{position:relative;z-index:1;display:flex;align-items:center;padding:0 64px;border-bottom:1px solid var(--fl-border);overflow-x:auto;scrollbar-width:none;background:#f8f9fc;}
++.fl-locations::-webkit-scrollbar{display:none;}
++.fl-loc{display:flex;align-items:center;gap:11px;padding:22px 48px 22px 0;border-right:1px solid var(--fl-border);margin-right:48px;white-space:nowrap;flex-shrink:0;}
++.fl-loc:last-child{border-right:none;margin-right:0;}
++.fl-loc-dot{width:8px;height:8px;border-radius:50%;background:var(--fl-accent);flex-shrink:0;box-shadow:0 0 0 3px rgba(34,84,244,.18);animation:flLocPulse 2.6s ease-in-out infinite;}
++.fl-loc:nth-child(2) .fl-loc-dot{animation-delay:.65s;}
++.fl-loc:nth-child(3) .fl-loc-dot{animation-delay:1.3s;}
++.fl-loc:nth-child(4) .fl-loc-dot{animation-delay:1.95s;}
++@keyframes flLocPulse{0%,100%{box-shadow:0 0 0 3px rgba(34,84,244,.18);}50%{box-shadow:0 0 0 7px rgba(34,84,244,.05);}}
++.fl-loc-text{display:flex;flex-direction:column;gap:1px;}
++.fl-loc-city{font-size:.8rem;font-weight:700;color:var(--fl-ink);letter-spacing:-.01em;}
++.fl-loc-country{font-size:.68rem;font-weight:400;color:var(--fl-muted);}
++.fl-bottom{position:relative;z-index:1;display:flex;align-items:center;justify-content:space-between;padding:22px 64px;background:var(--fl-bg-bot);gap:20px;flex-wrap:wrap;}
++.fl-copyright{font-size:.72rem;color:var(--fl-muted);line-height:1.5;}
++.fl-copyright strong{color:var(--fl-ink-mid);}
++.fl-legal{display:flex;align-items:center;gap:0;}
++.fl-legal-link{font-size:.7rem;font-weight:500;color:var(--fl-muted);padding:4px 12px;border-right:1px solid var(--fl-ghost);transition:color .15s;}
++.fl-legal-link:last-child{border-right:none;}
++.fl-legal-link:first-child{padding-left:0;}
++.fl-legal-link:hover{color:var(--fl-accent);}
++.fl-trust{display:flex;align-items:center;gap:8px;}
++.fl-trust-pill{display:inline-flex;align-items:center;gap:5px;padding:5px 11px;border:1px solid var(--fl-border-md);border-radius:20px;font-size:.65rem;font-weight:600;color:var(--fl-ink-soft);letter-spacing:.04em;background:var(--fl-bg);transition:border-color .2s,color .2s;}
++.fl-trust-pill:hover{border-color:var(--fl-accent);color:var(--fl-accent);}
++.fl-trust-pill svg{width:11px;height:11px;flex-shrink:0;}
++@media(max-width:1139px){.fl-top{padding:48px 32px 40px;gap:32px;}.fl-grid{padding:0 32px;}.fl-grid{grid-template-columns:repeat(3,1fr);}.fl-locations{padding:0 32px;}.fl-bottom{padding:18px 32px;flex-direction:column;align-items:flex-start;gap:12px;}.fl-trust{display:none;}}
++@media(max-width:640px){.fl-top{grid-template-columns:1fr;}.fl-social{align-items:flex-start;}.fl-grid{grid-template-columns:1fr 1fr;padding:0 24px;}.fl-col{padding:32px 20px 32px 0;}.fl-locations{padding:0 24px;}.fl-bottom{padding:16px 24px;}.fl-legal{flex-wrap:wrap;gap:4px;}}
++@media(max-width:480px){.fl-grid{grid-template-columns:1fr;}.fl-col,.fl-col:last-child{border-right:none !important;padding-right:0 !important;border-bottom:1px solid var(--fl-border);}.fl-col:last-child{border-bottom:none !important;}}
+ `;
+   document.head.appendChild(style);
+ 
+@@ -522,8 +340,6 @@
+     'industries.html':   'industries',
+     'partner-ecosystem.html':'partners',
+     'about.html':        'about',
+-    'blogs.html':        'blog',
+-    'blog.html':         'blog',
+   };
+   let activePage = (document.body.dataset.page || '').toLowerCase();
+   if (!activePage) {
+@@ -537,13 +353,13 @@
+   const ARROW_SVG = `<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+ 
+   const navItems = [
+-    { key: 'solve',      label: 'Our Focus',           href: '/our-focus'          },
+-    { key: 'how',        label: 'Capabilities',         href: '/capabilities'       },
+-    { key: 'deliver',    label: 'Solutions',            href: '/solutions'          },
+-    { key: 'ai',         label: 'AI &amp; Innovation',  href: '/ai-innovation/celsior-ai-lab'      },
+-    { key: 'industries', label: 'Industries',           href: '/industries'         },
+-    { key: 'partners',   label: 'Partner Ecosystem',    href: '/partners'  },
+-    { key: 'about',      label: 'About',                href: '/about'              },
++    { key: 'solve',      label: 'Our Focus',           href: 'Our_Focus.html'          },
++    { key: 'how',        label: 'Capabilities',         href: 'Capabilities.html'       },
++    { key: 'deliver',    label: 'Solutions',            href: 'Solutions.html'          },
++    { key: 'ai',         label: 'AI &amp; Innovation',  href: 'ai-innovation.html'      },
++    { key: 'industries', label: 'Industries',           href: 'industries.html'         },
++    { key: 'partners',   label: 'Partner Ecosystem',    href: 'partner-ecosystem.html'  },
++    { key: 'about',      label: 'About',                href: 'about.html'              },
+   ];
+ 
+   const navLinksHTML = navItems.map(it => `
+@@ -566,15 +382,15 @@
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Priorities</div>
+-          <a href="/our-focus/ai-first-digital-engineering">AI-First Digital Engineering</a>
+-          <a href="/our-focus/ai-adoption">AI Adoption</a>
+-          <a href="/our-focus/risk-and-compliance">Risk &amp; Compliance</a>
++          <a href="ai-first-digital-engineering.html">AI-First Digital Engineering</a>   /* ← LINK */
++          <a href="ai-adoption.html">AI Adoption</a>                    /* ← LINK */
++          <a href="risk-compliance.html">Risk &amp; Compliance</a>          /* ← LINK */
+         </div>
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Outcomes</div>
+-          <a href="/our-focus/cost-and-efficiency">Cost &amp; Efficiency</a>
+-          <a href="/our-focus/digital-experience">Digital Experience</a>
++          <a href="cost-efficiency.html">Cost &amp; Efficiency</a>          /* ← LINK */
++          <a href="digital-experience.html">Digital Experience</a>             /* ← LINK */
+         </div>
+ 
+       </div>
+@@ -587,15 +403,15 @@
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Engineering</div>
+-          <a href="/capabilities/ai-led-engineering">AI Led Engineering</a>
+-          <a href="/capabilities/cloud-and-infrastructure-engineering">Cloud &amp; Infrastructure Engineering</a>
+-          <a href="/capabilities/ai-and-data">AI &amp; Data</a>
++          <a href="ai-led-engineering.html">AI Led Engineering</a>                       /* ← LINK */
++          <a href="cloud-infrastructure-engineering.html">Cloud &amp; Infrastructure Engineering</a>  /* ← LINK */
++          <a href="ai-and-data.html">AI &amp; Data</a>                           /* ← LINK */
+         </div>
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Operations</div>
+-          <a href="/capabilities/digital-operations-and-security">Digital Operations &amp; Security</a>
+-          <a href="/capabilities/security-and-governance">Security &amp; Governance</a>
++          <a href="digital-operations.html">Digital Operations &amp; Security</a>       /* ← LINK */
++          <a href="security-governance.html">Security &amp; Governance</a>               /* ← LINK */
+         </div>
+ 
+ 
+@@ -610,20 +426,20 @@
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Programs</div>
+-          <a href="/solutions/managed-programs">Managed Programs</a>
+-          <a href="/solutions/technology-consulting">Technology Consulting</a>
+-          <a href="/solutions/ai-upskilling">AI Upskilling</a>
++          <a href="managed-programs.html">Managed Programs</a>                           /* ← LINK */
++          <a href="technology-consulting.html">Technology Consulting</a>                      /* ← LINK */
++          <a href="ai-upskilling.html">AI Upskilling</a>                      /* ← LINK */
+         </div>
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Global Delivery</div>
+-          <a href="/solutions/gcc-and-nearshore">GCC &amp; Nearshore</a>
++          <a href="gcc-nearshore.html">GCC &amp; Nearshore</a>                        /* ← LINK */
+         </div>
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Talent Models</div>
+-          <a href="/solutions/teams-as-a-service">Teams-as-a-Service</a>
+-          <a href="/solutions/ai-upskilling">Hire-Train-Deploy</a>
++          <a href="teams-as-a-service.html">Teams-as-a-Service</a>                         /* ← LINK */
++          <a href="hire-train-deploy.html">Hire-Train-Deploy</a>                          /* ← LINK */
+         </div>
+ 
+       </div>
+@@ -636,15 +452,15 @@
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Products</div>
+-          <a href="/ai-innovation/frameworks-accelerators/synthetix">Synthetix</a>
+-          <a href="/ai-innovation/celsior-ai-lab">Celsior AI Lab</a>
+-          <a href="/ai-innovation/design-lab">Design Lab</a>
++          <a href="synthetix.html">Synthetix</a>                              /* ← LINK */
++          <a href="celsior-ai-lab.html">Celsior AI Lab</a>                         /* ← LINK */
++          <a href="design-lab.html">Design Lab</a>                             /* ← LINK */
+         </div>
+ 
+         <div class="drawer-sub-group">
+           <div class="drawer-sub-head">Programs</div>
+-          <a href="/ai-innovation/frameworks-accelerators">Centers of Excellence</a>
+-          <a href="/ai-innovation/frameworks-accelerators">Frameworks &amp; Accelerators</a>
++          <a href="centers-of-excellence.html">Centers of Excellence</a>                  /* ← LINK */
++          <a href="frameworks-accelerators.html">Frameworks &amp; Accelerators</a>          /* ← LINK */
+         </div>
+ 
+       </div>
+@@ -656,9 +472,9 @@
+       <div class="drawer-sub" id="d-ind">
+ 
+         <div class="drawer-sub-group">
+-          <a href="/industries/banking-financial-services">Banking &amp; Financial Services</a>
+-          <a href="/industries/insurance">Insurance</a>
+-          <a href="/industries/healthcare">Healthcare</a>
++          <a href="banking-financial-services.html">Banking &amp; Financial Services</a>          /* ← LINK */
++          <a href="insurance.html">Insurance</a>                                 /* ← LINK */
++          <a href="healthcare.html">Healthcare</a>                                /* ← LINK */
+         </div>
+ 
+       </div>
+@@ -670,7 +486,7 @@
+       <div class="drawer-sub" id="d-part">
+ 
+         <div class="drawer-sub-group">
+-          <a href="/partners">Partners</a>
++          <a href="partners.html">Partners</a>                           /* ← LINK */
+         </div>
+ 
+       </div>
+@@ -682,12 +498,12 @@
+       <div class="drawer-sub" id="d-about">
+ 
+         <div class="drawer-sub-group">
+-          <a href="/about/who-we-are">Who we are + Our Leadership</a>
+-          <a href="/about/ai-first-philosophy">AI-first Philosophy</a>
+-          <a href="/about">Success Stories</a>
+-          <a href="/blogs">Blogs</a>
+-          <a href="/about">Careers</a>
+-          <a href="/about">Events &amp; News</a>
++          <a href="about-leadership.html">Who we are + Our Leadership</a>                    /* ← LINK */
++          <a href="ai-first-philosophy.html">AI-first Philosophy</a>                            /* ← LINK */
++          <a href="success-stories.html">Success Stories</a>                                /* ← LINK */
++          <a href="blogs.html">Blogs</a>                                          /* ← LINK */
++          <a href="careers.html">Careers</a>                                        /* ← LINK */
++          <a href="events-news.html">Events &amp; News</a>                              /* ← LINK */
+         </div>
+ 
+       </div>
+@@ -695,185 +511,332 @@
+ 
+ `;
+ 
+-  const FEATURE_IMG = 'https://res.cloudinary.com/dden4hawr/image/upload/v1780833974/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
+-  const ITEM_CHEV = `<svg viewBox="0 0 12 12" fill="none"><path d="M4 2.5L7.5 6L4 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+-  const IC_DOC = `<svg viewBox="0 0 24 24" fill="none"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+-  const IC_CHART = `<svg viewBox="0 0 24 24" fill="none"><path d="M5 4v15a1 1 0 0 0 1 1h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 14l3-3 2.5 2.5L19 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+-  const ASSESS_ICONS = [IC_DOC, IC_CHART];
+-
+-  /* Data-driven mega panels. Links preserved from the original menus. */
+-  const MEGA_DATA = [
+-    {
+-      id:'solve', label:'Our Focus', title:'AI-First Digital Engineering',
+-      desc:'We build intelligent digital products and platforms that unlock efficiency, resilience, and growth.',
+-      explore:{label:'Explore Solutions', href:'/our-focus'},
+-      items:[
+-        {label:'AI Adoption', href:'/our-focus/ai-adoption'},
+-        {label:'Risk &amp; Compliance', href:'/our-focus/risk-and-compliance'},
+-        {label:'Cost &amp; Efficiency', href:'/our-focus/cost-and-efficiency'},
+-        {label:'Digital Experience', href:'/our-focus/digital-experience'},
+-        {label:'AI-First Digital Engineering', href:'/our-focus/ai-first-digital-engineering'},
+-      ],
+-      feature:{cap:'<em>AI-First</em> digital engineering that evolves at the speed of your business.', title:'AI-First Digital Engineering', desc:'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.'},
+-      assessTag:'Free Assessment',
+-      assess:[
+-        {title:'Modernization Diagnostic', desc:'2-week assessment of your legacy landscape with a prioritized roadmap.'},
+-        {title:'AI Readiness Index', desc:'Benchmark your AI maturity against industry peers.'},
+-      ],
+-    },
+-    {
+-      id:'how', label:'Capabilities', title:'Engineering &amp; Operations',
+-      desc:'Modern engineering capabilities that move regulated enterprises faster, safer, and smarter.',
+-      explore:{label:'Explore Capabilities', href:'/capabilities'},
+-      items:[
+-        {label:'AI Led Engineering', href:'/capabilities/ai-led-engineering'},
+-        {label:'Cloud &amp; Infrastructure Engineering', href:'/capabilities/cloud-and-infrastructure-engineering'},
+-        {label:'AI &amp; Data', href:'/capabilities/ai-and-data'},
+-        {label:'Digital Operations &amp; Security', href:'/capabilities/digital-operations-and-security'},
+-        {label:'Security &amp; Governance', href:'/capabilities/security-and-governance'},
+-      ],
+-      feature:{cap:'<em>Platform engineering</em> built for scale and resilience.', title:'Platform Engineering at Scale', desc:'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.'},
+-      assessTag:'Spotlight',
+-      assess:[
+-        {title:'Cloud Acceleration', desc:'Migrate and modernize critical workloads with zero-downtime patterns.'},
+-        {title:'Engineering Health Check', desc:'Assess delivery velocity, quality, and platform maturity.'},
+-      ],
+-    },
+-    {
+-      id:'deliver', label:'Solutions', title:'Global Delivery Models',
+-      desc:'Flexible operating models that match your scale, speed, and talent strategy.',
+-      explore:{label:'Explore Solutions', href:'/solutions'},
+-      items:[
+-        {label:'Managed Programs', href:'/solutions/managed-programs'},
+-        {label:'Technology Consulting', href:'/solutions/technology-consulting'},
+-        {label:'AI Upskilling', href:'/solutions/ai-upskilling'},
+-        {label:'GCC &amp; Nearshore', href:'/solutions/gcc-and-nearshore'},
+-        {label:'Teams-as-a-Service', href:'/solutions/teams-as-a-service'},
+-        {label:'Hire-Train-Deploy', href:'/solutions/ai-upskilling'},
+-      ],
+-      feature:{cap:'<em>The right model</em> for your scale and goals.', title:'GCC vs. Teams-as-a-Service', desc:'Compare cost, control, and speed side by side to find the right operating model for your enterprise.'},
+-      assessTag:'Compare Models',
+-      assess:[
+-        {title:'Operating Model Fit', desc:'Map your goals to the ideal delivery and talent model.'},
+-        {title:'Nearshore ROI', desc:'Model savings and velocity gains across LATAM and offshore.'},
+-      ],
+-    },
+-    {
+-      id:'ai', label:'AI &amp; Innovation', title:'AI &amp; Innovation',
+-      desc:'Products, labs, and frameworks that turn AI ambition into production reality.',
+-      explore:{label:'Explore AI &amp; Innovation', href:'/ai-innovation/celsior-ai-lab'},
+-      items:[
+-        {label:'Synthetix', href:'/ai-innovation/frameworks-accelerators/synthetix'},
+-        {label:'Celsior AI Lab', href:'/ai-innovation/celsior-ai-lab'},
+-        {label:'Design Lab', href:'/ai-innovation/design-lab'},
+-        {label:'Centers of Excellence', href:'/ai-innovation/frameworks-accelerators'},
+-        {label:'Frameworks &amp; Accelerators', href:'/ai-innovation/frameworks-accelerators'},
+-      ],
+-      feature:{cap:'<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title:'Synthetix in Action', desc:'See how our AI orchestration layer connects critical systems with enterprise-grade governance.'},
+-      assessTag:'Live Demo',
+-      assess:[
+-        {title:'AI Readiness Index', desc:'Benchmark your AI maturity against industry peers.'},
+-        {title:'GenAI Accelerators', desc:'Ship copilots and agentic workflows in weeks, not quarters.'},
+-      ],
+-    },
+-    {
+-      id:'industries', label:'Industries', title:'Industries We Serve',
+-      desc:'Deep domain expertise across the most regulated and complex sectors.',
+-      explore:{label:'Explore Industries', href:'/industries'},
+-      items:[
+-        {label:'Banking &amp; Financial Services', href:'/industries/banking-financial-services'},
+-        {label:'Insurance', href:'/industries/insurance'},
+-        {label:'Healthcare', href:'/industries/healthcare'},
+-      ],
+-      feature:{cap:'<em>Modernize</em> without disruption.', title:'Regulated Industry Playbook', desc:'How leading banks, insurers, and health systems modernize critical systems with confidence.'},
+-      assessTag:'Industry Brief',
+-      assess:[
+-        {title:'Compliance Diagnostic', desc:'Assess regulatory readiness across your technology estate.'},
+-        {title:'Risk &amp; Resilience Index', desc:'Benchmark operational resilience against sector peers.'},
+-      ],
+-    },
+-    {
+-      id:'partners', label:'Partner Ecosystem', title:'Partner Ecosystem',
+-      desc:'A curated network of technology and implementation partners that amplify outcomes.',
+-      explore:{label:'Explore Partners', href:'/partners'},
+-      items:[
+-        {label:'Partners', href:'/partners'},
+-      ],
+-      partnerLogos:[
+-        {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png'},
+-        {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png'},
+-        {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png'},
+-        {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png'},
+-      ],
+-      feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.'},
+-      assessTag:'Partnerships',
+-      assess:[
+-        {title:'Alliance Programs', desc:'Co-build and co-sell with our technology partners.'},
+-        {title:'Integration Library', desc:'Pre-built accelerators across leading platforms.'},
+-      ],
+-    },
+-    {
+-      id:'about', label:'About', title:'About Celsior',
+-      desc:'Engineering-first culture, global teams, and a mission built for regulated enterprises.',
+-      explore:{label:'Explore About', href:'/about'},
+-      items:[
+-        {label:'Who we are + Our Leadership', href:'/about/who-we-are'},
+-        {label:'AI-first Philosophy', href:'/about/ai-first-philosophy'},
+-        {label:'Success Stories', href:'/about'},
+-        {label:'Blogs', href:'/blogs'},
+-        {label:'Careers', href:'/about'},
+-        {label:'Events &amp; News', href:'/about'},
+-      ],
+-      feature:{cap:'<em>Engineering-first</em> culture, global impact.', title:'Life at Celsior', desc:'Join a team building the future of AI-first digital engineering across the globe.'},
+-      assessTag:'Join Us',
+-      assess:[
+-        {title:'Open Roles', desc:'Explore engineering and consulting opportunities worldwide.'},
+-        {title:'Our Leadership', desc:'Meet the team driving Celsior\'s mission and vision.'},
+-      ],
+-    },
+-  ];
+-
+-  function buildMegaPanel(d) {
+-    const items = d.items.map(it => `<a class="mz-item" href="${it.href}">${it.label} ${ITEM_CHEV}</a>`).join('');
+-    const pills = d.partnerLogos
+-      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card" href="${p.href}" title="${p.label}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
+-      : (d.pills ? `<div class="mz-pills">${d.pills.map(p => `<a class="mz-pill" href="${d.items[0].href}"><span class="p-dot"></span>${p}</a>`).join('')}</div>` : '');
+-    const assess = d.assess.map((a,i) => `
+-        <a class="mz-assess-card" href="${d.explore.href}">
+-          <div class="mz-assess-icon">${ASSESS_ICONS[i % ASSESS_ICONS.length]}</div>
+-          <div><div class="mz-assess-title">${a.title}</div><div class="mz-assess-desc">${a.desc}</div></div>
+-        </a>`).join('');
+-    return `
+-  <div class="mega-panel" id="menu-${d.id}">
++  const megaPanelsHTML = `
++
++  <!-- ═══════════════════════════════════════════════════════════════
++       MEGA PANELS  —  one <a href="..."> per line for easy editing.
++       Placeholder hrefs point to the parent page section.
++       Search "/* ← LINK */" to jump to any individual URL.
++       ═══════════════════════════════════════════════════════════════ -->
++
++  <!-- ╔══════════════════════════════════════╗
++       ║  OUR FOCUS                           ║
++       ╚══════════════════════════════════════╝ -->
++  <div class="mega-panel" id="menu-solve">
+     <div class="mega-inner">
+-      <div class="mega-zone">
+-        <div class="mz-label">${d.label}</div>
+-        <h3 class="mz-title">${d.title}</h3>
+-        <p class="mz-desc">${d.desc}</p>
+-        <div class="mz-list">${items}</div>
+-        ${pills}
+-      </div>
+-      <div class="mega-zone">
+-        <a class="mz-feature-card" href="${d.explore.href}">
+-          <img class="mz-feature-img" src="${FEATURE_IMG}" alt="${d.feature.title}" loading="lazy"/>
+-          <div class="mz-feature-cap">${d.feature.cap}</div>
+-        </a>
+-        <div class="mz-feature-body">
+-          <div class="mz-feature-title">${d.feature.title}</div>
+-          <p class="mz-feature-desc">${d.feature.desc}</p>
+-          <a class="mz-explore" href="${d.explore.href}">${d.explore.label} ${ARROW_SVG}</a>
+-        </div>
+-      </div>
+-      <div class="mega-zone">
+-        <div class="mz-assess-label">${d.assessTag}</div>
+-        <div class="mz-assess-cards">${assess}</div>
+-      </div>
+-    </div>
+-  </div>`;
+-  }
+-
+-  const megaPanelsHTML = MEGA_DATA.map(buildMegaPanel).join('\n');
+-
++
++      <!-- Col 1 — Priorities -->
++      <div class="mega-col">
++        <div class="mega-label">Our Focus</div>
++        <div class="mega-col-head">Priorities</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="ai-first-digital-engineering.html">AI-First Digital Engineering</a></li>  <!-- ← LINK -->
++            <li><a href="ai-adoption.html">AI Adoption</a></li>                   <!-- ← LINK -->
++            <li><a href="risk-compliance.html">Risk &amp; Compliance</a></li>         <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 2 — Outcomes -->
++      <div class="mega-col">
++        <div class="mega-col-head" style="margin-top:26px">Outcomes</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="cost-efficiency.html">Cost &amp; Efficiency</a></li>         <!-- ← LINK -->
++            <li><a href="digital-experience.html">Digital Experience</a></li>            <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 3 — empty spacer -->
++      <div class="mega-col"></div>
++
++      <!-- Featured card -->
++      <div class="mega-featured">
++        <div class="feat-tag">Free Assessment</div>
++        <div class="feat-card">
++          <div class="feat-card-title">Modernization Diagnostic</div>
++          <div class="feat-card-desc">2-week assessment of your legacy landscape with a prioritized roadmap.</div>
++        </div>
++        <div class="feat-card">
++          <div class="feat-card-title">AI Readiness Index</div>
++          <div class="feat-card-desc">Benchmark your AI maturity against industry peers.</div>
++        </div>
++      </div>
++
++    </div>
++  </div>
++
++  <!-- ╔══════════════════════════════════════╗
++       ║  CAPABILITIES                        ║
++       ╚══════════════════════════════════════╝ -->
++  <div class="mega-panel" id="menu-how">
++    <div class="mega-inner">
++
++      <!-- Col 1 — Engineering -->
++      <div class="mega-col">
++        <div class="mega-label">Capabilities</div>
++        <div class="mega-col-head">Engineering</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="ai-led-engineering.html">AI Led Engineering</a></li>                      <!-- ← LINK -->
++            <li><a href="cloud-infrastructure-engineering.html">Cloud &amp; Infrastructure Engineering</a></li>  <!-- ← LINK -->
++            <li><a href="ai-and-data.html">AI &amp; Data</a></li>                           <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 2 — Operations -->
++      <div class="mega-col">
++        <div class="mega-col-head" style="margin-top:26px">Operations</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="digital-operations.html">Digital Operations &amp; Security</a></li>       <!-- ← LINK -->
++            <li><a href="security-governance.html">Security &amp; Governance</a></li>               <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 3 — empty spacer -->
++      <div class="mega-col"></div>
++
++      <!-- Featured card -->
++      <div class="mega-featured">
++        <div class="feat-tag">Spotlight</div>
++        <div class="feat-card">
++          <div class="feat-card-title">Platform Engineering at Scale</div>
++          <div class="feat-card-desc">Golden paths for global banks with 200+ engineering teams.</div>
++        </div>
++      </div>
++
++    </div>
++  </div>
++
++  <!-- ╔══════════════════════════════════════╗
++       ║  SOLUTIONS                           ║
++       ╚══════════════════════════════════════╝ -->
++  <div class="mega-panel" id="menu-deliver">
++    <div class="mega-inner">
++
++      <!-- Col 1 — Programs & Consulting -->
++      <div class="mega-col">
++        <div class="mega-label">Solutions</div>
++        <div class="mega-col-head">Programs</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="managed-programs.html">Managed Programs</a></li>                           <!-- ← LINK -->
++            <li><a href="technology-consulting.html">Technology Consulting</a></li>                      <!-- ← LINK -->
++            <li><a href="ai-upskilling.html">AI Upskilling</a></li>                      <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 2 — Global Delivery -->
++      <div class="mega-col">
++        <div class="mega-col-head" style="margin-top:26px">Global Delivery</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="gcc-nearshore.html">GCC &amp; Nearshore</a></li>                        <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 3 — Talent Models -->
++      <div class="mega-col">
++        <div class="mega-col-head" style="margin-top:26px">Talent Models</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="teams-as-a-service.html">Teams-as-a-Service</a></li>                         <!-- ← LINK -->
++            <li><a href="hire-train-deploy.html">Hire-Train-Deploy
++              <span style="display:inline-flex;align-items:center;padding:1px 7px;background:#0d1127;color:#fff;font-size:.58rem;font-weight:700;letter-spacing:.06em;border-radius:3px;text-transform:uppercase;margin-left:4px;">New</span>
++            </a></li>                                                                        <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Featured card -->
++      <div class="mega-featured">
++        <div class="feat-tag">Compare Models</div>
++        <div class="feat-card">
++          <div class="feat-card-title">GCC vs. Teams-as-a-Service</div>
++          <div class="feat-card-desc">Find the right operating model for your scale and goals.</div>
++        </div>
++      </div>
++
++    </div>
++  </div>
++
++  <!-- ╔══════════════════════════════════════╗
++       ║  AI & INNOVATION                     ║
++       ╚══════════════════════════════════════╝ -->
++  <div class="mega-panel" id="menu-ai">
++    <div class="mega-inner">
++
++      <!-- Col 1 — Products -->
++      <div class="mega-col">
++        <div class="mega-label">AI &amp; Innovation</div>
++        <div class="mega-col-head">Products</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="synthetix.html">Synthetix</a></li>                              <!-- ← LINK -->
++            <li><a href="celsior-ai-lab.html">Celsior AI Lab</a></li>                         <!-- ← LINK -->
++            <li><a href="design-lab.html">Design Lab</a></li>                             <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 2 — Programs -->
++      <div class="mega-col">
++        <div class="mega-col-head" style="margin-top:26px">Programs</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="centers-of-excellence.html">Centers of Excellence</a></li>                  <!-- ← LINK -->
++            <li><a href="frameworks-accelerators.html">Frameworks &amp; Accelerators</a></li>          <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 3 — empty spacer -->
++      <div class="mega-col"></div>
++
++      <!-- Featured card -->
++      <div class="mega-featured">
++        <div class="feat-tag">Live Demo</div>
++        <div class="feat-card">
++          <div class="feat-card-title">Synthetix in Action</div>
++          <div class="feat-card-desc">See how our AI orchestration layer connects policy, claims, and risk in real time.</div>
++        </div>
++      </div>
++
++    </div>
++  </div>
++
++  <!-- ╔══════════════════════════════════════╗
++       ║  INDUSTRIES                          ║
++       ╚══════════════════════════════════════╝ -->
++  <div class="mega-panel" id="menu-industries">
++    <div class="mega-inner">
++
++      <!-- Col 1 — Sectors -->
++      <div class="mega-col">
++        <div class="mega-label">Industries</div>
++        <div class="mega-col-head">Sectors</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="banking-financial-services.html">Banking &amp; Financial Services</a></li>          <!-- ← LINK -->
++            <li><a href="insurance.html">Insurance</a></li>                                 <!-- ← LINK -->
++            <li><a href="healthcare.html">Healthcare</a></li>                                <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 2 & 3 — empty spacers -->
++      <div class="mega-col"></div>
++      <div class="mega-col"></div>
++
++      <!-- Featured card -->
++      <div class="mega-featured">
++        <div class="feat-tag">Industry Brief</div>
++        <div class="feat-card">
++          <div class="feat-card-title">Regulated Industry Playbook</div>
++          <div class="feat-card-desc">How leading banks, insurers, and health systems modernize without disruption.</div>
++        </div>
++      </div>
++
++    </div>
++  </div>
++
++  <!-- ╔══════════════════════════════════════╗
++       ║  PARTNER ECOSYSTEM                   ║
++       ╚══════════════════════════════════════╝ -->
++  <div class="mega-panel" id="menu-partners">
++    <div class="mega-inner">
++
++      <!-- Col 1 — Alliances -->
++      <div class="mega-col">
++        <div class="mega-label">Partner Ecosystem</div>
++        <div class="mega-col-head">Alliances</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="partners.html">Partners</a></li>                           <!-- ← LINK -->
++          </ul>
++        </div>
++        <div class="partner-grid">
++          <span class="partner-pill"><span class="p-dot"></span>ServiceNow</span>
++          <span class="partner-pill"><span class="p-dot"></span>Guidewire</span>
++          <span class="partner-pill"><span class="p-dot"></span>AWS</span>
++          <span class="partner-pill"><span class="p-dot"></span>Azure</span>
++          <span class="partner-pill"><span class="p-dot"></span>Google Cloud</span>
++          <span class="partner-pill"><span class="p-dot"></span>Snowflake</span>
++          <span class="partner-pill"><span class="p-dot"></span>Dynatrace</span>
++          <span class="partner-pill"><span class="p-dot"></span>UiPath</span>
++        </div>
++      </div>
++
++      <!-- Col 2 & 3 — empty spacers -->
++      <div class="mega-col"></div>
++      <div class="mega-col"></div>
++
++      <!-- Featured card -->
++      <div class="mega-featured">
++        <div class="feat-tag">Partnerships</div>
++        <div class="feat-card">
++          <div class="feat-card-title">Become a Partner</div>
++          <div class="feat-card-desc">Join Celsior's ecosystem of technology and implementation partners.</div>
++        </div>
++      </div>
++
++    </div>
++  </div>
++
++  <!-- ╔══════════════════════════════════════╗
++       ║  ABOUT                               ║
++       ╚══════════════════════════════════════╝ -->
++  <div class="mega-panel" id="menu-about">
++    <div class="mega-inner">
++
++      <!-- Col 1 — Company -->
++      <div class="mega-col">
++        <div class="mega-label">About</div>
++        <div class="mega-col-head">Company</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="about-leadership.html">Who we are + Our Leadership</a></li>                    <!-- ← LINK -->
++            <li><a href="ai-first-philosophy.html">AI-first Philosophy</a></li>                            <!-- ← LINK -->
++            <li><a href="success-stories.html">Success Stories</a></li>                                <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 2 — News & Careers -->
++      <div class="mega-col">
++        <div class="mega-col-head" style="margin-top:26px">News &amp; Careers</div>
++        <div class="mega-group">
++          <ul class="mega-links">
++            <li><a href="blogs.html">Blogs</a></li>                                          <!-- ← LINK -->
++            <li><a href="careers.html">Careers</a></li>                                        <!-- ← LINK -->
++            <li><a href="events-news.html">Events &amp; News</a></li>                              <!-- ← LINK -->
++          </ul>
++        </div>
++      </div>
++
++      <!-- Col 3 — empty spacer -->
++      <div class="mega-col"></div>
++
++      <!-- Featured card -->
++      <div class="mega-featured">
++        <div class="feat-tag">Join Us</div>
++        <div class="feat-card">
++          <div class="feat-card-title">Life at Celsior</div>
++          <div class="feat-card-desc">Engineering-first culture, global teams, and a mission that matters.</div>
++        </div>
++      </div>
++
++    </div>
++  </div>
++
++`;
+ 
+   let backdropEl = document.getElementById('mega-backdrop');
+   let navEl = document.getElementById('navbar');
+@@ -898,12 +861,12 @@
+     navEl = document.createElement('nav');
+     navEl.id = 'navbar';
+     navEl.innerHTML = `
+-      <a href="/" class="nav-logo">
++      <a href="index.html" class="nav-logo">
+         <img src="${LOGO}" alt="Celsior" class="logo-img"/>
+       </a>
+       <ul class="nav-links" id="navLinks">${navLinksHTML}</ul>
+       <div class="nav-right">
+-        <a href="/#contact" class="btn-nav-solid">Contact us ${ARROW_SVG}</a>
++        <a href="index.html#contact" class="btn-nav-solid">Contact us ${ARROW_SVG}</a>
+       </div>
+       <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+         <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
+@@ -925,7 +888,7 @@
+         </div>
+         <nav class="drawer-nav">${drawerDivHTML}</nav>
+         <div class="drawer-cta">
+-          <a href="/#contact" class="drawer-cta-btn">Contact us ${ARROW_SVG}</a>
++          <a href="index.html#contact" class="drawer-cta-btn">Contact us ${ARROW_SVG}</a>
+         </div>
+       </div>`;
+     document.body.insertBefore(drawerEl, navEl.nextSibling);
+@@ -936,225 +899,72 @@
+     megaRoot.id = 'megaRoot';
+     megaRoot.innerHTML = megaPanelsHTML;
+     document.body.insertBefore(megaRoot, drawerEl.nextSibling);
+-
+-    /* ─── 3b.  AUGMENT MOBILE DRAWER WITH MEGA CARDS ────────────────
+-       Inject the rich content (feature card + assessment cards + pills)
+-       from MEGA_DATA into each .drawer-sub so the mobile experience
+-       mirrors the desktop mega menu. Original drawer link groups are
+-       preserved untouched. */
+-    const DRAWER_MEGA_MAP = {
+-      'd-solve':'solve','d-how':'how','d-deliver':'deliver','d-ai':'ai',
+-      'd-ind':'industries','d-part':'partners','d-about':'about'
+-    };
+-    Object.keys(DRAWER_MEGA_MAP).forEach(function(subId){
+-      const sub = drawerEl.querySelector('#' + subId);
+-      if (!sub) return;
+-      const data = MEGA_DATA.find(function(m){ return m.id === DRAWER_MEGA_MAP[subId]; });
+-      if (!data) return;
+-      const pillsHTML = data.partnerLogos
+-        ? `<div class="drawer-partner-grid">${data.partnerLogos.map(function(p){ return `<a class="drawer-partner-card" href="${p.href}" title="${p.label}"><img class="drawer-partner-logo" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`; }).join('')}</div>`
+-        : (data.pills ? `<div class="drawer-mega-pills">${data.pills.map(function(p){ return `<a href="${data.items[0].href}"><span class="p-dot"></span>${p}</a>`; }).join('')}</div>` : '');
+-      const assessHTML = (data.assess || []).map(function(a,i){
+-        return `<a class="drawer-mega-card" href="${data.explore.href}">
+-          <div class="ic">${ASSESS_ICONS[i % ASSESS_ICONS.length]}</div>
+-          <div class="bd"><div class="t">${a.title}</div><div class="d">${a.desc}</div></div>
+-        </a>`;
+-      }).join('');
+-      const mega = document.createElement('div');
+-      mega.className = 'drawer-mega';
+-      mega.innerHTML = `
+-        <a class="drawer-mega-feature" href="${data.explore.href}" aria-label="${data.feature.title}">
+-          <img src="${FEATURE_IMG}" alt="${data.feature.title}" loading="lazy"/>
+-          <div class="drawer-mega-cap">${data.feature.cap}</div>
+-        </a>
+-        <a class="drawer-mega-explore" href="${data.explore.href}">${data.explore.label} ${ARROW_SVG}</a>
+-        ${pillsHTML}
+-        ${data.assessTag ? `<div class="drawer-mega-assess-label">${data.assessTag}</div>` : ''}
+-        <div class="drawer-mega-assess">${assessHTML}</div>
+-      `;
+-      sub.appendChild(mega);
+-    });
+-  }
+-
++  }
+ 
+   /* ─── 4.  FOOTER HTML ─────────────────────────────────────────────── */
+   const footerEl = document.createElement('footer');
+   footerEl.className = 'site-footer-light';
+   footerEl.id = 'siteFooterLight';
+-  const CF_CHEV = `<svg viewBox="0 0 12 12" fill="none"><path d="M4 2.5L7.5 6L4 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
+-  function cfCol(head, links){
+-    return `<div class="cf-col"><p class="cf-col-head">${head}</p><nav class="cf-col-links">${
+-      links.map(l => `<a href="${l.href}" class="cf-col-link"><span>${l.label}</span>${CF_CHEV}</a>`).join('')
+-    }</nav></div>`;
+-  }
+-
+   footerEl.innerHTML = `
+-  <div class="cf-wrap">
+-    <div class="cf-top">
+-      <div class="cf-brand">
+-        <a href="/"><img src="${LOGO}" alt="Celsior" class="cf-logo"/></a>
+-        <p class="cf-tagline">AI-first digital engineering partner for regulated industries modernizing critical systems, operationalizing AI, and building resilience at scale.</p>
+-        <p class="cf-sub-head">Stay informed</p>
+-        <p class="cf-sub-desc">Insights on AI, compliance, and operational resilience delivered to your inbox.</p>
+-        <div class="cf-subscribe">
+-          <input type="email" placeholder="Enter your work email" autocomplete="email"/>
+-          <button type="button">Subscribe</button>
+-        </div>
+-        <p class="cf-connect">Connect with us</p>
+-        <div class="cf-social">
+-          <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+-          <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.857L1.254 2.25h6.988l4.26 5.633L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a>
+-          <a href="#" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+-          <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+-          <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
+-        </div>
+-      </div>
+-      ${cfCol('Our Focus',[
+-        {label:'AI-First Digital Engineering', href:'/our-focus/ai-first-digital-engineering'},
+-        {label:'AI Adoption', href:'/our-focus/ai-adoption'},
+-        {label:'Risk &amp; Compliance', href:'/our-focus/risk-and-compliance'},
+-        {label:'Cost &amp; Efficiency', href:'/our-focus/cost-and-efficiency'},
+-        {label:'Digital Experience', href:'/our-focus/digital-experience'},
+-      ])}
+-      ${cfCol('Capabilities',[
+-        {label:'AI-Led Engineering', href:'/capabilities/ai-led-engineering'},
+-        {label:'Cloud &amp; Infrastructure', href:'/capabilities/cloud-and-infrastructure-engineering'},
+-        {label:'AI &amp; Data', href:'/capabilities/ai-and-data'},
+-        {label:'Digital Operations &amp; Sec.', href:'/capabilities/digital-operations-and-security'},
+-        {label:'Security &amp; Governance', href:'/capabilities/security-and-governance'},
+-      ])}
+-      ${cfCol('Solutions',[
+-        {label:'Managed Programs', href:'/solutions/managed-programs'},
+-        {label:'Technology Consulting', href:'/solutions/technology-consulting'},
+-        {label:'GCC &amp; Nearshore', href:'/solutions/gcc-and-nearshore'},
+-        {label:'Teams-as-a-Service', href:'/solutions/teams-as-a-service'},
+-        {label:'AI Upskilling', href:'/solutions/ai-upskilling'},
+-      ])}
+-      ${cfCol('AI &amp; Innovation',[
+-        {label:'Synthetix', href:'/ai-innovation/frameworks-accelerators/synthetix'},
+-        {label:'Celsior AI Lab', href:'/ai-innovation/celsior-ai-lab'},
+-        {label:'Design Lab', href:'/ai-innovation/design-lab'},
+-        {label:'Frameworks &amp; Acc.', href:'/ai-innovation/frameworks-accelerators'},
+-      ])}
+-      ${cfCol('Industries',[
+-        {label:'Banking &amp; Financial', href:'/industries/banking-financial-services'},
+-        {label:'Insurance', href:'/industries/insurance'},
+-        {label:'Healthcare', href:'/industries/healthcare'},
+-      ])}
++  <div class="fl-top">
++    <div class="fl-brand">
++      <a href="index.html"><img src="${LOGO}" alt="Celsior" class="fl-logo"/></a>
++      <p class="fl-tagline">Engineering partner for regulated industries — modernizing critical systems, operationalizing AI, and building operational resilience at scale.</p>
++      <div class="fl-subscribe">
++        <input type="email" placeholder="Enter your work email" autocomplete="email"/>
++        <button type="button">Subscribe</button>
++      </div>
++    </div>
++    <div class="fl-social">
++      <span class="fl-social-label">Follow Us</span>
++      <div class="fl-social-icons">
++        <a href="#" class="fl-social-btn" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
++        <a href="#" class="fl-social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.736-8.857L1.254 2.25h6.988l4.26 5.633L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg></a>
++        <a href="#" class="fl-social-btn" aria-label="GitHub"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
++        <a href="#" class="fl-social-btn" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
++        <a href="#" class="fl-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
++      </div>
+     </div>
+   </div>
+ 
+-  <div class="cf-divider"></div>
+-
+-  <div class="cf-wrap">
+-    <div class="cf-mid">
+-      ${cfCol('About',[
+-        {label:'Our Focus', href:'/our-focus'},
+-        {label:'Capabilities', href:'/capabilities'},
+-        {label:'Solutions', href:'/solutions'},
+-        {label:'AI &amp; Innovation', href:'/ai-innovation/celsior-ai-lab'},
+-        {label:'Industries', href:'/industries'},
+-      ])}
+-      ${cfCol('Company',[
+-        {label:'About', href:'/about'},
+-        {label:'Partners', href:'/partners'},
+-        {label:'Careers', href:'/about'},
+-      ])}
+-      ${cfCol('Resources',[
+-        {label:'Insights', href:'/blogs'},
+-        {label:'Whitepapers', href:'/blogs'},
+-        {label:'Webinars', href:'/about'},
+-        {label:'Newsroom', href:'/about'},
+-        {label:'Events', href:'/about'},
+-      ])}
+-      <div class="cf-col">
+-        <p class="cf-col-head">Contact</p>
+-        <div class="cf-contact-line">
+-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+-          <span>Celsior Technologies, Inc.<br/>1000 Parkwood Circle, Suite 100<br/>Atlanta, GA 30339, USA</span>
+-        </div>
+-        <div class="cf-contact-line">
+-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 16l1 4v0a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+-          <a href="tel:+14045550198">+1 (404) 555-0198</a>
+-        </div>
+-        <div class="cf-contact-line">
+-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+-          <a href="mailto:info@pyramidconsulting.com">info@pyramidconsulting.com</a>
+-        </div>
+-      </div>
+-      <div class="cf-cta">
+-        <div class="cf-cta-circle">
+-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+-        </div>
+-        <div>
+-          <div class="cf-cta-title">Ready to transform your enterprise with AI?</div>
+-          <p class="cf-cta-desc">Let's build what's next, together.</p>
+-          <a href="/#contact" class="cf-cta-link">Contact Us <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+-        </div>
+-      </div>
+-    </div>
++  <div class="fl-grid">
++    <div class="fl-col"><p class="fl-col-head">Solutions</p><nav class="fl-col-links"><a href="Our_Focus.html" class="fl-col-link">Core Banking Modernization</a><a href="Our_Focus.html" class="fl-col-link">Cloud Transformation</a><a href="Our_Focus.html" class="fl-col-link">Technical Debt Reduction</a><a href="Our_Focus.html" class="fl-col-link">Regulatory Readiness</a><a href="Our_Focus.html" class="fl-col-link">Digital Experience</a><a href="Our_Focus.html" class="fl-col-link">Enterprise AI Enablement</a></nav></div>
++    <div class="fl-col"><p class="fl-col-head">Services</p><nav class="fl-col-links"><a href="Capabilities.html" class="fl-col-link">Application Engineering</a><a href="Capabilities.html" class="fl-col-link">Platform Engineering</a><a href="Capabilities.html" class="fl-col-link">Cloud &amp; DevOps</a><a href="Capabilities.html" class="fl-col-link">Data &amp; AI Engineering</a><a href="Capabilities.html" class="fl-col-link">Security &amp; Governance</a><a href="Capabilities.html" class="fl-col-link">ITSM &amp; Operations</a></nav></div>
++    <div class="fl-col"><p class="fl-col-head">Delivery</p><nav class="fl-col-links"><a href="Solutions.html" class="fl-col-link">GCC Build &amp; Operate</a><a href="Solutions.html" class="fl-col-link">BOT Model</a><a href="Solutions.html" class="fl-col-link">Mexico &amp; LATAM Nearshore</a><a href="Solutions.html" class="fl-col-link">Engineering Pods</a><a href="Solutions.html" class="fl-col-link">Hire-Train-Deploy <span class="fl-badge">New</span></a></nav></div>
++    <div class="fl-col"><p class="fl-col-head">AI &amp; Innovation</p><nav class="fl-col-links"><a href="ai-innovation.html" class="fl-col-link">Celsior AI Lab</a><a href="ai-innovation.html" class="fl-col-link">Agentic Workflows</a><a href="ai-innovation.html" class="fl-col-link">AI Copilots</a><a href="ai-innovation.html" class="fl-col-link">CAFE Framework</a><a href="ai-innovation.html" class="fl-col-link">HALO Framework</a><a href="ai-innovation.html" class="fl-col-link">GenAI Accelerators</a></nav></div>
++    <div class="fl-col"><p class="fl-col-head">Company</p><nav class="fl-col-links"><a href="about.html" class="fl-col-link">Who We Are</a><a href="about.html" class="fl-col-link">Our Leadership</a><a href="about.html" class="fl-col-link">AI-first Philosophy</a><a href="about.html" class="fl-col-link">Success Stories</a><a href="about.html" class="fl-col-link">Newsroom</a><a href="about.html" class="fl-col-link">Careers</a><a href="index.html#contact" class="fl-col-link">Contact Us</a></nav></div>
+   </div>
+ 
+-  <div class="cf-bottom">
+-    <p class="cf-copyright">&copy; 2026 Pyramid Consulting, Inc. All rights reserved.</p>
+-    <nav class="cf-legal" aria-label="Legal">
+-      <a href="/assets/legal/gdpr-v1-6-072024.pdf" target="_blank" rel="noopener">GDPR</a>
+-      <a href="/assets/legal/ccpa-cra-v1-3-072024.pdf" target="_blank" rel="noopener">CCPA/CRA</a>
+-      <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy</a>
+-      <a href="/assets/legal/pci-072025-reasonable-accomodation-policy.pdf" target="_blank" rel="noopener">Reasonable Accommodation Policy</a>
+-      <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft privacy statement</a>
+-      <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web accessibility</a>
+-      <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy introduction</a>
+-      <a href="#" data-action="ccpa-opt-out">Do Not Sell or Share My Info</a>
+-      <a href="#" data-action="cookie-prefs">Cookie preferences</a>
+-    </nav>
+-
+-    <div class="cf-lang">
+-      <svg class="cf-globe" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
+-      <span>English</span>
+-      <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
++  <div class="fl-locations">
++    <div class="fl-loc"><div class="fl-loc-dot"></div><div class="fl-loc-text"><span class="fl-loc-city">New York</span><span class="fl-loc-country">United States</span></div></div>
++    <div class="fl-loc"><div class="fl-loc-dot"></div><div class="fl-loc-text"><span class="fl-loc-city">London</span><span class="fl-loc-country">United Kingdom</span></div></div>
++    <div class="fl-loc"><div class="fl-loc-dot"></div><div class="fl-loc-text"><span class="fl-loc-city">Hyderabad</span><span class="fl-loc-country">India</span></div></div>
++    <div class="fl-loc"><div class="fl-loc-dot"></div><div class="fl-loc-text"><span class="fl-loc-city">Mexico City</span><span class="fl-loc-country">Mexico</span></div></div>
++  </div>
++
++  <div class="fl-bottom">
++    <p class="fl-copyright">&copy; 2026 <strong>CelsiorTech, Inc.</strong> All rights reserved. Built for regulated enterprises that run on reliability.</p>
++    <nav class="fl-legal" aria-label="Legal"><a href="#" class="fl-legal-link">Privacy Policy</a><a href="#" class="fl-legal-link">Cookie Policy</a><a href="#" class="fl-legal-link">Terms of Use</a><a href="#" class="fl-legal-link">Accessibility</a><a href="#" class="fl-legal-link">Sitemap</a></nav>
++    <div class="fl-trust">
++      <span class="fl-trust-pill"><svg viewBox="0 0 12 12" fill="none"><path d="M6 1.5L7.4 4.4l3.1.45-2.25 2.2.53 3.1L6 8.62l-2.78 1.53.53-3.1L1.5 4.85l3.1-.45L6 1.5z" stroke="currentColor" stroke-width="1" stroke-linejoin="round"/></svg>SOC 2 Type II</span>
++      <span class="fl-trust-pill"><svg viewBox="0 0 12 12" fill="none"><rect x="2" y="1" width="8" height="10" rx="1.5" stroke="currentColor" stroke-width="1.1"/><path d="M4 5h4M4 7.5h2.5" stroke="currentColor" stroke-width="1" stroke-linecap="round"/></svg>ISO 27001</span>
+     </div>
+   </div>`;
+-
+ 
+   if (shouldInjectFooter) {
+     const oldFooter = document.getElementById('siteFooterLight');
+     if (oldFooter) oldFooter.remove();
+     document.body.appendChild(footerEl);
+-    // Footer entrance micro-interactions (GSAP if present, IntersectionObserver-triggered)
+-    (function animateFooter(){
+-      if (typeof IntersectionObserver === 'undefined') return;
+-      const targets = footerEl.querySelectorAll('.cf-brand,.cf-top .cf-col,.cf-mid .cf-col,.cf-cta');
+-      if (typeof gsap === 'undefined') return;
+-      gsap.set(targets, { opacity: 0, y: 26 });
+-      const io = new IntersectionObserver((entries) => {
+-        entries.forEach(en => {
+-          if (en.isIntersecting) {
+-            gsap.to(en.target, { opacity: 1, y: 0, duration: 0.7, ease: 'power3.out', clearProps: 'transform' });
+-            io.unobserve(en.target);
+-          }
+-        });
+-      }, { threshold: 0.15 });
+-      targets.forEach(t => io.observe(t));
+-    })();
+   }
+ 
+   if (!shouldInjectNav) return;
+ 
+   /* ─── 5.  NAV JAVASCRIPT ──────────────────────────────────────────── */
+   // Scroll state
+-  // Blog page: always show the "scrolled" (light) nav styling because the
+-  // page background is white from the top.
+-  const forceScrolled = activePage === 'blog';
+-  if (forceScrolled) {
+-    navEl.classList.add('scrolled', 'force-scrolled');
+-  }
+   window.addEventListener('scroll', () => {
+-    if (forceScrolled) { navEl.classList.add('scrolled'); return; }
+     navEl.classList.toggle('scrolled', window.scrollY > 40);
+   }, { passive: true });
+-  if (!forceScrolled) navEl.classList.toggle('scrolled', window.scrollY > 40);
+-
++  navEl.classList.toggle('scrolled', window.scrollY > 40);
+ 
+   // Desktop mega menu
+   const navItemEls = navEl.querySelectorAll('.nav-item[data-menu]');
+@@ -1174,8 +984,7 @@
+     if (typeof gsap !== 'undefined') {
+       gsap.killTweensOf(panel);
+       gsap.to(panel, { opacity: 1, y: 0, duration: 0.36, ease: 'power3.out' });
+-      gsap.from(panel.querySelectorAll('.mega-zone'), { opacity: 0, y: 10, duration: 0.34, stagger: 0.05, ease: 'power3.out', clearProps: 'opacity,transform' });
+-      gsap.from(panel.querySelectorAll('.mz-item,.mz-assess-card,.mz-pill'), { opacity: 0, y: 8, duration: 0.3, stagger: 0.025, ease: 'power2.out', delay: 0.08, clearProps: 'opacity,transform' });
++      gsap.from(panel.querySelectorAll('.mega-links a,.partner-pill,.about-link,.feat-card'), { opacity: 0, y: 7, duration: 0.26, stagger: 0.018, ease: 'power2.out', delay: 0.06, clearProps: 'opacity,y' });
+     } else {
+       panel.style.opacity = '1'; panel.style.transform = 'translateY(0)';
+     }
+@@ -1237,499 +1046,4 @@
+   ─────────────────────────────────────────────────────────────────── */
+   window.__celsiorSharedDone = true;
+   document.dispatchEvent(new CustomEvent('celsior:shared-ready'));
+-
+-  /* ─── 7. COOKIE CONSENT + CCPA OPT-OUT ────────────────────────────
+-     Banner shows once per visitor (localStorage). Footer "Cookie
+-     preferences" and "Do Not Sell or Share My Info" links reopen the
+-     modals. Analytics scripts only load after Accept.
+-  ─────────────────────────────────────────────────────────────────── */
+-  (function consent(){
+-    const CONSENT_KEY = 'cookie_consent_v1';
+-    const CCPA_KEY = 'ccpa_opt_out';
+-    const stored = localStorage.getItem(CONSENT_KEY);
+-
+-    const css = document.createElement('style');
+-    css.textContent = `
+-      .ck-banner{position:fixed;left:16px;right:16px;bottom:16px;max-width:880px;margin:0 auto;background:#fff;color:#0F172A;border:1px solid #E2E8F0;border-radius:14px;box-shadow:0 18px 50px -16px rgba(15,23,42,.25);padding:18px 20px;z-index:99998;display:flex;gap:16px;align-items:center;flex-wrap:wrap;font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;}
+-      .ck-banner p{margin:0;flex:1;min-width:240px;color:#334155;}
+-      .ck-banner strong{color:#0F172A;}
+-      .ck-banner a{color:#3B6FFF;text-decoration:underline;}
+-      .ck-btns{display:flex;gap:8px;flex-wrap:wrap;}
+-      .ck-btn{appearance:none;border:1px solid #CBD5E1;background:#fff;color:#0F172A;padding:9px 16px;border-radius:8px;font:600 13px/1 inherit;cursor:pointer;transition:.15s;}
+-      .ck-btn:hover{border-color:#3B6FFF;color:#3B6FFF;}
+-      .ck-btn.primary{background:#3B6FFF;border-color:#3B6FFF;color:#fff;}
+-      .ck-btn.primary:hover{background:#2952d6;border-color:#2952d6;color:#fff;}
+-      .ck-modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:99999;}
+-      .ck-modal-card{background:#fff;border-radius:16px;max-width:520px;width:100%;padding:28px;font:14px/1.55 system-ui,sans-serif;color:#0F172A;}
+-      .ck-modal-card h3{margin:0 0 8px;font-size:1.15rem;}
+-      .ck-modal-card p{margin:0 0 16px;color:#475569;}
+-      .ck-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid #E2E8F0;}
+-      .ck-row:first-of-type{border-top:none;}
+-      .ck-row label{font-weight:600;}
+-      .ck-row small{display:block;font-weight:400;color:#64748B;margin-top:2px;}
+-      @media(max-width:520px){.ck-banner{padding:16px;border-radius:12px;}}
+-    `;
+-    document.head.appendChild(css);
+-
+-    function buildBanner(){
+-      const b = document.createElement('div');
+-      b.className = 'ck-banner'; b.setAttribute('role','dialog'); b.setAttribute('aria-label','Cookie consent');
+-      b.innerHTML = `
+-        <p><strong>We value your privacy.</strong> We use cookies to enhance your experience, analyze traffic, and personalize content. See our <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+-        <div class="ck-btns">
+-          <button class="ck-btn" data-act="reject">Reject all</button>
+-          <button class="ck-btn" data-act="prefs">Preferences</button>
+-          <button class="ck-btn primary" data-act="accept">Accept all</button>
+-        </div>`;
+-      b.addEventListener('click', e => {
+-        const act = e.target.dataset && e.target.dataset.act;
+-        if (!act) return;
+-        if (act === 'accept') { setConsent('all'); b.remove(); }
+-        else if (act === 'reject') { setConsent('essential'); b.remove(); }
+-        else if (act === 'prefs') { b.remove(); openPrefs(); }
+-      });
+-      return b;
+-    }
+-
+-    function setConsent(level){
+-      localStorage.setItem(CONSENT_KEY, JSON.stringify({ level, ts: Date.now() }));
+-      if (level === 'all' || level === 'analytics') {
+-        if (typeof window.__loadAnalytics === 'function') window.__loadAnalytics();
+-      }
+-    }
+-
+-    function openPrefs(){
+-      const cur = (() => { try { return JSON.parse(localStorage.getItem(CONSENT_KEY)) || {}; } catch(_) { return {}; } })().level || 'essential';
+-      const m = document.createElement('div'); m.className = 'ck-modal';
+-      m.innerHTML = `
+-        <div class="ck-modal-card" role="dialog" aria-modal="true" aria-label="Cookie preferences">
+-          <h3>Cookie preferences</h3>
+-          <p>Choose which categories of cookies we may use. You can change this at any time from the footer.</p>
+-          <div class="ck-row"><label>Essential <small>Required for the site to function.</small></label><span>Always on</span></div>
+-          <div class="ck-row"><label for="ck-an">Analytics <small>Helps us understand site usage.</small></label><input id="ck-an" type="checkbox" ${cur==='all'||cur==='analytics'?'checked':''}></div>
+-          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
+-            <button class="ck-btn" data-act="cancel">Cancel</button>
+-            <button class="ck-btn primary" data-act="save">Save preferences</button>
+-          </div>
+-        </div>`;
+-      m.addEventListener('click', e => {
+-        if (e.target === m || (e.target.dataset && e.target.dataset.act === 'cancel')) m.remove();
+-        if (e.target.dataset && e.target.dataset.act === 'save') {
+-          const on = m.querySelector('#ck-an').checked;
+-          setConsent(on ? 'analytics' : 'essential');
+-          m.remove();
+-        }
+-      });
+-      document.body.appendChild(m);
+-    }
+-
+-    function openCcpa(){
+-      const out = localStorage.getItem(CCPA_KEY) === '1';
+-      const m = document.createElement('div'); m.className = 'ck-modal';
+-      m.innerHTML = `
+-        <div class="ck-modal-card" role="dialog" aria-modal="true" aria-label="CCPA opt-out">
+-          <h3>Do Not Sell or Share My Personal Information</h3>
+-          <p>Under the California Consumer Privacy Act (CCPA/CPRA), you may opt out of the "sharing" of your personal information for cross-context behavioral advertising.</p>
+-          <div class="ck-row"><label for="ck-ccpa">Opt me out of sharing <small>Applies to this browser. Disables ad personalization signals.</small></label><input id="ck-ccpa" type="checkbox" ${out?'checked':''}></div>
+-          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
+-            <button class="ck-btn" data-act="cancel">Cancel</button>
+-            <button class="ck-btn primary" data-act="save">Save choice</button>
+-          </div>
+-        </div>`;
+-      m.addEventListener('click', e => {
+-        if (e.target === m || (e.target.dataset && e.target.dataset.act === 'cancel')) m.remove();
+-        if (e.target.dataset && e.target.dataset.act === 'save') {
+-          const on = m.querySelector('#ck-ccpa').checked;
+-          if (on) localStorage.setItem(CCPA_KEY, '1'); else localStorage.removeItem(CCPA_KEY);
+-          if (window.gtag && SITE_CONFIG.ga4MeasurementId) {
+-            window.gtag('config', SITE_CONFIG.ga4MeasurementId, { allow_ad_personalization_signals: !on });
+-          }
+-          m.remove();
+-        }
+-      });
+-      document.body.appendChild(m);
+-    }
+-
+-    // Show banner if no prior choice
+-    if (!stored) {
+-      document.body.appendChild(buildBanner());
+-    } else {
+-      try {
+-        const { level } = JSON.parse(stored);
+-        if (level === 'all' || level === 'analytics') {
+-          if (typeof window.__loadAnalytics === 'function') window.__loadAnalytics();
+-        }
+-      } catch (_) {}
+-    }
+-
+-    // Wire footer "Cookie preferences" and "Do Not Sell" links
+-    document.addEventListener('click', e => {
+-      const t = e.target.closest && e.target.closest('[data-action]');
+-      if (!t) return;
+-      if (t.dataset.action === 'cookie-prefs') { e.preventDefault(); openPrefs(); }
+-      if (t.dataset.action === 'ccpa-opt-out') { e.preventDefault(); openCcpa(); }
+-    });
+-  })();
+-
+-  /* ─── HUBSPOT CTA MODAL SYSTEM ──────────────────────────────────────
+-     Restored from prior working shared.js.
+-     Keeps CTA/form behavior centralized while preserving current nav,
+-     footer, GDPR/cookie, and backend additions.
+-  ─────────────────────────────────────────────────────────────────── */
+-  function initCelsiorHubspotModals() {
+-    if (window.__celsiorHubspotModalReady) return;
+-    window.__celsiorHubspotModalReady = true;
+-
+-    const FORM_SCRIPT_SRC = 'https://js.hsforms.net/forms/embed/developer/40221584.js';
+-    const PORTAL_ID = '40221584';
+-    const REGION = 'na1';
+-
+-    const modalContent = {
+-      general: {
+-        title: 'Talk to a Celsior expert',
+-        helper: 'Share a few details and our team will get back to you shortly.',
+-        formId: '14603611-2306-41db-892b-61dd59e11a31'
+-      },
+-      assessment: {
+-        title: 'Request an assessment',
+-        helper: 'Tell us what you would like to evaluate, and we will help route the next step.',
+-        formId: 'f1c2bdcb-202d-49df-8698-b41c6abbb67d'
+-      },
+-      download: {
+-        title: 'Request the resource',
+-        helper: 'Submit your details and our team will share the relevant material.',
+-        formId: 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8'
+-      },
+-      partner: {
+-        title: 'Start a partnership conversation',
+-        helper: 'Share your inquiry and the right team member will follow up.',
+-        formId: '982fe6de-6215-4904-916b-fd062836bddc'
+-      }
+-    };
+-
+-    const ctaRules = [
+-      { type: 'assessment', phrases: [
+-        'assess your readiness',
+-        'request ai readiness assessment',
+-        'start ai readiness assessment',
+-        'start assessment',
+-        'modernization assessment',
+-        'request assessment'
+-      ] },
+-      { type: 'download', phrases: [
+-        'download capability brief',
+-        'download guide',
+-        'download the ai readiness framework',
+-        'download ai readiness framework',
+-        'access report',
+-        'view case study',
+-        'get the brief',
+-        'request resource'
+-      ] },
+-      { type: 'partner', phrases: [
+-        'partner with us',
+-        'explore partnership',
+-        'alliance inquiry',
+-        'vendor inquiry',
+-        'send inquiry'
+-      ] },
+-      { type: 'general', phrases: [
+-        'talk to an expert',
+-        'talk to a celsior expert',
+-        'talk to us',
+-        'talk to our practice lead',
+-        'speak to our team',
+-        'start the conversation',
+-        'book a discovery call',
+-        'schedule consultation',
+-        'schedule a consultation',
+-        'schedule a conversation',
+-        'get in touch',
+-        'get started',
+-        'start your transformation',
+-        'start your cloud journey',
+-        'submit request'
+-      ] }
+-    ];
+-
+-    function normaliseText(text) {
+-      return (text || '')
+-        .replace(/\s+/g, ' ')
+-        .replace(/[→›»]/g, '')
+-        .trim()
+-        .toLowerCase();
+-    }
+-
+-    function getModalTypeFromElement(el) {
+-      if (!el) return null;
+-
+-      // Explicit override always wins.
+-      // Usage: data-celsior-form="general|assessment|ai|resource"
+-      if (el.dataset && el.dataset.celsiorForm) return el.dataset.celsiorForm;
+-
+-      const label = normaliseText(el.textContent || '');
+-      const href = normaliseText(el.getAttribute && el.getAttribute('href') || '');
+-      const cls = normaliseText(el.className || '');
+-      const page = normaliseText(window.location.pathname || '');
+-      const combined = `${label} ${href} ${cls} ${page}`;
+-
+-      // Avoid hijacking non-CTA interactive UI.
+-      // These are cards, tabs, accordions, FAQ rows, insight links, explore rows, or normal content links.
+-      const ignoredClasses = [
+-        'blog-card',
+-        'insight-readlink',
+-        'acc-readmore',
+-        'explore__row-left',
+-        'explore__view-all',
+-        'faq__trigger',
+-        'gacc-btn',
+-        'ae-tab',
+-        'menu',
+-        'nav',
+-        'mz-item',
+-        'mz-pill',
+-        'partner-logo-card',
+-        'drawer-partner-card'
+-      ];
+-
+-      if (ignoredClasses.some(c => cls.includes(c))) return null;
+-
+-      // Do not trigger forms for normal internal navigation unless it is a contact-style CTA.
+-      const isContactHref = href === '#contact' || href === '/#contact' || href.includes('index.html#contact');
+-      const isEmptyOrHashHref = href === '' || href === '#' || isContactHref;
+-
+-      if (!isEmptyOrHashHref && href.startsWith('/')) {
+-        return null;
+-      }
+-
+-      // Resource / gated content form.
+-      if (
+-        combined.includes('download') ||
+-        combined.includes('capabilities deck') ||
+-        combined.includes('capabilities overview') ||
+-        combined.includes('platform brief') ||
+-        combined.includes('brief') ||
+-        combined.includes('guide') ||
+-        combined.includes('report') ||
+-        combined.includes('resource') ||
+-        combined.includes('watch demo')
+-      ) {
+-        return 'resource';
+-      }
+-
+-      // Assessment / diagnostic form.
+-      if (
+-        combined.includes('assessment') ||
+-        combined.includes('diagnostic') ||
+-        combined.includes('readiness') ||
+-        combined.includes('roi') ||
+-        combined.includes('data assessment') ||
+-        combined.includes('review your') ||
+-        combined.includes('review our') ||
+-        combined.includes('framework')
+-      ) {
+-        return 'assessment';
+-      }
+-
+-      // AI / accelerator / demo form.
+-      if (
+-        combined.includes('ai-first') ||
+-        combined.includes('ai first') ||
+-        combined.includes('ai lab') ||
+-        combined.includes('synthetix') ||
+-        combined.includes('agentic') ||
+-        combined.includes('pilot') ||
+-        combined.includes('automation') ||
+-        combined.includes('request a demo') ||
+-        combined.includes('explore the platform') ||
+-        combined.includes('platform demo') ||
+-        page.includes('/ai-innovation') ||
+-        page.includes('/capabilities/ai-led-engineering') ||
+-        page.includes('/capabilities/ai-and-data')
+-      ) {
+-        if (
+-          label.includes('request a demo') ||
+-          label.includes('explore the platform') ||
+-          label.includes('start your transformation') ||
+-          label.includes('book a discovery call') ||
+-          label.includes('talk to') ||
+-          label.includes('speak to') ||
+-          label.includes('start the conversation')
+-        ) {
+-          return 'ai';
+-        }
+-      }
+-
+-      // General contact / sales conversation form.
+-      if (
+-        isContactHref ||
+-        combined.includes('talk to') ||
+-        combined.includes('contact') ||
+-        combined.includes('get started') ||
+-        combined.includes('start the conversation') ||
+-        combined.includes('schedule') ||
+-        combined.includes('book') ||
+-        combined.includes('discovery call') ||
+-        combined.includes('consultation') ||
+-        combined.includes('speak to our team') ||
+-        combined.includes('speak to') ||
+-        combined.includes('connect with') ||
+-        combined.includes('get in touch')
+-      ) {
+-        return 'general';
+-      }
+-
+-      // Fallback to older phrase rules from the restored system.
+-      for (const rule of ctaRules) {
+-        if (rule.phrases.some(phrase => label === phrase || label.includes(phrase))) {
+-          return rule.type;
+-        }
+-      }
+-
+-      return null;
+-    }
+-
+-    function ensureModalStyles() {
+-      if (document.getElementById('celsior-hs-modal-styles')) return;
+-      const style = document.createElement('style');
+-      style.id = 'celsior-hs-modal-styles';
+-      style.textContent = `
+-        .celsior-hs-modal-open{overflow:hidden;}
+-        .celsior-hs-modal{position:fixed;inset:0;z-index:2147483000;display:none;align-items:center;justify-content:center;padding:22px;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;}
+-        .celsior-hs-modal.is-open{display:flex;}
+-        .celsior-hs-modal__overlay{position:absolute;inset:0;background:rgba(2,10,26,.80);backdrop-filter:blur(7px);-webkit-backdrop-filter:blur(7px);}
+-        .celsior-hs-modal__dialog{position:relative;width:min(540px,100%);max-height:min(86vh,720px);overflow-y:auto;overflow-x:hidden;background:transparent!important;border:0!important;border-radius:18px!important;box-shadow:none!important;padding:0;color:#fff;scrollbar-width:thin;scrollbar-color:rgba(170,178,188,.55) rgba(255,255,255,.08);}
+-        .celsior-hs-modal__dialog::-webkit-scrollbar{width:4px;height:4px;}
+-        .celsior-hs-modal__dialog::-webkit-scrollbar-track{background:rgba(255,255,255,.06);border-radius:999px;}
+-        .celsior-hs-modal__dialog::-webkit-scrollbar-thumb{background:rgba(170,178,188,.58);border-radius:999px;}
+-        .celsior-hs-modal__dialog::-webkit-scrollbar-thumb:hover{background:rgba(200,206,214,.72);}
+-        .celsior-hs-modal__close{position:absolute;top:12px;right:12px;width:28px;height:28px;border:1px solid rgba(255,255,255,.34);border-radius:999px;background:rgba(255,255,255,.08);color:#fff;display:grid;place-items:center;cursor:pointer;font-size:19px;line-height:1;z-index:2;backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);}
+-        .celsior-hs-modal__close:hover{background:rgba(255,255,255,.16);}
+-        .celsior-hs-modal__form-panel{display:none;}
+-        .celsior-hs-modal__form-panel.is-active{display:block;background:rgba(5,16,32,.20);border:1px solid rgba(255,255,255,.22);border-radius:18px;padding:22px 28px 20px;box-shadow:0 24px 70px rgba(0,0,0,.28);}
+-        .celsior-hs-modal__head{padding:0 42px 11px 0;margin:0 0 14px;border-bottom:1px solid rgba(255,255,255,.20);}
+-        .celsior-hs-modal__title{margin:0;color:#fff;font-size:24px;line-height:1.12;font-weight:760;letter-spacing:-.025em;text-shadow:0 2px 18px rgba(0,0,0,.28);}
+-        .celsior-hs-modal__helper{margin:6px 0 0;color:rgba(255,255,255,.78);font-size:13.5px;line-height:1.35;}
+-        .celsior-hs-modal .hs-form-html,.celsior-hs-modal .hs-form{width:100%;background:transparent!important;}
+-        .celsior-hs-modal .hs-form fieldset{max-width:100%!important;background:transparent!important;margin-bottom:8px!important;}
+-        .celsior-hs-modal .hs-form .hs-form-field{background:transparent!important;margin-bottom:10px!important;}
+-        .celsior-hs-modal .hs-form label{font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;color:rgba(255,255,255,.92)!important;font-size:12.5px!important;font-weight:650!important;line-height:1.25!important;margin-bottom:5px!important;text-shadow:0 1px 12px rgba(0,0,0,.28);}
+-        .celsior-hs-modal .hs-form input,.celsior-hs-modal .hs-form select,.celsior-hs-modal .hs-form textarea{min-height:38px!important;height:38px!important;padding:8px 10px!important;border-radius:7px!important;border:1px solid rgba(255,255,255,.45)!important;box-shadow:0 8px 22px rgba(0,0,0,.14)!important;background:rgba(255,255,255,.96)!important;color:#101820!important;font-size:14px!important;}
+-        .celsior-hs-modal .hs-form textarea{height:64px!important;min-height:64px!important;}
+-        .celsior-hs-modal .hs-form input:focus,.celsior-hs-modal .hs-form select:focus,.celsior-hs-modal .hs-form textarea:focus{outline:2px solid rgba(255,255,255,.48)!important;outline-offset:1px!important;}
+-        .celsior-hs-modal .hs-form .hs-submit{margin-top:8px!important;}
+-        .celsior-hs-modal .hs-form input[type="submit"],.celsior-hs-modal .hs-button{height:38px!important;min-height:38px!important;padding:8px 18px!important;background:#005687!important;border-color:#005687!important;border-radius:7px!important;font-weight:700!important;color:#fff!important;box-shadow:0 10px 24px rgba(0,86,135,.24)!important;}
+-        @media (max-height:760px){.celsior-hs-modal{align-items:center;padding:14px 18px;}.celsior-hs-modal__dialog{max-height:calc(100vh - 28px);width:min(500px,100%);}.celsior-hs-modal__form-panel.is-active{padding:18px 24px 16px;border-radius:16px;}.celsior-hs-modal__close{top:9px;right:9px;}.celsior-hs-modal__head{margin-bottom:12px;padding-bottom:10px;}.celsior-hs-modal__title{font-size:22px;}.celsior-hs-modal__helper{font-size:13px;}.celsior-hs-modal .hs-form .hs-form-field{margin-bottom:7px!important;}.celsior-hs-modal .hs-form input,.celsior-hs-modal .hs-form select,.celsior-hs-modal .hs-form textarea{height:34px!important;min-height:34px!important;padding:6px 10px!important;}.celsior-hs-modal .hs-form textarea{height:52px!important;min-height:52px!important;}.celsior-hs-modal .hs-form input[type="submit"],.celsior-hs-modal .hs-button{height:36px!important;min-height:36px!important;}}
+-        @media (max-width:640px){.celsior-hs-modal{align-items:flex-start;overflow:auto;padding:18px 16px;}.celsior-hs-modal__dialog{width:100%;max-height:calc(100vh - 36px);margin:4px 0;padding:0;}.celsior-hs-modal__form-panel.is-active{padding:18px 18px 16px;border-radius:16px;}.celsior-hs-modal__close{top:8px;right:8px;}.celsior-hs-modal__title{font-size:22px;}.celsior-hs-modal__helper{font-size:13px;}}
+-      `;
+-      document.head.appendChild(style);
+-    }
+-
+-    function ensureModalMarkup() {
+-      let modal = document.getElementById('celsiorHsModal');
+-      if (modal) return modal;
+-      ensureModalStyles();
+-      modal = document.createElement('div');
+-      modal.id = 'celsiorHsModal';
+-      modal.className = 'celsior-hs-modal';
+-      modal.setAttribute('aria-hidden', 'true');
+-      modal.innerHTML = `
+-        <div class="celsior-hs-modal__overlay" data-celsior-modal-close></div>
+-        <div class="celsior-hs-modal__dialog" role="dialog" aria-modal="true" aria-label="Celsior form">
+-          <button class="celsior-hs-modal__close" type="button" aria-label="Close form" data-celsior-modal-close>×</button>
+-          ${Object.keys(modalContent).map(type => `<div class="celsior-hs-modal__form-panel" data-celsior-form-panel="${type}"><div class="celsior-hs-modal__head"><h2 class="celsior-hs-modal__title">${modalContent[type].title}</h2><p class="celsior-hs-modal__helper">${modalContent[type].helper}</p></div><div class="hs-form-html" data-region="${REGION}" data-form-id="${modalContent[type].formId}" data-portal-id="${PORTAL_ID}"></div></div>`).join('')}
+-        </div>
+-      `;
+-      document.body.appendChild(modal);
+-
+-      if (!document.querySelector(`script[src="${FORM_SCRIPT_SRC}"]`)) {
+-        const hsScript = document.createElement('script');
+-        hsScript.src = FORM_SCRIPT_SRC;
+-        hsScript.defer = true;
+-        document.body.appendChild(hsScript);
+-      }
+-
+-      modal.addEventListener('click', (event) => {
+-        if (event.target.closest('[data-celsior-modal-close]')) closeModal();
+-      });
+-
+-      return modal;
+-    }
+-
+-    function openModal(type) {
+-      const content = modalContent[type] || modalContent.general;
+-      const modal = ensureModalMarkup();
+-      const dialog = modal.querySelector('.celsior-hs-modal__dialog');
+-      if (dialog) dialog.setAttribute('aria-label', content.title);
+-      modal.querySelectorAll('[data-celsior-form-panel]').forEach(panel => {
+-        panel.classList.toggle('is-active', panel.dataset.celsiorFormPanel === type);
+-      });
+-      modal.classList.add('is-open');
+-      modal.setAttribute('aria-hidden', 'false');
+-      document.body.classList.add('celsior-hs-modal-open');
+-      setTimeout(() => {
+-        const firstInput = modal.querySelector('.celsior-hs-modal__form-panel.is-active input, .celsior-hs-modal__form-panel.is-active select, .celsior-hs-modal__form-panel.is-active textarea, .celsior-hs-modal__close');
+-        if (firstInput) firstInput.focus({ preventScroll: true });
+-      }, 250);
+-    }
+-
+-    function closeModal() {
+-      const modal = document.getElementById('celsiorHsModal');
+-      if (!modal) return;
+-      modal.classList.remove('is-open');
+-      modal.setAttribute('aria-hidden', 'true');
+-      document.body.classList.remove('celsior-hs-modal-open');
+-    }
+-
+-    document.addEventListener('keydown', (event) => {
+-      if (event.key === 'Escape') closeModal();
+-    });
+-
+-    document.addEventListener('click', (event) => {
+-      const trigger = event.target.closest('a,button,[role="button"]');
+-      if (!trigger) return;
+-      if (trigger.closest('#celsiorHsModal')) return;
+-      const type = getModalTypeFromElement(trigger);
+-      if (!type) return;
+-      event.preventDefault();
+-      openModal(type);
+-    });
+-  }
+-
+-  initCelsiorHubspotModals();
+-
+-
+-
+-  /* ─── AI-FIRST PAGE CTA FALLBACK ───────────────────────────────────── */
+-  function forceAiFirstExploreCtaRedirect() {
+-    const isAiFirstPage = window.location.pathname.replace(/\/$/, '') === '/our-focus/ai-first-digital-engineering';
+-    if (!isAiFirstPage) return;
+-
+-    const targetUrl = '/capabilities/ai-led-engineering';
+-
+-    Array.from(document.querySelectorAll('a, button')).forEach(function(el) {
+-      const label = (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+-      if (label !== 'explore our approach') return;
+-
+-      if (el.tagName.toLowerCase() === 'a') {
+-        el.setAttribute('href', targetUrl);
+-      }
+-
+-      el.setAttribute('data-celsior-no-modal', 'true');
+-
+-      el.addEventListener('click', function(event) {
+-        event.preventDefault();
+-        event.stopPropagation();
+-        window.location.href = targetUrl;
+-      }, true);
+-    });
+-  }
+-
+-  if (document.readyState === 'loading') {
+-    document.addEventListener('DOMContentLoaded', forceAiFirstExploreCtaRedirect);
+-  } else {
+-    forceAiFirstExploreCtaRedirect();
+-  }
+-
+-
+ })();

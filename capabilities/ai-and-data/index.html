@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
@@ -2232,7 +2231,7 @@
 
     }
 
-    /* ── Mobile styles consolidated above ── 
+    /* ── Mobile styles consolidated above ──
   </style>
   <style>
   /* CAPABILITIES: INNOVATION WHEEL */
@@ -2630,7 +2629,7 @@
   /* CAPABILITIES: IMPACT METRICS */
 /* ══════════════════════════════════════════════════════════════════
    OUTCOMES — Pixel-locked to Figma frame 1348×643px
-   
+
    Figma measurements at 1348px:
    • Frame total height: 643px → ~48px top+bottom padding each side
    • Left col width: ~390px = 29% of 1348
@@ -2641,7 +2640,7 @@
    • Label: 15px, #18181b, 500 weight, 8px gap below number
    • Body text: 14px, #52525b, appears below heading
    • Dividers: 1px solid #d1d5db (more visible than #e5e7eb)
-   
+
    Desktop holds ≥1140px. Below that: vertical stack.
 ══════════════════════════════════════════════════════════════════ */
 
@@ -3014,10 +3013,10 @@
       <h1 class="hero-heading">Make decisions in hours, not weeks.
       </h1>
       <div class="hero-btns">
-        <button class="btn-ghost">
+        <button type="button" class="btn-ghost">
           Transform Your Data Estate →
         </button>
-        
+
       </div>
     </div>
   </section>
@@ -3052,7 +3051,7 @@
     </div>
   </div>
 
-  
+
   <!-- ============================================================
        SECTION: PLATFORM OPS COST
        Purpose : Two-column comparison (unmanaged vs managed) with
@@ -3165,7 +3164,7 @@
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
         <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Institutional knowledge loss</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Undocumented data lineage and complex transformations become tribal knowledge as analysts leave 
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Undocumented data lineage and complex transformations become tribal knowledge as analysts leave
 </p>
       </div>
 
@@ -3179,13 +3178,13 @@
     <p  class="cel-sub" id="cel-sub">Powered by our AI and data platform ecosystem</p>
 
     <div class="chips-row" id="chips-row">
-      <button class="ch-arr" id="ch-prev" aria-label="Previous">
+      <button type="button" class="ch-arr" id="ch-prev" aria-label="Previous">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M8.5 11L5 7l3.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
       <div class="chips-viewport"><div class="chips-track" id="chips-track"></div></div>
-      <button class="ch-arr" id="ch-next" aria-label="Next">
+      <button type="button" class="ch-arr" id="ch-next" aria-label="Next">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M5.5 3L9 7l-3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -3235,13 +3234,13 @@
   <div class="acc-row" data-index="1" tabindex="0">
     <div class="acc-header">
       <div class="acc-icon" aria-hidden="true"></div>
-      <span class="acc-title">Turning Fragmented Policy and Claims Data Into a Live Decision-Making Engine 
+      <span class="acc-title">Turning Fragmented Policy and Claims Data Into a Live Decision-Making Engine
 </span>
     </div>
     <div class="acc-body">
       <div class="acc-body-grid">
         <div class="acc-body-text">
-          <h3 class="acc-big-title">Turning Fragmented Policy and Claims Data Into a Live Decision-Making Engine 
+          <h3 class="acc-big-title">Turning Fragmented Policy and Claims Data Into a Live Decision-Making Engine
 </h3>
           <p class="acc-desc">A national insurance carrier consolidated fragmented policy and claims data into a unified analytics platform, enabling real-time pricing optimization and retention analysis across product lines. </p>
           <a class="acc-readmore" href="#">
@@ -3335,7 +3334,7 @@
                  on the right. Pixel-exact Figma Desktop-30 (1433×894).
        CSS tag : /* === OUTCOMES === */
        ============================================================ -->
-  
+
   <!-- CAPABILITIES: IMPACT METRICS -->
 <section class="outcomes" id="outcomes-section">
   <!-- Left: heading + body, GSAP slide-in from left -->
@@ -3392,7 +3391,7 @@
   <section class="explore">
     <h2>Continue exploring Celsior's <span style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; display:inline;">capabilities</span></h2>
     <div class="explore__links">
-      <a href="#">
+      <a data-celsior-form="ai" href="#">
         <span class="explore__row-left">
           <span class="explore__label">AI LAB</span>
           <span class="explore__text">Data Strategy & Engineering </span>
@@ -3531,25 +3530,28 @@
             d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
             fill="#fff" />
         </svg>
-        <p class="test-quote">"Our analytics team was spending most of its time moving data between systems by hand. Reports took weeks to produce and the dashboards our executives relied on were running on infrastructure that hadn't been touched in years. Celsior built the integration layer, migrated our reporting environment to Power BI, and eliminated the manual work entirely. Turnaround time dropped by 30%, report development by 40%, and dashboard performance improved by 60%. The executives now have data they can actually act on."</p>
+        <p class="test-quote">"Our data and AI practice scales from focused analytics projects to enterprise-wide data transformations. Whether you're modernizing BI tools, building your first data lake, or deploying production ML models, we bring the same rigor: quality data, governed pipelines, and measurable business impact."</p>
         <div class="test-author">
-          <div class="test-avatar">DOA</div>
+          <div class="test-avatar">CIO</div>
           <div>
-            <div style="font-size:14px;font-weight:600;color:#fff;">Leading Medical Testing Company</div>
-            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Director of Analytics</div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">Major life insurance company</div>
+            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Agent Portal Modernisation</div>
           </div>
         </div>
       </div>
       <div class="test-right">
-        <div class="test-res-label">Engagement Results</div>
+        <div class="test-res-label">DELIVERY APPROACH:</div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">30% reduction in data integration turnaround time</span>
+          <div class="test-dot"></div><span class="test-res-text">Cloud data platforms on AWS, Azure, and Google Cloud </span>
         </div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">40% shorter report development cycles post-migration</span>
+          <div class="test-dot"></div><span class="test-res-text">Modern data warehouses (Snowflake) and lakes (Databricks) </span>
+        </div>
+        <div class="test-res-item">
+          <div class="test-dot"></div><span class="test-res-text">Pre-built accelerators for data migration and validation </span>
         </div>
         <div class="test-res-item" style="margin-bottom:0;">
-          <div class="test-dot"></div><span class="test-res-text">60% improvement in dashboard query performance</span>
+          <div class="test-dot"></div><span class="test-res-text">Explainable AI platform for regulated industries (banking, insurance, healthcare) </span>
         </div>
       </div>
     </div>
@@ -3567,7 +3569,7 @@
         <p class="eyebrow">FAQ</p>
         <h2>Transform business leaders ask about AI-led engineering</h2>
         <p>Covering ROI, risk, timelines, and delivery model — the questions that matter to decision-makers, answered directly.</p>
-        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+        <a data-celsior-form="general" href="#">Speak to our team <span aria-hidden="true">→</span></a>
       </div>
       <div class="faq__items">
         <div class="faq__item">
@@ -3591,7 +3593,7 @@
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Traditional BI focuses on reporting from existing systems. We build modern data platforms—cloud data lakes, warehouses, and streaming architectures—that support both historical analytics and real-time AI. This foundation enables self-service BI, predictive models, and operational intelligence from the same data estate. 
+            <p>Traditional BI focuses on reporting from existing systems. We build modern data platforms—cloud data lakes, warehouses, and streaming architectures—that support both historical analytics and real-time AI. This foundation enables self-service BI, predictive models, and operational intelligence from the same data estate.
 </p>
           </div>
         </div>
@@ -3660,7 +3662,7 @@
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
       <h2 class="cta-band-text" data-text="Most data transformations begin with understanding the current state ">Most data transformations begin with understanding the current state </h2>
-      <a href="#contact" class="cta-btn cta-band-btn">Request a Data Assessment</a>
+      <a data-celsior-form="assessment" href="#contact" class="cta-btn cta-band-btn">Request a Data Assessment</a>
     </div>
   </section>
 
@@ -4192,7 +4194,7 @@
               <div class="stat-l" style="color:${d.lblC};">${s.l}</div>
             </div>`).join('')}
           </div>
-          <button class="c-cta" style="background:${d.ctaBg};color:${d.ctaC};${bdr}">
+          <button type="button" class="c-cta" style="background:${d.ctaBg};color:${d.ctaC};${bdr}">
             View case study
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M2.5 6.5h8M7 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>

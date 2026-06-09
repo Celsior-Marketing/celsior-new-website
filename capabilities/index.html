@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
@@ -2232,7 +2231,7 @@
 
     }
 
-    /* ── Mobile styles consolidated above ── 
+    /* ── Mobile styles consolidated above ──
   </style>
   <style>
   /* CAPABILITIES: INNOVATION WHEEL */
@@ -2630,7 +2629,7 @@
   /* CAPABILITIES: IMPACT METRICS */
 /* ══════════════════════════════════════════════════════════════════
    OUTCOMES — Pixel-locked to Figma frame 1348×643px
-   
+
    Figma measurements at 1348px:
    • Frame total height: 643px → ~48px top+bottom padding each side
    • Left col width: ~390px = 29% of 1348
@@ -2641,7 +2640,7 @@
    • Label: 15px, #18181b, 500 weight, 8px gap below number
    • Body text: 14px, #52525b, appears below heading
    • Dividers: 1px solid #d1d5db (more visible than #e5e7eb)
-   
+
    Desktop holds ≥1140px. Below that: vertical stack.
 ══════════════════════════════════════════════════════════════════ */
 
@@ -3014,10 +3013,10 @@
       <h1 class="hero-heading">Legacy systems slow you down. AI-led<br>engineering gets you ahead.
       </h1>
       <div class="hero-btns">
-        <button class="btn-ghost">
+        <button type="button" class="btn-ghost">
           Start Your Transformation →
         </button>
-        <button class="btn-white">Book a Discovery Call</button>
+        <button type="button" data-celsior-form="general" class="btn-white">Book a Discovery Call</button>
       </div>
     </div>
   </section>
@@ -3052,7 +3051,7 @@
     </div>
   </div>
 
-  
+
   <!-- ============================================================
        SECTION: PLATFORM OPS COST
        Purpose : Two-column comparison (unmanaged vs managed) with
@@ -3178,13 +3177,13 @@
     <p  class="cel-sub" id="cel-sub">Powered by our AI-first digital engineering platform that spans the complete application lifecycle</p>
 
     <div class="chips-row" id="chips-row">
-      <button class="ch-arr" id="ch-prev" aria-label="Previous">
+      <button type="button" class="ch-arr" id="ch-prev" aria-label="Previous">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M8.5 11L5 7l3.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
       <div class="chips-viewport"><div class="chips-track" id="chips-track"></div></div>
-      <button class="ch-arr" id="ch-next" aria-label="Next">
+      <button type="button" class="ch-arr" id="ch-next" aria-label="Next">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M5.5 3L9 7l-3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -3332,7 +3331,7 @@
                  on the right. Pixel-exact Figma Desktop-30 (1433×894).
        CSS tag : /* === OUTCOMES === */
        ============================================================ -->
-  
+
   <!-- CAPABILITIES: IMPACT METRICS -->
 <section class="outcomes" id="outcomes-section">
   <!-- Left: heading + body, GSAP slide-in from left -->
@@ -3389,7 +3388,7 @@
   <section class="explore">
     <h2>Continue exploring Celsior's <span style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; display:inline;">capabilities</span></h2>
     <div class="explore__links">
-      <a href="#">
+      <a data-celsior-form="ai" href="#">
         <span class="explore__row-left">
           <span class="explore__label">AI LAB</span>
           <span class="explore__text">Application &amp; Platform Engineering</span>
@@ -3582,7 +3581,7 @@
         <h2>Questions business leaders ask before engaging</h2>
         <p>Covering ROI, risk, timelines, and delivery model — the questions that matter to decision-makers, answered
           directly.</p>
-        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+        <a data-celsior-form="general" href="#">Speak to our team <span aria-hidden="true">→</span></a>
       </div>
       <div class="faq__items">
         <div class="faq__item">
@@ -3675,7 +3674,7 @@
         alt="Celsior" />
       <h2 class="cta-band-text" data-text="Most modernization efforts begin with understanding the environment.">Most
         managed program engagements begin with a platform health assessment.</h2>
-      <a href="#contact" class="cta-btn cta-band-btn">Start the conversation</a>
+      <a data-celsior-form="general" href="#contact" class="cta-btn cta-band-btn">Start the conversation</a>
     </div>
   </section>
 
@@ -4207,7 +4206,7 @@
               <div class="stat-l" style="color:${d.lblC};">${s.l}</div>
             </div>`).join('')}
           </div>
-          <button class="c-cta" style="background:${d.ctaBg};color:${d.ctaC};${bdr}">
+          <button type="button" class="c-cta" style="background:${d.ctaBg};color:${d.ctaC};${bdr}">
             View case study
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
               <path d="M2.5 6.5h8M7 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>

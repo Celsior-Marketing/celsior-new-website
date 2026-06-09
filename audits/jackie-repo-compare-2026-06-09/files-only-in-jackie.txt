@@ -1,0 +1,16 @@
+celsior-site-main/about.html
+celsior-site-main/ai-innovation.html
+celsior-site-main/how-we-deliver.html
+celsior-site-main/how-we-do-it.html
+celsior-site-main/index.html
+celsior-site-main/industries.html
+celsior-site-main/nav-components.js
+celsior-site-main/nav-config.js
+celsior-site-main/nav-styles.css
+celsior-site-main/nav-templates.js
+celsior-site-main/partner-ecosystem.html
+celsior-site-main/shared-modular.js
+celsior-site-main/shared-replacement.js
+celsior-site-main/shared-v2.js
+celsior-site-main/shared.js
+celsior-site-main/what-we-solve.html

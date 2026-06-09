@@ -1,0 +1,20 @@
+--- ours/risk-compliance.html
++++ jackie/risk-compliance.html
+@@ -4318,7 +4318,7 @@
+       });
+     });
+   </script>
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ 
+   <script>
+     (function () {
+@@ -4428,7 +4428,7 @@
+       });
+     });
+   </script>
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ </body>
+ 
+ </html>

@@ -1,0 +1,19 @@
+--- ours/about.html
++++ jackie/about.html
+@@ -175,7 +175,7 @@
+   </style>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+   <!-- shared nav + footer injector -->
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ </head>
+ <body data-page="about">
+ 
+@@ -214,6 +214,6 @@
+       </div>
+     </div>
+   </section>
+-<script src="/shared.js" defer></script>
++<script src="shared.js" defer></script>
+ </body>
+ </html>

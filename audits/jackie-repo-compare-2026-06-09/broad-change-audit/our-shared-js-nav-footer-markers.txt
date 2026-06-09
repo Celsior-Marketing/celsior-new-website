@@ -1,0 +1,392 @@
+2: * shared.js — Celsior site-wide nav + footer injector
+3: * Include this script on EVERY page (load with `defer`). Active nav item
+7: * Pages: home | solve | how | deliver | ai | industries | partners | about
+10: * ships its own <nav id="navbar"> or <footer id="siteFooterLight">, OR
+13: * into index.html without producing duplicate headers/footers.
+25:    defaultDescription: 'AI-first digital engineering partner for regulated industries — modernizing critical systems, operationalizing AI, and building resilience at scale.',
+110:        const ccpaOut = localStorage.getItem('ccpa_opt_out') === '1';
+113:          allow_ad_personalization_signals: !ccpaOut,
+145:    'how-we-do-it.html': 'Capabilities.html',
+146:    'how-we-deliver.html': 'Solutions.html',
+148:    'capabilties.html': 'Capabilities.html',
+149:    'capabilities.html': 'Capabilities.html',
+150:    'solutions.html': 'Solutions.html',
+210:       • shared.js is the single source of truth for secondary-page nav/footer.
+211:       • Existing complete homepage nav/footer are respected, so no duplicates.
+234:  function hasUsableNav() {
+235:    const nav = document.getElementById('navbar');
+236:    return !!(nav && nav.querySelector('a[href], button, .nav-link, .nav-logo'));
+239:  function hasUsableFooter() {
+240:    const footer = document.getElementById('siteFooterLight') || document.querySelector('footer');
+241:    return !!(footer && footer.querySelector('a[href], .fl-grid, .fl-brand, .fl-bottom'));
+244:  const shouldInjectNav = !hasUsableNav();
+245:  const shouldInjectFooter = !hasUsableFooter();
+247:  if (!shouldInjectNav && !shouldInjectFooter) {
+248:    console.info('[shared.js] Existing complete nav and footer found — normalized links only.');
+259:  --accent:#2254f4; --accent-lt:rgba(34,84,244,0.09); --nav-h:68px;
+267:body.menu-open{overflow:hidden;}
+272:/* ═══════════════════════ NAVBAR ════════════════════════════════════ */
+273:#navbar{position:fixed;inset:0 0 auto 0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;padding:0 52px;transition:background .45s ease,box-shadow .45s ease,border-color .45s ease;border-bottom:1px solid transparent;}
+274:#navbar.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 2px 28px rgba(15,20,80,.07);}
+275:.nav-logo{display:flex;align-items:center;flex-shrink:0;margin-right:44px;}
+277:#navbar.scrolled .logo-img{filter:brightness(0);}
+278:.nav-links{display:flex;align-items:center;gap:2px;flex:1;}
+279:.nav-item{position:static;}
+280:.nav-link{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.01em;border-radius:6px;cursor:pointer;user-select:none;white-space:nowrap;color:rgba(255,255,255,.82);transition:color .2s,background .2s;}
+281:.nav-link:hover{color:var(--white);background:rgba(255,255,255,.1);text-decoration:none;}
+282:.nav-item.active>.nav-link{color:var(--white);background:rgba(255,255,255,.13);}
+283:#navbar.scrolled .nav-link{color:var(--ink-mid);}
+284:#navbar.scrolled .nav-link:hover{color:var(--accent);background:var(--accent-lt);}
+285:#navbar.scrolled .nav-item.active>.nav-link{color:var(--accent);background:var(--accent-lt);}
+286:.nav-item.nav-current>.nav-link{color:var(--white) !important;background:rgba(255,255,255,.15) !important;}
+287:#navbar.scrolled .nav-item.nav-current>.nav-link{color:var(--accent) !important;background:var(--accent-lt) !important;}
+288:a.nav-link{text-decoration:none;}
+290:.nav-item.active>.nav-link .chevron{transform:rotate(180deg);opacity:1;}
+291:.nav-right{margin-left:auto;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+292:.btn-nav-solid{display:inline-flex;align-items:center;gap:8px;padding:9px 22px;font-family:var(--font-body);font-size:.8rem;font-weight:700;border-radius:6px;border:1.5px solid rgba(255,255,255,.5);cursor:pointer;background:transparent;color:var(--white);transition:background .2s,border-color .2s,color .2s,transform .22s var(--ease-expo),box-shadow .22s;}
+293:.btn-nav-solid:hover{background:var(--white);color:var(--ink);border-color:var(--white);transform:translateY(-2px);}
+294:#navbar.scrolled .btn-nav-solid{background:var(--btn-gradient);color:var(--white);border-color:transparent;}
+295:#navbar.scrolled .btn-nav-solid:hover{background:#111;box-shadow:0 8px 28px rgba(0,0,0,.32);}
+296:.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;margin-left:auto;width:38px;height:38px;background:none;border:none;cursor:pointer;padding:6px;border-radius:6px;transition:background .2s;}
+297:.nav-hamburger:hover{background:rgba(255,255,255,.1);}
+298:#navbar.scrolled .nav-hamburger:hover{background:var(--accent-lt);}
+300:#navbar.scrolled .ham-line{background:var(--ink);}
+301:.nav-hamburger.open .ham-line:nth-child(1){transform:translateY(7px) rotate(45deg);}
+302:.nav-hamburger.open .ham-line:nth-child(2){opacity:0;transform:scaleX(0);}
+303:.nav-hamburger.open .ham-line:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+304:@media(max-width:1280px){#navbar{padding:0 32px;}.nav-link{padding:7px 9px;font-size:.76rem;}.btn-nav-solid{padding:8px 16px;}.nav-logo{margin-right:28px;}}@media(max-width:1139px){.nav-links,.nav-right{display:none;}.nav-hamburger{display:flex;}#navbar{padding:0 24px;}}
+317:.drawer-nav{flex:1;padding:12px 0;}
+334:/* ═══════════════════════ MEGA BACKDROP + PANELS ════════════════════ */
+335:#mega-backdrop{position:fixed;inset:0;z-index:800;background:transparent;pointer-events:none;transition:background .3s;}
+336:#mega-backdrop.on{background:rgba(7,9,20,.45);pointer-events:auto;}
+337:.mega-root{position:fixed;top:var(--nav-h);left:0;right:0;z-index:850;pointer-events:none;}
+338:.mega-panel{position:absolute;inset:0 auto auto 0;width:100%;background:linear-gradient(118deg,#fbfcff 0%,#f3f8ff 46%,#e9f1ff 100%);border-bottom:1px solid rgba(34,84,244,.12);box-shadow:0 30px 80px rgba(15,20,80,.16);padding:46px 52px 50px;display:none;opacity:0;transform:translateY(-10px);pointer-events:none;overflow:hidden;}
+339:.mega-panel.open{display:block;pointer-events:auto;}
+340:.mega-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.16fr .92fr;gap:0;}
+341:.mega-zone{padding:0 42px;border-right:1px solid var(--border);min-width:0;}
+342:.mega-zone:first-child{padding-left:0;}
+343:.mega-zone:last-child{padding-right:0;border-right:none;}
+356:.partner-logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+357:.partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:56px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
+358:.partner-logo-card:hover{transform:translateY(-1px);border-color:rgba(32,86,255,.28);box-shadow:0 10px 24px rgba(20,30,70,.10);}
+359:.partner-logo-img{max-width:100%;max-height:28px;width:auto;height:auto;object-fit:contain;display:block;}
+360:.drawer-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
+361:.drawer-partner-card{display:flex;align-items:center;justify-content:center;min-height:48px;padding:9px 10px;background:#fff;border:1px solid var(--border);border-radius:9px;text-decoration:none;overflow:hidden;}
+362:.drawer-partner-logo{max-width:100%;max-height:24px;width:auto;height:auto;object-fit:contain;display:block;}
+394:@media(max-width:1180px){.mega-inner{grid-template-columns:1fr 1fr;}.mega-zone{padding:0 30px;}.mega-zone:last-child{grid-column:1/-1;border-top:1px solid var(--border);border-right:none;margin-top:30px;padding:30px 0 0;}.mz-assess-cards{flex-direction:row;}.mz-assess-card{flex:1;}}
+395:@media(max-width:1024px){.mega-panel{padding:32px;}}
+398:/* ═══════════════════════ FOOTER ════════════════════════════════════ */
+399:.site-footer-light{
+407:.site-footer-light::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:1100px;height:500px;background:radial-gradient(ellipse,rgba(59,111,255,.10) 0%,transparent 70%);pointer-events:none;z-index:0;}
+436:.cf-contact-line{display:flex;gap:9px;font-size:.8rem;line-height:1.55;color:var(--cf-soft);margin-bottom:15px;align-items:flex-start;}
+437:.cf-contact-line svg{width:14px;height:14px;flex-shrink:0;margin-top:2px;color:var(--cf-accent);}
+438:.cf-contact-line a:hover{color:var(--cf-ink);}
+450:.cf-legal{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;flex:1;justify-content:center;}
+451:.cf-legal a{font-size:.74rem;color:var(--cf-soft);transition:color .15s;}
+452:.cf-legal a:hover{color:var(--cf-ink);}
+458:@media(max-width:680px){.cf-wrap{padding:0 24px;}.cf-top{grid-template-columns:1fr 1fr;padding:48px 0 40px;}.cf-mid{grid-template-columns:1fr;}.cf-cta{flex-direction:column;text-align:left;align-items:flex-start;}.cf-bottom{flex-direction:column;align-items:flex-start;padding:22px 24px 32px;}.cf-legal{justify-content:flex-start;}}
+460:/* ═══════════════════════ MOBILE DRAWER — MEGA CARDS ════════════════
+462:   drawer-sub from MEGA_DATA so mobile users see the same depth as the
+463:   desktop mega menu. Fully responsive across phones and tablets.
+465:.drawer-mega{padding:14px 20px 18px;display:flex;flex-direction:column;gap:14px;}
+466:.drawer-mega-feature{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#0b1020;aspect-ratio:16/9;box-shadow:0 10px 28px rgba(15,20,80,.14);}
+467:.drawer-mega-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+468:.drawer-mega-feature::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,11,26,.85),rgba(7,11,26,.15) 60%,transparent);}
+469:.drawer-mega-cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.82rem;font-weight:700;line-height:1.3;}
+470:.drawer-mega-cap em{color:#3ddc97;font-style:normal;}
+471:.drawer-mega-explore{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;border-radius:8px;transition:background .2s,transform .2s;}
+472:.drawer-mega-explore:hover{background:#1b46d8;transform:translateY(-1px);}
+473:.drawer-mega-explore svg{width:12px;height:12px;}
+474:.drawer-mega-assess-label{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-top:4px;}
+475:.drawer-mega-assess{display:flex;flex-direction:column;gap:10px;}
+476:.drawer-mega-card{display:flex;gap:12px;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 2px rgba(15,20,80,.04);transition:border-color .2s,transform .2s,box-shadow .2s;}
+477:.drawer-mega-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 22px rgba(34,84,244,.14);}
+478:.drawer-mega-card .ic{width:34px;height:34px;flex-shrink:0;border-radius:8px;background:var(--accent-lt);display:grid;place-items:center;color:var(--accent);}
+479:.drawer-mega-card .ic svg{width:16px;height:16px;}
+480:.drawer-mega-card .bd{min-width:0;}
+481:.drawer-mega-card .t{font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:3px;}
+482:.drawer-mega-card .d{font-size:.72rem;line-height:1.5;color:var(--muted);}
+483:.drawer-mega-pills{display:flex;flex-wrap:wrap;gap:6px;}
+484:.drawer-mega-pills a{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-size:.7rem;font-weight:600;color:var(--ink-mid);background:#fff;}
+485:.drawer-mega-pills a .p-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+495:  .drawer-mega{padding:12px 16px 16px;}
+499:  .drawer-mega-feature{aspect-ratio:16/10;}
+504:  body.menu-open{position:fixed;width:100%;}
+517:    'capabilities.html': 'how',
+519:    'solutions.html':    'deliver',
+522:    'industries.html':   'industries',
+523:    'partner-ecosystem.html':'partners',
+524:    'about.html':        'about',
+534:  /* ─── 3.  NAV HTML ───────────────────────────────────────────────── */
+539:  const navItems = [
+540:    { key: 'solve',      label: 'Our Focus',           href: '/our-focus'          },
+541:    { key: 'how',        label: 'Capabilities',         href: '/capabilities'       },
+542:    { key: 'deliver',    label: 'Solutions',            href: '/solutions'          },
+544:    { key: 'industries', label: 'Industries',           href: '/industries'         },
+545:    { key: 'partners',   label: 'Partner Ecosystem',    href: '/partners'  },
+546:    { key: 'about',      label: 'About',                href: '/about'              },
+549:  const navLinksHTML = navItems.map(it => `
+550:    <li class="nav-item${activePage === it.key ? ' nav-current' : ''}" data-menu="${it.key}">
+551:      <a class="nav-link" href="${it.href}">${it.label} ${CHEVRON_SVG}</a>
+562:    <!-- ── OUR FOCUS ──────────────────────────────────────────── -->
+564:      <div class="drawer-link" data-drawer-toggle="d-solve">Our Focus<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+583:    <!-- ── CAPABILITIES ───────────────────────────────────────── -->
+585:      <div class="drawer-link" data-drawer-toggle="d-how">Capabilities<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+590:          <a href="/capabilities/ai-led-engineering">AI Led Engineering</a>
+591:          <a href="/capabilities/cloud-and-infrastructure-engineering">Cloud &amp; Infrastructure Engineering</a>
+592:          <a href="/capabilities/ai-and-data">AI &amp; Data</a>
+597:          <a href="/capabilities/digital-operations-and-security">Digital Operations &amp; Security</a>
+598:          <a href="/capabilities/security-and-governance">Security &amp; Governance</a>
+606:    <!-- ── SOLUTIONS ──────────────────────────────────────────── -->
+608:      <div class="drawer-link" data-drawer-toggle="d-deliver">Solutions<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+613:          <a href="/solutions/managed-programs">Managed Programs</a>
+614:          <a href="/solutions/technology-consulting">Technology Consulting</a>
+615:          <a href="/solutions/ai-upskilling">AI Upskilling</a>
+620:          <a href="/solutions/gcc-and-nearshore">GCC &amp; Nearshore</a>
+625:          <a href="/solutions/teams-as-a-service">Teams-as-a-Service</a>
+626:          <a href="/solutions/ai-upskilling">Hire-Train-Deploy</a>
+632:    <!-- ── AI & INNOVATION ────────────────────────────────────── -->
+653:    <!-- ── INDUSTRIES ─────────────────────────────────────────── -->
+655:      <div class="drawer-link" data-drawer-toggle="d-ind">Industries<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+659:          <a href="/industries/banking-financial-services">Banking &amp; Financial Services</a>
+660:          <a href="/industries/insurance">Insurance</a>
+661:          <a href="/industries/healthcare">Healthcare</a>
+667:    <!-- ── PARTNER ECOSYSTEM ──────────────────────────────────── -->
+669:      <div class="drawer-link" data-drawer-toggle="d-part">Partner Ecosystem<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+673:          <a href="/partners">Partners</a>
+679:    <!-- ── ABOUT ──────────────────────────────────────────────── -->
+681:      <div class="drawer-link" data-drawer-toggle="d-about">About<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+682:      <div class="drawer-sub" id="d-about">
+685:          <a href="/about/who-we-are">Who we are + Our Leadership</a>
+686:          <a href="/about/ai-first-philosophy">AI-first Philosophy</a>
+687:          <a href="/about">Success Stories</a>
+689:          <a href="/about">Careers</a>
+690:          <a href="/about">Events &amp; News</a>
+704:  /* Data-driven mega panels. Links preserved from the original menus. */
+705:  const MEGA_DATA = [
+707:      id:'solve', label:'Our Focus', title:'AI-First Digital Engineering',
+709:      explore:{label:'Explore Solutions', href:'/our-focus'},
+717:      feature:{cap:'<em>AI-First</em> digital engineering that evolves at the speed of your business.', title:'AI-First Digital Engineering', desc:'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.'},
+725:      id:'how', label:'Capabilities', title:'Engineering &amp; Operations',
+726:      desc:'Modern engineering capabilities that move regulated enterprises faster, safer, and smarter.',
+727:      explore:{label:'Explore Capabilities', href:'/capabilities'},
+729:        {label:'AI Led Engineering', href:'/capabilities/ai-led-engineering'},
+730:        {label:'Cloud &amp; Infrastructure Engineering', href:'/capabilities/cloud-and-infrastructure-engineering'},
+731:        {label:'AI &amp; Data', href:'/capabilities/ai-and-data'},
+732:        {label:'Digital Operations &amp; Security', href:'/capabilities/digital-operations-and-security'},
+733:        {label:'Security &amp; Governance', href:'/capabilities/security-and-governance'},
+743:      id:'deliver', label:'Solutions', title:'Global Delivery Models',
+745:      explore:{label:'Explore Solutions', href:'/solutions'},
+747:        {label:'Managed Programs', href:'/solutions/managed-programs'},
+748:        {label:'Technology Consulting', href:'/solutions/technology-consulting'},
+749:        {label:'AI Upskilling', href:'/solutions/ai-upskilling'},
+750:        {label:'GCC &amp; Nearshore', href:'/solutions/gcc-and-nearshore'},
+751:        {label:'Teams-as-a-Service', href:'/solutions/teams-as-a-service'},
+752:        {label:'Hire-Train-Deploy', href:'/solutions/ai-upskilling'},
+780:      id:'industries', label:'Industries', title:'Industries We Serve',
+782:      explore:{label:'Explore Industries', href:'/industries'},
+784:        {label:'Banking &amp; Financial Services', href:'/industries/banking-financial-services'},
+785:        {label:'Insurance', href:'/industries/insurance'},
+786:        {label:'Healthcare', href:'/industries/healthcare'},
+796:      id:'partners', label:'Partner Ecosystem', title:'Partner Ecosystem',
+797:      desc:'A curated network of technology and implementation partners that amplify outcomes.',
+798:      explore:{label:'Explore Partners', href:'/partners'},
+800:        {label:'Partners', href:'/partners'},
+802:      partnerLogos:[
+803:        {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png'},
+804:        {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png'},
+805:        {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png'},
+806:        {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png'},
+808:      feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.'},
+809:      assessTag:'Partnerships',
+811:        {title:'Alliance Programs', desc:'Co-build and co-sell with our technology partners.'},
+816:      id:'about', label:'About', title:'About Celsior',
+818:      explore:{label:'Explore About', href:'/about'},
+820:        {label:'Who we are + Our Leadership', href:'/about/who-we-are'},
+821:        {label:'AI-first Philosophy', href:'/about/ai-first-philosophy'},
+822:        {label:'Success Stories', href:'/about'},
+824:        {label:'Careers', href:'/about'},
+825:        {label:'Events &amp; News', href:'/about'},
+836:  function buildMegaPanel(d) {
+838:    const pills = d.partnerLogos
+839:      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card" href="${p.href}" title="${p.label}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
+847:  <div class="mega-panel" id="menu-${d.id}">
+848:    <div class="mega-inner">
+849:      <div class="mega-zone">
+856:      <div class="mega-zone">
+867:      <div class="mega-zone">
+875:  const megaPanelsHTML = MEGA_DATA.map(buildMegaPanel).join('\n');
+878:  let backdropEl = document.getElementById('mega-backdrop');
+879:  let navEl = document.getElementById('navbar');
+881:  let megaRoot = document.getElementById('megaRoot');
+883:  if (shouldInjectNav) {
+884:    const oldNav = document.getElementById('navbar');
+885:    if (oldNav) oldNav.remove();
+886:    const oldBackdrop = document.getElementById('mega-backdrop');
+890:    const oldMegaRoot = document.getElementById('megaRoot');
+891:    if (oldMegaRoot) oldMegaRoot.remove();
+893:    // Inject backdrop + nav root
+895:    backdropEl.id = 'mega-backdrop';
+898:    navEl = document.createElement('nav');
+899:    navEl.id = 'navbar';
+900:    navEl.innerHTML = `
+901:      <a href="/" class="nav-logo">
+904:      <ul class="nav-links" id="navLinks">${navLinksHTML}</ul>
+905:      <div class="nav-right">
+906:        <a href="/#contact" class="btn-nav-solid">Contact us ${ARROW_SVG}</a>
+908:      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+911:    document.body.insertBefore(navEl, document.body.firstChild);
+922:          <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+926:        <nav class="drawer-nav">${drawerDivHTML}</nav>
+928:          <a href="/#contact" class="drawer-cta-btn">Contact us ${ARROW_SVG}</a>
+931:    document.body.insertBefore(drawerEl, navEl.nextSibling);
+933:    // Mega root
+934:    megaRoot = document.createElement('div');
+935:    megaRoot.className = 'mega-root';
+936:    megaRoot.id = 'megaRoot';
+937:    megaRoot.innerHTML = megaPanelsHTML;
+938:    document.body.insertBefore(megaRoot, drawerEl.nextSibling);
+940:    /* ─── 3b.  AUGMENT MOBILE DRAWER WITH MEGA CARDS ────────────────
+942:       from MEGA_DATA into each .drawer-sub so the mobile experience
+943:       mirrors the desktop mega menu. Original drawer link groups are
+945:    const DRAWER_MEGA_MAP = {
+947:      'd-ind':'industries','d-part':'partners','d-about':'about'
+949:    Object.keys(DRAWER_MEGA_MAP).forEach(function(subId){
+952:      const data = MEGA_DATA.find(function(m){ return m.id === DRAWER_MEGA_MAP[subId]; });
+954:      const pillsHTML = data.partnerLogos
+955:        ? `<div class="drawer-partner-grid">${data.partnerLogos.map(function(p){ return `<a class="drawer-partner-card" href="${p.href}" title="${p.label}"><img class="drawer-partner-logo" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`; }).join('')}</div>`
+956:        : (data.pills ? `<div class="drawer-mega-pills">${data.pills.map(function(p){ return `<a href="${data.items[0].href}"><span class="p-dot"></span>${p}</a>`; }).join('')}</div>` : '');
+958:        return `<a class="drawer-mega-card" href="${data.explore.href}">
+963:      const mega = document.createElement('div');
+964:      mega.className = 'drawer-mega';
+965:      mega.innerHTML = `
+966:        <a class="drawer-mega-feature" href="${data.explore.href}" aria-label="${data.feature.title}">
+968:          <div class="drawer-mega-cap">${data.feature.cap}</div>
+970:        <a class="drawer-mega-explore" href="${data.explore.href}">${data.explore.label} ${ARROW_SVG}</a>
+972:        ${data.assessTag ? `<div class="drawer-mega-assess-label">${data.assessTag}</div>` : ''}
+973:        <div class="drawer-mega-assess">${assessHTML}</div>
+975:      sub.appendChild(mega);
+980:  /* ─── 4.  FOOTER HTML ─────────────────────────────────────────────── */
+981:  const footerEl = document.createElement('footer');
+982:  footerEl.className = 'site-footer-light';
+983:  footerEl.id = 'siteFooterLight';
+986:    return `<div class="cf-col"><p class="cf-col-head">${head}</p><nav class="cf-col-links">${
+988:    }</nav></div>`;
+991:  footerEl.innerHTML = `
+996:        <p class="cf-tagline">AI-first digital engineering partner for regulated industries modernizing critical systems, operationalizing AI, and building resilience at scale.</p>
+1012:      ${cfCol('Our Focus',[
+1019:      ${cfCol('Capabilities',[
+1020:        {label:'AI-Led Engineering', href:'/capabilities/ai-led-engineering'},
+1021:        {label:'Cloud &amp; Infrastructure', href:'/capabilities/cloud-and-infrastructure-engineering'},
+1022:        {label:'AI &amp; Data', href:'/capabilities/ai-and-data'},
+1023:        {label:'Digital Operations &amp; Sec.', href:'/capabilities/digital-operations-and-security'},
+1024:        {label:'Security &amp; Governance', href:'/capabilities/security-and-governance'},
+1026:      ${cfCol('Solutions',[
+1027:        {label:'Managed Programs', href:'/solutions/managed-programs'},
+1028:        {label:'Technology Consulting', href:'/solutions/technology-consulting'},
+1029:        {label:'GCC &amp; Nearshore', href:'/solutions/gcc-and-nearshore'},
+1030:        {label:'Teams-as-a-Service', href:'/solutions/teams-as-a-service'},
+1031:        {label:'AI Upskilling', href:'/solutions/ai-upskilling'},
+1039:      ${cfCol('Industries',[
+1040:        {label:'Banking &amp; Financial', href:'/industries/banking-financial-services'},
+1041:        {label:'Insurance', href:'/industries/insurance'},
+1042:        {label:'Healthcare', href:'/industries/healthcare'},
+1051:      ${cfCol('About',[
+1052:        {label:'Our Focus', href:'/our-focus'},
+1053:        {label:'Capabilities', href:'/capabilities'},
+1054:        {label:'Solutions', href:'/solutions'},
+1056:        {label:'Industries', href:'/industries'},
+1059:        {label:'About', href:'/about'},
+1060:        {label:'Partners', href:'/partners'},
+1061:        {label:'Careers', href:'/about'},
+1066:        {label:'Webinars', href:'/about'},
+1067:        {label:'Newsroom', href:'/about'},
+1068:        {label:'Events', href:'/about'},
+1071:        <p class="cf-col-head">Contact</p>
+1072:        <div class="cf-contact-line">
+1076:        <div class="cf-contact-line">
+1080:        <div class="cf-contact-line">
+1092:          <a href="/#contact" class="cf-cta-link">Contact Us <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+1100:    <nav class="cf-legal" aria-label="Legal">
+1101:      <a href="/assets/legal/gdpr-v1-6-072024.pdf" target="_blank" rel="noopener">GDPR</a>
+1102:      <a href="/assets/legal/ccpa-cra-v1-3-072024.pdf" target="_blank" rel="noopener">CCPA/CRA</a>
+1103:      <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy</a>
+1105:      <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft privacy statement</a>
+1107:      <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy introduction</a>
+1108:      <a href="#" data-action="ccpa-opt-out">Do Not Sell or Share My Info</a>
+1110:    </nav>
+1120:  if (shouldInjectFooter) {
+1121:    const oldFooter = document.getElementById('siteFooterLight');
+1122:    if (oldFooter) oldFooter.remove();
+1123:    document.body.appendChild(footerEl);
+1124:    // Footer entrance micro-interactions (GSAP if present, IntersectionObserver-triggered)
+1125:    (function animateFooter(){
+1127:      const targets = footerEl.querySelectorAll('.cf-brand,.cf-top .cf-col,.cf-mid .cf-col,.cf-cta');
+1142:  if (!shouldInjectNav) return;
+1144:  /* ─── 5.  NAV JAVASCRIPT ──────────────────────────────────────────── */
+1146:  // Blog page: always show the "scrolled" (light) nav styling because the
+1150:    navEl.classList.add('scrolled', 'force-scrolled');
+1153:    if (forceScrolled) { navEl.classList.add('scrolled'); return; }
+1154:    navEl.classList.toggle('scrolled', window.scrollY > 40);
+1156:  if (!forceScrolled) navEl.classList.toggle('scrolled', window.scrollY > 40);
+1159:  // Desktop mega menu
+1160:  const navItemEls = navEl.querySelectorAll('.nav-item[data-menu]');
+1169:    navItemEls.forEach(li => li.classList.toggle('active', li.dataset.menu === id));
+1170:    const panel = document.getElementById('menu-' + id);
+1177:      gsap.from(panel.querySelectorAll('.mega-zone'), { opacity: 0, y: 10, duration: 0.34, stagger: 0.05, ease: 'power3.out', clearProps: 'opacity,transform' });
+1185:    const panel = document.getElementById('menu-' + id);
+1193:    navItemEls.forEach(li => li.classList.remove('active'));
+1201:  navItemEls.forEach(li => {
+1202:    li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
+1205:  megaRoot.addEventListener('mouseenter', cancel);
+1206:  megaRoot.addEventListener('mouseleave', sched);
+1216:  function openDrawer() { mobileDrawer.classList.add('open'); hamburger.classList.add('open'); document.body.classList.add('menu-open'); }
+1217:  function closeDrawer() { mobileDrawer.classList.remove('open'); hamburger.classList.remove('open'); document.body.classList.remove('menu-open'); }
+1235:     Lets pages defer work (e.g. footer entrance animations) until after
+1236:     the nav + footer are safely in the DOM.
+1241:  /* ─── 7. COOKIE CONSENT + CCPA OPT-OUT ────────────────────────────
+1242:     Banner shows once per visitor (localStorage). Footer "Cookie
+1248:    const CCPA_KEY = 'ccpa_opt_out';
+1278:        <p><strong>We value your privacy.</strong> We use cookies to enhance your experience, analyze traffic, and personalize content. See our <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy Policy</a>.</p>
+1307:          <p>Choose which categories of cookies we may use. You can change this at any time from the footer.</p>
+1326:    function openCcpa(){
+1327:      const out = localStorage.getItem(CCPA_KEY) === '1';
+1330:        <div class="ck-modal-card" role="dialog" aria-modal="true" aria-label="CCPA opt-out">
+1332:          <p>Under the California Consumer Privacy Act (CCPA/CPRA), you may opt out of the "sharing" of your personal information for cross-context behavioral advertising.</p>
+1333:          <div class="ck-row"><label for="ck-ccpa">Opt me out of sharing <small>Applies to this browser. Disables ad personalization signals.</small></label><input id="ck-ccpa" type="checkbox" ${out?'checked':''}></div>
+1342:          const on = m.querySelector('#ck-ccpa').checked;
+1343:          if (on) localStorage.setItem(CCPA_KEY, '1'); else localStorage.removeItem(CCPA_KEY);
+1365:    // Wire footer "Cookie preferences" and "Do Not Sell" links
+1370:      if (t.dataset.action === 'ccpa-opt-out') { e.preventDefault(); openCcpa(); }
+1374:  /* ─── HUBSPOT CTA MODAL SYSTEM ──────────────────────────────────────
+1376:     Keeps CTA/form behavior centralized while preserving current nav,
+1377:     footer, GDPR/cookie, and backend additions.
+1379:  function initCelsiorHubspotModals() {
+1380:    if (window.__celsiorHubspotModalReady) return;
+1381:    window.__celsiorHubspotModalReady = true;
+1391:        formId: '14603611-2306-41db-892b-61dd59e11a31'
+1396:        formId: 'f1c2bdcb-202d-49df-8698-b41c6abbb67d'
+1401:        formId: 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8'
+1403:      partner: {
+1404:        title: 'Start a partnership conversation',
+1406:        formId: '982fe6de-6215-4904-916b-fd062836bddc'
+1429:      { type: 'partner', phrases: [
+1430:        'partner with us',
+1431:        'explore partnership',
+1487:        'menu',
+1488:        'nav',
+1491:        'partner-logo-card',
+1492:        'drawer-partner-card'
+1497:      // Do not trigger forms for normal internal navigation unless it is a contact-style CTA.
+1498:      const isContactHref = href === '#contact' || href === '/#contact' || href.includes('index.html#contact');
+1499:      const isEmptyOrHashHref = href === '' || href === '#' || isContactHref;
+1508:        combined.includes('capabilities deck') ||
+1509:        combined.includes('capabilities overview') ||
+1547:        page.includes('/capabilities/ai-led-engineering') ||
+1548:        page.includes('/capabilities/ai-and-data')
+1563:      // General contact / sales conversation form.
+1565:        isContactHref ||
+1567:        combined.includes('contact') ||
+1640:          ${Object.keys(modalContent).map(type => `<div class="celsior-hs-modal__form-panel" data-celsior-form-panel="${type}"><div class="celsior-hs-modal__head"><h2 class="celsior-hs-modal__title">${modalContent[type].title}</h2><p class="celsior-hs-modal__helper">${modalContent[type].helper}</p></div><div class="hs-form-html" data-region="${REGION}" data-form-id="${modalContent[type].formId}" data-portal-id="${PORTAL_ID}"></div></div>`).join('')}
+1699:  initCelsiorHubspotModals();
+1708:    const targetUrl = '/capabilities/ai-led-engineering';

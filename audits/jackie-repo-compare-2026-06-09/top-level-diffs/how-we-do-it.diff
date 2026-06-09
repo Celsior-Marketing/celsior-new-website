@@ -1,0 +1,19 @@
+--- ours/how-we-do-it.html
++++ jackie/how-we-do-it.html
+@@ -16,7 +16,7 @@
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollToPlugin.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+   <!-- shared nav + footer — load before page styles so CSS vars are ready -->
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ 
+   <style>
+     /* ── Essential tokens (for pre-shared.js paint) ── */
+@@ -2874,6 +2874,6 @@
+ });
+ 
+ </script>
+-<script src="/shared.js" defer></script>
++<script src="shared.js" defer></script>
+ </body>
+ </html>

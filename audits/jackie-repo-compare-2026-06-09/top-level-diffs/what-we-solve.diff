@@ -1,0 +1,10 @@
+--- ours/what-we-solve.html
++++ jackie/what-we-solve.html
+@@ -1159,6 +1159,6 @@
+ 
+ <!-- Footer injected by shared JS -->
+ <div id="footer-placeholder"></div>
+-<script src="/shared.js" defer></script>
++<script src="shared.js" defer></script>
+ </body>
+ </html>

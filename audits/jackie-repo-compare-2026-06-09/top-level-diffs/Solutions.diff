@@ -1,0 +1,11 @@
+--- ours/Solutions.html
++++ jackie/Solutions.html
+@@ -3605,7 +3605,7 @@
+       });
+     });
+   </script>
+-  <script src="/shared.js" defer></script>
++  <script src="shared.js" defer></script>
+ </body>
+ 
+ </html>

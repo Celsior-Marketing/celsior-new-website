@@ -1,0 +1,301 @@
+2: * shared.js — Celsior site-wide nav + footer injector
+3: * Include this script on EVERY page (load with `defer`). Active nav item
+7: * Pages: home | solve | how | deliver | ai | industries | partners | about
+10: * ships its own <nav id="navbar"> or <footer id="siteFooterLight">, OR
+13: * into index.html without producing duplicate headers/footers.
+26:    'how-we-do-it.html': 'Capabilities.html',
+27:    'how-we-deliver.html': 'Solutions.html',
+29:    'capabilties.html': 'Capabilities.html',
+30:    'capabilities.html': 'Capabilities.html',
+31:    'solutions.html': 'Solutions.html',
+91:       • shared.js is the single source of truth for secondary-page nav/footer.
+92:       • Existing complete homepage nav/footer are respected, so no duplicates.
+115:  function hasUsableNav() {
+116:    const nav = document.getElementById('navbar');
+117:    return !!(nav && nav.querySelector('a[href], button, .nav-link, .nav-logo'));
+120:  function hasUsableFooter() {
+121:    const footer = document.getElementById('siteFooterLight') || document.querySelector('footer');
+122:    return !!(footer && footer.querySelector('a[href], .fl-grid, .fl-brand, .fl-bottom'));
+125:  const shouldInjectNav = !hasUsableNav();
+126:  const shouldInjectFooter = !hasUsableFooter();
+128:  if (!shouldInjectNav && !shouldInjectFooter) {
+129:    console.info('[shared.js] Existing complete nav and footer found — normalized links only.');
+140:  --accent:#2254f4; --accent-lt:rgba(34,84,244,0.09); --nav-h:68px;
+148:body.menu-open{overflow:hidden;}
+153:/* ═══════════════════════ NAVBAR ════════════════════════════════════ */
+154:#navbar{position:fixed;inset:0 0 auto 0;z-index:1000;height:var(--nav-h);display:flex;align-items:center;padding:0 52px;transition:background .45s ease,box-shadow .45s ease,border-color .45s ease;border-bottom:1px solid transparent;}
+155:#navbar.scrolled{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 2px 28px rgba(15,20,80,.07);}
+156:.nav-logo{display:flex;align-items:center;flex-shrink:0;margin-right:44px;}
+158:#navbar.scrolled .logo-img{filter:brightness(0);}
+159:.nav-links{display:flex;align-items:center;gap:2px;flex:1;}
+160:.nav-item{position:static;}
+161:.nav-link{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.01em;border-radius:6px;cursor:pointer;user-select:none;white-space:nowrap;color:rgba(255,255,255,.82);transition:color .2s,background .2s;}
+162:.nav-link:hover{color:var(--white);background:rgba(255,255,255,.1);text-decoration:none;}
+163:.nav-item.active>.nav-link{color:var(--white);background:rgba(255,255,255,.13);}
+164:#navbar.scrolled .nav-link{color:var(--ink-mid);}
+165:#navbar.scrolled .nav-link:hover{color:var(--accent);background:var(--accent-lt);}
+166:#navbar.scrolled .nav-item.active>.nav-link{color:var(--accent);background:var(--accent-lt);}
+167:.nav-item.nav-current>.nav-link{color:var(--white) !important;background:rgba(255,255,255,.15) !important;}
+168:#navbar.scrolled .nav-item.nav-current>.nav-link{color:var(--accent) !important;background:var(--accent-lt) !important;}
+169:a.nav-link{text-decoration:none;}
+171:.nav-item.active>.nav-link .chevron{transform:rotate(180deg);opacity:1;}
+172:.nav-right{margin-left:auto;display:flex;align-items:center;gap:12px;flex-shrink:0;}
+173:.btn-nav-solid{display:inline-flex;align-items:center;gap:8px;padding:9px 22px;font-family:var(--font-body);font-size:.8rem;font-weight:700;border-radius:6px;border:1.5px solid rgba(255,255,255,.5);cursor:pointer;background:transparent;color:var(--white);transition:background .2s,border-color .2s,color .2s,transform .22s var(--ease-expo),box-shadow .22s;}
+174:.btn-nav-solid:hover{background:var(--white);color:var(--ink);border-color:var(--white);transform:translateY(-2px);}
+175:#navbar.scrolled .btn-nav-solid{background:var(--btn-gradient);color:var(--white);border-color:transparent;}
+176:#navbar.scrolled .btn-nav-solid:hover{background:#111;box-shadow:0 8px 28px rgba(0,0,0,.32);}
+177:.nav-hamburger{display:none;flex-direction:column;justify-content:center;gap:5px;margin-left:auto;width:38px;height:38px;background:none;border:none;cursor:pointer;padding:6px;border-radius:6px;transition:background .2s;}
+178:.nav-hamburger:hover{background:rgba(255,255,255,.1);}
+179:#navbar.scrolled .nav-hamburger:hover{background:var(--accent-lt);}
+181:#navbar.scrolled .ham-line{background:var(--ink);}
+182:.nav-hamburger.open .ham-line:nth-child(1){transform:translateY(7px) rotate(45deg);}
+183:.nav-hamburger.open .ham-line:nth-child(2){opacity:0;transform:scaleX(0);}
+184:.nav-hamburger.open .ham-line:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+185:@media(max-width:1280px){#navbar{padding:0 32px;}.nav-link{padding:7px 9px;font-size:.76rem;}.btn-nav-solid{padding:8px 16px;}.nav-logo{margin-right:28px;}}@media(max-width:1139px){.nav-links,.nav-right{display:none;}.nav-hamburger{display:flex;}#navbar{padding:0 24px;}}
+198:.drawer-nav{flex:1;padding:12px 0;}
+215:/* ═══════════════════════ MEGA BACKDROP + PANELS ════════════════════ */
+216:#mega-backdrop{position:fixed;inset:0;z-index:800;background:transparent;pointer-events:none;transition:background .3s;}
+217:#mega-backdrop.on{background:rgba(7,9,20,.45);pointer-events:auto;}
+218:.mega-root{position:fixed;top:var(--nav-h);left:0;right:0;z-index:850;pointer-events:none;}
+219:.mega-panel{position:absolute;inset:0 auto auto 0;width:100%;background:#f0f6ff;border-bottom:1px solid rgba(34,84,244,.14);box-shadow:0 24px 80px rgba(15,20,80,.16);padding:36px 52px 44px;display:none;opacity:0;transform:translateY(-10px);pointer-events:none;overflow:hidden;}
+220:.mega-panel::after{content:'';position:absolute;right:-8%;top:-80%;width:58%;height:320%;background:url('https://images.pexels.com/photos/34062752/pexels-photo-34062752.jpeg') center/cover no-repeat;transform:rotate(-18deg);opacity:.42;z-index:0;pointer-events:none;border-radius:32px;}
+221:.mega-panel::before{content:'';position:absolute;inset:0;background:linear-gradient(to right,#f0f6ff 0%,#f0f6ff 38%,rgba(240,246,255,.82) 58%,rgba(240,246,255,.18) 78%,transparent 100%);z-index:1;pointer-events:none;}
+222:.mega-panel.open{display:flex;pointer-events:auto;}
+223:.mega-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:flex;}
+224:.mega-label{font-family:var(--font-head);font-size:.58rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-bottom:22px;display:flex;align-items:center;gap:10px;}
+225:.mega-label::after{content:'';flex:1;height:1px;background:var(--border);}
+226:.mega-col{flex:1;padding-right:28px;border-right:1px solid var(--border);margin-right:28px;}
+227:.mega-col:last-child{border-right:none;margin-right:0;padding-right:0;}
+228:.mega-col-head{font-family:var(--font-head);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px;}
+229:.mega-group{margin-bottom:20px;}
+230:.mega-group-title{font-family:var(--font-body);font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:8px;padding-left:10px;border-left:2px solid var(--accent);}
+231:.mega-links{display:flex;flex-direction:column;gap:1px;}
+232:.mega-links a{display:block;padding:5px 10px;font-size:.78rem;font-weight:500;color:var(--muted);border-radius:5px;transition:color .15s,background .15s,padding-left .18s;}
+233:.mega-links a:hover{color:var(--accent);background:var(--accent-lt);padding-left:15px;}
+234:.mega-featured{width:226px;flex-shrink:0;padding-left:28px;border-left:1px solid var(--border);}
+240:.partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-bottom:16px;}
+241:.partner-pill{display:flex;align-items:center;gap:7px;padding:7px 10px;border-radius:6px;border:1px solid var(--border);font-size:.75rem;font-weight:600;color:var(--ink-mid);background:rgba(255,255,255,.72);cursor:pointer;transition:border-color .15s,color .15s,box-shadow .15s;}
+242:.partner-pill:hover{border-color:var(--accent);color:var(--accent);box-shadow:0 2px 12px rgba(34,84,244,.1);}
+244:.about-links{display:flex;flex-direction:column;gap:4px;}
+245:.about-link{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:8px;cursor:pointer;transition:background .15s;}
+246:.about-link:hover{background:rgba(255,255,255,.6);}
+247:.about-icon{width:34px;height:34px;background:rgba(255,255,255,.72);border-radius:8px;display:grid;place-items:center;font-size:1rem;flex-shrink:0;border:1px solid var(--border);}
+248:.about-link-text{font-size:.82rem;font-weight:600;color:var(--ink-mid);}
+249:.about-link:hover .about-link-text{color:var(--accent);}
+250:.about-logos-label{font-size:.58rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-top:16px;margin-bottom:8px;}
+251:.about-logos-grid{display:flex;flex-wrap:wrap;gap:10px;align-items:center;}
+252:.about-logo-img{height:22px;width:auto;filter:brightness(0) saturate(100%);opacity:.65;transition:opacity .2s;}
+253:.about-logo-img:hover{opacity:1;}
+254:@media(max-width:1024px){.mega-panel::after{display:none;}.mega-panel::before{background:#fff;}.mega-panel{background:#fff;padding:28px 32px 36px;}}
+256:/* ═══════════════════════ FOOTER ════════════════════════════════════ */
+257:.site-footer-light{
+267:.site-footer-light::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:0;}
+268:.site-footer-light::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:900px;height:400px;background:radial-gradient(ellipse,rgba(34,84,244,.04) 0%,transparent 70%);pointer-events:none;z-index:0;}
+335:    'capabilities.html': 'how',
+337:    'solutions.html':    'deliver',
+340:    'industries.html':   'industries',
+341:    'partner-ecosystem.html':'partners',
+342:    'about.html':        'about',
+350:  /* ─── 3.  NAV HTML ───────────────────────────────────────────────── */
+355:  const navItems = [
+356:    { key: 'solve',      label: 'Our Focus',           href: 'Our_Focus.html'          },
+357:    { key: 'how',        label: 'Capabilities',         href: 'Capabilities.html'       },
+358:    { key: 'deliver',    label: 'Solutions',            href: 'Solutions.html'          },
+360:    { key: 'industries', label: 'Industries',           href: 'industries.html'         },
+361:    { key: 'partners',   label: 'Partner Ecosystem',    href: 'partner-ecosystem.html'  },
+362:    { key: 'about',      label: 'About',                href: 'about.html'              },
+365:  const navLinksHTML = navItems.map(it => `
+366:    <li class="nav-item${activePage === it.key ? ' nav-current' : ''}" data-menu="${it.key}">
+367:      <a class="nav-link" href="${it.href}">${it.label} ${CHEVRON_SVG}</a>
+378:    <!-- ── OUR FOCUS ──────────────────────────────────────────── -->
+380:      <div class="drawer-link" data-drawer-toggle="d-solve">Our Focus<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+399:    <!-- ── CAPABILITIES ───────────────────────────────────────── -->
+401:      <div class="drawer-link" data-drawer-toggle="d-how">Capabilities<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+422:    <!-- ── SOLUTIONS ──────────────────────────────────────────── -->
+424:      <div class="drawer-link" data-drawer-toggle="d-deliver">Solutions<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+448:    <!-- ── AI & INNOVATION ────────────────────────────────────── -->
+469:    <!-- ── INDUSTRIES ─────────────────────────────────────────── -->
+471:      <div class="drawer-link" data-drawer-toggle="d-ind">Industries<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+483:    <!-- ── PARTNER ECOSYSTEM ──────────────────────────────────── -->
+485:      <div class="drawer-link" data-drawer-toggle="d-part">Partner Ecosystem<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+489:          <a href="partners.html">Partners</a>                           /* ← LINK */
+495:    <!-- ── ABOUT ──────────────────────────────────────────────── -->
+497:      <div class="drawer-link" data-drawer-toggle="d-about">About<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+498:      <div class="drawer-sub" id="d-about">
+501:          <a href="about-leadership.html">Who we are + Our Leadership</a>                    /* ← LINK */
+514:  const megaPanelsHTML = `
+517:       MEGA PANELS  —  one <a href="..."> per line for easy editing.
+523:       ║  OUR FOCUS                           ║
+525:  <div class="mega-panel" id="menu-solve">
+526:    <div class="mega-inner">
+529:      <div class="mega-col">
+530:        <div class="mega-label">Our Focus</div>
+531:        <div class="mega-col-head">Priorities</div>
+532:        <div class="mega-group">
+533:          <ul class="mega-links">
+542:      <div class="mega-col">
+543:        <div class="mega-col-head" style="margin-top:26px">Outcomes</div>
+544:        <div class="mega-group">
+545:          <ul class="mega-links">
+553:      <div class="mega-col"></div>
+556:      <div class="mega-featured">
+572:       ║  CAPABILITIES                        ║
+574:  <div class="mega-panel" id="menu-how">
+575:    <div class="mega-inner">
+578:      <div class="mega-col">
+579:        <div class="mega-label">Capabilities</div>
+580:        <div class="mega-col-head">Engineering</div>
+581:        <div class="mega-group">
+582:          <ul class="mega-links">
+591:      <div class="mega-col">
+592:        <div class="mega-col-head" style="margin-top:26px">Operations</div>
+593:        <div class="mega-group">
+594:          <ul class="mega-links">
+602:      <div class="mega-col"></div>
+605:      <div class="mega-featured">
+617:       ║  SOLUTIONS                           ║
+619:  <div class="mega-panel" id="menu-deliver">
+620:    <div class="mega-inner">
+623:      <div class="mega-col">
+624:        <div class="mega-label">Solutions</div>
+625:        <div class="mega-col-head">Programs</div>
+626:        <div class="mega-group">
+627:          <ul class="mega-links">
+636:      <div class="mega-col">
+637:        <div class="mega-col-head" style="margin-top:26px">Global Delivery</div>
+638:        <div class="mega-group">
+639:          <ul class="mega-links">
+646:      <div class="mega-col">
+647:        <div class="mega-col-head" style="margin-top:26px">Talent Models</div>
+648:        <div class="mega-group">
+649:          <ul class="mega-links">
+659:      <div class="mega-featured">
+671:       ║  AI & INNOVATION                     ║
+673:  <div class="mega-panel" id="menu-ai">
+674:    <div class="mega-inner">
+677:      <div class="mega-col">
+678:        <div class="mega-label">AI &amp; Innovation</div>
+679:        <div class="mega-col-head">Products</div>
+680:        <div class="mega-group">
+681:          <ul class="mega-links">
+690:      <div class="mega-col">
+691:        <div class="mega-col-head" style="margin-top:26px">Programs</div>
+692:        <div class="mega-group">
+693:          <ul class="mega-links">
+701:      <div class="mega-col"></div>
+704:      <div class="mega-featured">
+716:       ║  INDUSTRIES                          ║
+718:  <div class="mega-panel" id="menu-industries">
+719:    <div class="mega-inner">
+722:      <div class="mega-col">
+723:        <div class="mega-label">Industries</div>
+724:        <div class="mega-col-head">Sectors</div>
+725:        <div class="mega-group">
+726:          <ul class="mega-links">
+735:      <div class="mega-col"></div>
+736:      <div class="mega-col"></div>
+739:      <div class="mega-featured">
+751:       ║  PARTNER ECOSYSTEM                   ║
+753:  <div class="mega-panel" id="menu-partners">
+754:    <div class="mega-inner">
+757:      <div class="mega-col">
+758:        <div class="mega-label">Partner Ecosystem</div>
+759:        <div class="mega-col-head">Alliances</div>
+760:        <div class="mega-group">
+761:          <ul class="mega-links">
+762:            <li><a href="partners.html">Partners</a></li>                           <!-- ← LINK -->
+765:        <div class="partner-grid">
+766:          <span class="partner-pill"><span class="p-dot"></span>ServiceNow</span>
+767:          <span class="partner-pill"><span class="p-dot"></span>Guidewire</span>
+768:          <span class="partner-pill"><span class="p-dot"></span>AWS</span>
+769:          <span class="partner-pill"><span class="p-dot"></span>Azure</span>
+770:          <span class="partner-pill"><span class="p-dot"></span>Google Cloud</span>
+771:          <span class="partner-pill"><span class="p-dot"></span>Snowflake</span>
+772:          <span class="partner-pill"><span class="p-dot"></span>Dynatrace</span>
+773:          <span class="partner-pill"><span class="p-dot"></span>UiPath</span>
+778:      <div class="mega-col"></div>
+779:      <div class="mega-col"></div>
+782:      <div class="mega-featured">
+783:        <div class="feat-tag">Partnerships</div>
+785:          <div class="feat-card-title">Become a Partner</div>
+786:          <div class="feat-card-desc">Join Celsior's ecosystem of technology and implementation partners.</div>
+794:       ║  ABOUT                               ║
+796:  <div class="mega-panel" id="menu-about">
+797:    <div class="mega-inner">
+800:      <div class="mega-col">
+801:        <div class="mega-label">About</div>
+802:        <div class="mega-col-head">Company</div>
+803:        <div class="mega-group">
+804:          <ul class="mega-links">
+805:            <li><a href="about-leadership.html">Who we are + Our Leadership</a></li>                    <!-- ← LINK -->
+813:      <div class="mega-col">
+814:        <div class="mega-col-head" style="margin-top:26px">News &amp; Careers</div>
+815:        <div class="mega-group">
+816:          <ul class="mega-links">
+825:      <div class="mega-col"></div>
+828:      <div class="mega-featured">
+841:  let backdropEl = document.getElementById('mega-backdrop');
+842:  let navEl = document.getElementById('navbar');
+844:  let megaRoot = document.getElementById('megaRoot');
+846:  if (shouldInjectNav) {
+847:    const oldNav = document.getElementById('navbar');
+848:    if (oldNav) oldNav.remove();
+849:    const oldBackdrop = document.getElementById('mega-backdrop');
+853:    const oldMegaRoot = document.getElementById('megaRoot');
+854:    if (oldMegaRoot) oldMegaRoot.remove();
+856:    // Inject backdrop + nav root
+858:    backdropEl.id = 'mega-backdrop';
+861:    navEl = document.createElement('nav');
+862:    navEl.id = 'navbar';
+863:    navEl.innerHTML = `
+864:      <a href="index.html" class="nav-logo">
+867:      <ul class="nav-links" id="navLinks">${navLinksHTML}</ul>
+868:      <div class="nav-right">
+869:        <a href="index.html#contact" class="btn-nav-solid">Contact us ${ARROW_SVG}</a>
+871:      <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
+874:    document.body.insertBefore(navEl, document.body.firstChild);
+885:          <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+889:        <nav class="drawer-nav">${drawerDivHTML}</nav>
+891:          <a href="index.html#contact" class="drawer-cta-btn">Contact us ${ARROW_SVG}</a>
+894:    document.body.insertBefore(drawerEl, navEl.nextSibling);
+896:    // Mega root
+897:    megaRoot = document.createElement('div');
+898:    megaRoot.className = 'mega-root';
+899:    megaRoot.id = 'megaRoot';
+900:    megaRoot.innerHTML = megaPanelsHTML;
+901:    document.body.insertBefore(megaRoot, drawerEl.nextSibling);
+904:  /* ─── 4.  FOOTER HTML ─────────────────────────────────────────────── */
+905:  const footerEl = document.createElement('footer');
+906:  footerEl.className = 'site-footer-light';
+907:  footerEl.id = 'siteFooterLight';
+908:  footerEl.innerHTML = `
+912:      <p class="fl-tagline">Engineering partner for regulated industries — modernizing critical systems, operationalizing AI, and building operational resilience at scale.</p>
+931:    <div class="fl-col"><p class="fl-col-head">Solutions</p><nav class="fl-col-links"><a href="Our_Focus.html" class="fl-col-link">Core Banking Modernization</a><a href="Our_Focus.html" class="fl-col-link">Cloud Transformation</a><a href="Our_Focus.html" class="fl-col-link">Technical Debt Reduction</a><a href="Our_Focus.html" class="fl-col-link">Regulatory Readiness</a><a href="Our_Focus.html" class="fl-col-link">Digital Experience</a><a href="Our_Focus.html" class="fl-col-link">Enterprise AI Enablement</a></nav></div>
+932:    <div class="fl-col"><p class="fl-col-head">Services</p><nav class="fl-col-links"><a href="Capabilities.html" class="fl-col-link">Application Engineering</a><a href="Capabilities.html" class="fl-col-link">Platform Engineering</a><a href="Capabilities.html" class="fl-col-link">Cloud &amp; DevOps</a><a href="Capabilities.html" class="fl-col-link">Data &amp; AI Engineering</a><a href="Capabilities.html" class="fl-col-link">Security &amp; Governance</a><a href="Capabilities.html" class="fl-col-link">ITSM &amp; Operations</a></nav></div>
+933:    <div class="fl-col"><p class="fl-col-head">Delivery</p><nav class="fl-col-links"><a href="Solutions.html" class="fl-col-link">GCC Build &amp; Operate</a><a href="Solutions.html" class="fl-col-link">BOT Model</a><a href="Solutions.html" class="fl-col-link">Mexico &amp; LATAM Nearshore</a><a href="Solutions.html" class="fl-col-link">Engineering Pods</a><a href="Solutions.html" class="fl-col-link">Hire-Train-Deploy <span class="fl-badge">New</span></a></nav></div>
+934:    <div class="fl-col"><p class="fl-col-head">AI &amp; Innovation</p><nav class="fl-col-links"><a href="ai-innovation.html" class="fl-col-link">Celsior AI Lab</a><a href="ai-innovation.html" class="fl-col-link">Agentic Workflows</a><a href="ai-innovation.html" class="fl-col-link">AI Copilots</a><a href="ai-innovation.html" class="fl-col-link">CAFE Framework</a><a href="ai-innovation.html" class="fl-col-link">HALO Framework</a><a href="ai-innovation.html" class="fl-col-link">GenAI Accelerators</a></nav></div>
+935:    <div class="fl-col"><p class="fl-col-head">Company</p><nav class="fl-col-links"><a href="about.html" class="fl-col-link">Who We Are</a><a href="about.html" class="fl-col-link">Our Leadership</a><a href="about.html" class="fl-col-link">AI-first Philosophy</a><a href="about.html" class="fl-col-link">Success Stories</a><a href="about.html" class="fl-col-link">Newsroom</a><a href="about.html" class="fl-col-link">Careers</a><a href="index.html#contact" class="fl-col-link">Contact Us</a></nav></div>
+947:    <nav class="fl-legal" aria-label="Legal"><a href="#" class="fl-legal-link">Privacy Policy</a><a href="#" class="fl-legal-link">Cookie Policy</a><a href="#" class="fl-legal-link">Terms of Use</a><a href="#" class="fl-legal-link">Accessibility</a><a href="#" class="fl-legal-link">Sitemap</a></nav>
+954:  if (shouldInjectFooter) {
+955:    const oldFooter = document.getElementById('siteFooterLight');
+956:    if (oldFooter) oldFooter.remove();
+957:    document.body.appendChild(footerEl);
+960:  if (!shouldInjectNav) return;
+962:  /* ─── 5.  NAV JAVASCRIPT ──────────────────────────────────────────── */
+965:    navEl.classList.toggle('scrolled', window.scrollY > 40);
+967:  navEl.classList.toggle('scrolled', window.scrollY > 40);
+969:  // Desktop mega menu
+970:  const navItemEls = navEl.querySelectorAll('.nav-item[data-menu]');
+979:    navItemEls.forEach(li => li.classList.toggle('active', li.dataset.menu === id));
+980:    const panel = document.getElementById('menu-' + id);
+987:      gsap.from(panel.querySelectorAll('.mega-links a,.partner-pill,.about-link,.feat-card'), { opacity: 0, y: 7, duration: 0.26, stagger: 0.018, ease: 'power2.out', delay: 0.06, clearProps: 'opacity,y' });
+994:    const panel = document.getElementById('menu-' + id);
+1002:    navItemEls.forEach(li => li.classList.remove('active'));
+1010:  navItemEls.forEach(li => {
+1011:    li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
+1014:  megaRoot.addEventListener('mouseenter', cancel);
+1015:  megaRoot.addEventListener('mouseleave', sched);
+1025:  function openDrawer() { mobileDrawer.classList.add('open'); hamburger.classList.add('open'); document.body.classList.add('menu-open'); }
+1026:  function closeDrawer() { mobileDrawer.classList.remove('open'); hamburger.classList.remove('open'); document.body.classList.remove('menu-open'); }
+1044:     Lets pages defer work (e.g. footer entrance animations) until after
+1045:     the nav + footer are safely in the DOM.

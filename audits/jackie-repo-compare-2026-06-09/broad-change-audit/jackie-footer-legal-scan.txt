@@ -1,0 +1,70 @@
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/risk-compliance.html:3555:            <p class="solution-card-text">Our control automation and audit-trail engineering compress evidence collection from weeks to days and eliminate the last-minute scramble that precedes most regulatory reviews.  </p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/industries.html:177:  <!-- shared nav + footer injector -->
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:579:       ║  SHARED HEADER & FOOTER — single source of truth        ║
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:581:       Runs synchronously so nav+footer are in DOM before any
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:5162:              alt="Microsoft Azure" /></div>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:6622:            Microsoft Azure migration</h3>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:6623:          <p class="oc-desc">Celsior migrated critical applications to Microsoft Azure — resolving latency issues with
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:7166:    /* Footer entrance — runs after shared.js has injected the footer */
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:7168:      function initFooterAnims() {
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:7169:        const st = { trigger: '#siteFooterLight', start: 'top 90%', once: true };
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:7182:      /* shared.js dispatches 'celsior:shared-ready' when nav+footer are injected.
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:7185:        initFooterAnims();
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/index.html:7187:        document.addEventListener('celsior:shared-ready', initFooterAnims, { once: true });
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/security-governance.html:3125:        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">AI systems and data platforms operate without the audit trails, explainability, or human oversight that GDPR, HIPAA, SOX, and EU AI Act require</p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/security-governance.html:3300:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/security-governance.html:3313:          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png" alt="Microsoft"
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/security-governance.html:3503:          <p class="insight-desc">One insurance carrier deployed AI agents with database access while maintaining GDPR and SOX compliance through automated PII masking and query-level audit trails...</p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/security-governance.html:3617:            <p>Using our CAFE platform, organizations deploy governed AI in 3-9 months versus 12-24 months for custom builds. The platform includes pre-built security, governance, and compliance layers. We configure for your specific requirements (HIPAA, GDPR, SOX, EU AI Act), deploy with audit trails active, and establish monitoring from day one. </p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/ai-and-data.html:3584:            <p>We build governance into every data pipeline. Our solutions include role-based access controls, data masking for PII/PHI, complete audit trails, and compliance validation for HIPAA, GDPR, and SOX requirements. Our explainable AI platform demonstrates lack of bias—critical for regulated industries.</p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/about.html:177:  <!-- shared nav + footer injector -->
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/partner-ecosystem.html:177:  <!-- shared nav + footer injector -->
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/cloud-infrastructure-engineering.html:3311:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/cloud-infrastructure-engineering.html:3324:          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png" alt="Microsoft"
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/what-we-solve.html:1160:<!-- Footer injected by shared JS -->
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/what-we-solve.html:1161:<div id="footer-placeholder"></div>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/frameworks-accelerators.html:3831:      <div class="stat-note-txt">Celsior builds production-grade frameworks and accelerators that compress delivery timelines across legacy modernization, AI adoption, data engineering, and quality assurance. Enterprises stop rebuilding from scratch and start shipping outcomes in weeks, not quarters.   
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/frameworks-accelerators.html:4392:          <li><svg class="fp-cap-check" viewBox="0 0 15 15" fill="none"><circle cx="7.5" cy="7.5" r="7" fill="currentColor" opacity=".12"/><path d="M4.5 7.5l2 2 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>GDPR, HIPAA, and SOX compliance ready</li>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/frameworks-accelerators.html:4623:    /* ── Pre-footer CTA Band (Figma Desktop-38 match) ── */
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/ai-led-engineering.html:3650:            <p>Security and compliance are embedded in our engineering process. We maintain SOC 2 Type II certification, support HIPAA and GDPR requirements, and provide complete audit trails for all code changes. For regulated industries like banking and healthcare, we include compliance validation in every delivery increment.</p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/ai-upskilling.html:3024:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/ai-upskilling.html:3040:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/ai-upskilling.html:3257:          <p class="insight-desc">A practical framework for L&D and technology leaders who are designing AI capability programs for workforces with mixed experience levels. Covers program architecture, measurement, and the governance questions most organizations underestimate at the outset. Footer</p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/ai-upskilling.html:3273:          <p class="insight-desc">How health systems are building clinical and administrative AI capability without compromising compliance posture or disrupting patient care operations in progress. Includes design principles that apply across regulated industries. Footer</p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/ai-innovation.html:177:  <!-- shared nav + footer injector -->
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/digital-operations.html:3300:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/digital-operations.html:3313:          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png" alt="Microsoft"
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/gcc-nearshore.html:3030:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/gcc-nearshore.html:3046:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/technology-consulting.html:2961:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/technology-consulting.html:2977:            alt="Microsoft" loading="lazy" />
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/how-we-do-it.html:18:  <!-- shared nav + footer — load before page styles so CSS vars are ready -->
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/Capabilities.html:3656:            <p>Security and compliance are embedded in our engineering process. We maintain SOC 2 Type II certification, support HIPAA and GDPR requirements, and provide complete audit trails for all code changes. For regulated industries like banking and healthcare, we include compliance validation in every delivery increment.</p>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/how-we-deliver.html:177:  <!-- shared nav + footer injector -->
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:2: * shared.js — Celsior site-wide nav + footer injector
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:10: * ships its own <nav id="navbar"> or <footer id="siteFooterLight">, OR
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:13: * into index.html without producing duplicate headers/footers.
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:91:       • shared.js is the single source of truth for secondary-page nav/footer.
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:92:       • Existing complete homepage nav/footer are respected, so no duplicates.
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:120:  function hasUsableFooter() {
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:121:    const footer = document.getElementById('siteFooterLight') || document.querySelector('footer');
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:122:    return !!(footer && footer.querySelector('a[href], .fl-grid, .fl-brand, .fl-bottom'));
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:126:  const shouldInjectFooter = !hasUsableFooter();
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:128:  if (!shouldInjectNav && !shouldInjectFooter) {
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:129:    console.info('[shared.js] Existing complete nav and footer found — normalized links only.');
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:256:/* ═══════════════════════ FOOTER ════════════════════════════════════ */
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:257:.site-footer-light{
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:267:.site-footer-light::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E");opacity:.025;pointer-events:none;z-index:0;}
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:268:.site-footer-light::before{content:'';position:absolute;top:-120px;left:50%;transform:translateX(-50%);width:900px;height:400px;background:radial-gradient(ellipse,rgba(34,84,244,.04) 0%,transparent 70%);pointer-events:none;z-index:0;}
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:904:  /* ─── 4.  FOOTER HTML ─────────────────────────────────────────────── */
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:905:  const footerEl = document.createElement('footer');
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:906:  footerEl.className = 'site-footer-light';
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:907:  footerEl.id = 'siteFooterLight';
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:908:  footerEl.innerHTML = `
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:947:    <nav class="fl-legal" aria-label="Legal"><a href="#" class="fl-legal-link">Privacy Policy</a><a href="#" class="fl-legal-link">Cookie Policy</a><a href="#" class="fl-legal-link">Terms of Use</a><a href="#" class="fl-legal-link">Accessibility</a><a href="#" class="fl-legal-link">Sitemap</a></nav>
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:954:  if (shouldInjectFooter) {
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:955:    const oldFooter = document.getElementById('siteFooterLight');
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:956:    if (oldFooter) oldFooter.remove();
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:957:    document.body.appendChild(footerEl);
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:1044:     Lets pages defer work (e.g. footer entrance animations) until after
+../../02-incoming-from-jackie/github-repos/celsior-site-jackie-2026-06-09/shared.js:1045:     the nav + footer are safely in the DOM.
