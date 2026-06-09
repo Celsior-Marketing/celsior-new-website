@@ -1098,13 +1098,13 @@ a.nav-link{text-decoration:none;}
   <div class="cf-bottom">
     <p class="cf-copyright">&copy; 2026 Pyramid Consulting, Inc. All rights reserved.</p>
     <nav class="cf-legal" aria-label="Legal">
-      <a href="${SITE_CONFIG.policiesBase}gdpr.pdf" download>GDPR</a>
-      <a href="${SITE_CONFIG.policiesBase}ccpa-cpra.pdf" download>CCPA/CPRA</a>
-      <a href="${SITE_CONFIG.policiesBase}privacy.pdf" download>Privacy</a>
-      <a href="${SITE_CONFIG.policiesBase}reasonable-accommodation.pdf" download>Reasonable Accommodation Policy</a>
-      <a href="${SITE_CONFIG.policiesBase}microsoft-privacy-statement.pdf" download>Microsoft privacy statement</a>
-      <a href="${SITE_CONFIG.policiesBase}web-accessibility.pdf" download>Web accessibility</a>
-      <a href="${SITE_CONFIG.policiesBase}privacy-introduction.pdf" download>Privacy introduction</a>
+      <a href="/assets/legal/gdpr-v1-6-072024.pdf" target="_blank" rel="noopener">GDPR</a>
+      <a href="/assets/legal/ccpa-cra-v1-3-072024.pdf" target="_blank" rel="noopener">CCPA/CRA</a>
+      <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy</a>
+      <a href="/assets/legal/pci-072025-reasonable-accomodation-policy.pdf" target="_blank" rel="noopener">Reasonable Accommodation Policy</a>
+      <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft privacy statement</a>
+      <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web accessibility</a>
+      <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy introduction</a>
       <a href="#" data-action="ccpa-opt-out">Do Not Sell or Share My Info</a>
       <a href="#" data-action="cookie-prefs">Cookie preferences</a>
     </nav>
@@ -1275,7 +1275,7 @@ a.nav-link{text-decoration:none;}
       const b = document.createElement('div');
       b.className = 'ck-banner'; b.setAttribute('role','dialog'); b.setAttribute('aria-label','Cookie consent');
       b.innerHTML = `
-        <p><strong>We value your privacy.</strong> We use cookies to enhance your experience, analyze traffic, and personalize content. See our <a href="${SITE_CONFIG.policiesBase}privacy.pdf" download>Privacy Policy</a>.</p>
+        <p><strong>We value your privacy.</strong> We use cookies to enhance your experience, analyze traffic, and personalize content. See our <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy Policy</a>.</p>
         <div class="ck-btns">
           <button class="ck-btn" data-act="reject">Reject all</button>
           <button class="ck-btn" data-act="prefs">Preferences</button>
