@@ -1699,4 +1699,37 @@ a.nav-link{text-decoration:none;}
   initCelsiorHubspotModals();
 
 
+
+  /* ─── AI-FIRST PAGE CTA FALLBACK ───────────────────────────────────── */
+  function forceAiFirstExploreCtaRedirect() {
+    const isAiFirstPage = window.location.pathname.replace(/\/$/, '') === '/our-focus/ai-first-digital-engineering';
+    if (!isAiFirstPage) return;
+
+    const targetUrl = '/capabilities/ai-led-engineering';
+
+    Array.from(document.querySelectorAll('a, button')).forEach(function(el) {
+      const label = (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
+      if (label !== 'explore our approach') return;
+
+      if (el.tagName.toLowerCase() === 'a') {
+        el.setAttribute('href', targetUrl);
+      }
+
+      el.setAttribute('data-celsior-no-modal', 'true');
+
+      el.addEventListener('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        window.location.href = targetUrl;
+      }, true);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', forceAiFirstExploreCtaRedirect);
+  } else {
+    forceAiFirstExploreCtaRedirect();
+  }
+
+
 })();
