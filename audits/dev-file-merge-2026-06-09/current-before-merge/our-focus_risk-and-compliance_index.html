@@ -2,9 +2,10 @@
 <html lang="en">
 
 <head>
+  <base href="/">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Celsior | Risk and Compliance</title>
+  <title>Celsior | AI-First Digital Engineering</title>
   <meta name="description"
     content="Celsior applies AI-assisted discovery, modernization engineering, and delivery governance to convert legacy technology into measurable business velocity." />
   <meta property="og:title" content="Celsior | AI-First Digital Engineering" />
@@ -402,7 +403,7 @@
     }
 
     .explore h2 {
-
+      max-width: 1100px;
       margin: 0 auto 56px;
       color: #0d1127;
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
@@ -416,7 +417,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-
+      max-width: 1100px;
       margin: 0 auto;
       border: 1.5px solid rgba(13, 17, 39, 0.12);
       border-radius: 16px;
@@ -680,7 +681,7 @@
        ============================================================ */
     .platforms {
       background: #fff;
-      /*padding: 32px 112px 32px;*/
+      padding: 32px 112px 0;
       border-top: 1px solid rgba(13, 17, 39, 0.08);
     }
 
@@ -788,10 +789,11 @@
 
     .outcomes {
       position: relative;
-      width: 100%;
+      max-width: 1440px;
+      margin: 0 auto;
       /* height = tallest card; heading floats in whitespace above short cards */
       min-height: clamp(500px, 88vh, 900px);
-      padding: var(--section-pad-v) var(--section-pad-h);
+      padding: 0 clamp(24px, 5.5vw, 80px);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
@@ -801,9 +803,9 @@
     /* ── Heading: absolutely positioned over top-left whitespace ── */
     .outcomes__heading {
       position: absolute;
-      top: var(--section-pad-v);
-      left: var(--section-pad-h);
-      width: clamp(280px, 38%, 520px);
+      top: clamp(32px, 7%, 112px);
+      left: clamp(24px, 5.5vw, 80px);
+      width: clamp(280px, 32%, 460px);
       z-index: 2;
     }
 
@@ -1053,7 +1055,7 @@
       .outcomes {
         min-height: 0;
         display: block;
-        padding: var(--section-pad-v) var(--section-pad-h);
+        padding-top: clamp(40px, 5vw, 64px);
       }
 
       .outcomes__heading {
@@ -1645,10 +1647,10 @@
       margin-bottom: clamp(16px, 1.6vw, 24px) !important;
     }
 
-    /* Platforms logo bar — compact vertical, same horizontal gutter
+    /* Platforms logo bar — compact vertical, same horizontal gutter */
     .platforms {
-      padding: 28px var(--section-pad-h) 28px !important;
-    }*/
+      padding: 28px var(--section-pad-h) 0 !important;
+    }
 
     /* Cost Q×Q */
     #cost-qxq {
@@ -2244,8 +2246,8 @@
 
     }
 
-    /* ── Mobile styles consolidated above ──
-
+    /* ── Mobile styles consolidated above ── 
+  
 
 /* === Our Focus retained-section styles === */
     .section-frame {
@@ -3300,24 +3302,16 @@
     <div class="hero-content">
       <h1 class="hero-heading">Regulated by design.<br>Resilient by architecture.
       </h1>
-<div class="hero-btns">
-  <button class="btn-ghost"
-    onclick="window.location.href='https://celsior-assessment-tools.netlify.app/grc-assessment/'">
-    Assess Your Control Environment
-    <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
-      <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12"
-        stroke="#fff"
-        stroke-width="1.4"
-        stroke-linecap="round"
-        stroke-linejoin="round" />
-    </svg>
-  </button>
-
-  <button type="button" class="btn-white"
-    onclick="window.location.href='/contact-us'">
-    Schedule a Conversation
-  </button>
-</div>
+      <div class="hero-btns">
+        <button class="btn-ghost">
+          Assess Your Control Environment
+          <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
+            <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="btn-white">Schedule a Conversation </button>
+      </div>
     </div>
   </section>
 
@@ -3491,20 +3485,25 @@
             d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
             fill="#fff" />
         </svg>
-        <p class="test-quote">“““We deployed responsible AI across an insurance carrier's claims lifecycle—from FNOL intake through SIU investigation. ClaimX delivers composite fraud risk scoring in under 0.1 seconds with SHAP-powered explainability for every flag. The system acts as intelligence layer, not decision layer, maintaining human accountability while accelerating legitimate claims processing.”””</p>
+        <p class="test-quote">“We were spending more engineering time preparing for audits than running the business. Evidence collection alone consumed weeks ahead of every regulatory review. Celsior restructured how our controls were built, not just documented. The same evidence that used to take three weeks to assemble now exists as a continuous output of the system. Our last examination was the cleanest we've had in eight years.”</p>
         <div class="test-author">
-          <div class="test-avatar">CIO</div>
+          <div class="test-avatar">CCO</div>
           <div>
-            <div style="font-size:14px;font-weight:600;color:#fff;">Major life insurance company</div>
-            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Agent Portal Modernisation</div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">Mid-Size U.S. Financial Institution</div>
+            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Chief Compliance Officer</div>
           </div>
         </div>
       </div>
       <div class="test-right">
-        <div class="test-res-label">Delivery Approach</div>
+        <div class="test-res-label">Engagement Results</div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">Build, run, and govern as one engagement
-Our delivery model integrates strategy consulting with platform deployment and managed operations. Readiness assessments identify priority use cases. CAFE builds agents in weeks, not quarters. PACE manages runtime governance across your agent estate. HALO ensures human oversight meets regulatory requirements. One partner, one accountability model. </span>
+          <div class="test-dot"></div><span class="test-res-text">Audit evidence collection reduced from weeks to days</span>
+        </div>
+        <div class="test-res-item">
+          <div class="test-dot"></div><span class="test-res-text">Continuous control monitoring replaced annual point-in-time testing</span>
+        </div>
+        <div class="test-res-item" style="margin-bottom:0;">
+          <div class="test-dot"></div><span class="test-res-text">No repeat findings across the subsequent regulatory examination cycle</span>
         </div>
       </div>
     </div>
@@ -3537,7 +3536,7 @@ Continuous<span
           <div class="solution-card-body">
             <h3>OPERATIONAL RESILIENCE</h3>
             <p class="solution-card-text">We design resilience into the architecture from the outset by covering business continuity frameworks, regulatory reporting pipelines, third-party risk controls, and the operational processes required to demonstrate readiness to examiners, auditors, and boards. </p>
-            <a class="solution-link" href="/contact-us">Learn More →</a>
+            <a class="solution-link" href="#">Explore Further →</a>
           </div>
         </div>
       </article>
@@ -3549,7 +3548,7 @@ Continuous<span
           <div class="solution-card-body">
             <h3>Risk & Controls Modernization </h3>
             <p class="solution-card-text">We retire spreadsheet-based control programs and replace them with continuously monitored, automatically documented control frameworks. The result is a control environment that produces clean evidence trails as a function of normal operations. </p>
-            <a class="solution-link" href="/contact-us">Learn More →</a>
+            <a class="solution-link" href="#">Explore Further →</a>
           </div>
         </div>
       </article>
@@ -3561,7 +3560,7 @@ Continuous<span
           <div class="solution-card-body">
             <h3>Audit Acceleration & Regulatory Reporting </h3>
             <p class="solution-card-text">Our control automation and audit-trail engineering compress evidence collection from weeks to days and eliminate the last-minute scramble that precedes most regulatory reviews.  </p>
-            <a class="solution-link" href="/contact-us">Learn More →</a>
+            <a class="solution-link" href="#">Explore Further →</a>
           </div>
         </div>
       </article>
@@ -3638,11 +3637,11 @@ Continuous<span
       <canvas id="emParticleCanvas"></canvas>
       <div class="em-left-inner">
         <span class="em-pill">Our Engineering Stack</span>
-        <h2 class="em-heading">Capabilities built for
-enterprise-scale
+        <h2 class="em-heading">Capabilities built for 
+enterprise-scale 
 experience.</h2>
         <p class="em-desc">Our platform tools are designed with regulated industries in mind. Each one carries the audit-trail, traceability, and governance features that compliance-sensitive environments require as standard. </p>
-        <a data-celsior-form="general" href="/solutions/technology-consulting" class="em-cta">Get Started
+        <a href="#consultation" class="em-cta">Get Started
           <svg viewBox="0 0 16 16" fill="none">
             <line x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
             <polyline points="6,2 14,2 14,10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -3728,7 +3727,9 @@ experience.</h2>
        ============================================================ -->
   <div class="platforms" style="background:#FFFFFF;">
 
-
+    <h3>Delivered on the platforms your enterprise already <span
+        style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; display:inline;">trusts</span>
+    </h3>
     <section class="partners" aria-label="Partner ecosystem">
       <div class="partners__track">
         <div class="partners__group">
@@ -3774,7 +3775,7 @@ experience.</h2>
   <section class="explore">
     <h2>Continue exploring Celsior's capabilities</h2>
     <div class="explore__links">
-      <a href="/ai-innovation/frameworks-accelerators/synthetix">
+      <a href="#">
         <span class="explore__row-left">
           <span class="explore__label">Modernization Hub</span>
           <span class="explore__text">Core &amp; Legacy Modernization</span>
@@ -3789,7 +3790,7 @@ experience.</h2>
           </span>
         </span>
       </a>
-      <a href="/capabilities/cloud-and-infrastructure-engineering">
+      <a href="#">
         <span class="explore__row-left">
           <span class="explore__label">Cloud CoE</span>
           <span class="explore__text">Cloud Transformation &amp; Continuous Modernization</span>
@@ -3804,7 +3805,7 @@ experience.</h2>
           </span>
         </span>
       </a>
-      <a href="/ai-innovation/celsior-ai-lab">
+      <a href="#">
         <span class="explore__row-left">
           <span class="explore__label">AI Accelerators</span>
           <span class="explore__text">Enterprise AI Enablement</span>
@@ -3819,7 +3820,7 @@ experience.</h2>
           </span>
         </span>
       </a>
-
+      
     </div>
   </section>
 
@@ -4078,14 +4079,14 @@ The strongest ones begin with the architecture.
 
 <div class="cta-btn-group">
 
-<a href="/contact-us"
+<a href="#contact"
 class="cta-btn cta-band-btn">
 Speak with Our R&C Practice →
 </a>
 
-<a href="https://celsior-assessment-tools.netlify.app/grc-assessment/"
+<a href="#assessment"
 class="cta-btn cta-band-btn-white">
-Assess Your Readiness →
+Assess Your Control Environment →
 </a>
 
 </div>
@@ -4433,6 +4434,7 @@ Assess Your Readiness →
       });
     });
   </script>
+  <script src="/shared.js" defer></script>
 </body>
 
 </html>
