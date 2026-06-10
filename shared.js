@@ -903,7 +903,7 @@ a.nav-link{text-decoration:none;}
       </a>
       <ul class="nav-links" id="navLinks">${navLinksHTML}</ul>
       <div class="nav-right">
-        <a href="/#contact" class="btn-nav-solid">Contact us ${ARROW_SVG}</a>
+        <a href="/contact-us" class="btn-nav-solid">Contact us ${ARROW_SVG}</a>
       </div>
       <button class="nav-hamburger" id="hamburger" aria-label="Open menu">
         <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
@@ -925,7 +925,7 @@ a.nav-link{text-decoration:none;}
         </div>
         <nav class="drawer-nav">${drawerDivHTML}</nav>
         <div class="drawer-cta">
-          <a href="/#contact" class="drawer-cta-btn">Contact us ${ARROW_SVG}</a>
+          <a href="/contact-us" class="drawer-cta-btn">Contact us ${ARROW_SVG}</a>
         </div>
       </div>`;
     document.body.insertBefore(drawerEl, navEl.nextSibling);
@@ -1089,7 +1089,7 @@ a.nav-link{text-decoration:none;}
         <div>
           <div class="cf-cta-title">Ready to transform your enterprise with AI?</div>
           <p class="cf-cta-desc">Let's build what's next, together.</p>
-          <a href="/#contact" class="cf-cta-link">Contact Us <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+          <a href="/contact-us" class="cf-cta-link">Contact Us <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
         </div>
       </div>
     </div>
