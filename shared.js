@@ -337,10 +337,13 @@ a.nav-link{text-decoration:none;}
 .mega-root{position:fixed;top:var(--nav-h);left:0;right:0;z-index:850;pointer-events:none;}
 .mega-panel{position:absolute;inset:0 auto auto 0;width:100%;background:linear-gradient(118deg,#fbfcff 0%,#f3f8ff 46%,#e9f1ff 100%);border-bottom:1px solid rgba(34,84,244,.12);box-shadow:0 30px 80px rgba(15,20,80,.16);padding:46px 52px 50px;display:none;opacity:0;transform:translateY(-10px);pointer-events:none;overflow:hidden;}
 .mega-panel.open{display:block;pointer-events:auto;}
-.mega-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.16fr .92fr;gap:0;}
+.mega-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr .98fr .72fr;gap:0;}
 .mega-zone{padding:0 42px;border-right:1px solid var(--border);min-width:0;}
 .mega-zone:first-child{padding-left:0;}
 .mega-zone:last-child{padding-right:0;border-right:none;}
+.mega-zone:nth-child(2){display:none!important;}
+.mega-zone:nth-child(3){grid-column:2!important;border-right:none!important;padding-left:42px;padding-right:42px;}
+
 
 /* — left intro zone — */
 .mz-label{font-family:var(--font-head);font-size:.62rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:18px;display:flex;align-items:center;gap:12px;}
@@ -391,7 +394,7 @@ a.nav-link{text-decoration:none;}
 .mz-assess-title{font-family:var(--font-head);font-size:.92rem;font-weight:700;color:var(--ink);margin-bottom:5px;line-height:1.25;}
 .mz-assess-desc{font-size:.78rem;line-height:1.55;color:var(--muted);}
 
-@media(max-width:1180px){.mega-inner{grid-template-columns:1fr 1fr;}.mega-zone{padding:0 30px;}.mega-zone:last-child{grid-column:1/-1;border-top:1px solid var(--border);border-right:none;margin-top:30px;padding:30px 0 0;}.mz-assess-cards{flex-direction:row;}.mz-assess-card{flex:1;}}
+@media(max-width:1180px){.mega-inner{grid-template-columns:1fr 1fr;}.mega-zone{padding:0 30px;}.mega-zone:nth-child(2){display:none!important;}.mega-zone:nth-child(3){grid-column:2!important;border-top:none!important;border-right:none!important;margin-top:0;padding:0 30px;}.mz-assess-cards{flex-direction:column;}.mz-assess-card{flex:1;}}
 @media(max-width:1024px){.mega-panel{padding:32px;}}
 
 
