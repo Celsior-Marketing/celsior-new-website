@@ -1,21 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Celsior | Digital Operations and Security</title>
-  <meta name="description" content="Discover Celsior's AI-led engineering capabilities spanning banking, insurance, and healthcare — powered by our AI-first digital engineering platform across the complete application lifecycle.">
-  <meta name="keywords" content="AI-led engineering, capabilities, digital transformation, banking technology, insurance modernization, healthcare platform, Celsior">
-  <meta property="og:title" content="Celsior | Capabilities — AI-Led Engineering">
-  <meta property="og:description" content="Innovation, Engineered by Celsior. Powered by our AI-first digital engineering platform that spans the complete application lifecycle.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://celsior.com/capabilities">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://celsior.com/capabilities">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Celsior | Teams as a Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet" />
+  <style>
     *,
     *::before,
     *::after {
@@ -51,9 +46,8 @@
       position: relative;
       width: 100%;
       height: 100vh;
-      height: 100svh;
-      min-height: 640px;
-      max-height: 100dvh;
+      min-height: 560px;   /* never collapses on tiny screens */
+      max-height: 1080px;  /* never over-extends on tall monitors */
       overflow: hidden;
       background: #0b0b0b;
     }
@@ -61,7 +55,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://res.cloudinary.com/dden4hawr/image/upload/v1779300746/DIGITAL-OPERATION-SECURITY_skldw4.jpg') center/cover no-repeat;
+      background: url('https://images.pexels.com/photos/19400118/pexels-photo-19400118.jpeg') center/cover no-repeat;
       transform: scale(1.06);
       transform-origin: center;
     }
@@ -86,7 +80,7 @@
       bottom: 0;
       left: 0;
       right: 0;
-      height: 520px;
+      height: clamp(420px, 68vh, 680px);
       background: linear-gradient(to top, #0b0b0b 35%, rgba(11, 11, 11, 0.7) 60%, transparent);
     }
 
@@ -168,10 +162,11 @@
     }
 
     .stats-grid {
-      display: grid;
+      display: flex;
       grid-template-columns: repeat(4, 1fr);
       border-bottom: 1px solid var(--border);
       margin-bottom: 28px;
+      justify-content: flex-start;
     }
 
     .stat-col {
@@ -391,7 +386,7 @@
     }
 
     .explore h2 {
-
+      max-width: 1100px;
       margin: 0 auto 56px;
       color: #0d1127;
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
@@ -405,7 +400,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-
+      max-width: 1100px;
       margin: 0 auto;
       border: 1.5px solid rgba(13, 17, 39, 0.12);
       border-radius: 16px;
@@ -453,10 +448,6 @@
       background: linear-gradient(120deg, #8a6200 0%, #c99010 40%, #f3d25f 100%);
     }
 
-    .explore__links a:nth-child(4)::before {
-      background: linear-gradient(120deg, #3b0764 0%, #7c3aed 50%, #a855f7 100%);
-    }
-
     .explore__links a:hover::before {
       opacity: 1;
     }
@@ -486,7 +477,8 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      min-width: 128px;
+      width: 164px;
+      text-align: center;
       padding: 6px 14px;
       border-radius: 4px;
       background: #0d1127;
@@ -574,11 +566,6 @@
       border-color: rgba(243, 210, 95, 0.6);
     }
 
-    .explore__links a:nth-child(4):hover .explore__arrow {
-      background: rgba(168, 85, 247, 0.28);
-      border-color: rgba(168, 85, 247, 0.55);
-    }
-
     .explore__links a:hover .explore__arrow svg {
       animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
     }
@@ -656,7 +643,8 @@
 
     @media (max-width: 720px) {
       .explore__label {
-        min-width: auto;
+        width: auto;
+        min-width: 0;
         padding: 5px 10px;
         font-size: 0.58rem;
       }
@@ -668,7 +656,8 @@
        ============================================================ */
     .platforms {
       background: #fff;
-      padding: 56px 112px 40px;
+      padding: 32px 112px 0;
+      border-top: 1px solid rgba(13, 17, 39, 0.08);
     }
 
     .platforms h3 {
@@ -676,7 +665,7 @@
       font-weight: 700;
       color: #111827;
       letter-spacing: -0.24px;
-      margin: 0 0 28px;
+      margin-bottom: 24px;
     }
 
     .partners {
@@ -690,7 +679,7 @@
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0;
-
+      border-bottom: 1px solid rgba(13, 17, 39, 0.08);
       background: #fff;
       mask-image: linear-gradient(90deg, transparent 0%, #000 11%, #000 89%, transparent 100%);
       -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 11%, #000 89%, transparent 100%);
@@ -1291,6 +1280,7 @@
       background: #fff;
       margin: 0;
       padding: 0 52px 120px;
+      border-top: 1px solid rgba(13, 17, 39, 0.08);
     }
 
     .faq__inner {
@@ -1613,11 +1603,11 @@
    UNIFORM SECTION SPACING
    Each section contributes HALF the desired gap on top
    and HALF on bottom, so adjacent sections sum to one
-   clean rhythm value (no dead zones).
-   Desired gap between sections ≈ 112px desktop.
+   clean rhythm value (no 144px dead zones).
+   Desired gap between sections ≈ 96px desktop.
 ═══════════════════════════════════════════════════ */
     :root {
-      --section-pad-v: clamp(40px, 3.5vw, 56px);
+      --section-pad-v: clamp(36px, 3.4vw, 48px);
       --section-pad-h: clamp(24px, 7.8vw, 112px);
     }
 
@@ -1633,12 +1623,12 @@
 
     /* Platforms logo bar — compact vertical, same horizontal gutter */
     .platforms {
-      padding: clamp(32px, 3.2vw, 48px) var(--section-pad-h) clamp(32px, 3.2vw, 48px) !important;
+      padding: 28px var(--section-pad-h) clamp(32px, 4vw, 56px) !important;
     }
 
     /* Cost Q×Q */
     #cost-qxq {
-      padding: var(--section-pad-v) var(--section-pad-h) var(--section-pad-v) !important;
+      padding: clamp(56px, 5vw, 80px) var(--section-pad-h) var(--section-pad-v) !important;
     }
 
     #cost-qxq>div:first-child {
@@ -1647,7 +1637,7 @@
 
     /* Platform ops cost */
     #platform-ops-cost {
-      padding: var(--section-pad-v) var(--section-pad-h) calc(var(--section-pad-v) * 1.2) !important;
+      padding: var(--section-pad-v) var(--section-pad-h) !important;
     }
 
     /* Testimonial */
@@ -1667,11 +1657,11 @@
 
     /* FAQ */
     .faq {
-      padding: var(--section-pad-v) clamp(20px, 3.6vw, 52px) var(--section-pad-v) !important;
+      padding: 0 clamp(20px, 3.6vw, 52px) var(--section-pad-v) !important;
     }
 
     .faq__intro {
-      padding: 0 clamp(32px, 4vw, 64px) clamp(32px, 4vw, 48px) 0 !important;
+      padding: var(--section-pad-v) clamp(32px, 4vw, 64px) clamp(32px, 4vw, 48px) 0 !important;
     }
 
     /* CTA banner — intentionally 20% more breathing room as a finale */
@@ -1688,10 +1678,10 @@
       padding: calc(var(--section-pad-v) * 0.75) var(--section-pad-h) !important;
     }
 
-    /* ── Below 1139px: tighten section padding ── */
-    @media (max-width: 1139px) {
+    /* ── Tablet 960–1280px: tighten slightly ── */
+    @media (max-width: 1280px) {
       :root {
-        --section-pad-v: clamp(32px, 3vw, 44px);
+        --section-pad-v: clamp(28px, 3.4vw, 40px);
         --section-pad-h: clamp(20px, 5.5vw, 80px);
       }
     }
@@ -1775,13 +1765,13 @@
 ═══════════════════════════════════════════════════ */
     .eyebrow {
       display: block;
-      margin: 0 0 16px;
+      margin: 0 0 14px;
       color: #6b7280 !important;
       font-family: 'Inter', system-ui, sans-serif !important;
       font-size: 0.72rem !important;
       line-height: 1 !important;
       font-weight: 600 !important;
-      letter-spacing: 0.12em !important;
+      letter-spacing: 0.13em !important;
       text-transform: uppercase !important;
     }
 
@@ -1793,9 +1783,10 @@
       line-height: 1 !important;
       color: #6b7280 !important;
       font-weight: 600 !important;
-      letter-spacing: 0.12em !important;
+      letter-spacing: 0.13em !important;
       text-transform: uppercase !important;
       font-family: 'Inter', system-ui, sans-serif !important;
+      margin: 0 0 14px !important;
     }
 
     /* Outcomes section intentionally hides its eyebrow */
@@ -1861,14 +1852,13 @@
 
     /* Shared padding utility classes — now handled by CSS custom properties above */
 
-    /* ── Below 1139px: layout begins to adapt ── */
-    @media (max-width: 1139px) {
+    /* ── Medium screens 1024–1280px ── */
+    @media (max-width: 1280px) {
 
-      /* Hero — keep full-viewport, allow flex content to stack */
+      /* Hero */
       .hero {
-        height: 100vh;
-        height: 100svh;
-        min-height: 620px;
+        height: auto;
+        min-height: 600px;
       }
 
       .hero-btns {
@@ -1969,7 +1959,8 @@
 
       /* ── Hero ── */
       .hero {
-        min-height: 480px;
+        height: 100vh;
+        min-height: 520px;
       }
 
       .hero-heading {
@@ -2082,12 +2073,12 @@
 
       /* ── Section spacing on mobile ── */
       :root {
-        --section-pad-v: 32px;
+        --section-pad-v: 48px;
         --section-pad-h: 20px;
       }
 
       .faq__intro {
-        padding-top: 24px !important;
+        padding-top: 40px !important;
       }
 
       .cost-qxq-cols {
@@ -2233,773 +2224,289 @@
 
     /* ── Mobile styles consolidated above ──
   </style>
+
+  <!-- Responsive layout system — same approved breakpoints as Our_Focus -->
   <style>
-  /* CAPABILITIES: INNOVATION WHEEL */
-  :root { --blue:#2563eb; --teal:#0d9488; --side-pad:clamp(48px,8.1vw,117px); }
-.cel{
-  position:relative;
-  width:100%;
-  min-height:100vh;
-  padding:80px 0 110px;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  color:#fff;
-  overflow:hidden;
-  isolation:isolate;
-  background:
-    linear-gradient(40deg, rgba(241,189,86,.55) 6%, rgba(139,109,50,0) 36%),
-    linear-gradient(127deg, #02386f 13%, #0d4f45 72%, #f1bd56 109%);
-}
+    /* ─────────────────────────────────────────────────────────────
+       TIER 1  |  ≥ 1140px  — Full desktop, every layout intact
+    ───────────────────────────────────────────────────────────── */
+    @media (min-width: 1140px) {
+      .stats-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+      }
 
-/* HEADING */
-.cel-copy{
-  position:relative;
-  z-index:3;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  text-align:center;
-  padding:0 24px;
-}
-.cel-h1{
-  font-size:clamp(28px,3.8vw,44px);
-  font-weight:700;
-  letter-spacing:-1.1px;
-  color:#fff;
-  margin-bottom:14px;
-  opacity:0;
-  transform:translateY(24px);
-}
-.cel-sub{
-  font-size:clamp(15px,1.6vw,20px);
-  font-weight:400;
-  color:rgba(255,255,255,.75);
-  letter-spacing:-.3px;
-  margin-bottom:36px;
-  opacity:0;
-  transform:translateY(14px);
-}
+      .stat-col {
+        border-right: 1px solid var(--border) !important;
+        border-bottom: none !important;
+      }
 
-/* CHIP ROW */
-.chips-row{
-  display:flex;
-  align-items:center;
-  gap:9px;
-  opacity:0;
-  transform:translateY(10px);
-}
-.ch-arr{
-  width:38px;height:38px;
-  border-radius:50%;
-  background:rgba(255,255,255,.08);
-  border:1px solid rgba(255,255,255,.18);
-  display:flex;align-items:center;justify-content:center;
-  cursor:pointer;color:#fff;flex-shrink:0;
-  transition:background .2s,transform .14s;
-  padding:0;
-}
-.ch-arr:hover{background:rgba(255,255,255,.16);transform:scale(1.09);}
-.ch-arr:active{transform:scale(.93);}
-.chips-viewport{
-  overflow:hidden;
-  max-width:min(740px,70vw);
-}
-.chips-track{
-  display:flex;
-  gap:7px;
-  transition:transform .35s cubic-bezier(.4,0,.2,1);
-}
-.chip{
-  padding:10px 20px;
-  border-radius:30px;
-  font-size:13.5px;font-weight:400;
-  cursor:pointer;white-space:nowrap;
-  border:none;
-  font-family:inherit;
-  transition:background .22s,color .22s,box-shadow .22s,transform .15s;
-  user-select:none;flex-shrink:0;
-  letter-spacing:-.1px;
-}
-.chip.on {background:#fff;color:#000;box-shadow:0 2px 16px rgba(0,0,0,.25);}
-.chip.off{background:rgba(255,255,255,.1);color:rgba(255,255,255,.88);}
-.chip.off:hover{background:rgba(255,255,255,.17);transform:translateY(-1px);}
+      .stat-col:last-child {
+        border-right: none !important;
+      }
 
-/* CHIP TOOLTIP — fixed to body */
-#ctip{
-  position:fixed;
-  z-index:999999;
-  pointer-events:none;
-  background:rgba(4,10,26,.93);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,.14);
-  color:#fff;
-  font-size:12px;font-weight:500;
-  font-family:'Inter',sans-serif;
-  padding:6px 13px;
-  border-radius:8px;
-  white-space:nowrap;
-  opacity:0;
-  transition:opacity .16s;
-  transform:translateX(-50%) translateY(-100%);
-}
-#ctip::after{
-  content:'';
-  position:absolute;
-  top:100%;left:50%;
-  transform:translateX(-50%);
-  border:5px solid transparent;
-  border-top-color:rgba(4,10,26,.93);
-}
-#ctip.on{opacity:1;}
+      .stat-col:nth-child(odd) {
+        border-right: 1px solid var(--border) !important;
+      }
 
-/* CARD STAGE */
-.stage-wrap{
-  position:relative;
-  width:100%;
-  height:760px;
-  margin-top:40px;
-  flex-shrink:0;
-  overflow:hidden;
-  touch-action:pan-y;
-}
-.stage-pivot{
-  position:absolute;
-  top:80px;left:50%;
-  transform:translate(-50%,0);
-  width:0;height:0;
-}
+      .stat-col:nth-last-child(2):nth-child(odd) {
+        border-bottom: none !important;
+      }
 
-/* CARDS */
-.cw{
-  position:absolute;
-  width:400px;height:520px;
-  top:0;left:-200px;
-  will-change:transform;
-  cursor:grab;
-  transform-origin:50% 50%;
-}
-#stage-wrap.custom-cursor .cw{cursor:none;}
-.cw .card{
-  width:100%;height:100%;
-  border-radius:28px;
-  overflow:hidden;
-  display:flex;flex-direction:column;
-  padding:34px 34px 0;
-  position:relative;
-  user-select:none;
-  -webkit-user-drag:none;
-}
-.cw .card::after{
-  content:'';position:absolute;inset:0;
-  border-radius:28px;
-  box-shadow:inset 0 1px 2px rgba(255,255,255,.4);
-  pointer-events:none;z-index:5;
-}
-.c-logo{
-  width:46px;height:46px;border-radius:999px;
-  display:flex;align-items:center;justify-content:center;
-  flex-shrink:0;overflow:hidden;
-  background:rgba(255,255,255,.92);
-  border:1.5px solid rgba(0,0,0,.72);
-  box-shadow:0 4px 12px rgba(0,0,0,.10);
-}
-.c-logo img{
-  width:28px;height:28px;
-  object-fit:contain;
-  display:block;
-}
-.c-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
-.c-title{font-size:20px;font-weight:700;letter-spacing:-.4px;line-height:1.22;}
-.c-desc{font-size:13.5px;line-height:1.64;margin-bottom:16px;}
-.c-stats{display:flex;gap:20px;}
-.c-stats .stat{display:flex;flex-direction:column;gap:3px;}
-.stat-n{font-size:24px;font-weight:800;letter-spacing:-1px;line-height:1;}
-.stat-l{font-size:11px;line-height:1.45;max-width:126px;}
-.c-cta{
-  display:inline-flex;align-items:center;gap:7px;
-  margin-top:16px;padding:9px 18px;
-  border-radius:28px;
-  font-size:12.5px;font-weight:500;
-  border:none;cursor:pointer;
-  font-family:inherit;
-  transition:transform .15s;
-  letter-spacing:.1px;
-  align-self:flex-start;
-}
-.c-cta:hover{transform:scale(1.05);}
-.c-foot{
-  position:absolute;
-  bottom:0;left:0;right:0;height:210px;
-  overflow:hidden;
-}
+      .cost-grid {
+        grid-template-columns: 1fr 1fr !important;
+        gap: clamp(40px, 5vw, 72px) !important;
+      }
 
-/* RESPONSIVE — wheel carousel */
-@media (max-width: 1024px){
-  .stage-wrap{ height: 680px; }
-  .cw{ width: 360px; height: 480px; left: -180px; }
-  .cw .card{ padding: 28px 28px 0; border-radius: 24px; }
-  .c-foot{ height: 190px; }
-}
-@media (max-width: 720px){
-  .cel{ padding: 64px 0 80px; min-height: auto; }
-  .stage-wrap{ height: 600px; margin-top: 24px; }
-  .cw{ width: 300px; height: 440px; left: -150px; }
-  .cw .card{ padding: 24px 22px 0; border-radius: 22px; }
-  .c-title{ font-size: 17px; }
-  .c-desc{ font-size: 12.5px; margin-bottom: 12px; }
-  .stat-n{ font-size: 21px; }
-  .stat-l{ font-size: 10.5px; max-width: 110px; }
-  .c-foot{ height: 170px; }
-  #dcur{ display:none; }
-  .cw{ cursor: grab; }
-}
-@media (max-width: 420px){
-  .stage-wrap{ height: 540px; }
-  .cw{ width: 260px; height: 410px; left: -130px; }
-  .cw .card{ padding: 22px 20px 0; }
-  .c-foot{ height: 150px; }
-  .chips-viewport{ max-width: 78vw; }
-}
+      .cost-qxq-cols {
+        grid-template-columns: 1fr 1fr !important;
+        gap: clamp(28px, 4vw, 56px) !important;
+      }
 
-/* DRAG CURSOR */
-#dcur{
-  position:fixed;
-  pointer-events:none;
-  z-index:999998;
-  top:0;left:0;
-  min-width:72px;height:72px;
-  padding:0 22px;
-  border-radius:999px;
-  background:rgba(8,10,20,.88);
-  backdrop-filter:blur(14px);
-  -webkit-backdrop-filter:blur(14px);
-  border:1px solid rgba(255,255,255,.18);
-  display:flex;align-items:center;justify-content:center;
-  font-size:11px;font-weight:700;letter-spacing:1.4px;
-  color:#fff;text-transform:uppercase;
-  white-space:nowrap;
-  opacity:0;
-  transform:translate(-50%,-50%) scale(.5);
-  transition:opacity .22s cubic-bezier(.4,0,.2,1),
-             transform .24s cubic-bezier(.34,1.56,.64,1),
-             min-width .25s cubic-bezier(.34,1.56,.64,1),
-             padding .25s cubic-bezier(.34,1.56,.64,1);
-}
-#dcur.show {opacity:1;transform:translate(-50%,-50%) scale(1);}
-#dcur.press{opacity:1;transform:translate(-50%,-50%) scale(.84);}
-#dcur.drag {min-width:72px;padding:0 22px;letter-spacing:2.5px;font-size:10px;font-weight:800;}
+      .ops-cost-cards {
+        grid-template-columns: 1fr 1fr 1fr !important;
+      }
 
-  /* CAPABILITIES: IMAGE ACCORDION (text + image, two-column body) */
-.acc-section {
-  background: #fff;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
-  overflow: hidden;
-  width: 100%;
-  margin-top: 0;
-}
-.acc-row {
-  position: relative;
-  border-bottom: 1px solid #e5e7eb;
-  cursor: pointer;
-  background: #fff;
-  outline: none;
-}
-.acc-row:last-child { border-bottom: none; }
-.acc-intro-head {
-  padding: var(--section-pad-v) var(--section-pad-h) calc(var(--section-pad-v) * 0.75);
-  border-bottom: 1px solid #f3f4f6;
-}
-.acc-header {
-  display: flex;
-  align-items: center;
-  padding: 26px var(--section-pad-h);
-  gap: 22px;
-  position: relative;
-  z-index: 2;
-  user-select: none;
-}
-.acc-icon {
-  width: 26px; height: 26px;
-  border-radius: 6px;
-  background: #fff;
-  border: 1.5px solid #d4d4d8;
-  flex-shrink: 0;
-  position: relative;
-  transition: background .25s ease, border-color .25s ease;
-}
-.acc-row.active .acc-icon {
-  background: #111;
-  border-color: #111;
-}
-.acc-row.active .acc-icon::after {
-  content: '';
-  position: absolute;
-  left: 8px; top: 3px;
-  width: 7px; height: 12px;
-  border: solid #fff;
-  border-width: 0 2px 2px 0;
-  transform: rotate(45deg);
-}
-.acc-title {
-  font-size: clamp(20px, 1.7vw, 24px);
-  font-weight: 700;
-  color: #09090b;
-  letter-spacing: -0.3px;
-  line-height: 1.25;
-  flex: 1;
-  transition: opacity .2s ease;
-}
-.acc-row.active .acc-header .acc-title { opacity: 0; height: 0; overflow: hidden; pointer-events: none; }
-.acc-cta { display: none; }
+      .ops-cost-cards>[style*="position:absolute"] {
+        display: block !important;
+      }
 
-/* BODY — two-column: text left, image right */
-.acc-body { overflow: hidden; height: 0; }
-.acc-body-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.05fr;
-  gap: clamp(32px, 5vw, 80px);
-  padding: 0 var(--section-pad-h) var(--section-pad-v);
-  align-items: stretch;
-}
-.acc-body-text {
-  display: flex; flex-direction: column; justify-content: center;
-  padding-right: 8px;
-}
-.acc-big-title {
-  font-size: clamp(34px, 4vw, 58px);
-  font-weight: 800;
-  line-height: 1.04;
-  letter-spacing: -1.6px;
-  color: #09090b;
-  margin: 0 0 22px;
-  font-weight: 500;
-}
-.acc-desc {
-  font-size: 16px;
-  line-height: 1.6;
-  color: #4b5563;
-  max-width: 480px;
-  margin: 0 0 36px;
-  font-weight: 400;
-}
-.acc-readmore {
-  display: inline-flex; align-items: center; justify-content: space-between;
-  gap: 16px;
-  padding: 14px 20px;
-  min-width: 196px;
-  border: 1.5px solid #d4d4d8;
-  border-radius: 10px;
-  font-size: 15px; font-weight: 600;
-  color: #09090b;
-  cursor: pointer;
-  background: #fff;
-  font-family: inherit;
-  align-self: flex-start;
-  transition: border-color .2s ease, transform .2s ease;
-  text-decoration: none;
-}
-.acc-readmore:hover { border-color: #374151; transform: translateY(-1px); }
-.acc-readmore svg { transition: transform .25s ease; }
-.acc-readmore:hover svg { transform: translateY(2px); }
+      .test-card {
+        display: grid !important;
+        flex-direction: unset !important;
+        grid-template-columns: minmax(0, 1fr) minmax(260px, 36%) !important;
+      }
 
-.acc-img2 {
-  border-radius: 16px;
-  overflow: hidden;
-  aspect-ratio: 5 / 4;
-  background: #f3f4f6;
-}
-.acc-img2 img {
-  width: 100%; height: 100%;
-  object-fit: cover; display: block;
-  will-change: transform;
-}
-.acc-row.active .acc-img2 img {
-  animation: acc-ken 18s ease-in-out infinite alternate;
-}
-@keyframes acc-ken {
-  from { transform: scale(1.00); }
-  to   { transform: scale(1.04); }
-}
+      .test-right {
+        width: auto !important;
+        margin: clamp(14px, 1.6vw, 24px) !important;
+        margin-left: 0 !important;
+      }
 
-@media (max-width: 860px){
-  .acc-body-grid { grid-template-columns: 1fr; gap: 28px; }
-  .acc-img2 { aspect-ratio: 16 / 11; }
-  .acc-big-title { font-size: clamp(28px, 7vw, 40px); letter-spacing: -1px; }
-}
+      .blog-grid {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
 
-  /* CAPABILITIES: IMPACT METRICS */
-/* ══════════════════════════════════════════════════════════════════
-   OUTCOMES — Pixel-locked to Figma frame 1348×643px
+      .insight-cards {
+        grid-template-columns: repeat(3, 1fr) !important;
+      }
 
-   Figma measurements at 1348px:
-   • Frame total height: 643px → ~48px top+bottom padding each side
-   • Left col width: ~390px = 29% of 1348
-   • Heading: ~76px @ 1348 = 5.64vw, tight 3-line stack
-   • TL/BR number: ~80px main, ~42px suffix (ratio 0.525)
-   • TR/BL number: ~68px main, ~36px suffix (ratio 0.529)
-   • Cell padding: 36px all sides, uniform
-   • Label: 15px, #18181b, 500 weight, 8px gap below number
-   • Body text: 14px, #52525b, appears below heading
-   • Dividers: 1px solid #d1d5db (more visible than #e5e7eb)
+      .faq__inner {
+        grid-template-columns: 1fr 1fr !important;
+      }
 
-   Desktop holds ≥1140px. Below that: vertical stack.
-══════════════════════════════════════════════════════════════════ */
+      .faq__inner::after {
+        display: block !important;
+      }
 
-.outcomes {
-  background: #fff;
-  padding: clamp(40px, 3.6vw, 56px) var(--side-pad);
-  display: flex;
-  align-items: stretch;
-  gap: 0;
-  border-top: 1px solid #e5e7eb;
-  box-sizing: border-box;
-}
+      .faq__intro {
+        padding-top: var(--section-pad-v) !important;
+        padding-right: clamp(32px, 4vw, 80px) !important;
+        padding-bottom: clamp(32px, 4vw, 48px) !important;
+        padding-left: 0 !important;
+      }
 
-/* ── Left col: 29% width matching Figma proportion ── */
-.out-left {
-  width: 29%;
-  flex-shrink: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding-right: clamp(20px, 2.8vw, 44px);
-}
-
-/* Heading: 76px at 1348px = 5.64vw, 3 tight lines */
-.out-heading {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  font-size: clamp(40px, 5.64vw, 80px);
-  font-weight: 700;
-  color: #09090b;
-  letter-spacing: -0.04em;
-  line-height: 1.05;
-  margin: 0 0 20px;
-}
-
-/* Body: 14px, muted, Figma shows #52525b */
-.out-body {
-  font-size: 14px;
-  font-weight: 400;
-  color: #52525b;
-  line-height: 1.6;
-  margin: 0;
-}
-
-/* ── Right 2×2 grid: 71% ── */
-.out-grid {
-  flex: 1;
-  min-width: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-}
-
-/* ── Each cell: uniform 36px padding matching Figma ── */
-.mc {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  padding: clamp(24px, 2.7vw, 38px);
-  background: #fff;
-  overflow: hidden;
-  opacity: 0;
-  transform: translateY(16px);
-}
-
-/* Grid hairlines — more visible #d1d5db matching Figma */
-.mc.tl { border-right: 1px solid #d1d5db; border-bottom: 1px solid #d1d5db; }
-.mc.tr { border-bottom: 1px solid #d1d5db; }
-.mc.bl { border-right: 1px solid #d1d5db; }
-.mc.br { }
-
-/* ── Number row: 8px gap below ── */
-.mc-num-row {
-  display: flex;
-  align-items: baseline;
-  white-space: nowrap;
-  margin-bottom: 8px;
-  line-height: 1;
-}
-
-/* Main number */
-.mc-n {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
-  color: #09090b;
-  letter-spacing: -0.04em;
-  line-height: 0.92;
-  white-space: nowrap;
-  transition: color 0.4s ease, text-shadow 0.5s ease;
-}
-
-/* Suffix % — exactly 52.5% the size of the main number */
-.mc-s {
-  font-family: "SF Pro Display", -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
-  font-weight: 700;
-  color: #09090b;
-  letter-spacing: -0.01em;
-  line-height: 0.92;
-  white-space: nowrap;
-  transition: color 0.4s ease, text-shadow 0.5s ease;
-}
-
-/* LARGE diagonal — TL (50-60%) and BR (35-45%): ~80px @ 1348 = 5.93vw */
-.mc.tl .mc-n,
-.mc.br .mc-n { font-size: clamp(44px, 5.93vw, 84px); }
-.mc.tl .mc-s,
-.mc.br .mc-s { font-size: clamp(23px, 3.12vw, 44px); }  /* 52.5% ratio */
-
-/* MEDIUM diagonal — TR (50%) and BL (40%): ~68px @ 1348 = 5.04vw */
-.mc.tr .mc-n,
-.mc.bl .mc-n { font-size: clamp(36px, 5.04vw, 72px); }
-.mc.tr .mc-s,
-.mc.bl .mc-s { font-size: clamp(19px, 2.67vw, 38px); }  /* 52.5% ratio */
-
-/* ── Label: 15px, #18181b, weight 500 matching Figma ── */
-.mc-label {
-  font-size: 15px;
-  font-weight: 500;
-  color: #18181b;
-  line-height: 1.4;
-  margin: 0;
-}
-
-/* ── NO accent bars ── */
-.mc-accent,
-.mc-accent-tr,
-.mc-accent-bl,
-.mc-accent-br { display: none !important; }
-.mc.br::before { display: none !important; }
-
-/* Initial opacity for GSAP */
-.out-left    { opacity: 0; }
-.out-heading { opacity: 0; }
-.out-body    { opacity: 0; }
-
-/* Hover base */
-.mc {
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1),
-              opacity   0.45s ease;
-}
-.mc:hover { transform: translateY(-3px); }
-
-/* ══════════════════════════════════════════════════════════════════
-   RESPONSIVE
-   ≥ 1140px : desktop 2-col (left 29% | grid 71%)
-   < 1140px : vertical stack
-   < 640px  : mobile scale-down
-══════════════════════════════════════════════════════════════════ */
-@media (max-width: 1139px) {
-  .outcomes {
-    flex-direction: column !important;
-    padding: 48px var(--side-pad) 56px !important;
-    align-items: flex-start !important;
-  }
-  .out-left {
-    width: 100% !important;
-    padding-right: 0 !important;
-    margin-bottom: 32px !important;
-    max-width: 600px !important;
-  }
-  .out-heading {
-    font-size: clamp(36px, 5.5vw, 64px) !important;
-  }
-  .out-grid {
-    width: 100% !important;
-  }
-  .mc {
-    padding: clamp(20px, 2.8vw, 32px) !important;
-  }
-  .mc.tl .mc-n, .mc.br .mc-n { font-size: clamp(40px, 6vw, 72px) !important; }
-  .mc.tl .mc-s, .mc.br .mc-s { font-size: clamp(21px, 3.15vw, 38px) !important; }
-  .mc.tr .mc-n, .mc.bl .mc-n { font-size: clamp(32px, 5vw, 60px) !important; }
-  .mc.tr .mc-s, .mc.bl .mc-s { font-size: clamp(17px, 2.63vw, 31px) !important; }
-  .mc-label { font-size: 14px !important; }
-}
-
-@media (max-width: 640px) {
-  .outcomes {
-    padding: 36px 20px 44px !important;
-  }
-  .out-heading { font-size: clamp(32px, 8vw, 48px) !important; }
-  .out-body    { font-size: 13px !important; }
-  .mc { padding: 18px 16px !important; }
-  .mc.tl .mc-n, .mc.br .mc-n { font-size: clamp(30px, 9vw, 44px) !important; }
-  .mc.tl .mc-s, .mc.br .mc-s { font-size: clamp(16px, 4.7vw, 23px) !important; }
-  .mc.tr .mc-n, .mc.bl .mc-n { font-size: clamp(26px, 7.5vw, 36px) !important; }
-  .mc.tr .mc-s, .mc.bl .mc-s { font-size: clamp(14px, 3.9vw, 19px) !important; }
-  .mc-label { font-size: 12px !important; }
-}
-
-/* ══════════════════════════════════════════════════════════════════
-   ORBIT COMET HOVER ENGINE
-   TL=gold, TR=cyan, BL=teal, BR=indigo
-   Each ::after is an orbiting conic-gradient border.
-══════════════════════════════════════════════════════════════════ */
-@property --mc-a {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
-@keyframes mc-comet { to { --mc-a: 360deg; } }
-
-.mc::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  padding: 1.5px;
-  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-  opacity: 0;
-  transition: opacity 0.4s ease;
-  pointer-events: none;
-  z-index: 2;
-}
-.mc:hover::after {
-  opacity: 1;
-  animation: mc-comet 2.6s linear infinite;
-}
-
-/* TL — gold comet */
-.mc.tl::after {
-  background: conic-gradient(from var(--mc-a),
-    transparent 0%, transparent 50%,
-    rgba(241,190,86,.15) 60%, #f1be56 70%, #fbbf24 78%, #eab308 84%,
-    rgba(234,179,8,.08) 92%, transparent 100%);
-}
-.mc.tl:hover .mc-n,
-.mc.tl:hover .mc-s    { color: #92400e; text-shadow: 0 0 40px rgba(251,191,36,.5), 0 0 72px rgba(234,179,8,.25); }
-.mc.tl:hover .mc-accent { width: clamp(110px, 15vw, 200px); box-shadow: 0 0 8px rgba(37,99,235,.6), 0 0 20px rgba(37,99,235,.25); }
-
-/* TR — cyan comet */
-.mc.tr::after {
-  background: conic-gradient(from var(--mc-a),
-    transparent 0%, transparent 50%,
-    rgba(82,184,215,.15) 60%, #52b8d7 70%, #38bdf8 78%, #0ea5e9 84%,
-    rgba(14,165,233,.08) 92%, transparent 100%);
-}
-.mc.tr:hover .mc-n,
-.mc.tr:hover .mc-s { color: #0369a1; text-shadow: 0 0 40px rgba(56,189,248,.5), 0 0 72px rgba(14,165,233,.25); }
-
-/* BL — teal comet */
-.mc.bl::after {
-  background: conic-gradient(from var(--mc-a),
-    transparent 0%, transparent 50%,
-    rgba(20,184,166,.15) 60%, #14b8a6 70%, #10b981 78%, #059669 84%,
-    rgba(5,150,105,.08) 92%, transparent 100%);
-}
-.mc.bl:hover .mc-n,
-.mc.bl:hover .mc-s { color: #065f46; text-shadow: 0 0 40px rgba(20,184,166,.5), 0 0 72px rgba(16,185,129,.25); }
-
-/* BR — indigo comet */
-.mc.br::after {
-  background: conic-gradient(from var(--mc-a),
-    transparent 0%, transparent 50%,
-    rgba(99,102,241,.15) 60%, #6366f1 70%, #818cf8 78%, #a5b4fc 84%,
-    rgba(165,180,252,.08) 92%, transparent 100%);
-}
-.mc.br:hover .mc-n,
-.mc.br:hover .mc-s { color: #3730a3; text-shadow: 0 0 40px rgba(99,102,241,.5), 0 0 72px rgba(129,140,248,.25); }
-.mc.br:hover::before { height: clamp(100px, 12vw, 140px); box-shadow: 0 0 8px rgba(13,148,136,.7), 0 0 20px rgba(13,148,136,.3); }
-
-/* ══════════════════════════════════════════════════════
-   7. CLIENT PROOF
-══════════════════════════════════════════════════════ */
-.proof {
-  background: #fff;
-  padding: var(--section-pad-v) var(--side-pad);
-}
-.proof-eyebrow {
-  font-size: 12px; font-weight: 600; color: var(--gray-6);
-  letter-spacing: 1.2px; text-transform: uppercase;
-  margin-bottom: 14px;
-}
-.proof-heading {
-  font-size: clamp(36px, 3.96vw, 57px); font-weight: 700;
-  color: var(--gray-1); letter-spacing: -0.6px;
-  margin-bottom: 32px;
-}
-.proof-card {
-  background: linear-gradient(135deg, #0a1f3d 0%, #0d2d55 50%, #0f3566 100%);
-  border-radius: 16px;
-  min-height: 300px;
-  display: flex;
-  align-items: stretch;
-  overflow: hidden;
-  position: relative;
-}
-.proof-card::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: radial-gradient(circle at 30% 50%, rgba(255,255,255,0.04) 0%, transparent 60%);
-}
-
-  /* ═══════════════════════════════════════════════════════════════
-     CAPABILITIES OUTCOMES — FULL RESET
-  ═══════════════════════════════════════════════════════════════ */
-  section.outcomes {
-    position: static !important;
-    max-width: none !important;
-    min-height: unset !important;
-    display: flex !important;
-    flex-direction: row !important;
-    flex-wrap: nowrap !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    gap: 0 !important;
-    padding: clamp(40px, 3.6vw, 56px) var(--side-pad) !important;
-    background: #fff !important;
-    border-top: 1px solid #e5e7eb !important;
-  }
-  section.outcomes .out-left {
-    width: 29% !important;
-    flex-shrink: 0 !important;
-    position: static !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    padding-right: clamp(20px, 2.8vw, 44px) !important;
-  }
-  section.outcomes .out-grid {
-    flex: 1 !important;
-    min-width: 0 !important;
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: 1fr 1fr !important;
-    align-content: stretch !important;
-    position: static !important;
-    border: none !important;
-    border-radius: 0 !important;
-    overflow: visible !important;
-  }
-  @media (max-width: 1139px) {
-    section.outcomes {
-      flex-direction: column !important;
-      align-items: flex-start !important;
-      padding: 48px var(--side-pad) 56px !important;
+      .faq__items {
+        padding-left: 52px !important;
+        padding-top: 80px !important;
+      }
     }
-    section.outcomes .out-left {
-      width: 100% !important;
-      padding-right: 0 !important;
-      max-width: 600px !important;
-    }
-    section.outcomes .out-grid {
-      width: 100% !important;
-    }
-  }
-  @media (max-width: 640px) {
-    section.outcomes { padding: 36px 20px 44px !important; }
-  }
 
+    /* ─────────────────────────────────────────────────────────────
+       TIER 2  |  640px – 1139px  — Compact mid-state
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 1139px) {
+      :root {
+        --section-pad-h: clamp(16px, 4.5vw, 64px);
+        --section-pad-v: clamp(24px, 3vw, 44px);
+      }
+
+      .hero {
+        height: 100vh;
+        min-height: 560px;
+      }
+
+      .hero-heading {
+        white-space: normal !important;
+        font-size: clamp(22px, 3.8vw, 44px) !important;
+      }
+
+      .hero-btns {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .stat-col {
+        border-right: none !important;
+        border-bottom: 1px solid var(--border) !important;
+      }
+
+      .stat-col:nth-child(odd) {
+        border-right: 1px solid var(--border) !important;
+      }
+
+      .stat-col:last-child,
+      .stat-col:nth-last-child(2):nth-child(odd) {
+        border-bottom: none !important;
+      }
+
+      .cost-grid {
+        grid-template-columns: 1fr !important;
+        gap: 32px !important;
+      }
+
+      .cost-h2 {
+        font-size: clamp(24px, 3.8vw, 48px) !important;
+        line-height: 1.08 !important;
+      }
+
+      .cost-qxq-cols {
+        grid-template-columns: 1fr !important;
+        gap: 28px !important;
+      }
+
+      .ops-cost-cards {
+        grid-template-columns: 1fr 1fr !important;
+      }
+
+      .ops-cost-cards>[style*="position:absolute"] {
+        display: none !important;
+      }
+
+      .ops-cost-cards>div {
+        padding: clamp(28px, 3.5vw, 48px) clamp(16px, 2.5vw, 32px) clamp(24px, 3vw, 40px) !important;
+      }
+
+      .ops-cost-cards [style*="margin-bottom: 50px"],
+      .ops-cost-cards [style*="margin-bottom:50px"] {
+        margin-bottom: clamp(20px, 2.8vw, 40px) !important;
+      }
+
+      .ops-cost-cards h3 {
+        white-space: normal !important;
+        font-size: clamp(16px, 1.8vw, 22px) !important;
+      }
+
+      .test-card {
+        display: flex !important;
+        flex-direction: column !important;
+        grid-template-columns: unset !important;
+      }
+
+      .test-right {
+        margin: 0 clamp(16px, 2vw, 24px) clamp(16px, 2vw, 24px) !important;
+      }
+
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .insight-cards {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+
+      .faq__inner {
+        grid-template-columns: 1fr !important;
+      }
+
+      .faq__inner::after {
+        display: none !important;
+      }
+
+      .faq__intro {
+        padding: clamp(40px, 4vw, 60px) 0 clamp(24px, 3vw, 40px) !important;
+      }
+
+      .faq__items {
+        padding-left: 0 !important;
+        padding-top: 0 !important;
+      }
+
+      h2,
+      section h2,
+      .outcomes__heading h2,
+      #cost-qxq h2,
+      #platform-ops-cost h2,
+      #testimonial-sec h2,
+      #insights-sec h2,
+      .faq__intro h2,
+      .explore h2,
+      .cta-banner h2 {
+        font-size: clamp(22px, 3.4vw, 42px) !important;
+      }
+
+      .outcome-cards {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        align-items: stretch !important;
+      }
+
+      .outcome-card--green,
+      .outcome-card--blue,
+      .outcome-card--gold,
+      .outcome-card--dark {
+        height: clamp(200px, 32vw, 360px) !important;
+        padding: clamp(20px, 2.5vw, 36px) clamp(14px, 2vw, 28px) 24px !important;
+      }
+
+      .amber-frame {
+        height: auto;
+        min-height: 220px;
+      }
+
+      .amber-frame img {
+        position: relative;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    /* ─────────────────────────────────────────────────────────────
+       TIER 3  |  ≤ 640px  — Mobile reinforcement
+    ───────────────────────────────────────────────────────────── */
+    @media (max-width: 640px) {
+      .ops-cost-cards {
+        grid-template-columns: 1fr !important;
+      }
+
+      .ops-cost-cards>div {
+        padding: 32px 20px 28px !important;
+      }
+
+      .blog-grid {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+
+      .insight-cards {
+        grid-template-columns: 1fr !important;
+        gap: 16px !important;
+      }
+    }
+
+    /* Global — any width */
+    .cost-h2 {
+      font-size: clamp(24px, 3.8vw, 55px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    h3[style*="white-space"] {
+      white-space: normal !important;
+    }
+
+    #platform-ops-cost>h2[style] {
+      font-size: clamp(22px, 3.2vw, 48px) !important;
+      line-height: 1.08 !important;
+    }
   </style>
 </head>
-<body>
 
+<body>
 
   <!-- ============================================================
        SECTION: HERO
@@ -3014,11 +2521,17 @@
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>
     <div class="hero-content">
-      <h1 class="hero-heading">Resolve incidents in minutes, not hours. Prevent <br>breaches before they happen.
+      <h1 class="hero-heading">Delivery teams structured around<br>program requirements. Not assembled around<br>resource availability.
       </h1>
       <div class="hero-btns">
-        <a href="/contact-us" class="btn-ghost">Strengthen Your Operations →</a>
-
+        <button class="btn-ghost">
+          Explore our team models
+          <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
+            <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
+              stroke-linejoin="round" />
+          </svg>
+        </button>
+        <button class="btn-white">Talk to our delivery team</button>
       </div>
     </div>
   </section>
@@ -3031,28 +2544,229 @@
   <div class="stats-wrap">
     <div class="stats-grid">
       <div class="stat-col">
-        <div class="stat-num">3X</div>
-        <div class="stat-desc">Faster incident resolution with automation </div>
+        <div class="stat-num">50–60%</div>
+        <div class="stat-desc">Reduction in team deployment lead time versus traditional hiring cycles</div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">80–90%</div>
-        <div class="stat-desc">Time savings in test automation and validation</div>
+        <div class="stat-num">3 Weeks</div>
+        <div class="stat-desc">Of employers report persistent difficulty sourcing specialized technology roles through conventional channels</div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">60%</div>
-        <div class="stat-desc">Reduction in<br> manual security reviews</div>
+        <div class="stat-num">74%</div>
+        <div class="stat-desc">Average elapsed time from program brief to a fully operational, pre-certified delivery team</div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">Days not weeks</div>
-        <div class="stat-desc">Identity provisioning <br>turnaround time </div>
+        <div class="stat-num">$17K+</div>
+        <div class="stat-desc">Average organizational cost of a single misaligned hire, before downstream rework and schedule impact</div>
       </div>
     </div>
     <div class="stat-note">
       <div class="stat-note-lbl"> </div>
-      <div class="stat-note-txt">Celsior replaces manual review cycles and reactive incident response with automated workflows, structured governance, and provisioning pipelines that operate at the speed the business requires. The result is an operations environment where risk is contained, release confidence is higher, and security no longer sits on the critical path. </div>
+      <div class="stat-note-txt">Celsior's Teams-as-a-Service model is designed to address each variable directly. Pre-certified talent networks and structured mobilization compress deployment windows from months to weeks. Multi-stage skills assessments validate platform depth before placement, not after a gap surfaces in production. By consolidating performance accountability within a single engagement structure, Celsior eliminates the organizational cost that reactive, role-by-role team construction consistently produces.
+      </div>
     </div>
   </div>
 
+  <!-- ============================================================
+       SECTION: COST Q×Q
+       Purpose : Quarter-by-quarter narrative + accordion of cost
+                 categories with hero portrait image.
+       CSS tag : /* === COST Q×Q === */
+       ============================================================ -->
+  <!--
+  Figma: Desktop - 6 (node 1:258) — 1440×873
+  Layout:
+    ① Full-width header block  (heading + body text)          → top: 0–247px
+    ② Two-column row           (image left | accordion right) → top: 247–873px
+  Image: imgRectangle24 (e635f926), amber border 3px #f1be56, r:18px
+  Icon boxes: 64×64, border:1px solid #111827, r:12px
+  Accordion: GSAP-powered, single-open, chevron rotates
+-->
+  <section id="cost-qxq" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);"">
+
+  <!-- ① FULL-WIDTH HEADER -->
+  <div style=" padding:0 0 28px;">
+    <p class="eyebrow" >THE DELIVERY REALITY</p>
+    <h2 id="cqxq-heading" style="
+      font-size:55px; font-weight:700; line-height:60px; color:#09090b;
+      letter-spacing:0px; margin-bottom:22px; max-width:1100px;
+      opacity:0; transform:translateY(28px);
+    ">The operational cost of fragmented team construction on program velocity and delivery integrity</h2>
+    <p id="cqxq-body" style="
+      font-size:16px; color:#3f3f46; line-height:23px; max-width:1100px;
+      opacity:0; transform:translateY(20px);
+    ">Celsior's Teams-as-a-Service model structures skills-verified, platform-certified delivery teams against defined program requirements, consolidating performance management, bandwidth allocation, and delivery accountability within a single engagement framework. The operating model is designed to place a fully functional, program-ready team against your requirements within a defined mobilization window -- without the ramp variability, sourcing latency, or attrition exposure inherent in conventional staffing approaches. </p>
+    </div>
+
+    <!-- ② TWO-COLUMN ROW -->
+    <div class="cost-qxq-cols" style="
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:88px;
+    align-items:stretch;
+  ">
+
+      <!-- ── LEFT: Amber-framed image ── -->
+      <div id="cqxq-img" style="
+      border:3px solid transparent;
+      border-radius:18px;
+      overflow:hidden;
+      position:relative;
+      min-height:380px;
+      background:
+        linear-gradient(#fff,#fff) padding-box,
+        linear-gradient(90deg, #f1be56 0%, #52b8d7 50%, #4bc8ad 100%) border-box;
+      opacity:0; transform:translateX(-32px);
+    ">
+        <img
+          src="https://res.cloudinary.com/dden4hawr/image/upload/v1780856757/e8964eb9b47f9e980c22bb2f36ac2ca9f031cb5f_gqkoit.jpg"
+          alt="" style="
+          position:absolute;
+          width:112.14%; height:111.23%;
+          top:-11.23%; left:-5.91%;
+          object-fit:cover;
+        " />
+      </div>
+
+      <!-- ── RIGHT: Accordion ── -->
+      <div id="cqxq-acc" style="
+      display:flex; flex-direction:column; justify-content:center;
+      opacity:0; transform:translateX(32px);
+    ">
+
+        <!-- ROW 1: Platform Stability -->
+        <div class="gacc-item" style="border-bottom:1px solid #f3f4f6;">
+          <button class="gacc-btn" onclick="gaccToggle(this)" aria-expanded="false" style="
+          width:100%; display:flex; align-items:center; gap:20px;
+          padding:20px 0; background:none; border:none; cursor:pointer; text-align:left;
+        ">
+            <div class="gacc-iconbox" style="
+            width:64px; height:64px; flex-shrink:0;
+            border:1px solid #111827; border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            overflow:hidden; background:#fff;
+            transition:border-color 0.3s, box-shadow 0.3s;
+          ">
+              <!-- Team Assembly: exact Figma icon -->
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780856943/74_swgyd4.png"
+                alt="Team Assembly" width="36" height="36" style="display:block;" />
+            </div>
+            <span class="gacc-label"
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Team Assembly</span>
+            <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
+              style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="gacc-body" style="overflow:hidden;height:0;">
+            <div class="gacc-inner" style="padding:0 0 20px 84px;">
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Skills assessments establish what a team can actually deliver against live program requirements. </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 2: Platform Certification -->
+        <div class="gacc-item" style="border-bottom:1px solid #f3f4f6;">
+          <button class="gacc-btn" onclick="gaccToggle(this)" aria-expanded="false" style="
+          width:100%; display:flex; align-items:center; gap:20px;
+          padding:20px 0; background:none; border:none; cursor:pointer; text-align:left;
+        ">
+            <div class="gacc-iconbox" style="
+            width:64px; height:64px; flex-shrink:0;
+            border:1px solid #111827; border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            overflow:hidden; background:#fff;
+            transition:border-color 0.3s, box-shadow 0.3s;
+          ">
+              <!-- Platform Certification: exact Figma icon -->
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780856943/75_ehu7f1.png"
+                alt="Platform Certification" width="36" height="36" style="display:block;" />
+            </div>
+            <span class="gacc-label"
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Platform Certification</span>
+            <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
+              style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="gacc-body" style="overflow:hidden;height:0;">
+            <div class="gacc-inner" style="padding:0 0 20px 84px;">
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Generalist resources placed on specialized platforms carry a productivity deficit. </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 3: Cost Optimization -->
+        <div class="gacc-item" style="border-bottom:1px solid #f3f4f6;">
+          <button class="gacc-btn" onclick="gaccToggle(this)" aria-expanded="false" style="
+          width:100%; display:flex; align-items:center; gap:20px;
+          padding:20px 0; background:none; border:none; cursor:pointer; text-align:left;
+        ">
+            <div class="gacc-iconbox" style="
+            width:64px; height:64px; flex-shrink:0;
+            border:1px solid #111827; border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            overflow:hidden; background:#fff;
+            transition:border-color 0.3s, box-shadow 0.3s;
+          ">
+              <!-- Regulated Industries: exact Figma icon -->
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780856944/76_dih1aq.png"
+                alt="Regulated Industries" width="36" height="36" style="display:block;" />
+            </div>
+            <span class="gacc-label"
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Regulated Industries</span>
+            <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
+              style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="gacc-body" style="overflow:hidden;height:0;">
+            <div class="gacc-inner" style="padding:0 0 20px 84px;">
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Reactive platform support feels cheaper
+                than a managed program until accounted for emergency interventions, delayed delivery, and the strategic
+                work that never got done. </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROW 4: Team Continuity -->
+        <div class="gacc-item">
+          <button class="gacc-btn" onclick="gaccToggle(this)" aria-expanded="false" style="
+          width:100%; display:flex; align-items:center; gap:20px;
+          padding:20px 0; background:none; border:none; cursor:pointer; text-align:left;
+        ">
+            <div class="gacc-iconbox" style="
+            width:64px; height:64px; flex-shrink:0;
+            border:1px solid #111827; border-radius:12px;
+            display:flex; align-items:center; justify-content:center;
+            overflow:hidden; background:#fff;
+            transition:border-color 0.3s, box-shadow 0.3s;
+          ">
+              <!-- Team Continuity: exact Figma icon -->
+              <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780856944/77_fdhzed.png"
+                alt="Upgrade Governance" width="36" height="36" style="display:block;" />
+            </div>
+            <span class="gacc-label"
+              style="font-size:24px;font-weight:600;color:#111827;letter-spacing:-0.4px;flex:1;text-align:left;transition:color 0.25s;">Team Continuity</span>
+            <svg class="gacc-chev" width="20" height="20" viewBox="0 0 20 20" fill="none"
+              style="flex-shrink:0;transition:transform 0.4s cubic-bezier(0.4,0,0.2,1);">
+              <path d="M5 8l5 5 5-5" stroke="#9ca3af" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </button>
+          <div class="gacc-body" style="overflow:hidden;height:0;">
+            <div class="gacc-inner" style="padding:0 0 20px 84px;">
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Absence of continuity resets institutional knowledge, compounds attrition risk, and erodes program capacity. </p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- /accordion -->
+    </div><!-- /two-col -->
+  </section>
 
   <!-- ============================================================
        SECTION: PLATFORM OPS COST
@@ -3063,13 +2777,13 @@
   <section id="platform-ops-cost" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);">
 
     <!-- Heading -->
-
+    <p class="eyebrow">THE BUSINESS CONSEQUENCES</p>
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
-      What manual operations cost your<br> organization</h2>
+      What poorly structured team models cost enterprise programs before delivery begins. </h2>
 
     <!-- Body -->
-    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">Operations built on people remembering steps fail the moment those people leave or get buried under volume. Incidents queue up waiting for someone to manually trace through logs. New employees sit idle for days because access requests need three approvals and nobody's sure who should give them. Security teams check every change by hand because automated controls don't exist yet. Then audits surface all the gaps your manual processes were never going to catch in time. </p>
+    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">The consequences of reactive, role-by-role team construction accumulate faster than most program timelines can absorb. These are the patterns Celsior's Teams-as-a-Service model is specifically structured to prevent. </p>
 
     <!-- ── Card frame — exact Figma Desktop-31 styles ── -->
     <!--
@@ -3120,11 +2834,11 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780026818/37_l5xezt.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780857589/78_k24i5k.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
-        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Slow incident response</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Each problem requires manual log correlation, tribal knowledge, and escalation through layers before anyone can fix it </p>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Weeks, Not Months </h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Conventional sourcing cycles cost programs two to three months before delivery begins. Celsior's mobilization model closes that gap in three weeks. </p>
       </div>
 
       <!-- ── Card 2: Compounding security exposure ── -->
@@ -3141,11 +2855,11 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780026818/38_gbcycu.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780857589/79_n3ijt4.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
-        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Governance gaps</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Access controls, change approvals, and compliance checks rely on spreadsheets and email chains that can't keep pace with business velocity</p>
+        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Certified Before Placement </h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Generalist sourcing leaves platform skill gaps that only surface under live program conditions. Celsior's CoE-backed assessment model validates depth before a single resource is placed. </p>
       </div>
 
       <!-- ── Card 3: Engineering talent attrition ── -->
@@ -3162,113 +2876,61 @@
         margin-bottom: 50px;
         flex-shrink: 0;
       ">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780026818/39_sasun0.png" alt=""
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780857590/80_yojmql.png" alt=""
             style="width:35.875px;height:35.875px;display:block;" />
         </div>
-        <h3 style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;margin-bottom:16px;">Security blind spots</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Threat detection happens after incidents occur because monitoring tools  can't correlate signals or trigger automated responses</p>
+        <h3
+          style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;white-space:nowrap;margin-bottom:16px;">
+          Continuity by Design</h3>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Mid-program departures reset institutional knowledge that took months to build. Celsior embeds continuity provisions into the engagement model from day one, not after attrition has already cost the program. </p>
       </div>
 
     </div><!-- /card-frame -->
   </section>
 
-  <!-- CAPABILITIES: INNOVATION WHEEL -->
-<section class="cel" id="cel">
-  <div class="cel-copy">
-    <h2 class="cel-h1" id="cel-h1">Operations, Engineered by Celsior</h2>
-    <p  class="cel-sub" id="cel-sub">Built on intelligent automation and governed AI frameworks</p>
-
-    <div class="chips-row" id="chips-row">
-      <button type="button" class="ch-arr" id="ch-prev" aria-label="Previous">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M8.5 11L5 7l3.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-      <div class="chips-viewport"><div class="chips-track" id="chips-track"></div></div>
-      <button type="button" class="ch-arr" id="ch-next" aria-label="Next">
-        <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-          <path d="M5.5 3L9 7l-3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </button>
-    </div>
-  </div>
-
-  <div class="stage-wrap" id="stage-wrap">
-    <div class="stage-pivot" id="stage-pivot"></div>
-  </div>
-</section>
-<!-- Global overlays for the wheel (must be siblings of <section>, not inside it) -->
-<div id="dcur">DRAG</div>
-<div id="ctip"></div>
-  <!-- CAPABILITIES: IMAGE ACCORDION -->
-<!-- ══════════════════════════════════════════════════════
-     SECTION 4b · IMAGE ACCORDION / CASE STUDIES
-══════════════════════════════════════════════════════ -->
-<section class="acc-section" id="acc-section" aria-label="Client case studies">
-
-  <div class="acc-intro-head">
-    <h2 style="font-size: clamp(22px, 2.4vw, 34px); font-weight: 700; color: #09090b; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 20px;">Digital Operations: Enterprise Efficiency Delivered Through Intelligent Automation</h2>
-    <p style="font-size: 16px; color: #3f3f46; line-height: 1.65; max-width: 860px;">Organizations that modernize their operational layer don't just reduce ticket volumes — they reclaim the engineering capacity that manual process overhead was quietly consuming. Every proof point below reflects a program where automation and governance discipline changed the outcome: incident resolution cycles compressed so dramatically that compliance gaps closed without dedicated remediation effort, identity provisioning workflows that once took two weeks reduced to a four-hour standard without sacrificing audit integrity.</p>
-  </div>
-
-  <!-- ROW 1 — Breaking Through Years of Delivery Gridlock (default active) -->
-  <div class="acc-row active" data-index="0" tabindex="0">
-    <div class="acc-header">
-      <div class="acc-icon" aria-hidden="true"></div>
-      <span class="acc-title">Automated Incident Resolution Cuts Downtime and Closes Every Audit Gap</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-body-grid">
-        <div class="acc-body-text">
-          <h3 class="acc-big-title">Automated Incident Resolution Cuts Downtime and Closes Every Audit Gap</h3>
-          <p class="acc-desc">A national insurance carrier implemented ServiceNow ITSM with intelligent automation, reducing incident resolution time by 65% while achieving 100% audit compliance across policy administration and claims systems. </p>
+  <!-- ============================================================
+       SECTION: BLOG TEASERS / ACCELERATORS
+       Purpose : Row of accelerator program cards linking to detail.
+       CSS tag : /* === BLOG TEASERS === */
+       ============================================================ -->
+  <section class="pad sec-border">
+    <p class="eyebrow">See the latest from Celsior </p>
+    <h2 style="font-size:55px;font-weight:700;line-height:60px;color:#09090b;max-width:1000px;margin-bottom:16px;">
+      See the latest from Celsior on team delivery models and program resourcing. </h2>
+    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">From pre-certified platform talent to regulated industry delivery, these are operational perspectives and program-level observations from Celsior's Teams-as-a-Service practice, drawn from active engagements across Insurance, Banking, and Healthcare in the United States. </p>
+    <div class="blog-grid">
+      <div class="blog-card">
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780888996/f02fa9920172715841947c4d2793b4c44127dac8_xqw7jp.jpg"
+          alt="" />
+        <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#0c1b3b 67%);">
         </div>
-        <div class="acc-img2">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780027496/CARDS-2_1_ayyliw.png" alt="Executive in modern enterprise office">
+        <div class="blog-card-body">
+          <div class="blog-card-ttl">Team Assembly</div>
+          <div class="blog-card-txt">How Celsior's skills-based team model reduced deployment lead time by 55% for a mid-market US insurer executing a Guidewire modernization program.</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780888997/f9236a73a1e7212d4de7780e6ca189cde4b1290e_uvzcuk.jpg"
+          alt="" />
+        <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-ttl">Platform Certification</div>
+          <div class="blog-card-txt">Pre-certified versus generalist sourcing: what the distinction means for program economics when a platform engagement moves into production.</div>
+        </div>
+      </div>
+      <div class="blog-card">
+        <img class="blog-card-bg" src="https://res.cloudinary.com/dden4hawr/image/upload/v1780888998/864f6a045f575f5cb8b80690fd935dca48e4c5e9_ixnpag.jpg"
+          alt="" />
+        <div class="blog-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
+        </div>
+        <div class="blog-card-body">
+          <div class="blog-card-ttl">Regulated Industry Delivery</div>
+          <div class="blog-card-txt">Assembling delivery teams for regulated industries: the certification depth and compliance fluency that conventional sourcing channels cannot consistently produce at program scale.</div>
         </div>
       </div>
     </div>
-  </div>
-
-  <!-- ROW 2 — Enabling Digital Growth Through Modern Architecture -->
-  <div class="acc-row" data-index="1" tabindex="0">
-    <div class="acc-header">
-      <div class="acc-icon" aria-hidden="true"></div>
-      <span class="acc-title">A Regional Healthcare Provider Moves Identity Provisioning from a Two-Week Backlog to a Four-Hour Workflow</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-body-grid">
-        <div class="acc-body-text">
-          <h3 class="acc-big-title">A Regional Healthcare Provider Moves Identity Provisioning from a Two-Week Backlog to a Four-Hour Workflow</h3>
-          <p class="acc-desc">A regional healthcare provider deployed automated identity governance, cutting access provisioning from 14 days to 4 hours while maintaining HIPAA compliance and complete audit trails for all access changes.</p>
-        </div>
-        <div class="acc-img2">
-          <img src="https://plus.unsplash.com/premium_photo-1698421947098-d68176a8f5b2?q=80&w=752&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Modern enterprise workspace" style="object-position:center 30%;">
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- ROW 3 — Accelerating Innovation While Reducing Technical Debt -->
-  <div class="acc-row" data-index="2" tabindex="0">
-    <div class="acc-header">
-      <div class="acc-icon" aria-hidden="true"></div>
-      <span class="acc-title">Eliminating Manual Security Reviews Across a Multi-Entity Financial Services Group</span>
-    </div>
-    <div class="acc-body">
-      <div class="acc-body-grid">
-        <div class="acc-body-text">
-          <h3 class="acc-big-title">Eliminating Manual Security Reviews Across a Multi-Entity Financial Services Group</h3>
-          <p class="acc-desc">Celsior introduced an automated security review pipeline with standardized control frameworks, continuous policy validation, and centralized reporting across all entities. Manual review overhead dropped by 60%, audit findings were reduced in the subsequent cycle, and compliance posture became consistent across every line of business. </p>
-        </div>
-        <div class="acc-img2">
-          <img src="https://plus.unsplash.com/premium_photo-1683120730432-b5ea74bd9047?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Engineering team collaborating" style="object-position:center 40%;">
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
+  </section>
 
   <!-- ============================================================
        SECTION: PLATFORMS STRIP
@@ -3285,29 +2947,29 @@
         <div class="partners__group">
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/Dynatrace_1_t3ayxc.png"
             alt="Dynatrace" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png"
-            alt="Microsoft" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/18_rsa7dn.png" alt="UIPath"
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png"
+            alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt="Boomi"
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/19_do9jsw.png"
-            alt="Cyberark" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/20_g4ltyd.png"
-            alt="OKTA" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/23_aiuyhu.png"
-            alt="Ansible" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
+            alt="GuideWire" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/RingCentral_1_zjcj4f.png"
+            alt="RingCentral" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Informatica_1_gkhjs0.png"
+            alt="Informatica" loading="lazy" />
         </div>
         <div class="partners__group" aria-hidden="true">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/Dynatrace_1_t3ayxc.png" alt="Dynatrace"
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/Dynatrace_1_t3ayxc.png" alt=""
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/17_hpq0sv.png" alt="Microsoft"
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/ServiceNow_1_plissc.png" alt=""
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/18_rsa7dn.png" alt="UIPath"
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Boomi_1_kvrpcd.png" alt=""
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/19_do9jsw.png"
-            alt="Cyberark" loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/20_g4ltyd.png" alt="OKTA"
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869311/GuideWire_logo_color_1_whi7lu.png"
+            alt="" loading="lazy" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/RingCentral_1_zjcj4f.png" alt=""
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780028742/23_aiuyhu.png" alt="Ansible"
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1777869312/Informatica_1_gkhjs0.png" alt=""
             loading="lazy" />
         </div>
       </div>
@@ -3320,53 +2982,101 @@
                  on the right. Pixel-exact Figma Desktop-30 (1433×894).
        CSS tag : /* === OUTCOMES === */
        ============================================================ -->
-
-  <!-- CAPABILITIES: IMPACT METRICS -->
-<section class="outcomes" id="outcomes-section">
-  <!-- Left: heading + body, GSAP slide-in from left -->
-  <div class="out-left" data-gsap="out-left">
-    <h2 class="out-heading">Outcomes<br>we're<br>accountable to</h2>
-    <p class="out-body">These outcomes reflect operations and security engagements across regulated industries. Results depend on existing tool maturity, process standardization, and organizational readiness for automation.</p>
-  </div>
-
-  <!-- Right: 2×2 grid — LARGE pair on diagonal (TL+BR), MEDIUM pair on diagonal (TR+BL) -->
-  <div class="out-grid">
-
-    <!-- TL: LARGE — 58% + blue horizontal accent (Figma-exact) -->
-    <div class="mc tl">
-      <div class="mc-num-row">
-        <span class="mc-n">58</span><span class="mc-s"> %</span>
+  <section class="outcomes-section">
+    <section class="outcomes" aria-label="Outcomes">
+      <div class="outcomes__heading">
+        <p class="eyebrow">WHY AI-FIRST ENGINEERING?</p>
+        <h2>Outcomes we're accountable to</h2>
+        <p>These benchmarks reflect established performance standards for structured managed team delivery models. They offer senior program stakeholders a fact-based accountability framework, and will be updated with verified Celsior engagement data as outcomes are confirmed across active client portfolios.</p>
       </div>
-      <p class="mc-label">Faster mean time to resolution</p>
-      <div class="mc-accent"></div>
-    </div>
-
-    <!-- TR: MEDIUM — 30% — no resting accent -->
-    <div class="mc tr">
-      <div class="mc-num-row">
-        <span class="mc-n">30</span><span class="mc-s">%</span>
+      <div class="outcome-cards">
+        <article class="outcome-card outcome-card--green" data-stat-card>
+          <strong><span class="stat-num" data-target="95">0</span><span>%</span></strong>
+          <p>Program milestone completion rate achieved through skills-based team assembly.
+          </p>
+          <div class="outcome-card-arrow">
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+        </article>
+        <article class="outcome-card outcome-card--blue" data-stat-card>
+          <strong><span class="stat-num" data-target="86">0</span><span>%</span></strong>
+          <p>Of CIOs report intensifying competition for qualified technology candidates.
+          </p>
+          <div class="outcome-card-arrow">
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+        </article>
+        <article class="outcome-card outcome-card--gold" data-stat-card>
+          <strong><span class="stat-num" data-target="29">0</span><span>%</span></strong>
+          <p>Share of IT professionals with strong intent to remain with their current employer.
+          </p>
+          <div class="outcome-card-arrow">
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#000" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+        </article>
+        <article class="outcome-card outcome-card--dark" data-stat-card>
+          <strong><span class="stat-num" data-target="1.2" data-suffix="M">0M</span></strong>
+          <p>Projected shortfall in available technology talent across the United States by 2026.</p>
+          <div class="outcome-card-arrow">
+            <svg viewBox="0 0 18 18" fill="none">
+              <path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round"
+                stroke-linejoin="round" />
+            </svg>
+          </div>
+        </article>
       </div>
-      <p class="mc-label">Fewer compliance reporting errors</p>
-    </div>
+    </section>
+  </section>
 
-    <!-- BL: MEDIUM — 99.5% — no resting accent -->
-    <div class="mc bl">
-      <div class="mc-num-row">
-        <span class="mc-n">99.5</span><span class="mc-s"> %</span>
+  <!-- ============================================================
+       SECTION: TESTIMONIAL
+       Purpose : Pull-quote with author + result chips on dark panel.
+       CSS tag : /* === TESTIMONIAL === */
+       ============================================================ -->
+  <section id="testimonial-sec" class="sec-border">
+    <p class="eyebrow">ENGAGEMENT OUTCOME</p>
+    <h2
+      style="font-size:clamp(28px, 4.5vw, 58px);font-weight:700;color:#111827;letter-spacing:-0.6px;line-height:1.05;margin-bottom:clamp(20px, 2.4vw, 32px);">
+      Delivered at enterprise scale</h2>
+    <div class="test-card">
+      <div class="test-left">
+        <svg width="32" height="32" fill="none" viewBox="0 0 32 32" style="opacity:0.3;margin-bottom:16px;">
+          <path
+            d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
+            fill="#fff" />
+        </svg>
+        <p class="test-quote">We had a Guidewire program running against a hard go-live date and a team that was not fully staffed. Celsior deployed pre-certified resources who understood the platform, understood the industry context, and were contributing within the first week. We did not concede ground on the timeline. The team they assembled has remained consistent across the full engagement.</p>
+        <div class="test-author">
+          <div class="test-avatar">CIO</div>
+          <div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">VP of Technology Delivery</div>
+            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Large US Property and Casualty Insurer</div>
+          </div>
+        </div>
       </div>
-      <p class="mc-label">Audit compliance success rate</p>
-    </div>
-
-    <!-- BR: LARGE — 60% + teal vertical accent on left edge (Figma-exact, via ::before) -->
-    <div class="mc br">
-      <div class="mc-num-row">
-        <span class="mc-n">60</span><span class="mc-s"> %</span>
+      <div class="test-right">
+        <div class="test-res-label">ENGAGEMENT RESULTS</div>
+        <div class="test-res-item">
+          <div class="test-dot"></div><span class="test-res-text">Full team operational within 18 days of engagement commencement</span>
+        </div>
+        <div class="test-res-item">
+          <div class="test-dot"></div><span class="test-res-text">Zero unplanned attrition across a 14-month program lifecycle</span>
+        </div>
+        <div class="test-res-item" style="margin-bottom:0;">
+          <div class="test-dot"></div><span class="test-res-text">Program go-live delivered on the original delivery schedule</span>
+        </div>
       </div>
-      <p class="mc-label">Fewer manual security reviews required</p>
     </div>
-
-  </div>
-</section>
+  </section>
 
   <!-- ============================================================
        SECTION: EXPLORE
@@ -3375,12 +3085,12 @@
        CSS tag : /* === EXPLORE === */
        ============================================================ -->
   <section class="explore">
-    <h2>Continue exploring Celsior's <span style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; display:inline;">capabilities</span></h2>
+    <h2>Continue exploring Celsior's capabilities</h2>
     <div class="explore__links">
-      <a data-celsior-form="ai" href="/solutions/managed-programs">
+      <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">AI LAB</span>
-          <span class="explore__text">IT Service Management & Automation </span>
+          <span class="explore__label">ENTERPRISE AI ENABLEMENT</span>
+          <span class="explore__text">Skills-Based Teams</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3392,10 +3102,10 @@
           </span>
         </span>
       </a>
-      <a href="/capabilities/security-and-governance">
+      <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">COES</span>
-          <span class="explore__text">Security & Governance</span>
+          <span class="explore__label">NEARSHORE DELIVERY</span>
+          <span class="explore__text">Pre-Certified Platform Talent</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3407,10 +3117,10 @@
           </span>
         </span>
       </a>
-      <a href="/ai-innovation/frameworks-accelerators">
+      <a href="#">
         <span class="explore__row-left">
-          <span class="explore__label">ACCELERATORS</span>
-          <span class="explore__text">Identity & Access Management</span>
+          <span class="explore__label">AI-LED ENGINEERING</span>
+          <span class="explore__text">Regulated Industry Delivery</span>
         </span>
         <span class="explore__row-right">
           <span class="explore__arrow" aria-hidden="true">
@@ -3422,10 +3132,8 @@
           </span>
         </span>
       </a>
-
     </div>
   </section>
-
 
   <!-- ============================================================
        SECTION: INSIGHTS
@@ -3439,7 +3147,7 @@
         <p class="eyebrow">INSIGHTS</p>
         <h2
           style="font-size:40px;font-weight:700;color:#111827;line-height:50px;max-width:900px;letter-spacing:-0.24px;">
-          Thinking on operational resilience <br>and security governance</h2>
+          Thinking on team delivery models and enterprise program resourcing</h2>
       </div>
       <a href="#"
         style="font-size:14px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:6px;white-space:nowrap;margin-left:24px;padding-bottom:4px;">All
@@ -3451,14 +3159,14 @@
     <div class="insight-cards">
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778646704/7_vmwgl8.png" alt="" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780888792/8b9cda6debf87b9a80c32f18445e0f66232cf2a3_asidqw.jpg" alt="" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">Automated workflow diagram</span>
+          <span class="insight-tag">Team Models</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">Building self-healing operations with intelligent automation</h4>
-          <p class="insight-desc">Traditional ITSM requires manual intervention at every step. Here's how AI-powered automation detects, diagnoses, and resolves incidents without human escalation...</p>
-          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+          <h4 class="insight-title">Why the conventional hire-to-deploy resourcing model introduces structural risk to enterprise technology programs, and what a managed delivery alternative looks like at scale</h4>
+          <p class="insight-desc"></p>
+          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read more <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -3467,14 +3175,14 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778646705/8_tdax9f.png" alt="" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780888873/9db86bd030d3279c77e7cbe389486b302fecd828_h4pzwc.jpg" alt="" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">Security governance framework</span>
+          <span class="insight-tag">Platform Talent</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">Zero-trust security for regulated industries</h4>
-          <p class="insight-desc">Banking and healthcare organizations face unique security requirements. Our framework implements zero-trust principles while maintaining audit compliance...</p>
-          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+          <h4 class="insight-title">What pre-certification substantively means for a Guidewire or ServiceNow engagement, and how it restructures the delivery calculus before the program begins</h4>
+          <p class="insight-desc"></p>
+          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read more <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -3483,61 +3191,18 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778646698/9_kwym5i.png" alt="" style="top:0;" />
+          <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780888902/6d7c0cf32ec82fc21639e634d4e0568488b12f99_d0jusk.jpg" alt="" style="top:0;" />
           <div class="insight-img-grad"></div>
-          <span class="insight-tag">Identity governance dashboard</span>
+          <span class="insight-tag">Regulated Industries</span>
         </div>
         <div class="insight-body">
-          <h4 class="insight-title">How automated identity governance reduces risk by 60%</h4>
-          <p class="insight-desc">Manual access reviews create compliance gaps and security exposure. One insurance carrier automated identity governance and cut provisioning time from weeks to hours...</p>
-          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+          <h4 class="insight-title">The compliance depth, domain fluency, and regulatory awareness that regulated industry programs require from delivery teams operating at enterprise program scale</h4>
+          <p class="insight-desc"></p>
+          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read more <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></a></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
-<!-- ══════════════════════════════════════════════════════
-     SECTION 7 · CLIENT PROOF
-══════════════════════════════════════════════════════ -->
-  <!-- SOLUTIONS: TESTIMONIAL + EXPLORE + INSIGHTS + FAQ + CTA -->
-<section id="testimonial-sec" class="sec-border">
-    <p class="eyebrow">CLIENT PROOF</p>
-    <h2 style="font-size:clamp(28px, 4.5vw, 58px);font-weight:700;color:#111827;letter-spacing:-0.6px;line-height:1.05;margin-bottom:clamp(20px, 2.4vw, 32px);">
-      Delivered at enterprise scale</h2>
-    <div class="test-card">
-      <div class="test-left">
-        <svg width="32" height="32" fill="none" viewBox="0 0 32 32" style="opacity:0.3;margin-bottom:16px;">
-          <path
-            d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
-            fill="#fff" />
-        </svg>
-        <p class="test-quote">"Our digital operations practice scales from single process automation to enterprise-wide transformation programs. Whether you're implementing ITSM for the first time, automating security operations, or building identity governance, we bring the same rigor: proven frameworks, automated workflows, and compliance built into every deployment."</p>
-        <div class="test-author">
-          <div class="test-avatar">CIO</div>
-          <div>
-            <div style="font-size:14px;font-weight:600;color:#fff;">Major life insurance company</div>
-            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Agent Portal Modernisation</div>
-          </div>
-        </div>
-      </div>
-      <div class="test-right">
-        <div class="test-res-label">DELIVERY APPROACH:</div>
-        <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">ServiceNow Center of Excellence for ITSM and workflow automation </span>
-        </div>
-        <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">Intelligent automation using AI and RPA for incident response</span>
-        </div>
-        <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">Zero-trust security architecture with identity governance</span>
-        </div>
-        <div class="test-res-item" style="margin-bottom:0;">
-          <div class="test-dot"></div><span class="test-res-text">Continuous compliance monitoring and audit readiness </span>
         </div>
       </div>
     </div>
@@ -3553,84 +3218,84 @@
     <div class="faq__inner">
       <div class="faq__intro">
         <p class="eyebrow">FAQ</p>
-        <h2>Transform business leaders ask about AI-led engineering</h2>
-        <p>Covering ROI, risk, timelines, and delivery model — the questions that matter to decision-makers, answered directly.</p>
-        <a data-celsior-form="general" href="#">Speak to our team <span aria-hidden="true">→</span></a>
+        <h2>Questions business leaders ask before engaging</h2>
+        <p>Covering ROI, risk, timelines, and delivery model — the questions that matter to decision-makers, answered
+          directly.</p>
+        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
       </div>
       <div class="faq__items">
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">How do you automate operations without losing control or creating new risks?</span>
+            <span class="faq__q">How does Teams-as-a-Service differ from conventional staff augmentation at the engagement model and delivery accountability structure levels?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>We design automation with governance built in. Every automated workflow includes approval gates, audit logging, exception handling, and rollback capabilities. For regulated workloads, we maintain complete traceability and compliance documentation. Automation improves control by enforcing consistent processes that manual operations can't sustain. </p>
+            <p>Staff augmentation places individual resources. Teams-as-a-Service delivers a structured, accountable engagement model. Celsior owns performance management, attrition response, and bandwidth allocation for the duration of the program. The client organization engages a single delivery partner accountable to outcomes, not a collection of contractors accountable only to their individual statements of work.</p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">What makes your ServiceNow approach different from standard implementations?</span>
+            <span class="faq__q">What verification methodology governs platform certification depth assessments prior to team placement on an active program?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>We bring a ServiceNow Center of Excellence with pre-built accelerators, industry-specific workflows, and intelligent automation capabilities. Our implementations include AI-powered incident routing, automated remediation scripts, and integration with observability tools. This delivers faster time-to-value while maintaining the flexibility to adapt as your operations mature. </p>
+            <p>Every candidate undergoes a structured, multi-stage assessment protocol that evaluates platform-specific technical depth, not generalist proficiency. For Guidewire, ServiceNow, and other enterprise platforms, assessments are designed in partnership with practitioners who have delivered on those platforms under live program conditions. Certification is validated before placement, not assumed from a resume.</p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">Can you help secure environments that are already in production?</span>
+            <span class="faq__q">What is the realistic elapsed time from initial program brief to a fully operational, skills-verified delivery team under the TaaS engagement model?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Yes. Our security assessments identify current exposure, prioritize remediation, and implement controls without disrupting operations. We deploy zero-trust architecture incrementally, automate threat detection and response, and establish continuous compliance monitoring. Most organizations see measurable risk reduction within 60-90 days. </p>
+            <p>Most programs move from initial brief to a fully operational, skills-verified delivery team within three weeks. That window covers requirements scoping, skills assessment, platform certification validation, and team mobilization. For programs with defined timelines and hard go-live dates, the structured mobilization model is designed to protect the schedule from day one.</p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">How quickly can we see results from automation initiatives?</span>
+            <span class="faq__q">Where does accountability for performance management, attrition response, and bandwidth calibration reside once the team is deployed against program requirements?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Initial automation typically delivers value within 30-60 days. For ServiceNow ITSM implementations, we configure core modules and automate first workflows in the first quarter. For security automation, we deploy threat detection and automated response for high-priority scenarios, then expand coverage incrementally. </p>
+            <p>Accountability resides with Celsior for the full duration of the engagement. Performance management, attrition response, and bandwidth calibration are handled within the delivery structure, not escalated to the client organization. Program leadership receives visibility into team performance through structured governance cadences without absorbing the operational burden of managing individual contributors.</p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">What happens when automated processes fail or need human oversight?</span>
+            <span class="faq__q">How are delivery teams structured for regulated industries where compliance awareness and domain fluency carry equivalent weight to technical proficiency?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Our automation design includes human-in-the-loop gates for high-risk decisions, exception handling for edge cases, and automated escalation when confidence thresholds aren't met. Operations teams retain visibility and control while automation handles routine work. This approach delivers speed without sacrificing oversight. </p>
+            <p>Teams for Insurance, Banking, and Healthcare programs are assembled against a three-dimensional requirements model covering platform certification, regulatory fluency, and industry operating context. Candidates are assessed on compliance awareness and domain familiarity alongside technical proficiency. The result is a team that understands the regulatory environment it is delivering into, not one that needs to learn it on the program.</p>
           </div>
         </div>
         <div class="faq__item">
           <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">Do you provide ongoing management for operations and security platforms?</span>
+            <span class="faq__q">Can the team model scale in either direction as program scope and resource requirements evolve, without disrupting delivery continuity or institutional knowledge retention?</span>
             <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none">
                 <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
                   stroke-linejoin="round" />
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>Yes. We offer managed services including ServiceNow platform operations, security operations center services, identity governance administration, continuous compliance monitoring, and automation optimization. Our approach ensures platforms evolve with business needs while maintaining security and compliance posture. </p>
+            <p>The TaaS engagement model is structured to absorb scope changes in either direction without resetting the delivery baseline. Bandwidth adjustments are managed within the existing engagement framework, preserving institutional knowledge, team continuity, and program momentum. Scaling does not require a new sourcing cycle, a new onboarding period, or a renegotiated accountability structure.</p>
           </div>
         </div>
-      </div>
       </div>
     </div>
     </div>
@@ -3641,115 +3306,16 @@
        Purpose : Closing call-to-action band with pull-quote + button.
        CSS tag : /* === CTA BANNER === */
        ============================================================ -->
-<section class="cta-banner" id="ctaBand">
+  <section class="cta-banner" id="ctaBand">
+    <div class="cta-banner-inner">
+      <img class="cta-band-logo"
+        src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
+        alt="Celsior" />
+      <h2 class="cta-band-text" data-text="Most Teams-as-a-Service engagements begin with a structured assessment of program requirements and delivery capability alignment.">Most Teams-as-a-Service engagements begin with a structured assessment of program requirements and delivery capability alignment.</h2>
+      <a href="#contact" class="cta-btn cta-band-btn">Start the conversation</a>
+    </div>
+  </section>
 
-<style>
-
-#ctaBand .cta-banner-inner{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
-    text-align:center;
-}
-
-/* BUTTON ROW */
-#ctaBand .cta-btn-group{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:12px;
-    margin-top:22px;
-}
-
-/* BUTTON BASE */
-#ctaBand .cta-btn{
-    display:inline-flex;
-    align-items:center;
-    justify-content:center;
-
-    height:38px;                 /* fixed smaller height */
-    padding:0 18px;              /* compact */
-
-    font-size:12px;              /* smaller like figma */
-    font-weight:600;
-
-    border-radius:4px;           /* less rounded */
-
-    text-decoration:none;
-
-    line-height:1;
-    white-space:nowrap;
-
-    transition:.2s;
-}
-
-/* BLACK */
-#ctaBand .cta-band-btn{
-    background:#000;
-    color:#fff;
-    border:1px solid #000;
-}
-
-/* WHITE */
-#ctaBand .cta-band-btn-white{
-    background:#fff;
-    color:#081327;
-    border:1px solid #081327;
-}
-
-/* hover */
-#ctaBand .cta-btn:hover{
-    transform:translateY(-1px);
-}
-
-@media(max-width:768px){
-
-    #ctaBand .cta-btn-group{
-        flex-direction:column;
-        gap:10px;
-    }
-
-    #ctaBand .cta-btn{
-        width:280px;
-    }
-
-}
-
-</style>
-
-<div class="cta-banner-inner">
-
-<img
-class="cta-band-logo"
-src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
-alt="Celsior">
-
-<h2
-class="cta-band-text"
-data-text="Most operations transformations begin with">
-
-Most operations transformations begin with<br>
-understanding current maturity.
-
-</h2>
-
-<div class="cta-btn-group">
-
-<a data-celsior-form="assessment" href="https://celsior-assessment-tools.netlify.app/grc-assessment/"
-class="cta-btn cta-band-btn">
-Request an Operations Assessment
-</a>
-
-<a href="/contact-us"
-class="cta-btn cta-band-btn-white">
-Explore Our Frameworks
-</a>
-
-</div>
-
-</div>
-
-</section>
   <script>
     /* ═══════════════════════════════════════════════════
        GSAP Accordion — gaccToggle()
@@ -3818,82 +3384,6 @@ Explore Our Frameworks
     document.addEventListener('DOMContentLoaded', function () {
       if (typeof gsap === 'undefined') return;
       gsap.registerPlugin(ScrollTrigger);
-
-      /* ── OUTCOMES SECTION — full micro-animation suite ── */
-      (function initOutcomes() {
-        const section  = document.getElementById('outcomes-section');
-        if (!section) return;
-
-        const outLeft  = section.querySelector('.out-left');
-        const heading  = section.querySelector('.out-heading');
-        const bodyTxt  = section.querySelector('.out-body');
-        const cells    = section.querySelectorAll('.mc');
-
-        /* Set initial hidden states */
-        gsap.set(outLeft, { opacity: 0, x: -28 });
-        gsap.set(heading, { opacity: 0, y: 20 });
-        gsap.set(bodyTxt, { opacity: 0, y: 14 });
-
-        const tl = gsap.timeline({
-          scrollTrigger: { trigger: section, start: 'top 75%', once: true }
-        });
-
-        /* 1. Left col slides in */
-        tl.to(outLeft, { opacity: 1, x: 0,  duration: 0.85, ease: 'power3.out' })
-          .to(heading,  { opacity: 1, y: 0,  duration: 0.65, ease: 'power3.out' }, '-=0.6')
-          .to(bodyTxt,  { opacity: 1, y: 0,  duration: 0.6,  ease: 'power3.out' }, '-=0.42')
-
-          /* 2. Grid cells cascade in — TL → TR → BL → BR */
-          .to(cells[0], { opacity: 1, y: 0, duration: 0.65, ease: 'expo.out' }, '-=0.28')
-          .to(cells[1], { opacity: 1, y: 0, duration: 0.65, ease: 'expo.out' }, '-=0.5')
-          .to(cells[2], { opacity: 1, y: 0, duration: 0.65, ease: 'expo.out' }, '-=0.5')
-          .to(cells[3], { opacity: 1, y: 0, duration: 0.65, ease: 'expo.out' }, '-=0.5');
-
-        /* 3. Number counter roll-up */
-        const counterDefs = [
-          { cell: cells[0], prefix: '', to: 58,   delay: 0.5,  decimal: false },
-          { cell: cells[1], prefix: '', to: 30,   delay: 0.62, decimal: false },
-          { cell: cells[2], prefix: '', to: 99.5, delay: 0.74, decimal: true  },
-          { cell: cells[3], prefix: '', to: 60,   delay: 0.86, decimal: false }
-        ];
-        counterDefs.forEach(function(def) {
-          if (!def.cell) return;
-          const numEl = def.cell.querySelector('.mc-n');
-          if (!numEl) return;
-          const obj = { val: 0 };
-          gsap.to(obj, {
-            val: def.to,
-            duration: 1.6,
-            ease: 'power4.out',
-            delay: def.delay,
-            scrollTrigger: { trigger: section, start: 'top 75%', once: true },
-            onUpdate: function() { numEl.textContent = def.decimal ? obj.val.toFixed(1) : Math.round(obj.val); },
-            onComplete: function() { numEl.textContent = def.decimal ? def.to.toFixed(1) : def.to; }
-          });
-        });
-
-        /* 4. Magnetic 3D tilt on hover */
-        cells.forEach(function(cell) {
-          cell.addEventListener('mousemove', function(e) {
-            const r  = cell.getBoundingClientRect();
-            const dx = (e.clientX - r.left - r.width  / 2) / (r.width  / 2);
-            const dy = (e.clientY - r.top  - r.height / 2) / (r.height / 2);
-            gsap.to(cell, {
-              x: dx * 4, y: dy * 4 - 3,
-              rotateX: -dy * 2, rotateY: dx * 2,
-              transformPerspective: 800,
-              duration: 0.4, ease: 'power2.out', overwrite: 'auto'
-            });
-          });
-          cell.addEventListener('mouseleave', function() {
-            gsap.to(cell, {
-              x: 0, y: 0, rotateX: 0, rotateY: 0,
-              duration: 0.65, ease: 'elastic.out(1, 0.5)', overwrite: 'auto'
-            });
-          });
-        });
-
-      })();
 
       /* Cost Q×Q section — staggered entrance */
       var cqHead = document.getElementById('cqxq-heading');
@@ -3969,6 +3459,9 @@ Explore Our Frameworks
     });
   </script>
 
+  <!-- GSAP + ScrollTrigger -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     (function () {
       if (!window.gsap || !window.ScrollTrigger) return;
@@ -4053,537 +3546,7 @@ Explore Our Frameworks
       });
     });
   </script>
-
-  <!-- GSAP -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
-
-  <!-- CAPABILITIES: IMAGE ACCORDION JS -->
-  <script>
-  (function() {
-    if (typeof gsap === 'undefined') return;
-    let activeIndex = 0, busy = false;
-    const rows = Array.from(document.querySelectorAll('#acc-section .acc-row'));
-    if (!rows.length) return;
-
-    function measure(body){
-      const prev = body.style.height;
-      gsap.set(body, { height: 'auto' });
-      const h = body.offsetHeight;
-      gsap.set(body, { height: prev || 0 });
-      return h;
-    }
-
-    rows.forEach((row, i) => {
-      const body = row.querySelector('.acc-body');
-      if (!body) return;
-      gsap.set(body, { height: i === 0 ? 'auto' : 0 });
-    });
-
-    function openRow(idx){
-      if (idx === activeIndex || busy) return;
-      busy = true;
-      const prev = rows[activeIndex], next = rows[idx];
-      const pB = prev.querySelector('.acc-body');
-      const nB = next.querySelector('.acc-body');
-      const nImg = next.querySelector('.acc-img2 img');
-
-      // measure target height before animating
-      gsap.set(nB, { height: 'auto' });
-      const targetH = nB.offsetHeight;
-      gsap.set(nB, { height: 0 });
-
-      // also lock prev to numeric height before collapsing
-      const prevH = pB.offsetHeight;
-      gsap.set(pB, { height: prevH });
-
-      prev.classList.remove('active');
-      next.classList.add('active');
-
-      const tl = gsap.timeline({
-        onComplete(){
-          activeIndex = idx; busy = false;
-          gsap.set(nB, { height: 'auto' });
-        }
-      });
-      tl.to(pB, { height: 0, duration: 0.55, ease: 'power3.inOut' }, 0)
-        .to(nB, { height: targetH, duration: 0.65, ease: 'power3.out' }, 0.08);
-      if (nImg) tl.fromTo(nImg, { scale: 1.06 }, { scale: 1, duration: 0.85, ease: 'power2.out' }, 0.08);
-    }
-
-    rows.forEach((row, i) => {
-      row.querySelector('.acc-header').addEventListener('click', e => {
-        if (!e.target.closest('.acc-readmore')) openRow(i);
-      });
-      row.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openRow(i); }
-        if (e.key === 'ArrowDown' && i < rows.length - 1) openRow(i + 1);
-        if (e.key === 'ArrowUp' && i > 0) openRow(i - 1);
-      });
-    });
-  })();
-  </script>
-
-  <!-- CAPABILITIES: INNOVATION WHEEL JS -->
-  <script>
-  (function(){
-  if (typeof gsap === 'undefined') return;
-
-  /* CARD DATA */
-  const FAN_TOOLTIP_ENABLED = false; // true = ON, false = OFF for all carousel hover labels/tooltips
-
-  const DATA = [
-    {
-      chip:'Healthcare',
-      logo:{img:'https://res.cloudinary.com/dden4hawr/image/upload/v1779293592/C1_yailh3.png', alt:'Healthcare icon'},
-      title:'Healthcare',
-      desc:'Real-time threat detection and automated response protecting patient data across HIPAA-regulated environments',
-      bg:'#f0fdf4', titleC:'#14532d', descC:'#4a7a5a',
-      shadow:'0 22px 44px rgba(0,0,0,.32)',
-      footBg:'#1a2a1a', footR:'120px 120px 0 0', foot:'dashboard',
-      imgs:{dash:'https://res.cloudinary.com/dden4hawr/image/upload/v1778640517/dashboard_qni0pr.png'},
-    },
-    {
-      chip:'Banking & Financial Services',
-      logo:{img:'https://res.cloudinary.com/dden4hawr/image/upload/v1779293592/C2_o3sbq2.png', alt:'Banking and financial services icon'},
-      title:'Banking & Financial Services',
-      desc:'ServiceNow implementation automating incident routing and resolution for regulatory compliance and SOX controls',
-      bg:'#fff9e6', titleC:'#111', descC:'#666',
-      shadow:'0 28px 56px rgba(0,0,0,.52)',
-      footBg:'#18181a', footR:'130px 130px 0 0', foot:'phones',
-      imgs:{p1:'https://res.cloudinary.com/dden4hawr/image/upload/v1778640733/app_screen_left_3_yqug1b.png',
-            p2:'https://res.cloudinary.com/dden4hawr/image/upload/v1778640518/app_screen_right_temwuw.png'},
-    },
-    {
-      chip:'Insurance',
-      logo:{img:'https://res.cloudinary.com/dden4hawr/image/upload/v1779293592/C3_jgcxl3.png', alt:'Insurance icon'},
-      title:'Insurance',
-      desc:'Automated identity provisioning reducing onboarding time from weeks to hours across policy, claims, and billing systems',
-      bg:'#e0fcfa', titleC:'#0f2f3a', descC:'#4a7a8a',
-      shadow:'0 22px 44px rgba(0,0,0,.35)',
-      footBg:'transparent', footR:'0', foot:'shield',
-      imgs:{shield:'https://res.cloudinary.com/dden4hawr/image/upload/v1778640518/Shield_iarrdm.png'},
-    },
-  ];
-  const N = DATA.length;
-
-  /* BUILD CHIPS */
-  const chipsTrackEl = document.getElementById('chips-track');
-  if (!chipsTrackEl) return;
-  DATA.forEach((d,i)=>{
-    const el = document.createElement('div');
-    el.className = 'chip ' + (i===0?'on':'off');
-    el.dataset.i  = i;
-    el.textContent = d.chip;
-    chipsTrackEl.appendChild(el);
-  });
-  const chipEls = [...chipsTrackEl.querySelectorAll('.chip')];
-
-  function scrollChipIntoView(i){
-    const vp  = chipsTrackEl.parentElement;
-    const el  = chipEls[i];
-    const vpR = vp.getBoundingClientRect();
-    const elR = el.getBoundingClientRect();
-    const cur = parseFloat(chipsTrackEl.style.transform?.match(/-?\d+\.?\d*/)?.[0]||0)*-1;
-    let  next = cur;
-    if(elR.left < vpR.left + 10)   next = cur - (vpR.left - elR.left) - 10;
-    if(elR.right > vpR.right - 10) next = cur + (elR.right - vpR.right) + 10;
-    next = Math.max(0, next);
-    chipsTrackEl.style.transform = `translateX(-${next}px)`;
-  }
-
-  /* CHIP TOOLTIP — controlled by FAN_TOOLTIP_ENABLED above */
-  const ctip = document.getElementById('ctip');
-  let ctipHide;
-  function showTip(chipEl){
-    if(!FAN_TOOLTIP_ENABLED || !ctip) return;
-    clearTimeout(ctipHide);
-    const r = chipEl.getBoundingClientRect();
-    ctip.textContent = chipEl.textContent.trim();
-    ctip.style.left  = (r.left + r.width/2) + 'px';
-    ctip.style.top   = (r.top - 10) + 'px';
-    ctip.classList.add('on');
-  }
-  function hideTip(){
-    if(!FAN_TOOLTIP_ENABLED || !ctip) return;
-    ctipHide = setTimeout(()=> ctip.classList.remove('on'), 80);
-  }
-  if(FAN_TOOLTIP_ENABLED){
-    chipEls.forEach(ch=>{
-      ch.addEventListener('mouseenter', ()=> showTip(ch));
-      ch.addEventListener('mouseleave', hideTip);
-    });
-  } else if(ctip){
-    ctip.style.display = 'none';
-  }
-
-  /* BUILD CARD DOM */
-  function buildFoot(d){
-    if(d.foot==='phones') return `
-      <div class="c-foot">
-        <div style="background:${d.footBg};border-radius:${d.footR};width:100%;height:100%;position:relative;overflow:hidden;">
-          <div style="position:absolute;bottom:8px;left:50%;margin-left:-118px;width:120px;height:200px;border-radius:15px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.4);transform:rotate(-10deg);transform-origin:bottom center;">
-            <img src="${d.imgs.p1}" style="width:100%;height:100%;object-fit:cover;" draggable="false"/></div>
-          <div style="position:absolute;bottom:8px;left:50%;margin-left:-2px;width:120px;height:200px;border-radius:15px;overflow:hidden;box-shadow:0 8px 22px rgba(0,0,0,.4);transform:rotate(8deg);transform-origin:bottom center;">
-            <img src="${d.imgs.p2}" style="width:100%;height:100%;object-fit:cover;" draggable="false"/></div>
-        </div></div>`;
-    if(d.foot==='shield') return `
-      <div class="c-foot" style="overflow:visible;background:transparent;display:flex;align-items:flex-end;justify-content:center;">
-        <img src="${d.imgs.shield}" style="max-width:78%;max-height:100%;width:auto;height:auto;object-fit:contain;filter:drop-shadow(0 18px 28px rgba(14,46,58,.35));" draggable="false"/>
-      </div>`;
-    if(d.foot==='dashboard') return `
-      <div class="c-foot">
-        <div style="background:${d.footBg};border-radius:${d.footR};width:100%;height:100%;display:flex;align-items:flex-start;justify-content:center;padding-top:24px;overflow:hidden;">
-          <div style="width:335px;height:185px;border-radius:10px 10px 0 0;overflow:hidden;box-shadow:-4px -4px 18px rgba(0,0,0,.42);transform:rotate(2deg);">
-            <img src="${d.imgs.dash}" style="width:95%;height:95%;margin:2.5%;object-fit:cover;display:block;" draggable="false"/>
-          </div></div></div>`;
-    if(d.foot==='wordmark') return `
-      <div class="c-foot" style="display:flex;align-items:center;justify-content:center;background:transparent;">
-        <span style="font-size:${d.wordmarkSz};font-weight:900;color:${d.wordmarkC};letter-spacing:-3px;user-select:none;line-height:1;">${d.wordmark}</span>
-      </div>`;
-    return '';
-  }
-
-  const pivot = document.getElementById('stage-pivot');
-  const COPIES = 3;        // -1, 0, +1 ghosts so wraps are seamless
-  const cardEls = [];
-  const cardLogical = [];
-  const cardGhost   = [];
-  for(let k=0; k<COPIES; k++){
-    for(let i=0; i<DATA.length; i++){
-      const d = DATA[i];
-      const wrap = document.createElement('div');
-      wrap.className = 'cw';
-      wrap.dataset.i = i;
-      wrap.dataset.k = k - 1;
-      wrap.innerHTML = `
-        <div class="card" style="background:${d.bg};box-shadow:${d.shadow};">
-          <div class="c-head">
-            <div class="c-logo">
-              <img src="${d.logo.img}" alt="${d.logo.alt}" draggable="false" loading="lazy"/>
-            </div>
-            <div class="c-title" style="color:${d.titleC};">${d.title}</div>
-          </div>
-          <p class="c-desc" style="color:${d.descC};">${d.desc}</p>
-          ${buildFoot(d)}
-        </div>`;
-      pivot.appendChild(wrap);
-      cardEls.push(wrap);
-      cardLogical.push(i);
-      cardGhost.push(k - 1);
-    }
-  }
-
-  /* WHEEL CAROUSEL */
-  let RADIUS = computeRadius();
-  function computeRadius(){
-    const w = window.innerWidth || 1440;
-    return Math.max(880, Math.min(2400, w * 1.55));
-  }
-  const STEP    = 12.5 * Math.PI/180;
-  const PERIOD  = STEP * N;
-  const VISIBLE_HALF = 1.4;       // tighter fade so ghosts hand off smoothly
-  const FRICTION    = 0.955;
-  const MIN_VEL     = 0.00022;
-  const SNAP_K      = 0.18;
-  const SNAP_DAMP   = 0.78;
-  const MAX_VEL     = 0.42;
-  const VEL_BOOST   = 1.35;
-
-  let theta = 0, vTheta = 0, rafId = null, mode = 'idle', cur = 0;
-  let floatTw;
-
-  function placeCard(el, j, wheelTheta){
-    const i = cardLogical[j];
-    const k = cardGhost[j];
-    // Normalize wheelTheta into one period so ghosts always cover the visible arc
-    const wt = ((wheelTheta % PERIOD) + PERIOD) % PERIOD;
-    const a  = i * STEP - wt + k * PERIOD;
-    const x = Math.sin(a) * RADIUS;
-    const y = RADIUS - Math.cos(a) * RADIUS;
-    const rotDeg = a * 180/Math.PI;
-    const slotsAway = Math.abs(a) / STEP;
-    const op  = Math.max(0, Math.min(1, 1 - Math.max(0, slotsAway - VISIBLE_HALF) * 0.85));
-    const scl = 1 - Math.min(0.22, slotsAway * 0.07);
-    const z   = Math.round(100 - slotsAway * 10);
-    el.style.zIndex = Math.max(1, z);
-    el.style.pointerEvents = op < 0.05 ? 'none' : '';
-    gsap.set(el, { x, y, rotation: rotDeg, scaleX: scl, scaleY: scl, opacity: op, force3D: true });
-  }
-
-  function applyAll(){
-    for(let j=0;j<cardEls.length;j++) placeCard(cardEls[j], j, theta);
-    const newCur = ((Math.round(theta / STEP) % N) + N) % N;
-    if(newCur !== cur){ cur = newCur; syncChips(); }
-  }
-
-  function loop(){
-    if(mode === 'coast'){
-      vTheta *= FRICTION;
-      theta  += vTheta;
-      if(Math.abs(vTheta) < MIN_VEL) mode = 'snap';
-    } else if(mode === 'snap'){
-      const target = Math.round(theta / STEP) * STEP;
-      const diff   = target - theta;
-      vTheta = vTheta * SNAP_DAMP + diff * SNAP_K;
-      theta += vTheta;
-      if(Math.abs(diff) < 0.0008 && Math.abs(vTheta) < 0.0008){
-        theta = target;
-        // keep theta bounded so the centered ghost (k=0) stays the visible one
-        theta = ((theta % PERIOD) + PERIOD) % PERIOD;
-        vTheta = 0;
-        applyAll();
-        mode = 'idle';
-        restartFloat();
-        return;
-      }
-    } else { return; }
-    applyAll();
-    rafId = requestAnimationFrame(loop);
-  }
-
-  function startLoop(initialMode){
-    cancelAnimationFrame(rafId);
-    if(floatTw) floatTw.kill();
-    mode = initialMode;
-    rafId = requestAnimationFrame(loop);
-  }
-
-  function goTo(idx){
-    let delta = ((idx - cur) % N + N) % N;
-    if(delta > N/2) delta -= N;
-    const desiredTheta = theta + delta * STEP;
-    cancelAnimationFrame(rafId);
-    if(floatTw) floatTw.kill();
-    mode = 'idle';
-    const obj = {t: theta};
-    gsap.to(obj, {
-      t: desiredTheta,
-      duration: 0.7,
-      ease: 'power3.out',
-      onUpdate(){ theta = obj.t; applyAll(); },
-      onComplete(){ theta = ((desiredTheta % PERIOD) + PERIOD) % PERIOD; vTheta = 0; applyAll(); restartFloat(); },
-    });
-  }
-  const goPrev = () => goTo(((cur - 1) % N + N) % N);
-  const goNext = () => goTo(((cur + 1) % N + N) % N);
-
-  function syncChips(){
-    chipEls.forEach((ch,i)=> ch.className = 'chip ' + (i===cur?'on':'off'));
-    scrollChipIntoView(cur);
-  }
-
-  document.getElementById('ch-prev').addEventListener('click', goPrev);
-  document.getElementById('ch-next').addEventListener('click', goNext);
-  chipEls.forEach((ch,i)=> ch.addEventListener('click',()=>{ if(i!==cur) goTo(i); }));
-
-  const stageEl = document.getElementById('stage-wrap');
-
-  // Arrow keys only when wheel is in viewport — don't hijack page navigation
-  document.addEventListener('keydown', e=>{
-    const r = stageEl.getBoundingClientRect();
-    const inView = r.top < window.innerHeight && r.bottom > 0;
-    if(!inView) return;
-    if(e.key==='ArrowLeft')  { e.preventDefault(); goPrev(); }
-    if(e.key==='ArrowRight') { e.preventDefault(); goNext(); }
-  });
-
-  /* DRAG */
-  let pDown=false, isDrag=false, isVert=false;
-  let pX0=0, yStart=0, lastX=0, lastT=0, thetaAtDown=0;
-  const VEL_WINDOW = 80;
-  const samples = [];
-
-  stageEl.addEventListener('pointerdown', e=>{
-    if(e.button !== 0) return;
-    cancelAnimationFrame(rafId);
-    if(floatTw) floatTw.kill();
-    mode = 'idle'; vTheta = 0;
-    pDown = true; isDrag=false; isVert=false;
-    pX0 = lastX = e.clientX;
-    yStart = e.clientY;
-    lastT = performance.now();
-    thetaAtDown = theta;
-    samples.length = 0;
-    samples.push({t: lastT, x: e.clientX});
-    stageEl.setPointerCapture(e.pointerId);
-  }, {passive:true});
-
-  stageEl.addEventListener('pointermove', e=>{
-    if(!pDown) return;
-    const dx = e.clientX - pX0;
-    const dy = e.clientY - yStart;
-    if(!isDrag && !isVert){
-      if(Math.abs(dy) > Math.abs(dx) && Math.abs(dy) > 8){ isVert=true; return; }
-      if(Math.abs(dx) > 6) isDrag = true;
-    }
-    if(isVert || !isDrag) return;
-    e.preventDefault();
-    const now = performance.now();
-    lastX = e.clientX;
-    lastT = now;
-    samples.push({t: now, x: e.clientX});
-    const cutoff = now - VEL_WINDOW;
-    while(samples.length > 2 && samples[0].t < cutoff) samples.shift();
-    theta = thetaAtDown - dx / RADIUS;
-    applyAll();
-  }, {passive:false});
-
-  function endDrag(){
-    if(!pDown) return;
-    pDown = false;
-    if(!isDrag || isVert){ startLoop('snap'); return; }
-    let v = 0;
-    if(samples.length >= 2){
-      const a = samples[0], b = samples[samples.length - 1];
-      const dt = Math.max(1, b.t - a.t);
-      const pxPerMs = (b.x - a.x) / dt;
-      v = -(pxPerMs * 16.67) / RADIUS * VEL_BOOST;
-    }
-    v = Math.max(-MAX_VEL, Math.min(MAX_VEL, v));
-    vTheta = v;
-    startLoop(Math.abs(vTheta) < 0.0025 ? 'snap' : 'coast');
-  }
-  stageEl.addEventListener('pointerup',     endDrag, {passive:true});
-  stageEl.addEventListener('pointercancel', endDrag, {passive:true});
-
-  cardEls.forEach((el,j)=>{
-    const li = cardLogical[j];
-    el.addEventListener('click', ()=>{
-      if(isDrag) return;
-      if(li !== cur) goTo(li);
-    });
-  });
-
-  stageEl.addEventListener('wheel', e=>{
-    if(Math.abs(e.deltaX) < Math.abs(e.deltaY)) return;
-    e.preventDefault();
-    cancelAnimationFrame(rafId);
-    if(floatTw) floatTw.kill();
-    mode = 'idle';
-    theta += e.deltaX / RADIUS;
-    applyAll();
-    clearTimeout(stageEl._wheelTO);
-    stageEl._wheelTO = setTimeout(()=>{ vTheta=0; startLoop('snap'); }, 90);
-  }, {passive:false});
-
-  /* DRAG CURSOR / CARD HOVER LABEL — controlled by FAN_TOOLTIP_ENABLED above */
-  const dcur = document.getElementById('dcur');
-  let cX=0, cY=0, tX=0, tY=0;
-  if(FAN_TOOLTIP_ENABLED && dcur){
-    stageEl.classList.add('custom-cursor');
-    (function cursorLoop(){
-      cX += (tX - cX) * .14;
-      cY += (tY - cY) * .14;
-      dcur.style.left = cX + 'px';
-      dcur.style.top  = cY + 'px';
-      requestAnimationFrame(cursorLoop);
-    })();
-    document.addEventListener('mousemove', e=>{ tX=e.clientX; tY=e.clientY; });
-    stageEl.addEventListener('mouseenter', ()=>{ dcur.classList.add('show');  stageEl.style.cursor='none'; });
-    stageEl.addEventListener('mouseleave', ()=>{ dcur.classList.remove('show','press'); stageEl.style.cursor=''; });
-    stageEl.addEventListener('pointerdown', ()=> dcur.classList.add('press'));
-    document.addEventListener('pointerup',  ()=> dcur.classList.remove('press'));
-  } else if(dcur){
-    dcur.style.display = 'none';
-  }
-
-  let hoveredCardIdx = -1;
-  function updateCursorLabel(){
-    const spinning = pDown || mode !== 'idle';
-    let next;
-    if(!spinning && hoveredCardIdx >= 0){
-      next = DATA[hoveredCardIdx].chip;
-    } else {
-      next = 'DRAG';
-    }
-    if(!FAN_TOOLTIP_ENABLED || !dcur) return;
-    if(dcur.textContent !== next) dcur.textContent = next;
-    dcur.classList.toggle('drag', next === 'DRAG');
-  }
-  if(FAN_TOOLTIP_ENABLED){
-    cardEls.forEach((el,j)=>{
-      const li = cardLogical[j];
-      el.addEventListener('mouseenter', ()=>{ hoveredCardIdx = li; updateCursorLabel(); });
-      el.addEventListener('mouseleave', ()=>{ if(hoveredCardIdx===li){ hoveredCardIdx = -1; updateCursorLabel(); } });
-    });
-    (function labelLoop(){ updateCursorLabel(); requestAnimationFrame(labelLoop); })();
-  }
-
-  /* IDLE FLOAT */
-  function centerGhost(i){ return cardEls[N + i]; } // k=0 ghost
-  function restartFloat(){
-    if(floatTw) floatTw.kill();
-    setTimeout(()=>{
-      if(mode !== 'idle' || pDown) return;
-      const el = centerGhost(cur);
-      if(!el) return;
-      floatTw = gsap.to(el, {
-        y: '-=10', duration: 2.8, ease: 'sine.inOut', yoyo: true, repeat: -1,
-      });
-    }, 700);
-  }
-
-  /* ENTRANCE */
-  applyAll();
-  cardEls.forEach(el=> gsap.set(el,{opacity:0, y:'+=80'}));
-
-  const entryTl = gsap.timeline({delay:.1});
-  entryTl
-    .to('#cel-h1',    {opacity:1, y:0, duration:.76, ease:'power3.out'})
-    .to('#cel-sub',   {opacity:1, y:0, duration:.64, ease:'power3.out'}, '-=.44')
-    .to('#chips-row', {opacity:1, y:0, duration:.54, ease:'power3.out'}, '-=.36')
-    .call(()=>{
-      for(let j=0;j<cardEls.length;j++){
-        const i = cardLogical[j];
-        const k = cardGhost[j];
-        const wt = ((theta % PERIOD) + PERIOD) % PERIOD;
-        const a  = i * STEP - wt + k * PERIOD;
-        const x = Math.sin(a) * RADIUS;
-        const y = RADIUS - Math.cos(a) * RADIUS;
-        const slotsAway = Math.abs(a) / STEP;
-        const op  = Math.max(0, Math.min(1, 1 - Math.max(0, slotsAway - VISIBLE_HALF) * 0.85));
-        const scl = 1 - Math.min(0.22, slotsAway * 0.07);
-        cardEls[j].style.zIndex = Math.max(1, Math.round(100 - slotsAway*10));
-        gsap.to(cardEls[j], {
-          opacity: op, x, y,
-          rotation: a*180/Math.PI,
-          scaleX: scl, scaleY: scl,
-          duration: .9, delay: Math.min(slotsAway, 3) * .06,
-          ease: 'power3.out', overwrite: true,
-        });
-      }
-    }, null, '-=.05')
-    .call(restartFloat, null, '+=.7');
-
-  /* RESPONSIVE — recompute radius on resize */
-  let _resizeTO;
-  window.addEventListener('resize', ()=>{
-    clearTimeout(_resizeTO);
-    _resizeTO = setTimeout(()=>{
-      RADIUS = computeRadius();
-      applyAll();
-    }, 120);
-  });
-})();
-</script>
-<script>
-  /* Explore section: split title chars for staggered hover lift */
-  (function () {
-    document.querySelectorAll('.explore .ex-title').forEach(function (node) {
-      var text = node.textContent;
-      node.textContent = '';
-      Array.from(text).forEach(function (ch, i) {
-        var span = document.createElement('span');
-        span.className = 'ex-char';
-        span.style.setProperty('--i', i);
-        span.textContent = ch === ' ' ? '\u00a0' : ch;
-        node.appendChild(span);
-      });
-    });
-  })();
-  </script>
-
   <script src="/shared.js" defer></script>
 </body>
+
 </html>

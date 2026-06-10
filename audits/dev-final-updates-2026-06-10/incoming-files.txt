@@ -1,0 +1,21 @@
+ai-adoption.html
+ai-and-data.html
+ai-first-digital-engineering.html
+ai-led-engineering.html
+ai-upskilling.html
+banking-financial-services (1).html
+cloud-infrastructure-engineering.html
+cost-efficiency.html
+design-lab.html
+digital-experience.html
+digital-operations.html
+frameworks-accelerators.html
+gcc-nearshore.html
+managed-programs.html
+partners.html
+risk-compliance.html
+security-governance.html
+shared.js
+synthetix.html
+teams-as-a-service (1).html
+technology-consulting.html

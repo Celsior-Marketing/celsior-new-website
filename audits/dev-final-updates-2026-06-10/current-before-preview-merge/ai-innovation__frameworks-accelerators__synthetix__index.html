@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Celsior | Synthetix</title>
+  <title>Celsior | Synthetix AI-First Digital Engineering Accelerator</title>
   <meta name="description"
     content="Celsior applies AI-assisted discovery, modernization engineering, and delivery governance to convert legacy technology into measurable business velocity." />
   <meta property="og:title" content="Celsior | AI-First Digital Engineering" />
@@ -87,8 +87,8 @@
     }
 
 
-    .hero-eyebrow {
-      font-size: clamp(10px, 2.4vw, 22px);
+          .hero-eyebrow {
+      font-size: clamp(20px, 3.6vw, 20px);
       font-weight: 300;
       color: #fff;
       text-align: center;
@@ -100,6 +100,21 @@
       font-family: 'Courier New', Courier, monospace;
       padding-bottom: 20px;
       text-transform: uppercase;
+    }
+
+
+      .hero-eyebrow {
+      font-size: clamp(20px, 3.6vw, 20px);
+      font-weight: 300;
+      color: #fff;
+      text-align: center;
+      line-height: 1.1 !important;
+      letter-spacing: -0.03em !important;
+      max-width: min(94vw, 1400px);
+      width: 100%;
+      white-space: nowrap;
+      font-family: 'Courier New', Courier, monospace;
+      padding-bottom: 20px;
     }
 
 
@@ -520,13 +535,12 @@
       background: #ffffff;
       color: #0d1127;
       text-decoration: none;
-      font-family: 'Inter', system-ui, sans-serif;
+      font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
       text-align: left;
       position: relative;
       overflow: hidden;
       cursor: pointer;
       transition: color 0.3s ease;
-      font-size: 16px;
     }
 
     .explore__links a::before {
@@ -567,7 +581,7 @@
     }
 
     .explore__row-left {
-      gap: 52px;
+      gap: 24px;
     }
 
     .explore__row-right {
@@ -604,7 +618,7 @@
       align-items: center;
       flex-wrap: wrap;
       color: #0d1127;
-      font-size: 16px;
+      font-size: clamp(1.1rem, 1.8vw, 1.55rem);
       line-height: 1.12;
       font-weight: 600;
       letter-spacing: -0.02em;
@@ -1769,8 +1783,8 @@
 
     }
 
-    /* ── Mobile styles consolidated above ──
-
+    /* ── Mobile styles consolidated above ── 
+  
 
 /* === Our Focus retained-section styles === */
     .section-frame {
@@ -2537,14 +2551,14 @@
       <h1 class="hero-heading">Agents that build, not assist.
       </h1>
       <div class="hero-btns">
-        <button type="button" data-celsior-form="ai" class="btn-ghost">
+        <button class="btn-ghost">
           Explore the Platform
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </button>
-        <button type="button" data-celsior-form="ai" class="btn-white">Request a Demo</button>
+        <button class="btn-white">Request a Demo</button>
       </div>
     </div>
   </section>
@@ -2558,23 +2572,19 @@
     <div class="stats-grid">
       <div class="stat-col">
         <div class="stat-num">9/10</div>
-        <div class="stat-desc">Decisions auto-resolved
-without human handoff</div>
+        <div class="stat-desc">Decisions auto-resolved without human handoff</div>
       </div>
       <div class="stat-col">
         <div class="stat-num">24/7</div>
-        <div class="stat-desc">Continuous agent operation
-across your entire estate</div>
+        <div class="stat-desc">Continuous agent operation across your entire estate</div>
       </div>
       <div class="stat-col">
         <div class="stat-num">1/10</div>
-        <div class="stat-desc">Cost vs traditional
-consulting-led modernization</div>
+        <div class="stat-desc">Cost vs traditional consulting-led modernization</div>
       </div>
       <div class="stat-col">
         <div class="stat-num">14→2</div>
-        <div class="stat-desc">Months to weeks:
-BRD & IaC refactor cycles</div>
+        <div class="stat-desc">Months to weeks: BRD & IaC refactor cycles</div>
       </div>
     </div>
     <div class="stat-note">
@@ -3086,7 +3096,7 @@ BRD & IaC refactor cycles</div>
     </div>
   </section>
 
-  <!-- ============ AUTONOMOUS GREENFIELD DELIVERY (SLIDER) ============ -->
+  <!-- ============ AUTONOMOUS GREENFIELD DELIVERY ============ -->
   <style>
     #greenfield-delivery {
       background: #ffffff;
@@ -3095,28 +3105,11 @@ BRD & IaC refactor cycles</div>
       padding-left: var(--section-pad-h, 48px);
       padding-right: var(--section-pad-h, 48px);
     }
-    #greenfield-delivery .gd-stage {
-      position: relative;
-      max-width: 1440px;
-      margin: 0 auto;
-    }
-    #greenfield-delivery .gd-track {
-      position: relative;
-      overflow: hidden;
-    }
-    #greenfield-delivery .gd-rail {
-      display: flex;
-      width: 100%;
-      will-change: transform;
-    }
-    #greenfield-delivery .gd-slide {
+    #greenfield-delivery .gd-wrap {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: clamp(40px, 6vw, 88px);
       align-items: stretch;
-      flex: 0 0 100%;
-      width: 100%;
-      min-width: 100%;
     }
 
     /* Image */
@@ -3124,6 +3117,7 @@ BRD & IaC refactor cycles</div>
       position: relative;
       border-radius: 18px;
       overflow: hidden;
+      height: 100%;
       min-height: 480px;
       background: #e5e7eb;
       box-shadow: 0 30px 60px -30px rgba(13,17,39,0.25);
@@ -3134,11 +3128,15 @@ BRD & IaC refactor cycles</div>
       height: 100%;
       object-fit: cover;
       display: block;
+      transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1);
       will-change: transform;
     }
+    #greenfield-delivery .gd-media:hover img { transform: scale(1.04); }
 
     /* Right column */
-    #greenfield-delivery .gd-content { padding-top: clamp(8px, 1vw, 18px); }
+    #greenfield-delivery .gd-content {
+      padding-top: clamp(8px, 1vw, 18px);
+    }
     #greenfield-delivery .gd-pill {
       display: inline-flex;
       align-items: center;
@@ -3152,365 +3150,139 @@ BRD & IaC refactor cycles</div>
       text-transform: uppercase;
       margin-bottom: 28px;
       background: transparent;
-      font-family: 'Inter', sans-serif;
     }
     #greenfield-delivery .gd-lede {
-      font-family: 'Inter', sans-serif;
+      font-family: inherit;
       font-weight: 700;
-      font-size: clamp(24px, 2.4vw, 36px);
-      line-height: 1.28;
-      letter-spacing: -0.02em;
+      font-size: clamp(22px, 2.4vw, 34px);
+      line-height: 1.32;
+      letter-spacing: -0.015em;
       color: #09090b;
       margin: 0 0 36px;
     }
+    #greenfield-delivery .gd-lede .gd-em { font-weight: 700; }
+    #greenfield-delivery .gd-lede .gd-soft { font-weight: 400; color: #18181b; }
 
     /* List */
     #greenfield-delivery .gd-list {
-      list-style: none; padding: 0; margin: 0;
+      list-style: none;
+      padding: 0;
+      margin: 0;
       border-top: 1px solid #e4e4e7;
     }
     #greenfield-delivery .gd-list li {
-      display: flex; gap: 18px; align-items: flex-start;
-      padding: 22px 4px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      padding: 24px 4px;
       border-bottom: 1px solid #e4e4e7;
-      font-size: 15px; line-height: 1.55; color: #3f3f46;
-      font-family: 'Inter', sans-serif;
+      font-size: 15px;
+      line-height: 1.55;
+      color: #3f3f46;
+      position: relative;
+      overflow: hidden;
     }
     #greenfield-delivery .gd-list li::before {
-      content: "→"; color: #07574a; font-weight: 600;
-      font-size: 16px; flex-shrink: 0; line-height: 1.5;
+      content: "→";
+      color: #07574a;
+      font-weight: 600;
+      font-size: 16px;
+      flex-shrink: 0;
+      line-height: 1.5;
       transition: transform 0.45s cubic-bezier(0.16,1,0.3,1), color 0.3s ease;
     }
     #greenfield-delivery .gd-list li:hover::before { transform: translateX(6px); color: #12baa0; }
-
-    /* Controls */
-    #greenfield-delivery .gd-controls {
-      display: flex; align-items: center; justify-content: space-between;
-      gap: 24px; margin-top: clamp(28px, 3vw, 44px);
-    }
-    #greenfield-delivery .gd-dots { display: flex; gap: 10px; }
-    #greenfield-delivery .gd-dot {
-      width: 32px; height: 4px; border-radius: 2px;
-      background: #e4e4e7; border: 0; padding: 0; cursor: pointer;
-      position: relative; overflow: hidden;
-      transition: background 0.3s ease;
-    }
-    #greenfield-delivery .gd-dot.is-active { background: #d4d4d8; }
-    #greenfield-delivery .gd-dot .gd-dot-fill {
-      position: absolute; inset: 0; background: #07574a;
-      transform: scaleX(0); transform-origin: left center;
-    }
-    #greenfield-delivery .gd-arrows { display: flex; gap: 10px; }
-    #greenfield-delivery .gd-arrow {
-      width: 44px; height: 44px; border-radius: 999px;
-      border: 1px solid #e4e4e7; background: #fff; cursor: pointer;
-      display: inline-flex; align-items: center; justify-content: center;
-      color: #07574a; transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
-    }
-    #greenfield-delivery .gd-arrow:hover { background: #07574a; border-color: #07574a; color: #fff; transform: translateY(-1px); }
-    #greenfield-delivery .gd-arrow svg { width: 16px; height: 16px; }
-
-    /* Drag interaction */
-    #greenfield-delivery .gd-track { cursor: grab; touch-action: pan-y; }
-    #greenfield-delivery .gd-track.is-dragging { cursor: grabbing; }
-    #greenfield-delivery .gd-track.is-dragging .gd-rail { transition: none; }
-    #greenfield-delivery .gd-rail img,
-    #greenfield-delivery .gd-rail a { -webkit-user-drag: none; user-select: none; }
+    #greenfield-delivery .gd-list li .gd-li-text { flex: 1; }
 
     /* Responsive */
-    @media (max-width: 1024px) {
-      #greenfield-delivery .gd-lede { font-size: clamp(20px, 2.6vw, 28px); }
-    }
     @media (max-width: 900px) {
-      #greenfield-delivery .gd-slide { grid-template-columns: 1fr; gap: 32px; }
+      #greenfield-delivery .gd-wrap {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
       #greenfield-delivery .gd-media { height: auto; min-height: 0; aspect-ratio: 4 / 3; max-height: 560px; }
     }
     @media (max-width: 640px) {
-      #greenfield-delivery { padding-left: 20px; padding-right: 20px; }
-      #greenfield-delivery .gd-lede { font-size: 20px; }
-      #greenfield-delivery .gd-list li { padding: 16px 2px; font-size: 14px; }
-      #greenfield-delivery .gd-controls { flex-direction: column-reverse; align-items: flex-start; gap: 16px; }
-      #greenfield-delivery .gd-pill { font-size: 11px; }
-    }
-    @media (max-width: 420px) {
-      #greenfield-delivery .gd-lede { font-size: 18px; }
-      #greenfield-delivery .gd-arrow { width: 40px; height: 40px; }
+      #greenfield-delivery .gd-lede { font-size: 22px; }
+      #greenfield-delivery .gd-list li { padding: 18px 2px; font-size: 14px; }
     }
   </style>
 
   <section id="greenfield-delivery">
-    <div class="gd-stage">
-      <div class="gd-track" data-gd-track>
-        <div class="gd-rail" data-gd-rail>
-
-        <!-- SLIDE 1 -->
-        <article class="gd-slide is-active" data-gd-slide>
-          <div class="gd-media"><img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780740357/8b91e936f0988804a821c8757d84aaf53a4bff88_rsubq3.jpg" alt="Executives reviewing AI greenfield delivery" loading="lazy" /></div>
-          <div class="gd-content">
-            <span class="gd-pill">Autonomous Greenfield Delivery</span>
-            <h2 class="gd-lede">Hand agents a business brief. They discover the requirements, negotiate the architecture, generate the scaffold, and verify their own output before anything reaches you. You direct outcomes, not keystrokes.</h2>
-            <ul class="gd-list">
-              <li><span>Architect agent owns target-state design end-to-end — no template, no hand-off</span></li>
-              <li><span>Estimator agent collaborates to size and sequence the program autonomously</span></li>
-              <li><span>Critic agent reviews the Architect's work before any human ever sees it</span></li>
-              <li><span>Sign-off-ready artifacts arrive complete — you approve, you don't author</span></li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- SLIDE 2 -->
-        <article class="gd-slide" data-gd-slide>
-          <div class="gd-media"><img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780740357/8b91e936f0988804a821c8757d84aaf53a4bff88_rsubq3.jpg" alt="Agents executing legacy estate modernization" loading="lazy" /></div>
-          <div class="gd-content">
-            <span class="gd-pill">Autonomous Brownfield Modernization</span>
-            <h2 class="gd-lede">Point agents at a thirty-year estate. They read every line of code, map every wire of infrastructure, identify the risks, and execute the migration in parallel waves — coordinating across themselves, escalating only when policy demands it.</h2>
-            <ul class="gd-list">
-              <li><span>Cartographer agent builds the cross-domain graph: code, IaC, topology, integrations</span></li>
-              <li><span>Agents work in parallel waves — thousands of files, dozens of services, simultaneously</span></li>
-              <li><span>Critic and Examiner agents block unsafe migrations before they touch your repository</span></li>
-              <li><span>Gatekeeper agent enforces your governance policies on every change, every commit</span></li>
-            </ul>
-          </div>
-        </article>
-
-        <!-- SLIDE 3 -->
-        <article class="gd-slide" data-gd-slide>
-          <div class="gd-media"><img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780740357/8b91e936f0988804a821c8757d84aaf53a4bff88_rsubq3.jpg" alt="Agents operating production estate continuously" loading="lazy" /></div>
-          <div class="gd-content">
-            <span class="gd-pill">Continuous Autonomous Operation</span>
-            <h2 class="gd-lede">Agents live in production. They watch the estate, detect drift, refresh documentation, fix what they can, and page a human only when the situation genuinely requires one. Your on-call rotation thins out.</h2>
-            <ul class="gd-list">
-              <li><span>Mentor agent provides 24/7 guidance to platform, SRE, and operations teams</span></li>
-              <li><span>Cartographer agent re-maps the estate continuously as code and infrastructure drift</span></li>
-              <li><span>Agents propose, test, and (with policy approval) ship optimizations autonomously</span></li>
-              <li><span>Institutional memory accumulates across incidents — the team gets smarter every night</span></li>
-            </ul>
-          </div>
-        </article>
-
-        </div>
+    <div class="gd-wrap">
+      <!-- Image -->
+      <div class="gd-media" data-gd-media>
+        <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780740357/8b91e936f0988804a821c8757d84aaf53a4bff88_rsubq3.jpg" alt="Executives in a boardroom reviewing AI delivery plans" loading="lazy" />
       </div>
 
-      <div class="gd-controls">
-        <div class="gd-dots" data-gd-dots>
-          <button type="button" class="gd-dot is-active" data-gd-dot="0" aria-label="Slide 1"><span class="gd-dot-fill"></span></button>
-          <button type="button" class="gd-dot" data-gd-dot="1" aria-label="Slide 2"><span class="gd-dot-fill"></span></button>
-          <button type="button" class="gd-dot" data-gd-dot="2" aria-label="Slide 3"><span class="gd-dot-fill"></span></button>
-        </div>
-        <div class="gd-arrows">
-          <button type="button" class="gd-arrow" data-gd-prev aria-label="Previous slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
-          </button>
-          <button type="button" class="gd-arrow" data-gd-next aria-label="Next slide">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-          </button>
-        </div>
+      <!-- Content -->
+      <div class="gd-content">
+        <span class="gd-pill" data-gd-anim>Autonomous Greenfield Delivery</span>
+        <h2 class="gd-lede" data-gd-anim>
+          <span class="gd-soft">Hand agents a business brief. They</span> discover <span class="gd-soft">the requirements,</span> negotiate <span class="gd-soft">the architecture,</span> generate <span class="gd-soft">the scaffold, and</span> verify <span class="gd-soft">their own output before anything reaches you. You direct outcomes, not keystrokes.</span>
+        </h2>
+        <ul class="gd-list">
+          <li data-gd-item><span class="gd-li-text">Architect agent owns target-state design end-to-end — no template, no hand-off</span></li>
+          <li data-gd-item><span class="gd-li-text">Estimator agent collaborates to size and sequence the program autonomously</span></li>
+          <li data-gd-item><span class="gd-li-text">Critic agent reviews the Architect's work before any human ever sees it</span></li>
+          <li data-gd-item><span class="gd-li-text">Sign-off-ready artifacts arrive complete — you approve, you don't author</span></li>
+        </ul>
       </div>
     </div>
   </section>
 
   <script>
+    // Premium GSAP micro-interactions for Greenfield Delivery section
     (function () {
-      const init = () => {
-        if (typeof gsap === 'undefined') { return setTimeout(init, 60); }
-        const section = document.getElementById('greenfield-delivery');
-        if (!section) return;
+      if (typeof gsap === 'undefined') return;
+      const section = document.getElementById('greenfield-delivery');
+      if (!section) return;
 
-        const track = section.querySelector('[data-gd-track]');
-        const rail = section.querySelector('[data-gd-rail]');
-        const slides = Array.from(section.querySelectorAll('[data-gd-slide]'));
-        const dots = Array.from(section.querySelectorAll('[data-gd-dot]'));
-        const fills = dots.map(d => d.querySelector('.gd-dot-fill'));
-        const prevBtn = section.querySelector('[data-gd-prev]');
-        const nextBtn = section.querySelector('[data-gd-next]');
-        const AUTOPLAY_MS = 5000;
-        const TRANS_DUR = 0.92;
-        const FLICK_VELOCITY = 0.38;
-        let current = 0;
-        let isAnimating = false;
-        let activeProgress = null;
-        let isVisible = false;
-        let isDragging = false;
+      const media = section.querySelector('[data-gd-media] img');
+      const anims = section.querySelectorAll('[data-gd-anim]');
+      const items = section.querySelectorAll('[data-gd-item]');
 
-        gsap.set(rail, { xPercent: 0 });
-        fills.forEach(f => gsap.set(f, { scaleX: 0, transformOrigin: 'left center' }));
+      // Initial states
+      gsap.set(media, { scale: 1.12, opacity: 0 });
+      gsap.set(anims, { y: 28, opacity: 0 });
+      gsap.set(items, { y: 22, opacity: 0 });
 
-        const updateDots = (idx) => {
-          dots.forEach((d, i) => d.classList.toggle('is-active', i === idx));
-        };
-
-        const canPlay = () => isVisible && !document.hidden && !isDragging;
-
-        // Single source of truth: the progress tween drives the autoplay cadence.
-        const scheduleNext = () => {
-          if (activeProgress) { activeProgress.kill(); activeProgress = null; }
-          fills.forEach(f => gsap.set(f, { scaleX: 0, transformOrigin: 'left center' }));
-          activeProgress = gsap.to(fills[current], {
-            scaleX: 1,
-            duration: AUTOPLAY_MS / 1000,
-            ease: 'none',
-            onComplete: () => {
-              activeProgress = null;
-              if (canPlay()) nextSlide();
-            }
-          });
-        };
-
-        const stopAutoplay = () => {
-          if (activeProgress) activeProgress.pause();
-        };
-        const startAutoplay = () => {
-          if (!canPlay()) return;
-          if (activeProgress && activeProgress.progress() < 1 && !activeProgress.isActive()) {
-            activeProgress.play(); // resume from where we paused
-          } else if (!activeProgress || activeProgress.progress() >= 1) {
-            scheduleNext();
-          }
-        };
-        const restartAutoplay = () => {
-          if (activeProgress) { activeProgress.kill(); activeProgress = null; }
-          if (canPlay()) scheduleNext();
-        };
-
-        const goTo = (next, opts = {}) => {
-          if (isAnimating) return;
-          if (next === current && !isDragging) return;
-          const from = current;
-          const direction = next > from ? 1 : -1;
-          const wrapped = Math.abs(next - from) > 1;
-          const momentum = Math.min(Math.abs(opts.velocity || 0), 1.2);
-          const duration = opts.duration || Math.max(0.58, TRANS_DUR - momentum * 0.22);
-          isAnimating = true;
-          if (activeProgress) { activeProgress.kill(); activeProgress = null; }
-          // Instantly reset all fills; the new slide's bar starts fresh after transition.
-          fills.forEach(f => gsap.set(f, { scaleX: 0 }));
-          updateDots(next);
-          slides.forEach((slide, i) => slide.classList.toggle('is-active', i === next));
-          gsap.fromTo(slides[next].querySelector('.gd-media img'),
-            { xPercent: wrapped ? 0 : direction * 4, scale: 1.035 },
-            { xPercent: 0, scale: 1, duration: duration + 0.12, ease: 'expo.out', overwrite: true }
-          );
-          gsap.to(rail, {
-            xPercent: -100 * next,
-            duration,
-            ease: 'expo.out',
-            onComplete: () => {
-              current = next;
-              isAnimating = false;
-              if (canPlay()) scheduleNext();
-            },
-            onInterrupt: () => { isAnimating = false; }
-          });
-        };
-
-        const nextSlide = () => goTo((current + 1) % slides.length);
-        const prevSlide = () => goTo((current - 1 + slides.length) % slides.length);
-
-        nextBtn.addEventListener('click', () => { nextSlide(); });
-        prevBtn.addEventListener('click', () => { prevSlide(); });
-        dots.forEach((d, i) => d.addEventListener('click', () => {
-          if (i === current || isAnimating) return;
-          goTo(i);
-        }));
-
-        document.addEventListener('visibilitychange', () => {
-          if (document.hidden) stopAutoplay(); else startAutoplay();
-        });
-
-        // Keyboard navigation
-        section.setAttribute('tabindex', '0');
-        const onKey = (e) => {
-          const rect = section.getBoundingClientRect();
-          const onScreen = rect.top < window.innerHeight * 0.85 && rect.bottom > window.innerHeight * 0.15;
-          if (!onScreen) return;
-          if (e.key === 'ArrowRight') { e.preventDefault(); nextSlide(); }
-          else if (e.key === 'ArrowLeft') { e.preventDefault(); prevSlide(); }
-        };
-        window.addEventListener('keydown', onKey);
-
-        // Drag / swipe
-        let dragStartX = 0, dragDX = 0, trackW = 0, pointerId = null;
-        let lastX = 0, lastT = 0, velocityX = 0;
-        const onDown = (e) => {
-          if (isAnimating) return;
-          isDragging = true;
-          pointerId = e.pointerId;
-          dragStartX = e.clientX;
-          lastX = e.clientX;
-          lastT = performance.now();
-          velocityX = 0;
-          dragDX = 0;
-          trackW = track.getBoundingClientRect().width || 1;
-          track.classList.add('is-dragging');
-          try { track.setPointerCapture(pointerId); } catch (_) {}
-          stopAutoplay();
-          gsap.killTweensOf(rail);
-        };
-        const onMove = (e) => {
-          if (!isDragging) return;
-          const now = performance.now();
-          const dt = Math.max(16, now - lastT);
-          velocityX = (e.clientX - lastX) / dt;
-          lastX = e.clientX;
-          lastT = now;
-          dragDX = e.clientX - dragStartX;
-          const atFirst = current === 0 && dragDX > 0;
-          const atLast = current === slides.length - 1 && dragDX < 0;
-          const resistedDX = (atFirst || atLast) ? dragDX * 0.42 : dragDX;
-          const pct = (resistedDX / trackW) * 100;
-          gsap.set(rail, { xPercent: -100 * current + pct });
-        };
-        const onUp = () => {
-          if (!isDragging) return;
-          const threshold = Math.min(80, trackW * 0.12);
-          const flick = Math.abs(velocityX) > FLICK_VELOCITY;
-          let target = current;
-          if ((dragDX < -threshold || (flick && velocityX < 0)) && current < slides.length - 1) target = current + 1;
-          else if ((dragDX > threshold || (flick && velocityX > 0)) && current > 0) target = current - 1;
-          // Loop edges
-          if ((dragDX < -threshold || (flick && velocityX < 0)) && current === slides.length - 1) target = 0;
-          if ((dragDX > threshold || (flick && velocityX > 0)) && current === 0) target = slides.length - 1;
-
-          track.classList.remove('is-dragging');
-          try { if (pointerId !== null) track.releasePointerCapture(pointerId); } catch (_) {}
-          pointerId = null;
-          isDragging = false;
-
-          if (target === current) {
-            // snap back
-            isAnimating = true;
-            gsap.to(rail, {
-              xPercent: -100 * current, duration: 0.45, ease: 'power3.out',
-              onComplete: () => { isAnimating = false; if (canPlay()) restartAutoplay(); }
-            });
-          } else {
-            goTo(target, { velocity: velocityX });
-          }
-        };
-        track.addEventListener('pointerdown', onDown);
-        track.addEventListener('pointermove', onMove);
-        track.addEventListener('pointerup', onUp);
-        track.addEventListener('pointercancel', onUp);
-        track.addEventListener('pointerleave', (e) => { if (isDragging) onUp(e); });
-        // Prevent native image drag
-        rail.addEventListener('dragstart', (e) => e.preventDefault());
-
-        const io = new IntersectionObserver((entries) => {
-          entries.forEach((e) => {
-            const wasVisible = isVisible;
-            isVisible = e.isIntersecting;
-            if (isVisible && !wasVisible) restartAutoplay();
-            else if (!isVisible) stopAutoplay();
-          });
-        }, { threshold: 0.25 });
-        io.observe(section);
+      const reveal = () => {
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl.to(media, { scale: 1, opacity: 1, duration: 1.25, ease: 'power2.out' })
+          .to(anims, { y: 0, opacity: 1, duration: 0.85, stagger: 0.12 }, '-=0.95')
+          .to(items, { y: 0, opacity: 1, duration: 0.7, stagger: 0.09 }, '-=0.55');
       };
 
-      if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-      } else {
-        init();
+      // IntersectionObserver-based trigger (no ScrollTrigger dep)
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { reveal(); io.disconnect(); }
+        });
+      }, { threshold: 0.18 });
+      io.observe(section);
+
+      // Subtle parallax on image
+      const mediaWrap = section.querySelector('[data-gd-media]');
+      if (mediaWrap && window.matchMedia('(min-width: 901px)').matches) {
+        window.addEventListener('scroll', () => {
+          const r = mediaWrap.getBoundingClientRect();
+          const vh = window.innerHeight;
+          if (r.bottom < 0 || r.top > vh) return;
+          const p = (r.top + r.height / 2 - vh / 2) / vh; // -1 .. 1
+          gsap.to(media, { y: p * -22, duration: 0.6, ease: 'power2.out', overwrite: 'auto' });
+        }, { passive: true });
       }
+
+      // List item hover lift
+      items.forEach((li) => {
+        li.addEventListener('mouseenter', () => {
+          gsap.to(li, { x: 4, duration: 0.4, ease: 'power2.out' });
+        });
+        li.addEventListener('mouseleave', () => {
+          gsap.to(li, { x: 0, duration: 0.5, ease: 'power3.out' });
+        });
+      });
     })();
   </script>
 
@@ -3576,39 +3348,11 @@ BRD & IaC refactor cycles</div>
       padding-top: 4px;
     }
 
-    /* Approval gate status variant */
-    #agent-workflow .aw-status--gate {
-      color: #b45309;
-    }
-    #agent-workflow .aw-status--gate::before {
-      background: #b45309;
-    }
-
-    /* Progress bar */
-    #agent-workflow .aw-progress-bar {
-      width: 160px;
-      height: 2px;
-      background: #ececec;
-      border-radius: 999px;
-      margin: 14px auto 0;
-      overflow: hidden;
-    }
-    #agent-workflow .aw-progress-fill {
-      height: 100%;
-      width: 0%;
-      background: var(--teal);
-      border-radius: 999px;
-      transition: width linear;
-    }
-
-    /* Cards — sliding carousel */
+    /* Cards */
     #agent-workflow .aw-track {
-      overflow: hidden;
-    }
-    #agent-workflow .aw-track-inner {
-      display: flex;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: clamp(16px, 1.6vw, 24px);
-      transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
     }
     #agent-workflow .aw-card {
       position: relative;
@@ -3622,7 +3366,6 @@ BRD & IaC refactor cycles</div>
       will-change: transform;
       transform-style: preserve-3d;
       overflow: hidden;
-      flex: 0 0 calc(25% - clamp(12px, 1.2vw, 18px));
     }
     #agent-workflow .aw-card::after {
       content: "";
@@ -3738,12 +3481,23 @@ BRD & IaC refactor cycles</div>
 
     /* Responsive */
     @media (max-width: 1100px) {
-      #agent-workflow .aw-card { flex: 0 0 calc(50% - clamp(8px, 0.8vw, 12px)); }
+      #agent-workflow .aw-track { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     }
     @media (max-width: 720px) {
       #agent-workflow .aw-top { grid-template-columns: 1fr; gap: 20px; }
       #agent-workflow .aw-caption { text-align: left; max-width: none; }
-      #agent-workflow .aw-card { flex: 0 0 84%; min-height: 320px; }
+      #agent-workflow .aw-track {
+        grid-template-columns: none;
+        grid-auto-flow: column;
+        grid-auto-columns: 84%;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 14px;
+        padding-bottom: 6px;
+        scrollbar-width: none;
+      }
+      #agent-workflow .aw-track::-webkit-scrollbar { display: none; }
+      #agent-workflow .aw-card { scroll-snap-align: start; min-height: 320px; }
     }
     @media (max-width: 480px) {
       #agent-workflow .aw-track { grid-auto-columns: 88%; }
@@ -3770,7 +3524,6 @@ BRD & IaC refactor cycles</div>
       </div>
 
       <div class="aw-track" data-aw-track>
-        <div class="aw-track-inner" data-aw-inner>
         <article class="aw-card" data-aw-card>
           <div class="aw-card-top">
             <span class="aw-num">— 01</span>
@@ -3822,80 +3575,22 @@ BRD & IaC refactor cycles</div>
           <h3 class="aw-title">Critic</h3>
           <p class="aw-desc">Audits the Architect and Estimator outputs. Flags inconsistencies, sends them back for revision. Two cycles. Resolved.</p>
         </article>
-
-        <article class="aw-card" data-aw-card>
-          <div class="aw-card-top">
-            <span class="aw-num">— 05</span>
-            <span class="aw-status aw-status--gate">Approval Gate</span>
-          </div>
-          <div class="aw-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
-          </div>
-          <p class="aw-label">human gate · HALO</p>
-          <h3 class="aw-title">You</h3>
-          <p class="aw-desc">Review the architecture and plan. Approve, revise, or reject. The agents wait. HALO logs the decision for the audit trail.</p>
-        </article>
-
-        <article class="aw-card" data-aw-card>
-          <div class="aw-card-top">
-            <span class="aw-num">— 06</span>
-            <span class="aw-status">Autonomous</span>
-          </div>
-          <div class="aw-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/><circle cx="5" cy="10" r="2"/><path d="M1 19v-1a4 4 0 0 1 5.66-3.64"/><circle cx="19" cy="10" r="2"/><path d="M23 19v-1a4 4 0 0 0-5.66-3.64"/></svg>
-          </div>
-          <p class="aw-label">execution</p>
-          <h3 class="aw-title">Builder Swarm</h3>
-          <p class="aw-desc">A pool of generation agents migrates code, IaC, and integrations in parallel waves. Each unit goes through Examiner before merge.</p>
-        </article>
-
-        <article class="aw-card" data-aw-card>
-          <div class="aw-card-top">
-            <span class="aw-num">— 07</span>
-            <span class="aw-status">Autonomous</span>
-          </div>
-          <div class="aw-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><line x1="6" y1="20" x2="6" y2="12"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="18" y1="20" x2="18" y2="8"/></svg>
-          </div>
-          <p class="aw-label">verification</p>
-          <h3 class="aw-title">Estimator</h3>
-          <p class="aw-desc">Generates and runs tests against every migrated unit. Coverage above 85% required to advance. Failures route back to the swarm.</p>
-        </article>
-
-        <article class="aw-card" data-aw-card>
-          <div class="aw-card-top">
-            <span class="aw-num">— 08</span>
-            <span class="aw-status">Autonomous</span>
-          </div>
-          <div class="aw-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <p class="aw-label">governance</p>
-          <h3 class="aw-title">Gatekeeper</h3>
-          <p class="aw-desc">Enforces your security, compliance, and code-standard policies. Blocks anything that fails policy. Audit trail recorded for every decision.</p>
-        </article>
-        </div><!-- /aw-track-inner -->
-      </div><!-- /aw-track -->
+      </div>
 
       <div class="aw-controls" role="group" aria-label="Agent workflow carousel">
-        <button type="button" class="aw-arrow" data-aw-prev aria-label="Previous">
+        <button class="aw-arrow" data-aw-prev aria-label="Previous">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
         </button>
         <div class="aw-dots" data-aw-dots>
-          <button type="button" class="aw-dot" data-aw-dot="0" aria-label="Card 1"></button>
-          <button type="button" class="aw-dot" data-aw-dot="1" aria-label="Card 2"></button>
-          <button type="button" class="aw-dot" data-aw-dot="2" aria-label="Card 3"></button>
-          <button type="button" class="aw-dot" data-aw-dot="3" aria-label="Card 4"></button>
-          <button type="button" class="aw-dot" data-aw-dot="4" aria-label="Card 5"></button>
-          <button type="button" class="aw-dot" data-aw-dot="5" aria-label="Card 6"></button>
-          <button type="button" class="aw-dot" data-aw-dot="6" aria-label="Card 7"></button>
-          <button type="button" class="aw-dot is-active" data-aw-dot="7" aria-label="Card 8"></button>
+          <button class="aw-dot" data-aw-dot="0" aria-label="Card 1"></button>
+          <button class="aw-dot is-active" data-aw-dot="1" aria-label="Card 2"></button>
+          <button class="aw-dot" data-aw-dot="2" aria-label="Card 3"></button>
+          <button class="aw-dot" data-aw-dot="3" aria-label="Card 4"></button>
         </div>
-        <button type="button" class="aw-arrow" data-aw-next aria-label="Next">
+        <button class="aw-arrow" data-aw-next aria-label="Next">
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
         </button>
       </div>
-      <div class="aw-progress-bar" aria-hidden="true"><div class="aw-progress-fill" data-aw-progress></div></div>
     </div>
   </section>
 
@@ -3903,150 +3598,41 @@ BRD & IaC refactor cycles</div>
     (function () {
       const section = document.getElementById('agent-workflow');
       if (!section) return;
-      const inner   = section.querySelector('[data-aw-inner]');
-      const track   = section.querySelector('[data-aw-track]');
-      const cards   = section.querySelectorAll('[data-aw-card]');
-      const dots    = section.querySelectorAll('[data-aw-dot]');
-      const prevBtn = section.querySelector('[data-aw-prev]');
-      const nextBtn = section.querySelector('[data-aw-next]');
-      const progFill= section.querySelector('[data-aw-progress]');
-
-      const TOTAL    = cards.length;   // 8
-      const VISIBLE  = () => window.matchMedia('(max-width: 720px)').matches ? 1
-                           : window.matchMedia('(max-width: 1100px)').matches ? 2 : 4;
-      const INTERVAL = 5000;  // ms
-
-      let idx   = 0;   // index of the first visible card
-      let timer = null;
-
-      function maxIdx() { return TOTAL - VISIBLE(); }
-
-      function getCardWidth() {
-        const gap = parseFloat(getComputedStyle(inner).gap) || 24;
-        return cards[0].offsetWidth + gap;
-      }
-
-      function slideTo(i, skipProgress) {
-        const max = maxIdx();
-        idx = ((i % (max + 1)) + (max + 1)) % (max + 1);
-
-        inner.style.transform = `translateX(-${idx * getCardWidth()}px)`;
-
-        // active = first visible card
-        cards.forEach((c, k) => c.classList.toggle('is-active', k === idx));
-
-        // dots — one dot per card, highlight current
-        dots.forEach((d, k) => d.classList.toggle('is-active', k === idx));
-
-        if (!skipProgress) startProgress();
-      }
-
-      function startProgress() {
-        if (progFill) {
-          progFill.style.transition = 'none';
-          progFill.style.width = '0%';
-          // force reflow
-          void progFill.offsetWidth;
-          progFill.style.transition = `width ${INTERVAL}ms linear`;
-          progFill.style.width = '100%';
+      const cards = section.querySelectorAll('[data-aw-card]');
+      const dots = section.querySelectorAll('[data-aw-dot]');
+      const prev = section.querySelector('[data-aw-prev]');
+      const next = section.querySelector('[data-aw-next]');
+      let active = 3;
+      const setActive = (i) => {
+        active = (i + cards.length) % cards.length;
+        cards.forEach((c, idx) => c.classList.toggle('is-active', idx === active));
+        dots.forEach((d, idx) => d.classList.toggle('is-active', idx === active));
+        if (window.matchMedia('(max-width: 720px)').matches && cards[active]) {
+          cards[active].scrollIntoView({ behavior: 'smooth', inline: 'start', block: 'nearest' });
         }
-        clearInterval(timer);
-        timer = setInterval(() => slideTo(idx + 1), INTERVAL);
-      }
+      };
+      dots.forEach((d) => d.addEventListener('click', () => setActive(+d.dataset.awDot)));
+      prev && prev.addEventListener('click', () => setActive(active - 1));
+      next && next.addEventListener('click', () => setActive(active + 1));
 
-      function resetTimer() {
-        clearInterval(timer);
-        if (progFill) {
-          progFill.style.transition = 'none';
-          progFill.style.width = '0%';
-        }
-        startProgress();
-      }
-
-      dots.forEach((d) => d.addEventListener('click', () => {
-        slideTo(+d.dataset.awDot);
-        resetTimer();
-      }));
-      prevBtn && prevBtn.addEventListener('click', () => { slideTo(idx - 1); resetTimer(); });
-      nextBtn && nextBtn.addEventListener('click', () => { slideTo(idx + 1); resetTimer(); });
-
-      // ---- Keyboard arrow keys (when section is focused/hovered) ----
-      let sectionHovered = false;
-      section.addEventListener('mouseenter', () => { sectionHovered = true; });
-      section.addEventListener('mouseleave', () => { sectionHovered = false; });
-      document.addEventListener('keydown', (e) => {
-        if (!sectionHovered) return;
-        if (e.key === 'ArrowLeft')  { slideTo(idx - 1); resetTimer(); }
-        if (e.key === 'ArrowRight') { slideTo(idx + 1); resetTimer(); }
-      });
-
-      // ---- Mouse drag on desktop ----
-      let dragStartX = null, dragDelta = 0, isDragging = false;
-      const DRAG_THRESHOLD = 40;
-
-      inner.addEventListener('mousedown', (e) => {
-        dragStartX = e.clientX;
-        dragDelta  = 0;
-        isDragging = false;
-        inner.style.cursor = 'grabbing';
-      });
-      window.addEventListener('mousemove', (e) => {
-        if (dragStartX === null) return;
-        dragDelta = e.clientX - dragStartX;
-        if (Math.abs(dragDelta) > 6) isDragging = true;
-      });
-      window.addEventListener('mouseup', () => {
-        if (dragStartX === null) return;
-        if (isDragging) {
-          if (dragDelta < -DRAG_THRESHOLD)      { slideTo(idx + 1); resetTimer(); }
-          else if (dragDelta > DRAG_THRESHOLD)  { slideTo(idx - 1); resetTimer(); }
-        }
-        dragStartX = null; dragDelta = 0; isDragging = false;
-        inner.style.cursor = 'grab';
-      });
-      // prevent accidental link/text clicks during drag
-      inner.addEventListener('click', (e) => { if (isDragging) e.preventDefault(); }, true);
-      inner.style.cursor = 'grab';
-
-      // ---- Touch swipe on mobile ----
-      let touchStartX = null, touchDelta = 0;
-      inner.addEventListener('touchstart', (e) => {
-        touchStartX = e.touches[0].clientX;
-        touchDelta  = 0;
-      }, { passive: true });
-      inner.addEventListener('touchmove', (e) => {
-        if (touchStartX === null) return;
-        touchDelta = e.touches[0].clientX - touchStartX;
-      }, { passive: true });
-      inner.addEventListener('touchend', () => {
-        if (touchDelta < -DRAG_THRESHOLD)     { slideTo(idx + 1); resetTimer(); }
-        else if (touchDelta > DRAG_THRESHOLD) { slideTo(idx - 1); resetTimer(); }
-        touchStartX = null; touchDelta = 0;
-      });
-
-      // Pause autoslide on hover
-      section.addEventListener('mouseenter', () => {
-        clearInterval(timer);
-        if (progFill) { progFill.style.transition = 'none'; }
-      });
-      section.addEventListener('mouseleave', () => resetTimer());
-
-      // Init
-      slideTo(0);
-
-      // GSAP enhancements
       if (typeof gsap !== 'undefined') {
+        // ---- Entry reveal (staggered momentum) ----
         gsap.set(cards, { y: 36, opacity: 0, rotateX: 6, transformPerspective: 900, transformOrigin: '50% 100%' });
         const io = new IntersectionObserver((entries) => {
           entries.forEach((e) => {
             if (e.isIntersecting) {
-              gsap.to(cards, { y: 0, opacity: 1, rotateX: 0, duration: 1.1, stagger: 0.11, ease: 'expo.out' });
+              gsap.to(cards, {
+                y: 0, opacity: 1, rotateX: 0,
+                duration: 1.1, stagger: 0.11,
+                ease: 'expo.out'
+              });
               io.disconnect();
             }
           });
         }, { threshold: 0.15 });
         io.observe(section);
 
+        // ---- Per-card premium hover interactions ----
         cards.forEach((card) => {
           const icon  = card.querySelector('.aw-icon');
           const title = card.querySelector('.aw-title');
@@ -4063,31 +3649,43 @@ BRD & IaC refactor cycles</div>
           const qDesc   = gsap.quickTo(desc,  'y',         { duration: 0.7, ease: 'power3.out' });
           const qRotX   = gsap.quickTo(card,  'rotateX',   { duration: 0.5, ease: 'power2.out' });
           const qRotY   = gsap.quickTo(card,  'rotateY',   { duration: 0.5, ease: 'power2.out' });
+
           gsap.set(card, { transformPerspective: 900, transformOrigin: 'center' });
 
           card.addEventListener('mouseenter', () => {
-            qLift(-8); qShadow('0 30px 60px -32px rgba(11,79,143,0.28)');
-            qIconY(-4); qIconS(1.08); qLabel(-2); qTitle(-3); qDesc(-1);
+            qLift(-8);
+            qShadow('0 30px 60px -32px rgba(11,79,143,0.28)');
+            qIconY(-4); qIconS(1.08);
+            qLabel(-2); qTitle(-3); qDesc(-1);
             gsap.to(top, { opacity: 0.85, duration: 0.4, ease: 'power2.out' });
           });
+
           card.addEventListener('mousemove', (e) => {
             const r = card.getBoundingClientRect();
-            const px = (e.clientX - r.left) / r.width;
+            const px = (e.clientX - r.left) / r.width;   // 0..1
             const py = (e.clientY - r.top)  / r.height;
             card.style.setProperty('--mx', (px * 100) + '%');
             card.style.setProperty('--my', (py * 100) + '%');
-            qRotY((px - 0.5) * 6); qRotX((py - 0.5) * -5);
+            qRotY((px - 0.5) *  6);   // subtle tilt
+            qRotX((py - 0.5) * -5);
           });
+
           card.addEventListener('mouseleave', () => {
-            qLift(0); qShadow('0 0 0 rgba(0,0,0,0)');
-            qIconY(0); qIconS(1); qLabel(0); qTitle(0); qDesc(0); qRotX(0); qRotY(0);
+            qLift(0);
+            qShadow('0 0 0 rgba(0,0,0,0)');
+            qIconY(0); qIconS(1);
+            qLabel(0); qTitle(0); qDesc(0);
+            qRotX(0); qRotY(0);
             gsap.to(top, { opacity: 1, duration: 0.4, ease: 'power2.out' });
           });
-          card.addEventListener('pointerdown',  () => gsap.to(card, { scale: 0.985, duration: 0.18, ease: 'power2.out' }));
-          card.addEventListener('pointerup',    () => gsap.to(card, { scale: 1, duration: 0.45, ease: 'elastic.out(1, 0.55)' }));
-          card.addEventListener('pointerleave', () => gsap.to(card, { scale: 1, duration: 0.4,  ease: 'power3.out' }));
+
+          // Snappy press feedback
+          card.addEventListener('pointerdown', () => gsap.to(card, { scale: 0.985, duration: 0.18, ease: 'power2.out' }));
+          card.addEventListener('pointerup',   () => gsap.to(card, { scale: 1,     duration: 0.45, ease: 'elastic.out(1, 0.55)' }));
+          card.addEventListener('pointerleave',() => gsap.to(card, { scale: 1,     duration: 0.4,  ease: 'power3.out' }));
         });
 
+        // ---- Active-card breathing accent ----
         const pulseActive = () => {
           const a = section.querySelector('.aw-card.is-active');
           if (!a) return;
@@ -4096,9 +3694,6 @@ BRD & IaC refactor cycles</div>
         };
         pulseActive();
       }
-
-      // Re-init on resize
-      window.addEventListener('resize', () => slideTo(idx, true));
     })();
   </script>
 
@@ -4506,18 +4101,15 @@ BRD & IaC refactor cycles</div>
 
     #agent-team .ag-viewport {
       overflow: hidden;
-      /* vertical breathing room so hover lift/scale isn't clipped; horizontal clips at edge */
-      padding: 18px 0;
-      margin: -18px 0;
+      margin: 0 calc(-1 * clamp(20px, 5vw, 80px));
+      padding: 0 clamp(20px, 5vw, 80px);
     }
     #agent-team .ag-track {
       display: flex;
       gap: 24px;
       will-change: transform;
       transition: transform .85s cubic-bezier(.22,.61,.36,1);
-      cursor: grab;
     }
-    #agent-team .ag-track.is-dragging { cursor: grabbing; transition: none; }
     #agent-team .ag-card {
       position: relative;
       flex: 0 0 calc((100% - 48px) / 3);
@@ -4619,10 +4211,10 @@ BRD & IaC refactor cycles</div>
         <div class="ag-right">
           <p class="ag-caption">Specialist agents. One verifiable pipeline. Every decision traceable to evidence.</p>
           <div class="ag-controls">
-            <button type="button" class="ag-btn ag-btn-prev" data-ag-prev aria-label="Previous">
+            <button class="ag-btn ag-btn-prev" data-ag-prev aria-label="Previous">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
             </button>
-            <button type="button" class="ag-btn ag-btn-next" data-ag-next aria-label="Next">
+            <button class="ag-btn ag-btn-next" data-ag-next aria-label="Next">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
             </button>
           </div>
@@ -4663,69 +4255,8 @@ BRD & IaC refactor cycles</div>
               <p class="ag-card-body">Produces work breakdowns with acceleration factors built in. Numbers your CFO and PMO can defend in the steering committee.</p>
             </div>
           </article>
-          <article class="ag-card" data-ag-card>
-            <div class="ag-card-img" style="background-image:url('https://res.cloudinary.com/dden4hawr/image/upload/v1780740760/43_jmuwmx.png');"></div>
-            <div class="ag-card-overlay"></div>
-            <div class="ag-card-glow"></div>
-            <div class="ag-card-content">
-              <p class="ag-card-tag">Quality</p>
-              <h3 class="ag-card-title">Critic</h3>
-              <p class="ag-card-body">Inline review that catches hallucinations, errors, drift, unsafe regressions, and instability before anything reaches sign-off.</p>
-            </div>
-          </article>
-          <article class="ag-card" data-ag-card>
-            <div class="ag-card-img" style="background-image:url('https://res.cloudinary.com/dden4hawr/image/upload/v1780740757/41_o3dxgk.png');"></div>
-            <div class="ag-card-overlay"></div>
-            <div class="ag-card-glow"></div>
-            <div class="ag-card-content">
-              <p class="ag-card-tag">Intelligence</p>
-              <h3 class="ag-card-title">Scout</h3>
-              <p class="ag-card-body">Multi-output research module that produces evidence-grounded reports, technical briefs, and presentation-ready demos at engagement speed.</p>
-            </div>
-          </article>
-          <article class="ag-card" data-ag-card>
-            <div class="ag-card-img" style="background-image:url('https://res.cloudinary.com/dden4hawr/image/upload/v1780740757/42_asancy.png');"></div>
-            <div class="ag-card-overlay"></div>
-            <div class="ag-card-glow"></div>
-            <div class="ag-card-content">
-              <p class="ag-card-tag">Verification</p>
-              <h3 class="ag-card-title">Examiner</h3>
-              <p class="ag-card-body">Native test generation and execution loop. Coverage that reflects real behavior across unit, integration, and contract surfaces.</p>
-            </div>
-          </article>
-          <article class="ag-card" data-ag-card>
-            <div class="ag-card-img" style="background-image:url('https://res.cloudinary.com/dden4hawr/image/upload/v1780740760/43_jmuwmx.png');"></div>
-            <div class="ag-card-overlay"></div>
-            <div class="ag-card-glow"></div>
-            <div class="ag-card-content">
-              <p class="ag-card-tag">Orchestration</p>
-              <h3 class="ag-card-title">Conductor</h3>
-              <p class="ag-card-body">Owns the rhythm: scope, dependencies, risk surfacing, and coordination across teams and tool runs and every release.</p>
-            </div>
-          </article>
-          <article class="ag-card" data-ag-card>
-            <div class="ag-card-img" style="background-image:url('https://res.cloudinary.com/dden4hawr/image/upload/v1780740757/41_o3dxgk.png');"></div>
-            <div class="ag-card-overlay"></div>
-            <div class="ag-card-glow"></div>
-            <div class="ag-card-content">
-              <p class="ag-card-tag">Governance</p>
-              <h3 class="ag-card-title">Gatekeeper</h3>
-              <p class="ag-card-body">Runs the change classification with promote-gate semantics. Versioned, reversible, fully auditable — ready for regulated industries.</p>
-            </div>
-          </article>
-          <article class="ag-card" data-ag-card>
-            <div class="ag-card-img" style="background-image:url('https://res.cloudinary.com/dden4hawr/image/upload/v1780740757/42_asancy.png');"></div>
-            <div class="ag-card-overlay"></div>
-            <div class="ag-card-glow"></div>
-            <div class="ag-card-content">
-              <p class="ag-card-tag">Onboarding</p>
-              <h3 class="ag-card-title">Mentor</h3>
-              <p class="ag-card-body">Real-time guidance for engineers in the IDE and chat. Captures tribal knowledge as it gets used and feeds it back to the platform.</p>
-            </div>
-          </article>
         </div>
       </div>
-
     </div>
   </section>
 
@@ -4824,76 +4355,6 @@ BRD & IaC refactor cycles</div>
           go(1);
         });
 
-        // ----- Keyboard arrow-key navigation (desktop) -----
-        section.setAttribute('tabindex', '0');
-        const onKey = (e) => {
-          if (isMobile()) return;
-          if (e.key === 'ArrowLeft')  { e.preventDefault(); go(-1); bumpAuto(); }
-          if (e.key === 'ArrowRight') { e.preventDefault(); go(1);  bumpAuto(); }
-        };
-        section.addEventListener('keydown', onKey);
-
-        // ----- Mouse drag to slide (desktop) -----
-        let dragging = false, startX = 0, startIndex = 0, moved = 0;
-        const onDragStart = (e) => {
-          if (isMobile()) return;
-          dragging = true; moved = 0;
-          startX = e.clientX;
-          startIndex = index;
-          track.classList.add('is-dragging');
-          gsap.killTweensOf(track);
-          stopAuto();
-        };
-        const onDragMove = (e) => {
-          if (!dragging) return;
-          moved = e.clientX - startX;
-          gsap.set(track, { x: -startIndex * stepSize() + moved });
-        };
-        const onDragEnd = () => {
-          if (!dragging) return;
-          dragging = false;
-          track.classList.remove('is-dragging');
-          const threshold = stepSize() * 0.18;
-          if (Math.abs(moved) > threshold) {
-            go(moved < 0 ? 1 : -1);
-          } else {
-            apply();
-          }
-          bumpAuto();
-        };
-        track.addEventListener('mousedown', onDragStart);
-        window.addEventListener('mousemove', onDragMove);
-        window.addEventListener('mouseup', onDragEnd);
-        // prevent native image drag interfering
-        track.addEventListener('dragstart', (e) => e.preventDefault());
-
-        let autoTimer = null;
-        const AUTO_DELAY = 5000;
-        const autoAdvance = () => {
-          const mi = maxIndex();
-          index = index >= mi ? 0 : index + 1; // loop to start when at the end
-          apply();
-        };
-        const startAuto = () => {
-          stopAuto();
-          if (maxIndex() <= 0) return; // nothing to slide
-          autoTimer = setInterval(autoAdvance, AUTO_DELAY);
-        };
-        const stopAuto = () => {
-          if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
-        };
-        // Pause on user interaction, resume shortly after
-        const bumpAuto = () => { startAuto(); };
-        [prevBtn, nextBtn].forEach((b) => b.addEventListener('click', bumpAuto));
-        viewport.addEventListener('mouseenter', stopAuto);
-        viewport.addEventListener('mouseleave', startAuto);
-        viewport.addEventListener('touchstart', stopAuto, { passive: true });
-        viewport.addEventListener('touchend', () => setTimeout(startAuto, 1200), { passive: true });
-        document.addEventListener('visibilitychange', () => {
-          if (document.hidden) stopAuto(); else startAuto();
-        });
-
-
         // Mobile: enable native swipe via overflow-x scroll
         const enableMobileScroll = () => {
           viewport.style.overflowX = 'auto';
@@ -4916,8 +4377,6 @@ BRD & IaC refactor cycles</div>
           apply();
         };
         syncMode();
-        startAuto();
-
 
         let rid;
         window.addEventListener('resize', () => {
@@ -5878,9 +5337,9 @@ BRD & IaC refactor cycles</div>
     })();
   </script>
 
+  
 
-
-
+   
 
 
   <!-- ============================================================
@@ -5956,7 +5415,7 @@ BRD & IaC refactor cycles</div>
        CSS tag : /* === TESTIMONIAL === */
        ============================================================ -->
 
-
+  
 
 
   <!-- ============================================================
@@ -6038,7 +5497,9 @@ BRD & IaC refactor cycles</div>
       </a>
 
     </div>
-
+    <div class="explore__footer">
+      <a href="#" class="explore__view-all">View all &nbsp;&#8594;</a>
+    </div>
   </section>
 
 
@@ -6478,8 +5939,8 @@ BRD & IaC refactor cycles</div>
       <p class="cta-band-eyebrow">— BEGIN</p>
       <h2 class="cta-band-text" data-text="Stop documenting the past.<br>Build the future.">Stop documenting the past.<br>Build the future.</h2>
       <div class="cta-band-btns">
-        <a data-celsior-form="ai" href="#contact" class="cta-btn cta-band-btn">Request a Demo</a>
-        <a data-celsior-form="resource" href="#" class="cta-btn-outline cta-band-btn">Download platform brief</a>
+        <a href="#contact" class="cta-btn cta-band-btn">Request a Demo</a>
+        <a href="#" class="cta-btn-outline cta-band-btn">Download platform brief</a>
       </div>
     </div>
   </section>
@@ -6619,7 +6080,6 @@ BRD & IaC refactor cycles</div>
       });
     });
   </script>
-  <script src="/shared.js" defer></script>
 
   <script>
     (function () {
@@ -6721,6 +6181,7 @@ BRD & IaC refactor cycles</div>
 
   <script>
     // Solution cards — click to toggle expanded text  </script>
+  <script src="/shared.js" defer></script>
 </body>
 
 </html>

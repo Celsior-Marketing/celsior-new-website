@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
+  <title>Celsior | Cloud and Infrastructure Engineering</title>
   <meta name="description" content="Discover Celsior's AI-led engineering capabilities spanning banking, insurance, and healthcare — powered by our AI-first digital engineering platform across the complete application lifecycle.">
   <meta name="keywords" content="AI-led engineering, capabilities, digital transformation, banking technology, insurance modernization, healthcare platform, Celsior">
   <meta property="og:title" content="Celsior | Capabilities — AI-Led Engineering">
@@ -392,7 +391,7 @@
     }
 
     .explore h2 {
-      max-width: 1100px;
+
       margin: 0 auto 56px;
       color: #0d1127;
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
@@ -406,7 +405,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      max-width: 1100px;
+
       margin: 0 auto;
       border: 1.5px solid rgba(13, 17, 39, 0.12);
       border-radius: 16px;
@@ -691,7 +690,7 @@
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0;
-      border-bottom: 1px solid rgba(13, 17, 39, 0.08);
+
       background: #fff;
       mask-image: linear-gradient(90deg, transparent 0%, #000 11%, #000 89%, transparent 100%);
       -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 11%, #000 89%, transparent 100%);
@@ -2232,7 +2231,7 @@
 
     }
 
-    /* ── Mobile styles consolidated above ── 
+    /* ── Mobile styles consolidated above ──
   </style>
   <style>
   /* CAPABILITIES: INNOVATION WHEEL */
@@ -2495,12 +2494,14 @@
   /* CAPABILITIES: IMAGE ACCORDION (text + image, two-column body) */
 .acc-section {
   background: #fff;
-  border-top: 1px solid #e5e7eb;
-  border-bottom: 1px solid #e5e7eb;
+  border-top: 1px solid #f3f4f6;
   overflow: hidden;
   width: 100%;
   margin-top: 0;
+  padding: 0px clamp(20px, 6vw, 112px);
 }
+.acc-section > .acc-row:first-of-type { border-top: 1px solid #e5e7eb; }
+.acc-section > .acc-row:last-of-type { border-bottom: 1px solid #e5e7eb; }
 .acc-row {
   position: relative;
   border-bottom: 1px solid #e5e7eb;
@@ -2630,7 +2631,7 @@
   /* CAPABILITIES: IMPACT METRICS */
 /* ══════════════════════════════════════════════════════════════════
    OUTCOMES — Pixel-locked to Figma frame 1348×643px
-   
+
    Figma measurements at 1348px:
    • Frame total height: 643px → ~48px top+bottom padding each side
    • Left col width: ~390px = 29% of 1348
@@ -2641,7 +2642,7 @@
    • Label: 15px, #18181b, 500 weight, 8px gap below number
    • Body text: 14px, #52525b, appears below heading
    • Dividers: 1px solid #d1d5db (more visible than #e5e7eb)
-   
+
    Desktop holds ≥1140px. Below that: vertical stack.
 ══════════════════════════════════════════════════════════════════ */
 
@@ -3022,13 +3023,13 @@
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>
     <div class="hero-content">
-      <h1 class="hero-heading">Cut cloud costs by 35% while<br>deploying twice as fast. 
+      <h1 class="hero-heading">Cut cloud costs by 35% while<br>deploying twice as fast.
       </h1>
       <div class="hero-btns">
-        <button class="btn-ghost">
-          Start Your Cloud Journey →
-        </button>
-      
+        <a data-celsior-form="general" href="/contact-us" class="btn-ghost">
+          Talk to Experts
+        </a>
+
       </div>
     </div>
   </section>
@@ -3063,7 +3064,7 @@
     </div>
   </div>
 
-  
+
   <!-- ============================================================
        SECTION: PLATFORM OPS COST
        Purpose : Two-column comparison (unmanaged vs managed) with
@@ -3186,16 +3187,16 @@
 <section class="cel" id="cel">
   <div class="cel-copy">
     <h2 class="cel-h1" id="cel-h1">Infrastructure, Engineered by Celsior</h2>
-    <p  class="cel-sub" id="cel-sub">Built on the Hyperconverged Cloud Management Framework </p>
+    <p  class="cel-sub" id="cel-sub">Powered by our AI-first digital engineering platform that spans the complete application lifecycle </p>
 
     <div class="chips-row" id="chips-row">
-      <button class="ch-arr" id="ch-prev" aria-label="Previous">
+      <button type="button" class="ch-arr" id="ch-prev" aria-label="Previous">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M8.5 11L5 7l3.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
       <div class="chips-viewport"><div class="chips-track" id="chips-track"></div></div>
-      <button class="ch-arr" id="ch-next" aria-label="Next">
+      <button type="button" class="ch-arr" id="ch-next" aria-label="Next">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M5.5 3L9 7l-3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -3210,29 +3211,36 @@
 <!-- Global overlays for the wheel (must be siblings of <section>, not inside it) -->
 <div id="dcur">DRAG</div>
 <div id="ctip"></div>
+  <!-- CAPABILITIES: BLOG TEASERS / CLOUD & INFRA PROOF POINTS -->
+<!-- ══════════════════════════════════════════════════════
+     SECTION 4a · BLOG TEASERS + EDITORIAL INTRO
+══════════════════════════════════════════════════════ -->
+<section style="padding: 72px 112px; border-top: 1px solid #f3f4f6;">
+  <div style="max-width: 1100px;">
+    <p style="font-size:12px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#6b7280;margin-bottom:20px;"></p>
+    <h2 style="font-size:clamp(26px,3vw,40px);font-weight:700;color:#09090b;line-height:1.15;letter-spacing:-0.03em;margin-bottom:24px;">Cloud and Infrastructure: Enterprise Results Built on Proven Architecture</h2>
+    <p style="font-size:16px;color:#3f3f46;line-height:25px;">Organizations that treat cloud and infrastructure as a strategic capability — not a cost line — operate with advantages that compound over time. Every proof point below reflects a program where intentional architecture decisions changed the outcome: multi-cloud strategies that preserved flexibility without sacrificing control, FinOps frameworks that moved spending from a tracking exercise to a driver of business decisions, and SRE practices that turned incident response from a reactive burden into a measurable reliability advantage.</p>
+  </div>
+</section>
+
   <!-- CAPABILITIES: IMAGE ACCORDION -->
 <!-- ══════════════════════════════════════════════════════
      SECTION 4b · IMAGE ACCORDION / CASE STUDIES
 ══════════════════════════════════════════════════════ -->
 <section class="acc-section" id="acc-section" aria-label="Client case studies">
 
-  <!-- ROW 1 — Breaking Through Years of Delivery Gridlock (default active) -->
+  <!-- ROW 1 — Building multi-cloud strategies (default active) -->
   <div class="acc-row active" data-index="0" tabindex="0">
     <div class="acc-header">
       <div class="acc-icon" aria-hidden="true"></div>
-      <span class="acc-title">Breaking Through Years of Delivery Gridlock</span>
+      <span class="acc-title">"Building multi-cloud strategies that reduce vendor lock-in"</span>
     </div>
     <div class="acc-body">
       <div class="acc-body-grid">
         <div class="acc-body-text">
-          <h3 class="acc-big-title">Breaking Through Years of Delivery Gridlock</h3>
-          <p class="acc-desc">Major life insurance carrier modernized legacy agent portal, achieving 50% cost reduction and completing six strategic projects in 12 months after years of stalled delivery.</p>
-          <a class="acc-readmore" href="#">
-            Read more
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <h3 class="acc-big-title">"Building multi-cloud strategies that reduce vendor lock-in"</h3>
+          <p class="acc-desc">Organizations need flexibility across AWS, Azure, and Google Cloud without sacrificing operational simplicity. Here's how to architect for portability…</p>
+
         </div>
         <div class="acc-img2">
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1778642203/ChatGPT_Image_Apr_20_2026_02_38_12_PM_3_myikvs.png" alt="Executive in modern enterprise office">
@@ -3241,23 +3249,18 @@
     </div>
   </div>
 
-  <!-- ROW 2 — Enabling Digital Growth Through Modern Architecture -->
+  <!-- ROW 2 — Cloud FinOps -->
   <div class="acc-row" data-index="1" tabindex="0">
     <div class="acc-header">
       <div class="acc-icon" aria-hidden="true"></div>
-      <span class="acc-title">Enabling Digital Growth Through Modern Architecture</span>
+      <span class="acc-title">"Cloud FinOps: From cost tracking to strategic optimization"</span>
     </div>
     <div class="acc-body">
       <div class="acc-body-grid">
         <div class="acc-body-text">
-          <h3 class="acc-big-title">Enabling Digital Growth Through Modern Architecture</h3>
-          <p class="acc-desc">Global retailer re-platformed onto a cloud-native, event-driven architecture, unlocking 40% faster release cycles and powering double-digit digital revenue growth across channels.</p>
-          <a class="acc-readmore" href="#">
-            Read more
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <h3 class="acc-big-title">"Cloud FinOps: From cost tracking to strategic optimization"</h3>
+          <p class="acc-desc">Most organizations track cloud spending but few optimize it strategically. Our framework connects usage patterns to business outcomes…</p>
+
         </div>
         <div class="acc-img2">
           <img src="https://images.pexels.com/photos/2599538/pexels-photo-2599538.jpeg" alt="Modern enterprise workspace" style="object-position:center 30%;">
@@ -3266,23 +3269,18 @@
     </div>
   </div>
 
-  <!-- ROW 3 — Accelerating Innovation While Reducing Technical Debt -->
+  <!-- ROW 3 — SRE practices -->
   <div class="acc-row" data-index="2" tabindex="0">
     <div class="acc-header">
       <div class="acc-icon" aria-hidden="true"></div>
-      <span class="acc-title">Accelerating Innovation While Reducing Technical Debt</span>
+      <span class="acc-title">"How SRE practices reduce incidents by 60%"</span>
     </div>
     <div class="acc-body">
       <div class="acc-body-grid">
         <div class="acc-body-text">
-          <h3 class="acc-big-title">Accelerating Innovation While Reducing Technical Debt</h3>
-          <p class="acc-desc">Tier-1 bank consolidated fragmented core systems through AI-led modernization, cutting technical debt by 65% while shipping new digital experiences three times faster than before.</p>
-          <a class="acc-readmore" href="#">
-            Read more
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
+          <h3 class="acc-big-title">"How SRE practices reduce incidents by 60%"</h3>
+          <p class="acc-desc">Site Reliability Engineering bridges development and operations. One healthcare provider used SRE to cut incident response from hours to minutes…</p>
+
         </div>
         <div class="acc-img2">
           <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80&fit=crop" alt="Engineering team collaborating" style="object-position:center 40%;">
@@ -3290,6 +3288,7 @@
       </div>
     </div>
   </div>
+
 
 </section>
 
@@ -3343,7 +3342,7 @@
                  on the right. Pixel-exact Figma Desktop-30 (1433×894).
        CSS tag : /* === OUTCOMES === */
        ============================================================ -->
-  
+
   <!-- CAPABILITIES: IMPACT METRICS -->
 <section class="outcomes" id="outcomes-section">
   <!-- Left: heading + body, GSAP slide-in from left -->
@@ -3400,7 +3399,7 @@
   <section class="explore">
     <h2>Continue exploring Celsior's <span style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; display:inline;">capabilities</span></h2>
     <div class="explore__links">
-      <a href="#">
+      <a data-celsior-form="ai" href="/capabilities/digital-operations-and-security">
         <span class="explore__row-left">
           <span class="explore__label">AI LAB</span>
           <span class="explore__text">Cloud Strategy & Migration</span>
@@ -3415,7 +3414,7 @@
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/capabilities/digital-operations-and-security">
         <span class="explore__row-left">
           <span class="explore__label">COES</span>
           <span class="explore__text">DevOps & Site Reliability Engineering</span>
@@ -3430,7 +3429,7 @@
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/our-focus/ai-adoption">
         <span class="explore__row-left">
           <span class="explore__label">ACCELERATORS</span>
           <span class="explore__text">Observability & Infrastructure Automation</span>
@@ -3467,25 +3466,28 @@
             d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
             fill="#fff" />
         </svg>
-        <p class="test-quote">"We were running infrastructure that hadn't been rationalized in years. Colocation costs were rising, provisioning cycles ran for weeks, and our IT team was spending most of its time on keeping things running rather than supporting the business. After the migration to Azure, hosting operations costs dropped by 55%, and what used to take weeks to provision now takes hours. Five years into the managed services arrangement, the reliability has been consistent."</p>
+        <p class="test-quote">"Our cloud and infrastructure practice scales from single application migrations to enterprise-wide transformations. Whether you're moving your first workload to the cloud, optimizing multi-cloud spending, or building SRE capabilities, we bring the same discipline: automated provisioning, cost transparency, and operational resilience built into every deployment."</p>
         <div class="test-author">
-          <div class="test-avatar">HOI</div>
+          <div class="test-avatar">CIO</div>
           <div>
-            <div style="font-size:14px;font-weight:600;color:#fff;">Leading Diagnostic Testing Company</div>
-            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Head of IT Operations</div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">Major life insurance company</div>
+            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Agent Portal Modernisation</div>
           </div>
         </div>
       </div>
       <div class="test-right">
-        <div class="test-res-label">Engagement Results</div>
+        <div class="test-res-label">DELIVERY APPROACH:</div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">55% reduction in hosting and colocation operations costs</span>
+          <div class="test-dot"></div><span class="test-res-text">Hyperconverged Cloud Management Framework for accelerated migration</span>
         </div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">Infrastructure provisioning reduced from weeks to hours</span>
+          <div class="test-dot"></div><span class="test-res-text">Cloud FinOps for continuous cost optimization and showback </span>
+        </div>
+        <div class="test-res-item">
+          <div class="test-dot"></div><span class="test-res-text">DevOps and CI/CD pipelines with infrastructure as code </span>
         </div>
         <div class="test-res-item" style="margin-bottom:0;">
-          <div class="test-dot"></div><span class="test-res-text">Five-year managed services engagement maintained with no material service disruptions</span>
+          <div class="test-dot"></div><span class="test-res-text">Site Reliability Engineering for 99.9%+ uptime targets </span>
         </div>
       </div>
     </div>
@@ -3584,7 +3586,7 @@
         <p>Covering ROI, risk, timelines, and delivery model — the
 questions that matter to decision-makers, answered
 directly.</p>
-        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+        <a data-celsior-form="general" href="#">Speak to our team <span aria-hidden="true">→</span></a>
       </div>
       <div class="faq__items">
         <div class="faq__item">
@@ -3632,7 +3634,7 @@ directly.</p>
               </svg></span>
           </button>
           <div class="faq__body">
-            <p>First workloads typically migrate within 60-90 days. For larger programs, we deliver in waves with measurable outcomes each quarter. Our Cloud Migration Factory approach provides automated assessment, dependency mapping, and migration execution that moves hundreds of workloads in months rather than years. 
+            <p>First workloads typically migrate within 60-90 days. For larger programs, we deliver in waves with measurable outcomes each quarter. Our Cloud Migration Factory approach provides automated assessment, dependency mapping, and migration execution that moves hundreds of workloads in months rather than years.
 </p>
           </div>
         </div>
@@ -3676,10 +3678,8 @@ directly.</p>
       <img class="cta-band-logo"
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
-      <h2 class="cta-band-text" data-text="Most modernization efforts begin with
-understanding the environment.">Most modernization efforts begin with
-understanding the environment.</h2>
-      <a href="#contact" class="cta-btn cta-band-btn">Explore Our Framework</a>
+      <h2 class="cta-band-text" data-text="Most cloud programs begin with the migration plan. The ones that scale begin with the architecture.">Most cloud programs begin with the migration plan. The ones that scale begin with the architecture.</h2>
+      <a href="/solutions/technology-consulting" class="cta-btn cta-band-btn">Explore Our Framework</a>
     </div>
   </section>
 
@@ -4208,18 +4208,6 @@ understanding the environment.</h2>
             <div class="c-title" style="color:${d.titleC};">${d.title}</div>
           </div>
           <p class="c-desc" style="color:${d.descC};">${d.desc}</p>
-          <div class="c-stats">
-            ${d.stats.map(s=>`<div class="stat">
-              <div class="stat-n" style="color:${d.statC};">${s.n}</div>
-              <div class="stat-l" style="color:${d.lblC};">${s.l}</div>
-            </div>`).join('')}
-          </div>
-          <button class="c-cta" style="background:${d.ctaBg};color:${d.ctaC};${bdr}">
-            View case study
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-              <path d="M2.5 6.5h8M7 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
           ${buildFoot(d)}
         </div>`;
       pivot.appendChild(wrap);

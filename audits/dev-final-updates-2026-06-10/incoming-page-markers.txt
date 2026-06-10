@@ -1,0 +1,1451 @@
+
+================ ai-adoption.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+405:       === EXPLORE ===
+408:    .explore {
+414:    .explore h2 {
+425:    .explore__links {
+436:    .explore__links a {
+456:    .explore__links a::before {
+465:    .explore__links a:nth-child(1)::before {
+469:    .explore__links a:nth-child(2)::before {
+473:    .explore__links a:nth-child(3)::before {
+477:    .explore__links a:hover::before {
+481:    .explore__links a:last-child {
+485:    .explore__row-left,
+486:    .explore__row-right {
+493:    .explore__row-left {
+497:    .explore__row-right {
+501:    .explore__label {
+521:    .explore__links a:hover .explore__label {
+526:    .explore__text {
+538:    .explore__char {
+545:    .explore__links a:hover .explore__text {
+549:    .explore__links a:hover .explore__char {
+553:    .explore__arrow {
+568:    .explore__arrow svg {
+574:    .explore__links a:hover .explore__arrow {
+580:    .explore__links a:nth-child(1):hover .explore__arrow {
+585:    .explore__links a:nth-child(2):hover .explore__arrow {
+590:    .explore__links a:nth-child(3):hover .explore__arrow {
+595:    .explore__links a:nth-child(4):'before' {
+599:    .explore__links a:nth-child(4):hover .explore__arrow {
+604:    .explore__links a:hover .explore__arrow svg {
+605:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+608:    @keyframes exploreArrowStagger {
+631:      .explore {
+635:      .explore h2 {
+640:      .explore__links a {
+652:      .explore__row-left {
+656:      .explore__row-right {
+660:      .explore__label {
+665:      .explore__text {
+671:      .explore__arrow {
+680:      .explore__label {
+1672:    /* Explore / blog */
+1673:    .explore {
+1849:    .explore h2,
+2182:      /* ── Blog / Explore ── */
+2183:      .explore {
+2459:    /* ── Explore link ── */
+3287:      <h1 class="hero-heading">Deploy AI that regulators can audit<br>and businesses can <span
+3292:        <a href="https://celsior-assessment-tools.netlify.app/modernization-readiness/" class="btn-ghost" role="button">
+3299:        <a href="https://dev.celsiortech.us/contact-us" class="btn-white" role="button">Explore Our Approach</a>
+3339:    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">Most AI pilots produce impressive demos that never scale or deliver ROI. The constraint is structured governance: frameworks ensuring human accountability, maintaining compliance at scale, and connecting strategy to execution. Without this, AI accumulates technical debt faster than business value. </p>
+3477:      <article onclick="window.location.href='https://dev.celsiortech.us/ai-innovation/frameworks-accelerators'">
+3485:            <a class="solution-link" href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators">Explore CAFE™ Framework →</a>
+3489:      <article onclick="window.location.href='https://dev.celsiortech.us/ai-innovation/frameworks-accelerators'">
+3497:            <a class="solution-link" href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators">Explore HALO™ Framework →</a>
+3501:      <article onclick="window.location.href='https://dev.celsiortech.us/ai-innovation/frameworks-accelerators'">
+3509:            <a class="solution-link" href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators">Explore PACE™ Platform →</a>
+3581:        <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix" class="em-cta">Get Started
+3701:  <section class="explore">
+3703:    <div class="explore__links">
+3704:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3705:        <span class="explore__row-left">
+3706:          <span class="explore__label">AI LAB</span>
+3707:          <span class="explore__text">AI Readiness & Strategic Planning</span>
+3709:        <span class="explore__row-right">
+3710:          <span class="explore__arrow" aria-hidden="true">
+3719:      <a href="https://celsior-assessment-tools.netlify.app/modernization-readiness/">
+3720:        <span class="explore__row-left">
+3721:          <span class="explore__label">CoEs</span>
+3722:          <span class="explore__text">Responsible AI & Production Governance </span>
+3724:        <span class="explore__row-right">
+3725:          <span class="explore__arrow" aria-hidden="true">
+3734:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators">
+3735:        <span class="explore__row-left">
+3736:          <span class="explore__label">Accelerators</span>
+3737:          <span class="explore__text">Enterprise AI Pilots</span>
+
+================ ai-and-data.html ================
+6:  <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
+14:  <link rel="canonical" href="https://celsior.com/capabilities">
+15:  <link rel="preconnect" href="https://fonts.googleapis.com">
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+17:  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+384:       === EXPLORE ===
+387:    .explore {
+393:    .explore h2 {
+404:    .explore__links {
+415:    .explore__links a {
+435:    .explore__links a::before {
+444:    .explore__links a:nth-child(1)::before {
+448:    .explore__links a:nth-child(2)::before {
+452:    .explore__links a:nth-child(3)::before {
+456:    .explore__links a:nth-child(4)::before {
+460:    .explore__links a:hover::before {
+464:    .explore__links a:last-child {
+468:    .explore__row-left,
+469:    .explore__row-right {
+476:    .explore__row-left {
+480:    .explore__row-right {
+484:    .explore__label {
+503:    .explore__links a:hover .explore__label {
+508:    .explore__text {
+520:    .explore__char {
+527:    .explore__links a:hover .explore__text {
+531:    .explore__links a:hover .explore__char {
+535:    .explore__arrow {
+550:    .explore__arrow svg {
+556:    .explore__links a:hover .explore__arrow {
+562:    .explore__links a:nth-child(1):hover .explore__arrow {
+567:    .explore__links a:nth-child(2):hover .explore__arrow {
+572:    .explore__links a:nth-child(3):hover .explore__arrow {
+577:    .explore__links a:nth-child(4):hover .explore__arrow {
+582:    .explore__links a:hover .explore__arrow svg {
+583:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+586:    @keyframes exploreArrowStagger {
+609:      .explore {
+613:      .explore h2 {
+618:      .explore__links a {
+630:      .explore__row-left {
+634:      .explore__row-right {
+638:      .explore__label {
+643:      .explore__text {
+649:      .explore__arrow {
+658:      .explore__label {
+1663:    /* Explore / blog */
+1664:    .explore {
+1840:    .explore h2,
+2175:      /* ── Blog / Explore ── */
+2176:      .explore {
+3020:      <h1 class="hero-heading">Make decisions in hours, not weeks.
+3023:        <a href="https://dev.celsiortech.us/contact-us" class="btn-ghost">
+3380:       SECTION: EXPLORE
+3383:       CSS tag : /* === EXPLORE === */
+3385:  <section class="explore">
+3387:    <div class="explore__links">
+3388:      <a href="https://dev.celsiortech.us/solutions/managed-programs">
+3389:        <span class="explore__row-left">
+3390:          <span class="explore__label">AI LAB</span>
+3391:          <span class="explore__text">Data Strategy & Engineering </span>
+3393:        <span class="explore__row-right">
+3394:          <span class="explore__arrow" aria-hidden="true">
+3403:      <a href="https://dev.celsiortech.us/ai-innovation/design-lab">
+3404:        <span class="explore__row-left">
+3405:          <span class="explore__label">COES</span>
+3406:          <span class="explore__text">Advanced Analytics & AI</span>
+3408:        <span class="explore__row-right">
+3409:          <span class="explore__arrow" aria-hidden="true">
+3418:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators">
+3419:        <span class="explore__row-left">
+3420:          <span class="explore__label">ACCELERATORS</span>
+3421:          <span class="explore__text">Visualization & Decision-Making</span>
+3423:        <span class="explore__row-right">
+3424:          <span class="explore__arrow" aria-hidden="true">
+3452:      <a href="#"
+3469:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3485:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3501:          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3515:  <!-- SOLUTIONS: TESTIMONIAL + EXPLORE + INSIGHTS + FAQ + CTA -->
+
+================ ai-first-digital-engineering.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+397:       === EXPLORE ===
+400:    .explore {
+406:    .explore h2 {
+417:    .explore__links {
+428:    .explore__links a {
+448:    .explore__links a::before {
+457:    .explore__links a:nth-child(1)::before {
+461:    .explore__links a:nth-child(2)::before {
+465:    .explore__links a:nth-child(3)::before {
+469:    .explore__links a:hover::before {
+473:    .explore__links a:last-child {
+477:    .explore__row-left,
+478:    .explore__row-right {
+485:    .explore__row-left {
+489:    .explore__row-right {
+493:    .explore__label {
+513:    .explore__links a:hover .explore__label {
+518:    .explore__text {
+530:    .explore__char {
+537:    .explore__links a:hover .explore__text {
+541:    .explore__links a:hover .explore__char {
+545:    .explore__arrow {
+560:    .explore__arrow svg {
+566:    .explore__links a:hover .explore__arrow {
+572:    .explore__links a:nth-child(1):hover .explore__arrow {
+577:    .explore__links a:nth-child(2):hover .explore__arrow {
+582:    .explore__links a:nth-child(3):hover .explore__arrow {
+587:    .explore__links a:nth-child(4)::before {
+591:    .explore__links a:nth-child(4):hover .explore__arrow {
+596:    .explore__links a:hover .explore__arrow svg {
+597:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+600:    @keyframes exploreArrowStagger {
+623:      .explore {
+627:      .explore h2 {
+632:      .explore__links a {
+644:      .explore__row-left {
+648:      .explore__row-right {
+652:      .explore__label {
+657:      .explore__text {
+663:      .explore__arrow {
+672:      .explore__label {
+1717:    /* Explore / blog */
+1718:    .explore {
+1894:    .explore h2,
+2228:      /* ── Blog / Explore ── */
+2229:      .explore {
+2505:    /* ── Explore link ── */
+3341:      <h1 class="hero-heading"><span
+3347:        <a href="https://dev.celsiortech.us/capabilities/ai-led-engineering" class="btn-ghost">
+3348:          Explore Our Approach
+3354:        <a href="https://dev.celsiortech.us/contact-us" class="btn-white">Schedule Consultation →</a>
+3372:        <div class="stat-desc">Lower migration costs through automated assessment</div>
+3546:            <a class="solution-link" href="https://dev.celsiortech.us/capabilities/ai-led-engineering">Explore Modernization →</a>
+3561:            <a class="solution-link" href="https://dev.celsiortech.us/capabilities/cloud-and-infrastructure-engineering">Explore Cloud Engineering →</a>
+3576:            <a class="solution-link" href="https://dev.celsiortech.us/solutions/teams-as-a-service">Learn About Teams-as-a-Service →</a>
+3657:        <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix" class="em-cta">Get Started
+3709:        <p class="em-card-desc">Automated cloud assessment, migration, and operations. 46% faster migration timelines,
+3788:       SECTION: EXPLORE
+3791:       CSS tag : /* === EXPLORE === */
+3793:  <section class="explore">
+3795:    <div class="explore__links">
+3796:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix">
+3797:        <span class="explore__row-left">
+3798:          <span class="explore__label">Modernization Hub</span>
+3799:          <span class="explore__text">Core &amp; Legacy Modernization</span>
+3801:        <span class="explore__row-right">
+3802:          <span class="explore__arrow" aria-hidden="true">
+3811:      <a href="https://dev.celsiortech.us/capabilities/cloud-and-infrastructure-engineering">
+3812:        <span class="explore__row-left">
+3813:          <span class="explore__label">Cloud CoE</span>
+3814:          <span class="explore__text">Cloud Transformation &amp; Continuous Modernization</span>
+3816:        <span class="explore__row-right">
+3817:          <span class="explore__arrow" aria-hidden="true">
+3826:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3827:        <span class="explore__row-left">
+3828:          <span class="explore__label">AI Accelerators</span>
+
+================ ai-led-engineering.html ================
+6:  <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
+14:  <link rel="canonical" href="https://celsior.com/capabilities">
+15:  <link rel="preconnect" href="https://fonts.googleapis.com">
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+17:  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+384:       === EXPLORE ===
+387:    .explore {
+393:    .explore h2 {
+404:    .explore__links {
+415:    .explore__links a {
+435:    .explore__links a::before {
+444:    .explore__links a:nth-child(1)::before {
+448:    .explore__links a:nth-child(2)::before {
+452:    .explore__links a:nth-child(3)::before {
+456:    .explore__links a:nth-child(4)::before {
+460:    .explore__links a:hover::before {
+464:    .explore__links a:last-child {
+468:    .explore__row-left,
+469:    .explore__row-right {
+476:    .explore__row-left {
+480:    .explore__row-right {
+484:    .explore__label {
+503:    .explore__links a:hover .explore__label {
+508:    .explore__text {
+520:    .explore__char {
+527:    .explore__links a:hover .explore__text {
+531:    .explore__links a:hover .explore__char {
+535:    .explore__arrow {
+550:    .explore__arrow svg {
+556:    .explore__links a:hover .explore__arrow {
+562:    .explore__links a:nth-child(1):hover .explore__arrow {
+567:    .explore__links a:nth-child(2):hover .explore__arrow {
+572:    .explore__links a:nth-child(3):hover .explore__arrow {
+577:    .explore__links a:nth-child(4):hover .explore__arrow {
+582:    .explore__links a:hover .explore__arrow svg {
+583:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+586:    @keyframes exploreArrowStagger {
+609:      .explore {
+613:      .explore h2 {
+618:      .explore__links a {
+630:      .explore__row-left {
+634:      .explore__row-right {
+638:      .explore__label {
+643:      .explore__text {
+649:      .explore__arrow {
+658:      .explore__label {
+1662:    /* Explore / blog */
+1663:    .explore {
+1839:    .explore h2,
+2174:      /* ── Blog / Explore ── */
+2175:      .explore {
+3012:      <h1 class="hero-heading">Legacy systems slow you down. AI-led<br>engineering gets you ahead.
+3015:  <a href="https://celsior-assessment-tools.netlify.app/codebase-assessment/"
+3017:    Start Assessment →
+3020:  <a href="https://dev.celsiortech.us/contact-us"
+3376:       SECTION: EXPLORE
+3379:       CSS tag : /* === EXPLORE === */
+3381:  <section class="explore">
+3383:    <div class="explore__links">
+3384:      <a href="https://dev.celsiortech.us/solutions/managed-programs">
+3385:        <span class="explore__row-left">
+3386:          <span class="explore__label">AI LAB</span>
+3387:          <span class="explore__text">Application &amp; Platform Engineering</span>
+3389:        <span class="explore__row-right">
+3390:          <span class="explore__arrow" aria-hidden="true">
+3399:      <a href="https://dev.celsiortech.us/solutions/technology-consulting">
+3400:        <span class="explore__row-left">
+3401:          <span class="explore__label">COES</span>
+3402:          <span class="explore__text">Microservices &amp; Modern Architectures</span>
+3404:        <span class="explore__row-right">
+3405:          <span class="explore__arrow" aria-hidden="true">
+3414:      <a href="https://dev.celsiortech.us/capabilities/cloud-and-infrastructure-engineering">
+3415:        <span class="explore__row-left">
+3416:          <span class="explore__label">ACCELERATORS</span>
+3417:          <span class="explore__text">Cloud Engineering &amp; Transformation</span>
+3419:        <span class="explore__row-right">
+3420:          <span class="explore__arrow" aria-hidden="true">
+3429:      <a href="https://dev.celsiortech.us/capabilities/digital-operations-and-security">
+3430:        <span class="explore__row-left">
+3431:          <span class="explore__label">INTELLIGENT OPS</span>
+
+================ ai-upskilling.html ================
+7:  <title>Celsior | Solutions — Managed Programs</title>
+8:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+9:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+11:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+443:       === EXPLORE ===
+446:    .explore {
+452:    .explore h2 {
+463:    .explore__links {
+474:    .explore__links a {
+494:    .explore__links a::before {
+503:    .explore__links a:nth-child(1)::before {
+507:    .explore__links a:nth-child(2)::before {
+511:    .explore__links a:nth-child(3)::before {
+515:    .explore__links a:hover::before {
+519:    .explore__links a:last-child {
+523:    .explore__row-left,
+524:    .explore__row-right {
+532:    .explore__row-left {
+538:    .explore__row-right {
+543:    .explore__label {
+564:    .explore__links a:hover .explore__label {
+569:    .explore__text {
+583:    .explore__char {
+590:    .explore__links a:hover .explore__text {
+594:    .explore__links a:hover .explore__char {
+598:    .explore__arrow {
+613:    .explore__arrow svg {
+619:    .explore__links a:hover .explore__arrow {
+625:    .explore__links a:nth-child(1):hover .explore__arrow {
+630:    .explore__links a:nth-child(2):hover .explore__arrow {
+635:    .explore__links a:nth-child(3):hover .explore__arrow {
+640:    .explore__links a:hover .explore__arrow svg {
+641:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+644:    @keyframes exploreArrowStagger {
+667:      .explore {
+671:      .explore h2 {
+677:      .explore__links a {
+684:      .explore__row-left {
+692:      .explore__row-right {
+698:      .explore__label {
+705:      .explore__text {
+710:      .explore__arrow {
+1716:    /* Explore / blog */
+1717:    .explore {
+1895:    .explore h2,
+2230:      /* ── Blog / Explore ── */
+2231:      .explore {
+2500:      .explore h2,
+2588:      <h1 class="hero-heading">The return on your AI investment depends<br>entirely on whether your workforce can act on it.<br>Celsior ensures they can. 
+2591:        <a href="https://dev.celsiortech.us/contact-us"
+2592:        <button class="btn-white">Schedule a Discovery Call</button></a>
+3149:       SECTION: EXPLORE
+3152:       CSS tag : /* === EXPLORE === */
+3154:  <section class="explore">
+3156:    <div class="explore__links">
+3157:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3158:        <span class="explore__row-left">
+3159:          <span class="explore__label">Enterprise AI Enablement </span>
+3160:          <span class="explore__text">Data & AI Strategy</span>
+3162:        <span class="explore__row-right">
+3163:          <span class="explore__arrow" aria-hidden="true">
+3172:      <a href="https://dev.celsiortech.us/ai-innovation/design-lab">
+3173:        <span class="explore__row-left">
+3174:          <span class="explore__label">Nearshore Delivery</span>
+3175:          <span class="explore__text">Digital Experience Transformation</span>
+3177:        <span class="explore__row-right">
+3178:          <span class="explore__arrow" aria-hidden="true">
+3187:      <a href="https://dev.celsiortech.us/capabilities/ai-led-engineering">
+3188:        <span class="explore__row-left">
+3189:          <span class="explore__label">AI-Led Engineering </span>
+3190:          <span class="explore__text">Automation Solutions One-line descriptor</span>
+3192:        <span class="explore__row-right">
+3193:          <span class="explore__arrow" aria-hidden="true">
+3219:      <a href="#"
+3236:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3253:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3269:          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3292:        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+3368:            <p>Every engagement starts with a platform health assessment that establishes a baseline for performance,
+3392:      <a href="https://dev.celsiortech.us/contact-us" class="cta-btn cta-band-btn">Start the conversation</a>
+
+================ banking-financial-services ================
+
+================ (1).html ================
+
+================ cloud-infrastructure-engineering.html ================
+6:  <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
+14:  <link rel="canonical" href="https://celsior.com/capabilities">
+15:  <link rel="preconnect" href="https://fonts.googleapis.com">
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+17:  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+384:       === EXPLORE ===
+387:    .explore {
+393:    .explore h2 {
+404:    .explore__links {
+415:    .explore__links a {
+435:    .explore__links a::before {
+444:    .explore__links a:nth-child(1)::before {
+448:    .explore__links a:nth-child(2)::before {
+452:    .explore__links a:nth-child(3)::before {
+456:    .explore__links a:nth-child(4)::before {
+460:    .explore__links a:hover::before {
+464:    .explore__links a:last-child {
+468:    .explore__row-left,
+469:    .explore__row-right {
+476:    .explore__row-left {
+480:    .explore__row-right {
+484:    .explore__label {
+503:    .explore__links a:hover .explore__label {
+508:    .explore__text {
+520:    .explore__char {
+527:    .explore__links a:hover .explore__text {
+531:    .explore__links a:hover .explore__char {
+535:    .explore__arrow {
+550:    .explore__arrow svg {
+556:    .explore__links a:hover .explore__arrow {
+562:    .explore__links a:nth-child(1):hover .explore__arrow {
+567:    .explore__links a:nth-child(2):hover .explore__arrow {
+572:    .explore__links a:nth-child(3):hover .explore__arrow {
+577:    .explore__links a:nth-child(4):hover .explore__arrow {
+582:    .explore__links a:hover .explore__arrow svg {
+583:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+586:    @keyframes exploreArrowStagger {
+609:      .explore {
+613:      .explore h2 {
+618:      .explore__links a {
+630:      .explore__row-left {
+634:      .explore__row-right {
+638:      .explore__label {
+643:      .explore__text {
+649:      .explore__arrow {
+658:      .explore__label {
+1663:    /* Explore / blog */
+1664:    .explore {
+1840:    .explore h2,
+2175:      /* ── Blog / Explore ── */
+2176:      .explore {
+3026:      <h1 class="hero-heading">Cut cloud costs by 35% while<br>deploying twice as fast. 
+3029:        <a href="https://dev.celsiortech.us/contact-us" class="btn-ghost">
+3030:          Talk to Experts
+3394:       SECTION: EXPLORE
+3397:       CSS tag : /* === EXPLORE === */
+3399:  <section class="explore">
+3401:    <div class="explore__links">
+3402:      <a href="https://dev.celsiortech.us/capabilities/digital-operations-and-security">
+3403:        <span class="explore__row-left">
+3404:          <span class="explore__label">AI LAB</span>
+3405:          <span class="explore__text">Cloud Strategy & Migration</span>
+3407:        <span class="explore__row-right">
+3408:          <span class="explore__arrow" aria-hidden="true">
+3417:      <a href="https://dev.celsiortech.us/capabilities/digital-operations-and-security">
+3418:        <span class="explore__row-left">
+3419:          <span class="explore__label">COES</span>
+3420:          <span class="explore__text">DevOps & Site Reliability Engineering</span>
+3422:        <span class="explore__row-right">
+3423:          <span class="explore__arrow" aria-hidden="true">
+3432:      <a href="https://dev.celsiortech.us/our-focus/ai-adoption">
+3433:        <span class="explore__row-left">
+3434:          <span class="explore__label">ACCELERATORS</span>
+3435:          <span class="explore__text">Observability & Infrastructure Automation</span>
+3437:        <span class="explore__row-right">
+3438:          <span class="explore__arrow" aria-hidden="true">
+3457:  <!-- SOLUTIONS: TESTIMONIAL + EXPLORE + INSIGHTS + FAQ + CTA -->
+3513:      <a href="#"
+3530:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3546:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+
+================ cost-efficiency.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+395:       === EXPLORE ===
+398:    .explore {
+404:    .explore h2 {
+414:    .explore__links {
+424:    .explore__links a {
+444:    .explore__links a::before {
+453:    .explore__links a:nth-child(1)::before {
+457:    .explore__links a:nth-child(2)::before {
+461:    .explore__links a:nth-child(3)::before {
+465:    .explore__links a:hover::before {
+469:    .explore__links a:last-child {
+473:    .explore__row-left,
+474:    .explore__row-right {
+481:    .explore__row-left {
+485:    .explore__row-right {
+489:    .explore__label {
+509:    .explore__links a:hover .explore__label {
+514:    .explore__text {
+526:    .explore__char {
+533:    .explore__links a:hover .explore__text {
+537:    .explore__links a:hover .explore__char {
+541:    .explore__arrow {
+556:    .explore__arrow svg {
+562:    .explore__links a:hover .explore__arrow {
+568:    .explore__links a:nth-child(1):hover .explore__arrow {
+573:    .explore__links a:nth-child(2):hover .explore__arrow {
+578:    .explore__links a:nth-child(3):hover .explore__arrow {
+583:    .explore__links a:nth-child(4)::before {
+587:    .explore__links a:nth-child(4):hover .explore__arrow {
+592:    .explore__links a:hover .explore__arrow svg {
+593:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+596:    @keyframes exploreArrowStagger {
+619:      .explore {
+623:      .explore h2 {
+628:      .explore__links a {
+640:      .explore__row-left {
+644:      .explore__row-right {
+648:      .explore__label {
+653:      .explore__text {
+659:      .explore__arrow {
+668:      .explore__label {
+1676:    /* Explore / blog */
+1677:    .explore {
+1853:    .explore h2,
+2187:      /* ── Blog / Explore ── */
+2188:      .explore {
+2465:    /* ── Explore link ── */
+3301:      <h1 class="hero-heading">Engineering efficiency that <span style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; display:inline;">pays</span> <br>for itself.
+3498:          <div class="test-dot"></div><span class="test-res-text">Build, run, and govern as one engagement  Our delivery model integrates strategy consulting with platform deployment and managed operations. Readiness assessments identify priority use cases. CAFE builds agents in weeks, not quarters. PACE manages runtime governance across your agent estate. HALO ensures human oversight meets regulatory requirements. One partner, one accountability model. </span>
+3531:            <a class="solution-link" href="https://dev.celsiortech.us/contact-us">Learn More →</a>
+3543:            <a class="solution-link" href="https://dev.celsiortech.us/contact-us">Learn More →</a>
+3555:            <a class="solution-link" href="https://dev.celsiortech.us/contact-us">Learn More →</a>
+3636:        <a href="https://dev.celsiortech.us/contact-us" class="em-cta">Get Started
+3686:        <p class="em-card-desc">Our cloud management framework accelerates migration and reduces ongoing run  costs through automated assessment, optimized workload placement, and continuous  cost governance. It replaces the manual, error-prone cloud operations model with a policy driven, continuously optimized environment — so cloud spend tracks actual usage rather  than historical provisioning decisions that no one has revisited.</p>
+3762:       SECTION: EXPLORE
+3765:       CSS tag : /* === EXPLORE === */
+3767:  <section class="explore">
+3769:    <div class="explore__links">
+3770:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix">
+3771:        <span class="explore__row-left">
+3772:          <span class="explore__label">Modernization Hub</span>
+3773:          <span class="explore__text">Core &amp; Legacy Modernization</span>
+3775:        <span class="explore__row-right">
+3776:          <span class="explore__arrow" aria-hidden="true">
+3785:      <a href="https://dev.celsiortech.us/capabilities/cloud-and-infrastructure-engineering">
+3786:        <span class="explore__row-left">
+3787:          <span class="explore__label">Cloud CoE</span>
+3788:          <span class="explore__text">Cloud Transformation &amp; Continuous Modernization</span>
+3790:        <span class="explore__row-right">
+3791:          <span class="explore__arrow" aria-hidden="true">
+3800:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3801:        <span class="explore__row-left">
+3802:          <span class="explore__label">AI Accelerators</span>
+3803:          <span class="explore__text">Enterprise AI Enablement</span>
+3805:        <span class="explore__row-right">
+3806:          <span class="explore__arrow" aria-hidden="true">
+
+================ design-lab.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+425:       === EXPLORE ===
+428:    .explore {
+434:    .explore h2 {
+445:    .explore__links {
+456:    .explore__links a {
+476:    .explore__links a::before {
+485:    .explore__links a:nth-child(1)::before {
+489:    .explore__links a:nth-child(2)::before {
+493:    .explore__links a:nth-child(3)::before {
+497:    .explore__links a:hover::before {
+501:    .explore__links a:last-child {
+505:    .explore__row-left,
+506:    .explore__row-right {
+513:    .explore__row-left {
+517:    .explore__row-right {
+521:    .explore__label {
+541:    .explore__links a:hover .explore__label {
+546:    .explore__text {
+558:    .explore__text--multiline {
+565:    .explore__text-inner {
+574:    .explore__char {
+581:    .explore__links a:hover .explore__text,
+582:    .explore__links a:hover .explore__text-inner {
+586:    .explore__links a:hover .explore__char {
+590:    .explore__arrow {
+605:    .explore__arrow svg {
+611:    .explore__links a:hover .explore__arrow {
+617:    .explore__links a:nth-child(1):hover .explore__arrow {
+622:    .explore__links a:nth-child(2):hover .explore__arrow {
+627:    .explore__links a:nth-child(3):hover .explore__arrow {
+632:    .explore__links a:nth-child(4)::before {
+636:    .explore__links a:nth-child(4):hover .explore__arrow {
+641:    .explore__links a:hover .explore__arrow svg {
+642:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+645:    @keyframes exploreArrowStagger {
+669:      .explore__label {
+673:      .explore__text {
+676:      .explore__links a {
+683:      .explore__text {
+689:      .explore {
+693:      .explore h2 {
+698:      .explore__links a {
+710:      .explore__row-left {
+714:      .explore__row-right {
+718:      .explore__label {
+723:      .explore__text {
+730:      .explore__text--multiline {
+736:      .explore__text-inner {
+740:      .explore__arrow {
+749:      .explore__label {
+1757:    /* Explore / blog */
+1758:    .explore {
+1934:    .explore h2,
+2268:      /* ── Blog / Explore ── */
+2269:      .explore {
+2545:    /* ── Explore link ── */
+3653:      <h1 class = "hero-eyebrow"> Design Lab · CX Journey Design</h1>
+3654:      <h1 class="hero-heading">Stop building products your customers 
+3660:          Explore The Lab
+3666:        <button class="btn-white">Schedule a Pilot Review →</button>
+4023:       SECTION: EXPLORE
+4026:       CSS tag : /* === EXPLORE === */
+4028:  <section class="explore">
+4030:    <div class="explore__links">
+4031:      <a href="#">
+4032:        <span class="explore__row-left">
+4033:          <span class="explore__label">3 Disciplines</span>
+4034:          <span class="explore__text explore__text--multiline">
+4035:            <span class="explore__text-inner">CX Journey Design, Service Blueprinting</span>
+4036:            <span class="explore__text-inner">Digital Product Prototyping</span>
+4039:        <span class="explore__row-right">
+4040:          <span class="explore__arrow" aria-hidden="true">
+4049:      <a href="#">
+4050:        <span class="explore__row-left">
+4051:          <span class="explore__label">3 Industries</span>
+4052:          <span class="explore__text">Banking & Finance, Healthcare, Insurance</span>
+
+================ digital-experience.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+395:       === EXPLORE ===
+398:    .explore {
+404:    .explore h2 {
+415:    .explore__links {
+426:    .explore__links a {
+446:    .explore__links a::before {
+455:    .explore__links a:nth-child(1)::before {
+459:    .explore__links a:nth-child(2)::before {
+463:    .explore__links a:nth-child(3)::before {
+467:    .explore__links a:hover::before {
+471:    .explore__links a:last-child {
+475:    .explore__row-left,
+476:    .explore__row-right {
+483:    .explore__row-left {
+487:    .explore__row-right {
+491:    .explore__label {
+511:    .explore__links a:hover .explore__label {
+516:    .explore__text {
+528:    .explore__char {
+535:    .explore__links a:hover .explore__text {
+539:    .explore__links a:hover .explore__char {
+543:    .explore__arrow {
+558:    .explore__arrow svg {
+564:    .explore__links a:hover .explore__arrow {
+570:    .explore__links a:nth-child(1):hover .explore__arrow {
+575:    .explore__links a:nth-child(2):hover .explore__arrow {
+580:    .explore__links a:nth-child(3):hover .explore__arrow {
+585:    .explore__links a:nth-child(4)::before {
+589:    .explore__links a:nth-child(4):hover .explore__arrow {
+594:    .explore__links a:hover .explore__arrow svg {
+595:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+598:    @keyframes exploreArrowStagger {
+621:      .explore {
+625:      .explore h2 {
+630:      .explore__links a {
+642:      .explore__row-left {
+646:      .explore__row-right {
+650:      .explore__label {
+655:      .explore__text {
+661:      .explore__arrow {
+670:      .explore__label {
+1678:    /* Explore / blog */
+1679:    .explore {
+1855:    .explore h2,
+2189:      /* ── Blog / Explore ── */
+2190:      .explore {
+2467:    /* ── Explore link ── */
+3303:      <h1 class="hero-heading">Experience the difference.<br>Engineered for your customer.
+3313:        <button class="btn-white">Schedule a Conversation </button>
+3500:          <div class="test-dot"></div><span class="test-res-text">Build, run, and govern as one engagement  Our delivery model integrates strategy consulting with platform deployment and managed operations. Readiness assessments identify priority use cases. CAFE builds agents in weeks, not quarters. PACE manages runtime governance across your agent estate. HALO ensures human oversight meets regulatory requirements. One partner, one accountability model. </span>
+3533:            <a class="solution-link" href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">Explore Further →</a>
+3546:            <a class="solution-link" href="https://dev.celsiortech.us/capabilities/ai-led-engineering">Explore Further →</a>
+3558:            <a class="solution-link" href="https://dev.celsiortech.us/ai-innovation/design-lab">Explore Further →</a>
+3640:        <a href="https://dev.celsiortech.us/solutions/technology-consulting" class="em-cta">Get Started
+3766:       SECTION: EXPLORE
+3769:       CSS tag : /* === EXPLORE === */
+3771:  <section class="explore">
+3773:    <div class="explore__links">
+3774:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix">
+3775:        <span class="explore__row-left">
+3776:          <span class="explore__label">Modernization Hub</span>
+3777:          <span class="explore__text">Core &amp; Legacy Modernization</span>
+3779:        <span class="explore__row-right">
+3780:          <span class="explore__arrow" aria-hidden="true">
+3789:      <a href="https://dev.celsiortech.us/capabilities/cloud-and-infrastructure-engineering">
+3790:        <span class="explore__row-left">
+3791:          <span class="explore__label">Cloud CoE</span>
+3792:          <span class="explore__text">Cloud Transformation &amp; Continuous Modernization</span>
+3794:        <span class="explore__row-right">
+3795:          <span class="explore__arrow" aria-hidden="true">
+3804:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3805:        <span class="explore__row-left">
+3806:          <span class="explore__label">AI Accelerators</span>
+3807:          <span class="explore__text">Enterprise AI Enablement</span>
+3809:        <span class="explore__row-right">
+3810:          <span class="explore__arrow" aria-hidden="true">
+
+================ digital-operations.html ================
+6:  <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
+14:  <link rel="canonical" href="https://celsior.com/capabilities">
+15:  <link rel="preconnect" href="https://fonts.googleapis.com">
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+17:  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+384:       === EXPLORE ===
+387:    .explore {
+393:    .explore h2 {
+404:    .explore__links {
+415:    .explore__links a {
+435:    .explore__links a::before {
+444:    .explore__links a:nth-child(1)::before {
+448:    .explore__links a:nth-child(2)::before {
+452:    .explore__links a:nth-child(3)::before {
+456:    .explore__links a:nth-child(4)::before {
+460:    .explore__links a:hover::before {
+464:    .explore__links a:last-child {
+468:    .explore__row-left,
+469:    .explore__row-right {
+476:    .explore__row-left {
+480:    .explore__row-right {
+484:    .explore__label {
+503:    .explore__links a:hover .explore__label {
+508:    .explore__text {
+520:    .explore__char {
+527:    .explore__links a:hover .explore__text {
+531:    .explore__links a:hover .explore__char {
+535:    .explore__arrow {
+550:    .explore__arrow svg {
+556:    .explore__links a:hover .explore__arrow {
+562:    .explore__links a:nth-child(1):hover .explore__arrow {
+567:    .explore__links a:nth-child(2):hover .explore__arrow {
+572:    .explore__links a:nth-child(3):hover .explore__arrow {
+577:    .explore__links a:nth-child(4):hover .explore__arrow {
+582:    .explore__links a:hover .explore__arrow svg {
+583:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+586:    @keyframes exploreArrowStagger {
+609:      .explore {
+613:      .explore h2 {
+618:      .explore__links a {
+630:      .explore__row-left {
+634:      .explore__row-right {
+638:      .explore__label {
+643:      .explore__text {
+649:      .explore__arrow {
+658:      .explore__label {
+1663:    /* Explore / blog */
+1664:    .explore {
+1840:    .explore h2,
+2175:      /* ── Blog / Explore ── */
+2176:      .explore {
+3017:      <h1 class="hero-heading">Resolve incidents in minutes, not hours. Prevent <br>breaches before they happen. 
+3020:        <a href="https://dev.celsiortech.us/contact-us" class="btn-ghost">Strengthen Your Operations →</a>
+3372:       SECTION: EXPLORE
+3375:       CSS tag : /* === EXPLORE === */
+3377:  <section class="explore">
+3379:    <div class="explore__links">
+3380:      <a href="https://dev.celsiortech.us/solutions/managed-programs">
+3381:        <span class="explore__row-left">
+3382:          <span class="explore__label">AI LAB</span>
+3383:          <span class="explore__text">IT Service Management & Automation </span>
+3385:        <span class="explore__row-right">
+3386:          <span class="explore__arrow" aria-hidden="true">
+3395:      <a href="https://dev.celsiortech.us/capabilities/security-and-governance">
+3396:        <span class="explore__row-left">
+3397:          <span class="explore__label">COES</span>
+3398:          <span class="explore__text">Security & Governance</span>
+3400:        <span class="explore__row-right">
+3401:          <span class="explore__arrow" aria-hidden="true">
+3410:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators">
+3411:        <span class="explore__row-left">
+3412:          <span class="explore__label">ACCELERATORS</span>
+3413:          <span class="explore__text">Identity & Access Management</span>
+3415:        <span class="explore__row-right">
+3416:          <span class="explore__arrow" aria-hidden="true">
+3444:      <a href="#"
+3461:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3477:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3493:          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3507:  <!-- SOLUTIONS: TESTIMONIAL + EXPLORE + INSIGHTS + FAQ + CTA -->
+
+================ frameworks-accelerators.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+746:       === EXPLORE ===
+749:    .explore {
+755:    .explore h2 {
+766:    .explore__links {
+777:    .explore__links a {
+797:    .explore__links a::before {
+806:    .explore__links a:nth-child(1)::before {
+810:    .explore__links a:nth-child(2)::before {
+814:    .explore__links a:nth-child(3)::before {
+818:    .explore__links a:hover::before {
+822:    .explore__links a:last-child {
+826:    .explore__row-left,
+827:    .explore__row-right {
+834:    .explore__row-left {
+838:    .explore__row-right {
+842:    .explore__label {
+862:    .explore__links a:hover .explore__label {
+867:    .explore__text {
+879:    .explore__char {
+886:    .explore__links a:hover .explore__text {
+890:    .explore__links a:hover .explore__char {
+894:    .explore__arrow {
+909:    .explore__arrow svg {
+915:    .explore__links a:hover .explore__arrow {
+921:    .explore__links a:nth-child(1):hover .explore__arrow {
+926:    .explore__links a:nth-child(2):hover .explore__arrow {
+931:    .explore__links a:nth-child(3):hover .explore__arrow {
+936:    .explore__links a:nth-child(4)::before {
+940:    .explore__links a:nth-child(4):hover .explore__arrow {
+945:    .explore__links a:hover .explore__arrow svg {
+946:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+949:    @keyframes exploreArrowStagger {
+972:      .explore {
+976:      .explore h2 {
+981:      .explore__links a {
+993:      .explore__row-left {
+997:      .explore__row-right {
+1001:      .explore__label {
+1006:      .explore__text {
+1012:      .explore__arrow {
+1021:      .explore__label {
+2029:    /* Explore / blog */
+2030:    .explore {
+2206:    .explore h2,
+2540:      /* ── Blog / Explore ── */
+2541:      .explore {
+2817:    /* ── Explore link ── */
+3789:      <h1 class = "hero-eyebrow">Frameworks and Accelerators </h1>
+3790:      <h1 class="hero-heading">AI pilots are easy. Getting them to production<br> without rebuilding everything is the hard part.
+3800:        <button class="btn-white">Explore the Portfolio</button>
+4513:        <a href="#">Speak to a specialist<span aria-hidden="true"> →</span></a>
+4769:        <a href="#contact" class="cta-band-btn-primary cta-band-btn">Talk to Our Team</a>
+4770:        <a href="#" class="cta-band-btn-outline">Download Our Capabilities Overview</a>
+4992:    // Explore links — split text into per-character spans for staggered hover
+4993:    document.querySelectorAll(".explore__text").forEach((node) => {
+4998:        span.className = "explore__char";
+5005:  <script src="shared.js" defer></script>
+5115:  <script src="shared.js" defer></script>
+
+================ gcc-nearshore.html ================
+7:  <title>Celsior | Solutions — Managed Programs</title>
+8:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+9:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+11:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+443:       === EXPLORE ===
+446:    .explore {
+452:    .explore h2 {
+463:    .explore__links {
+474:    .explore__links a {
+494:    .explore__links a::before {
+503:    .explore__links a:nth-child(1)::before {
+507:    .explore__links a:nth-child(2)::before {
+511:    .explore__links a:nth-child(3)::before {
+515:    .explore__links a:hover::before {
+519:    .explore__links a:last-child {
+523:    .explore__row-left,
+524:    .explore__row-right {
+532:    .explore__row-left {
+538:    .explore__row-right {
+543:    .explore__label {
+564:    .explore__links a:hover .explore__label {
+569:    .explore__text {
+583:    .explore__char {
+590:    .explore__links a:hover .explore__text {
+594:    .explore__links a:hover .explore__char {
+598:    .explore__arrow {
+613:    .explore__arrow svg {
+619:    .explore__links a:hover .explore__arrow {
+625:    .explore__links a:nth-child(1):hover .explore__arrow {
+630:    .explore__links a:nth-child(2):hover .explore__arrow {
+635:    .explore__links a:nth-child(3):hover .explore__arrow {
+640:    .explore__links a:hover .explore__arrow svg {
+641:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+644:    @keyframes exploreArrowStagger {
+667:      .explore {
+671:      .explore h2 {
+677:      .explore__links a {
+684:      .explore__row-left {
+692:      .explore__row-right {
+698:      .explore__label {
+705:      .explore__text {
+710:      .explore__arrow {
+1737:    /* Explore / blog */
+1738:    .explore {
+1916:    .explore h2,
+2251:      /* ── Blog / Explore ── */
+2252:      .explore {
+2521:      .explore h2,
+2609:      <h1 class="hero-heading">The engineering depth your programs need.<br>On the time zone your teams can work with.
+2613:          Explore our delivery models
+2619:        <button class="btn-white">Talk to our nearshore team</button>
+2650:      <div class="stat-note-txt">For organizations carrying the cost and coordination burden of US onshore delivery, Celsior's nearshore model offers a structured alternative. Engineering pods built from Latin America's largest talent pool are active within three weeks and work in full schedule alignment with US teams, without the friction of offshore time zone separation.
+3175:       SECTION: EXPLORE
+3178:       CSS tag : /* === EXPLORE === */
+3180:  <section class="explore">
+3182:    <div class="explore__links">
+3183:      <a href="#">
+3184:        <span class="explore__row-left">
+3185:          <span class="explore__label">Enterprise AI Enablement </span>
+3186:          <span class="explore__text">BOT Model One-line</span>
+3188:        <span class="explore__row-right">
+3189:          <span class="explore__arrow" aria-hidden="true">
+3198:      <a href="#">
+3199:        <span class="explore__row-left">
+3200:          <span class="explore__label">Nearshore Delivery</span>
+3201:          <span class="explore__text">Nearshore Delivery: Mexico and LATAM</span>
+3203:        <span class="explore__row-right">
+3204:          <span class="explore__arrow" aria-hidden="true">
+3213:      <a href="#">
+3214:        <span class="explore__row-left">
+3215:          <span class="explore__label">AI-Led Engineering </span>
+3216:          <span class="explore__text">Dedicated Engineering Pods</span>
+3218:        <span class="explore__row-right">
+3219:          <span class="explore__arrow" aria-hidden="true">
+3245:      <a href="#"
+3262:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3279:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3295:          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3318:        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+3395:            <p>Every engagement starts with a platform health assessment that establishes a baseline for performance,
+
+================ managed-programs.html ================
+7:  <title>Celsior | Solutions — Managed Programs</title>
+8:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+9:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+11:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+378:       === EXPLORE ===
+381:    .explore {
+387:    .explore h2 {
+398:    .explore__links {
+409:    .explore__links a {
+429:    .explore__links a::before {
+438:    .explore__links a:nth-child(1)::before {
+442:    .explore__links a:nth-child(2)::before {
+446:    .explore__links a:nth-child(3)::before {
+450:    .explore__links a:hover::before {
+454:    .explore__links a:last-child {
+458:    .explore__row-left,
+459:    .explore__row-right {
+466:    .explore__row-left {
+470:    .explore__row-right {
+474:    .explore__label {
+494:    .explore__links a:hover .explore__label {
+499:    .explore__text {
+511:    .explore__char {
+518:    .explore__links a:hover .explore__text {
+522:    .explore__links a:hover .explore__char {
+526:    .explore__arrow {
+541:    .explore__arrow svg {
+547:    .explore__links a:hover .explore__arrow {
+553:    .explore__links a:nth-child(1):hover .explore__arrow {
+558:    .explore__links a:nth-child(2):hover .explore__arrow {
+563:    .explore__links a:nth-child(3):hover .explore__arrow {
+568:    .explore__links a:hover .explore__arrow svg {
+569:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+572:    @keyframes exploreArrowStagger {
+595:      .explore {
+599:      .explore h2 {
+604:      .explore__links a {
+616:      .explore__row-left {
+620:      .explore__row-right {
+624:      .explore__label {
+629:      .explore__text {
+635:      .explore__arrow {
+644:      .explore__label {
+1652:    /* Explore / blog */
+1653:    .explore {
+1830:    .explore h2,
+2165:      /* ── Blog / Explore ── */
+2166:      .explore {
+2435:      .explore h2,
+2523:      <h1 class="hero-heading">Your platforms should deliver what they<br>promised on day one. We make sure they do.
+2526:        <a href="https://dev.celsiortech.us/partners" class="btn-ghost">
+2527:          Explore our managed programs
+2533:        <a href="https://dev.celsiortech.us/contact-us" class="btn-white">Book a Discovery Call</a>
+3084:          schedule, and our production environment stayed fully operational throughout.</p>
+3110:       SECTION: EXPLORE
+3113:       CSS tag : /* === EXPLORE === */
+3115:  <section class="explore">
+3117:    <div class="explore__links">
+3118:      <a href="https://dev.celsiortech.us/partners">
+3119:        <span class="explore__row-left">
+3120:          <span class="explore__label">AI Lab</span>
+3121:          <span class="explore__text">Managed Platform Operations</span>
+3123:        <span class="explore__row-right">
+3124:          <span class="explore__arrow" aria-hidden="true">
+3133:      <a href="https://dev.celsiortech.us/capabilities/ai-led-engineering">
+3134:        <span class="explore__row-left">
+3135:          <span class="explore__label">CoEs</span>
+3136:          <span class="explore__text">Continuous Modernisation Factory</span>
+3138:        <span class="explore__row-right">
+3139:          <span class="explore__arrow" aria-hidden="true">
+3148:      <a href="https://dev.celsiortech.us/partners/servicenow">
+3149:        <span class="explore__row-left">
+3150:          <span class="explore__label">Accelerators</span>
+3151:          <span class="explore__text">Managed ServiceNow Operations</span>
+3153:        <span class="explore__row-right">
+3154:          <span class="explore__arrow" aria-hidden="true">
+3180:      <a href="#"
+3198:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3215:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3233:          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+
+================ partners.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+413:       === EXPLORE ===
+416:    .explore {
+422:    .explore h2 {
+433:    .explore__links {
+444:    .explore__links a {
+464:    .explore__links a::before {
+473:    .explore__links a:nth-child(1)::before {
+477:    .explore__links a:nth-child(2)::before {
+481:    .explore__links a:nth-child(3)::before {
+485:    .explore__links a:hover::before {
+489:    .explore__links a:last-child {
+493:    .explore__row-left,
+494:    .explore__row-right {
+501:    .explore__row-left {
+505:    .explore__row-right {
+509:    .explore__label {
+529:    .explore__links a:hover .explore__label {
+534:    .explore__text {
+546:    .explore__char {
+553:    .explore__links a:hover .explore__text {
+557:    .explore__links a:hover .explore__char {
+561:    .explore__arrow {
+576:    .explore__arrow svg {
+582:    .explore__links a:hover .explore__arrow {
+588:    .explore__links a:nth-child(1):hover .explore__arrow {
+593:    .explore__links a:nth-child(2):hover .explore__arrow {
+598:    .explore__links a:nth-child(3):hover .explore__arrow {
+603:    .explore__links a:nth-child(4)::before {
+607:    .explore__links a:nth-child(4):hover .explore__arrow {
+612:    .explore__links a:hover .explore__arrow svg {
+613:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+616:    @keyframes exploreArrowStagger {
+639:      .explore {
+643:      .explore h2 {
+648:      .explore__links a {
+660:      .explore__row-left {
+664:      .explore__row-right {
+668:      .explore__label {
+673:      .explore__text {
+679:      .explore__arrow {
+688:      .explore__label {
+1703:    /* Explore / blog */
+1704:    .explore {
+1880:    .explore h2,
+2214:      /* ── Blog / Explore ── */
+2215:      .explore {
+2491:    /* ── Explore link ── */
+3629:      <h1 class="hero-heading">Your Platform Investment Performs Better <br>With a Certified Practice Behind It. 
+3633:          Explore Our Partner Practices
+3639:        <button class="btn-white">Talk to a Practice Lead</button>
+4091:    <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">Each practice is built around a formal Center of Excellence, a certified partnership, and a delivery team with demonstrated platform depth. Select a practice to see what Celsior delivers within that ecosystem. </p>
+4114:            <a class="acc-readmore" href="https://dev.celsiortech.us/partners/guidewire">Explore Guidewire Practice</a>
+4140:            <a class="acc-readmore" href="https://dev.celsiortech.us/partners/jack-henry ">Explore Jack Henry Practice</a>
+4166:            <a class="acc-readmore" href="https://dev.celsiortech.us/partners/servicenow ">Explore ServiceNow Practice</a>
+4413:            <p>The most direct path is through the individual partner practice pages for Guidewire, Jack Henry, and ServiceNow, each of which includes a practice-specific contact route. For Dynatrace engagements or cross-practice programs, the contact form on this page routes directly to the relevant practice lead.</p>
+4576:        <a href="https://dev.celsiortech.us/contact-us" class="cta-band-btn-primary cta-band-btn">Talk to a Practice Lead</a>
+4577:        <a href="https://dev.celsiortech.us/contact-us" class="cta-band-btn-outline"> Explore Our Work</a>
+4800:    // Explore links — split text into per-character spans for staggered hover
+4801:    document.querySelectorAll(".explore__text").forEach((node) => {
+4806:        span.className = "explore__char";
+4813:  <script src="shared.js" defer></script>
+
+================ risk-compliance.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+395:       === EXPLORE ===
+398:    .explore {
+404:    .explore h2 {
+415:    .explore__links {
+426:    .explore__links a {
+446:    .explore__links a::before {
+455:    .explore__links a:nth-child(1)::before {
+459:    .explore__links a:nth-child(2)::before {
+463:    .explore__links a:nth-child(3)::before {
+467:    .explore__links a:hover::before {
+471:    .explore__links a:last-child {
+475:    .explore__row-left,
+476:    .explore__row-right {
+483:    .explore__row-left {
+487:    .explore__row-right {
+491:    .explore__label {
+511:    .explore__links a:hover .explore__label {
+516:    .explore__text {
+528:    .explore__char {
+535:    .explore__links a:hover .explore__text {
+539:    .explore__links a:hover .explore__char {
+543:    .explore__arrow {
+558:    .explore__arrow svg {
+564:    .explore__links a:hover .explore__arrow {
+570:    .explore__links a:nth-child(1):hover .explore__arrow {
+575:    .explore__links a:nth-child(2):hover .explore__arrow {
+580:    .explore__links a:nth-child(3):hover .explore__arrow {
+585:    .explore__links a:nth-child(4)::before {
+589:    .explore__links a:nth-child(4):hover .explore__arrow {
+594:    .explore__links a:hover .explore__arrow svg {
+595:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+598:    @keyframes exploreArrowStagger {
+621:      .explore {
+625:      .explore h2 {
+630:      .explore__links a {
+642:      .explore__row-left {
+646:      .explore__row-right {
+650:      .explore__label {
+655:      .explore__text {
+661:      .explore__arrow {
+670:      .explore__label {
+1677:    /* Explore / blog */
+1678:    .explore {
+1854:    .explore h2,
+2188:      /* ── Blog / Explore ── */
+2189:      .explore {
+2465:    /* ── Explore link ── */
+3301:      <h1 class="hero-heading">Regulated by design.<br>Resilient by architecture.
+3305:    onclick="window.location.href='https://celsior-assessment-tools.netlify.app/grc-assessment/'">
+3317:    onclick="window.location.href='https://dev.celsiortech.us/contact-us'">
+3318:    Schedule a Conversation
+3506:          <div class="test-dot"></div><span class="test-res-text">Build, run, and govern as one engagement  Our delivery model integrates strategy consulting with platform deployment and managed operations. Readiness assessments identify priority use cases. CAFE builds agents in weeks, not quarters. PACE manages runtime governance across your agent estate. HALO ensures human oversight meets regulatory requirements. One partner, one accountability model. </span>
+3538:            <p class="solution-card-text">We design resilience into the architecture from the outset by covering business continuity frameworks, regulatory reporting pipelines, third-party risk controls, and the operational processes required to demonstrate readiness to examiners, auditors, and boards. </p>
+3539:            <a class="solution-link" href="https://dev.celsiortech.us/contact-us">Learn More →</a>
+3551:            <a class="solution-link" href="https://dev.celsiortech.us/contact-us">Learn More →</a>
+3563:            <a class="solution-link" href="https://dev.celsiortech.us/contact-us">Learn More →</a>
+3644:        <a href="https://dev.celsiortech.us/solutions/technology-consulting" class="em-cta">Get Started
+3768:       SECTION: EXPLORE
+3771:       CSS tag : /* === EXPLORE === */
+3773:  <section class="explore">
+3775:    <div class="explore__links">
+3776:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix">
+3777:        <span class="explore__row-left">
+3778:          <span class="explore__label">Modernization Hub</span>
+3779:          <span class="explore__text">Core &amp; Legacy Modernization</span>
+3781:        <span class="explore__row-right">
+3782:          <span class="explore__arrow" aria-hidden="true">
+3791:      <a href="https://dev.celsiortech.us/capabilities/cloud-and-infrastructure-engineering">
+3792:        <span class="explore__row-left">
+3793:          <span class="explore__label">Cloud CoE</span>
+3794:          <span class="explore__text">Cloud Transformation &amp; Continuous Modernization</span>
+3796:        <span class="explore__row-right">
+3797:          <span class="explore__arrow" aria-hidden="true">
+3806:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3807:        <span class="explore__row-left">
+3808:          <span class="explore__label">AI Accelerators</span>
+
+================ security-governance.html ================
+6:  <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
+14:  <link rel="canonical" href="https://celsior.com/capabilities">
+15:  <link rel="preconnect" href="https://fonts.googleapis.com">
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+17:  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+384:       === EXPLORE ===
+387:    .explore {
+393:    .explore h2 {
+404:    .explore__links {
+415:    .explore__links a {
+435:    .explore__links a::before {
+444:    .explore__links a:nth-child(1)::before {
+448:    .explore__links a:nth-child(2)::before {
+452:    .explore__links a:nth-child(3)::before {
+456:    .explore__links a:nth-child(4)::before {
+460:    .explore__links a:hover::before {
+464:    .explore__links a:last-child {
+468:    .explore__row-left,
+469:    .explore__row-right {
+476:    .explore__row-left {
+480:    .explore__row-right {
+484:    .explore__label {
+503:    .explore__links a:hover .explore__label {
+508:    .explore__text {
+520:    .explore__char {
+527:    .explore__links a:hover .explore__text {
+531:    .explore__links a:hover .explore__char {
+535:    .explore__arrow {
+550:    .explore__arrow svg {
+556:    .explore__links a:hover .explore__arrow {
+562:    .explore__links a:nth-child(1):hover .explore__arrow {
+567:    .explore__links a:nth-child(2):hover .explore__arrow {
+572:    .explore__links a:nth-child(3):hover .explore__arrow {
+577:    .explore__links a:nth-child(4):hover .explore__arrow {
+582:    .explore__links a:hover .explore__arrow svg {
+583:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+586:    @keyframes exploreArrowStagger {
+609:      .explore {
+613:      .explore h2 {
+618:      .explore__links a {
+630:      .explore__row-left {
+634:      .explore__row-right {
+638:      .explore__label {
+643:      .explore__text {
+649:      .explore__arrow {
+658:      .explore__label {
+1663:    /* Explore / blog */
+1664:    .explore {
+1840:    .explore h2,
+2175:      /* ── Blog / Explore ── */
+2176:      .explore {
+3017:      <h1 class="hero-heading">Pass audits without slowing down delivery. <br>Deploy AI without regulatory risk. 
+3020:        <a href="https://dev.celsiortech.us/contact-us" class="btn-ghost">Build Governance That Scales →</a>
+3372:       SECTION: EXPLORE
+3375:       CSS tag : /* === EXPLORE === */
+3377:  <section class="explore">
+3379:    <div class="explore__links">
+3380:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3381:        <span class="explore__row-left">
+3382:          <span class="explore__label">AI LAB</span>
+3383:          <span class="explore__text">Governance Automation</span>
+3385:        <span class="explore__row-right">
+3386:          <span class="explore__arrow" aria-hidden="true">
+3395:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators">
+3396:        <span class="explore__row-left">
+3397:          <span class="explore__label">COES</span>
+3398:          <span class="explore__text">Explainable AI & Responsible AI</span>
+3400:        <span class="explore__row-right">
+3401:          <span class="explore__arrow" aria-hidden="true">
+3410:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix">
+3411:        <span class="explore__row-left">
+3412:          <span class="explore__label">ACCELERATORS</span>
+3413:          <span class="explore__text">Zero-Trust Security Engineering</span>
+3415:        <span class="explore__row-right">
+3416:          <span class="explore__arrow" aria-hidden="true">
+3444:      <a href="#"
+3461:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3476:          <p class="insight-desc">Banking and healthcare regulators require algorithmic transparency. Our SHAP-powered approach demonstrates lack of bias while maintaining model effectiveness...</p>
+3477:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3493:          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+
+================ synthetix.html ================
+7:  <title>Celsior | AI-First Digital Engineering</title>
+15:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+16:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+18:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+414:       === EXPLORE ===
+417:    .explore {
+424:    .explore__header {
+433:    .explore__header-left {
+437:    .explore__header-right {
+450:    .explore h2 {
+461:    .explore__footer {
+468:    .explore__view-all {
+484:    .explore__view-all:hover {
+490:      .explore__header {
+494:      .explore__header-right {
+500:    .explore__links {
+511:    .explore__links a {
+532:    .explore__links a::before {
+541:    .explore__links a:nth-child(1)::before {
+545:    .explore__links a:nth-child(2)::before {
+549:    .explore__links a:nth-child(3)::before {
+553:    .explore__links a:hover::before {
+557:    .explore__links a:last-child {
+561:    .explore__row-left,
+562:    .explore__row-right {
+569:    .explore__row-left {
+573:    .explore__row-right {
+577:    .explore__label {
+597:    .explore__links a:hover .explore__label {
+602:    .explore__text {
+614:    .explore__char {
+621:    .explore__links a:hover .explore__text {
+625:    .explore__links a:hover .explore__char {
+629:    .explore__arrow {
+644:    .explore__arrow svg {
+650:    .explore__links a:hover .explore__arrow {
+656:    .explore__links a:nth-child(1):hover .explore__arrow {
+661:    .explore__links a:nth-child(2):hover .explore__arrow {
+666:    .explore__links a:nth-child(3):hover .explore__arrow {
+671:    .explore__links a:nth-child(4)::before {
+675:    .explore__links a:nth-child(4):hover .explore__arrow {
+680:    .explore__links a:hover .explore__arrow svg {
+681:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+684:    @keyframes exploreArrowStagger {
+707:      /* .explore padding now handled by unified --section-pad variables */
+709:      .explore h2 {
+714:      .explore__links a {
+726:      .explore__row-left {
+730:      .explore__row-right {
+734:      .explore__label {
+739:      .explore__text {
+745:      .explore__arrow {
+754:      .explore__label {
+1333:    /* Explore / blog */
+1334:    .explore {
+1476:    .explore h2,
+1745:      /* ── Blog / Explore ── */
+1746:      /* .explore padding: unified --section-pad-v/h at root level covers mobile */
+2536:      <h1 class="hero-eyebrow">AI-FIRST DIGITAL ENGINEERING PLATFORM</h1>
+2537:      <h1 class="hero-heading">Agents that build, not assist.
+2541:          Explore the Platform
+2547:        <button class="btn-white">Request a Demo</button>
+2816:    /* Gradient hover overlay (inspired by explore section) */
+3341:        const scheduleNext = () => {
+3363:            scheduleNext();
+3368:          if (canPlay()) scheduleNext();
+3396:              if (canPlay()) scheduleNext();
+4679:              <p class="ag-card-body">Multi-output research module that produces evidence-grounded reports, technical briefs, and presentation-ready demos at engagement speed.</p>
+5705:          <span class="pp-line"><span class="pp-line-inner">Not code that demos.</span></span>
+5718:          <h3 class="pp-card-title">&ldquo;Lines of code per minute. HumanEval scores. Demo conversion.&rdquo;</h3>
+5959:       SECTION: EXPLORE
+5962:       CSS tag : /* === EXPLORE === */
+5964:    <section class="explore">
+5965:    <div class="explore__header">
+5966:      <div class="explore__header-left">
+5970:      <div class="explore__header-right">
+5974:    <div class="explore__links">
+5975:      <a href="#">
+5976:        <span class="explore__row-left">
+5977:          <span class="explore__label">Source Control</span>
+
+================ teams-as-a-service ================
+
+================ (1).html ================
+
+================ technology-consulting.html ================
+7:  <title>Celsior | Solutions — Managed Programs</title>
+8:  <link rel="preconnect" href="https://fonts.googleapis.com" />
+9:  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+11:    href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700&family=Inter:wght@400;500;600;700;800&display=swap"
+381:       === EXPLORE ===
+384:    .explore {
+390:    .explore h2 {
+401:    .explore__links {
+412:    .explore__links a {
+432:    .explore__links a::before {
+441:    .explore__links a:nth-child(1)::before {
+445:    .explore__links a:nth-child(2)::before {
+449:    .explore__links a:nth-child(3)::before {
+453:    .explore__links a:hover::before {
+457:    .explore__links a:last-child {
+461:    .explore__row-left,
+462:    .explore__row-right {
+469:    .explore__row-left {
+473:    .explore__row-right {
+477:    .explore__label {
+497:    .explore__links a:hover .explore__label {
+502:    .explore__text {
+514:    .explore__char {
+521:    .explore__links a:hover .explore__text {
+525:    .explore__links a:hover .explore__char {
+529:    .explore__arrow {
+544:    .explore__arrow svg {
+550:    .explore__links a:hover .explore__arrow {
+556:    .explore__links a:nth-child(1):hover .explore__arrow {
+561:    .explore__links a:nth-child(2):hover .explore__arrow {
+566:    .explore__links a:nth-child(3):hover .explore__arrow {
+571:    .explore__links a:hover .explore__arrow svg {
+572:      animation: exploreArrowStagger 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+575:    @keyframes exploreArrowStagger {
+598:      .explore {
+602:      .explore h2 {
+607:      .explore__links a {
+619:      .explore__row-left {
+623:      .explore__row-right {
+627:      .explore__label {
+632:      .explore__text {
+638:      .explore__arrow {
+647:      .explore__label {
+1655:    /* Explore / blog */
+1656:    .explore {
+1833:    .explore h2,
+2168:      /* ── Blog / Explore ── */
+2169:      .explore {
+2439:      .explore h2,
+2527:      <h1 class="hero-heading">Technology architecture thatconverts<br>risk into revenue.
+2531:        <a href="https://dev.celsiortech.us/contact-us"
+2532:        <button class="btn-white">Explore our work 
+3085:       SECTION: EXPLORE
+3088:       CSS tag : /* === EXPLORE === */
+3090:  <section class="explore">
+3092:    <div class="explore__links">
+3093:      <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix">
+3094:        <span class="explore__row-left">
+3095:          <span class="explore__label">Legacy</span>
+3096:          <span class="explore__text">Core & Legacy Modernization </span>
+3098:        <span class="explore__row-right">
+3099:          <span class="explore__arrow" aria-hidden="true">
+3108:      <a href="https://dev.celsiortech.us/capabilities/ai-led-engineering">
+3109:        <span class="explore__row-left">
+3110:          <span class="explore__label">Transformation</span>
+3111:          <span class="explore__text">Continuous Modernisation Factory</span>
+3113:        <span class="explore__row-right">
+3114:          <span class="explore__arrow" aria-hidden="true">
+3123:      <a href="https://dev.celsiortech.us/ai-innovation/celsior-ai-lab">
+3124:        <span class="explore__row-left">
+3125:          <span class="explore__label">Application</span>
+3126:          <span class="explore__text">Application Modernization </span>
+3128:        <span class="explore__row-right">
+3129:          <span class="explore__arrow" aria-hidden="true">
+3155:      <a href="#"
+3172:          <div class="insight-foot"><span>6 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3189:          <div class="insight-foot"><span>8 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3205:          <div class="insight-foot"><span>5 min read</span><a href="#" class="insight-readlink">Read <svg width="12"
+3228:        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+3316:            <p>Every engagement starts with a platform health assessment that establishes a baseline for performance,

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <base href="/">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Celsior | Capabilities &mdash; AI-Led Engineering</title>
+  <title>Celsior | Security and Governance</title>
   <meta name="description" content="Discover Celsior's AI-led engineering capabilities spanning banking, insurance, and healthcare — powered by our AI-first digital engineering platform across the complete application lifecycle.">
   <meta name="keywords" content="AI-led engineering, capabilities, digital transformation, banking technology, insurance modernization, healthcare platform, Celsior">
   <meta property="og:title" content="Celsior | Capabilities — AI-Led Engineering">
@@ -392,7 +391,7 @@
     }
 
     .explore h2 {
-      max-width: 1100px;
+
       margin: 0 auto 56px;
       color: #0d1127;
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
@@ -406,7 +405,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      max-width: 1100px;
+
       margin: 0 auto;
       border: 1.5px solid rgba(13, 17, 39, 0.12);
       border-radius: 16px;
@@ -691,7 +690,7 @@
       font-size: 12px;
       font-weight: 800;
       letter-spacing: 0;
-      border-bottom: 1px solid rgba(13, 17, 39, 0.08);
+
       background: #fff;
       mask-image: linear-gradient(90deg, transparent 0%, #000 11%, #000 89%, transparent 100%);
       -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 11%, #000 89%, transparent 100%);
@@ -2232,7 +2231,7 @@
 
     }
 
-    /* ── Mobile styles consolidated above ── 
+    /* ── Mobile styles consolidated above ──
   </style>
   <style>
   /* CAPABILITIES: INNOVATION WHEEL */
@@ -2509,10 +2508,14 @@
   outline: none;
 }
 .acc-row:last-child { border-bottom: none; }
+.acc-intro-head {
+  padding: var(--section-pad-v) var(--section-pad-h) calc(var(--section-pad-v) * 0.75);
+  border-bottom: 1px solid #f3f4f6;
+}
 .acc-header {
   display: flex;
   align-items: center;
-  padding: 26px clamp(28px, 4vw, 56px);
+  padding: 26px var(--section-pad-h);
   gap: 22px;
   position: relative;
   z-index: 2;
@@ -2558,7 +2561,7 @@
   display: grid;
   grid-template-columns: 1fr 1.05fr;
   gap: clamp(32px, 5vw, 80px);
-  padding: 0 clamp(28px, 4vw, 56px) clamp(40px, 5vw, 72px);
+  padding: 0 var(--section-pad-h) var(--section-pad-v);
   align-items: stretch;
 }
 .acc-body-text {
@@ -2630,7 +2633,7 @@
   /* CAPABILITIES: IMPACT METRICS */
 /* ══════════════════════════════════════════════════════════════════
    OUTCOMES — Pixel-locked to Figma frame 1348×643px
-   
+
    Figma measurements at 1348px:
    • Frame total height: 643px → ~48px top+bottom padding each side
    • Left col width: ~390px = 29% of 1348
@@ -2641,7 +2644,7 @@
    • Label: 15px, #18181b, 500 weight, 8px gap below number
    • Body text: 14px, #52525b, appears below heading
    • Dividers: 1px solid #d1d5db (more visible than #e5e7eb)
-   
+
    Desktop holds ≥1140px. Below that: vertical stack.
 ══════════════════════════════════════════════════════════════════ */
 
@@ -3011,13 +3014,11 @@
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>
     <div class="hero-content">
-      <h1 class="hero-heading">Pass audits without slowing down delivery. <br>Deploy AI without regulatory risk. 
+      <h1 class="hero-heading">Pass audits without slowing down delivery. <br>Deploy AI without regulatory risk.
       </h1>
       <div class="hero-btns">
-        <button class="btn-ghost">
-          Build Governance That Scales  →
-        </button>
-        
+        <a href="/contact-us" class="btn-ghost">Build Governance That Scales →</a>
+
       </div>
     </div>
   </section>
@@ -3052,7 +3053,7 @@
     </div>
   </div>
 
-  
+
   <!-- ============================================================
        SECTION: PLATFORM OPS COST
        Purpose : Two-column comparison (unmanaged vs managed) with
@@ -3062,7 +3063,7 @@
   <section id="platform-ops-cost" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);">
 
     <!-- Heading -->
-   
+
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
       What ungoverned systems cost your<br> organization</h2>
@@ -3178,13 +3179,13 @@
     <p  class="cel-sub" id="cel-sub">Built on policy-as-code and explainable AI frameworks</p>
 
     <div class="chips-row" id="chips-row">
-      <button class="ch-arr" id="ch-prev" aria-label="Previous">
+      <button type="button" class="ch-arr" id="ch-prev" aria-label="Previous">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M8.5 11L5 7l3.5-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
       <div class="chips-viewport"><div class="chips-track" id="chips-track"></div></div>
-      <button class="ch-arr" id="ch-next" aria-label="Next">
+      <button type="button" class="ch-arr" id="ch-next" aria-label="Next">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
           <path d="M5.5 3L9 7l-3.5 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
@@ -3205,6 +3206,11 @@
 ══════════════════════════════════════════════════════ -->
 <section class="acc-section" id="acc-section" aria-label="Client case studies">
 
+  <div class="acc-intro-head">
+    <h2 style="font-size: clamp(22px, 2.4vw, 34px); font-weight: 700; color: #09090b; letter-spacing: -0.03em; line-height: 1.15; margin-bottom: 20px;">Security and Governance: Regulatory Confidence Built Into Every Layer of Delivery</h2>
+    <p style="font-size: 16px; color: #3f3f46; line-height: 1.65; max-width: 860px;">Organizations that treat security and governance as an architectural discipline — not a compliance checkbox — operate with a structural advantage that audits alone cannot produce. Every proof point below reflects a program where governance was embedded into the delivery model from the start: fraud detection built with full explainability so that regulatory scrutiny became a confirmation rather than a risk, zero-trust AI governance deployed across a clinical network so that patient data access carried a complete and auditable trail at every point, and compliance review cycles compressed from six weeks to four days.</p>
+  </div>
+
   <!-- ROW 1 — Breaking Through Years of Delivery Gridlock (default active) -->
   <div class="acc-row active" data-index="0" tabindex="0">
     <div class="acc-header">
@@ -3216,12 +3222,6 @@
         <div class="acc-body-text">
           <h3 class="acc-big-title">Building Regulatory-Grade Fraud Detection</h3>
           <p class="acc-desc">A national bank deployed AI-powered fraud detection with complete SHAP explainability, reducing false positives by 8-15% while maintaining full regulatory audit trails for every decision across SMB onboarding and AML screening. </p>
-          <a class="acc-readmore" href="#">
-            Read more
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
         </div>
         <div class="acc-img2">
           <img src="https://res.cloudinary.com/dden4hawr/image/upload/v1780032231/CARDS-2_2_b7etcd.png" alt="Executive in modern enterprise office">
@@ -3241,12 +3241,6 @@
         <div class="acc-body-text">
           <h3 class="acc-big-title">Securing Clinical AI Access Across a Regional Health Network </h3>
           <p class="acc-desc">A regional healthcare system implemented zero-trust AI governance, enabling secure agent access to patient databases with PII/PHI masking, complete audit trails, and HIPAA compliance across clinical decision support systems. </p>
-          <a class="acc-readmore" href="#">
-            Read more
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
         </div>
         <div class="acc-img2">
           <img src="https://plus.unsplash.com/premium_photo-1681843039768-0e22b7a031d5?q=80&w=1172&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
@@ -3266,12 +3260,6 @@
         <div class="acc-body-text">
           <h3 class="acc-big-title">Cutting Compliance Review Cycles from Six Weeks to Four Days for a National Insurance Carrier </h3>
           <p class="acc-desc">Celsior implemented automated compliance controls with full audit trail coverage across every model in production, reducing compliance review time from six weeks to four days while achieving 100% traceability on regulatory submissions. </p>
-          <a class="acc-readmore" href="#">
-            Read more
-            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-              <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
         </div>
         <div class="acc-img2">
           <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1115&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
@@ -3332,7 +3320,7 @@
                  on the right. Pixel-exact Figma Desktop-30 (1433×894).
        CSS tag : /* === OUTCOMES === */
        ============================================================ -->
-  
+
   <!-- CAPABILITIES: IMPACT METRICS -->
 <section class="outcomes" id="outcomes-section">
   <!-- Left: heading + body, GSAP slide-in from left -->
@@ -3389,7 +3377,7 @@
   <section class="explore">
     <h2>Continue exploring Celsior's <span style="background: linear-gradient(135deg, #1a3a8f 0%, #2254f4 40%, #0f2d6b 70%, #1641c4 100%); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; color:transparent; display:inline;">capabilities</span></h2>
     <div class="explore__links">
-      <a href="#">
+      <a data-celsior-form="ai" href="/ai-innovation/celsior-ai-lab">
         <span class="explore__row-left">
           <span class="explore__label">AI LAB</span>
           <span class="explore__text">Governance Automation</span>
@@ -3404,7 +3392,7 @@
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/ai-innovation/frameworks-accelerators">
         <span class="explore__row-left">
           <span class="explore__label">COES</span>
           <span class="explore__text">Explainable AI & Responsible AI</span>
@@ -3419,7 +3407,7 @@
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/ai-innovation/frameworks-accelerators/synthetix">
         <span class="explore__row-left">
           <span class="explore__label">ACCELERATORS</span>
           <span class="explore__text">Zero-Trust Security Engineering</span>
@@ -3434,7 +3422,7 @@
           </span>
         </span>
       </a>
-      
+
     </div>
   </section>
 
@@ -3528,25 +3516,28 @@
             d="M8 20c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H8v-8zm12 0c0-4.4 2.4-8 6-10l1.5 2c-2.5 1.5-4 4-4 8h4v8H20v-8z"
             fill="#fff" />
         </svg>
-        <p class="test-quote">"Every AI model we deployed created a new compliance question we couldn't answer quickly. Our review cycles were running six weeks per model, and we still couldn't produce the explainability documentation our regulators expected. Celsior embedded governance into the architecture itself. Automated controls, full audit trails on every model decision, and SHAP-powered explainability that our compliance team can hand directly to examiners. Review cycles dropped from six weeks to four days, and we went into our last regulatory review with complete traceability across every system in scope."</p>
+        <p class="test-quote">"Our security and governance practice scales from single AI system audits to enterprise-wide governance transformation. Whether you're deploying your first AI model with explainability requirements, implementing zero-trust architecture, or building continuous compliance monitoring, we bring the same discipline: controls encoded as policy, audit trails built into systems, and regulatory requirements met through automation rather than documentation."</p>
         <div class="test-author">
-          <div class="test-avatar">CRO</div>
+          <div class="test-avatar">CIO</div>
           <div>
-            <div style="font-size:14px;font-weight:600;color:#fff;">National Insurance Carrier</div>
-            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Chief Risk Officer</div>
+            <div style="font-size:14px;font-weight:600;color:#fff;">Major life insurance company</div>
+            <div style="font-size:12px;color:#93c5fd;margin-top:2px;">Agent Portal Modernisation</div>
           </div>
         </div>
       </div>
       <div class="test-right">
-        <div class="test-res-label">Engagement Results</div>
+        <div class="test-res-label">DELIVERY APPROACH:</div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">Compliance review cycles reduced from six weeks to four days</span>
+          <div class="test-dot"></div><span class="test-res-text">CAFE platform with security and governance built in </span>
         </div>
         <div class="test-res-item">
-          <div class="test-dot"></div><span class="test-res-text">100% traceability achieved across all models in production at time of regulatory submission</span>
+          <div class="test-dot"></div><span class="test-res-text">HALO human-in-the-loop architecture for responsible AI </span>
+        </div>
+        <div class="test-res-item">
+          <div class="test-dot"></div><span class="test-res-text">MCP Forge with zero-trust security and complete audit trails</span>
         </div>
         <div class="test-res-item" style="margin-bottom:0;">
-          <div class="test-dot"></div><span class="test-res-text">Fraud detection deployed with SHAP explainability, clearing internal audit on first review cycle</span>
+          <div class="test-dot"></div><span class="test-res-text">Policy-as-code guardrails enforced in delivery pipelines </span>
         </div>
       </div>
     </div>
@@ -3564,7 +3555,7 @@
         <p class="eyebrow">FAQ</p>
         <h2>Questions leaders ask about security and governance transformation</h2>
         <p>Covering ROI, risk, timelines, and delivery model — the questions that matter to decision-makers, answered directly.</p>
-        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+        <a data-celsior-form="general" href="#">Speak to our team <span aria-hidden="true">→</span></a>
       </div>
       <div class="faq__items">
         <div class="faq__item">
@@ -3743,12 +3734,12 @@ Most governance programs begin with understanding current exposure
 
 <div class="cta-btn-group">
 
-<a href="#contact"
+<a data-celsior-form="assessment" href="https://celsior-assessment-tools.netlify.app/grc-assessment/"
 class="cta-btn cta-band-btn">
 Request a Governance Assessment
 </a>
 
-<a href="#assessment"
+<a href="/contact-us"
 class="cta-btn cta-band-btn-white">
 Explore Our Frameworks
 </a>
@@ -4149,10 +4140,8 @@ Explore Our Frameworks
       chip:'Healthcare',
       logo:{img:'https://res.cloudinary.com/dden4hawr/image/upload/v1779293592/C1_yailh3.png', alt:'Healthcare icon'},
       title:'Healthcare',
-      desc:'Patient care platform integrating EHR, billing, and care coordination workflows.',
-      stats:[{n:'40%',l:'reduction in admin overhead'},{n:'98%',l:'patient satisfaction score'}],
-      bg:'#f0fdf4', titleC:'#14532d', descC:'#4a7a5a', statC:'#14532d', lblC:'#5a9a6a',
-      ctaBg:'rgba(20,83,45,.88)', ctaC:'#fff', ctaBorder:'',
+      desc:'HIPAA-compliant AI governance with PII/PHI masking, role-based access, and complete query audit trails for patient data systems',
+      bg:'#f0fdf4', titleC:'#14532d', descC:'#4a7a5a',
       shadow:'0 22px 44px rgba(0,0,0,.32)',
       footBg:'#1a2a1a', footR:'120px 120px 0 0', foot:'dashboard',
       imgs:{dash:'https://res.cloudinary.com/dden4hawr/image/upload/v1778640517/dashboard_qni0pr.png'},
@@ -4161,10 +4150,8 @@ Explore Our Frameworks
       chip:'Banking & Financial Services',
       logo:{img:'https://res.cloudinary.com/dden4hawr/image/upload/v1779293592/C2_o3sbq2.png', alt:'Banking and financial services icon'},
       title:'Banking & Financial Services',
-      desc:'Digital lending platform with real-time underwriting and omnichannel customer experience.',
-      stats:[{n:'50%',l:'reduction in development costs'},{n:'6',l:'strategic projects in 12 months'}],
-      bg:'#fff9e6', titleC:'#111', descC:'#666', statC:'#111', lblC:'#999',
-      ctaBg:'rgba(0,0,0,.82)', ctaC:'#fff', ctaBorder:'',
+      desc:'Zero-trust AI platform with complete audit trails supporting SOX compliance and regulatory reporting across lending systems',
+      bg:'#fff9e6', titleC:'#111', descC:'#666',
       shadow:'0 28px 56px rgba(0,0,0,.52)',
       footBg:'#18181a', footR:'130px 130px 0 0', foot:'phones',
       imgs:{p1:'https://res.cloudinary.com/dden4hawr/image/upload/v1778640733/app_screen_left_3_yqug1b.png',
@@ -4174,10 +4161,8 @@ Explore Our Frameworks
       chip:'Insurance',
       logo:{img:'https://res.cloudinary.com/dden4hawr/image/upload/v1779293592/C3_jgcxl3.png', alt:'Insurance icon'},
       title:'Insurance',
-      desc:'Reduce technical debt while maintaining business logic continuity.',
-      stats:[{n:'65%',l:'reduction in quote-to-policy time'},{n:'3×',l:'faster claims resolution'}],
-      bg:'#e0fcfa', titleC:'#0f2f3a', descC:'#4a7a8a', statC:'#0f2f3a', lblC:'#6aaabb',
-      ctaBg:'rgba(14,46,58,.85)', ctaC:'#fff', ctaBorder:'',
+      desc:'Fraud detection with SHAP-powered explainability meeting state insurance department requirements for algorithmic accountability',
+      bg:'#e0fcfa', titleC:'#0f2f3a', descC:'#4a7a8a',
       shadow:'0 22px 44px rgba(0,0,0,.35)',
       footBg:'transparent', footR:'0', foot:'shield',
       imgs:{shield:'https://res.cloudinary.com/dden4hawr/image/upload/v1778640518/Shield_iarrdm.png'},
@@ -4274,7 +4259,6 @@ Explore Our Frameworks
       wrap.className = 'cw';
       wrap.dataset.i = i;
       wrap.dataset.k = k - 1;
-      const bdr = d.ctaBorder ? `border:${d.ctaBorder};` : '';
       wrap.innerHTML = `
         <div class="card" style="background:${d.bg};box-shadow:${d.shadow};">
           <div class="c-head">
@@ -4284,18 +4268,6 @@ Explore Our Frameworks
             <div class="c-title" style="color:${d.titleC};">${d.title}</div>
           </div>
           <p class="c-desc" style="color:${d.descC};">${d.desc}</p>
-          <div class="c-stats">
-            ${d.stats.map(s=>`<div class="stat">
-              <div class="stat-n" style="color:${d.statC};">${s.n}</div>
-              <div class="stat-l" style="color:${d.lblC};">${s.l}</div>
-            </div>`).join('')}
-          </div>
-          <button class="c-cta" style="background:${d.ctaBg};color:${d.ctaC};${bdr}">
-            View case study
-            <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-              <path d="M2.5 6.5h8M7 3.5l3 3-3 3" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </button>
           ${buildFoot(d)}
         </div>`;
       pivot.appendChild(wrap);
