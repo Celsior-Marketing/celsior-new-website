@@ -386,7 +386,7 @@
     }
 
     .explore h2 {
-      max-width: 1100px;
+
       margin: 0 auto 56px;
       color: #0d1127;
       font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Inter', system-ui, sans-serif;
@@ -400,7 +400,7 @@
       display: flex;
       flex-direction: column;
       overflow: hidden;
-      max-width: 1100px;
+
       margin: 0 auto;
       border: 1.5px solid rgba(13, 17, 39, 0.12);
       border-radius: 16px;
@@ -477,7 +477,7 @@
       align-items: center;
       justify-content: center;
       flex-shrink: 0;
-      width: 164px;
+      width: 200px;
       text-align: center;
       padding: 6px 14px;
       border-radius: 4px;
@@ -766,19 +766,17 @@
       position: relative;
       max-width: 1440px;
       margin: 0 auto;
-      /* height = tallest card; heading floats in whitespace above short cards */
-      min-height: clamp(500px, 88vh, 900px);
+      min-height: clamp(420px, 87vh, 847px);
       padding: 0 clamp(24px, 5.5vw, 80px);
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
-      /* cards anchor to bottom */
     }
 
-    /* ── Heading: absolutely positioned over top-left whitespace ── */
+    /* ── Heading: absolutely positioned, flush to top of section ── */
     .outcomes__heading {
       position: absolute;
-      top: clamp(32px, 7%, 112px);
+      top: 0;
       left: clamp(24px, 5.5vw, 80px);
       width: clamp(280px, 32%, 460px);
       z-index: 2;
@@ -815,7 +813,6 @@
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
       align-items: end;
-      /* stagger — shortest left, tallest right */
       gap: clamp(6px, 1vw, 14px);
     }
 
@@ -972,11 +969,13 @@
 
     /* Descriptions */
     .outcome-card p {
-      max-width: 240px;
+      max-width: min(240px, 100%);
       margin: clamp(12px, 2vh, 32px) 0 0;
-      font-size: 16px;
-      line-height: 23px;
+      font-size: clamp(13px, 1.1vw, 16px);
+      line-height: 1.45;
       font-weight: 500;
+      word-break: break-word;
+      overflow-wrap: break-word;
     }
 
     .outcome-card--gold p {
@@ -1025,6 +1024,34 @@
    RESPONSIVE BREAKPOINTS
 ════════════════════════ */
 
+    /* Mid-range 960px–1200px — 4-col still but tighter, shrink text further */
+    @media (min-width: 961px) and (max-width: 1200px) {
+      .outcome-card p {
+        font-size: clamp(12px, 1vw, 14px);
+        line-height: 1.4;
+      }
+
+      .outcome-card strong {
+        font-size: clamp(30px, 4vw, 72px);
+      }
+
+      .outcome-card--green {
+        padding: clamp(16px, 2vh, 32px) clamp(12px, 1.4vw, 18px) 20px;
+      }
+
+      .outcome-card--blue {
+        padding: clamp(16px, 2vh, 28px) clamp(12px, 1.4vw, 18px) 20px;
+      }
+
+      .outcome-card--gold {
+        padding: clamp(16px, 2.4vh, 32px) clamp(12px, 1.6vw, 22px) 20px;
+      }
+
+      .outcome-card--dark {
+        padding: clamp(16px, 2.4vh, 32px) clamp(12px, 1.8vw, 24px) 20px;
+      }
+    }
+
     /* Tablet ≤960px — heading back in flow, 2×2 card grid */
     @media (max-width: 960px) {
       .outcomes {
@@ -1038,9 +1065,12 @@
         width: auto;
         max-width: 560px;
         margin-bottom: 28px;
+        padding-bottom: 0;
+        padding-right: 0;
       }
 
       .outcome-cards {
+        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         align-items: stretch;
       }
@@ -1051,6 +1081,12 @@
       .outcome-card--dark {
         height: clamp(240px, 38vw, 340px);
         padding: 28px 22px 24px;
+      }
+
+      .outcome-card p {
+        font-size: clamp(13px, 1.8vw, 15px);
+        line-height: 1.42;
+        max-width: 100%;
       }
     }
 
@@ -2037,6 +2073,7 @@
       }
 
       .outcome-cards {
+        display: grid !important;
         grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
         align-items: stretch !important;
         gap: 8px !important;
@@ -2524,14 +2561,14 @@
       <h1 class="hero-heading">Delivery teams structured around<br>program requirements. Not assembled around<br>resource availability.
       </h1>
       <div class="hero-btns">
-        <button class="btn-ghost">
+        <button type="button" class="btn-ghost">
           Explore our team models
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
         </button>
-        <button class="btn-white">Talk to our delivery team</button>
+        <button type="button" data-celsior-form="general" class="btn-white">Talk to our delivery team</button>
       </div>
     </div>
   </section>
@@ -2548,11 +2585,11 @@
         <div class="stat-desc">Reduction in team deployment lead time versus traditional hiring cycles</div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">3 Weeks</div>
+        <div class="stat-num">74%</div>
         <div class="stat-desc">Of employers report persistent difficulty sourcing specialized technology roles through conventional channels</div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">74%</div>
+        <div class="stat-num">3 Weeks</div>
         <div class="stat-desc">Average elapsed time from program brief to a fully operational, pre-certified delivery team</div>
       </div>
       <div class="stat-col">
@@ -2725,9 +2762,7 @@
           </button>
           <div class="gacc-body" style="overflow:hidden;height:0;">
             <div class="gacc-inner" style="padding:0 0 20px 84px;">
-              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Reactive platform support feels cheaper
-                than a managed program until accounted for emergency interventions, delayed delivery, and the strategic
-                work that never got done. </p>
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Platform depth, egulatory fluency, and industry-specific operating familiarity represent years of accumulated domain capital</p>
             </div>
           </div>
         </div>
@@ -3102,7 +3137,7 @@
           </span>
         </span>
       </a>
-      <a href="#">
+      <a data-celsior-form="ai" href="#">
         <span class="explore__row-left">
           <span class="explore__label">NEARSHORE DELIVERY</span>
           <span class="explore__text">Pre-Certified Platform Talent</span>
@@ -3219,9 +3254,8 @@
       <div class="faq__intro">
         <p class="eyebrow">FAQ</p>
         <h2>Questions business leaders ask before engaging</h2>
-        <p>Covering ROI, risk, timelines, and delivery model — the questions that matter to decision-makers, answered
-          directly.</p>
-        <a href="#">Speak to our team <span aria-hidden="true">→</span></a>
+        <p>The decision to move from conventional staffing to a managed team delivery model raises legitimate questions about accountability structure, certification methodology, and engagement governance. These are the questions Celsior's program leadership addresses at the outset of every client conversation. </p>
+        <a data-celsior-form="general" href="#">Speak to our team <span aria-hidden="true">→</span></a>
       </div>
       <div class="faq__items">
         <div class="faq__item">
@@ -3312,7 +3346,7 @@
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
       <h2 class="cta-band-text" data-text="Most Teams-as-a-Service engagements begin with a structured assessment of program requirements and delivery capability alignment.">Most Teams-as-a-Service engagements begin with a structured assessment of program requirements and delivery capability alignment.</h2>
-      <a href="#contact" class="cta-btn cta-band-btn">Start the conversation</a>
+      <a data-celsior-form="general" href="#contact" class="cta-btn cta-band-btn">Start the conversation</a>
     </div>
   </section>
 
