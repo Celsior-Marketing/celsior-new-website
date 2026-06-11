@@ -1,0 +1,39 @@
+229:  if (document.body.dataset.shared === 'off') {
+361:.mz-feature-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);}
+362:.mz-feature-card:hover .mz-feature-img{}
+516:  let activePage = (document.body.dataset.page || '').toLowerCase();
+689:     Hover an item in the mega menu and the right-side image swaps to
+693:       1) MEGA_IMAGES.items[href]       ← per-item image on hover
+694:       2) MEGA_IMAGES.defaults[panelId] ← per-panel default (no item hovered)
+698:       <script>window.MEGA_IMAGES = {
+706:  const MEGA_IMAGES = (window.MEGA_IMAGES = Object.assign({
+765:  }, window.MEGA_IMAGES || {}));
+768:    return (MEGA_IMAGES.defaults && MEGA_IMAGES.defaults[panelId]) || FEATURE_IMG;
+772:    if (MEGA_IMAGES.items && MEGA_IMAGES.items[href]) return MEGA_IMAGES.items[href];
+928:          <img class="mz-feature-img" data-default-img="${resolvePanelDefault(d.id)}" src="${resolvePanelDefault(d.id)}" alt="${d.feature.title}" loading="lazy"/>
+1233:    navItemEls.forEach(li => li.classList.toggle('active', li.dataset.menu === id));
+1266:    li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
+1267:    li.addEventListener('mouseleave', sched);
+1269:  megaRoot.addEventListener('mouseenter', cancel);
+1270:  megaRoot.addEventListener('mouseleave', sched);
+1272:  /* ─── DYNAMIC MEGA IMAGE SWAP ON ITEM HOVER ─────────────────────── */
+1275:    const imgEl = panel.querySelector('.mz-feature-img');
+1299:      item.addEventListener('mouseenter', () => {
+1302:      item.addEventListener('mouseleave', () => setSrc(defaultSrc));
+1324:      card.addEventListener('mouseenter', () => {
+1331:      card.addEventListener('mouseleave', () => {
+1342:      pill.addEventListener('mouseenter', () => {
+1346:      pill.addEventListener('mouseleave', () => {
+1354:      const img = card.querySelector('.mz-feature-img');
+1357:      card.addEventListener('mouseenter', () => {
+1361:      card.addEventListener('mouseleave', () => {
+1370:      btn.addEventListener('mouseenter', () => {
+1375:      btn.addEventListener('mouseleave', () => {
+1398:      const sub = document.getElementById(btn.dataset.drawerToggle);
+1458:        const act = e.target.dataset && e.target.dataset.act;
+1489:        if (e.target === m || (e.target.dataset && e.target.dataset.act === 'cancel')) m.remove();
+1490:        if (e.target.dataset && e.target.dataset.act === 'save') {
+1513:        if (e.target === m || (e.target.dataset && e.target.dataset.act === 'cancel')) m.remove();
+1514:        if (e.target.dataset && e.target.dataset.act === 'save') {
+1542:      if (t.dataset.action === 'cookie-prefs') { e.preventDefault(); openPrefs(); }
+1543:      if (t.dataset.action === 'ccpa-opt-out') { e.preventDefault(); openCcpa(); }

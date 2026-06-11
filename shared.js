@@ -20,7 +20,7 @@
      Leave any value as '' to disable that integration. See SETUP.md.
   ─────────────────────────────────────────────────────────────────── */
   const SITE_CONFIG = (window.SITE_CONFIG = Object.assign({
-    favicon: 'https://res.cloudinary.com/dden4hawr/image/upload/v1780826237/Favicon_l8iwo5.png',
+    favicon: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Favicon_l8iwo5.png',
     siteName: 'Pyramid Consulting',
     defaultDescription: 'AI-first digital engineering partner for regulated industries — modernizing critical systems, operationalizing AI, and building resilience at scale.',
     defaultOgImage: '',           // optional absolute URL
@@ -699,7 +699,7 @@ a.nav-link{text-decoration:none;}
 
 `;
 
-  const FEATURE_IMG = 'https://res.cloudinary.com/dden4hawr/image/upload/v1780833974/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
+  const FEATURE_IMG = 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
   const ITEM_CHEV = `<svg viewBox="0 0 12 12" fill="none"><path d="M4 2.5L7.5 6L4 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const IC_DOC = `<svg viewBox="0 0 24 24" fill="none"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const IC_CHART = `<svg viewBox="0 0 24 24" fill="none"><path d="M5 4v15a1 1 0 0 0 1 1h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 14l3-3 2.5 2.5L19 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -804,10 +804,10 @@ a.nav-link{text-decoration:none;}
         {label:'Partners', href:'/partners'},
       ],
       partnerLogos:[
-        {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png'},
-        {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png'},
-        {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png'},
-        {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png'},
+        {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png'},
+        {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png'},
+        {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png'},
+        {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/22_qilo7h.png'},
       ],
       feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.'},
       assessTag:'Partnerships',

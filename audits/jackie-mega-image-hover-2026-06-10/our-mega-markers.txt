@@ -1,0 +1,114 @@
+23:    favicon: 'https://res.cloudinary.com/dden4hawr/image/upload/v1780826237/Favicon_l8iwo5.png',
+26:    defaultOgImage: '',           // optional absolute URL
+43:      head.appendChild(link('icon', SITE_CONFIG.favicon, { type: 'image/png' }));
+51:    if (!document.querySelector('meta[name="robots"]')) head.appendChild(meta('name','robots','index, follow, max-image-preview:large'));
+63:    if (SITE_CONFIG.defaultOgImage) og.push(['og:image', SITE_CONFIG.defaultOgImage]);
+67:      ['twitter:card', SITE_CONFIG.defaultOgImage ? 'summary_large_image' : 'summary'],
+71:    if (SITE_CONFIG.defaultOgImage) tw.push(['twitter:image', SITE_CONFIG.defaultOgImage]);
+334:/* ═══════════════════════ MEGA BACKDROP + PANELS ════════════════════ */
+335:#mega-backdrop{position:fixed;inset:0;z-index:800;background:transparent;pointer-events:none;transition:background .3s;}
+336:#mega-backdrop.on{background:rgba(7,9,20,.45);pointer-events:auto;}
+337:.mega-root{position:fixed;top:var(--nav-h);left:0;right:0;z-index:850;pointer-events:none;}
+338:.mega-panel{position:absolute;inset:0 auto auto 0;width:100%;background:linear-gradient(118deg,#fbfcff 0%,#f3f8ff 46%,#e9f1ff 100%);border-bottom:1px solid rgba(34,84,244,.12);box-shadow:0 30px 80px rgba(15,20,80,.16);padding:46px 52px 50px;display:none;opacity:0;transform:translateY(-10px);pointer-events:none;overflow:hidden;}
+339:.mega-panel.open{display:block;pointer-events:auto;}
+340:.mega-inner{position:relative;z-index:2;max-width:1320px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1.16fr .92fr;gap:0;}
+341:.mega-zone{padding:0 42px;border-right:1px solid var(--border);min-width:0;}
+342:.mega-zone:first-child{padding-left:0;}
+343:.mega-zone:last-child{padding-right:0;border-right:none;}
+351:.mz-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#fff;border:1px solid var(--border);border-radius:10px;font-size:.84rem;font-weight:600;color:var(--ink);box-shadow:0 1px 2px rgba(15,20,80,.03);transition:border-color .3s var(--ease-expo),transform .3s var(--ease-expo),box-shadow .3s,color .2s;}
+352:.mz-item:hover{border-color:var(--accent);color:var(--accent);transform:translateX(5px);box-shadow:0 10px 26px rgba(34,84,244,.13);}
+353:.mz-item svg{width:14px;height:14px;color:var(--muted);transition:transform .3s var(--ease-expo),color .2s;flex-shrink:0;}
+354:.mz-item:hover svg{color:var(--accent);transform:translateX(3px);}
+369:.mz-feature-card{display:block;border-radius:14px;overflow:hidden;border:1px solid var(--border);box-shadow:0 14px 38px rgba(15,20,80,.12);background:#0b1020;position:relative;aspect-ratio:16/8;}
+370:.mz-feature-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transform:scale(1.04);transition:transform .9s var(--ease-expo);}
+371:.mz-feature-card:hover .mz-feature-img{transform:scale(1.12);}
+372:.mz-feature-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,11,26,.82),rgba(7,11,26,.12) 62%,transparent);}
+373:.mz-feature-cap{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.94rem;font-weight:700;line-height:1.3;}
+374:.mz-feature-cap em{color:#3ddc97;font-style:normal;}
+375:.mz-feature-body{margin-top:18px;}
+376:.mz-feature-title{font-family:var(--font-head);font-size:1.06rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
+377:.mz-feature-desc{font-size:.82rem;line-height:1.62;color:var(--muted);margin-bottom:18px;}
+394:@media(max-width:1180px){.mega-inner{grid-template-columns:1fr 1fr;}.mega-zone{padding:0 30px;}.mega-zone:last-child{grid-column:1/-1;border-top:1px solid var(--border);border-right:none;margin-top:30px;padding:30px 0 0;}.mz-assess-cards{flex-direction:row;}.mz-assess-card{flex:1;}}
+395:@media(max-width:1024px){.mega-panel{padding:32px;}}
+460:/* ═══════════════════════ MOBILE DRAWER — MEGA CARDS ════════════════
+462:   drawer-sub from MEGA_DATA so mobile users see the same depth as the
+463:   desktop mega menu. Fully responsive across phones and tablets.
+465:.drawer-mega{padding:14px 20px 18px;display:flex;flex-direction:column;gap:14px;}
+466:.drawer-mega-feature{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#0b1020;aspect-ratio:16/9;box-shadow:0 10px 28px rgba(15,20,80,.14);}
+467:.drawer-mega-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+468:.drawer-mega-feature::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,11,26,.85),rgba(7,11,26,.15) 60%,transparent);}
+469:.drawer-mega-cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.82rem;font-weight:700;line-height:1.3;}
+470:.drawer-mega-cap em{color:#3ddc97;font-style:normal;}
+471:.drawer-mega-explore{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:11px 16px;background:var(--accent);color:#fff;font-size:.78rem;font-weight:700;border-radius:8px;transition:background .2s,transform .2s;}
+472:.drawer-mega-explore:hover{background:#1b46d8;transform:translateY(-1px);}
+473:.drawer-mega-explore svg{width:12px;height:12px;}
+474:.drawer-mega-assess-label{font-size:.6rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);margin-top:4px;}
+475:.drawer-mega-assess{display:flex;flex-direction:column;gap:10px;}
+476:.drawer-mega-card{display:flex;gap:12px;padding:12px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;box-shadow:0 1px 2px rgba(15,20,80,.04);transition:border-color .2s,transform .2s,box-shadow .2s;}
+477:.drawer-mega-card:hover{border-color:var(--accent);transform:translateY(-2px);box-shadow:0 10px 22px rgba(34,84,244,.14);}
+478:.drawer-mega-card .ic{width:34px;height:34px;flex-shrink:0;border-radius:8px;background:var(--accent-lt);display:grid;place-items:center;color:var(--accent);}
+479:.drawer-mega-card .ic svg{width:16px;height:16px;}
+480:.drawer-mega-card .bd{min-width:0;}
+481:.drawer-mega-card .t{font-family:var(--font-head);font-size:.82rem;font-weight:700;color:var(--ink);line-height:1.25;margin-bottom:3px;}
+482:.drawer-mega-card .d{font-size:.72rem;line-height:1.5;color:var(--muted);}
+483:.drawer-mega-pills{display:flex;flex-wrap:wrap;gap:6px;}
+484:.drawer-mega-pills a{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;border-radius:8px;border:1px solid var(--border);font-size:.7rem;font-weight:600;color:var(--ink-mid);background:#fff;}
+485:.drawer-mega-pills a .p-dot{width:5px;height:5px;border-radius:50%;background:var(--accent);}
+495:  .drawer-mega{padding:12px 16px 16px;}
+499:  .drawer-mega-feature{aspect-ratio:16/10;}
+698:  const FEATURE_IMG = 'https://res.cloudinary.com/dden4hawr/image/upload/v1780833974/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
+704:  /* Data-driven mega panels. Links preserved from the original menus. */
+705:  const MEGA_DATA = [
+803:        {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/25_qqbbin.png'},
+804:        {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780653598/26_pr8qv6.png'},
+805:        {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780725932/LOGOS_2_rne95i.png'},
+806:        {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dden4hawr/image/upload/v1780028743/22_qilo7h.png'},
+836:  function buildMegaPanel(d) {
+837:    const items = d.items.map(it => `<a class="mz-item" href="${it.href}">${it.label} ${ITEM_CHEV}</a>`).join('');
+847:  <div class="mega-panel" id="menu-${d.id}">
+848:    <div class="mega-inner">
+849:      <div class="mega-zone">
+856:      <div class="mega-zone">
+857:        <a class="mz-feature-card" href="${d.explore.href}">
+858:          <img class="mz-feature-img" src="${FEATURE_IMG}" alt="${d.feature.title}" loading="lazy"/>
+859:          <div class="mz-feature-cap">${d.feature.cap}</div>
+861:        <div class="mz-feature-body">
+862:          <div class="mz-feature-title">${d.feature.title}</div>
+863:          <p class="mz-feature-desc">${d.feature.desc}</p>
+867:      <div class="mega-zone">
+875:  const megaPanelsHTML = MEGA_DATA.map(buildMegaPanel).join('\n');
+878:  let backdropEl = document.getElementById('mega-backdrop');
+881:  let megaRoot = document.getElementById('megaRoot');
+886:    const oldBackdrop = document.getElementById('mega-backdrop');
+890:    const oldMegaRoot = document.getElementById('megaRoot');
+891:    if (oldMegaRoot) oldMegaRoot.remove();
+895:    backdropEl.id = 'mega-backdrop';
+933:    // Mega root
+934:    megaRoot = document.createElement('div');
+935:    megaRoot.className = 'mega-root';
+936:    megaRoot.id = 'megaRoot';
+937:    megaRoot.innerHTML = megaPanelsHTML;
+938:    document.body.insertBefore(megaRoot, drawerEl.nextSibling);
+940:    /* ─── 3b.  AUGMENT MOBILE DRAWER WITH MEGA CARDS ────────────────
+942:       from MEGA_DATA into each .drawer-sub so the mobile experience
+943:       mirrors the desktop mega menu. Original drawer link groups are
+945:    const DRAWER_MEGA_MAP = {
+949:    Object.keys(DRAWER_MEGA_MAP).forEach(function(subId){
+952:      const data = MEGA_DATA.find(function(m){ return m.id === DRAWER_MEGA_MAP[subId]; });
+956:        : (data.pills ? `<div class="drawer-mega-pills">${data.pills.map(function(p){ return `<a href="${data.items[0].href}"><span class="p-dot"></span>${p}</a>`; }).join('')}</div>` : '');
+958:        return `<a class="drawer-mega-card" href="${data.explore.href}">
+963:      const mega = document.createElement('div');
+964:      mega.className = 'drawer-mega';
+965:      mega.innerHTML = `
+966:        <a class="drawer-mega-feature" href="${data.explore.href}" aria-label="${data.feature.title}">
+968:          <div class="drawer-mega-cap">${data.feature.cap}</div>
+970:        <a class="drawer-mega-explore" href="${data.explore.href}">${data.explore.label} ${ARROW_SVG}</a>
+972:        ${data.assessTag ? `<div class="drawer-mega-assess-label">${data.assessTag}</div>` : ''}
+973:        <div class="drawer-mega-assess">${assessHTML}</div>
+975:      sub.appendChild(mega);
+1159:  // Desktop mega menu
+1177:      gsap.from(panel.querySelectorAll('.mega-zone'), { opacity: 0, y: 10, duration: 0.34, stagger: 0.05, ease: 'power3.out', clearProps: 'opacity,transform' });
+1178:      gsap.from(panel.querySelectorAll('.mz-item,.mz-assess-card,.mz-pill'), { opacity: 0, y: 8, duration: 0.3, stagger: 0.025, ease: 'power2.out', delay: 0.08, clearProps: 'opacity,transform' });
+1205:  megaRoot.addEventListener('mouseenter', cancel);
+1206:  megaRoot.addEventListener('mouseleave', sched);
+1489:        'mz-item',
