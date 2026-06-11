@@ -2413,20 +2413,12 @@
 .c-head{display:flex;align-items:center;gap:14px;margin-bottom:18px;}
 .c-title{font-size:20px;font-weight:700;letter-spacing:-.4px;line-height:1.22;}
 .c-desc{font-size:13.5px;line-height:1.64;margin-bottom:16px;}
-.c-stats{display:flex;gap:20px;}
+.c-stats{display:none !important;}
 .c-stats .stat{display:flex;flex-direction:column;gap:3px;}
 .stat-n{font-size:24px;font-weight:800;letter-spacing:-1px;line-height:1;}
 .stat-l{font-size:11px;line-height:1.45;max-width:126px;}
 .c-cta{
-  display:inline-flex;align-items:center;gap:7px;
-  margin-top:16px;padding:9px 18px;
-  border-radius:28px;
-  font-size:12.5px;font-weight:500;
-  border:none;cursor:pointer;
-  font-family:inherit;
-  transition:transform .15s;
-  letter-spacing:.1px;
-  align-self:flex-start;
+  display:none !important;
 }
 .c-cta:hover{transform:scale(1.05);}
 .c-foot{
@@ -4072,22 +4064,10 @@ understanding the environment.</h2>
 
   const DATA = [
     {
-      chip:'Healthcare',
-      logo:{img:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/C1_yailh3.png', alt:'Healthcare icon'},
-      title:'Healthcare',
-      desc:'Patient care platform integrating EHR, billing, and care coordination workflows.',
-      stats:[{n:'40%',l:'reduction in admin overhead'},{n:'98%',l:'patient satisfaction score'}],
-      bg:'#f0fdf4', titleC:'#14532d', descC:'#4a7a5a', statC:'#14532d', lblC:'#5a9a6a',
-      ctaBg:'rgba(20,83,45,.88)', ctaC:'#fff', ctaBorder:'',
-      shadow:'0 22px 44px rgba(0,0,0,.32)',
-      footBg:'#1a2a1a', footR:'120px 120px 0 0', foot:'dashboard',
-      imgs:{dash:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/dashboard_qni0pr.png'},
-    },
-    {
       chip:'Banking & Financial Services',
       logo:{img:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/C2_o3sbq2.png', alt:'Banking and financial services icon'},
       title:'Banking & Financial Services',
-      desc:'Digital lending platform with real-time underwriting and omnichannel customer experience.',
+      desc:'Multi-cloud deployment supporting digital<br>lending platforms with automated failover<br>and cost optimization',
       stats:[{n:'50%',l:'reduction in development costs'},{n:'6',l:'strategic projects in 12 months'}],
       bg:'#fff9e6', titleC:'#111', descC:'#666', statC:'#111', lblC:'#999',
       ctaBg:'rgba(0,0,0,.82)', ctaC:'#fff', ctaBorder:'',
@@ -4100,13 +4080,25 @@ understanding the environment.</h2>
       chip:'Insurance',
       logo:{img:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/C3_jgcxl3.png', alt:'Insurance icon'},
       title:'Insurance',
-      desc:'Reduce technical debt while maintaining business logic continuity.',
+      desc:'Claims processing infrastructure scaled<br>elastically during peak seasons while<br>maintaining SLA compliance',
       stats:[{n:'65%',l:'reduction in quote-to-policy time'},{n:'3×',l:'faster claims resolution'}],
       bg:'#e0fcfa', titleC:'#0f2f3a', descC:'#4a7a8a', statC:'#0f2f3a', lblC:'#6aaabb',
       ctaBg:'rgba(14,46,58,.85)', ctaC:'#fff', ctaBorder:'',
       shadow:'0 22px 44px rgba(0,0,0,.35)',
       footBg:'transparent', footR:'0', foot:'shield',
       imgs:{shield:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Shield_iarrdm.png'},
+    },
+    {
+      chip:'Healthcare',
+      logo:{img:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/C1_yailh3.png', alt:'Healthcare icon'},
+      title:'Healthcare',
+      desc:'Patient care systems with 99.95% uptime<br>supported by SRE practices and full-stack<br>observability',
+      stats:[{n:'40%',l:'reduction in admin overhead'},{n:'98%',l:'patient satisfaction score'}],
+      bg:'#f0fdf4', titleC:'#14532d', descC:'#4a7a5a', statC:'#14532d', lblC:'#5a9a6a',
+      ctaBg:'rgba(20,83,45,.88)', ctaC:'#fff', ctaBorder:'',
+      shadow:'0 22px 44px rgba(0,0,0,.32)',
+      footBg:'#1a2a1a', footR:'120px 120px 0 0', foot:'dashboard',
+      imgs:{dash:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/dashboard_qni0pr.png'},
     },
   ];
   const N = DATA.length;

@@ -3925,36 +3925,7 @@
   })();
   </script>
 
-  <!-- ============================================================
-       SECTION: STATS STRIP
-       Purpose : Three highlight stat cards with animated counters.
-       CSS tag : /* === STATS === */
-       ============================================================ -->
-  <div class="stats-wrap">
-    <div class="stats-grid">
-      <div class="stat-col">
-        <div class="stat-num">50+</div>
-        <div class="stat-desc">Years of BFSI Technology Delivery </div>
-      </div>
-      <div class="stat-col">
-        <div class="stat-num">50%</div>
-        <div class="stat-desc">Financial Institutions Served </div>
-      </div>
-      <div class="stat-col">
-        <div class="stat-num">500+</div>
-        <div class="stat-desc">Consultants Supporting BFSI Clients </div>
-      </div>
-      <div class="stat-col">
-        <div class="stat-num">25+</div>
-        <div class="stat-desc">Countries in Global Delivery Network </div>
-      </div>
-    </div>
-    <div class="stat-note">
-      <div class="stat-note-lbl"> </div>
-      <div class="stat-note-txt">Celsior brings financial services depth across insurance, community banks, regional financial institutions, and enterprise banking organizations. Our teams have a working understanding of the regulatory constraints, data governance obligations, and operational pressures. Our global consultant network spanning the United States, Mexico, and India gives financial institutions access to a delivery model that scales without sacrificing platform knowledge.   
-      </div>
-    </div>
-  </div>
+  
 
 
   <!-- ============================================================
@@ -5324,7 +5295,7 @@
       position: absolute;
       top: clamp(32px, 7%, 112px);
       left: clamp(24px, 5.5vw, 80px);
-      width: clamp(320px, 40%, 1140px);
+      width: clamp(320px, 56%, 1140px);
       z-index: 2;
     }
 
@@ -5341,13 +5312,12 @@
 
     .fi-outcomes__heading h2 {
       font-family: "SF Pro Display", "DM Sans", Inter, sans-serif;
-      font-size: clamp(28px, 3.2vw, 52px);
+      font-size: clamp(28px, 3vw, 46px);
       line-height: 1.08;
       letter-spacing: -0.03em;
       font-weight: 700;
       color: #09090b;
       margin: 0 0 16px;
-      text-wrap: balance;
     }
 
     .fi-outcomes__heading p:last-child {
@@ -5622,12 +5592,13 @@
     <section class="fi-outcomes" aria-label="Outcomes">
       <div class="fi-outcomes__heading">
         <p class="fi-outcomes__eyebrow">Why financial institutions trust Celsior</p>
-        <h2>Five years of Jack Henry precision.Thirty years of BFSI depth.</h2>
+        <h2>Five years of Jack Henry precision.<br>Thirty years of BFSI depth.</h2>
         <p>We aren't a generalist integrator adapting generic tools to Jack Henry. We are a Fintech Integration Network member with direct platform access, a team that includes a retired Jack Henry Banking SVP on staff, and 30 years of financial services delivery experience across 50+ institutions in 25+ countries.</p>
       </div>
       <div class="fi-outcome-cards">
         <article class="fi-outcome-card fi-outcome-card--green" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="5" data-suffix="+">0</span><span>+</span></strong>
+          <p class="fi-stat-label" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin:0 0 4px;">Years inside Jack Henry</p>
           <p>Five or more years delivering programs across Jack Henry's Complementary Solutions, Bank Solutions, and Payment Solutions divisions, with 100+ consultants engaged on active programs.</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -5635,6 +5606,7 @@
         </article>
         <article class="fi-outcome-card fi-outcome-card--blue" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="30" data-suffix="+">0</span><span>+</span></strong>
+          <p class="fi-stat-label" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin:0 0 4px;">Years of BFSI delivery</p>
           <p>Three decades of financial services technology delivery across banking, payments, lending, and compliance, serving 50+ institutions in 25+ countries with a global delivery model spanning the US, Mexico, and India.</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -5642,6 +5614,7 @@
         </article>
         <article class="fi-outcome-card fi-outcome-card--gold" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="9000" data-format="comma">0</span><span>+</span></strong>
+          <p class="fi-stat-label" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin:0 0 4px;">Jack Henry's technology platforms power more than 9,000 banks and credit unions across the USA</p>
           <p>Jack Henry's technology platforms power more than 9,000 banks and credit unions across the USA.</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
@@ -5649,7 +5622,8 @@
         </article>
         <article class="fi-outcome-card fi-outcome-card--dark" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="8" data-suffix="%">0</span><span>%</span></strong>
-          <p>Fewer than 8% of the 13,000+ US fintechs currently integrate with Jack Henry's platforms.</p>
+          <p class="fi-stat-label" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin:0 0 4px;">Jack Henry's technology platforms power more than 9,000 banks and credit unions across the USA</p>
+          <p>Fewer than 8% of the 13,000+ US fintechs currently integrate with Jack Henry's</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>

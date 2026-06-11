@@ -3432,6 +3432,18 @@
     /* Legacy toggleAcc used elsewhere */
     function toggleAcc(btn) { gaccToggle(btn); }
 
+    /* Hover-to-expand: open each accordion row on mouseenter, collapse on mouseleave */
+    document.querySelectorAll('.gacc-item').forEach(function (item) {
+      var hbtn = item.querySelector('.gacc-btn');
+      if (!hbtn) return;
+      item.addEventListener('mouseenter', function () {
+        if (hbtn.getAttribute('aria-expanded') !== 'true') gaccToggle(hbtn);
+      });
+      item.addEventListener('mouseleave', function () {
+        if (hbtn.getAttribute('aria-expanded') === 'true') gaccToggle(hbtn);
+      });
+    });
+
     /* ═══════════════════════════════════════════════════
        GSAP ScrollTrigger — entrance animations
        Runs once when each section scrolls into view.
@@ -3498,19 +3510,21 @@
     }
 
     // FAQ accordion (ported from Our_Focus) — single open at a time
-    document.querySelectorAll('.faq__trigger').forEach((button) => {
-      button.addEventListener('click', () => {
-        const item = button.closest('.faq__item');
-        const isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.faq__item.is-open').forEach((openItem) => {
-          openItem.classList.remove('is-open');
-          openItem.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('is-open');
-          button.setAttribute('aria-expanded', 'true');
-        }
+    function openFaq(item, button) {
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item.is-open').forEach((openItem) => {
+        openItem.classList.remove('is-open');
+        openItem.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
       });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+    document.querySelectorAll('.faq__trigger').forEach((button) => {
+      const item = button.closest('.faq__item');
+      button.addEventListener('click', () => openFaq(item, button));
+      item.addEventListener('mouseenter', () => { if (!item.classList.contains('is-open')) openFaq(item, button); });
     });
   </script>
 

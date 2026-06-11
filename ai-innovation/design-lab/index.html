@@ -4474,19 +4474,21 @@ and digital product design</h2>
     }
 
     // FAQ accordion (ported from Our_Focus) — single open at a time
-    document.querySelectorAll('.faq__trigger').forEach((button) => {
-      button.addEventListener('click', () => {
-        const item = button.closest('.faq__item');
-        const isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.faq__item.is-open').forEach((openItem) => {
-          openItem.classList.remove('is-open');
-          openItem.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('is-open');
-          button.setAttribute('aria-expanded', 'true');
-        }
+    function openFaq(item, button) {
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item.is-open').forEach((openItem) => {
+        openItem.classList.remove('is-open');
+        openItem.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
       });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+    document.querySelectorAll('.faq__trigger').forEach((button) => {
+      const item = button.closest('.faq__item');
+      button.addEventListener('click', () => openFaq(item, button));
+      item.addEventListener('mouseenter', () => { if (!item.classList.contains('is-open')) openFaq(item, button); });
     });
   </script>
 
@@ -4744,6 +4746,7 @@ and digital product design</h2>
       row.querySelector('.acc-header').addEventListener('click', function (e) {
         if (!e.target.closest('.acc-readmore')) openRow(i);
       });
+      row.addEventListener('mouseenter', function () { openRow(i); });
       row.addEventListener('keydown', function (e) {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openRow(i); }
         if (e.key === 'ArrowDown' && i < rows.length - 1) openRow(i + 1);

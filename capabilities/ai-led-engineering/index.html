@@ -3244,7 +3244,7 @@
       <div class="acc-body-grid">
         <div class="acc-body-text">
           <h3 class="acc-big-title">Enabling Digital Growth Through Modern Architecture</h3>
-          <p class="acc-desc">Global retailer re-platformed onto a cloud-native, event-driven architecture, unlocking 40% faster release cycles and powering double-digit digital revenue growth across channels.</p>
+          <p class="acc-desc">Leading financial services organization deployed microservices-based middleware enabling mobile and online transactions, expanding digital market share across U.S. markets.</p>
         </div>
         <div class="acc-img2">
           <img src="https://images.pexels.com/photos/2599538/pexels-photo-2599538.jpeg" alt="Modern enterprise workspace" style="object-position:center 30%;">
@@ -3263,7 +3263,7 @@
       <div class="acc-body-grid">
         <div class="acc-body-text">
           <h3 class="acc-big-title">Accelerating Innovation While Reducing Technical Debt</h3>
-          <p class="acc-desc">Tier-1 bank consolidated fragmented core systems through AI-led modernization, cutting technical debt by 65% while shipping new digital experiences three times faster than before.</p>
+          <p class="acc-desc">Regional healthcare provider migrated legacy patient management system to modern architecture, reducing deployment cycles from quarterly to weekly while maintaining HIPAA compliance and full audit trails.</p>
         </div>
         <div class="acc-img2">
           <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?w=1400&q=80&fit=crop" alt="Engineering team collaborating" style="object-position:center 40%;">
@@ -3873,19 +3873,21 @@
     }
 
     // FAQ accordion (ported from Our_Focus) — single open at a time
-    document.querySelectorAll('.faq__trigger').forEach((button) => {
-      button.addEventListener('click', () => {
-        const item = button.closest('.faq__item');
-        const isOpen = item.classList.contains('is-open');
-        document.querySelectorAll('.faq__item.is-open').forEach((openItem) => {
-          openItem.classList.remove('is-open');
-          openItem.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
-        });
-        if (!isOpen) {
-          item.classList.add('is-open');
-          button.setAttribute('aria-expanded', 'true');
-        }
+    function openFaq(item, button) {
+      const isOpen = item.classList.contains('is-open');
+      document.querySelectorAll('.faq__item.is-open').forEach((openItem) => {
+        openItem.classList.remove('is-open');
+        openItem.querySelector('.faq__trigger').setAttribute('aria-expanded', 'false');
       });
+      if (!isOpen) {
+        item.classList.add('is-open');
+        button.setAttribute('aria-expanded', 'true');
+      }
+    }
+    document.querySelectorAll('.faq__trigger').forEach((button) => {
+      const item = button.closest('.faq__item');
+      button.addEventListener('click', () => openFaq(item, button));
+      item.addEventListener('mouseenter', () => { if (!item.classList.contains('is-open')) openFaq(item, button); });
     });
   </script>
 
@@ -4035,6 +4037,7 @@
       row.querySelector('.acc-header').addEventListener('click', e => {
         if (!e.target.closest('.acc-readmore')) openRow(i);
       });
+      row.addEventListener('mouseenter', () => openRow(i));
       row.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openRow(i); }
         if (e.key === 'ArrowDown' && i < rows.length - 1) openRow(i + 1);
