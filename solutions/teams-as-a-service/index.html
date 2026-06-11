@@ -2762,7 +2762,7 @@
           </button>
           <div class="gacc-body" style="overflow:hidden;height:0;">
             <div class="gacc-inner" style="padding:0 0 20px 84px;">
-              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Platform depth, egulatory fluency, and industry-specific operating familiarity represent years of accumulated domain capital</p>
+              <p style="font-size:14px;color:#6b7280;line-height:23px;margin:0;">Platform depth, regulatory fluency, and industry-specific operating familiarity represent years of accumulated domain capital.</p>
             </div>
           </div>
         </div>
@@ -3410,6 +3410,18 @@
 
     /* Legacy toggleAcc used elsewhere */
     function toggleAcc(btn) { gaccToggle(btn); }
+
+    /* Hover-to-expand: open each accordion row on mouseenter, collapse on mouseleave */
+    document.querySelectorAll('.gacc-item').forEach(function (item) {
+      var hbtn = item.querySelector('.gacc-btn');
+      if (!hbtn) return;
+      item.addEventListener('mouseenter', function () {
+        if (hbtn.getAttribute('aria-expanded') !== 'true') gaccToggle(hbtn);
+      });
+      item.addEventListener('mouseleave', function () {
+        if (hbtn.getAttribute('aria-expanded') === 'true') gaccToggle(hbtn);
+      });
+    });
 
     /* ═══════════════════════════════════════════════════
        GSAP ScrollTrigger — entrance animations
