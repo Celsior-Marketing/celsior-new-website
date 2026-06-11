@@ -4553,6 +4553,7 @@
       border-top: 1px solid rgba(13, 17, 39, 0.08);
       overflow: hidden;
     }
+
     .persp-h2 {
       font-size: 55px;
       font-weight: 700;
@@ -4561,6 +4562,7 @@
       max-width: 1000px;
       margin-bottom: 16px;
     }
+
     .persp-sub {
       font-size: 16px;
       color: #3f3f46;
@@ -4568,12 +4570,14 @@
       max-width: 1195px;
       margin: 0 0 28px;
     }
+
     .persp-nav {
       display: flex;
       gap: 10px;
       margin-bottom: 28px;
       justify-content: flex-end;
     }
+
     .persp-nav-btn {
       display: flex;
       align-items: center;
@@ -4588,14 +4592,24 @@
       transition: background 0.22s, border-color 0.22s, transform 0.18s;
       flex-shrink: 0;
     }
+
     .persp-nav-btn:hover {
       background: #0d4f45;
       border-color: #0d4f45;
       color: #fff;
       transform: scale(1.07);
     }
-    .persp-nav-btn:active { transform: scale(0.95); }
-    .persp-nav-btn svg { width: 18px; height: 18px; display: block; }
+
+    .persp-nav-btn:active {
+      transform: scale(0.95);
+    }
+
+    .persp-nav-btn svg {
+      width: 18px;
+      height: 18px;
+      display: block;
+    }
+
     .persp-slider-outer {
       position: relative;
       overflow: hidden;
@@ -4603,12 +4617,17 @@
       user-select: none;
       touch-action: pan-y;
     }
-    .persp-slider-outer.is-dragging { cursor: grabbing; }
+
+    .persp-slider-outer.is-dragging {
+      cursor: grabbing;
+    }
+
     .persp-slider-track {
       display: flex;
       gap: 24px;
       will-change: transform;
     }
+
     .persp-card {
       flex: 0 0 calc((100% - 48px) / 3);
       min-width: 300px;
@@ -4621,6 +4640,7 @@
       justify-content: flex-end;
       cursor: pointer;
     }
+
     .persp-card-bg {
       position: absolute;
       inset: 0;
@@ -4630,13 +4650,22 @@
       object-position: top;
       transition: transform 0.55s cubic-bezier(0.22, 1, 0.36, 1);
     }
-    .persp-card:hover .persp-card-bg { transform: scale(1.04); }
-    .persp-card-overlay { position: absolute; inset: 0; }
+
+    .persp-card:hover .persp-card-bg {
+      transform: scale(1.04);
+    }
+
+    .persp-card-overlay {
+      position: absolute;
+      inset: 0;
+    }
+
     .persp-card-body {
       position: relative;
       z-index: 2;
       padding: 32px 28px;
     }
+
     .persp-card-chip {
       display: inline-flex;
       align-items: center;
@@ -4648,6 +4677,7 @@
       text-transform: uppercase;
       color: #fff;
     }
+
     .persp-card-chip::before {
       content: "";
       display: inline-block;
@@ -4657,6 +4687,7 @@
       background: #fff;
       flex-shrink: 0;
     }
+
     .persp-card-ttl {
       font-size: 22px;
       font-weight: 700;
@@ -4668,6 +4699,7 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+
     .persp-card-txt {
       font-size: 15px;
       color: rgba(255, 255, 255, 0.85);
@@ -4677,23 +4709,59 @@
       -webkit-box-orient: vertical;
       overflow: hidden;
     }
+
     @media (hover: hover) and (pointer: fine) {
-      .persp-card:hover .persp-card-ttl { -webkit-line-clamp: unset; }
-      .persp-card:hover .persp-card-txt { -webkit-line-clamp: unset; }
+      .persp-card:hover .persp-card-ttl {
+        -webkit-line-clamp: unset;
+      }
+
+      .persp-card:hover .persp-card-txt {
+        -webkit-line-clamp: unset;
+      }
     }
+
     @media (max-width: 1100px) {
-      .persp-section { padding: 60px 48px; }
-      .persp-h2 { font-size: 42px; line-height: 48px; }
-      .persp-card { flex: 0 0 calc((100% - 24px) / 2); }
+      .persp-section {
+        padding: 60px 48px;
+      }
+
+      .persp-h2 {
+        font-size: 42px;
+        line-height: 48px;
+      }
+
+      .persp-card {
+        flex: 0 0 calc((100% - 24px) / 2);
+      }
     }
+
     @media (max-width: 720px) {
-      .persp-section { padding: 48px 20px; }
-      .persp-h2 { font-size: 30px; line-height: 36px; }
-      .persp-card { flex: 0 0 85vw; height: 460px; min-width: 0; }
-      .persp-nav { justify-content: flex-start; margin-bottom: 20px; }
+      .persp-section {
+        padding: 48px 20px;
+      }
+
+      .persp-h2 {
+        font-size: 30px;
+        line-height: 36px;
+      }
+
+      .persp-card {
+        flex: 0 0 85vw;
+        height: 460px;
+        min-width: 0;
+      }
+
+      .persp-nav {
+        justify-content: flex-start;
+        margin-bottom: 20px;
+      }
     }
+
     @media (max-width: 400px) {
-      .persp-card { flex: 0 0 92vw; height: 420px; }
+      .persp-card {
+        flex: 0 0 92vw;
+        height: 420px;
+      }
     }
   </style>
 
@@ -4703,283 +4771,312 @@
   <section class="persp-section sec-border" id="persp-s1">
     <p class="eyebrow">OUR APPROACH</p>
     <h2 class="persp-h2">End-to-end transformation across the insurance value chain</h2>
-    <p class="persp-sub">Five pillars that convert complexity into competitive advantage — for carriers, MGAs, and brokers alike.</p>
+    <p class="persp-sub">Five pillars that convert complexity into competitive advantage — for carriers, MGAs, and
+      brokers alike.</p>
     <div class="persp-nav">
       <button class="persp-nav-btn" id="persp-s1-prev" aria-label="Previous">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <polyline points="15 18 9 12 15 6" />
+        </svg>
       </button>
       <button class="persp-nav-btn" id="persp-s1-next" aria-label="Next">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 6 15 12 9 18"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round">
+          <polyline points="9 6 15 12 9 18" />
+        </svg>
       </button>
     </div>
     <div class="persp-slider-outer" id="persp-s1-outer">
       <div class="persp-slider-track" id="persp-s1-track">
         <div class="persp-card">
-          <img class="persp-card-bg" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/49_fr6r5k.png" alt="Digitize" />
-          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#0c1b3b 67%);"></div>
+          <img class="persp-card-bg"
+            src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/49_fr6r5k.png" alt="Digitize" />
+          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#0c1b3b 67%);">
+          </div>
           <div class="persp-card-body">
             <div class="blog-card-txt">01</div>
             <div class="persp-card-ttl">Digitize</div>
-            <div class="persp-card-txt">Eliminate manual handoffs and paper-based processes. We convert legacy workflows into streamlined digital experiences — from policy issuance to FNOL and reinsurance — that reduce errors and accelerate processing speed.</div>
+            <div class="persp-card-txt">Eliminate manual handoffs and paper-based processes. We convert legacy workflows
+              into streamlined digital experiences — from policy issuance to FNOL and reinsurance — that reduce errors
+              and accelerate processing speed.</div>
           </div>
         </div>
         <div class="persp-card">
-          <img class="persp-card-bg" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/50_uuqhuo.png" alt="Automate &amp; Empower Agents" />
-          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);"></div>
+          <img class="persp-card-bg"
+            src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/50_uuqhuo.png"
+            alt="Automate &amp; Empower Agents" />
+          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
+          </div>
           <div class="persp-card-body">
             <div class="blog-card-txt">02</div>
             <div class="persp-card-ttl">Automate &amp; Empower Agents</div>
-            <div class="persp-card-txt">Modernize policy issuance and claims settlement through intelligent automation. Agent portals with quote-to-bind workflows, commission visibility, and producer dashboards free your team from admin — putting more time into selling, servicing, and growing the book.</div>
+            <div class="persp-card-txt">Modernize policy issuance and claims settlement through intelligent automation.
+              Agent portals with quote-to-bind workflows, commission visibility, and producer dashboards free your team
+              from admin — putting more time into selling, servicing, and growing the book.</div>
           </div>
         </div>
         <div class="persp-card">
-          <img class="persp-card-bg" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/51_ypfk4t.png" alt="Analyze" />
-          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);"></div>
+          <img class="persp-card-bg"
+            src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/51_ypfk4t.png" alt="Analyze" />
+          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,#060606 67%);">
+          </div>
           <div class="persp-card-body">
             <div class="blog-card-txt">03</div>
             <div class="persp-card-ttl">Analyze</div>
-            <div class="persp-card-txt">Real-time dashboards with visibility into loss ratios, premium trends, producer performance, and specialized reports. Track analytics and utilize reports to identify profitable segments, and optimize pricing.</div>
+            <div class="persp-card-txt">Real-time dashboards with visibility into loss ratios, premium trends, producer
+              performance, and specialized reports. Track analytics and utilize reports to identify profitable segments,
+              and optimize pricing.</div>
           </div>
         </div>
         <div class="persp-card">
-          <img class="persp-card-bg" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/49_fr6r5k.png" alt="Optimize" style="object-position:center;" />
-          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,rgba(10,18,34,0.94) 58%);"></div>
+          <img class="persp-card-bg"
+            src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/49_fr6r5k.png" alt="Optimize"
+            style="object-position:center;" />
+          <div class="persp-card-overlay"
+            style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,rgba(10,18,34,0.94) 58%);"></div>
           <div class="persp-card-body">
             <div class="blog-card-txt">04</div>
             <div class="persp-card-ttl">Optimize</div>
-            <div class="persp-card-txt">Continuous optimization processes for speed and efficiency, leading to data-driven decision making and iterative improvements that compound value over time.</div>
+            <div class="persp-card-txt">Continuous optimization processes for speed and efficiency, leading to
+              data-driven decision making and iterative improvements that compound value over time.</div>
           </div>
         </div>
         <div class="persp-card">
-          <img class="persp-card-bg" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/50_uuqhuo.png" alt="Enable Brokers &amp; MGAs" style="object-position:center;" />
-          <div class="persp-card-overlay" style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,rgba(10,18,34,0.94) 58%);"></div>
+          <img class="persp-card-bg"
+            src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/50_uuqhuo.png"
+            alt="Enable Brokers &amp; MGAs" style="object-position:center;" />
+          <div class="persp-card-overlay"
+            style="background:linear-gradient(180deg,rgba(11,11,11,0) 0%,rgba(10,18,34,0.94) 58%);"></div>
           <div class="persp-card-body">
             <div class="blog-card-txt">05</div>
             <div class="persp-card-ttl">Enable Brokers &amp; MGAs</div>
-            <div class="persp-card-txt">Modernize submission intake, automate quoting workflows, and integrate with carrier portals to reduce submission turnaround. Empower brokers and MGAs to launch programs faster — with full commission visibility, CRM integration, and custom portal builds.</div>
+            <div class="persp-card-txt">Modernize submission intake, automate quoting workflows, and integrate with
+              carrier portals to reduce submission turnaround. Empower brokers and MGAs to launch programs faster — with
+              full commission visibility, CRM integration, and custom portal builds.</div>
           </div>
         </div>
       </div>
     </div>
   </section>
   <script>
-  /* ================================================================
-     PERSPECTIVES SLIDER ENGINE
-     ── Per-slider config (edit AUTO_INTERVAL_MS to tune timing) ──
-     ================================================================ */
-  (function() {
-    var SLIDER_CONFIG = {
-      'persp-s1': { AUTO_INTERVAL_MS: 5000, AUTO_SPRING: 0.055, DRAG_SPRING: 0.14, DAMPING: 0.78 }
-    };
+    /* ================================================================
+       PERSPECTIVES SLIDER ENGINE
+       ── Per-slider config (edit AUTO_INTERVAL_MS to tune timing) ──
+       ================================================================ */
+    (function () {
+      var SLIDER_CONFIG = {
+        'persp-s1': { AUTO_INTERVAL_MS: 5000, AUTO_SPRING: 0.055, DRAG_SPRING: 0.14, DAMPING: 0.78 }
+      };
 
-    function initSlider(sectionId) {
-      var outer   = document.getElementById(sectionId + '-outer');
-      var track   = document.getElementById(sectionId + '-track');
-      var btnPrev = document.getElementById(sectionId + '-prev');
-      var btnNext = document.getElementById(sectionId + '-next');
-      if (!outer || !track) return;
+      function initSlider(sectionId) {
+        var outer = document.getElementById(sectionId + '-outer');
+        var track = document.getElementById(sectionId + '-track');
+        var btnPrev = document.getElementById(sectionId + '-prev');
+        var btnNext = document.getElementById(sectionId + '-next');
+        if (!outer || !track) return;
 
-      var cfg = SLIDER_CONFIG[sectionId] || { AUTO_INTERVAL_MS: 5000, AUTO_SPRING: 0.055, DRAG_SPRING: 0.14, DAMPING: 0.78 };
+        var cfg = SLIDER_CONFIG[sectionId] || { AUTO_INTERVAL_MS: 5000, AUTO_SPRING: 0.055, DRAG_SPRING: 0.14, DAMPING: 0.78 };
 
-      var currentX      = 0;
-      var targetX       = 0;
-      var velX          = 0;
-      var isDragging    = false;
-      var dragStartX    = 0;
-      var dragStartClientX = 0;
-      var lastClientX   = 0;
-      var lastTime      = 0;
-      var rafId         = null;
-      var isHovered     = false;
+        var currentX = 0;
+        var targetX = 0;
+        var velX = 0;
+        var isDragging = false;
+        var dragStartX = 0;
+        var dragStartClientX = 0;
+        var lastClientX = 0;
+        var lastTime = 0;
+        var rafId = null;
+        var isHovered = false;
 
-      /* ── spring stiffness: soft during auto, snappier after user input ── */
-      var activeSpring  = cfg.AUTO_SPRING;
+        /* ── spring stiffness: soft during auto, snappier after user input ── */
+        var activeSpring = cfg.AUTO_SPRING;
 
-      /* ── card index tracking for seamless loop ── */
-      var cardIndex     = 0;
+        /* ── card index tracking for seamless loop ── */
+        var cardIndex = 0;
 
-      function getCards() { return track.querySelectorAll('.persp-card'); }
+        function getCards() { return track.querySelectorAll('.persp-card'); }
 
-      function getCardStep() {
-        var cards = getCards();
-        if (!cards.length) return 0;
-        return cards[0].offsetWidth + 24; // card width + gap
-      }
-
-      function getMaxScroll() {
-        return -(track.scrollWidth - outer.clientWidth);
-      }
-
-      function clamp(val, lo, hi) { return Math.max(lo, Math.min(hi, val)); }
-      function lerp(a, b, t)      { return a + (b - a) * t; }
-
-      /* ── RAF spring loop ── */
-      function tick() {
-        var spring = isDragging ? cfg.DRAG_SPRING : activeSpring;
-        var maxScroll = getMaxScroll();
-
-        if (!isDragging) {
-          if (targetX > 0) {
-            targetX = lerp(targetX, 0, 0.18);
-            velX *= 0.6;
-          } else if (targetX < maxScroll) {
-            targetX = lerp(targetX, maxScroll, 0.18);
-            velX *= 0.6;
-          } else {
-            velX    *= cfg.DAMPING;
-            targetX += velX;
-            targetX  = clamp(targetX, maxScroll, 0);
-          }
+        function getCardStep() {
+          var cards = getCards();
+          if (!cards.length) return 0;
+          return cards[0].offsetWidth + 24; // card width + gap
         }
 
-        currentX = lerp(currentX, targetX, spring + 0.065);
-        track.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px,0,0)';
+        function getMaxScroll() {
+          return -(track.scrollWidth - outer.clientWidth);
+        }
 
-        var diff = Math.abs(targetX - currentX);
-        if (diff > 0.05 || Math.abs(velX) > 0.05 || isDragging) {
-          rafId = requestAnimationFrame(tick);
-        } else {
-          currentX = targetX; // snap exact at rest
+        function clamp(val, lo, hi) { return Math.max(lo, Math.min(hi, val)); }
+        function lerp(a, b, t) { return a + (b - a) * t; }
+
+        /* ── RAF spring loop ── */
+        function tick() {
+          var spring = isDragging ? cfg.DRAG_SPRING : activeSpring;
+          var maxScroll = getMaxScroll();
+
+          if (!isDragging) {
+            if (targetX > 0) {
+              targetX = lerp(targetX, 0, 0.18);
+              velX *= 0.6;
+            } else if (targetX < maxScroll) {
+              targetX = lerp(targetX, maxScroll, 0.18);
+              velX *= 0.6;
+            } else {
+              velX *= cfg.DAMPING;
+              targetX += velX;
+              targetX = clamp(targetX, maxScroll, 0);
+            }
+          }
+
+          currentX = lerp(currentX, targetX, spring + 0.065);
           track.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px,0,0)';
-          rafId = null;
-        }
-      }
 
-      function startRaf() {
-        if (!rafId) rafId = requestAnimationFrame(tick);
-      }
-
-      /* ── Snap to a card index (0-based), with loop wrap ── */
-      function goToIndex(idx) {
-        var cards = getCards();
-        if (!cards.length) return;
-        var total     = cards.length;
-        var step      = getCardStep();
-        var maxScroll = getMaxScroll();
-
-        /* wrap index */
-        if (idx < 0)      idx = total - 1;
-        if (idx >= total) idx = 0;
-        cardIndex = idx;
-
-        var desired = -(cardIndex * step);
-        /* If wrapping forward from last → first, instantly teleport
-           to a position just before 0 so the spring animates in cleanly */
-        if (desired > currentX + (step * total * 0.9)) {
-          currentX = desired - step;
-          targetX  = desired - step;
-        }
-        /* Clamp to valid range */
-        targetX = clamp(desired, maxScroll, 0);
-        velX = 0;
-        activeSpring = cfg.AUTO_SPRING;
-        startRaf();
-      }
-
-      /* ── Auto-advance ── */
-      var autoTimer = null;
-
-      function scheduleAuto() {
-        clearTimeout(autoTimer);
-        autoTimer = setTimeout(function() {
-          if (!isHovered && !isDragging) {
-            goToIndex(cardIndex + 1);
+          var diff = Math.abs(targetX - currentX);
+          if (diff > 0.05 || Math.abs(velX) > 0.05 || isDragging) {
+            rafId = requestAnimationFrame(tick);
+          } else {
+            currentX = targetX; // snap exact at rest
+            track.style.transform = 'translate3d(' + currentX.toFixed(2) + 'px,0,0)';
+            rafId = null;
           }
-          scheduleAuto(); // reschedule regardless so it keeps ticking
-        }, cfg.AUTO_INTERVAL_MS);
-      }
+        }
 
-      function resetAuto() {
-        /* Called after any user interaction — restarts the 5 s clock */
-        clearTimeout(autoTimer);
+        function startRaf() {
+          if (!rafId) rafId = requestAnimationFrame(tick);
+        }
+
+        /* ── Snap to a card index (0-based), with loop wrap ── */
+        function goToIndex(idx) {
+          var cards = getCards();
+          if (!cards.length) return;
+          var total = cards.length;
+          var step = getCardStep();
+          var maxScroll = getMaxScroll();
+
+          /* wrap index */
+          if (idx < 0) idx = total - 1;
+          if (idx >= total) idx = 0;
+          cardIndex = idx;
+
+          var desired = -(cardIndex * step);
+          /* If wrapping forward from last → first, instantly teleport
+             to a position just before 0 so the spring animates in cleanly */
+          if (desired > currentX + (step * total * 0.9)) {
+            currentX = desired - step;
+            targetX = desired - step;
+          }
+          /* Clamp to valid range */
+          targetX = clamp(desired, maxScroll, 0);
+          velX = 0;
+          activeSpring = cfg.AUTO_SPRING;
+          startRaf();
+        }
+
+        /* ── Auto-advance ── */
+        var autoTimer = null;
+
+        function scheduleAuto() {
+          clearTimeout(autoTimer);
+          autoTimer = setTimeout(function () {
+            if (!isHovered && !isDragging) {
+              goToIndex(cardIndex + 1);
+            }
+            scheduleAuto(); // reschedule regardless so it keeps ticking
+          }, cfg.AUTO_INTERVAL_MS);
+        }
+
+        function resetAuto() {
+          /* Called after any user interaction — restarts the 5 s clock */
+          clearTimeout(autoTimer);
+          scheduleAuto();
+        }
+
+        /* ── Pointer / drag ── */
+        function onPointerDown(e) {
+          isDragging = true;
+          outer.classList.add('is-dragging');
+          dragStartX = currentX;
+          dragStartClientX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+          lastClientX = dragStartClientX;
+          lastTime = performance.now();
+          velX = 0;
+          activeSpring = cfg.DRAG_SPRING;
+          clearTimeout(autoTimer);
+          e.preventDefault();
+          startRaf();
+        }
+
+        function onPointerMove(e) {
+          if (!isDragging) return;
+          var clientX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
+          targetX = dragStartX + (clientX - dragStartClientX);
+          var now = performance.now(), dt = now - lastTime;
+          if (dt > 0) velX = (clientX - lastClientX) / dt * 16;
+          lastClientX = clientX;
+          lastTime = now;
+          startRaf();
+        }
+
+        function onPointerUp() {
+          if (!isDragging) return;
+          isDragging = false;
+          outer.classList.remove('is-dragging');
+          activeSpring = cfg.DRAG_SPRING;
+
+          /* Snap to nearest card after fling */
+          var step = getCardStep();
+          if (step > 0) {
+            var nearest = Math.round(-targetX / step);
+            cardIndex = clamp(nearest, 0, getCards().length - 1);
+          }
+          resetAuto();
+          startRaf();
+        }
+
+        outer.addEventListener('mousedown', onPointerDown, { passive: false });
+        window.addEventListener('mousemove', onPointerMove);
+        window.addEventListener('mouseup', onPointerUp);
+        outer.addEventListener('touchstart', onPointerDown, { passive: false });
+        outer.addEventListener('touchmove', onPointerMove, { passive: true });
+        outer.addEventListener('touchend', onPointerUp);
+
+        /* Pause auto on hover */
+        outer.addEventListener('mouseenter', function () { isHovered = true; });
+        outer.addEventListener('mouseleave', function () { isHovered = false; resetAuto(); });
+
+        /* Prevent click-after-drag */
+        outer.addEventListener('click', function (e) {
+          if (Math.abs(currentX - dragStartX) > 5) e.stopPropagation();
+        }, true);
+
+        /* ── Arrow buttons ── */
+        if (btnPrev) btnPrev.addEventListener('click', function () {
+          activeSpring = cfg.DRAG_SPRING;
+          goToIndex(cardIndex - 1);
+          resetAuto();
+        });
+        if (btnNext) btnNext.addEventListener('click', function () {
+          activeSpring = cfg.DRAG_SPRING;
+          goToIndex(cardIndex + 1);
+          resetAuto();
+        });
+
+        /* ── Init ── */
+        track.style.transform = 'translate3d(0,0,0)';
         scheduleAuto();
       }
 
-      /* ── Pointer / drag ── */
-      function onPointerDown(e) {
-        isDragging = true;
-        outer.classList.add('is-dragging');
-        dragStartX = currentX;
-        dragStartClientX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
-        lastClientX = dragStartClientX;
-        lastTime = performance.now();
-        velX = 0;
-        activeSpring = cfg.DRAG_SPRING;
-        clearTimeout(autoTimer);
-        e.preventDefault();
-        startRaf();
+      function boot() {
+        initSlider('persp-s1');
       }
 
-      function onPointerMove(e) {
-        if (!isDragging) return;
-        var clientX = e.clientX !== undefined ? e.clientX : e.touches[0].clientX;
-        targetX = dragStartX + (clientX - dragStartClientX);
-        var now = performance.now(), dt = now - lastTime;
-        if (dt > 0) velX = (clientX - lastClientX) / dt * 16;
-        lastClientX = clientX;
-        lastTime = now;
-        startRaf();
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', boot);
+      } else {
+        boot();
       }
-
-      function onPointerUp() {
-        if (!isDragging) return;
-        isDragging = false;
-        outer.classList.remove('is-dragging');
-        activeSpring = cfg.DRAG_SPRING;
-
-        /* Snap to nearest card after fling */
-        var step = getCardStep();
-        if (step > 0) {
-          var nearest = Math.round(-targetX / step);
-          cardIndex = clamp(nearest, 0, getCards().length - 1);
-        }
-        resetAuto();
-        startRaf();
-      }
-
-      outer.addEventListener('mousedown',  onPointerDown, { passive: false });
-      window.addEventListener('mousemove', onPointerMove);
-      window.addEventListener('mouseup',   onPointerUp);
-      outer.addEventListener('touchstart', onPointerDown, { passive: false });
-      outer.addEventListener('touchmove',  onPointerMove, { passive: true });
-      outer.addEventListener('touchend',   onPointerUp);
-
-      /* Pause auto on hover */
-      outer.addEventListener('mouseenter', function() { isHovered = true;  });
-      outer.addEventListener('mouseleave', function() { isHovered = false; resetAuto(); });
-
-      /* Prevent click-after-drag */
-      outer.addEventListener('click', function(e) {
-        if (Math.abs(currentX - dragStartX) > 5) e.stopPropagation();
-      }, true);
-
-      /* ── Arrow buttons ── */
-      if (btnPrev) btnPrev.addEventListener('click', function() {
-        activeSpring = cfg.DRAG_SPRING;
-        goToIndex(cardIndex - 1);
-        resetAuto();
-      });
-      if (btnNext) btnNext.addEventListener('click', function() {
-        activeSpring = cfg.DRAG_SPRING;
-        goToIndex(cardIndex + 1);
-        resetAuto();
-      });
-
-      /* ── Init ── */
-      track.style.transform = 'translate3d(0,0,0)';
-      scheduleAuto();
-    }
-
-    function boot() {
-      initSlider('persp-s1');
-    }
-
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', boot);
-    } else {
-      boot();
-    }
-  })();
+    })();
   </script>
 
 
@@ -5688,12 +5785,14 @@
       display: flex;
       flex-wrap: wrap;
       align-items: center;
-      gap: 44px;
+      justify-content: space-between;
+      gap: 32px;
     }
 
-    .gwx-integrations__logos .img-ph {
-      width: 150px;
-      height: 40px;
+    .gwx-integrations__logos .gwx-logo {
+      max-width: clamp(150px, 15vw, 270px);
+      height: clamp(32px, 2.8vw, 44px);
+      object-fit: contain;
     }
 
     @media (max-width:860px) {
@@ -5724,7 +5823,9 @@
 
     <div class="gwx-cards">
       <article class="gwx-card">
-        <div class="img-ph" data-ph="PolicyCenter — product launch"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177071/cheerful-colleagues-working-together-in-data-cente-2026-03-19-02-08-18-utc_1_wsmrcj.png"
+          alt="Guidewire PolicyCenter delivery team" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">PolicyCenter</span>
@@ -5734,7 +5835,9 @@
         </div>
       </article>
       <article class="gwx-card">
-        <div class="img-ph" data-ph="ClaimCenter — settlements"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177075/How_Celsior_s_Managed_SNOW_Operations_model_cdw2r0.png"
+          alt="ClaimCenter settlement operations" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">ClaimCenter</span>
@@ -5744,7 +5847,9 @@
         </div>
       </article>
       <article class="gwx-card">
-        <div class="img-ph" data-ph="BillingCenter — transactions"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177107/solar-panels-plant-manager-shows-employees-factory-2026-01-11-10-56-15-utc_1_vzguge.png"
+          alt="BillingCenter transaction processing" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">BillingCenter</span>
@@ -5753,19 +5858,158 @@
             (OneInc, Elavon), and 75% API automation coverage.</p>
         </div>
       </article>
+      <article class="gwx-card">
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177071/business-professionals-collaborate-around-table-wi-2026-03-19-02-02-22-utc_1_mv87i9.png"
+          alt="Guidewire cloud migration team" loading="lazy">
+        <div class="gwx-card__overlay"></div>
+        <div class="gwx-card__body">
+          <span class="gwx-card__tag">Cloud Migration</span>
+          <h3 class="gwx-card__title">Migration Validation &amp; Stability</h3>
+          <p class="gwx-card__desc">Celsior supports Guidewire cloud migrations by independently validating
+            compatibility, integrations, data integrity, and release readiness. Our focus is on early risk
+            identification, migration stability, and post cutover confidence&mdash;helping carriers avoid late surprises
+            during SI led cloud transitions.</p>
+        </div>
+      </article>
     </div>
 
     <div class="gwx-integrations">
       <p class="gwx-integrations__label">Validated third-party integrations:</p>
       <div class="gwx-integrations__logos">
-        <div class="img-ph" data-ph="Guidewire logo"></div>
-        <div class="img-ph" data-ph="ServiceNow logo"></div>
-        <div class="img-ph" data-ph="Boomi logo"></div>
-        <div class="img-ph" data-ph="Dynatrace logo"></div>
-        <div class="img-ph" data-ph="RingCentral logo"></div>
+        <img class="gwx-logo"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781161729/6_ufufyx_bdecls.png"
+          alt="Guidewire logo" loading="lazy">
+        <img class="gwx-logo"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781161724/5_nipjvi_ah6vzj.png"
+          alt="ServiceNow logo" loading="lazy">
+        <img class="gwx-logo"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781161708/Boomi_1_kvrpcd_ravqox.png"
+          alt="Boomi logo" loading="lazy">
+        <img class="gwx-logo"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781161699/22_qilo7h_f8tsfg.png"
+          alt="Dynatrace logo" loading="lazy">
+        <img class="gwx-logo"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781161727/RingCentral_1_zjcj4f_vm0zbg.png"
+          alt="RingCentral logo" loading="lazy">
       </div>
     </div>
   </section>
+
+  <style>
+    /* === Guidewire expertise — image cards + 3-visible sliding carousel === */
+    .gwx-card__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    section.gwx:not(.dcx) .gwx-cards {
+      display: flex;
+      grid-template-columns: none;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
+      gap: 24px;
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+      width: min(1744px, 88.4vw);
+      max-width: none;
+      margin: 0 auto;
+      padding: 0 0 40px;
+    }
+
+    /* Figma spec: cards row 1744x514 within a 1972 frame (5.8% side margins), intro shares the same edges */
+    section.gwx:not(.dcx) .gwx-card {
+      min-height: clamp(380px, 28vw, 514px);
+    }
+
+    section.gwx:not(.dcx) .gwx-intro {
+      max-width: min(1744px, 88.4vw);
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    section.gwx:not(.dcx) .gwx-integrations {
+      max-width: min(1744px, 88.4vw);
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    section.gwx:not(.dcx) .gwx-cards::-webkit-scrollbar {
+      display: none;
+    }
+
+    section.gwx:not(.dcx) .gwx-card {
+      flex: 0 0 calc((100% - 48px)/3);
+      scroll-snap-align: start;
+      transition: transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .4s ease;
+    }
+
+    section.gwx:not(.dcx) .gwx-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 34px rgba(8, 12, 30, .30);
+    }
+
+    section.gwx:not(.dcx) .gwx-card .gwx-card__img {
+      transition: transform .55s cubic-bezier(.16, 1, .3, 1);
+    }
+
+    section.gwx:not(.dcx) .gwx-card:hover .gwx-card__img {
+      transform: scale(1.07);
+    }
+
+    @media (max-width:900px) {
+      section.gwx:not(.dcx) .gwx-card {
+        flex: 0 0 calc((100% - 24px)/2);
+      }
+    }
+
+    @media (max-width:600px) {
+      section.gwx:not(.dcx) .gwx-card {
+        flex: 0 0 82%;
+      }
+    }
+  </style>
+  <script>
+    /* gw-carousel: auto-slide the Guidewire cards (3 visible) */
+    (function () {
+      var track = document.querySelector('section.gwx:not(.dcx) .gwx-cards');
+      if (!track) return;
+      var cards = track.querySelectorAll('.gwx-card');
+      if (cards.length < 4) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var i = 0, timer = null;
+      function go(n) {
+        i = (n + cards.length) % cards.length;
+        track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      function start() { if (!timer) timer = setInterval(function () { go(i + 1); }, 2600); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
+      track.addEventListener('mouseenter', stop);
+      track.addEventListener('mouseleave', start);
+      var st;
+      track.addEventListener('scroll', function () {
+        clearTimeout(st);
+        st = setTimeout(function () {
+          var best = 0, bd = 1e9;
+          cards.forEach(function (card, idx) {
+            var d = Math.abs((card.offsetLeft - track.offsetLeft) - track.scrollLeft);
+            if (d < bd) { bd = d; best = idx; }
+          });
+          i = best;
+        }, 120);
+      }, { passive: true });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+        }, { threshold: 0.2 }).observe(track);
+      } else { start(); }
+    })();
+  </script>
 
 
   <!-- ============================================================
@@ -6536,7 +6780,9 @@
 
     <div class="gwx-cards">
       <article class="gwx-card">
-        <div class="img-ph" data-ph="Duck Creek policy — launch"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177071/cheerful-colleagues-working-together-in-data-cente-2026-03-19-02-08-18-utc_1_wsmrcj.png"
+          alt="Duck Creek Policy — product launch team" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">Duck Creek Policy</span>
@@ -6546,7 +6792,9 @@
         </div>
       </article>
       <article class="gwx-card">
-        <div class="img-ph" data-ph="Duck Creek claims — FNOL to closure"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177075/How_Celsior_s_Managed_SNOW_Operations_model_cdw2r0.png"
+          alt="Duck Creek Claims — FNOL operations" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">Duck Creek Claims</span>
@@ -6556,7 +6804,9 @@
         </div>
       </article>
       <article class="gwx-card">
-        <div class="img-ph" data-ph="Duck Creek billing — real-time"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177107/solar-panels-plant-manager-shows-employees-factory-2026-01-11-10-56-15-utc_1_vzguge.png"
+          alt="Duck Creek Billing — real-time billing" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">Duck Creek Billing</span>
@@ -6566,30 +6816,39 @@
         </div>
       </article>
       <article class="gwx-card">
-        <div class="img-ph" data-ph="Duck Creek producer — agent &amp; broker"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781179291/business-professionals-collaborate-around-table-wi-2026-03-19-02-02-22-utc_1_jy9ipe.png"
+          alt="Agent and broker enablement" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">Duck Creek Producer / Distribution</span>
           <h3 class="gwx-card__title">Agent &amp; Broker Enablement</h3>
-          <p class="gwx-card__desc">Agent portal workflows, omnichannel submission and servicing — giving producers the digital tools they need to quote, bind, and service faster.</p>
+          <p class="gwx-card__desc">Agent portal workflows, omnichannel submission and servicing — giving producers the
+            digital tools they need to quote, bind, and service faster.</p>
         </div>
       </article>
       <article class="gwx-card">
-        <div class="img-ph" data-ph="Duck Creek Clarity — analytics"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781179291/business-professionals-collaborate-around-table-wi-2026-03-19-02-02-22-utc_1_1_shfzj9.png"
+          alt="Data analytics and insights" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">Duck Creek Clarity</span>
           <h3 class="gwx-card__title">Data, Analytics &amp; Insights</h3>
-          <p class="gwx-card__desc">Analytics reporting and insight validation via Clarity — plus Snowflake-based data platform integration for enterprise-grade decision support.</p>
+          <p class="gwx-card__desc">Analytics reporting and insight validation via Clarity — plus Snowflake-based data
+            platform integration for enterprise-grade decision support.</p>
         </div>
       </article>
       <article class="gwx-card">
-        <div class="img-ph" data-ph="Cloud &amp; quality engineering — SaaS/OnDemand"></div>
+        <img class="gwx-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781179292/business-professionals-collaborate-around-table-wi-2026-03-19-02-02-22-utc_1_2_mixeuv.png"
+          alt="SaaS and OnDemand readiness" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
           <span class="gwx-card__tag">Cloud &amp; Quality Engineering</span>
           <h3 class="gwx-card__title">SaaS &amp; OnDemand Readiness</h3>
-          <p class="gwx-card__desc">End-to-end QE, CI/CD pipeline integration, and cloud-native architecture support ensuring stable, production-ready Duck Creek deployments at every release.</p>
+          <p class="gwx-card__desc">End-to-end QE, CI/CD pipeline integration, and cloud-native architecture support
+            ensuring stable, production-ready Duck Creek deployments at every release.</p>
         </div>
       </article>
 
@@ -6629,76 +6888,106 @@
       </div>
     </section>
 
-  <style>
-    /* === Duck Creek expertise — horizontal sliding carousel + hover === */
-    .dcx .gwx-cards{
-      display:flex;
-      grid-template-columns:none;
-      flex-wrap:nowrap;
-      justify-content:flex-start;
-      overflow-x:auto;
-      scroll-snap-type:x mandatory;
-      scroll-behavior:smooth;
-      gap:24px;
-      max-width:1200px;
-      margin:0 auto;
-      padding:20px 24px 50px;
-      -ms-overflow-style:none;
-      scrollbar-width:none;
-    }
-    .dcx .gwx-cards::-webkit-scrollbar{display:none;}
-    .dcx .gwx-card{
-      flex:0 0 320px;
-      scroll-snap-align:start;
-      transition:transform .4s cubic-bezier(.16,1,.3,1), box-shadow .4s ease;
-    }
-    .dcx .gwx-card:hover{
-      transform:translateY(-6px);
-      box-shadow:0 16px 34px rgba(8,12,30,.30);
-    }
-    .dcx .gwx-card > .img-ph,
-    .dcx .gwx-card > img{transition:transform .55s cubic-bezier(.16,1,.3,1);}
-    .dcx .gwx-card:hover > .img-ph,
-    .dcx .gwx-card:hover > img{transform:scale(1.07);}
-    @media (max-width:600px){ .dcx .gwx-card{flex:0 0 82%;} }
-  </style>
-  <script>
-    /* dc-carousel: auto-slide the Duck Creek cards in one horizontal row */
-    (function(){
-      var track = document.querySelector('.dcx .gwx-cards');
-      if(!track) return;
-      var cards = track.querySelectorAll('.gwx-card');
-      if(cards.length < 2) return;
-      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var i = 0, timer = null;
-      function go(n){
-        i = (n + cards.length) % cards.length;
-        var x = cards[i].offsetLeft - track.offsetLeft;
-        track.scrollTo({ left: x, behavior: reduce ? 'auto' : 'smooth' });
+    <style>
+      /* === Duck Creek expertise — horizontal sliding carousel + hover === */
+      .dcx .gwx-cards {
+        display: flex;
+        grid-template-columns: none;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        scroll-behavior: smooth;
+        gap: 24px;
+        width: min(1744px, 88.4vw);
+        max-width: none;
+        margin: 0 auto;
+        padding: 20px 0 50px;
+        -ms-overflow-style: none;
+        scrollbar-width: none;
       }
-      function start(){ if(!timer) timer = setInterval(function(){ go(i + 1); }, 2600); }
-      function stop(){ if(timer){ clearInterval(timer); timer = null; } }
-      track.addEventListener('mouseenter', stop);
-      track.addEventListener('mouseleave', start);
-      var st;
-      track.addEventListener('scroll', function(){
-        clearTimeout(st);
-        st = setTimeout(function(){
-          var best = 0, bd = 1e9;
-          cards.forEach(function(c, idx){
-            var d = Math.abs((c.offsetLeft - track.offsetLeft) - track.scrollLeft);
-            if(d < bd){ bd = d; best = idx; }
-          });
-          i = best;
-        }, 120);
-      }, { passive:true });
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){
-          es.forEach(function(e){ e.isIntersecting ? start() : stop(); });
-        }, { threshold:0.2 }).observe(track);
-      } else { start(); }
-    })();
-  </script>
+
+      .dcx .gwx-cards::-webkit-scrollbar {
+        display: none;
+      }
+
+      .dcx .gwx-card {
+        flex: 0 0 calc((100% - 48px)/3);
+        min-height: clamp(380px, 28vw, 514px);
+        scroll-snap-align: start;
+        transition: transform .4s cubic-bezier(.16, 1, .3, 1), box-shadow .4s ease;
+      }
+
+      @media (max-width:900px) {
+        .dcx .gwx-card {
+          flex: 0 0 calc((100% - 24px)/2);
+        }
+      }
+
+      .dcx .gwx-intro {
+        max-width: min(1744px, 88.4vw);
+        padding-left: 0;
+        padding-right: 0;
+      }
+
+      .dcx .gwx-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 16px 34px rgba(8, 12, 30, .30);
+      }
+
+      .dcx .gwx-card>.img-ph,
+      .dcx .gwx-card>img {
+        transition: transform .55s cubic-bezier(.16, 1, .3, 1);
+      }
+
+      .dcx .gwx-card:hover>.img-ph,
+      .dcx .gwx-card:hover>img {
+        transform: scale(1.07);
+      }
+
+      @media (max-width:600px) {
+        .dcx .gwx-card {
+          flex: 0 0 82%;
+        }
+      }
+    </style>
+    <script>
+      /* dc-carousel: auto-slide the Duck Creek cards in one horizontal row */
+      (function () {
+        var track = document.querySelector('.dcx .gwx-cards');
+        if (!track) return;
+        var cards = track.querySelectorAll('.gwx-card');
+        if (cards.length < 2) return;
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        var i = 0, timer = null;
+        function go(n) {
+          i = (n + cards.length) % cards.length;
+          var x = cards[i].offsetLeft - track.offsetLeft;
+          track.scrollTo({ left: x, behavior: reduce ? 'auto' : 'smooth' });
+        }
+        function start() { if (!timer) timer = setInterval(function () { go(i + 1); }, 2600); }
+        function stop() { if (timer) { clearInterval(timer); timer = null; } }
+        track.addEventListener('mouseenter', stop);
+        track.addEventListener('mouseleave', start);
+        var st;
+        track.addEventListener('scroll', function () {
+          clearTimeout(st);
+          st = setTimeout(function () {
+            var best = 0, bd = 1e9;
+            cards.forEach(function (c, idx) {
+              var d = Math.abs((c.offsetLeft - track.offsetLeft) - track.scrollLeft);
+              if (d < bd) { bd = d; best = idx; }
+            });
+            i = best;
+          }, 120);
+        }, { passive: true });
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(function (es) {
+            es.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+          }, { threshold: 0.2 }).observe(track);
+        } else { start(); }
+      })();
+    </script>
   </section>
 
 
@@ -8673,18 +8962,109 @@
 
   <style>
     /* === PROPRIETARY ACCELERATORS (cards on the em-section right) === */
-    .em-right .pa-card{position:relative;padding:44px 8% 40px 52px;border-bottom:1px solid rgba(13,17,39,.1);display:flex;flex-direction:column;gap:13px;background:#fff;border-left:3px solid transparent;transition:background .3s ease,border-left-color .3s ease;}
-    .em-right .pa-card:first-child{border-top:1px solid rgba(13,17,39,.1);}
-    .em-right .pa-card:hover{background:rgba(34,84,244,.05);border-left-color:#2254f4;}
-    .pa-card-icon{width:30px;height:30px;color:#0b0d14;}
-    .pa-card-icon svg{display:block;width:100%;height:100%;}
-    .pa-card-title{font-size:.95rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#0b0d14;margin:0;line-height:1.3;}
-    .pa-card-desc{font-size:.86rem;font-weight:400;color:#3a4357;line-height:1.7;margin:0;max-width:540px;}
-    .pa-card-bullets{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-direction:column;gap:7px;}
-    .pa-card-bullets li{position:relative;padding-left:18px;font-size:.82rem;color:#3a4357;line-height:1.45;}
-    .pa-card-bullets li::before{content:"";position:absolute;left:3px;top:.52em;width:5px;height:5px;border-radius:50%;background:#2254f4;}
-    .pa-card-cta{display:inline-flex;align-items:center;gap:8px;width:fit-content;margin-top:8px;padding:10px 22px;font-size:.78rem;font-weight:600;color:#0b0d14;background:#fff;border:1.5px solid rgba(13,17,39,.25);border-radius:6px;text-decoration:none;cursor:pointer;transition:border-color .2s,background .2s,transform .2s;}
-    .pa-card-cta:hover{border-color:#2254f4;background:rgba(34,84,244,.05);transform:translateY(-1px);}
+    .em-right .pa-card {
+      position: relative;
+      padding: 44px 8% 40px 52px;
+      border-bottom: 1px solid rgba(13, 17, 39, .1);
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      background: #fff;
+      border-left: 3px solid transparent;
+      transition: background .3s ease, border-left-color .3s ease;
+    }
+
+    .em-right .pa-card:first-child {
+      border-top: 1px solid rgba(13, 17, 39, .1);
+    }
+
+    .em-right .pa-card:hover {
+      background: rgba(34, 84, 244, .05);
+      border-left-color: #2254f4;
+    }
+
+    .pa-card-icon {
+      width: 30px;
+      height: 30px;
+      color: #0b0d14;
+    }
+
+    .pa-card-icon svg {
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+
+    .pa-card-title {
+      font-size: .95rem;
+      font-weight: 700;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      color: #0b0d14;
+      margin: 0;
+      line-height: 1.3;
+    }
+
+    .pa-card-desc {
+      font-size: .86rem;
+      font-weight: 400;
+      color: #3a4357;
+      line-height: 1.7;
+      margin: 0;
+      max-width: 540px;
+    }
+
+    .pa-card-bullets {
+      list-style: none;
+      margin: 2px 0 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .pa-card-bullets li {
+      position: relative;
+      padding-left: 18px;
+      font-size: .82rem;
+      color: #3a4357;
+      line-height: 1.45;
+    }
+
+    .pa-card-bullets li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: .52em;
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: #2254f4;
+    }
+
+    .pa-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      margin-top: 8px;
+      padding: 10px 22px;
+      font-size: .78rem;
+      font-weight: 600;
+      color: #0b0d14;
+      background: #fff;
+      border: 1.5px solid rgba(13, 17, 39, .25);
+      border-radius: 6px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: border-color .2s, background .2s, transform .2s;
+    }
+
+    .pa-card-cta:hover {
+      border-color: #2254f4;
+      background: rgba(34, 84, 244, .05);
+      transform: translateY(-1px);
+    }
   </style>
 
   <section class="em-section" id="emSection">
@@ -8693,11 +9073,13 @@
       <div class="em-left-inner">
         <span class="em-pill">IP &amp; Accelerators</span>
         <h2 class="em-heading">Proprietary Accelerators</h2>
-        <p class="em-desc">Purpose-built IP for insurance-specific challenges, ready to deploy and scale across your operations.</p>
+        <p class="em-desc">Purpose-built IP for insurance-specific challenges, ready to deploy and scale across your
+          operations.</p>
         <a data-celsior-form="general" href="#book-call" class="em-cta">Get Started
           <svg viewBox="0 0 16 16" fill="none">
             <line x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            <polyline points="6,2 14,2 14,10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" />
+            <polyline points="6,2 14,2 14,10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
+              stroke-linejoin="round" />
           </svg>
         </a>
       </div>
@@ -8713,7 +9095,10 @@
           </svg>
         </div>
         <h3 class="pa-card-title">FNOL Fraud Detection Context Graph</h3>
-        <p class="pa-card-desc">A human-in-the-loop fraud detection accelerator that surfaces fraud risk signals and suggested investigative questions during FNOL processing. The system never auto-denies claims &mdash; it augments human decision making with AI-powered triage while maintaining complete decision traceability in a context graph.</p>
+        <p class="pa-card-desc">A human-in-the-loop fraud detection accelerator that surfaces fraud risk signals and
+          suggested investigative questions during FNOL processing. The system never auto-denies claims &mdash; it
+          augments human decision making with AI-powered triage while maintaining complete decision traceability in a
+          context graph.</p>
         <ul class="pa-card-bullets">
           <li>AI-powered fraud risk signal surfacing</li>
           <li>Suggested investigative questions for adjusters</li>
@@ -8727,12 +9112,15 @@
       <div class="pa-card">
         <div class="pa-card-icon">
           <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M6 11V7a1 1 0 0 1 1-1h4M21 6h4a1 1 0 0 1 1 1v4M26 21v4a1 1 0 0 1-1 1h-4M11 26H7a1 1 0 0 1-1-1v-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+            <path d="M6 11V7a1 1 0 0 1 1-1h4M21 6h4a1 1 0 0 1 1 1v4M26 21v4a1 1 0 0 1-1 1h-4M11 26H7a1 1 0 0 1-1-1v-4"
+              stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
             <circle cx="16" cy="16" r="4.5" stroke="currentColor" stroke-width="1.5" />
           </svg>
         </div>
         <h3 class="pa-card-title">AI-Powered FraudSense V2.0</h3>
-        <p class="pa-card-desc">A production-ready AI fraud detection solution combining document processing, behavioral analytics, and machine learning models to identify suspicious claims patterns. Designed for &lsquo;pilots to production&rsquo; deployment in 2026 with dataset-agnostic architecture.</p>
+        <p class="pa-card-desc">A production-ready AI fraud detection solution combining document processing, behavioral
+          analytics, and machine learning models to identify suspicious claims patterns. Designed for &lsquo;pilots to
+          production&rsquo; deployment in 2026 with dataset-agnostic architecture.</p>
         <ul class="pa-card-bullets">
           <li>AI-driven document processing and triage</li>
           <li>Routine claims cycle time reduction</li>
