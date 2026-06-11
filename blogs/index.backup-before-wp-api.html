@@ -1237,15 +1237,6 @@
     .blog-card { opacity: 0; transform: translateY(32px); }
 
   </style>
-
-<style>
-  /* WordPress API cards are inserted after GSAP runs, so force them visible */
-  #cardGrid .blog-card {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-</style>
-
 </head>
 
 <body>
@@ -1262,47 +1253,71 @@
   </section>
 
   <!-- ===================== FILTER BAR ===================== -->
-  
-  
-  
   <div class="filter-bar" id="filterBar">
     <div class="filter-bar-inner">
+
+      <!-- Left: type tabs -->
       <div class="fbar-type-tabs">
-        <button class="fbar-type-tab is-active" data-topic="all">All posts</button>
-        <button class="fbar-type-tab" data-topic="artificial-intelligence">AI</button>
-        <button class="fbar-type-tab" data-topic="insurance">Insurance</button>
-        <button class="fbar-type-tab" data-topic="banking-financial-services">Banking</button>
-        <button class="fbar-type-tab" data-topic="technology">Technology</button>
+        <button class="fbar-type-tab is-active" data-type="enterprise">Enterprise</button>
+        <button class="fbar-type-tab" data-type="agency">Agency</button>
       </div>
 
+      <!-- Divider -->
       <div class="fbar-divider"></div>
 
+      <!-- Centre: dropdown pills -->
       <div class="fbar-dropdowns">
+
+        <div class="fbar-dropdown" id="ddStories">
+          Stories for
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="fbar-dropdown-panel">
+            <div class="fbar-dropdown-item is-selected">All stories</div>
+            <div class="fbar-dropdown-item">Developers</div>
+            <div class="fbar-dropdown-item">Marketing teams</div>
+            <div class="fbar-dropdown-item">Agencies</div>
+            <div class="fbar-dropdown-item">Enterprise</div>
+          </div>
+        </div>
+
+        <div class="fbar-dropdown" id="ddSize">
+          Company size
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          <div class="fbar-dropdown-panel">
+            <div class="fbar-dropdown-item is-selected">Any size</div>
+            <div class="fbar-dropdown-item">1–50 employees</div>
+            <div class="fbar-dropdown-item">51–500 employees</div>
+            <div class="fbar-dropdown-item">501–5,000 employees</div>
+            <div class="fbar-dropdown-item">5,000+ employees</div>
+          </div>
+        </div>
+
         <div class="fbar-dropdown" id="ddIndustry">
           Industry
           <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
           <div class="fbar-dropdown-panel">
-            <div class="fbar-dropdown-item is-selected" data-value="all">All industries</div>
-            <div class="fbar-dropdown-item" data-value="artificial-intelligence">AI & Innovation</div>
-            <div class="fbar-dropdown-item" data-value="banking-financial-services">Banking & Finance</div>
-            <div class="fbar-dropdown-item" data-value="insurance">Insurance</div>
-            <div class="fbar-dropdown-item" data-value="technology">Technology</div>
-            <div class="fbar-dropdown-item" data-value="quality-engineering">Quality Engineering</div>
-            <div class="fbar-dropdown-item" data-value="test-automation">Test Automation</div>
-            <div class="fbar-dropdown-item" data-value="modernization">Modernization</div>
+            <div class="fbar-dropdown-item is-selected">All industries</div>
+            <div class="fbar-dropdown-item">Banking & Finance</div>
+            <div class="fbar-dropdown-item">Healthcare</div>
+            <div class="fbar-dropdown-item">Technology</div>
+            <div class="fbar-dropdown-item">Retail & Hospitality</div>
+            <div class="fbar-dropdown-item">Government</div>
           </div>
         </div>
 
         <button class="fbar-reset" id="fbarReset">Reset filters</button>
+
       </div>
 
+      <!-- Right: showing count -->
       <div class="fbar-count">
-        Showing <span class="fbar-count-badge" id="fbarShowing">0</span> of <span class="fbar-count-badge" id="fbarTotal">0</span>
+        Showing <span class="fbar-count-badge" id="fbarShowing">54</span> of <span class="fbar-count-badge" id="fbarTotal">54</span>
       </div>
+
     </div>
   </div>
 
-<!-- ===================== CARD GRID ===================== -->
+  <!-- ===================== CARD GRID ===================== -->
   <section class="blog-grid-section">
     <div class="blog-cards-grid" id="cardGrid">
 
@@ -1705,413 +1720,5 @@
 
     })();
   </script>
-
-<script>
-(function () {
-  const API_BASE = "https://celsiortech.com/wp-json/wp/v2";
-  const grid = document.getElementById("cardGrid");
-  const showMore = document.getElementById("showMoreBtn");
-  const showing = document.getElementById("fbarShowing");
-  const total = document.getElementById("fbarTotal");
-
-  if (!grid) return;
-
-  function strip(html) {
-    const div = document.createElement("div");
-    div.innerHTML = html || "";
-    return div.textContent || div.innerText || "";
-  }
-
-  function fmtDate(dateStr) {
-    return new Date(dateStr).toLocaleDateString("en-US", {
-      month: "short", day: "2-digit", year: "numeric"
-    });
-  }
-
-  function readingTime(html) {
-    const words = strip(html).trim().split(/\s+/).filter(Boolean).length;
-    return Math.max(1, Math.ceil(words / 220));
-  }
-
-  function getPostImage(post) {
-    return post?._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "";
-  }
-
-  function getAuthor(post) {
-    return post?._embedded?.author?.[0]?.name || "Celsior";
-  }
-
-  function getCategories(post) {
-    const terms = post?._embedded?.["wp:term"]?.[0] || [];
-    return terms.map(t => t.slug).join(" ");
-  }
-
-  function getCategoryName(post) {
-    const terms = post?._embedded?.["wp:term"]?.[0] || [];
-    return terms[0]?.name || "Insights";
-  }
-
-  function card(post) {
-    const title = post.title.rendered;
-    const excerpt = strip(post.excerpt.rendered);
-    const img = getPostImage(post);
-    const cats = getCategories(post);
-    const catName = getCategoryName(post);
-    const author = getAuthor(post).toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    const year = new Date(post.date).getFullYear();
-    const mins = readingTime(post.content.rendered);
-
-    return `
-      <a href="/blogs?post=${post.slug}" class="blog-card"
-         data-categories="${cats}"
-         data-author="${author}"
-         data-year="${year}">
-        <div class="card-img">
-          ${img ? `<img src="${img}" alt="${strip(title)}" loading="lazy" />` : ""}
-          <div class="card-img-grad"></div>
-          <div class="card-img-tag">${catName}</div>
-        </div>
-        <div class="card-body">
-          <div class="card-company">
-            <span class="card-company-name">${title}</span>
-          </div>
-          <p class="card-desc">${excerpt}</p>
-          <div class="card-divider"></div>
-          <div class="card-stat-row">
-            <div class="card-stat-left">
-              <div class="card-stat-value">${mins}<span class="card-stat-unit"> min</span></div>
-              <div class="card-stat-label">read · ${fmtDate(post.date)}</div>
-            </div>
-            <span class="card-read-link">Read blog <span class="arrow">→</span></span>
-          </div>
-        </div>
-      </a>`;
-  }
-
-  function article(post) {
-    const img = getPostImage(post);
-    const catName = getCategoryName(post);
-    const author = getAuthor(post);
-    const mins = readingTime(post.content.rendered);
-
-    document.title = strip(post.title.rendered) + " | Celsior";
-    document.querySelector(".blog-hero").style.display = "none";
-    document.querySelector(".filter-bar").style.display = "none";
-    if (showMore) showMore.closest(".show-more-wrap").style.display = "none";
-
-    grid.parentElement.innerHTML = `
-      <article class="wp-blog-article" style="max-width:920px;margin:0 auto;padding:70px 24px;">
-        <a href="/blogs" style="display:inline-block;margin-bottom:28px;color:#2563eb;font-weight:600;">← Back to blogs</a>
-        <div style="color:#6b7280;font-size:14px;margin-bottom:16px;">${catName} · ${fmtDate(post.date)} · ${mins} min read · ${author}</div>
-        <h1 style="font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-0.04em;margin-bottom:28px;">${post.title.rendered}</h1>
-        ${img ? `<img src="${img}" alt="${strip(post.title.rendered)}" style="width:100%;border-radius:14px;margin:10px 0 36px;display:block;">` : ""}
-        <div class="wp-blog-content">${post.content.rendered}</div>
-      </article>
-      <style>
-        .wp-blog-content { font-size:18px; line-height:1.75; color:#374151; }
-        .wp-blog-content p { margin:0 0 22px; font-size:18px; line-height:1.75; }
-        .wp-blog-content h2 { margin:42px 0 18px; font-size:30px; line-height:1.2; color:#0f172a; }
-        .wp-blog-content h3 { margin:32px 0 14px; font-size:24px; color:#0f172a; }
-        .wp-blog-content a { color:#2563eb; text-decoration:underline; }
-        .wp-blog-content img { max-width:100%; height:auto; border-radius:12px; }
-        .wp-blog-content ul, .wp-blog-content ol { margin:0 0 24px 24px; }
-      </style>`;
-  }
-
-  async function load() {
-    grid.innerHTML = '<p style="grid-column:1/-1;padding:60px 0;color:#6b7280;">Loading Celsior insights from WordPress...</p>';
-    if (showMore) showMore.closest(".show-more-wrap").style.display = "none";
-
-    const params = new URLSearchParams(window.location.search);
-    const slug = params.get("post");
-
-    if (slug) {
-      const res = await fetch(`${API_BASE}/posts?slug=${encodeURIComponent(slug)}&_embed&cb=${Date.now()}`, { cache: "no-store" });
-      const posts = await res.json();
-      if (!posts.length) throw new Error("Post not found");
-      article(posts[0]);
-      return;
-    }
-
-    const res = await fetch(`${API_BASE}/posts?_embed&per_page=100&cb=${Date.now()}`, { cache: "no-store" });
-    const posts = await res.json();
-
-    grid.innerHTML = posts.map(card).join("");
-    if (showing) showing.textContent = posts.length;
-    if (total) total.textContent = posts.length;
-    setTimeout(() => window.applyWpBlogFilters && window.applyWpBlogFilters(), 100);
-  }
-
-  load().catch(err => {
-    console.error(err);
-    grid.innerHTML = '<p style="grid-column:1/-1;padding:60px 0;color:#b91c1c;">Could not load blogs from WordPress. Please refresh or try again shortly.</p>';
-  });
-})();
-</script>
-
-
-<script>
-(function () {
-  function applyWpBlogFilters() {
-    const cards = Array.from(document.querySelectorAll("#cardGrid .blog-card"));
-    if (!cards.length) return;
-
-    const activeTab = document.querySelector(".fbar-type-tab.is-active");
-    const selectedItems = Array.from(document.querySelectorAll(".fbar-dropdown-item.is-selected"));
-
-    const topic = activeTab?.dataset.topic || "all";
-    const selectedValues = selectedItems.map(i => i.dataset.value).filter(Boolean);
-    const industry = selectedValues[0] || "all";
-    const author = selectedValues[1] || "all";
-    const year = selectedValues[2] || "all";
-
-    let visible = 0;
-
-    cards.forEach(card => {
-      const cats = card.dataset.categories || "";
-      const cardAuthor = card.dataset.author || "";
-      const cardYear = card.dataset.year || "";
-
-      const topicOk = topic === "all" || cats.includes(topic);
-      const industryOk = industry === "all" || cats.includes(industry);
-      const authorOk = author === "all" || cardAuthor === author;
-      const yearOk = year === "all" || cardYear === year;
-
-      const show = topicOk && industryOk && authorOk && yearOk;
-      card.style.display = show ? "" : "none";
-      if (show) visible++;
-    });
-
-    const showing = document.getElementById("fbarShowing");
-    if (showing) showing.textContent = visible;
-  }
-
-  document.addEventListener("click", function (e) {
-    if (
-      e.target.closest(".fbar-type-tab") ||
-      e.target.closest(".fbar-dropdown-item") ||
-      e.target.closest("#fbarReset")
-    ) {
-      setTimeout(applyWpBlogFilters, 80);
-    }
-  });
-
-  window.applyWpBlogFilters = applyWpBlogFilters;
-})();
-</script>
-
-
-<script>
-(function () {
-  function getSelectedValue(dropdownId) {
-    const selected = document.querySelector(`#${dropdownId} .fbar-dropdown-item.is-selected`);
-    return selected ? selected.dataset.value : "all";
-  }
-
-  function applyFinalBlogFilters() {
-    const cards = Array.from(document.querySelectorAll("#cardGrid .blog-card"));
-    if (!cards.length) return;
-
-    const activeTab = document.querySelector(".fbar-type-tab.is-active");
-    const topic = activeTab ? activeTab.dataset.topic : "all";
-    const industry = getSelectedValue("ddIndustry");
-
-    let visible = 0;
-
-    cards.forEach(card => {
-      const cats = (card.dataset.categories || "").toLowerCase();
-
-      const topicOk = topic === "all" || cats.split(/\s+/).includes(topic);
-      const industryOk = industry === "all" || cats.split(/\s+/).includes(industry);
-
-      const show = topicOk && industryOk;
-      card.style.display = show ? "" : "none";
-
-      if (show) visible++;
-    });
-
-    const showing = document.getElementById("fbarShowing");
-    if (showing) showing.textContent = visible;
-  }
-
-  document.addEventListener("click", function (e) {
-    if (
-      e.target.closest(".fbar-type-tab") ||
-      e.target.closest(".fbar-dropdown-item") ||
-      e.target.closest("#fbarReset")
-    ) {
-      setTimeout(applyFinalBlogFilters, 150);
-    }
-  });
-
-  window.applyWpBlogFilters = applyFinalBlogFilters;
-  window.applyFinalBlogFilters = applyFinalBlogFilters;
-})();
-</script>
-
-
-<script>
-(function () {
-  document.addEventListener("click", function (e) {
-    const tab = e.target.closest(".fbar-type-tab");
-    if (!tab) return;
-
-    e.preventDefault();
-
-    document.querySelectorAll(".fbar-type-tab").forEach(t => t.classList.remove("is-active"));
-    tab.classList.add("is-active");
-
-    const topic = tab.dataset.topic || "all";
-    const cards = Array.from(document.querySelectorAll("#cardGrid .blog-card"));
-    let visible = 0;
-
-    cards.forEach(card => {
-      const cats = (card.dataset.categories || "").toLowerCase().split(/\s+/);
-      const show = topic === "all" || cats.includes(topic);
-      card.style.display = show ? "flex" : "none";
-      if (show) visible++;
-    });
-
-    const showing = document.getElementById("fbarShowing");
-    if (showing) showing.textContent = visible;
-  }, true);
-})();
-</script>
-
-
-<script>
-(function () {
-  document.addEventListener("click", function (e) {
-    const tab = e.target.closest(".fbar-type-tab");
-    if (!tab) return;
-
-    e.preventDefault();
-
-    document.querySelectorAll(".fbar-type-tab").forEach(t => t.classList.remove("is-active"));
-    tab.classList.add("is-active");
-
-    const topic = tab.dataset.topic || "all";
-    const cards = Array.from(document.querySelectorAll("#cardGrid .blog-card"));
-    let visible = 0;
-
-    cards.forEach(card => {
-      const cats = (card.dataset.categories || "").toLowerCase().split(/\s+/);
-      const show = topic === "all" || cats.includes(topic);
-      card.style.display = show ? "flex" : "none";
-      if (show) visible++;
-    });
-
-    const showing = document.getElementById("fbarShowing");
-    if (showing) showing.textContent = visible;
-  }, true);
-})();
-</script>
-
-
-<style>
-  /* Temporary clean WP filter bar */
-  #wpCleanFilters {
-    display: flex;
-    gap: 16px;
-    align-items: center;
-    justify-content: space-between;
-    padding: 22px clamp(24px, 7.8vw, 112px) 8px;
-    border-bottom: 1px solid #eef0f3;
-    background: #fff;
-  }
-  #wpCleanFilters .wp-filter-buttons {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    overflow-x: auto;
-    padding-bottom: 2px;
-  }
-  #wpCleanFilters .wp-filter-count {
-    white-space: nowrap;
-    font-size: 14px;
-    color: #475569;
-    font-weight: 600;
-  }
-  #wpCleanFilters button {
-    border: 1px solid #d1d5db;
-    background: #fff;
-    padding: 9px 14px;
-    border-radius: 999px;
-    font-weight: 600;
-    cursor: pointer;
-  }
-  #wpCleanFilters button.active {
-    background: #0f172a;
-    color: #fff;
-    border-color: #0f172a;
-  }
-  #filterBar { display: none !important; }
-</style>
-
-<script>
-(function () {
-  const FILTERS = [
-    ["all", "All"],
-    ["artificial-intelligence", "AI"],
-    ["insurance", "Insurance"],
-    ["banking-financial-services", "Banking"],
-    ["technology", "Technology"],
-    ["quality-engineering", "Quality Engineering"]
-  ];
-
-  function installCleanFilters() {
-    if (document.getElementById("wpCleanFilters")) return;
-
-    const gridSection = document.querySelector(".blog-grid-section");
-    if (!gridSection) return;
-
-    const bar = document.createElement("div");
-    bar.id = "wpCleanFilters";
-    bar.innerHTML = `
-      <div class="wp-filter-buttons">
-        ${FILTERS.map(([key, label], i) =>
-          `<button type="button" data-filter="${key}" class="${i === 0 ? "active" : ""}">${label}</button>`
-        ).join("")}
-      </div>
-      <div class="wp-filter-count" id="wpFilterCount">Showing 0 of 0</div>
-    `;
-
-    gridSection.parentNode.insertBefore(bar, gridSection);
-
-    bar.addEventListener("click", function (e) {
-      const btn = e.target.closest("button[data-filter]");
-      if (!btn) return;
-
-      bar.querySelectorAll("button").forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-
-      const filter = btn.dataset.filter;
-      const cards = Array.from(document.querySelectorAll("#cardGrid .blog-card"));
-      let visible = 0;
-
-      cards.forEach(card => {
-        const cats = (card.getAttribute("data-categories") || "").toLowerCase().split(/\s+/);
-        const show = filter === "all" || cats.includes(filter);
-        card.style.display = show ? "flex" : "none";
-        if (show) visible++;
-      });
-
-      const showing = document.getElementById("fbarShowing");
-      if (showing) showing.textContent = visible;
-      const count = document.getElementById("wpFilterCount");
-      if (count) count.textContent = `Showing ${visible} of ${cards.length}`;
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", installCleanFilters);
-  setTimeout(function () {
-    const cards = Array.from(document.querySelectorAll("#cardGrid .blog-card"));
-    const count = document.getElementById("wpFilterCount");
-    if (count && cards.length) count.textContent = `Showing ${cards.length} of ${cards.length}`;
-  }, 1800);
-  setTimeout(installCleanFilters, 1000);
-})();
-</script>
-
 </body>
 </html>
