@@ -5645,6 +5645,14 @@
       color: #9ca3af;
     }
 
+    .gwx-banner__img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
     .gwx-banner__overlay {
       position: absolute;
       inset: 0;
@@ -5808,7 +5816,7 @@
 
   <section class="gwx" aria-label="Guidewire expertise">
     <div class="gwx-banner">
-      <div class="img-ph" data-ph="Guidewire delivery team — banner"></div>
+      <img class="gwx-banner__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781200292/94c96601e0bdbadc95494e90484cd5968ed6b8f7_1_xpqnnp.jpg" alt="Guidewire delivery team" loading="lazy">
       <div class="gwx-banner__overlay"></div>
       <h2>Unmatched Guidewire Expertise</h2>
     </div>
@@ -9274,12 +9282,19 @@
     }
 
     .fem-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      scroll-behavior: smooth;
       gap: 22px;
       max-width: 1320px;
       margin: 0 auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
     }
+    .fem-grid::-webkit-scrollbar { display: none; }
+    .fem-grid .fem-card { flex: 0 0 calc((100% - 66px)/4); scroll-snap-align: start; }
 
     .fem-card {
       position: relative;
@@ -9543,8 +9558,87 @@
           </div>
         </div>
       </article>
+
+      <article class="fem-card">
+        <img class="fem-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781197895/WhatsApp_Image_2026-06-11_at_6.51.13_PM_bsi7sf.jpg"
+          alt="Co-innovation hub team celebrating a breakthrough" loading="lazy">
+        <div class="fem-card__overlay"></div>
+        <div class="fem-card__inner">
+          <div class="fem-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 18h6" />
+              <path d="M10 21h4" />
+              <path d="M12 3a6 6 0 0 0-4 10.5c.6.55 1 1.5 1 2.5h6c0-1 .4-1.95 1-2.5A6 6 0 0 0 12 3z" />
+            </svg>
+          </div>
+          <div class="fem-card__body">
+            <h3 class="fem-card__title">Co-Innovation Hub</h3>
+            <p class="fem-card__sub">Joint Innovation</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="fem-card">
+        <img class="fem-card__img"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781197896/WhatsApp_Image_2026-06-11_at_6.51.13_PM_1_hobqig.jpg"
+          alt="Global capability center leadership team" loading="lazy">
+        <div class="fem-card__overlay"></div>
+        <div class="fem-card__inner">
+          <div class="fem-card__icon" aria-hidden="true">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+              stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3l4 4-4 4" />
+              <path d="M21 7H9" />
+              <path d="M7 21l-4-4 4-4" />
+              <path d="M3 17h12" />
+            </svg>
+          </div>
+          <div class="fem-card__body">
+            <h3 class="fem-card__title">GCC &ndash; Build Operate Transfer</h3>
+            <p class="fem-card__sub">Global Capability Center</p>
+          </div>
+        </div>
+      </article>
     </div>
   </section>
+
+  <script>
+    /* fem-carousel: forever auto-slide the engagement model cards (4 visible) */
+    (function(){
+      var track = document.querySelector('#flexible-engagement-models .fem-grid');
+      if(!track) return;
+      var cards = track.querySelectorAll('.fem-card');
+      if(cards.length < 5) return;
+      var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var i = 0, timer = null;
+      function go(n){
+        i = (n + cards.length) % cards.length;
+        track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
+      }
+      function tick(){ if(!document.hidden) go(i + 1); }
+      function start(){ if(!timer) timer = setInterval(tick, 5000); }
+      function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+      var st;
+      track.addEventListener('scroll', function(){
+        clearTimeout(st);
+        st = setTimeout(function(){
+          var best = 0, bd = 1e9;
+          cards.forEach(function(card, idx){
+            var d = Math.abs((card.offsetLeft - track.offsetLeft) - track.scrollLeft);
+            if(d < bd){ bd = d; best = idx; }
+          });
+          i = best;
+        }, 120);
+      }, { passive:true });
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){
+          es.forEach(function(e){ e.isIntersecting ? start() : stop(); });
+        }, { threshold:0.05 }).observe(track);
+      } else { start(); }
+    })();
+  </script>
 
   <script>
     (function () {
@@ -9882,50 +9976,111 @@
           <div class="ks-slide__left">
             <h3 class="ks-slide__title">Instant Policy Issuance</h3>
             <div class="ks-slide__meta">
-              <span class="ks-slide__stat">&lt; 2 MIN</span>
+              <span class="ks-slide__stat">&lt; 2 min</span>
               <span class="ks-slide__tag">POLICY ISSUANCE</span>
             </div>
-            <p class="ks-slide__body">Enabled issuance of Life and Medicare policies in under two minutes, streamlining
-              customer experience and operational efficiency.</p>
+            <p class="ks-slide__body">Enabled issuance of Life and Medicare policies in under two minutes, streamlining customer experience and operational efficiency.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img"
-              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1000&q=80&auto=format&fit=crop"
-              alt="Policy issuance approval" loading="lazy">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1000&q=80&auto=format&fit=crop" alt="Policy issuance approval" loading="lazy">
           </div>
         </article>
 
         <article class="ks-slide">
           <div class="ks-slide__left">
-            <h3 class="ks-slide__title">Enterprise Claims Automation</h3>
+            <h3 class="ks-slide__title">Sales Data Visualization</h3>
             <div class="ks-slide__meta">
-              <span class="ks-slide__stat">60% FASTER</span>
-              <span class="ks-slide__tag">CLAIMS PROCESSING</span>
+              <span class="ks-slide__stat">360&deg;</span>
+              <span class="ks-slide__tag">SALES VISIBILITY</span>
             </div>
-            <p class="ks-slide__body">Reduced claims adjudication cycle time by 60% through end-to-end automation across
-              ClaimCenter workflows, slashing manual touchpoints.</p>
+            <p class="ks-slide__body">Provided actionable insights empowering agents with clear, data-driven perspectives for better sales outcomes.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img"
-              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000&q=80&auto=format&fit=crop"
-              alt="Claims processing automation" loading="lazy">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80&auto=format&fit=crop" alt="Sales analytics dashboard" loading="lazy">
           </div>
         </article>
 
         <article class="ks-slide">
           <div class="ks-slide__left">
-            <h3 class="ks-slide__title">AI-Driven Underwriting</h3>
+            <h3 class="ks-slide__title">Extensive Test Automation</h3>
             <div class="ks-slide__meta">
-              <span class="ks-slide__stat">40% COST REDUCTION</span>
-              <span class="ks-slide__tag">UNDERWRITING</span>
+              <span class="ks-slide__stat">75&ndash;100%</span>
+              <span class="ks-slide__tag">AUTOMATION COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Deployed ML models for risk scoring and automated underwriting decisions, cutting
-              manual review costs while improving accuracy.</p>
+            <p class="ks-slide__body">Leveraged extensive UI and API automation to ensure robust code coverage insights across insurance platforms.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img"
-              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80&auto=format&fit=crop"
-              alt="AI underwriting data analysis" loading="lazy">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1000&q=80&auto=format&fit=crop" alt="Test automation in progress" loading="lazy">
+          </div>
+        </article>
+
+        <article class="ks-slide">
+          <div class="ks-slide__left">
+            <h3 class="ks-slide__title">Data Cleansing Solution</h3>
+            <div class="ks-slide__meta">
+              <span class="ks-slide__stat">&uarr; Accuracy</span>
+              <span class="ks-slide__tag">DATA QUALITY</span>
+            </div>
+            <p class="ks-slide__body">Improved data accuracy for more reliable decision-making across policy, claims, and underwriting operations.</p>
+          </div>
+          <div class="ks-slide__right">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000&q=80&auto=format&fit=crop" alt="Data quality review" loading="lazy">
+          </div>
+        </article>
+
+        <article class="ks-slide">
+          <div class="ks-slide__left">
+            <h3 class="ks-slide__title">Seamless Multi-Tool Integration</h3>
+            <div class="ks-slide__meta">
+              <span class="ks-slide__stat">Unified</span>
+              <span class="ks-slide__tag">ECOSYSTEM</span>
+            </div>
+            <p class="ks-slide__body">Multi-tool integration for secure signing, address verification, and medical and claim history checks.</p>
+          </div>
+          <div class="ks-slide__right">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1000&q=80&auto=format&fit=crop" alt="Integrated tool ecosystem" loading="lazy">
+          </div>
+        </article>
+
+        <article class="ks-slide">
+          <div class="ks-slide__left">
+            <h3 class="ks-slide__title">Agent Commission Management</h3>
+            <div class="ks-slide__meta">
+              <span class="ks-slide__stat">&darr; Errors</span>
+              <span class="ks-slide__tag">COMMISSION OPS</span>
+            </div>
+            <p class="ks-slide__body">Simplified commission tracking to improve agent satisfaction and reduce errors across producer networks.</p>
+          </div>
+          <div class="ks-slide__right">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&q=80&auto=format&fit=crop" alt="Agents reviewing commissions" loading="lazy">
+          </div>
+        </article>
+
+        <article class="ks-slide">
+          <div class="ks-slide__left">
+            <h3 class="ks-slide__title">Commercial Insurance Product Management</h3>
+            <div class="ks-slide__meta">
+              <span class="ks-slide__stat">Multi-LOB</span>
+              <span class="ks-slide__tag">PRODUCT COVERAGE</span>
+            </div>
+            <p class="ks-slide__body">Ensured consistent management and maintenance of diverse insurance products across commercial lines.</p>
+          </div>
+          <div class="ks-slide__right">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1000&q=80&auto=format&fit=crop" alt="Commercial product planning" loading="lazy">
+          </div>
+        </article>
+
+        <article class="ks-slide">
+          <div class="ks-slide__left">
+            <h3 class="ks-slide__title">Investment &amp; Hedging Applications</h3>
+            <div class="ks-slide__meta">
+              <span class="ks-slide__stat">Real-time</span>
+              <span class="ks-slide__tag">TRADING INTELLIGENCE</span>
+            </div>
+            <p class="ks-slide__body">Created investment &amp; hedging applications for trading and related collateral management and valuation systems.</p>
+          </div>
+          <div class="ks-slide__right">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1000&q=80&auto=format&fit=crop" alt="Trading and investment charts" loading="lazy">
           </div>
         </article>
 
@@ -9933,68 +10088,55 @@
           <div class="ks-slide__left">
             <h3 class="ks-slide__title">Enterprise Data Warehouse</h3>
             <div class="ks-slide__meta">
-              <span class="ks-slide__stat">1 UNIFIED SOURCE</span>
-              <span class="ks-slide__tag">DATA PLATFORM</span>
+              <span class="ks-slide__stat">L1&ndash;L3</span>
+              <span class="ks-slide__tag">SUPPORT COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Built a cloud-native enterprise data warehouse consolidating 12+ operational
-              systems into a single source of truth for analytics and reporting.</p>
+            <p class="ks-slide__body">Built Enterprise Data Warehouse to process business data and leverage it for operational, reporting, and analytical purposes.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img"
-              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1000&q=80&auto=format&fit=crop"
-              alt="Data warehouse infrastructure" loading="lazy">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1000&q=80&auto=format&fit=crop" alt="Enterprise data warehouse servers" loading="lazy">
           </div>
         </article>
 
         <article class="ks-slide">
           <div class="ks-slide__left">
-            <h3 class="ks-slide__title">Guidewire Test Automation</h3>
+            <h3 class="ks-slide__title">New Product Launch in 2 Weeks</h3>
             <div class="ks-slide__meta">
-              <span class="ks-slide__stat">97% COVERAGE</span>
-              <span class="ks-slide__tag">QA AUTOMATION</span>
+              <span class="ks-slide__stat">&lt; 2 Wks</span>
+              <span class="ks-slide__tag">NEW PRODUCT LAUNCH</span>
             </div>
-            <p class="ks-slide__body">Achieved 97% test automation coverage across PolicyCenter, BillingCenter, and
-              ClaimCenter with 35+ integrations validated end-to-end.</p>
+            <p class="ks-slide__body">Delivered a modular, customized solution enabling new product launches in under two weeks &mdash; dramatically accelerating time to market.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img"
-              src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1000&q=80&auto=format&fit=crop"
-              alt="Software testing and automation" loading="lazy">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80&auto=format&fit=crop" alt="Product launch planning" loading="lazy">
           </div>
         </article>
 
         <article class="ks-slide">
           <div class="ks-slide__left">
-            <h3 class="ks-slide__title">Digital Agent Portal</h3>
+            <h3 class="ks-slide__title">Insurance Application Suite</h3>
             <div class="ks-slide__meta">
-              <span class="ks-slide__stat">3× PRODUCTIVITY</span>
-              <span class="ks-slide__tag">AGENT EXPERIENCE</span>
+              <span class="ks-slide__stat">Full Suite</span>
+              <span class="ks-slide__tag">APPLICATION COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Redesigned and rebuilt the agent-facing portal, tripling quote-to-bind
-              productivity and reducing training time for new agents by 45%.</p>
+            <p class="ks-slide__body">Created comprehensive insurance applications for Agents, Policy Management, Policy Holders, and Claims processing.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img"
-              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&q=80&auto=format&fit=crop"
-              alt="Digital agent portal productivity" loading="lazy">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1000&q=80&auto=format&fit=crop" alt="Insurance application suite" loading="lazy">
           </div>
         </article>
 
         <article class="ks-slide">
           <div class="ks-slide__left">
-            <h3 class="ks-slide__title">Regulatory Compliance Platform</h3>
+            <h3 class="ks-slide__title">Automated Sales Processes</h3>
             <div class="ks-slide__meta">
-              <span class="ks-slide__stat">100% AUDIT READY</span>
-              <span class="ks-slide__tag">COMPLIANCE</span>
+              <span class="ks-slide__stat">&uarr; Efficiency</span>
+              <span class="ks-slide__tag">SALES OPERATIONS</span>
             </div>
-            <p class="ks-slide__body">Delivered a real-time compliance monitoring platform covering 50-state regulatory
-              requirements, ensuring continuous audit readiness for a top-10 P&C carrier.</p>
+            <p class="ks-slide__body">Streamlined sales operations to boost efficiency in the sales workflow with automation and integration.</p>
           </div>
-
           <div class="ks-slide__right">
-            <img class="ks-slide__img"
-              src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1000&q=80&auto=format&fit=crop"
-              alt="Regulatory compliance documentation" loading="lazy">
+            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1000&q=80&auto=format&fit=crop" alt="Automated sales workflow" loading="lazy">
           </div>
         </article>
 
@@ -10142,6 +10284,20 @@
             else { const n = (current - 1 + total) % total; goTo(n, -1); }
           }
         }, { passive: true });
+
+        /* ── Autoplay: forever loop through every item ── */
+        let ksAuto = null;
+        const ksReduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        function ksTick() {
+          if (document.hidden) return;
+          if (animating) animating = false; /* self-heal: a stuck flag must never freeze the loop */
+          goTo((current + 1) % total, 1);
+        }
+        function ksStart() { if (!ksAuto && !ksReduce) ksAuto = setInterval(ksTick, 5000); }
+        function ksStop() { if (ksAuto) { clearInterval(ksAuto); ksAuto = null; } }
+        if ('IntersectionObserver' in window) {
+          new IntersectionObserver(es => es.forEach(e => e.isIntersecting ? ksStart() : ksStop()), { threshold: 0.05 }).observe(section);
+        } else { ksStart(); }
 
         /* ── Section entrance animation ── */
         const headerEls = section.querySelectorAll('.ks-eyebrow, .ks-title, .ks-desc, .ks-nav');

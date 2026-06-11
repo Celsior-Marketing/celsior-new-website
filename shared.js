@@ -406,7 +406,7 @@ a.nav-link{text-decoration:none;}
 }
 .site-footer-light::before{content:'';position:absolute;top:-180px;left:50%;transform:translateX(-50%);width:1100px;height:500px;background:radial-gradient(ellipse,rgba(59,111,255,.10) 0%,transparent 70%);pointer-events:none;z-index:0;}
 .cf-wrap{position:relative;z-index:1;max-width:1340px;margin:0 auto;padding:0 56px;}
-.cf-top{display:grid;grid-template-columns:1.5fr repeat(5,1fr);gap:44px 28px;padding:66px 0 52px;}
+.cf-top{display:grid;grid-template-columns:1.4fr repeat(3,1fr);gap:48px 28px;padding:66px 0 52px;}.cf-top .cf-brand{grid-row:1/3;}.cf-top .cf-col{border-left:1px solid var(--cf-border);padding-left:28px;}
 .cf-brand{display:flex;flex-direction:column;}
 .cf-logo{height:26px;width:auto;filter:brightness(0) invert(1);display:block;transition:opacity .25s;}
 .cf-logo:hover{opacity:.7;}
@@ -454,8 +454,8 @@ a.nav-link{text-decoration:none;}
 .cf-lang:hover{border-color:var(--cf-accent);background:rgba(255,255,255,.03);}
 .cf-lang svg{width:13px;height:13px;}
 .cf-lang .cf-globe{color:var(--cf-accent);}
-@media(max-width:1100px){.cf-top{grid-template-columns:repeat(3,1fr);}.cf-brand{grid-column:1/-1;}.cf-mid{grid-template-columns:repeat(2,1fr);}.cf-cta{grid-column:1/-1;}}
-@media(max-width:680px){.cf-wrap{padding:0 24px;}.cf-top{grid-template-columns:1fr 1fr;padding:48px 0 40px;}.cf-mid{grid-template-columns:1fr;}.cf-cta{flex-direction:column;text-align:left;align-items:flex-start;}.cf-bottom{flex-direction:column;align-items:flex-start;padding:22px 24px 32px;}.cf-legal{justify-content:flex-start;}}
+@media(max-width:1100px){.cf-top{grid-template-columns:repeat(3,1fr);}.cf-brand{grid-column:1/-1;grid-row:auto;}}
+@media(max-width:680px){.cf-wrap{padding:0 24px;}.cf-top{grid-template-columns:1fr 1fr;padding:48px 0 40px;}.cf-top .cf-col{border-left:none;padding-left:0;}.cf-bottom{flex-direction:column;align-items:flex-start;padding:22px 24px 32px;}.cf-legal{justify-content:flex-start;}}
 
 /* ═══════════════════════ MOBILE DRAWER — MEGA CARDS ════════════════
    Rich content (feature card + assessment cards) injected into each
@@ -718,7 +718,7 @@ a.nav-link{text-decoration:none;}
         {label:'Digital Experience', href:'/our-focus/digital-experience'},
         {label:'AI-First Digital Engineering', href:'/our-focus/ai-first-digital-engineering'},
       ],
-      feature:{cap:'<em>AI-First</em> digital engineering that evolves at the speed of your business.', title:'AI-First Digital Engineering', desc:'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.'},
+      feature:{cap:'<em>AI-First</em> digital engineering that evolves at the speed of your business.', title:'AI-First Digital Engineering', desc:'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4'},
       assessTag:'Free Assessment',
       assess:[
         {title:'Modernization Diagnostic', desc:'2-week assessment of your legacy landscape with a prioritized roadmap.'},
@@ -736,7 +736,7 @@ a.nav-link{text-decoration:none;}
         {label:'Digital Operations &amp; Security', href:'/capabilities/digital-operations-and-security'},
         {label:'Security &amp; Governance', href:'/capabilities/security-and-governance'},
       ],
-      feature:{cap:'<em>Platform engineering</em> built for scale and resilience.', title:'Platform Engineering at Scale', desc:'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.'},
+      feature:{cap:'<em>Platform engineering</em> built for scale and resilience.', title:'Platform Engineering at Scale', desc:'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781206076/capabilities-feature_umennw.mp4'},
       assessTag:'Spotlight',
       assess:[
         {title:'Cloud Acceleration', desc:'Migrate and modernize critical workloads with zero-downtime patterns.'},
@@ -755,7 +755,7 @@ a.nav-link{text-decoration:none;}
         {label:'Teams-as-a-Service', href:'/solutions/teams-as-a-service'},
         {label:'Hire-Train-Deploy', href:'/solutions/ai-upskilling'},
       ],
-      feature:{cap:'<em>The right model</em> for your scale and goals.', title:'GCC vs. Teams-as-a-Service', desc:'Compare cost, control, and speed side by side to find the right operating model for your enterprise.'},
+      feature:{cap:'<em>The right model</em> for your scale and goals.', title:'GCC vs. Teams-as-a-Service', desc:'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205650/solutions-feature_bvxk2o.mp4'},
       assessTag:'Compare Models',
       assess:[
         {title:'Operating Model Fit', desc:'Map your goals to the ideal delivery and talent model.'},
@@ -773,7 +773,7 @@ a.nav-link{text-decoration:none;}
         {label:'Centers of Excellence', href:'/ai-innovation/frameworks-accelerators'},
         {label:'Frameworks &amp; Accelerators', href:'/ai-innovation/frameworks-accelerators'},
       ],
-      feature:{cap:'<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title:'Synthetix in Action', desc:'See how our AI orchestration layer connects critical systems with enterprise-grade governance.'},
+      feature:{cap:'<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title:'Synthetix in Action', desc:'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204152/ai-innovation-feature_xmhaon.mp4'},
       assessTag:'Live Demo',
       assess:[
         {title:'AI Readiness Index', desc:'Benchmark your AI maturity against industry peers.'},
@@ -789,7 +789,7 @@ a.nav-link{text-decoration:none;}
         {label:'Insurance', href:'/industries/insurance'},
         {label:'Healthcare', href:'/industries/healthcare'},
       ],
-      feature:{cap:'<em>Modernize</em> without disruption.', title:'Regulated Industry Playbook', desc:'How leading banks, insurers, and health systems modernize critical systems with confidence.'},
+      feature:{cap:'<em>Modernize</em> without disruption.', title:'Regulated Industry Playbook', desc:'How leading banks, insurers, and health systems modernize critical systems with confidence.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204851/industries-feature_paiw9p.mp4'},
       assessTag:'Industry Brief',
       assess:[
         {title:'Compliance Diagnostic', desc:'Assess regulatory readiness across your technology estate.'},
@@ -809,7 +809,7 @@ a.nav-link{text-decoration:none;}
         {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png'},
         {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/22_qilo7h.png'},
       ],
-      feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.'},
+      feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205216/partner-ecosystem-feature_jz8fm1.mp4'},
       assessTag:'Partnerships',
       assess:[
         {title:'Alliance Programs', desc:'Co-build and co-sell with our technology partners.'},
@@ -828,7 +828,7 @@ a.nav-link{text-decoration:none;}
         {label:'Careers', href:'/about'},
         {label:'Events &amp; News', href:'/about'},
       ],
-      feature:{cap:'<em>Engineering-first</em> culture, global impact.', title:'Life at Celsior', desc:'Join a team building the future of AI-first digital engineering across the globe.'},
+      feature:{cap:'<em>Engineering-first</em> culture, global impact.', title:'Life at Celsior', desc:'Join a team building the future of AI-first digital engineering across the globe.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4'},
       assessTag:'Join Us',
       assess:[
         {title:'Open Roles', desc:'Explore engineering and consulting opportunities worldwide.'},
@@ -859,7 +859,9 @@ a.nav-link{text-decoration:none;}
       </div>
       <div class="mega-zone">
         <a class="mz-feature-card" href="${d.explore.href}">
-          <img class="mz-feature-img" src="${FEATURE_IMG}" alt="${d.feature.title}" loading="lazy"/>
+          ${d.feature.video
+            ? `<video class="mz-feature-img" autoplay muted loop playsinline preload="auto" poster="${FEATURE_IMG}"><source src="${d.feature.video}" type="video/mp4"></video>`
+            : `<img class="mz-feature-img" src="${FEATURE_IMG}" alt="${d.feature.title}" loading="lazy"/>`}
           <div class="mz-feature-cap">${d.feature.cap}</div>
         </a>
         <div class="mz-feature-body">
@@ -913,6 +915,29 @@ a.nav-link{text-decoration:none;}
         <span class="ham-line"></span><span class="ham-line"></span><span class="ham-line"></span>
       </button>`;
     document.body.insertBefore(navEl, document.body.firstChild);
+
+    /* Feature video fallback — if the video fails to load, show the image instead */
+    navEl.querySelectorAll('video.mz-feature-img').forEach(v => {
+      const toImage = () => {
+        if (v.dataset.fbDone) return;
+        v.dataset.fbDone = '1';
+        const img = document.createElement('img');
+        img.className = 'mz-feature-img';
+        img.src = v.getAttribute('poster');
+        img.alt = '';
+        v.replaceWith(img);
+      };
+      v.addEventListener('error', toImage);
+      const src = v.querySelector('source');
+      if (src) src.addEventListener('error', toImage);
+      /* also fall back only if literally nothing has loaded (quota/interstitial cases) */
+      setTimeout(() => { if (v.readyState === 0 && v.networkState !== 2) toImage(); }, 15000);
+      /* nudge playback when the menu opens (some browsers defer hidden-video autoplay) */
+      const nudge = () => { if (v.paused && !v.dataset.fbDone) v.play().catch(() => {}); };
+      const host = v.closest('.mega') || v.closest('[class*="mega"]') || navEl;
+      host.addEventListener('mouseenter', nudge);
+      document.addEventListener('visibilitychange', () => { if (!document.hidden) nudge(); });
+    });
 
     // Drawer
     drawerEl = document.createElement('div');
@@ -997,7 +1022,7 @@ a.nav-link{text-decoration:none;}
     <div class="cf-top">
       <div class="cf-brand">
         <a href="/"><img src="${LOGO}" alt="Celsior" class="cf-logo"/></a>
-        <p class="cf-tagline">AI-first digital engineering partner for regulated industries modernizing critical systems, operationalizing AI, and building resilience at scale.</p>
+        <p class="cf-tagline">AI-first digital engineering partner for regulated industries—modernizing critical systems, operationalizing AI, and building resilience at scale.</p>
         <p class="cf-sub-head">Stay informed</p>
         <p class="cf-sub-desc">Insights on AI, compliance, and operational resilience delivered to your inbox.</p>
         <div class="cf-subscribe">
@@ -1012,7 +1037,25 @@ a.nav-link{text-decoration:none;}
           <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
           <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg></a>
         </div>
+        <p class="cf-col-head" style="margin:34px 0 14px;">Contact</p>
+        <div class="cf-contact-line">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
+          <span>Pyramid Consulting, Inc.<br/>1000 Parkwood Circle, Suite 100<br/>Atlanta, GA 30339, USA</span>
+        </div>
+        <div class="cf-contact-line">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 16l1 4v0a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="tel:+14045550198">+1 (404) 555-0198</a>
+        </div>
+        <div class="cf-contact-line">
+          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+          <a href="mailto:info@pyramidconsulting.com">info@pyramidconsulting.com</a>
+        </div>
       </div>
+      ${cfCol('About',[
+        {label:'Who we are', href:'/about/who-we-are'},
+        {label:'AI first philosophy', href:'/about/ai-first-philosophy'},
+        {label:'Blogs', href:'/blogs'},
+      ])}
       ${cfCol('Our Focus',[
         {label:'AI-First Digital Engineering', href:'/our-focus/ai-first-digital-engineering'},
         {label:'AI Adoption', href:'/our-focus/ai-adoption'},
@@ -1048,62 +1091,11 @@ a.nav-link{text-decoration:none;}
     </div>
   </div>
 
-  <div class="cf-divider"></div>
-
-  <div class="cf-wrap">
-    <div class="cf-mid">
-      ${cfCol('About',[
-        {label:'Our Focus', href:'/our-focus'},
-        {label:'Capabilities', href:'/capabilities'},
-        {label:'Solutions', href:'/solutions'},
-        {label:'AI &amp; Innovation', href:'/ai-innovation/celsior-ai-lab'},
-        {label:'Industries', href:'/industries'},
-      ])}
-      ${cfCol('Company',[
-        {label:'About', href:'/about'},
-        {label:'Partners', href:'/partners'},
-        {label:'Careers', href:'/about'},
-      ])}
-      ${cfCol('Resources',[
-        {label:'Insights', href:'/blogs'},
-        {label:'Whitepapers', href:'/blogs'},
-        {label:'Webinars', href:'/about'},
-        {label:'Newsroom', href:'/about'},
-        {label:'Events', href:'/about'},
-      ])}
-      <div class="cf-col">
-        <p class="cf-col-head">Contact</p>
-        <div class="cf-contact-line">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span>Celsior Technologies, Inc.<br/>1000 Parkwood Circle, Suite 100<br/>Atlanta, GA 30339, USA</span>
-        </div>
-        <div class="cf-contact-line">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 16l1 4v0a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          <a href="tel:+14045550198">+1 (404) 555-0198</a>
-        </div>
-        <div class="cf-contact-line">
-          <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          <a href="mailto:info@pyramidconsulting.com">info@pyramidconsulting.com</a>
-        </div>
-      </div>
-      <div class="cf-cta">
-        <div class="cf-cta-circle">
-          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        </div>
-        <div>
-          <div class="cf-cta-title">Ready to transform your enterprise with AI?</div>
-          <p class="cf-cta-desc">Let's build what's next, together.</p>
-          <a href="/contact-us" class="cf-cta-link">Contact Us <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="cf-bottom">
     <p class="cf-copyright">&copy; 2026 Pyramid Consulting, Inc. All rights reserved.</p>
     <nav class="cf-legal" aria-label="Legal">
       <a href="/assets/legal/gdpr-v1-6-072024.pdf" target="_blank" rel="noopener">GDPR</a>
-      <a href="/assets/legal/ccpa-cra-v1-3-072024.pdf" target="_blank" rel="noopener">CCPA/CRA</a>
+      <a href="/assets/legal/ccpa-cra-v1-3-072024.pdf" target="_blank" rel="noopener">CCPA/CPRA</a>
       <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy</a>
       <a href="/assets/legal/pci-072025-reasonable-accomodation-policy.pdf" target="_blank" rel="noopener">Reasonable Accommodation Policy</a>
       <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft privacy statement</a>
