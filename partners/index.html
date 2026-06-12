@@ -2978,7 +2978,33 @@
         height: 64px
       }
     }
-  </style>
+
+/* Partners CTA heading wrap repair */
+#ctaBand .cta-band-title{
+  max-width: 980px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+/* Partners certified section scroll repair */
+#platform-ops-cost{
+  scroll-margin-top: 96px;
+}
+
+
+/* Partners CTA text two-line repair */
+#ctaBand .cta-band-text{
+  max-width: 1100px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  line-height: 1.08 !important;
+}
+#ctaBand .cta-band-underline{
+  display: inline-block !important;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -3629,14 +3655,14 @@
       <h1 class="hero-heading">Your Platform Investment Performs Better <br>With a Certified Practice Behind It.
       </h1>
       <div class="hero-btns">
-        <button type="button" class="btn-ghost">
+        <a href="#platform-ops-cost" class="btn-ghost">
           Explore Our Partner Practices
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button type="button" data-celsior-form="general" class="btn-white">Talk to a Practice Lead</button>
+        </a>
+        <a href="/contact-us" class="btn-white">Talk to a Practice Lead</a>
       </div>
     </div>
   </section>
@@ -4091,7 +4117,7 @@
     <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">Each practice is built around a formal Center of Excellence, a certified partnership, and a delivery team with demonstrated platform depth. Select a practice to see what Celsior delivers within that ecosystem. </p>
 
   <!-- IMAGE ACCORDION — transplanted from digital-operations.html -->
-  <section class="acc-section" id="dl-acc-section" aria-label="Our certified partnerships">
+  <section class="acc-section" id="dl-acc-section" data-scroll-target="certified-partnerships" aria-label="Our certified partnerships">
 
     <!-- ROW 1 — Guidewire (default active) -->
     <div class="acc-row active" data-index="0" tabindex="0">
@@ -4111,7 +4137,7 @@
             <p class="acc-para"><strong>Positioning:</strong> A decade of delivery across the full InsuranceSuite, with 8+ Fortune 500 carriers and a Guidewire Center of Excellence behind every engagement.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Implementation, configuration, and cloud upgrade support across PolicyCenter, BillingCenter, and ClaimsCenter.</p>
             <p class="acc-para"><strong>Proprietary QA</strong> automation accelerators purpose-built for Guidewire Cloud's quarterly release cycle. Production support, data services, and AI-assisted test script generation for mid-to-large P&amp;C carriers.</p>
-            <a data-celsior-form="resource" class="acc-readmore" href="/partners/guidewire">Explore Guidewire Practice</a>
+            <a class="acc-readmore" href="/partners/guidewire">Explore Guidewire Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Guidewire practice">
@@ -4137,7 +4163,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Untitled_design_33_htf6nu.png" alt="Jack Henry">
             <p class="acc-para"><strong>Positioning:</strong> Direct jXchange API access as a Fintech Integration Network member, backed by a team with former Jack Henry Banking leadership on staff.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Core banking modernization with fintech extensions covering CRM, fraud detection, payments, and compliance workflows. KYC, AML, and regulatory reporting automation built into every layer of the transformation. Unified, real-time customer data across apps and financial institutions to support BI, analytics, and personalized digital services.</p>
-            <a class="acc-readmore" href="/partners/jack-henry ">Explore Jack Henry Practice</a>
+            <a class="acc-readmore" href="/partners/jack-henry">Explore Jack Henry Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Jack Henry practice">
@@ -4163,7 +4189,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/5_nipjvi.png" alt="ServiceNow">
             <p class="acc-para"><strong>Positioning:</strong> A ServiceNow FinTech Network Partner with a dedicated CoE covering ITSM, managed operations, and compliance automation for financial services organizations.</p>
             <p class="acc-para"><strong>Capabilities:</strong> ITSM implementation and ongoing managed SNOW operations for financial services and insurance. Incident and change management with structured governance cadences and audit-ready reporting. Workflow automation that removes manual hand-offs across IT operations, risk, and compliance functions.</p>
-            <a class="acc-readmore" href="/partners/servicenow ">Explore ServiceNow Practice</a>
+            <a class="acc-readmore" href="/partners/servicenow">Explore ServiceNow Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="ServiceNow practice">
@@ -4567,13 +4593,11 @@
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
       <span class="cta-band-eyebrow">START A CONVERSATION</span>
-      <h2 class="cta-band-text" data-text="Every Platform Program Starts With the
-Right Practice Behind It. ">
-        <span class="cta-band-underline">Every Platform Program Starts With the
-Right Practice Behind It.
+      <h2 class="cta-band-text" data-text="Every Platform Program Starts With the Right Practice Behind It.">
+        <span class="cta-band-underline">Every Platform Program Starts With<br>the Right Practice Behind It.</span>
       </h2>
       <div class="cta-band-btns">
-        <a data-celsior-form="general" href="/contact-us" class="cta-band-btn-primary cta-band-btn">Talk to a Practice Lead</a>
+        <a href="/contact-us" class="cta-band-btn-primary cta-band-btn">Talk to a Practice Lead</a>
         <a href="/contact-us" class="cta-band-btn-outline"> Explore Our Work</a>
       </div>
       <p class="cta-band-sub">3 Certified Partner CoEs | Global Delivery Across the US, Mexico, and India | 25+ Years Serving Regulated Industries </p>
