@@ -2951,7 +2951,29 @@
         height: 64px
       }
     }
-  </style>
+
+
+
+/* Force secondary CTA to white/black on Risk & Compliance page */
+#ctaBand .cta-band-btn-white,
+#ctaBand .cta-btn-group .cta-band-btn-white,
+#ctaBand a.cta-band-btn-white{
+  background:#fff !important;
+  color:#000 !important;
+  border:1px solid #000 !important;
+  box-shadow:none !important;
+}
+#ctaBand .cta-band-btn-white:hover,
+#ctaBand .cta-btn-group .cta-band-btn-white:hover,
+#ctaBand a.cta-band-btn-white:hover{
+  background:#fff !important;
+  color:#000 !important;
+  border-color:#000 !important;
+  box-shadow:none !important;
+  transform:translateY(-2px);
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -3313,10 +3335,7 @@
     </svg>
   </button>
 
-  <button type="button" class="btn-white"
-    onclick="window.location.href='/contact-us'">
-    Schedule a Conversation
-  </button>
+  <a href="/contact-us" class="btn-white">Schedule a Conversation</a>
 </div>
     </div>
   </section>
@@ -3642,7 +3661,7 @@ Continuous<span
 enterprise-scale
 experience.</h2>
         <p class="em-desc">Our platform tools are designed with regulated industries in mind. Each one carries the audit-trail, traceability, and governance features that compliance-sensitive environments require as standard. </p>
-        <a data-celsior-form="general" href="/solutions/technology-consulting" class="em-cta">Get Started
+        <a href="/solutions/technology-consulting" class="em-cta">Get Started
           <svg viewBox="0 0 16 16" fill="none">
             <line x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
             <polyline points="6,2 14,2 14,10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
@@ -3713,8 +3732,8 @@ experience.</h2>
           </svg>
         </div>
         <span class="em-num">03</span>
-        <h3 class="em-card-title">HALO — Human-AI Loop Orchestration</h3>
-        <p class="em-card-desc">Regulated environments require a human decision layer. HALO governs AI workflows with structured human-in-the-loop oversight, SLA-based accountability, and audit-traceable decision records so every automated action in a regulated process carries a defensible governance trail. </p>
+        <h3 class="em-card-title">HALO<sup>TM</sup> — Human-AI Loop Orchestration</h3>
+        <p class="em-card-desc">Regulated environments require a human decision layer. HALO<sup>TM</sup> governs AI workflows with structured human-in-the-loop oversight, SLA-based accountability, and audit-traceable decision records so every automated action in a regulated process carries a defensible governance trail. </p>
       </div>
     </div>
   </section>
