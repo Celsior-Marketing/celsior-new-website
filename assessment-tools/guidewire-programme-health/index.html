@@ -1,0 +1,511 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Guidewire Programme Health Diagnostic</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+
+:root{
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --color-text-primary:#0d1127;
+  --color-text-secondary:#3a4060;
+  --color-text-tertiary:#7b82a0;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f6fa;
+  --color-border-secondary:rgba(15,20,50,.16);
+  --color-border-tertiary:rgba(15,20,50,.10);
+  --border-radius-md:10px;
+  --border-radius-lg:16px;
+  --celsior-navy:#071126;
+  --celsior-navy-2:#0d1127;
+  --celsior-ink:#0d1127;
+  --celsior-muted:#7b82a0;
+  --celsior-blue:#2254f4;
+  --celsior-blue-soft:rgba(34,84,244,.09);
+  --celsior-line:rgba(255,255,255,.14);
+  --celsior-cream:#f8f7f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(34,84,244,.20), transparent 28rem),
+    linear-gradient(180deg,#071126 0%,#0d1127 92px,#f5f6fa 92px,#f5f6fa 100%);
+  color:var(--color-text-primary);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.celsior-nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px;
+  color:#fff;
+}
+.celsior-logo{display:inline-flex;align-items:center;gap:10px;min-width:0}
+.celsior-logo img{height:30px;width:auto;filter:brightness(0) invert(1);display:block}
+.celsior-nav__right{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;color:rgba(255,255,255,.76)}
+.celsior-nav__pill{padding:9px 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+.celsior-nav__pill:hover{background:#fff;color:#0d1127}
+.celsior-hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 28px 54px;
+  color:#fff;
+  position:relative;
+}
+.celsior-kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:700;margin-bottom:12px}
+.celsior-hero h1{font-size:clamp(32px,4.5vw,58px);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin:0 0 16px;max-width:760px;color:#fff}
+.celsior-hero p{font-size:clamp(15px,1.5vw,18px);line-height:1.7;color:rgba(255,255,255,.72);max-width:720px;margin:0}
+.celsior-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.celsior-stat-card{min-width:260px;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:rgba(255,255,255,.08);padding:22px;box-shadow:0 24px 80px rgba(0,0,0,.18);backdrop-filter:blur(20px)}
+.celsior-stat-card strong{display:block;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:8px}
+.celsior-stat-card span{font-size:13px;color:rgba(255,255,255,.68);line-height:1.5}
+.celsior-page-wrap{max-width:1180px;margin:0 auto;padding:32px 28px 52px;position:relative;z-index:2}
+.page-shell{
+  max-width:860px;
+  margin:0 auto;
+  background:rgba(255,255,255,.98);
+  border:1px solid rgba(15,20,50,.10);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 24px 80px rgba(15,20,80,.14);
+  overflow:hidden;
+}
+.celsior-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;color:#2254f4;font-size:13px;font-weight:700}
+.celsior-back::before{content:'←';font-size:14px}
+.celsior-footer{background:#fff;border-top:1px solid rgba(15,20,50,.09);padding:34px 28px;color:#3a4060}
+.celsior-footer__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.celsior-footer img{height:26px;width:auto;filter:brightness(0);opacity:.9}
+.celsior-footer p{margin:8px 0 0;font-size:13px;color:#7b82a0;line-height:1.5}
+.celsior-footer__links{display:flex;gap:18px;font-size:13px;font-weight:600;color:#3a4060;flex-wrap:wrap}
+.celsior-footer__links a:hover{color:#2254f4}
+.celsior-brand-overrides .eyebrow,.celsior-brand-overrides .brand,.celsior-brand-overrides .section-label,.celsior-brand-overrides .rec-title,.celsior-brand-overrides .flags-title{color:#2254f4!important;font-weight:800!important;letter-spacing:.13em!important}
+.celsior-brand-overrides .hdr h1,.celsior-brand-overrides .header h1,.celsior-brand-overrides h1{letter-spacing:-.02em;color:#0d1127}
+.celsior-brand-overrides .panel,.celsior-brand-overrides .deliver-card,.celsior-brand-overrides .dim-card,.celsior-brand-overrides .metric,.celsior-brand-overrides .gate-strip,.celsior-brand-overrides .form-wrap,.celsior-brand-overrides .gate-wrap,.celsior-brand-overrides .gate-box,.celsior-brand-overrides .next-steps,.celsior-brand-overrides .guarantee{border-color:rgba(15,20,50,.10)!important;box-shadow:0 10px 30px rgba(15,20,80,.04)}
+.celsior-brand-overrides button,.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{border-radius:999px!important;font-weight:700!important;box-shadow:0 14px 32px rgba(34,84,244,.18)}
+.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{background:#0d1127!important;border-color:#0d1127!important;color:#fff!important}
+.celsior-brand-overrides input,.celsior-brand-overrides select,.celsior-brand-overrides textarea{border-radius:12px!important;border-color:rgba(15,20,50,.14)!important;background:#fff!important}
+.celsior-brand-overrides .progress-fill,.celsior-brand-overrides .prog-fill,.celsior-brand-overrides .pf,.celsior-brand-overrides .prog-bar .prog-fill{background:#2254f4!important}
+.celsior-brand-overrides .progress-bar,.celsior-brand-overrides .prog-bar{background:rgba(15,20,50,.09)!important}
+@media(max-width:820px){
+  .celsior-nav{height:64px;padding:0 18px}.celsior-logo img{height:26px}.celsior-nav__right span{display:none}.celsior-nav__pill{padding:8px 12px;font-size:12px}
+  .celsior-hero{padding:32px 18px 44px}.celsior-hero-grid{grid-template-columns:1fr}.celsior-stat-card{display:none}
+  .celsior-page-wrap{padding:22px 14px 36px;margin-top:0}.page-shell{padding:22px;border-radius:22px}
+  .two-col,.deliver-grid,.form-grid,.availability-row,.dim-grid,.fg,.form-row{grid-template-columns:1fr!important}
+  .celsior-footer__inner{align-items:flex-start;flex-direction:column}
+}
+
+
+.celsior-hs-form-panel{display:none;max-width:860px;margin:0 auto 52px;background:#fff;border:1px solid rgba(15,20,50,.10);border-radius:24px;padding:28px 30px;box-shadow:0 18px 60px rgba(15,20,80,.10)}
+.celsior-hs-form-panel.is-visible{display:block}
+.celsior-hs-form-panel h2{margin:0 0 8px;font-size:22px;line-height:1.25;letter-spacing:-.02em;color:#0d1127}
+.celsior-hs-form-panel p{margin:0 0 18px;font-size:14px;line-height:1.6;color:#3a4060}
+.celsior-hs-form-panel .hs-form-html{min-height:120px}
+.celsior-hs-form-panel form{font-family:var(--font-sans)!important;color:#0d1127!important}
+.celsior-hs-form-panel label,.celsior-hs-form-panel .hs-form label,.celsior-hs-form-panel .hs-form-field label{color:#0d1127!important;font-size:13px!important;font-weight:700!important;margin-bottom:6px!important;display:block!important}
+.celsior-hs-form-panel input,.celsior-hs-form-panel select,.celsior-hs-form-panel textarea{width:100%!important;border:1px solid rgba(15,20,50,.14)!important;background:#fff!important;color:#0d1127!important;border-radius:12px!important;padding:11px 12px!important;font-size:14px!important;box-shadow:none!important}
+.celsior-hs-form-panel input:focus,.celsior-hs-form-panel select:focus,.celsior-hs-form-panel textarea:focus{outline:none!important;border-color:#2254f4!important;box-shadow:0 0 0 3px rgba(34,84,244,.12)!important}
+.celsior-hs-form-panel .hs-form-field{margin-bottom:14px!important}
+.celsior-hs-form-panel .hs-button,.celsior-hs-form-panel input[type="submit"]{width:auto!important;min-width:180px!important;background:#0d1127!important;color:#fff!important;border:1px solid #0d1127!important;border-radius:999px!important;padding:12px 22px!important;font-weight:800!important;cursor:pointer!important;box-shadow:0 14px 32px rgba(34,84,244,.18)!important}
+.celsior-hs-form-panel .hs-error-msg,.celsior-hs-form-panel .hs-error-msgs label{color:#a32d2d!important;font-size:12px!important;font-weight:600!important}
+.celsior-hs-form-panel .legal-consent-container,.celsior-hs-form-panel .hs-richtext{color:#3a4060!important;font-size:12px!important;line-height:1.5!important}
+@media(max-width:820px){.celsior-hs-form-panel{margin:0 14px 36px;padding:22px;border-radius:22px}}
+</style>
+
+<style>
+  body.assessment-tool-native-page {
+    padding-top: 84px;
+  }
+  @media (max-width: 768px) {
+    body.assessment-tool-native-page {
+      padding-top: 74px;
+    }
+  }
+</style>
+
+</head>
+<body class="assessment-tool-native-page">
+<div class="page-shell">
+<a class="home-link" href="/assessment-tools">← All tools</a>
+
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+body{font-family:var(--font-sans)}
+#wrap{max-width:680px;margin:0 auto;padding:1.5rem 0}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-tertiary);font-weight:500;margin-bottom:.4rem}
+h1{font-size:22px;font-weight:500;color:var(--color-text-primary);line-height:1.3;margin-bottom:.35rem}
+.sub{font-size:14px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:1.75rem}
+.prog-bar{height:3px;background:var(--color-border-tertiary);border-radius:99px;overflow:hidden;margin-bottom:.5rem}
+.prog-fill{height:100%;background:#7f77dd;border-radius:99px;transition:width .4s ease}
+.prog-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--color-text-tertiary);margin-bottom:2rem}
+.dim-strip{display:flex;gap:6px;margin-bottom:1.5rem;flex-wrap:wrap}
+.dim-pip{display:flex;align-items:center;gap:5px;font-size:11px;color:var(--color-text-tertiary);padding:4px 10px;border-radius:99px;border:.5px solid var(--color-border-tertiary);background:var(--color-background-secondary);transition:all .2s}
+.dim-pip.active{background:#eeedfe;border-color:#afa9ec;color:#3c3489;font-weight:500}
+.dim-pip.done-r{background:#fcebeb;border-color:#f09595;color:#791f1f}
+.dim-pip.done-a{background:#faeeda;border-color:#fac775;color:#633806}
+.dim-pip.done-g{background:#eaf3de;border-color:#c0dd97;color:#27500a}
+.dim-pip i{font-size:12px}
+.q-dim{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#7f77dd;font-weight:500;margin-bottom:.75rem;display:flex;align-items:center;gap:6px}
+.q-dim i{font-size:13px}
+.q-text{font-size:15px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:1.25rem}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:2rem}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary);cursor:pointer;transition:all .15s;background:var(--color-background-primary)}
+.opt:hover{background:var(--color-background-secondary);border-color:var(--color-border-secondary)}
+.opt.sel-r{border:1.5px solid #e24b4a;background:#fcebeb}
+.opt.sel-a{border:1.5px solid #ba7517;background:#faeeda}
+.opt.sel-g{border:1.5px solid #639922;background:#eaf3de}
+.rag-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.dot-r{background:#e24b4a}
+.dot-a{background:#ef9f27}
+.dot-g{background:#639922}
+.opt-text{font-size:13px;color:var(--color-text-primary);line-height:1.5}
+.opt-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.nav-row{display:flex;justify-content:space-between;align-items:center}
+.btn-back{font-size:13px;color:var(--color-text-secondary);background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:4px}
+.btn-back:hover{color:var(--color-text-primary)}
+.btn-next{font-size:14px;font-weight:500;padding:10px 24px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s}
+.btn-next:not(:disabled):hover{background:var(--color-background-secondary)}
+.btn-next:disabled{opacity:.35;cursor:default}
+.btn-purple{background:#7f77dd;color:#fff;border-color:#7f77dd}
+.btn-purple:not(:disabled):hover{background:#534ab7;border-color:#534ab7}
+.divider{height:.5px;background:var(--color-border-tertiary);margin:1.5rem 0}
+.gate-box{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1.25rem}
+.gate-box h2{font-size:16px;font-weight:500;color:var(--color-text-primary);margin-bottom:.3rem}
+.gate-box p{font-size:13px;color:var(--color-text-secondary);margin-bottom:1rem;line-height:1.5}
+.fg{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:12px;font-weight:500;color:var(--color-text-secondary)}
+.field input,.field select{font-size:13px;padding:8px 10px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary)}
+.field input:focus,.field select:focus{outline:none;border-color:#7f77dd}
+.res-header{margin-bottom:1.5rem}
+.res-header h2{font-size:20px;font-weight:500;color:var(--color-text-primary);margin-bottom:.35rem}
+.res-header p{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+.rag-score-row{display:flex;align-items:center;gap:12px;margin-bottom:1.5rem}
+.rag-score-pill{font-size:22px;font-weight:500;padding:8px 20px;border-radius:99px}
+.rag-score-meta{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+.dim-results{display:flex;flex-direction:column;gap:8px;margin-bottom:1.5rem}
+.dim-result-row{display:flex;align-items:center;gap:12px;padding:10px 14px;border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary)}
+.dim-rag-badge{font-size:11px;font-weight:500;padding:3px 10px;border-radius:99px;min-width:60px;text-align:center;flex-shrink:0}
+.badge-r{background:#fcebeb;color:#791f1f}
+.badge-a{background:#faeeda;color:#633806}
+.badge-g{background:#eaf3de;color:#27500a}
+.dim-result-name{font-size:13px;font-weight:500;color:var(--color-text-primary);flex:1}
+.dim-result-score{font-size:12px;color:var(--color-text-secondary)}
+.flags-section{margin-bottom:1.5rem}
+.flags-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);margin-bottom:.75rem}
+.flag-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--border-radius-md);margin-bottom:6px;border:.5px solid}
+.flag-r{background:#fcebeb;border-color:#f09595}
+.flag-a{background:#faeeda;border-color:#fac775}
+.flag-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.flag-r .flag-icon{color:#a32d2d}
+.flag-a .flag-icon{color:#854f0b}
+.flag-text{font-size:13px;line-height:1.5}
+.flag-r .flag-text{color:#501313}
+.flag-a .flag-text{color:#412402}
+.cta-purple{background:#eeedfe;border:.5px solid #afa9ec;border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1rem}
+.cta-purple h3{font-size:15px;font-weight:500;color:#26215c;margin-bottom:.35rem}
+.cta-purple p{font-size:13px;color:#3c3489;line-height:1.5;margin-bottom:1rem}
+.btn-cta-purple{width:100%;padding:11px;border-radius:var(--border-radius-md);background:#7f77dd;color:#fff;border:none;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .15s}
+.btn-cta-purple:hover{background:#534ab7}
+</style>
+
+<div id="wrap">
+  <h2 class="sr-only">Guidewire programme health diagnostic — 10-question RAG assessment across governance, technical build, data migration, testing, and change management dimensions</h2>
+
+  <div id="assess-view">
+    <div class="eyebrow">GW Programme Health Diagnostic</div>
+    <h1>Is your Guidewire programme on track?</h1>
+    <p class="sub">10 questions across 5 programme dimensions. Get an honest RAG assessment — and know exactly where your programme needs intervention before it's too late.</p>
+    <div class="prog-bar"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+    <div class="prog-meta"><span id="pm">Question 1 of 10</span><span id="pd"></span></div>
+    <div class="dim-strip" id="dim-strip"></div>
+    <div class="q-dim" id="qdim"></div>
+    <div class="q-text" id="qt"></div>
+    <div class="opts" id="qo"></div>
+    <div class="nav-row">
+      <button class="btn-back" id="bb" onclick="back()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+      <button class="btn-next btn-purple" id="bn" disabled onclick="next()">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div id="gate-view" style="display:none">
+    <div class="eyebrow">GW Programme Health Diagnostic</div>
+    <h1>Your results are ready</h1>
+    <p class="sub">Enter your details to unlock your programme health report and RAG scorecard.</p>
+    <div class="gate-box">
+      <h2>Access your programme health report</h2>
+      <p>A Guidewire programme specialist will review your responses and reach out within 1 business day.</p>
+      <div class="fg">
+        <div class="field"><label>First name</label><input id="gfn" type="text" placeholder="Priya"></div>
+        <div class="field"><label>Last name</label><input id="gln" type="text" placeholder="Sharma"></div>
+      </div>
+      <div class="fg">
+        <div class="field"><label>Work email</label><input id="gem" type="email" placeholder="priya@insurer.com"></div>
+        <div class="field"><label>Organisation</label><input id="gco" type="text" placeholder="Atlas Insurance"></div>
+      </div>
+      <div class="fg">
+        <div class="field"><label>Your role</label>
+          <select id="gro">
+            <option value="">Select…</option>
+            <option>Programme Director</option>
+            <option>CIO / CTO</option>
+            <option>VP Technology</option>
+            <option>Programme Manager</option>
+            <option>Technical Architect</option>
+            <option>Chief of Staff / PMO</option>
+          </select>
+        </div>
+        <div class="field"><label>Programme phase</label>
+          <select id="gph">
+            <option value="">Select…</option>
+            <option>Discovery / Planning</option>
+            <option>Foundation build (Phase 1)</option>
+            <option>Core build (Phase 2–3)</option>
+            <option>SIT / UAT</option>
+            <option>Go-live preparation</option>
+            <option>Post go-live / stabilisation</option>
+          </select>
+        </div>
+      </div>
+    </div>
+    <div class="nav-row">
+      <button class="btn-back" onclick="showAssess()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+      <button class="btn-next btn-purple" onclick="showResults()">View my report <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div id="results-view" style="display:none"></div>
+</div>
+
+<script>
+const DIMS=[
+  {name:"Governance & delivery",icon:"ti-chart-gantt",short:"Governance"},
+  {name:"Technical build quality",icon:"ti-code",short:"Technical"},
+  {name:"Data migration",icon:"ti-database",short:"Data"},
+  {name:"Testing & go-live",icon:"ti-checkbox",short:"Testing"},
+  {name:"Stakeholder & change",icon:"ti-users",short:"Change Mgmt"}
+];
+
+const QS=[
+  {di:0,q:"How are programme milestones and delivery cadence managed?",opts:[
+    {t:"Milestones missed regularly with no recovery plan in place",s:1,c:"r",sub:"Programme is in drift — no predictive indicators"},
+    {t:"Slippage managed reactively — no leading indicators",s:2,c:"a",sub:"Issues surface late, limited forecasting"},
+    {t:"Tracked with leading indicators and proactive escalation",s:3,c:"g",sub:"Clear accountability and forward-looking reporting"}
+  ]},
+  {di:0,q:"How is scope change governed on the programme?",opts:[
+    {t:"Changes absorbed informally — budget impact untracked",s:1,c:"r",sub:"Scope creep is eroding schedule and cost baselines"},
+    {t:"Change requests raised but approval is slow and inconsistent",s:2,c:"a",sub:"Process exists but not consistently followed"},
+    {t:"Formal change control with impact assessment and board sign-off",s:3,c:"g",sub:"Scope, schedule, and cost integrity maintained"}
+  ]},
+  {di:1,q:"How would you rate the quality of your current Guidewire configuration build?",opts:[
+    {t:"Significant rework underway — architectural decisions being revisited",s:1,c:"r",sub:"Build debt is accumulating at pace"},
+    {t:"Known technical debt building up — workarounds in place",s:2,c:"a",sub:"Fragility is growing but not yet critical"},
+    {t:"Build follows agreed patterns, peer reviewed, minimal rework",s:3,c:"g",sub:"Code quality is controlled and sustainable"}
+  ]},
+  {di:1,q:"How mature is your integration layer?",opts:[
+    {t:"Integrations largely unbuilt or failing in test environments",s:1,c:"r",sub:"Critical path risk — go-live is threatened"},
+    {t:"Core integrations built but performance and error-handling gaps exist",s:2,c:"a",sub:"Functional but not production-hardened"},
+    {t:"Integrations tested end-to-end with error handling and monitoring",s:3,c:"g",sub:"Integration layer is go-live ready"}
+  ]},
+  {di:2,q:"What is the status of your data migration strategy?",opts:[
+    {t:"No validated migration strategy or data profiling completed",s:1,c:"r",sub:"Go-live cutover is not plannable in current state"},
+    {t:"Strategy exists but reconciliation and cutover plan are incomplete",s:2,c:"a",sub:"Direction is clear but execution gaps remain"},
+    {t:"Full strategy with validated reconciliation and dress rehearsals planned",s:3,c:"g",sub:"Migration is de-risked and go-live ready"}
+  ]},
+  {di:2,q:"How clean is your source data for migration?",opts:[
+    {t:"Significant data quality issues identified — no remediation plan",s:1,c:"r",sub:"Data risk is the programme's highest single threat"},
+    {t:"Issues known and remediation in progress but behind schedule",s:2,c:"a",sub:"Progress is being made but timeline is tight"},
+    {t:"Data profiled, cleansed, and validated against target schema",s:3,c:"g",sub:"Data migration risk is well-controlled"}
+  ]},
+  {di:3,q:"How would you describe current testing coverage and progress?",opts:[
+    {t:"Testing significantly behind schedule — defect backlog growing",s:1,c:"r",sub:"Quality gate cannot be passed in current trajectory"},
+    {t:"In progress but coverage gaps exist in key business scenarios",s:2,c:"a",sub:"Progress being made but risks remain"},
+    {t:"On track with traceability to requirements and UAT engaged",s:3,c:"g",sub:"Testing is systematic and business-owned"}
+  ]},
+  {di:3,q:"How defined is your go-live readiness criteria and cutover plan?",opts:[
+    {t:"No formal go-live criteria or cutover plan defined",s:1,c:"r",sub:"Go-live date has no agreed basis for commitment"},
+    {t:"Criteria drafted but not signed off across all workstreams",s:2,c:"a",sub:"Framework exists — alignment still needed"},
+    {t:"Go-live criteria agreed — cutover rehearsal scheduled",s:3,c:"g",sub:"Go-live is a managed event, not a hoped-for date"}
+  ]},
+  {di:4,q:"How engaged are business stakeholders in the programme?",opts:[
+    {t:"Business is disengaged or actively resistant to the change",s:1,c:"r",sub:"Adoption risk is high — programme may succeed technically but fail operationally"},
+    {t:"Engagement is inconsistent — some champions, some resistance",s:2,c:"a",sub:"Pockets of support but not unified"},
+    {t:"Strong business ownership with trained super-users across regions",s:3,c:"g",sub:"Business is ready to own and run the system"}
+  ]},
+  {di:4,q:"How prepared is your organisation for the operational change?",opts:[
+    {t:"Operating model design not started — no training plan in place",s:1,c:"r",sub:"Hypercare will be crisis management, not planned support"},
+    {t:"Operating model drafted — training and cutover comms behind",s:2,c:"a",sub:"Direction clear but execution lagging"},
+    {t:"Full training programme delivered — hypercare plan in place",s:3,c:"g",sub:"Organisation is change-ready"}
+  ]}
+];
+
+const FLAGS={
+  r:[
+    "Governance: programme is in active drift — a recovery sprint is needed now, not at next milestone review",
+    "Technical: build debt is compounding — an architectural review should gate further development",
+    "Data: data quality risk is the single most likely cause of go-live failure — escalate immediately",
+    "Testing: current defect trajectory makes the go-live date untenable — a quality recovery plan is required",
+    "Change: low business engagement at this stage is a critical go-live risk — not a post-launch problem"
+  ],
+  a:[
+    "Governance: reactive delivery management creates late-breaking surprises — implement leading indicators now",
+    "Technical: accumulating workarounds will accelerate rework cost as the programme approaches UAT",
+    "Data: incomplete reconciliation planning is the most common cause of cutover overruns — address before SIT",
+    "Testing: coverage gaps in key scenarios will surface as UAT defects — de-risk now while there is time",
+    "Change: inconsistent stakeholder engagement needs a structured owner and escalation path"
+  ]
+};
+
+const INTERVENTIONS={
+  r:"Programme Recovery Sprint — a structured 2-week intervention to stabilise trajectory, reset baselines, and establish a credible path to go-live.",
+  a:"Programme Health Review — a focused 3-day engagement to surface root causes, align workstream leads, and implement corrective actions.",
+  g:"Readiness Assurance Review — an independent verification that your programme is genuinely go-live ready across all dimensions."
+};
+
+let cur=0, ans=new Array(10).fill(-1);
+
+function renderStrip(){
+  const strip=document.getElementById('dim-strip');
+  strip.innerHTML='';
+  DIMS.forEach((d,i)=>{
+    const qi=i*2;
+    const done=ans[qi]>-1&&ans[qi+1]>-1;
+    const active=cur===qi||cur===qi+1;
+    let cls='dim-pip';
+    if(active)cls+=' active';
+    else if(done){
+      const s=QS[qi].opts[ans[qi]].s+QS[qi+1].opts[ans[qi+1]].s;
+      cls+=s<=3?' done-r':s<=4?' done-a':' done-g';
+    }
+    strip.innerHTML+=`<div class="${cls}"><i class="ti ${d.icon}" aria-hidden="true"></i>${d.short}</div>`;
+  });
+}
+
+function render(){
+  const q=QS[cur];
+  const dim=DIMS[q.di];
+  document.getElementById('pf').style.width=((cur/10)*100)+'%';
+  document.getElementById('pm').textContent='Question '+(cur+1)+' of 10';
+  document.getElementById('pd').textContent=dim.name;
+  document.getElementById('qdim').innerHTML=`<i class="ti ${dim.icon}" aria-hidden="true"></i>${dim.name}`;
+  document.getElementById('qt').textContent=q.q;
+  renderStrip();
+  const oc=document.getElementById('qo');
+  oc.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');
+    const sel=ans[cur]===i;
+    d.className='opt'+(sel?' sel-'+o.c:'');
+    d.innerHTML=`<div class="rag-dot dot-${o.c}"></div><div><div class="opt-text">${o.t}</div><div class="opt-sub">${o.sub}</div></div>`;
+    d.onclick=()=>pick(i);
+    oc.appendChild(d);
+  });
+  document.getElementById('bb').style.visibility=cur>0?'visible':'hidden';
+  document.getElementById('bn').disabled=ans[cur]===-1;
+  document.getElementById('bn').innerHTML=cur===9?'See my results <i class="ti ti-arrow-right" aria-hidden="true"></i>':'Next <i class="ti ti-arrow-right" aria-hidden="true"></i>';
+}
+
+function pick(i){
+  ans[cur]=i;
+  document.querySelectorAll('.opt').forEach((el,idx)=>{
+    const o=QS[cur].opts[idx];
+    el.className='opt'+(idx===i?' sel-'+o.c:'');
+  });
+  document.getElementById('bn').disabled=false;
+}
+
+function back(){if(cur>0){cur--;render();}}
+function next(){
+  if(ans[cur]===-1)return;
+  if(cur<9){cur++;render();}
+  else{document.getElementById('assess-view').style.display='none';document.getElementById('gate-view').style.display='block';}
+}
+function showAssess(){document.getElementById('gate-view').style.display='none';document.getElementById('assess-view').style.display='block';render();}
+
+function showResults(){
+  document.getElementById('gate-view').style.display='none';
+  document.getElementById('results-view').style.display='block';
+  document.getElementById('pf').style.width='100%';
+  document.getElementById('pm').textContent='Assessment complete';
+
+  const dimScores=DIMS.map((_,i)=>{
+    const qi=i*2;
+    const s=QS[qi].opts[ans[qi]].s+QS[qi+1].opts[ans[qi+1]].s;
+    const rag=s<=3?'r':s<=4?'a':'g';
+    return{name:DIMS[i].name,icon:DIMS[i].icon,score:s,rag};
+  });
+
+  const total=dimScores.reduce((s,d)=>s+d.score,0);
+  let overallRag,overallLabel,overallBg,overallColor,overallSub;
+  if(total<=17){overallRag='r';overallLabel='Critical';overallBg='#fcebeb';overallColor='#501313';overallSub='Immediate escalation and intervention required';}
+  else if(total<=22){overallRag='a';overallLabel='At risk';overallBg='#faeeda';overallColor='#412402';overallSub='Targeted recovery actions needed across multiple dimensions';}
+  else if(total<=26){overallRag='g';overallLabel='On track';overallBg='#eaf3de';overallColor='#173404';overallSub='Healthy trajectory — maintain rigour through to go-live';}
+  else{overallRag='g';overallLabel='Healthy';overallBg='#eaf3de';overallColor='#173404';overallSub='Programme is well-controlled — protect the gains';}
+
+  const redDims=dimScores.filter(d=>d.rag==='r');
+  const amberDims=dimScores.filter(d=>d.rag==='a');
+
+  const dimRows=dimScores.map(d=>{
+    const badgeCls=`dim-rag-badge badge-${d.rag}`;
+    const label=d.rag==='r'?'Red':d.rag==='a'?'Amber':'Green';
+    return`<div class="dim-result-row"><i class="ti ${d.icon}" aria-hidden="true" style="font-size:15px;color:var(--color-text-secondary);flex-shrink:0"></i><div class="dim-result-name">${d.name}</div><div class="dim-result-score">${d.score}/6</div><div class="${badgeCls}">${label}</div></div>`;
+  }).join('');
+
+  const flagItems=[
+    ...redDims.map(d=>`<div class="flag-item flag-r"><i class="ti ti-alert-circle flag-icon" aria-hidden="true"></i><div class="flag-text">${FLAGS.r[DIMS.findIndex(x=>x.name===d.name)]}</div></div>`),
+    ...amberDims.map(d=>`<div class="flag-item flag-a"><i class="ti ti-alert-triangle flag-icon" aria-hidden="true"></i><div class="flag-text">${FLAGS.a[DIMS.findIndex(x=>x.name===d.name)]}</div></div>`)
+  ].join('');
+
+  const interventionKey=overallRag==='r'?'r':amberDims.length>0?'a':'g';
+  const intervention=INTERVENTIONS[interventionKey];
+  const ctaLabel=overallRag==='r'?'Book a Programme Recovery Sprint':'Schedule a Programme Health Review';
+
+  document.getElementById('results-view').innerHTML=`
+    <div class="eyebrow">Your programme health report</div>
+    <div class="res-header">
+      <h2>Overall status: ${overallLabel}</h2>
+      <p>${overallSub}</p>
+    </div>
+    <div class="rag-score-row">
+      <div class="rag-score-pill" style="background:${overallBg};color:${overallColor}">${total}/30</div>
+      <div class="rag-score-meta">${redDims.length} red dimension${redDims.length!==1?'s':''} · ${amberDims.length} amber · ${dimScores.filter(d=>d.rag==='g').length} green</div>
+    </div>
+    <div class="dim-results">${dimRows}</div>
+    ${flagItems?`<div class="flags-section"><div class="flags-title">Risk flags requiring action</div>${flagItems}</div>`:''}
+    <div class="divider"></div>
+    <div class="cta-purple">
+      <h3>${ctaLabel}</h3>
+      <p>${intervention}</p>
+      <button class="btn-cta-purple" onclick="sendPrompt('I want to book a GW Programme Health Review session based on my diagnostic results')">
+        <i class="ti ti-calendar" aria-hidden="true"></i> Book my programme review session ↗
+      </button>
+    </div>
+    <p style="font-size:11px;color:var(--color-text-tertiary);text-align:center">Results are indicative based on your inputs. A full programme assurance review will validate findings in depth.</p>
+  `;
+}
+render();
+</script>
+
+</div>
+<script>
+function sendPrompt(message){
+  alert(message || 'Thank you. Your request has been received.');
+}
+</script>
+  <script src="/shared.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Modernization Readiness Index</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+
+:root{
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --color-text-primary:#0d1127;
+  --color-text-secondary:#3a4060;
+  --color-text-tertiary:#7b82a0;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f6fa;
+  --color-border-secondary:rgba(15,20,50,.16);
+  --color-border-tertiary:rgba(15,20,50,.10);
+  --border-radius-md:10px;
+  --border-radius-lg:16px;
+  --celsior-navy:#071126;
+  --celsior-navy-2:#0d1127;
+  --celsior-ink:#0d1127;
+  --celsior-muted:#7b82a0;
+  --celsior-blue:#2254f4;
+  --celsior-blue-soft:rgba(34,84,244,.09);
+  --celsior-line:rgba(255,255,255,.14);
+  --celsior-cream:#f8f7f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(34,84,244,.20), transparent 28rem),
+    linear-gradient(180deg,#071126 0%,#0d1127 92px,#f5f6fa 92px,#f5f6fa 100%);
+  color:var(--color-text-primary);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.celsior-nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px;
+  color:#fff;
+}
+.celsior-logo{display:inline-flex;align-items:center;gap:10px;min-width:0}
+.celsior-logo img{height:30px;width:auto;filter:brightness(0) invert(1);display:block}
+.celsior-nav__right{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;color:rgba(255,255,255,.76)}
+.celsior-nav__pill{padding:9px 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+.celsior-nav__pill:hover{background:#fff;color:#0d1127}
+.celsior-hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 28px 54px;
+  color:#fff;
+  position:relative;
+}
+.celsior-kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:700;margin-bottom:12px}
+.celsior-hero h1{font-size:clamp(32px,4.5vw,58px);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin:0 0 16px;max-width:760px;color:#fff}
+.celsior-hero p{font-size:clamp(15px,1.5vw,18px);line-height:1.7;color:rgba(255,255,255,.72);max-width:720px;margin:0}
+.celsior-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.celsior-stat-card{min-width:260px;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:rgba(255,255,255,.08);padding:22px;box-shadow:0 24px 80px rgba(0,0,0,.18);backdrop-filter:blur(20px)}
+.celsior-stat-card strong{display:block;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:8px}
+.celsior-stat-card span{font-size:13px;color:rgba(255,255,255,.68);line-height:1.5}
+.celsior-page-wrap{max-width:1180px;margin:0 auto;padding:32px 28px 52px;position:relative;z-index:2}
+.page-shell{
+  max-width:860px;
+  margin:0 auto;
+  background:rgba(255,255,255,.98);
+  border:1px solid rgba(15,20,50,.10);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 24px 80px rgba(15,20,80,.14);
+  overflow:hidden;
+}
+.celsior-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;color:#2254f4;font-size:13px;font-weight:700}
+.celsior-back::before{content:'←';font-size:14px}
+.celsior-footer{background:#fff;border-top:1px solid rgba(15,20,50,.09);padding:34px 28px;color:#3a4060}
+.celsior-footer__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.celsior-footer img{height:26px;width:auto;filter:brightness(0);opacity:.9}
+.celsior-footer p{margin:8px 0 0;font-size:13px;color:#7b82a0;line-height:1.5}
+.celsior-footer__links{display:flex;gap:18px;font-size:13px;font-weight:600;color:#3a4060;flex-wrap:wrap}
+.celsior-footer__links a:hover{color:#2254f4}
+.celsior-brand-overrides .eyebrow,.celsior-brand-overrides .brand,.celsior-brand-overrides .section-label,.celsior-brand-overrides .rec-title,.celsior-brand-overrides .flags-title{color:#2254f4!important;font-weight:800!important;letter-spacing:.13em!important}
+.celsior-brand-overrides .hdr h1,.celsior-brand-overrides .header h1,.celsior-brand-overrides h1{letter-spacing:-.02em;color:#0d1127}
+.celsior-brand-overrides .panel,.celsior-brand-overrides .deliver-card,.celsior-brand-overrides .dim-card,.celsior-brand-overrides .metric,.celsior-brand-overrides .gate-strip,.celsior-brand-overrides .form-wrap,.celsior-brand-overrides .gate-wrap,.celsior-brand-overrides .gate-box,.celsior-brand-overrides .next-steps,.celsior-brand-overrides .guarantee{border-color:rgba(15,20,50,.10)!important;box-shadow:0 10px 30px rgba(15,20,80,.04)}
+.celsior-brand-overrides button,.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{border-radius:999px!important;font-weight:700!important;box-shadow:0 14px 32px rgba(34,84,244,.18)}
+.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{background:#0d1127!important;border-color:#0d1127!important;color:#fff!important}
+.celsior-brand-overrides input,.celsior-brand-overrides select,.celsior-brand-overrides textarea{border-radius:12px!important;border-color:rgba(15,20,50,.14)!important;background:#fff!important}
+.celsior-brand-overrides .progress-fill,.celsior-brand-overrides .prog-fill,.celsior-brand-overrides .pf,.celsior-brand-overrides .prog-bar .prog-fill{background:#2254f4!important}
+.celsior-brand-overrides .progress-bar,.celsior-brand-overrides .prog-bar{background:rgba(15,20,50,.09)!important}
+@media(max-width:820px){
+  .celsior-nav{height:64px;padding:0 18px}.celsior-logo img{height:26px}.celsior-nav__right span{display:none}.celsior-nav__pill{padding:8px 12px;font-size:12px}
+  .celsior-hero{padding:32px 18px 44px}.celsior-hero-grid{grid-template-columns:1fr}.celsior-stat-card{display:none}
+  .celsior-page-wrap{padding:22px 14px 36px;margin-top:0}.page-shell{padding:22px;border-radius:22px}
+  .two-col,.deliver-grid,.form-grid,.availability-row,.dim-grid,.fg,.form-row{grid-template-columns:1fr!important}
+  .celsior-footer__inner{align-items:flex-start;flex-direction:column}
+}
+
+
+.celsior-hs-form-panel{display:none;max-width:860px;margin:0 auto 52px;background:#fff;border:1px solid rgba(15,20,50,.10);border-radius:24px;padding:28px 30px;box-shadow:0 18px 60px rgba(15,20,80,.10)}
+.celsior-hs-form-panel.is-visible{display:block}
+.celsior-hs-form-panel h2{margin:0 0 8px;font-size:22px;line-height:1.25;letter-spacing:-.02em;color:#0d1127}
+.celsior-hs-form-panel p{margin:0 0 18px;font-size:14px;line-height:1.6;color:#3a4060}
+.celsior-hs-form-panel .hs-form-html{min-height:120px}
+.celsior-hs-form-panel form{font-family:var(--font-sans)!important;color:#0d1127!important}
+.celsior-hs-form-panel label,.celsior-hs-form-panel .hs-form label,.celsior-hs-form-panel .hs-form-field label{color:#0d1127!important;font-size:13px!important;font-weight:700!important;margin-bottom:6px!important;display:block!important}
+.celsior-hs-form-panel input,.celsior-hs-form-panel select,.celsior-hs-form-panel textarea{width:100%!important;border:1px solid rgba(15,20,50,.14)!important;background:#fff!important;color:#0d1127!important;border-radius:12px!important;padding:11px 12px!important;font-size:14px!important;box-shadow:none!important}
+.celsior-hs-form-panel input:focus,.celsior-hs-form-panel select:focus,.celsior-hs-form-panel textarea:focus{outline:none!important;border-color:#2254f4!important;box-shadow:0 0 0 3px rgba(34,84,244,.12)!important}
+.celsior-hs-form-panel .hs-form-field{margin-bottom:14px!important}
+.celsior-hs-form-panel .hs-button,.celsior-hs-form-panel input[type="submit"]{width:auto!important;min-width:180px!important;background:#0d1127!important;color:#fff!important;border:1px solid #0d1127!important;border-radius:999px!important;padding:12px 22px!important;font-weight:800!important;cursor:pointer!important;box-shadow:0 14px 32px rgba(34,84,244,.18)!important}
+.celsior-hs-form-panel .hs-error-msg,.celsior-hs-form-panel .hs-error-msgs label{color:#a32d2d!important;font-size:12px!important;font-weight:600!important}
+.celsior-hs-form-panel .legal-consent-container,.celsior-hs-form-panel .hs-richtext{color:#3a4060!important;font-size:12px!important;line-height:1.5!important}
+@media(max-width:820px){.celsior-hs-form-panel{margin:0 14px 36px;padding:22px;border-radius:22px}}
+</style>
+
+<style>
+  body.assessment-tool-native-page {
+    padding-top: 84px;
+  }
+  @media (max-width: 768px) {
+    body.assessment-tool-native-page {
+      padding-top: 74px;
+    }
+  }
+</style>
+
+</head>
+<body class="assessment-tool-native-page">
+<header class="celsior-nav">
+  <a class="celsior-logo" href="/assessment-tools"><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"></a>
+  <div class="celsior-nav__right"><a class="celsior-nav__pill" href="/assessment-tools">View all tools</a></div>
+</header>
+  <div class="celsior-page-wrap"><main class="page-shell celsior-brand-overrides">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+body{font-family:var(--font-sans)}
+#wrap{max-width:680px;margin:0 auto;padding:1.5rem 0}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.4rem}
+.hdr h1{font-size:22px;font-weight:500;color:var(--color-text-primary);line-height:1.3;margin-bottom:.35rem}
+.hdr p{font-size:14px;color:var(--color-text-secondary);line-height:1.6;margin-bottom:1.75rem}
+.progress-bar{height:3px;background:var(--color-border-tertiary);border-radius:99px;overflow:hidden;margin-bottom:.5rem}
+.prog-fill{height:100%;background:#ba7517;border-radius:99px;transition:width .4s ease}
+.prog-meta{display:flex;justify-content:space-between;font-size:12px;color:var(--color-text-tertiary);margin-bottom:2rem}
+.q-text{font-size:16px;font-weight:500;color:var(--color-text-primary);line-height:1.5;margin-bottom:1.25rem}
+.opts{display:flex;flex-direction:column;gap:8px;margin-bottom:2rem}
+.opt{display:flex;align-items:flex-start;gap:12px;padding:12px 16px;border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary);cursor:pointer;transition:all .15s;background:var(--color-background-primary)}
+.opt:hover{border-color:var(--color-border-secondary);background:var(--color-background-secondary)}
+.opt.sel{border:1.5px solid #ba7517;background:#faeeda}
+.opt-idx{min-width:22px;height:22px;border-radius:50%;border:.5px solid var(--color-border-secondary);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:500;color:var(--color-text-tertiary);flex-shrink:0;margin-top:1px;transition:all .15s}
+.opt.sel .opt-idx{background:#ba7517;border-color:#ba7517;color:#fff}
+.opt-body{}
+.opt-main{font-size:14px;color:var(--color-text-primary);line-height:1.4}
+.opt-sub{font-size:12px;color:var(--color-text-secondary);margin-top:2px}
+.nav-row{display:flex;justify-content:space-between;align-items:center}
+.btn-back{font-size:13px;color:var(--color-text-secondary);background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;gap:4px}
+.btn-back:hover{color:var(--color-text-primary)}
+.btn-next{font-size:14px;font-weight:500;padding:10px 24px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-secondary);background:var(--color-background-primary);color:var(--color-text-primary);cursor:pointer;display:flex;align-items:center;gap:6px;transition:all .15s}
+.btn-next:not(:disabled):hover{background:var(--color-background-secondary)}
+.btn-next:disabled{opacity:.35;cursor:default}
+.btn-amber{background:#ba7517;color:#fff;border-color:#ba7517}
+.btn-amber:not(:disabled):hover{background:#854f0b;border-color:#854f0b}
+.divider{height:.5px;background:var(--color-border-tertiary);margin:1.5rem 0}
+.dim-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:1.25rem 0}
+.dim-card{padding:14px 16px;border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary)}
+.dim-card.primary{border:1.5px solid #ba7517;background:#faeeda}
+.dim-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.dim-name{font-size:12px;font-weight:500;color:var(--color-text-primary);display:flex;align-items:center;gap:6px}
+.dim-name i{font-size:14px}
+.dim-pct{font-size:12px;font-weight:500;color:var(--color-text-secondary)}
+.dim-card.primary .dim-pct{color:#854f0b}
+.dim-track{height:4px;background:var(--color-border-tertiary);border-radius:99px;overflow:hidden;margin-bottom:4px}
+.dim-fill{height:100%;border-radius:99px;background:var(--color-border-secondary)}
+.dim-card.primary .dim-fill{background:#ba7517}
+.primary-badge{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;background:#faeeda;color:#633806;border-radius:99px;padding:3px 10px;margin-top:6px}
+.result-hero{margin-bottom:1.5rem}
+.result-hero h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:.35rem}
+.result-hero p{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+.readiness-row{display:flex;align-items:center;gap:10px;margin-bottom:1.5rem}
+.readiness-label{font-size:13px;color:var(--color-text-secondary)}
+.readiness-pill{font-size:12px;font-weight:500;padding:4px 12px;border-radius:99px}
+.rec-section{margin-bottom:1.5rem}
+.rec-title{font-size:11px;text-transform:uppercase;letter-spacing:.1em;color:var(--color-text-tertiary);margin-bottom:.75rem}
+.rec-item{display:flex;align-items:flex-start;gap:10px;padding:10px 14px;border-radius:var(--border-radius-md);background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);margin-bottom:6px}
+.rec-item i{font-size:15px;color:#ba7517;margin-top:1px;flex-shrink:0}
+.rec-text{font-size:13px;color:var(--color-text-primary);line-height:1.5}
+.cta-card{background:#faeeda;border:.5px solid #fac775;border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1rem}
+.cta-card h3{font-size:15px;font-weight:500;color:#412402;margin-bottom:.35rem}
+.cta-card p{font-size:13px;color:#633806;line-height:1.5;margin-bottom:1rem}
+.btn-cta{width:100%;padding:11px;border-radius:var(--border-radius-md);background:#ba7517;color:#fff;border:none;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .15s}
+.btn-cta:hover{background:#854f0b}
+.framework-pill{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:500;padding:3px 10px;border-radius:99px;border:.5px solid var(--color-border-secondary);color:var(--color-text-secondary);background:var(--color-background-secondary);margin-right:6px;margin-bottom:6px}
+</style>
+
+<div id="wrap">
+  <h2 class="sr-only">Modernization Readiness Index — branching diagnostic that identifies your primary modernization pathway across cloud-native, legacy code intelligence, platform, and API modernization frameworks</h2>
+
+  <div class="hdr">
+    <div class="eyebrow">Modernization Readiness Index</div>
+    <h1>Which modernization path is right for you?</h1>
+    <p>6 questions. Our engine analyses your responses across 4 frameworks and surfaces your primary modernization pathway with a personalised readiness score.</p>
+  </div>
+
+  <div id="assess-view">
+    <div class="progress-bar"><div class="prog-fill" id="pf" style="width:0%"></div></div>
+    <div class="prog-meta"><span id="pm-q">Question 1 of 6</span><span id="pm-sec"></span></div>
+    <div class="q-text" id="qt"></div>
+    <div class="opts" id="qo"></div>
+    <div class="nav-row">
+      <button class="btn-back" id="bb" onclick="back()"><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+      <button class="btn-next btn-amber" id="bn" disabled onclick="next()">Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </div>
+
+  <div id="results-view" style="display:none"></div>
+</div>
+
+<script>
+const Q=[
+  {
+    sec:"Technology landscape",
+    q:"What is your primary technology debt concern right now?",
+    opts:[
+      {t:"Ageing monolith — undocumented, fragile, hard to change",s:{L:3,C:1}},
+      {t:"Cloud migration stalled or delivering poor unit economics",s:{C:3,P:1}},
+      {t:"API sprawl causing integration failures and slow partner onboarding",s:{A:3}},
+      {t:"Inconsistent deployment pipelines creating environment drift and release risk",s:{P:3,C:1}}
+    ]
+  },
+  {
+    sec:"Infrastructure posture",
+    q:"How would you describe your current deployment model?",
+    opts:[
+      {t:"On-premises datacentre, 70%+ of workloads",sub:"Cloud migration not yet started or in early planning",s:{C:3}},
+      {t:"Hybrid cloud — migrations stalled mid-journey",sub:"Partial lift-and-shift, cost savings not materialising",s:{C:2,P:1}},
+      {t:"Cloud-hosted but largely monolithic architecture",sub:"Deployed on cloud infra, not cloud-native",s:{P:2,L:1}},
+      {t:"Multi-cloud or containerised, but poorly governed",sub:"Service proliferation without standards or observability",s:{A:2,P:2}}
+    ]
+  },
+  {
+    sec:"Velocity blockers",
+    q:"Where does your engineering team lose the most velocity?",
+    opts:[
+      {t:"Understanding what existing code does before touching it",sub:"Knowledge loss, fear of regressions, slow onboarding",s:{L:3}},
+      {t:"Infrastructure provisioning and environment inconsistency",sub:"Tickets to ops, manual setup, works-on-my-machine",s:{C:3}},
+      {t:"Integration failures and API versioning conflicts",sub:"Downstream breakages, no API contracts, consumer friction",s:{A:3}},
+      {t:"Inconsistent CI/CD, config drift, and release bottlenecks",sub:"Slow pipelines, manual approvals, staging/prod gaps",s:{P:3}}
+    ]
+  },
+  {
+    sec:"Application age",
+    q:"How would you characterise the age and criticality of your core systems?",
+    opts:[
+      {t:"10+ year-old systems, revenue-critical, minimal documentation",s:{L:3,C:1}},
+      {t:"3–10 year old stack, cloud migration on the roadmap",s:{C:2,P:1}},
+      {t:"Relatively modern stack but scaling and reliability gaps emerging",s:{P:3}},
+      {t:"Modern stack — APIs evolved organically without governance",s:{A:3}}
+    ]
+  },
+  {
+    sec:"Integration architecture",
+    q:"How is your integration architecture structured today?",
+    opts:[
+      {t:"Point-to-point integrations — no formal API layer",s:{A:3,L:1}},
+      {t:"Legacy ESB or middleware platform, nearing end-of-life",s:{A:2,L:2}},
+      {t:"REST APIs exist but undocumented, inconsistent, ungoverned",s:{A:3}},
+      {t:"Microservices in progress, service mesh partially implemented",s:{P:2,C:1}}
+    ]
+  },
+  {
+    sec:"Business driver",
+    q:"What is the primary business driver behind your modernization initiative?",
+    opts:[
+      {t:"Reduce TCO and eliminate systemic technical debt risk",s:{L:2,C:1}},
+      {t:"Accelerate time-to-market and developer experience",s:{P:3}},
+      {t:"Enable partner and ecosystem integrations at scale",s:{A:3}},
+      {t:"Achieve cloud cost optimisation and operational elasticity",s:{C:3}}
+    ]
+  }
+];
+
+const FW={
+  C:{
+    name:"Cloud-native modernization",icon:"ti-cloud",
+    tagline:"Your stack needs to move beyond lift-and-shift into true cloud-native architecture.",
+    recs:[
+      "Containerise workloads with Kubernetes and establish a GitOps delivery model",
+      "Implement FinOps practices early — tag all resources and enforce cost accountability by team",
+      "Adopt an internal developer platform (IDP) to abstract infrastructure from application teams"
+    ]
+  },
+  L:{
+    name:"Legacy code intelligence",icon:"ti-code",
+    tagline:"Your highest-risk asset is code your team is afraid to touch. That changes here.",
+    recs:[
+      "Begin with an automated codebase assessment to map dependencies, hotspots, and hidden complexity",
+      "Instrument observability into legacy services before modernizing — you can't refactor what you can't measure",
+      "Establish a strangler-fig migration pattern with a clear domain boundary strategy"
+    ]
+  },
+  P:{
+    name:"Platform modernization",icon:"ti-layers-intersect",
+    tagline:"Delivery velocity is being constrained by platform inconsistency and pipeline debt.",
+    recs:[
+      "Standardise your golden path — one opinionated CI/CD template per app archetype",
+      "Migrate configuration management to GitOps and eliminate environment-specific snowflakes",
+      "Invest in platform engineering as a product — treat developer experience as a first-class metric"
+    ]
+  },
+  A:{
+    name:"API modernization",icon:"ti-api",
+    tagline:"Your integration architecture is holding back partner growth and internal velocity.",
+    recs:[
+      "Conduct an API inventory audit — identify shadow APIs, undocumented endpoints, and versioning debt",
+      "Adopt a design-first API governance model with an API gateway and developer portal",
+      "Define a deprecation and versioning policy before your API surface area grows further"
+    ]
+  }
+};
+
+const DIM_NAMES={C:"Cloud-native",L:"Legacy code",P:"Platform",A:"API"};
+const DIM_ICONS={C:"ti-cloud",L:"ti-code",P:"ti-layers-intersect",A:"ti-api"};
+
+let cur=0, ans=new Array(6).fill(-1), scores={C:0,L:0,P:0,A:0};
+
+function render(){
+  const q=Q[cur];
+  document.getElementById('pf').style.width=((cur/6)*100)+'%';
+  document.getElementById('pm-q').textContent='Question '+(cur+1)+' of 6';
+  document.getElementById('pm-sec').textContent=q.sec;
+  document.getElementById('qt').textContent=q.q;
+  const oc=document.getElementById('qo');
+  oc.innerHTML='';
+  q.opts.forEach((o,i)=>{
+    const d=document.createElement('div');
+    d.className='opt'+(ans[cur]===i?' sel':'');
+    d.innerHTML='<div class="opt-idx">'+(i+1)+'</div><div class="opt-body"><div class="opt-main">'+o.t+'</div>'+(o.sub?'<div class="opt-sub">'+o.sub+'</div>':'')+'</div>';
+    d.onclick=()=>pick(i);
+    oc.appendChild(d);
+  });
+  document.getElementById('bb').style.visibility=cur>0?'visible':'hidden';
+  document.getElementById('bn').disabled=ans[cur]===-1;
+  document.getElementById('bn').innerHTML=cur===5?'See my results <i class="ti ti-arrow-right" aria-hidden="true"></i>':'Next <i class="ti ti-arrow-right" aria-hidden="true"></i>';
+}
+
+function pick(i){
+  ans[cur]=i;
+  document.querySelectorAll('.opt').forEach((el,idx)=>{el.className='opt'+(idx===i?' sel':'')});
+  document.getElementById('bn').disabled=false;
+}
+
+function back(){if(cur>0){cur--;render();}}
+function next(){
+  if(ans[cur]===-1)return;
+  if(cur<5){cur++;render();}
+  else showResults();
+}
+
+function showResults(){
+  scores={C:0,L:0,P:0,A:0};
+  ans.forEach((a,qi)=>{if(a>-1){const s=Q[qi].opts[a].s;Object.keys(s).forEach(k=>{scores[k]=(scores[k]||0)+s[k];});}});
+
+  const maxScore=Math.max(...Object.values(scores));
+  const total=Object.values(scores).reduce((a,b)=>a+b,0);
+  const primary=Object.keys(scores).find(k=>scores[k]===maxScore);
+  const sorted=Object.keys(scores).sort((a,b)=>scores[b]-scores[a]);
+
+  const readinessScore=ans.reduce((s,a)=>s+a,0);
+  let readiness,rClass,rBg,rColor;
+  if(readinessScore>=12){readiness='Advanced readiness';rBg='#e6f1fb';rColor='#042c53';}
+  else if(readinessScore>=7){readiness='Modernization ready';rBg='#eaf3de';rColor='#173404';}
+  else{readiness='Exploratory phase';rBg='#faeeda';rColor='#412402';}
+
+  const fw=FW[primary];
+  const secondary=FW[sorted[1]];
+
+  document.getElementById('pf').style.width='100%';
+  document.getElementById('pm-q').textContent='Assessment complete';
+  document.getElementById('pm-sec').textContent='';
+  document.getElementById('assess-view').style.display='none';
+
+  const rv=document.getElementById('results-view');
+  rv.style.display='block';
+
+  const dimCards=sorted.map(k=>{
+    const pct=total>0?Math.round((scores[k]/total)*100):0;
+    const isPrimary=k===primary;
+    return `<div class="dim-card${isPrimary?' primary':''}">
+      <div class="dim-head">
+        <div class="dim-name"><i class="ti ${DIM_ICONS[k]}" aria-hidden="true"></i>${DIM_NAMES[k]}</div>
+        <div class="dim-pct">${pct}%</div>
+      </div>
+      <div class="dim-track"><div class="dim-fill" style="width:${pct}%"></div></div>
+      ${isPrimary?'<div class="primary-badge"><i class="ti ti-star" aria-hidden="true"></i>Primary match</div>':''}
+    </div>`;
+  }).join('');
+
+  rv.innerHTML=`
+    <div class="result-hero">
+      <div class="eyebrow">Your primary pathway</div>
+      <h2>${fw.name}</h2>
+      <p>${fw.tagline}</p>
+    </div>
+    <div class="readiness-row">
+      <span class="readiness-label">Readiness level:</span>
+      <span class="readiness-pill" style="background:${rBg};color:${rColor}">${readiness}</span>
+    </div>
+    <div class="dim-grid">${dimCards}</div>
+    <div class="divider"></div>
+    <div class="rec-section">
+      <div class="rec-title">Priority actions for your pathway</div>
+      ${fw.recs.map(r=>`<div class="rec-item"><i class="ti ti-arrow-right" aria-hidden="true"></i><div class="rec-text">${r}</div></div>`).join('')}
+    </div>
+    <div class="rec-section">
+      <div class="rec-title">Secondary signal — ${secondary.name}</div>
+      <div class="rec-item"><i class="ti ti-info-circle" aria-hidden="true"></i><div class="rec-text">${secondary.recs[0]}</div></div>
+    </div>
+    <div class="divider"></div>
+    <div style="margin-bottom:.75rem">
+      <div class="rec-title" style="margin-bottom:.5rem">Frameworks matched to your profile</div>
+      ${sorted.map(k=>`<span class="framework-pill"><i class="ti ${DIM_ICONS[k]}" aria-hidden="true"></i>${DIM_NAMES[k]}</span>`).join('')}
+    </div>
+    <div class="cta-card">
+      <h3>Validate this with a 72-hour codebase assessment</h3>
+      <p>Our engineers go deeper in 72 hours than most teams manage in months. You get a dependency map, risk heat map, and a prioritised modernization roadmap — before you commit a single line of code.</p>
+      <button class="btn-cta" onclick="sendPrompt('I want to start the 72-hour codebase assessment')">
+        <i class="ti ti-rocket" aria-hidden="true"></i> Start my 72-hour assessment ↗
+      </button>
+    </div>
+    <p style="font-size:11px;color:var(--color-text-tertiary);text-align:center">Your results are based on your inputs and are indicative. A full assessment will validate and deepen these findings.</p>
+  `;
+}
+
+render();
+</script>
+
+  </main></div>
+
+<section class="celsior-hs-form-panel" id="celsior-hs-form-panel" aria-live="polite">
+  <h2>Continue the conversation</h2>
+  <p>Share your details and a Celsior specialist will follow up on the assessment.</p>
+  <script src="https://js.hsforms.net/forms/embed/developer/40221584.js" defer></script>
+  <div class="hs-form-html" data-region="na1" data-form-id="14603611-2306-41db-892b-61dd59e11a31" data-portal-id="40221584"></div>
+</section>
+
+<footer class="celsior-footer">
+  <div class="celsior-footer__inner">
+    <div><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"><p>Enterprise assessment tools for modernization, resilience, and operational clarity.</p></div>
+    <div class="celsior-footer__links"><a href="/assessment-tools">Assessment tools</a><a href="https://dev.celsiortech.us/">Celsior website</a></div>
+  </div>
+</footer>
+
+<script>
+function sendPrompt(message){
+  console.log("CTA clicked:", message);
+  const panel=document.getElementById('celsior-hs-form-panel');
+  if(panel){
+    panel.classList.add('is-visible');
+    panel.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+</script>
+
+  <script src="/shared.js" defer></script>
+</body>
+</html>

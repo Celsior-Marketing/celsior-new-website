@@ -1,14 +1,4 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false,
-  "rewrites": [
-    {
-      "source": "/assessment-tools",
-      "destination": "https://celsior-assessment-tools.netlify.app/"
-    },
-    {
-      "source": "/assessment-tools/:path*",
-      "destination": "https://celsior-assessment-tools.netlify.app/:path*"
-    }
-  ]
+  "trailingSlash": false
 }

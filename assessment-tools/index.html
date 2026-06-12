@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Celsior Assessment Tools</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+:root{
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --color-text-primary:#0d1127;
+  --color-text-secondary:#3a4060;
+  --color-text-tertiary:#7b82a0;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f6fa;
+  --color-border-secondary:rgba(15,20,50,.16);
+  --color-border-tertiary:rgba(15,20,50,.10);
+  --border-radius-md:10px;
+  --border-radius-lg:16px;
+  --celsior-navy:#071126;
+  --celsior-navy-2:#0d1127;
+  --celsior-ink:#0d1127;
+  --celsior-muted:#7b82a0;
+  --celsior-blue:#2254f4;
+  --celsior-blue-soft:rgba(34,84,244,.09);
+  --celsior-line:rgba(255,255,255,.14);
+  --celsior-cream:#f8f7f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(34,84,244,.20), transparent 28rem),
+    linear-gradient(180deg,#071126 0%,#0d1127 92px,#f5f6fa 92px,#f5f6fa 100%);
+  color:var(--color-text-primary);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.celsior-nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px;
+  color:#fff;
+}
+.celsior-logo{display:inline-flex;align-items:center;gap:10px;min-width:0}
+.celsior-logo img{height:30px;width:auto;filter:brightness(0) invert(1);display:block}
+.celsior-nav__right{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;color:rgba(255,255,255,.76)}
+.celsior-nav__pill{padding:9px 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+.celsior-nav__pill:hover{background:#fff;color:#0d1127}
+.celsior-hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 28px 54px;
+  color:#fff;
+  position:relative;
+}
+.celsior-kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:700;margin-bottom:12px}
+.celsior-hero h1{font-size:clamp(32px,4.5vw,58px);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin:0 0 16px;max-width:760px;color:#fff}
+.celsior-hero p{font-size:clamp(15px,1.5vw,18px);line-height:1.7;color:rgba(255,255,255,.72);max-width:720px;margin:0}
+.celsior-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.celsior-stat-card{min-width:260px;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:rgba(255,255,255,.08);padding:22px;box-shadow:0 24px 80px rgba(0,0,0,.18);backdrop-filter:blur(20px)}
+.celsior-stat-card strong{display:block;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:8px}
+.celsior-stat-card span{font-size:13px;color:rgba(255,255,255,.68);line-height:1.5}
+.celsior-page-wrap{max-width:1180px;margin:0 auto;padding:32px 28px 52px;position:relative;z-index:2}
+.page-shell{
+  max-width:860px;
+  margin:0 auto;
+  background:rgba(255,255,255,.98);
+  border:1px solid rgba(15,20,50,.10);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 24px 80px rgba(15,20,80,.14);
+  overflow:hidden;
+}
+.celsior-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;color:#2254f4;font-size:13px;font-weight:700}
+.celsior-back::before{content:'←';font-size:14px}
+.celsior-footer{background:#fff;border-top:1px solid rgba(15,20,50,.09);padding:34px 28px;color:#3a4060}
+.celsior-footer__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.celsior-footer img{height:26px;width:auto;filter:brightness(0);opacity:.9}
+.celsior-footer p{margin:8px 0 0;font-size:13px;color:#7b82a0;line-height:1.5}
+.celsior-footer__links{display:flex;gap:18px;font-size:13px;font-weight:600;color:#3a4060;flex-wrap:wrap}
+.celsior-footer__links a:hover{color:#2254f4}
+.celsior-brand-overrides .eyebrow,.celsior-brand-overrides .brand,.celsior-brand-overrides .section-label,.celsior-brand-overrides .rec-title,.celsior-brand-overrides .flags-title{color:#2254f4!important;font-weight:800!important;letter-spacing:.13em!important}
+.celsior-brand-overrides .hdr h1,.celsior-brand-overrides .header h1,.celsior-brand-overrides h1{letter-spacing:-.02em;color:#0d1127}
+.celsior-brand-overrides .panel,.celsior-brand-overrides .deliver-card,.celsior-brand-overrides .dim-card,.celsior-brand-overrides .metric,.celsior-brand-overrides .gate-strip,.celsior-brand-overrides .form-wrap,.celsior-brand-overrides .gate-wrap,.celsior-brand-overrides .gate-box,.celsior-brand-overrides .next-steps,.celsior-brand-overrides .guarantee{border-color:rgba(15,20,50,.10)!important;box-shadow:0 10px 30px rgba(15,20,80,.04)}
+.celsior-brand-overrides button,.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{border-radius:999px!important;font-weight:700!important;box-shadow:0 14px 32px rgba(34,84,244,.18)}
+.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{background:#0d1127!important;border-color:#0d1127!important;color:#fff!important}
+.celsior-brand-overrides input,.celsior-brand-overrides select,.celsior-brand-overrides textarea{border-radius:12px!important;border-color:rgba(15,20,50,.14)!important;background:#fff!important}
+.celsior-brand-overrides .progress-fill,.celsior-brand-overrides .prog-fill,.celsior-brand-overrides .pf,.celsior-brand-overrides .prog-bar .prog-fill{background:#2254f4!important}
+.celsior-brand-overrides .progress-bar,.celsior-brand-overrides .prog-bar{background:rgba(15,20,50,.09)!important}
+@media(max-width:820px){
+  .celsior-nav{height:64px;padding:0 18px}.celsior-logo img{height:26px}.celsior-nav__right span{display:none}.celsior-nav__pill{padding:8px 12px;font-size:12px}
+  .celsior-hero{padding:32px 18px 44px}.celsior-hero-grid{grid-template-columns:1fr}.celsior-stat-card{display:none}
+  .celsior-page-wrap{padding:22px 14px 36px;margin-top:0}.page-shell{padding:22px;border-radius:22px}
+  .two-col,.deliver-grid,.form-grid,.availability-row,.dim-grid,.fg,.form-row{grid-template-columns:1fr!important}
+  .celsior-footer__inner{align-items:flex-start;flex-direction:column}
+}
+
+.tools-hub{max-width:1180px;margin:0 auto;padding:32px 28px 64px;position:relative;z-index:2}.tools-panel{background:rgba(255,255,255,.98);border:1px solid rgba(15,20,50,.10);border-radius:30px;padding:28px;box-shadow:0 24px 80px rgba(15,20,80,.14)}.tools-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.tool-card{display:flex;flex-direction:column;min-height:220px;padding:24px;border:1px solid rgba(15,20,50,.10);border-radius:22px;background:linear-gradient(180deg,#fff,#fbfcff);transition:transform .2s ease,border-color .2s ease,box-shadow .2s ease}.tool-card:hover{transform:translateY(-4px);border-color:rgba(34,84,244,.28);box-shadow:0 18px 46px rgba(15,20,80,.10)}.tool-card:first-child{grid-column:span 2;background:linear-gradient(135deg,#fff 0%,#f4f7ff 100%)}.tool-tag{align-self:flex-start;margin-bottom:22px;padding:7px 11px;border-radius:999px;background:rgba(34,84,244,.09);color:#2254f4;font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}.tool-card h2{margin:0 0 10px;font-size:23px;line-height:1.2;letter-spacing:-.025em;color:#0d1127}.tool-card p{margin:0 0 22px;color:#3a4060;line-height:1.65;font-size:14px;max-width:660px}.tool-card strong{margin-top:auto;color:#0d1127;font-size:14px}.hub-note{display:flex;gap:12px;align-items:flex-start;margin-top:18px;padding:16px 18px;background:#f5f6fa;border:1px solid rgba(15,20,50,.08);border-radius:18px;color:#3a4060;font-size:13px;line-height:1.6}.hub-note b{color:#0d1127}@media(max-width:820px){.tools-hub{padding:22px 14px 42px}.tools-panel{padding:16px;border-radius:24px}.tools-grid{grid-template-columns:1fr}.tool-card:first-child{grid-column:span 1}.tool-card{min-height:0;padding:20px}.tool-card h2{font-size:20px}}
+</style>
+
+<style>
+  body.assessment-tool-native-page {
+    padding-top: 84px;
+  }
+  @media (max-width: 768px) {
+    body.assessment-tool-native-page {
+      padding-top: 74px;
+    }
+  }
+</style>
+
+</head>
+<body class="assessment-tool-native-page">
+<header class="celsior-nav">
+  <a class="celsior-logo" href="/assessment-tools"><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"></a>
+  <div class="celsior-nav__right"><a class="celsior-nav__pill" href="/assessment-tools">View all tools</a></div>
+</header>
+<main class="tools-hub">
+  <section class="tools-panel">
+    <div class="tools-grid">
+
+      <a class="tool-card" href="/assessment-tools/prior-auth-roi"><span class="tool-tag">Healthcare ROI</span><h2>Prior Authorization ROI Calculator</h2><p>Estimate automation value across labor, denials, turnaround time, and annual savings potential.</p><strong>Open calculator →</strong></a>
+      <a class="tool-card" href="/assessment-tools/codebase-assessment"><span class="tool-tag">Modernization</span><h2>72-hour Codebase Assessment</h2><p>Request a focused codebase assessment with dependency mapping, heatmaps, and roadmap outputs.</p><strong>Reserve assessment →</strong></a>
+      <a class="tool-card" href="/assessment-tools/modernization-readiness"><span class="tool-tag">Strategy</span><h2>Modernization Readiness Index</h2><p>Identify the best modernization pathway across cloud-native, legacy, platform, and API signals.</p><strong>Start diagnostic →</strong></a>
+      <a class="tool-card" href="/assessment-tools/grc-assessment"><span class="tool-tag">Risk & compliance</span><h2>GRC Maturity Diagnostic</h2><p>Measure GRC maturity across governance, risk, compliance, and technology readiness.</p><strong>Take assessment →</strong></a>
+      <a class="tool-card" href="/assessment-tools/guidewire-programme-health"><span class="tool-tag">Insurance</span><h2>Guidewire Programme Health Diagnostic</h2><p>Assess Guidewire programme health across delivery, build quality, data, testing, and change.</p><strong>Check programme health →</strong></a>
+
+    </div>
+    <div class="hub-note"><span>◆</span><div><b>Built for Celsior campaign CTAs.</b> These tools are designed as lightweight, consultative entry points for business and technology leaders.</div></div>
+  </section>
+</main>
+<footer class="celsior-footer">
+  <div class="celsior-footer__inner">
+    <div><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"><p>Enterprise assessment tools for modernization, resilience, and operational clarity.</p></div>
+    <div class="celsior-footer__links"><a href="/assessment-tools">Assessment tools</a><a href="https://dev.celsiortech.us/">Celsior website</a></div>
+  </div>
+</footer>
+  <script src="/shared.js" defer></script>
+</body>
+</html>

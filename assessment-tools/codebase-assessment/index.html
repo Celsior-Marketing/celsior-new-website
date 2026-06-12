@@ -1,0 +1,462 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>72-hour Codebase Assessment</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+
+:root{
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --color-text-primary:#0d1127;
+  --color-text-secondary:#3a4060;
+  --color-text-tertiary:#7b82a0;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f6fa;
+  --color-border-secondary:rgba(15,20,50,.16);
+  --color-border-tertiary:rgba(15,20,50,.10);
+  --border-radius-md:10px;
+  --border-radius-lg:16px;
+  --celsior-navy:#071126;
+  --celsior-navy-2:#0d1127;
+  --celsior-ink:#0d1127;
+  --celsior-muted:#7b82a0;
+  --celsior-blue:#2254f4;
+  --celsior-blue-soft:rgba(34,84,244,.09);
+  --celsior-line:rgba(255,255,255,.14);
+  --celsior-cream:#f8f7f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(34,84,244,.20), transparent 28rem),
+    linear-gradient(180deg,#071126 0%,#0d1127 92px,#f5f6fa 92px,#f5f6fa 100%);
+  color:var(--color-text-primary);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.celsior-nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px;
+  color:#fff;
+}
+.celsior-logo{display:inline-flex;align-items:center;gap:10px;min-width:0}
+.celsior-logo img{height:30px;width:auto;filter:brightness(0) invert(1);display:block}
+.celsior-nav__right{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;color:rgba(255,255,255,.76)}
+.celsior-nav__pill{padding:9px 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+.celsior-nav__pill:hover{background:#fff;color:#0d1127}
+.celsior-hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 28px 54px;
+  color:#fff;
+  position:relative;
+}
+.celsior-kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:700;margin-bottom:12px}
+.celsior-hero h1{font-size:clamp(32px,4.5vw,58px);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin:0 0 16px;max-width:760px;color:#fff}
+.celsior-hero p{font-size:clamp(15px,1.5vw,18px);line-height:1.7;color:rgba(255,255,255,.72);max-width:720px;margin:0}
+.celsior-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.celsior-stat-card{min-width:260px;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:rgba(255,255,255,.08);padding:22px;box-shadow:0 24px 80px rgba(0,0,0,.18);backdrop-filter:blur(20px)}
+.celsior-stat-card strong{display:block;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:8px}
+.celsior-stat-card span{font-size:13px;color:rgba(255,255,255,.68);line-height:1.5}
+.celsior-page-wrap{max-width:1180px;margin:0 auto;padding:32px 28px 52px;position:relative;z-index:2}
+.page-shell{
+  max-width:860px;
+  margin:0 auto;
+  background:rgba(255,255,255,.98);
+  border:1px solid rgba(15,20,50,.10);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 24px 80px rgba(15,20,80,.14);
+  overflow:hidden;
+}
+.celsior-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;color:#2254f4;font-size:13px;font-weight:700}
+.celsior-back::before{content:'←';font-size:14px}
+.celsior-footer{background:#fff;border-top:1px solid rgba(15,20,50,.09);padding:34px 28px;color:#3a4060}
+.celsior-footer__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.celsior-footer img{height:26px;width:auto;filter:brightness(0);opacity:.9}
+.celsior-footer p{margin:8px 0 0;font-size:13px;color:#7b82a0;line-height:1.5}
+.celsior-footer__links{display:flex;gap:18px;font-size:13px;font-weight:600;color:#3a4060;flex-wrap:wrap}
+.celsior-footer__links a:hover{color:#2254f4}
+.celsior-brand-overrides .eyebrow,.celsior-brand-overrides .brand,.celsior-brand-overrides .section-label,.celsior-brand-overrides .rec-title,.celsior-brand-overrides .flags-title{color:#2254f4!important;font-weight:800!important;letter-spacing:.13em!important}
+.celsior-brand-overrides .hdr h1,.celsior-brand-overrides .header h1,.celsior-brand-overrides h1{letter-spacing:-.02em;color:#0d1127}
+.celsior-brand-overrides .panel,.celsior-brand-overrides .deliver-card,.celsior-brand-overrides .dim-card,.celsior-brand-overrides .metric,.celsior-brand-overrides .gate-strip,.celsior-brand-overrides .form-wrap,.celsior-brand-overrides .gate-wrap,.celsior-brand-overrides .gate-box,.celsior-brand-overrides .next-steps,.celsior-brand-overrides .guarantee{border-color:rgba(15,20,50,.10)!important;box-shadow:0 10px 30px rgba(15,20,80,.04)}
+.celsior-brand-overrides button,.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{border-radius:999px!important;font-weight:700!important;box-shadow:0 14px 32px rgba(34,84,244,.18)}
+.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{background:#0d1127!important;border-color:#0d1127!important;color:#fff!important}
+.celsior-brand-overrides input,.celsior-brand-overrides select,.celsior-brand-overrides textarea{border-radius:12px!important;border-color:rgba(15,20,50,.14)!important;background:#fff!important}
+.celsior-brand-overrides .progress-fill,.celsior-brand-overrides .prog-fill,.celsior-brand-overrides .pf,.celsior-brand-overrides .prog-bar .prog-fill{background:#2254f4!important}
+.celsior-brand-overrides .progress-bar,.celsior-brand-overrides .prog-bar{background:rgba(15,20,50,.09)!important}
+@media(max-width:820px){
+  .celsior-nav{height:64px;padding:0 18px}.celsior-logo img{height:26px}.celsior-nav__right span{display:none}.celsior-nav__pill{padding:8px 12px;font-size:12px}
+  .celsior-hero{padding:32px 18px 44px}.celsior-hero-grid{grid-template-columns:1fr}.celsior-stat-card{display:none}
+  .celsior-page-wrap{padding:22px 14px 36px;margin-top:0}.page-shell{padding:22px;border-radius:22px}
+  .two-col,.deliver-grid,.form-grid,.availability-row,.dim-grid,.fg,.form-row{grid-template-columns:1fr!important}
+  .celsior-footer__inner{align-items:flex-start;flex-direction:column}
+}
+
+
+.celsior-hs-form-panel{display:none;max-width:860px;margin:0 auto 52px;background:#fff;border:1px solid rgba(15,20,50,.10);border-radius:24px;padding:28px 30px;box-shadow:0 18px 60px rgba(15,20,80,.10)}
+.celsior-hs-form-panel.is-visible{display:block}
+.celsior-hs-form-panel h2{margin:0 0 8px;font-size:22px;line-height:1.25;letter-spacing:-.02em;color:#0d1127}
+.celsior-hs-form-panel p{margin:0 0 18px;font-size:14px;line-height:1.6;color:#3a4060}
+.celsior-hs-form-panel .hs-form-html{min-height:120px}
+.celsior-hs-form-panel form{font-family:var(--font-sans)!important;color:#0d1127!important}
+.celsior-hs-form-panel label,.celsior-hs-form-panel .hs-form label,.celsior-hs-form-panel .hs-form-field label{color:#0d1127!important;font-size:13px!important;font-weight:700!important;margin-bottom:6px!important;display:block!important}
+.celsior-hs-form-panel input,.celsior-hs-form-panel select,.celsior-hs-form-panel textarea{width:100%!important;border:1px solid rgba(15,20,50,.14)!important;background:#fff!important;color:#0d1127!important;border-radius:12px!important;padding:11px 12px!important;font-size:14px!important;box-shadow:none!important}
+.celsior-hs-form-panel input:focus,.celsior-hs-form-panel select:focus,.celsior-hs-form-panel textarea:focus{outline:none!important;border-color:#2254f4!important;box-shadow:0 0 0 3px rgba(34,84,244,.12)!important}
+.celsior-hs-form-panel .hs-form-field{margin-bottom:14px!important}
+.celsior-hs-form-panel .hs-button,.celsior-hs-form-panel input[type="submit"]{width:auto!important;min-width:180px!important;background:#0d1127!important;color:#fff!important;border:1px solid #0d1127!important;border-radius:999px!important;padding:12px 22px!important;font-weight:800!important;cursor:pointer!important;box-shadow:0 14px 32px rgba(34,84,244,.18)!important}
+.celsior-hs-form-panel .hs-error-msg,.celsior-hs-form-panel .hs-error-msgs label{color:#a32d2d!important;font-size:12px!important;font-weight:600!important}
+.celsior-hs-form-panel .legal-consent-container,.celsior-hs-form-panel .hs-richtext{color:#3a4060!important;font-size:12px!important;line-height:1.5!important}
+@media(max-width:820px){.celsior-hs-form-panel{margin:0 14px 36px;padding:22px;border-radius:22px}}
+</style>
+
+<style>
+  body.assessment-tool-native-page {
+    padding-top: 84px;
+  }
+  @media (max-width: 768px) {
+    body.assessment-tool-native-page {
+      padding-top: 74px;
+    }
+  }
+</style>
+
+</head>
+<body class="assessment-tool-native-page">
+<header class="celsior-nav">
+  <a class="celsior-logo" href="/assessment-tools"><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"></a>
+  <div class="celsior-nav__right"><a class="celsior-nav__pill" href="/assessment-tools">View all tools</a></div>
+</header>
+  <div class="celsior-page-wrap"><main class="page-shell celsior-brand-overrides">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:var(--font-sans)}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+#lp{max-width:680px;margin:0 auto;padding:0}
+
+.hero{padding:2.5rem 0 2rem;border-bottom:.5px solid var(--color-border-tertiary)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:6px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#993c1d;background:#faece7;border-radius:99px;padding:4px 12px;margin-bottom:1.25rem;font-weight:500}
+.hero-eyebrow i{font-size:13px}
+.hero h1{font-size:32px;font-weight:500;color:var(--color-text-primary);line-height:1.2;margin-bottom:1rem;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:#d85a30}
+.hero-sub{font-size:15px;color:var(--color-text-secondary);line-height:1.7;max-width:520px;margin-bottom:1.75rem}
+.hero-proof{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.proof-stat{display:flex;align-items:baseline;gap:5px}
+.proof-num{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.proof-label{font-size:12px;color:var(--color-text-secondary)}
+.proof-div{width:.5px;height:24px;background:var(--color-border-tertiary)}
+
+.delivers{padding:1.75rem 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.section-label{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-tertiary);font-weight:500;margin-bottom:1rem}
+.deliver-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.deliver-card{padding:14px 16px;border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary)}
+.deliver-icon{width:32px;height:32px;border-radius:var(--border-radius-md);background:#faece7;display:flex;align-items:center;justify-content:center;margin-bottom:10px}
+.deliver-icon i{font-size:16px;color:#993c1d}
+.deliver-title{font-size:13px;font-weight:500;color:var(--color-text-primary);margin-bottom:3px}
+.deliver-desc{font-size:12px;color:var(--color-text-secondary);line-height:1.5}
+
+.how{padding:1.75rem 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.steps{display:flex;flex-direction:column;gap:0}
+.step{display:flex;align-items:flex-start;gap:16px;padding:12px 0;border-bottom:.5px solid var(--color-border-tertiary)}
+.step:last-child{border-bottom:none}
+.step-num{min-width:28px;height:28px;border-radius:50%;border:.5px solid var(--color-border-secondary);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:500;color:var(--color-text-secondary);flex-shrink:0;margin-top:1px}
+.step-body{}
+.step-title{font-size:14px;font-weight:500;color:var(--color-text-primary);margin-bottom:2px}
+.step-desc{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+.step-badge{display:inline-block;font-size:11px;background:#faece7;color:#712b13;border-radius:99px;padding:2px 8px;margin-left:6px;font-weight:500}
+
+.form-section{padding:1.75rem 0}
+.form-wrap{background:var(--color-background-secondary);border:.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.5rem}
+.form-intro{margin-bottom:1.25rem}
+.form-intro h2{font-size:18px;font-weight:500;color:var(--color-text-primary);margin-bottom:.3rem}
+.form-intro p{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.form-grid.full{grid-template-columns:1fr}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:12px;font-weight:500;color:var(--color-text-secondary)}
+.field input,.field select,.field textarea{font-size:13px;padding:8px 10px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary);width:100%}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#d85a30}
+.field textarea{resize:vertical;min-height:72px;line-height:1.5}
+.availability-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.avail-slot{padding:10px 12px;border-radius:var(--border-radius-md);border:.5px solid var(--color-border-tertiary);cursor:pointer;background:var(--color-background-primary);transition:all .15s}
+.avail-slot:hover{border-color:var(--color-border-secondary);background:var(--color-background-secondary)}
+.avail-slot.picked{border:1.5px solid #d85a30;background:#faece7}
+.avail-slot-top{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.avail-slot-sub{font-size:11px;color:var(--color-text-secondary);margin-top:2px}
+.avail-slot.picked .avail-slot-top{color:#712b13}
+.avail-slot.picked .avail-slot-sub{color:#993c1d}
+.btn-book{width:100%;padding:13px;border-radius:var(--border-radius-md);background:#d85a30;color:#fff;border:none;font-size:15px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:8px;transition:background .15s;margin-top:4px}
+.btn-book:hover{background:#993c1d}
+.form-small{font-size:11px;color:var(--color-text-tertiary);text-align:center;margin-top:10px;line-height:1.5}
+
+.guarantee{display:flex;align-items:flex-start;gap:12px;padding:14px 16px;border-radius:var(--border-radius-lg);border:.5px solid var(--color-border-tertiary);background:var(--color-background-primary);margin-top:10px}
+.guarantee i{font-size:18px;color:#d85a30;flex-shrink:0;margin-top:1px}
+.guarantee-text{font-size:13px;color:var(--color-text-secondary);line-height:1.5}
+.guarantee-text strong{font-weight:500;color:var(--color-text-primary)}
+
+.confirmed-view{display:none;text-align:center;padding:2.5rem 1rem}
+.confirmed-view i{font-size:36px;color:#d85a30;margin-bottom:1rem;display:block}
+.confirmed-view h2{font-size:20px;font-weight:500;color:var(--color-text-primary);margin-bottom:.5rem}
+.confirmed-view p{font-size:14px;color:var(--color-text-secondary);line-height:1.6;max-width:420px;margin:0 auto 1.5rem}
+.next-steps{text-align:left;background:var(--color-background-secondary);border-radius:var(--border-radius-lg);padding:1.25rem;border:.5px solid var(--color-border-tertiary);max-width:420px;margin:0 auto}
+.next-step{display:flex;gap:10px;font-size:13px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:10px}
+.next-step:last-child{margin-bottom:0}
+.next-step i{font-size:15px;color:#d85a30;flex-shrink:0;margin-top:1px}
+</style>
+
+<div id="lp">
+  <h2 class="sr-only">72-hour codebase assessment — book a no-commitment engineering engagement that delivers a dependency map, risk heat map, and modernization roadmap in 72 hours</h2>
+
+  <div class="hero">
+    <div class="hero-eyebrow"><i class="ti ti-clock" aria-hidden="true"></i>Limited availability — 6 slots/month</div>
+    <h1>Know exactly what's inside<br>your codebase. In <em>72 hours.</em></h1>
+    <p class="hero-sub">Our engineers do more in three days than most teams accomplish in months. You get a full dependency map, risk heat map, and a prioritised modernization roadmap — before you commit a single budget dollar.</p>
+    <div class="hero-proof">
+      <div class="proof-stat"><span class="proof-num">72h</span><span class="proof-label">from kick-off to report</span></div>
+      <div class="proof-div"></div>
+      <div class="proof-stat"><span class="proof-num">$0</span><span class="proof-label">cost for qualified orgs</span></div>
+      <div class="proof-div"></div>
+      <div class="proof-stat"><span class="proof-num">4</span><span class="proof-label">senior engineers on your code</span></div>
+    </div>
+  </div>
+
+  <div class="delivers">
+    <div class="section-label">What you receive</div>
+    <div class="deliver-grid">
+      <div class="deliver-card">
+        <div class="deliver-icon"><i class="ti ti-git-branch" aria-hidden="true"></i></div>
+        <div class="deliver-title">Dependency map</div>
+        <div class="deliver-desc">Full visualisation of internal and external dependencies, circular references, and undocumented coupling across your codebase.</div>
+      </div>
+      <div class="deliver-card">
+        <div class="deliver-icon"><i class="ti ti-flame" aria-hidden="true"></i></div>
+        <div class="deliver-title">Risk heat map</div>
+        <div class="deliver-desc">File and module-level risk scoring — highlighting change-frequency vs test coverage gaps, bus factor, and blast radius.</div>
+      </div>
+      <div class="deliver-card">
+        <div class="deliver-icon"><i class="ti ti-route" aria-hidden="true"></i></div>
+        <div class="deliver-title">Modernization roadmap</div>
+        <div class="deliver-desc">A sequenced 90-day action plan with effort estimates, quick wins, and a recommended migration pattern for your stack.</div>
+      </div>
+      <div class="deliver-card">
+        <div class="deliver-icon"><i class="ti ti-presentation" aria-hidden="true"></i></div>
+        <div class="deliver-title">Executive readout</div>
+        <div class="deliver-desc">A 30-minute findings session with your CTO/VP Engineering and a shareable slide deck for stakeholder alignment.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="how">
+    <div class="section-label">How it works</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <div class="step-title">Submit your request <span class="step-badge">Today</span></div>
+          <div class="step-desc">Complete the form below. A senior engineer reviews your submission within 4 business hours to confirm scope and access requirements.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <div class="step-title">Secure read-only access <span class="step-badge">Day 1</span></div>
+          <div class="step-desc">We work with your repo (GitHub, GitLab, Bitbucket, or on-prem). Read-only access only — no changes, no deployments, full NDA in place.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <div class="step-title">Deep analysis begins <span class="step-badge">Days 1–3</span></div>
+          <div class="step-desc">Four senior engineers run static analysis, dependency graphing, coverage mapping, and architectural review in parallel.</div>
+        </div>
+      </div>
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <div class="step-title">Report delivery and readout <span class="step-badge">Hour 72</span></div>
+          <div class="step-desc">You receive all artefacts and a live 30-minute executive readout. Most clients move to a formal engagement within two weeks.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-section">
+    <div class="form-wrap" id="form-wrap">
+      <div class="form-intro">
+        <h2>Reserve your assessment slot</h2>
+        <p>We run 6 assessments per month. Slots are allocated on a first-come, first-served basis after qualification.</p>
+      </div>
+
+      <div class="form-grid">
+        <div class="field"><label>First name</label><input id="fn" type="text" placeholder="Alex"></div>
+        <div class="field"><label>Last name</label><input id="ln" type="text" placeholder="Rivera"></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Work email</label><input id="em" type="email" placeholder="alex@company.com"></div>
+        <div class="field"><label>Company</label><input id="co" type="text" placeholder="Acme Technologies"></div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Your role</label>
+          <select id="ro">
+            <option value="">Select…</option>
+            <option>CTO</option>
+            <option>VP Engineering</option>
+            <option>Chief Architect</option>
+            <option>Director of Engineering</option>
+            <option>Engineering Manager</option>
+            <option>CIO</option>
+            <option>Other</option>
+          </select>
+        </div>
+        <div class="field"><label>Estimated codebase size</label>
+          <select id="cs">
+            <option value="">Select…</option>
+            <option>Under 100K lines</option>
+            <option>100K – 500K lines</option>
+            <option>500K – 2M lines</option>
+            <option>2M+ lines</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-grid">
+        <div class="field"><label>Primary concern</label>
+          <select id="pc">
+            <option value="">Select…</option>
+            <option>Legacy code — undocumented, fragile systems</option>
+            <option>Cloud-native migration readiness</option>
+            <option>Platform modernization and CI/CD debt</option>
+            <option>API architecture and integration complexity</option>
+            <option>General technical debt assessment</option>
+          </select>
+        </div>
+        <div class="field"><label>Primary language / stack</label>
+          <select id="st">
+            <option value="">Select…</option>
+            <option>Java / Spring</option>
+            <option>.NET / C#</option>
+            <option>Node.js / TypeScript</option>
+            <option>Python</option>
+            <option>Go</option>
+            <option>PHP / Laravel</option>
+            <option>Mixed / polyglot</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="section-label" style="margin:1.25rem 0 .75rem">Preferred start window</div>
+      <div class="availability-row" id="slots">
+        <div class="avail-slot" onclick="pickSlot(this,'asap')">
+          <div class="avail-slot-top">As soon as possible</div>
+          <div class="avail-slot-sub">Next available slot</div>
+        </div>
+        <div class="avail-slot" onclick="pickSlot(this,'2w')">
+          <div class="avail-slot-top">Within 2 weeks</div>
+          <div class="avail-slot-sub">Flexible scheduling</div>
+        </div>
+        <div class="avail-slot" onclick="pickSlot(this,'month')">
+          <div class="avail-slot-top">This month</div>
+          <div class="avail-slot-sub">Planning ahead</div>
+        </div>
+        <div class="avail-slot" onclick="pickSlot(this,'next')">
+          <div class="avail-slot-top">Next month or later</div>
+          <div class="avail-slot-sub">Early pipeline</div>
+        </div>
+      </div>
+
+      <div class="form-grid full" style="margin-bottom:12px">
+        <div class="field"><label>Anything specific you want us to focus on? (optional)</label>
+          <textarea id="note" placeholder="e.g. We're planning a migration off a 15-year-old Java monolith and need to understand the blast radius before we begin…"></textarea>
+        </div>
+      </div>
+
+      <button class="btn-book" onclick="submit()">
+        <i class="ti ti-rocket" aria-hidden="true"></i> Reserve my assessment slot
+      </button>
+      <p class="form-small">No cost for qualified organisations. NDA executed before any code access. Read-only access only.</p>
+    </div>
+
+    <div class="guarantee">
+      <i class="ti ti-shield-check" aria-hidden="true"></i>
+      <div class="guarantee-text"><strong>The 72-hour guarantee.</strong> If we can't deliver all four artefacts within 72 hours of receiving repo access, we extend the engagement at no cost until the work is complete — no exceptions.</div>
+    </div>
+
+    <div class="confirmed-view" id="confirmed">
+      <i class="ti ti-circle-check" aria-hidden="true"></i>
+      <h2>Your slot request is in.</h2>
+      <p>A senior engineer will review your submission and reach out within 4 business hours to confirm scope, access, and scheduling.</p>
+      <div class="next-steps">
+        <div class="next-step"><i class="ti ti-mail" aria-hidden="true"></i>Check your inbox — a confirmation email is on its way with your NDA for review.</div>
+        <div class="next-step"><i class="ti ti-calendar" aria-hidden="true"></i>Block time on your calendar for the 30-minute kick-off and the 30-minute readout on Day 3.</div>
+        <div class="next-step"><i class="ti ti-lock" aria-hidden="true"></i>Start thinking about who will provision read-only repo access — we'll guide you through the exact steps.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+let chosenSlot='';
+function pickSlot(el,val){
+  chosenSlot=val;
+  document.querySelectorAll('.avail-slot').forEach(s=>s.className='avail-slot');
+  el.className='avail-slot picked';
+}
+function submit(){
+  const em=document.getElementById('em').value;
+  const fn=document.getElementById('fn').value;
+  if(!fn||!em){
+    document.getElementById('fn').focus();
+    return;
+  }
+  document.getElementById('form-wrap').style.display='none';
+  document.getElementById('confirmed').style.display='block';
+  sendPrompt('I just submitted the 72-hour codebase assessment request. What happens next?');
+}
+</script>
+
+  </main></div>
+
+<section class="celsior-hs-form-panel" id="celsior-hs-form-panel" aria-live="polite">
+  <h2>Continue the conversation</h2>
+  <p>Share your details and a Celsior specialist will follow up on the assessment.</p>
+  <script src="https://js.hsforms.net/forms/embed/developer/40221584.js" defer></script>
+  <div class="hs-form-html" data-region="na1" data-form-id="14603611-2306-41db-892b-61dd59e11a31" data-portal-id="40221584"></div>
+</section>
+
+<footer class="celsior-footer">
+  <div class="celsior-footer__inner">
+    <div><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"><p>Enterprise assessment tools for modernization, resilience, and operational clarity.</p></div>
+    <div class="celsior-footer__links"><a href="/assessment-tools">Assessment tools</a><a href="https://dev.celsiortech.us/">Celsior website</a></div>
+  </div>
+</footer>
+
+<script>
+function sendPrompt(message){
+  console.log("CTA clicked:", message);
+  const panel=document.getElementById('celsior-hs-form-panel');
+  if(panel){
+    panel.classList.add('is-visible');
+    panel.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+</script>
+
+  <script src="/shared.js" defer></script>
+</body>
+</html>

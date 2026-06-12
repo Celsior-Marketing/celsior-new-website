@@ -1,0 +1,431 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Prior Authorization ROI Calculator</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+  <style>
+
+:root{
+  --font-sans: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  --color-text-primary:#0d1127;
+  --color-text-secondary:#3a4060;
+  --color-text-tertiary:#7b82a0;
+  --color-background-primary:#ffffff;
+  --color-background-secondary:#f5f6fa;
+  --color-border-secondary:rgba(15,20,50,.16);
+  --color-border-tertiary:rgba(15,20,50,.10);
+  --border-radius-md:10px;
+  --border-radius-lg:16px;
+  --celsior-navy:#071126;
+  --celsior-navy-2:#0d1127;
+  --celsior-ink:#0d1127;
+  --celsior-muted:#7b82a0;
+  --celsior-blue:#2254f4;
+  --celsior-blue-soft:rgba(34,84,244,.09);
+  --celsior-line:rgba(255,255,255,.14);
+  --celsior-cream:#f8f7f2;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 16% 0%, rgba(34,84,244,.20), transparent 28rem),
+    linear-gradient(180deg,#071126 0%,#0d1127 92px,#f5f6fa 92px,#f5f6fa 100%);
+  color:var(--color-text-primary);
+  font-family:var(--font-sans);
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+a{text-decoration:none;color:inherit}
+.celsior-nav{
+  height:72px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  max-width:1180px;
+  margin:0 auto;
+  padding:0 28px;
+  color:#fff;
+}
+.celsior-logo{display:inline-flex;align-items:center;gap:10px;min-width:0}
+.celsior-logo img{height:30px;width:auto;filter:brightness(0) invert(1);display:block}
+.celsior-nav__right{display:flex;align-items:center;gap:14px;font-size:13px;font-weight:600;color:rgba(255,255,255,.76)}
+.celsior-nav__pill{padding:9px 16px;border:1px solid rgba(255,255,255,.28);border-radius:999px;color:#fff;background:rgba(255,255,255,.06);backdrop-filter:blur(12px)}
+.celsior-nav__pill:hover{background:#fff;color:#0d1127}
+.celsior-hero{
+  max-width:1180px;
+  margin:0 auto;
+  padding:44px 28px 54px;
+  color:#fff;
+  position:relative;
+}
+.celsior-kicker{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.62);font-weight:700;margin-bottom:12px}
+.celsior-hero h1{font-size:clamp(32px,4.5vw,58px);line-height:1.02;letter-spacing:-.04em;font-weight:800;margin:0 0 16px;max-width:760px;color:#fff}
+.celsior-hero p{font-size:clamp(15px,1.5vw,18px);line-height:1.7;color:rgba(255,255,255,.72);max-width:720px;margin:0}
+.celsior-hero-grid{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:end}
+.celsior-stat-card{min-width:260px;border:1px solid rgba(255,255,255,.15);border-radius:22px;background:rgba(255,255,255,.08);padding:22px;box-shadow:0 24px 80px rgba(0,0,0,.18);backdrop-filter:blur(20px)}
+.celsior-stat-card strong{display:block;font-size:30px;line-height:1;font-weight:800;letter-spacing:-.03em;color:#fff;margin-bottom:8px}
+.celsior-stat-card span{font-size:13px;color:rgba(255,255,255,.68);line-height:1.5}
+.celsior-page-wrap{max-width:1180px;margin:0 auto;padding:32px 28px 52px;position:relative;z-index:2}
+.page-shell{
+  max-width:860px;
+  margin:0 auto;
+  background:rgba(255,255,255,.98);
+  border:1px solid rgba(15,20,50,.10);
+  border-radius:28px;
+  padding:34px;
+  box-shadow:0 24px 80px rgba(15,20,80,.14);
+  overflow:hidden;
+}
+.celsior-back{display:inline-flex;align-items:center;gap:8px;margin-bottom:22px;color:#2254f4;font-size:13px;font-weight:700}
+.celsior-back::before{content:'←';font-size:14px}
+.celsior-footer{background:#fff;border-top:1px solid rgba(15,20,50,.09);padding:34px 28px;color:#3a4060}
+.celsior-footer__inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.celsior-footer img{height:26px;width:auto;filter:brightness(0);opacity:.9}
+.celsior-footer p{margin:8px 0 0;font-size:13px;color:#7b82a0;line-height:1.5}
+.celsior-footer__links{display:flex;gap:18px;font-size:13px;font-weight:600;color:#3a4060;flex-wrap:wrap}
+.celsior-footer__links a:hover{color:#2254f4}
+.celsior-brand-overrides .eyebrow,.celsior-brand-overrides .brand,.celsior-brand-overrides .section-label,.celsior-brand-overrides .rec-title,.celsior-brand-overrides .flags-title{color:#2254f4!important;font-weight:800!important;letter-spacing:.13em!important}
+.celsior-brand-overrides .hdr h1,.celsior-brand-overrides .header h1,.celsior-brand-overrides h1{letter-spacing:-.02em;color:#0d1127}
+.celsior-brand-overrides .panel,.celsior-brand-overrides .deliver-card,.celsior-brand-overrides .dim-card,.celsior-brand-overrides .metric,.celsior-brand-overrides .gate-strip,.celsior-brand-overrides .form-wrap,.celsior-brand-overrides .gate-wrap,.celsior-brand-overrides .gate-box,.celsior-brand-overrides .next-steps,.celsior-brand-overrides .guarantee{border-color:rgba(15,20,50,.10)!important;box-shadow:0 10px 30px rgba(15,20,80,.04)}
+.celsior-brand-overrides button,.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{border-radius:999px!important;font-weight:700!important;box-shadow:0 14px 32px rgba(34,84,244,.18)}
+.celsior-brand-overrides .btn-export,.celsior-brand-overrides .btn-book,.celsior-brand-overrides .btn-cta,.celsior-brand-overrides .btn-cta-purple,.celsior-brand-overrides .btn-next.btn-amber,.celsior-brand-overrides .btn-next.btn-primary,.celsior-brand-overrides .btn-next.btn-purple{background:#0d1127!important;border-color:#0d1127!important;color:#fff!important}
+.celsior-brand-overrides input,.celsior-brand-overrides select,.celsior-brand-overrides textarea{border-radius:12px!important;border-color:rgba(15,20,50,.14)!important;background:#fff!important}
+.celsior-brand-overrides .progress-fill,.celsior-brand-overrides .prog-fill,.celsior-brand-overrides .pf,.celsior-brand-overrides .prog-bar .prog-fill{background:#2254f4!important}
+.celsior-brand-overrides .progress-bar,.celsior-brand-overrides .prog-bar{background:rgba(15,20,50,.09)!important}
+@media(max-width:820px){
+  .celsior-nav{height:64px;padding:0 18px}.celsior-logo img{height:26px}.celsior-nav__right span{display:none}.celsior-nav__pill{padding:8px 12px;font-size:12px}
+  .celsior-hero{padding:32px 18px 44px}.celsior-hero-grid{grid-template-columns:1fr}.celsior-stat-card{display:none}
+  .celsior-page-wrap{padding:22px 14px 36px;margin-top:0}.page-shell{padding:22px;border-radius:22px}
+  .two-col,.deliver-grid,.form-grid,.availability-row,.dim-grid,.fg,.form-row{grid-template-columns:1fr!important}
+  .celsior-footer__inner{align-items:flex-start;flex-direction:column}
+}
+
+
+.celsior-hs-form-panel{display:none;max-width:860px;margin:0 auto 52px;background:#fff;border:1px solid rgba(15,20,50,.10);border-radius:24px;padding:28px 30px;box-shadow:0 18px 60px rgba(15,20,80,.10)}
+.celsior-hs-form-panel.is-visible{display:block}
+.celsior-hs-form-panel h2{margin:0 0 8px;font-size:22px;line-height:1.25;letter-spacing:-.02em;color:#0d1127}
+.celsior-hs-form-panel p{margin:0 0 18px;font-size:14px;line-height:1.6;color:#3a4060}
+.celsior-hs-form-panel .hs-form-html{min-height:120px}
+.celsior-hs-form-panel form{font-family:var(--font-sans)!important;color:#0d1127!important}
+.celsior-hs-form-panel label,.celsior-hs-form-panel .hs-form label,.celsior-hs-form-panel .hs-form-field label{color:#0d1127!important;font-size:13px!important;font-weight:700!important;margin-bottom:6px!important;display:block!important}
+.celsior-hs-form-panel input,.celsior-hs-form-panel select,.celsior-hs-form-panel textarea{width:100%!important;border:1px solid rgba(15,20,50,.14)!important;background:#fff!important;color:#0d1127!important;border-radius:12px!important;padding:11px 12px!important;font-size:14px!important;box-shadow:none!important}
+.celsior-hs-form-panel input:focus,.celsior-hs-form-panel select:focus,.celsior-hs-form-panel textarea:focus{outline:none!important;border-color:#2254f4!important;box-shadow:0 0 0 3px rgba(34,84,244,.12)!important}
+.celsior-hs-form-panel .hs-form-field{margin-bottom:14px!important}
+.celsior-hs-form-panel .hs-button,.celsior-hs-form-panel input[type="submit"]{width:auto!important;min-width:180px!important;background:#0d1127!important;color:#fff!important;border:1px solid #0d1127!important;border-radius:999px!important;padding:12px 22px!important;font-weight:800!important;cursor:pointer!important;box-shadow:0 14px 32px rgba(34,84,244,.18)!important}
+.celsior-hs-form-panel .hs-error-msg,.celsior-hs-form-panel .hs-error-msgs label{color:#a32d2d!important;font-size:12px!important;font-weight:600!important}
+.celsior-hs-form-panel .legal-consent-container,.celsior-hs-form-panel .hs-richtext{color:#3a4060!important;font-size:12px!important;line-height:1.5!important}
+@media(max-width:820px){.celsior-hs-form-panel{margin:0 14px 36px;padding:22px;border-radius:22px}}
+</style>
+
+<style>
+  body.assessment-tool-native-page {
+    padding-top: 84px;
+  }
+  @media (max-width: 768px) {
+    body.assessment-tool-native-page {
+      padding-top: 74px;
+    }
+  }
+</style>
+
+</head>
+<body class="assessment-tool-native-page">
+<header class="celsior-nav">
+  <a class="celsior-logo" href="/assessment-tools"><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"></a>
+  <div class="celsior-nav__right"><a class="celsior-nav__pill" href="/assessment-tools">View all tools</a></div>
+</header>
+  <div class="celsior-page-wrap"><main class="page-shell celsior-brand-overrides">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.wrap{max-width:680px;margin:0 auto;padding:1.5rem 0;font-family:var(--font-sans)}
+.hdr{margin-bottom:1.75rem}
+.eyebrow{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--color-text-tertiary);margin-bottom:.4rem}
+.hdr h1{font-size:22px;font-weight:500;color:var(--color-text-primary);line-height:1.3;margin-bottom:.35rem}
+.hdr p{font-size:14px;color:var(--color-text-secondary);line-height:1.6}
+.two-col{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:16px;margin-bottom:1.5rem}
+.panel{background:var(--color-background-primary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem}
+.panel-title{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--color-text-tertiary);font-weight:500;margin-bottom:1rem}
+.slider-row{margin-bottom:1.1rem}
+.slider-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:4px}
+.slider-label{font-size:13px;color:var(--color-text-secondary)}
+.slider-val{font-size:13px;font-weight:500;color:var(--color-text-primary)}
+.slider-row input[type=range]{width:100%}
+.metrics-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.metric{background:var(--color-background-secondary);border-radius:var(--border-radius-md);padding:12px 14px}
+.metric-label{font-size:11px;color:var(--color-text-tertiary);margin-bottom:4px;line-height:1.4}
+.metric-val{font-size:20px;font-weight:500;color:var(--color-text-primary)}
+.metric-val.pos{color:#185fa5}
+.metric-val.green{color:#3b6d11}
+.divider{height:.5px;background:var(--color-border-tertiary);margin:1.25rem 0}
+.chart-section{margin-bottom:1.5rem}
+.chart-legend{display:flex;gap:16px;margin-bottom:10px;font-size:12px;color:var(--color-text-secondary)}
+.legend-dot{width:10px;height:10px;border-radius:2px;display:inline-block;margin-right:4px;vertical-align:middle}
+.gate-strip{background:var(--color-background-secondary);border:0.5px solid var(--color-border-tertiary);border-radius:var(--border-radius-lg);padding:1.25rem;margin-bottom:1rem}
+.gate-strip h3{font-size:15px;font-weight:500;color:var(--color-text-primary);margin-bottom:.35rem}
+.gate-strip p{font-size:13px;color:var(--color-text-secondary);line-height:1.5;margin-bottom:1rem}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.field{display:flex;flex-direction:column;gap:4px}
+.field label{font-size:12px;color:var(--color-text-secondary);font-weight:500}
+.field input,.field select{font-size:13px;padding:7px 10px;border-radius:var(--border-radius-md);border:0.5px solid var(--color-border-tertiary);background:var(--color-background-primary);color:var(--color-text-primary)}
+.field input:focus,.field select:focus{outline:none;border-color:#378add}
+.btn-export{width:100%;padding:11px;border-radius:var(--border-radius-md);background:#185fa5;color:#fff;border:none;font-size:14px;font-weight:500;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:6px;transition:background .15s}
+.btn-export:hover{background:#0c447c}
+.disclaimer{font-size:11px;color:var(--color-text-tertiary);text-align:center;line-height:1.5}
+.roi-banner{background:#e6f1fb;border:0.5px solid #b5d4f4;border-radius:var(--border-radius-lg);padding:14px 18px;display:flex;align-items:center;justify-content:space-between;margin-bottom:1.5rem}
+.roi-banner-label{font-size:12px;color:#185fa5;margin-bottom:2px}
+.roi-banner-val{font-size:26px;font-weight:500;color:#042c53}
+.roi-banner-sub{font-size:12px;color:#185fa5}
+.payback-pill{background:#eaf3de;border:0.5px solid #c0dd97;border-radius:99px;padding:6px 14px;font-size:13px;font-weight:500;color:#27500a}
+</style>
+
+<div class="wrap">
+  <h2 class="sr-only">Prior authorization ROI modeling framework — interactive calculator estimating annual savings from PA automation across labor, denials, and turnaround time</h2>
+  <div class="hdr">
+    <div class="eyebrow">ROI Modeling Framework</div>
+    <h1>Prior authorization automation ROI</h1>
+    <p>Adjust the inputs below to model your organisation's savings potential. All figures update in real time.</p>
+  </div>
+
+  <div class="two-col">
+    <div class="panel">
+      <div class="panel-title">Your current state</div>
+
+      <div class="slider-row">
+        <div class="slider-top"><span class="slider-label">Monthly PA volume</span><span class="slider-val" id="v-vol">5,000</span></div>
+        <input type="range" min="500" max="50000" step="500" value="5000" id="s-vol" oninput="calc()">
+      </div>
+      <div class="slider-row">
+        <div class="slider-top"><span class="slider-label">Staff time per PA (mins)</span><span class="slider-val" id="v-time">35 min</span></div>
+        <input type="range" min="10" max="90" step="5" value="35" id="s-time" oninput="calc()">
+      </div>
+      <div class="slider-row">
+        <div class="slider-top"><span class="slider-label">Fully-loaded hourly rate</span><span class="slider-val" id="v-rate">$55/hr</span></div>
+        <input type="range" min="30" max="120" step="5" value="55" id="s-rate" oninput="calc()">
+      </div>
+      <div class="slider-row">
+        <div class="slider-top"><span class="slider-label">First-pass denial rate</span><span class="slider-val" id="v-deny">18%</span></div>
+        <input type="range" min="3" max="45" step="1" value="18" id="s-deny" oninput="calc()">
+      </div>
+      <div class="slider-row">
+        <div class="slider-top"><span class="slider-label">Average claim value</span><span class="slider-val" id="v-claim">$2,400</span></div>
+        <input type="range" min="500" max="12000" step="100" value="2400" id="s-claim" oninput="calc()">
+      </div>
+      <div class="slider-row" style="margin-bottom:0">
+        <div class="slider-top"><span class="slider-label">Current turnaround time</span><span class="slider-val" id="v-tat">12 days</span></div>
+        <input type="range" min="3" max="30" step="1" value="12" id="s-tat" oninput="calc()">
+      </div>
+    </div>
+
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="roi-banner">
+        <div>
+          <div class="roi-banner-label">3-year net ROI</div>
+          <div class="roi-banner-val" id="r-roi">0%</div>
+          <div class="roi-banner-sub" id="r-payback">Payback in — months</div>
+        </div>
+        <div class="payback-pill" id="r-pillbadge">Strong</div>
+      </div>
+      <div class="metrics-grid">
+        <div class="metric"><div class="metric-label">Annual labor savings</div><div class="metric-val pos" id="r-labor">$0</div></div>
+        <div class="metric"><div class="metric-label">Denial revenue recovered</div><div class="metric-val green" id="r-denial">$0</div></div>
+        <div class="metric"><div class="metric-label">Year 1 net savings</div><div class="metric-val" id="r-y1">$0</div></div>
+        <div class="metric"><div class="metric-label">3-year cumulative</div><div class="metric-val" id="r-3yr">$0</div></div>
+      </div>
+      <div class="panel" style="flex:1">
+        <div class="panel-title">Turnaround improvement</div>
+        <div style="display:flex;align-items:baseline;gap:8px;margin-bottom:4px">
+          <span style="font-size:24px;font-weight:500;color:var(--color-text-primary)" id="r-tat-new">—</span>
+          <span style="font-size:13px;color:var(--color-text-secondary)">days avg</span>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-tertiary)" id="r-tat-desc">Down from — days</div>
+        <div class="divider" style="margin:.75rem 0"></div>
+        <div class="panel-title">Hours freed annually</div>
+        <div style="display:flex;align-items:baseline;gap:8px">
+          <span style="font-size:24px;font-weight:500;color:var(--color-text-primary)" id="r-hrs">—</span>
+          <span style="font-size:13px;color:var(--color-text-secondary)">FTE-hours</span>
+        </div>
+        <div style="font-size:12px;color:var(--color-text-tertiary)" id="r-fte">Equivalent to — FTEs</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="chart-section">
+    <div class="chart-legend">
+      <span><span class="legend-dot" style="background:#378add"></span>Cumulative savings</span>
+      <span><span class="legend-dot" style="background:#b5d4f4"></span>Platform investment</span>
+    </div>
+    <div style="position:relative;width:100%;height:220px">
+      <canvas id="roiChart" role="img" aria-label="Bar chart showing 3-year cumulative savings vs platform investment">3-year ROI projection</canvas>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="gate-strip">
+    <h3>Get the full ROI model — exportable to Excel</h3>
+    <p>Enter your details to receive a pre-populated ROI workbook based on your inputs, plus a 30-minute session with a prior authorisation specialist to pressure-test the numbers.</p>
+    <div class="form-grid">
+      <div class="field"><label>First name</label><input id="g-fn" type="text" placeholder="James"></div>
+      <div class="field"><label>Last name</label><input id="g-ln" type="text" placeholder="Patel"></div>
+      <div class="field"><label>Work email</label><input id="g-em" type="email" placeholder="james@healthsystem.org"></div>
+      <div class="field"><label>Organisation</label><input id="g-org" type="text" placeholder="Midwest Health System"></div>
+      <div class="field"><label>Your role</label>
+        <select id="g-role">
+          <option value="">Select…</option>
+          <option>CFO / VP Finance</option>
+          <option>VP Revenue Cycle</option>
+          <option>CIO / VP Technology</option>
+          <option>CMO / VP Clinical Ops</option>
+          <option>Director, Utilisation Management</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="field"><label>Annual PA volume</label>
+        <select id="g-vol">
+          <option value="">Select…</option>
+          <option>Under 25,000/year</option>
+          <option>25,000 – 100,000/year</option>
+          <option>100,000 – 500,000/year</option>
+          <option>500,000+/year</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn-export" onclick="sendPrompt('Send me the Prior Auth ROI model workbook and book my specialist session')">
+      <i class="ti ti-download" aria-hidden="true"></i> Send me the ROI model + book my session ↗
+    </button>
+  </div>
+  <p class="disclaimer">Projections use industry benchmarks: 65% labor automation rate, 55% denial reduction, 72% TAT improvement. Actual results may vary. This model is for illustrative purposes.</p>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<script>
+let roiChart;
+
+function fmt(n){return '$'+Math.round(n).toLocaleString()}
+function fmtK(n){if(n>=1000000)return '$'+(n/1000000).toFixed(1)+'M';if(n>=1000)return '$'+(n/1000).toFixed(0)+'K';return '$'+Math.round(n)}
+
+function calc(){
+  const vol=+document.getElementById('s-vol').value;
+  const mins=+document.getElementById('s-time').value;
+  const rate=+document.getElementById('s-rate').value;
+  const deny=+document.getElementById('s-deny').value;
+  const claim=+document.getElementById('s-claim').value;
+  const tat=+document.getElementById('s-tat').value;
+
+  document.getElementById('v-vol').textContent=vol.toLocaleString();
+  document.getElementById('v-time').textContent=mins+' min';
+  document.getElementById('v-rate').textContent='$'+rate+'/hr';
+  document.getElementById('v-deny').textContent=deny+'%';
+  document.getElementById('v-claim').textContent='$'+claim.toLocaleString();
+  document.getElementById('v-tat').textContent=tat+' days';
+
+  const annualVol=vol*12;
+  const laborCostNow=annualVol*(mins/60)*rate;
+  const laborSavings=laborCostNow*0.65;
+
+  const denialCostNow=annualVol*(deny/100)*claim*0.30;
+  const denialReduced=annualVol*(deny*0.45/100)*claim*0.30;
+  const denialSavings=denialCostNow-denialReduced;
+
+  const tatNew=Math.round(tat*0.28);
+  const hrsFreed=Math.round(annualVol*(mins/60)*0.65);
+  const fteEquiv=Math.round(hrsFreed/2080*10)/10;
+
+  const platformCost=Math.max(annualVol*6, 120000);
+  const y1=laborSavings+denialSavings-platformCost;
+  const y2=y1+(laborSavings+denialSavings)*1.05;
+  const y3=y2+(laborSavings+denialSavings)*1.08;
+
+  const totalSavings3=(laborSavings+denialSavings)*3.13;
+  const totalInvest3=platformCost*2.8;
+  const roi3=Math.round(((totalSavings3-totalInvest3)/totalInvest3)*100);
+  const paybackMonths=Math.round((platformCost/(laborSavings+denialSavings))*12);
+
+  document.getElementById('r-roi').textContent=roi3+'%';
+  document.getElementById('r-payback').textContent='Payback in ~'+paybackMonths+' months';
+  document.getElementById('r-labor').textContent=fmtK(laborSavings);
+  document.getElementById('r-denial').textContent=fmtK(denialSavings);
+  document.getElementById('r-y1').textContent=fmtK(y1);
+  document.getElementById('r-3yr').textContent=fmtK(totalSavings3-totalInvest3);
+  document.getElementById('r-tat-new').textContent=tatNew;
+  document.getElementById('r-tat-desc').textContent='Down from '+tat+' days ('+Math.round((1-tatNew/tat)*100)+'% faster)';
+  document.getElementById('r-hrs').textContent=hrsFreed.toLocaleString();
+  document.getElementById('r-fte').textContent='Equivalent to '+fteEquiv+' FTEs redirected';
+
+  const badge=document.getElementById('r-pillbadge');
+  if(roi3>200){badge.textContent='Exceptional';badge.style.background='#eaf3de';badge.style.borderColor='#c0dd97';badge.style.color='#27500a';}
+  else if(roi3>100){badge.textContent='Strong';badge.style.background='#eaf3de';badge.style.borderColor='#c0dd97';badge.style.color='#27500a';}
+  else if(roi3>50){badge.textContent='Moderate';badge.style.background='#faeeda';badge.style.borderColor='#fac775';badge.style.color='#633806';}
+  else{badge.textContent='Low';badge.style.background='#fcebeb';badge.style.borderColor='#f7c1c1';badge.style.color='#791f1f';}
+
+  const savings=[y1, y2, y3].map(v=>Math.round(Math.max(v,0)));
+  const invest=[platformCost, platformCost*0.9, platformCost*0.9].map(v=>Math.round(v));
+
+  if(roiChart){
+    roiChart.data.datasets[0].data=savings;
+    roiChart.data.datasets[1].data=invest;
+    roiChart.update('none');
+  } else {
+    roiChart=new Chart(document.getElementById('roiChart'),{
+      type:'bar',
+      data:{
+        labels:['Year 1','Year 2','Year 3'],
+        datasets:[
+          {label:'Cumulative savings',data:savings,backgroundColor:'#378add',borderRadius:4,borderSkipped:false},
+          {label:'Platform investment',data:invest,backgroundColor:'#b5d4f4',borderRadius:4,borderSkipped:false}
+        ]
+      },
+      options:{
+        responsive:true,maintainAspectRatio:false,
+        plugins:{legend:{display:false},tooltip:{callbacks:{label:ctx=>' '+fmtK(ctx.raw)}}},
+        scales:{
+          x:{grid:{display:false},ticks:{font:{size:12},color:'#888780'}},
+          y:{grid:{color:'rgba(136,135,128,0.12)'},ticks:{font:{size:11},color:'#888780',callback:v=>fmtK(v)},border:{display:false}}
+        }
+      }
+    });
+  }
+}
+
+calc();
+</script>
+
+  </main></div>
+
+<section class="celsior-hs-form-panel" id="celsior-hs-form-panel" aria-live="polite">
+  <h2>Continue the conversation</h2>
+  <p>Share your details and a Celsior specialist will follow up on the assessment.</p>
+  <script src="https://js.hsforms.net/forms/embed/developer/40221584.js" defer></script>
+  <div class="hs-form-html" data-region="na1" data-form-id="14603611-2306-41db-892b-61dd59e11a31" data-portal-id="40221584"></div>
+</section>
+
+<footer class="celsior-footer">
+  <div class="celsior-footer__inner">
+    <div><img src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg" alt="Celsior"><p>Enterprise assessment tools for modernization, resilience, and operational clarity.</p></div>
+    <div class="celsior-footer__links"><a href="/assessment-tools">Assessment tools</a><a href="https://dev.celsiortech.us/">Celsior website</a></div>
+  </div>
+</footer>
+
+<script>
+function sendPrompt(message){
+  console.log("CTA clicked:", message);
+  const panel=document.getElementById('celsior-hs-form-panel');
+  if(panel){
+    panel.classList.add('is-visible');
+    panel.scrollIntoView({behavior:'smooth', block:'start'});
+  }
+}
+</script>
+
+  <script src="/shared.js" defer></script>
+</body>
+</html>
