@@ -2260,7 +2260,16 @@
     }
 
     /* ── Mobile styles consolidated above ──
-  </style>
+
+/* Teams delivery reality scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+
+</style>
 
   <!-- Responsive layout system — same approved breakpoints as Our_Focus -->
   <style>
@@ -2561,14 +2570,14 @@
       <h1 class="hero-heading">Delivery teams structured around<br>program requirements. Not assembled around<br>resource availability.
       </h1>
       <div class="hero-btns">
-        <button type="button" class="btn-ghost">
+        <a href="#delivery-reality" class="btn-ghost" onclick="event.preventDefault(); document.getElementById('delivery-reality')?.scrollIntoView({ behavior: 'smooth', block: 'start' });">
           Explore our team models
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button type="button" data-celsior-form="general" class="btn-white">Talk to our delivery team</button>
+        </a>
+        <a href="/contact-us" class="btn-white">Talk to our delivery team</a>
       </div>
     </div>
   </section>
@@ -2623,6 +2632,7 @@
 
   <!-- ① FULL-WIDTH HEADER -->
   <div style=" padding:0 0 28px;">
+    <span id="delivery-reality" class="page-scroll-anchor" aria-hidden="true"></span>
     <p class="eyebrow" >THE DELIVERY REALITY</p>
     <h2 id="cqxq-heading" style="
       font-size:55px; font-weight:700; line-height:60px; color:#09090b;
@@ -3122,7 +3132,7 @@
   <section class="explore">
     <h2>Continue exploring Celsior's capabilities</h2>
     <div class="explore__links">
-      <a href="#">
+      <a href="/our-focus/ai-adoption">
         <span class="explore__row-left">
           <span class="explore__label">ENTERPRISE AI ENABLEMENT</span>
           <span class="explore__text">Skills-Based Teams</span>
@@ -3137,7 +3147,7 @@
           </span>
         </span>
       </a>
-      <a data-celsior-form="ai" href="#">
+      <a href="/solutions/gcc-and-nearshore">
         <span class="explore__row-left">
           <span class="explore__label">NEARSHORE DELIVERY</span>
           <span class="explore__text">Pre-Certified Platform Talent</span>
@@ -3152,7 +3162,7 @@
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/capabilities/ai-led-engineering">
         <span class="explore__row-left">
           <span class="explore__label">AI-LED ENGINEERING</span>
           <span class="explore__text">Regulated Industry Delivery</span>
@@ -3346,7 +3356,7 @@
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
       <h2 class="cta-band-text" data-text="Most Teams-as-a-Service engagements begin with a structured assessment of program requirements and delivery capability alignment.">Most Teams-as-a-Service engagements begin with a structured assessment of program requirements and delivery capability alignment.</h2>
-      <a data-celsior-form="general" href="#contact" class="cta-btn cta-band-btn">Start the conversation</a>
+      <a href="/contact-us" class="cta-btn cta-band-btn">Start the conversation</a>
     </div>
   </section>
 
