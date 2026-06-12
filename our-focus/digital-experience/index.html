@@ -1864,7 +1864,7 @@
 
     /* CTA banner — intentionally smaller, it's a pull-quote style */
     .cta-banner h2.cta-band-text {
-      font-size: clamp(1.2rem, 2.4vw, 1.9rem) !important;
+      font-size: clamp(1.05rem, 1.8vw, 1.45rem) !important;
       letter-spacing: -0.025em !important;
       font-weight: 500 !important;
     }
@@ -2313,8 +2313,10 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      /* Fixed height so all 3 cards are identical — content aligns perfectly */
-      height: clamp(460px, 42vw, 580px);
+      /* Aspect ratio matches the 430x534 card artwork — no more stretched/zoomed crop (10-Jun QC) */
+      aspect-ratio: 430 / 534;
+      height: auto;
+      min-height: 420px;
       overflow: hidden;
       border-radius: clamp(10px, 1.2vw, 16px);
       background: #071018;
@@ -3705,7 +3707,7 @@ experience.</h2>
           </svg>
         </div>
         <span class="em-num">02</span>
-        <h3 class="em-card-title">CAFE — Agent Framework for Enterprises</h3>
+        <h3 class="em-card-title">CAFE<sup>TM</sup> — Agent Framework for Enterprises</h3>
         <p class="em-card-desc">CAFE brings blueprint-driven agent capability to digital product teams enabling LLM agnostic, tool-use and RAG-based agents that accelerate development workflows,  automate testing cycles, and surface engineering decisions faster. For organizations  building the next generation of customer-facing products, CAFE compresses the distance  between prototype and production.</p>
       </div>
 
@@ -3715,19 +3717,16 @@ experience.</h2>
         <div class="em-icon-wrap">
           <svg class="em-icon" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g class="em-chevron-group">
-              <path d="M28 25 L14 45 L28 65" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              <path d="M30 28 L14 45 L30 62" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
                 stroke-linejoin="round" fill="none" opacity="0.9" />
-              <path d="M42 25 L28 45 L42 65" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" fill="none" opacity="0.6" />
-              <path d="M52 35 L62 45 L52 55" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              <path d="M60 28 L76 45 L60 62" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
                 stroke-linejoin="round" fill="none" opacity="0.9" />
-              <path d="M64 30 L76 45 L64 60" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                stroke-linejoin="round" fill="none" opacity="0.55" />
+              <path d="M51 24 L39 66" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none" opacity="0.6" />
             </g>
           </svg>
         </div>
         <span class="em-num">03</span>
-        <h3 class="em-card-title">HALO — Human-AI Loop Orchestration</h3>
+        <h3 class="em-card-title">HALO<sup>TM</sup> — Human-AI Loop Orchestration</h3>
         <p class="em-card-desc">Customer-facing systems require human judgment at critical points in every  workflow. HALO governs the boundary between automated process and human decision  with HITL governance, SLA-based accountability, and full audit traceability. For Banking,  Insurance, and Healthcare organizations, this means digital products that meet regulatory  expectations without sacrificing the responsiveness customers expect.</p>
       </div>
     </div>
@@ -4085,18 +4084,18 @@ alt="Celsior">
 
 <h2
 class="cta-band-text"
-data-text="Most compliance programs begin with the audit.">
+data-text="Most digital transformations begin with the roadmap.">
 
-Most compliance programs begin with the audit.<br>
-The strongest ones begin with the architecture.
+Most digital transformations begin with the roadmap.<br>
+The successful ones begin with the customer journey.
 
 </h2>
 
 <div class="cta-btn-group">
 
-<a href="/contact-us" class="cta-btn cta-band-btn">Speak with Our R&amp;C Practice →</a>
+<a href="/contact-us" class="cta-btn cta-band-btn">Speak with Our Digital Experience Practice →</a>
 
-<a href="/ai-innovation/design-lab" class="cta-btn cta-band-btn cta-btn--light">Assess Your Control Environment →</a>
+<a href="/ai-innovation/design-lab" class="cta-btn cta-band-btn-white" style="color:#fff;">Explore Our Capabilities →</a>
 
 </div>
 

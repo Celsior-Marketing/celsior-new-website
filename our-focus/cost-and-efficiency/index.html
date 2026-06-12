@@ -2313,8 +2313,10 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      /* Fixed height so all 3 cards are identical — content aligns perfectly */
-      height: clamp(460px, 42vw, 580px);
+      /* Aspect ratio matches the 430x534 card artwork — no more stretched/zoomed crop (10-Jun QC) */
+      aspect-ratio: 430 / 534;
+      height: auto;
+      min-height: 420px;
       overflow: hidden;
       border-radius: clamp(10px, 1.2vw, 16px);
       background: #071018;

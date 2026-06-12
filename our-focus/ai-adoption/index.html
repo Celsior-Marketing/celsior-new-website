@@ -2305,8 +2305,10 @@
       position: relative;
       display: flex;
       flex-direction: column;
-      /* Fixed height so all 3 cards are identical — content aligns perfectly */
-      height: clamp(460px, 42vw, 580px);
+      /* Aspect ratio matches the 430x534 card artwork — no more stretched/zoomed crop (10-Jun QC) */
+      aspect-ratio: 430 / 534;
+      height: auto;
+      min-height: 420px;
       overflow: hidden;
       border-radius: clamp(10px, 1.2vw, 16px);
       background: #071018;
@@ -3913,7 +3915,7 @@ directly.</p>
       <img class="cta-band-logo"
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
-      <h2 class="cta-band-text" data-text="Most AI transformations start with understanding<br>where you are.">Most AI transformations start with understanding<br>where you are. </h2>
+      <h2 class="cta-band-text" data-text="Most AI transformations start with understanding where you are.">Most AI transformations start with understanding<br>where you are. </h2>
       <a href="/contact-us" class="cta-btn cta-band-btn">Start the conversation</a>
     </div>
   </section>
