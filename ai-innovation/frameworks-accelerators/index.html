@@ -3303,7 +3303,16 @@
         height: 64px
       }
     }
-  </style>
+
+/* Frameworks friction-points scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -3790,14 +3799,14 @@
       <h1 class="hero-heading">AI pilots are easy. Getting them to production<br> without rebuilding everything is the hard part.
       </h1>
       <div class="hero-btns">
-        <button type="button" data-celsior-form="resource" class="btn-ghost">
+        <a href="/contact-us" class="btn-ghost">
           Request a Briefing
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button type="button" class="btn-white">Explore the Portfolio</button>
+        </a>
+        <a href="#friction-points" class="btn-white" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('friction-points')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Explore the Portfolio</a>
       </div>
     </div>
   </section>
@@ -3843,6 +3852,7 @@
   <section id="platform-ops-cost" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);">
 
     <!-- Heading -->
+    <span id="friction-points" class="page-scroll-anchor" aria-hidden="true"></span>
     <p class="eyebrow">The Friction Points</p>
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
@@ -4765,8 +4775,7 @@
       </h2>
       <p class="cta-band-sub">Share where your program stands today and we will identify which frameworks apply, what a deployment looks like, and what a realistic outcome timeline is.</p>
       <div class="cta-band-btns">
-        <a data-celsior-form="general" href="#contact" class="cta-band-btn-primary cta-band-btn">Talk to Our Team</a>
-        <a data-celsior-form="resource" href="#" class="cta-band-btn-outline">Download Our Capabilities Overview</a>
+        <a href="/contact-us" class="cta-band-btn-primary cta-band-btn">Talk to Our Team</a>
       </div>
     </div>
   </section>
@@ -5113,6 +5122,32 @@
       });
     });
   </script>
+
+<script>
+/* Frameworks requested CTA guard */
+document.addEventListener('click', function(event){
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const safeTargets = [
+    '#friction-points',
+    '/contact-us'
+  ];
+
+  const href = link.getAttribute('href');
+  if (!safeTargets.includes(href)) return;
+
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+
+  if (href === '#friction-points') {
+    event.preventDefault();
+    document.getElementById('friction-points')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return false;
+  }
+}, true);
+</script>
+
 </body>
 
 </html>

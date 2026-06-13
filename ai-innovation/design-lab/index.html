@@ -3031,7 +3031,16 @@
         height: 64px
       }
     }
-  </style>
+
+/* Design Lab how-we-think scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -3656,14 +3665,14 @@
 <br>didn't ask for.
       </h1>
       <div class="hero-btns">
-        <button type="button" class="btn-ghost">
+        <a href="#how-we-think-differently" class="btn-ghost" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('how-we-think-differently')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">
           Explore The Lab
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button type="button" data-celsior-form="ai" class="btn-white">Schedule a Pilot Review →</button>
+        </a>
+        <a href="/contact-us" class="btn-white">Schedule a Pilot Review →</a>
       </div>
     </div>
   </section>
@@ -3826,6 +3835,7 @@ development</h3>
   <section id="platform-ops-cost" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);">
 
     <!-- Heading -->
+    <span id="how-we-think-differently" class="page-scroll-anchor" aria-hidden="true"></span>
     <p class="eyebrow">HOW WE THINK DIFFERENTLY </p>
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
@@ -4028,7 +4038,7 @@ understanding.</span>
   <section class="explore">
     <h2>One connected practice. Three Disciplines<br>that earn their keep</h2>
     <div class="explore__links">
-      <a href="#">
+      <a href="/our-focus/digital-experience">
         <span class="explore__row-left">
           <span class="explore__label">3 Disciplines</span>
           <span class="explore__text explore__text--multiline">
@@ -4046,7 +4056,7 @@ understanding.</span>
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/industries">
         <span class="explore__row-left">
           <span class="explore__label">3 Industries</span>
           <span class="explore__text">Banking & Finance, Healthcare, Insurance</span>
@@ -4061,7 +4071,7 @@ understanding.</span>
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/solutions/managed-programs">
         <span class="explore__row-left">
           <span class="explore__label">End-to-End</span>
           <span class="explore__text explore__text--multiline">
@@ -4343,7 +4353,7 @@ and digital product design</h2>
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
       <h2 class="cta-band-text" data-text="Most product decisions get harder to reverse the longer they go unvalidated. ">Most product decisions get harder to reverse the longer they go unvalidated. </h2>
-      <a data-celsior-form="general" href="#contact" class="cta-btn cta-band-btn">Start the conversation</a>
+      <a href="/contact-us" class="cta-btn cta-band-btn">Start the conversation</a>
     </div>
   </section>
 
@@ -4755,6 +4765,35 @@ and digital product design</h2>
     });
   })();
   </script>
+
+<script>
+/* Design Lab requested CTA guard */
+document.addEventListener('click', function(event){
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const safeTargets = [
+    '#how-we-think-differently',
+    '/contact-us',
+    '/our-focus/digital-experience',
+    '/industries',
+    '/solutions/managed-programs'
+  ];
+
+  const href = link.getAttribute('href');
+  if (!safeTargets.includes(href)) return;
+
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+
+  if (href === '#how-we-think-differently') {
+    event.preventDefault();
+    document.getElementById('how-we-think-differently')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return false;
+  }
+}, true);
+</script>
+
 </body>
 
 </html>
