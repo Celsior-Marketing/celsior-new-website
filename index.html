@@ -3278,31 +3278,24 @@
 
       function goTo(idx, dir) {
         if (idx === activeIdx) return; const prev = activeIdx; activeIdx = idx;
-        if (prev >= 0 && tweens[prev]) { tweens[prev].kill(); tweens[prev] = null; }
-        if (tweens[idx]) { tweens[idx].kill(); tweens[idx] = null; }
+        /* Kill every running slide tween and HARD-RESET all non-target slides to hidden.
+           Fixes overlap bug: on fast scroll the old fade-out tween was being killed mid-flight,
+           leaving the previous slide stuck at partial opacity (SP 12-Jun "Animation Not Working"). */
+        tweens.forEach((tw, i) => { if (tw) { tw.kill(); tweens[i] = null; } });
+        slides.forEach((s, i) => {
+          if (i !== idx) { gsap.set(s, { opacity: 0, y: 0, scale: 0.96, zIndex: 0 }); s.classList.remove('is-current'); }
+        });
         const nextSlide = slides[idx];
         if (prev >= 0 && bgImgs[prev]) gsap.to(bgImgs[prev], { opacity: 0, duration: 0.75, ease: 'power2.inOut' });
         if (bgImgs[idx]) gsap.to(bgImgs[idx], { opacity: 1, duration: 0.75, ease: 'power2.inOut' });
+        nextSlide.classList.add('is-current');
         if (prev < 0) {
-          nextSlide.classList.add('is-current');
           gsap.set(nextSlide, { opacity: 1, y: 0, scale: 1, zIndex: 2 });
           return;
         }
-        const prevSlide = slides[prev];
-        prevSlide.classList.remove('is-current');
-        const exitY = dir >= 0 ? -22 : 22;
         const enterY = dir >= 0 ? 22 : -22;
-        gsap.set(prevSlide, { zIndex: 1 });
         gsap.set(nextSlide, { zIndex: 2, y: enterY, opacity: 0, scale: 0.96 });
-        const tl = gsap.timeline({
-          onComplete() { gsap.set(prevSlide, { y: 0, scale: 1, zIndex: 0, opacity: 0 }); }
-        });
-        tl.to(prevSlide, { opacity: 0, y: exitY, scale: 0.94, duration: 0.38, ease: 'power2.in' });
-        tl.to(nextSlide, {
-          opacity: 1, y: 0, scale: 1, duration: 0.55, ease: 'expo.out',
-          onStart() { nextSlide.classList.add('is-current'); }
-        }, '-=0.18');
-        tweens[prev] = tl; tweens[idx] = tl;
+        tweens[idx] = gsap.to(nextSlide, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: 'expo.out' });
       }
       slides.forEach(s => gsap.set(s, { opacity: 0, y: 18, scale: 0.96, zIndex: 0 })); placeMarkers(-Math.PI / 2); goTo(0, 1);
       const circPerim = 2 * Math.PI * R, ovalPerim = 2 * Math.PI * Math.sqrt((GEO.ovalRX ** 2 + GEO.ovalRY ** 2) / 2);

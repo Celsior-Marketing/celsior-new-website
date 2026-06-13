@@ -278,6 +278,7 @@ a{text-decoration:none;color:inherit;}ul{list-style:none;}
 .nav-links{display:flex;align-items:center;gap:2px;flex:1;}
 .nav-item{position:static;}
 .nav-link{display:inline-flex;align-items:center;gap:5px;padding:7px 13px;font-family:var(--font-body);font-size:.8rem;font-weight:600;letter-spacing:.01em;border-radius:6px;cursor:pointer;user-select:none;white-space:nowrap;color:rgba(255,255,255,.82);transition:color .2s,background .2s;}
+.nav-link{cursor:pointer;}
 .nav-link:hover{color:var(--white);background:rgba(255,255,255,.1);text-decoration:none;}
 .nav-item.active>.nav-link{color:var(--white);background:rgba(255,255,255,.13);}
 #navbar.scrolled .nav-link{color:var(--ink-mid);}
@@ -354,6 +355,7 @@ a.nav-link{text-decoration:none;}
 .mz-item:hover svg{color:var(--accent);transform:translateX(3px);}
 .mz-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
 .partner-logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
+.partner-logo-grid .partner-logo-card:last-child:nth-child(odd){grid-column:1 / -1;}
 .partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:56px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
 .partner-logo-card:hover{transform:translateY(-1px);border-color:rgba(32,86,255,.28);box-shadow:0 10px 24px rgba(20,30,70,.10);}
 .partner-logo-img{max-width:100%;max-height:28px;width:auto;height:auto;object-fit:contain;display:block;}
@@ -375,9 +377,9 @@ a.nav-link{text-decoration:none;}
 .mz-feature-body{margin-top:18px;}
 .mz-feature-title{font-family:var(--font-head);font-size:1.06rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
 .mz-feature-desc{font-size:.82rem;line-height:1.62;color:var(--muted);margin-bottom:18px;}
-.mz-explore{display:inline-flex;align-items:center;gap:9px;padding:11px 22px;background:var(--accent);color:#fff;font-size:.8rem;font-weight:700;border-radius:8px;transition:transform .3s var(--ease-expo),box-shadow .3s,background .2s;}
+.mz-explore{display:inline-flex;align-items:center;gap:9px;padding:11px 22px;background:linear-gradient(120deg, #0A2540 0%, #1B6FB8 50%, #4A8FD4 100%);color:#fff;font-size:.8rem;font-weight:700;border-radius:8px;transition:transform .3s var(--ease-expo),box-shadow .3s,background .2s;}
 .mz-explore svg{transition:transform .3s var(--ease-expo);}
-.mz-explore:hover{background:#1b46d8;transform:translateY(-2px);box-shadow:0 12px 28px rgba(34,84,244,.34);}
+.mz-explore:hover{background:linear-gradient(120deg, #07203a 0%, #14579a 50%, #3f7ec0 100%);transform:translateY(-2px);box-shadow:0 12px 28px rgba(27,111,184,.34);}
 .mz-explore:hover svg{transform:translateX(4px);}
 
 /* — right assessment zone — */
@@ -552,7 +554,7 @@ a.nav-link{text-decoration:none;}
 
   const navLinksHTML = navItems.map(it => `
     <li class="nav-item${activePage === it.key ? ' nav-current' : ''}" data-menu="${it.key}">
-      <a class="nav-link" href="${it.href}">${it.label} ${CHEVRON_SVG}</a>
+      <a class="nav-link" role="button" tabindex="0" aria-haspopup="true" data-href="${it.href}">${it.label} ${CHEVRON_SVG}</a>
     </li>`).join('');
 
   const drawerDivHTML = `
@@ -710,7 +712,7 @@ a.nav-link{text-decoration:none;}
     {
       id:'solve', label:'Our Focus', title:'AI-First Digital Engineering',
       desc:'We build intelligent digital products and platforms that unlock efficiency, resilience, and growth.',
-      explore:{label:'Explore Solutions', href:'/our-focus'},
+      explore:{label:'Learn More', href:'/our-focus'},
       items:[
         {label:'AI Adoption', href:'/our-focus/ai-adoption'},
         {label:'Risk &amp; Compliance', href:'/our-focus/risk-and-compliance'},
@@ -728,7 +730,7 @@ a.nav-link{text-decoration:none;}
     {
       id:'how', label:'Capabilities', title:'Engineering &amp; Operations',
       desc:'Modern engineering capabilities that move regulated enterprises faster, safer, and smarter.',
-      explore:{label:'Explore Capabilities', href:'/capabilities'},
+      explore:{label:'Learn More', href:'/capabilities'},
       items:[
         {label:'AI Led Engineering', href:'/capabilities/ai-led-engineering'},
         {label:'Cloud &amp; Infrastructure Engineering', href:'/capabilities/cloud-and-infrastructure-engineering'},
@@ -746,7 +748,7 @@ a.nav-link{text-decoration:none;}
     {
       id:'deliver', label:'Solutions', title:'Global Delivery Models',
       desc:'Flexible operating models that match your scale, speed, and talent strategy.',
-      explore:{label:'Explore Solutions', href:'/solutions'},
+      explore:{label:'Learn More', href:'/solutions'},
       items:[
         {label:'Managed Programs', href:'/solutions/managed-programs'},
         {label:'Technology Consulting', href:'/solutions/technology-consulting'},
@@ -765,7 +767,7 @@ a.nav-link{text-decoration:none;}
     {
       id:'ai', label:'AI &amp; Innovation', title:'AI &amp; Innovation',
       desc:'Products, labs, and frameworks that turn AI ambition into production reality.',
-      explore:{label:'Explore AI &amp; Innovation', href:'/ai-innovation/celsior-ai-lab'},
+      explore:{label:'Learn More', href:'/ai-innovation/celsior-ai-lab'},
       items:[
         {label:'Synthetix', href:'/ai-innovation/frameworks-accelerators/synthetix'},
         {label:'Celsior AI Lab', href:'/ai-innovation/celsior-ai-lab'},
@@ -783,7 +785,7 @@ a.nav-link{text-decoration:none;}
     {
       id:'industries', label:'Industries', title:'Industries We Serve',
       desc:'Deep domain expertise across the most regulated and complex sectors.',
-      explore:{label:'Explore Industries', href:'/industries'},
+      explore:{label:'Learn More', href:'/industries'},
       items:[
         {label:'Banking &amp; Financial Services', href:'/industries/banking-financial-services'},
         {label:'Insurance', href:'/industries/insurance'},
@@ -799,7 +801,7 @@ a.nav-link{text-decoration:none;}
     {
       id:'partners', label:'Partner Ecosystem', title:'Partner Ecosystem',
       desc:'A curated network of technology and implementation partners that amplify outcomes.',
-      explore:{label:'Explore Partners', href:'/partners'},
+      explore:{label:'Learn More', href:'/partners'},
       items:[
         {label:'Partners', href:'/partners'},
       ],
@@ -807,7 +809,6 @@ a.nav-link{text-decoration:none;}
         {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png'},
         {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png'},
         {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png'},
-        {label:'Dynatrace', href:'/partners', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/22_qilo7h.png'},
       ],
       feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205216/partner-ecosystem-feature_jz8fm1.mp4'},
       assessTag:'Partnerships',
@@ -819,7 +820,7 @@ a.nav-link{text-decoration:none;}
     {
       id:'about', label:'About', title:'About Celsior',
       desc:'Engineering-first culture, global teams, and a mission built for regulated enterprises.',
-      explore:{label:'Explore About', href:'/about'},
+      explore:{label:'Learn More', href:'/about'},
       items:[
         {label:'Who we are + Our Leadership', href:'/about/who-we-are'},
         {label:'AI-first Philosophy', href:'/about/ai-first-philosophy'},
@@ -1197,6 +1198,19 @@ a.nav-link{text-decoration:none;}
   navItemEls.forEach(li => {
     li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
     li.addEventListener('mouseleave', sched);
+    /* Click opens the mega-menu only — tabs no longer navigate to a page (SP 12-Jun) */
+    const trigger = li.querySelector('.nav-link');
+    if (trigger) {
+      const toggle = e => {
+        e.preventDefault();
+        if (active === li.dataset.menu) killPanel(li.dataset.menu);
+        else openPanel(li.dataset.menu);
+      };
+      trigger.addEventListener('click', toggle);
+      trigger.addEventListener('keydown', e => {
+        if (e.key === 'Enter' || e.key === ' ') toggle(e);
+      });
+    }
   });
   megaRoot.addEventListener('mouseenter', cancel);
   megaRoot.addEventListener('mouseleave', sched);
