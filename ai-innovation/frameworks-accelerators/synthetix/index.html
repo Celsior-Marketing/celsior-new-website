@@ -2250,7 +2250,16 @@
         height: 64px
       }
     }
-  </style>
+
+/* Synthetix AI platform scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -2537,14 +2546,14 @@
       <h1 class="hero-heading">Agents that build, not assist.
       </h1>
       <div class="hero-btns">
-        <button type="button" data-celsior-form="ai" class="btn-ghost">
+        <a href="#celsior-ai-platform" class="btn-ghost" onclick="event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation(); document.getElementById('celsior-ai-platform')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">
           Explore the Platform
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button type="button" data-celsior-form="ai" class="btn-white">Request a Demo</button>
+        </a>
+        <a href="/contact-us" class="btn-white">Request a Demo</a>
       </div>
     </div>
   </section>
@@ -3011,6 +3020,7 @@ BRD & IaC refactor cycles</div>
 
   <section id="four-products">
     <div class="fp-head">
+      <span id="celsior-ai-platform" class="page-scroll-anchor" aria-hidden="true"></span>
       <p class="eyebrow">The Celsior AI Platform</p>
       <h2 class="fp-title">
         Four products.
@@ -6477,8 +6487,7 @@ BRD & IaC refactor cycles</div>
       <p class="cta-band-eyebrow">— BEGIN</p>
       <h2 class="cta-band-text" data-text="Stop documenting the past.<br>Build the future.">Stop documenting the past.<br>Build the future.</h2>
       <div class="cta-band-btns">
-        <a data-celsior-form="ai" href="#contact" class="cta-btn cta-band-btn">Request a Demo</a>
-        <a data-celsior-form="resource" href="#" class="cta-btn-outline cta-band-btn">Download platform brief</a>
+        <a href="/contact-us" class="cta-btn cta-band-btn">Request a Demo</a>
       </div>
     </div>
   </section>
@@ -6720,6 +6729,36 @@ BRD & IaC refactor cycles</div>
 
   <script>
     // Solution cards — click to toggle expanded text  </script>
+
+<script>
+/* Change 12 Explore Platform scroll guard */
+document.addEventListener('click', function(event){
+  const link = event.target.closest('a[href="#celsior-ai-platform"].btn-ghost');
+  if (!link) return;
+  event.preventDefault();
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+  document.getElementById('celsior-ai-platform')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}, true);
+</script>
+
+
+<script>
+/* Synthetix page HubSpot disable guard */
+document.addEventListener('click', function(event){
+  const trigger = event.target.closest('[data-celsior-form], a[href="#contact"], a[href="#consultation"]');
+  if (!trigger) return;
+  event.preventDefault();
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+
+  const href = trigger.getAttribute('href');
+  if (href && href !== '#' && href !== '#contact' && href !== '#consultation') {
+    window.location.href = href;
+  }
+}, true);
+</script>
+
 </body>
 
 </html>

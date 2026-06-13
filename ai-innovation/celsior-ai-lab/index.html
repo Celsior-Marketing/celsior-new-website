@@ -2955,7 +2955,16 @@
         height: 64px
       }
     }
-  </style>
+
+/* AI Lab Our Approach scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -3441,14 +3450,14 @@
 <br>pilot stage.
       </h1>
       <div class="hero-btns">
-        <button class="btn-ghost">
-          Explore The Lab
+        <a href="#our-approach" class="btn-ghost" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('our-approach')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">
+          Explore the lab
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button class="btn-white">Schedule a Pilot Review →</button>
+        </a>
+        <a href="/contact-us" class="btn-white">Schedule a Pilot Review →</a>
       </div>
     </div>
   </section>
@@ -3614,7 +3623,8 @@ value remains stagnant.</p>
   <section id="platform-ops-cost" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);">
 
     <!-- Heading -->
-    <p class="eyebrow">Our Approach</p>
+    <span id="our-approach" class="page-scroll-anchor" aria-hidden="true"></span>
+      <p class="eyebrow">Our Approach</p>
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
       One Integrated Platform.
@@ -3633,7 +3643,7 @@ value remains stagnant.</p>
           <div class="solution-card-body">
             <h3>AI-First <br>Digital Engineering Platform </h3>
             <p class="solution-card-text">AI-powered software delivery, agent development, managed agent runtime, and human-AI governance. </p>
-            <a class="solution-link" href="#">Explore Modernization →</a>
+            <a class="solution-link" href="/our-focus/ai-first-digital-engineering">Explore Modernization →</a>
           </div>
         </div>
       </article>
@@ -3645,7 +3655,7 @@ value remains stagnant.</p>
           <div class="solution-card-body">
             <h3>3 Industries </h3>
             <p class="solution-card-text">Regulated industry clients across Banking & Financial Services, Insurance, and Healthcare with sector-specific delivery standards. </p>
-            <a class="solution-link" href="#">Explore Cloud Engineering →</a>
+            <a class="solution-link" href="/capabilities/cloud-and-infrastructure-engineering">Explore Cloud Engineering →</a>
           </div>
         </div>
       </article>
@@ -3657,7 +3667,7 @@ value remains stagnant.</p>
           <div class="solution-card-body">
             <h3>End-to-End </h3>
             <p class="solution-card-text">From strategy and readiness through governed production deployment, continuous monitoring, and operational support. </p>
-            <a class="solution-link" href="#">Learn About Teams-as-a-Service →</a>
+            <a class="solution-link" href="/solutions/teams-as-a-service">Learn About Teams-as-a-Service →</a>
           </div>
         </div>
       </article>
@@ -3683,7 +3693,7 @@ value remains stagnant.</p>
       <p class="eyebrow">Approach</p>
       <h2>Discovery that grounds. Architecture<br>that scales. Delivery that ships</h2>
       <p>Every AI Readiness Assessment, architecture review, and pilot sprint is a joint exercise and not a deliverable handed over at project close. Your teams carry the same technical grounding and governance logic out of the engagement that we built together, so the program holds when the consultants leave. The institutional knowledge does not walk out with them.</p>
-      <a href="#" class="approach-btn">Read More</a>
+      <a href="/ai-innovation/frameworks-accelerators/synthetix" class="approach-btn">Read More</a>
     </div>
   </section>
 
@@ -3803,7 +3813,7 @@ value remains stagnant.</p>
   <section class="explore">
     <h2>Continue exploring Celsior AI Lab's capabilities </h2>
     <div class="explore__links">
-      <a href="#">
+      <a href="/ai-innovation/design-lab">
         <span class="explore__row-left">
           <span class="explore__label">AI STRATEGY Capability</span>
           <span class="explore__text">Enterprise AI Pilots</span>
@@ -3818,7 +3828,7 @@ value remains stagnant.</p>
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/our-focus/ai-first-digital-engineering">
         <span class="explore__row-left">
           <span class="explore__label">AI DELIVERY Capability</span>
           <span class="explore__text">Agentic Workflows</span>
@@ -3833,7 +3843,7 @@ value remains stagnant.</p>
           </span>
         </span>
       </a>
-      <a href="#">
+      <a href="/ai-innovation/frameworks-accelerators">
         <span class="explore__row-left">
           <span class="explore__label">AI ACCELERATION Capability</span>
           <span class="explore__text">GenAI Accelerators</span>
@@ -4088,7 +4098,7 @@ and digital product design</h2>
         src="https://cdn.fastpixel.io/fp/ret_img+v_80dc+q_lossy+to_webp/celsiortech.com%2Fwp-content%2Fuploads%2F2024%2F11%2FCelsior.svg"
         alt="Celsior" />
       <h2 class="cta-band-text" data-text="Most AI program costs compound the longer a governance gap goes uncorrected.">Most AI program costs compound the longer a governance gap goes uncorrected.</h2>
-      <a href="#contact" class="cta-btn cta-band-btn">Start with an AI Readiness Assessment</a>
+      <a href="https://ai.celsiortech.us/" class="cta-btn cta-band-btn">Start with an AI Readiness Assessment</a>
     </div>
   </section>
 
@@ -4434,6 +4444,39 @@ and digital product design</h2>
       });
     });
   </script>
+
+<script>
+/* AI Lab page HubSpot disable guard */
+document.addEventListener('click', function(event){
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const safeTargets = [
+    '#our-approach',
+    '/contact-us',
+    '/our-focus/ai-first-digital-engineering',
+    '/capabilities/cloud-and-infrastructure-engineering',
+    '/solutions/teams-as-a-service',
+    '/ai-innovation/frameworks-accelerators/synthetix',
+    '/ai-innovation/design-lab',
+    '/ai-innovation/frameworks-accelerators',
+    'https://ai.celsiortech.us/'
+  ];
+
+  const href = link.getAttribute('href');
+  if (!safeTargets.includes(href)) return;
+
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+
+  if (href === '#our-approach') {
+    event.preventDefault();
+    document.getElementById('our-approach')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return false;
+  }
+}, true);
+</script>
+
 </body>
 
 </html>
