@@ -725,8 +725,8 @@ a.nav-link{text-decoration:none;}
       feature:{cap:'<em>AI-First</em> digital engineering that evolves at the speed of your business.', title:'AI-First Digital Engineering', desc:'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4'},
       assessTag:'Free Assessment',
       assess:[
-        {title:'Modernization Diagnostic', desc:'2-week assessment of your legacy landscape with a prioritized roadmap.'},
-        {title:'AI Readiness Index', desc:'Benchmark your AI maturity against industry peers.'},
+        {title:'Modernization Readiness Index', desc:'Score your modernization readiness with a prioritized roadmap.'},
+        {title:'72 Hours Codebase Assessment', desc:'Automated review of your codebase delivered in 72 hours.'},
       ],
     },
     {
@@ -743,8 +743,8 @@ a.nav-link{text-decoration:none;}
       feature:{cap:'<em>Platform engineering</em> built for scale and resilience.', title:'Platform Engineering at Scale', desc:'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781206076/capabilities-feature_umennw.mp4'},
       assessTag:'Spotlight',
       assess:[
-        {title:'Cloud Acceleration', desc:'Migrate and modernize critical workloads with zero-downtime patterns.'},
-        {title:'Engineering Health Check', desc:'Assess delivery velocity, quality, and platform maturity.'},
+        {title:'GRC Maturity', desc:'Assess governance, risk, and compliance maturity across your estate.'},
+        {title:'Guidewire Programme Health', desc:'Benchmark the health and delivery risk of your Guidewire programme.'},
       ],
     },
     {
@@ -796,7 +796,7 @@ a.nav-link{text-decoration:none;}
       feature:{cap:'<em>Modernize</em> without disruption.', title:'Regulated Industry Playbook', desc:'How leading banks, insurers, and health systems modernize critical systems with confidence.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204851/industries-feature_paiw9p.mp4'},
       assessTag:'Industry Brief',
       assess:[
-        {title:'Compliance Diagnostic', desc:'Assess regulatory readiness across your technology estate.'},
+        {title:'Prior Authorization', desc:'AI-driven prior authorization for faster, compliant approvals.'},
         {title:'Risk &amp; Resilience Index', desc:'Benchmark operational resilience against sector peers.'},
       ],
     },
@@ -1569,7 +1569,23 @@ a.nav-link{text-decoration:none;}
         'partner-logo-card',
         'drawer-partner-card',
         'gw-engagement-toggle',
-        'dc-engagement-toggle'
+        'dc-engagement-toggle',
+        /* Accordion / case-study rows are expand-toggles, not form CTAs — clicking them must
+           never open the contact modal (SP 12-Jun "screen goes dark on click", common across pages) */
+        'jh-acc-row',
+        'jh-acc-header',
+        'acc-row',
+        'jh-acc-title',
+        'ci-tab',
+        'ci-tab-indicator',
+        'aw-dot',
+        'aw-arrow',
+        'aw-dots',
+        'ag-dot',
+        'ks-dot',
+        'ks-prev',
+        'ks-next',
+        'fem-dot'
       ];
 
       if (ignoredClasses.some(c => cls.includes(c))) return null;
