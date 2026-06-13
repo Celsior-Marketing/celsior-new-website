@@ -33,7 +33,7 @@
   }, window.SITE_CONFIG || {}));
 
   /* ─── 0b. FAVICON + SEO META + GTM/GA + GSC ─────────────────────── */
-  (function injectHead(){
+  (function injectHead() {
     const head = document.head;
     const link = (rel, href, extra) => { const l = document.createElement('link'); l.rel = rel; l.href = href; if (extra) Object.assign(l, extra); return l; };
     const meta = (attr, val, content) => { const m = document.createElement('meta'); m.setAttribute(attr, val); m.content = content; return m; };
@@ -45,10 +45,10 @@
       head.appendChild(link('shortcut icon', SITE_CONFIG.favicon));
     }
 
-    if (!document.querySelector('meta[name="viewport"]')) head.appendChild(meta('name','viewport','width=device-width, initial-scale=1, viewport-fit=cover'));
-    if (!document.querySelector('meta[name="description"]')) head.appendChild(meta('name','description', SITE_CONFIG.defaultDescription));
-    if (!document.querySelector('meta[name="theme-color"]')) head.appendChild(meta('name','theme-color','#11224F'));
-    if (!document.querySelector('meta[name="robots"]')) head.appendChild(meta('name','robots','index, follow, max-image-preview:large'));
+    if (!document.querySelector('meta[name="viewport"]')) head.appendChild(meta('name', 'viewport', 'width=device-width, initial-scale=1, viewport-fit=cover'));
+    if (!document.querySelector('meta[name="description"]')) head.appendChild(meta('name', 'description', SITE_CONFIG.defaultDescription));
+    if (!document.querySelector('meta[name="theme-color"]')) head.appendChild(meta('name', 'theme-color', '#11224F'));
+    if (!document.querySelector('meta[name="robots"]')) head.appendChild(meta('name', 'robots', 'index, follow, max-image-preview:large'));
 
     const titleText = (document.title && document.title.trim()) || SITE_CONFIG.siteName;
     if (!document.title) document.title = titleText;
@@ -61,7 +61,7 @@
       ['og:type', 'website'], ['og:url', pageUrl], ['og:site_name', SITE_CONFIG.siteName],
     ];
     if (SITE_CONFIG.defaultOgImage) og.push(['og:image', SITE_CONFIG.defaultOgImage]);
-    og.forEach(([p, c]) => { if (!document.querySelector('meta[property="'+p+'"]')) head.appendChild(meta('property', p, c)); });
+    og.forEach(([p, c]) => { if (!document.querySelector('meta[property="' + p + '"]')) head.appendChild(meta('property', p, c)); });
 
     const tw = [
       ['twitter:card', SITE_CONFIG.defaultOgImage ? 'summary_large_image' : 'summary'],
@@ -69,31 +69,31 @@
     ];
     if (SITE_CONFIG.twitterHandle) tw.push(['twitter:site', SITE_CONFIG.twitterHandle]);
     if (SITE_CONFIG.defaultOgImage) tw.push(['twitter:image', SITE_CONFIG.defaultOgImage]);
-    tw.forEach(([n, c]) => { if (!document.querySelector('meta[name="'+n+'"]')) head.appendChild(meta('name', n, c)); });
+    tw.forEach(([n, c]) => { if (!document.querySelector('meta[name="' + n + '"]')) head.appendChild(meta('name', n, c)); });
 
     if (!document.querySelector('link[rel="canonical"]')) head.appendChild(link('canonical', pageUrl));
 
     if (SITE_CONFIG.gscVerificationCode && !document.querySelector('meta[name="google-site-verification"]')) {
-      head.appendChild(meta('name','google-site-verification', SITE_CONFIG.gscVerificationCode));
+      head.appendChild(meta('name', 'google-site-verification', SITE_CONFIG.gscVerificationCode));
     }
 
     if (!document.querySelector('script[data-ld="org"]')) {
       const s = document.createElement('script');
-      s.type = 'application/ld+json'; s.setAttribute('data-ld','org');
+      s.type = 'application/ld+json'; s.setAttribute('data-ld', 'org');
       s.textContent = JSON.stringify({
-        '@context':'https://schema.org','@type':'Organization',
-        name:'Pyramid Consulting, Inc.', url: location.origin, logo: SITE_CONFIG.favicon
+        '@context': 'https://schema.org', '@type': 'Organization',
+        name: 'Pyramid Consulting, Inc.', url: location.origin, logo: SITE_CONFIG.favicon
       });
       head.appendChild(s);
     }
 
     // Consent-gated loader; cookie banner calls this on Accept
-    window.__loadAnalytics = function loadAnalytics(){
+    window.__loadAnalytics = function loadAnalytics() {
       if (window.__analyticsLoaded) return;
       window.__analyticsLoaded = true;
       if (SITE_CONFIG.gtmContainerId) {
         window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({'gtm.start': new Date().getTime(), event: 'gtm.js'});
+        window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
         const gtm = document.createElement('script');
         gtm.async = true;
         gtm.src = 'https://www.googletagmanager.com/gtm.js?id=' + SITE_CONFIG.gtmContainerId;
@@ -105,7 +105,7 @@
         ga.src = 'https://www.googletagmanager.com/gtag/js?id=' + SITE_CONFIG.ga4MeasurementId;
         head.appendChild(ga);
         window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){ window.dataLayer.push(arguments); };
+        window.gtag = function () { window.dataLayer.push(arguments); };
         window.gtag('js', new Date());
         const ccpaOut = localStorage.getItem('ccpa_opt_out') === '1';
         window.gtag('config', SITE_CONFIG.ga4MeasurementId, {
@@ -123,13 +123,13 @@
   })();
 
   /* ─── 0c. SKIP-LINK for keyboard accessibility ─────────────────── */
-  (function skipLink(){
+  (function skipLink() {
     if (document.getElementById('skipToMain')) return;
     const a = document.createElement('a');
     a.id = 'skipToMain'; a.href = '#main'; a.textContent = 'Skip to main content';
     a.style.cssText = 'position:fixed;top:-100px;left:8px;z-index:99999;background:#0F172A;color:#fff;padding:10px 16px;border-radius:8px;font:600 14px/1 system-ui,sans-serif;transition:top .15s;';
     a.addEventListener('focus', () => { a.style.top = '8px'; });
-    a.addEventListener('blur',  () => { a.style.top = '-100px'; });
+    a.addEventListener('blur', () => { a.style.top = '-100px'; });
     document.addEventListener('DOMContentLoaded', () => document.body.prepend(a), { once: true });
   })();
 
@@ -509,8 +509,38 @@ a.nav-link{text-decoration:none;}
 }
 
 /* Global button override to match brand color #11224F */
-.cta-btn, .cta-band-btn {
+.cta-btn:not(.cta-band-btn-white), .cta-band-btn:not(.cta-band-btn-white) {
   background: #11224F !important;
+}
+
+/* ═══════════════════════ GLOBAL STATS STRIP HOVER ═════════════════
+   Adds interactive pastel hover to every .stats-grid .stat-col
+   across all pages. 5 colours cycle via nth-child.
+   ═══════════════════════════════════════════════════════════════════ */
+.stats-grid .stat-col {
+  border-radius: 12px;
+  transition: background .35s ease, transform .35s ease, box-shadow .35s ease;
+}
+.stats-grid .stat-col:hover { transform: translateY(-3px); }
+.stats-grid .stat-col:nth-child(5n+1):hover {
+  background: rgba(18, 186, 160, .12);
+  box-shadow: 0 14px 30px -20px rgba(18, 186, 160, .4);
+}
+.stats-grid .stat-col:nth-child(5n+2):hover {
+  background: rgba(34, 84, 244, .10);
+  box-shadow: 0 14px 30px -20px rgba(34, 84, 244, .4);
+}
+.stats-grid .stat-col:nth-child(5n+3):hover {
+  background: rgba(212, 160, 23, .14);
+  box-shadow: 0 14px 30px -20px rgba(212, 160, 23, .4);
+}
+.stats-grid .stat-col:nth-child(5n+4):hover {
+  background: rgba(124, 58, 237, .11);
+  box-shadow: 0 14px 30px -20px rgba(124, 58, 237, .4);
+}
+.stats-grid .stat-col:nth-child(5n+5):hover {
+  background: rgba(232, 131, 74, .13);
+  box-shadow: 0 14px 30px -20px rgba(232, 131, 74, .4);
 }
 `;
   document.head.appendChild(style);
@@ -518,20 +548,20 @@ a.nav-link{text-decoration:none;}
   /* ─── 2.  DETERMINE ACTIVE PAGE ───────────────────────────────────── */
   // Priority: explicit body[data-page] override → auto-detect from URL filename.
   const PAGE_MAP = {
-    'index.html':        'home',
-    '':                  'home',
-    'our_focus.html':    'solve',
-    'what-we-solve.html':'solve',
+    'index.html': 'home',
+    '': 'home',
+    'our_focus.html': 'solve',
+    'what-we-solve.html': 'solve',
     'capabilities.html': 'how',
     'how-we-do-it.html': 'how',
-    'solutions.html':    'deliver',
-    'how-we-deliver.html':'deliver',
-    'ai-innovation.html':'ai',
-    'industries.html':   'industries',
-    'partner-ecosystem.html':'partners',
-    'about.html':        'about',
-    'blogs.html':        'blog',
-    'blog.html':         'blog',
+    'solutions.html': 'deliver',
+    'how-we-deliver.html': 'deliver',
+    'ai-innovation.html': 'ai',
+    'industries.html': 'industries',
+    'partner-ecosystem.html': 'partners',
+    'about.html': 'about',
+    'blogs.html': 'blog',
+    'blog.html': 'blog',
   };
   let activePage = (document.body.dataset.page || '').toLowerCase();
   if (!activePage) {
@@ -545,13 +575,13 @@ a.nav-link{text-decoration:none;}
   const ARROW_SVG = `<svg width="13" height="13" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
 
   const navItems = [
-    { key: 'solve',      label: 'Our Focus',           href: '/our-focus'          },
-    { key: 'how',        label: 'Capabilities',         href: '/capabilities'       },
-    { key: 'deliver',    label: 'Solutions',            href: '/solutions'          },
-    { key: 'ai',         label: 'AI &amp; Innovation',  href: '/ai-innovation/celsior-ai-lab'      },
-    { key: 'industries', label: 'Industries',           href: '/industries'         },
-    { key: 'partners',   label: 'Partner Ecosystem',    href: '/partners'  },
-    { key: 'about',      label: 'About',                href: '/about'              },
+    { key: 'solve', label: 'Our Focus', href: '/our-focus' },
+    { key: 'how', label: 'Capabilities', href: '/capabilities' },
+    { key: 'deliver', label: 'Solutions', href: '/solutions' },
+    { key: 'ai', label: 'AI &amp; Innovation', href: '/ai-innovation/celsior-ai-lab' },
+    { key: 'industries', label: 'Industries', href: '/industries' },
+    { key: 'partners', label: 'Partner Ecosystem', href: '/partners' },
+    { key: 'about', label: 'About', href: '/about' },
   ];
 
   const navLinksHTML = navItems.map(it => `
@@ -631,7 +661,6 @@ a.nav-link{text-decoration:none;}
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Talent Models</div>
           <a href="/solutions/teams-as-a-service">Teams-as-a-Service</a>
-          <a href="/solutions/ai-upskilling">Hire-Train-Deploy</a>
         </div>
 
       </div>
@@ -651,7 +680,6 @@ a.nav-link{text-decoration:none;}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Programs</div>
-          <a href="/ai-innovation/frameworks-accelerators">Centers of Excellence</a>
           <a href="/ai-innovation/frameworks-accelerators">Frameworks &amp; Accelerators</a>
         </div>
 
@@ -712,130 +740,128 @@ a.nav-link{text-decoration:none;}
   /* Data-driven mega panels. Links preserved from the original menus. */
   const MEGA_DATA = [
     {
-      id:'solve', label:'Our Focus', title:'AI-First Digital Engineering',
-      desc:'We build intelligent digital products and platforms that unlock efficiency, resilience, and growth.',
-      explore:{label:'Learn More', href:'/our-focus'},
-      items:[
-        {label:'AI Adoption', href:'/our-focus/ai-adoption'},
-        {label:'Risk &amp; Compliance', href:'/our-focus/risk-and-compliance'},
-        {label:'Cost &amp; Efficiency', href:'/our-focus/cost-and-efficiency'},
-        {label:'Digital Experience', href:'/our-focus/digital-experience'},
-        {label:'AI-First Digital Engineering', href:'/our-focus/ai-first-digital-engineering'},
+      id: 'solve', label: 'Our Focus', title: 'AI-First Digital Engineering',
+      desc: 'We build intelligent digital products and platforms that unlock efficiency, resilience, and growth.',
+      explore: { label: 'Learn More', href: '/our-focus' },
+      items: [
+        { label: 'AI Adoption', href: '/our-focus/ai-adoption' },
+        { label: 'Risk &amp; Compliance', href: '/our-focus/risk-and-compliance' },
+        { label: 'Cost &amp; Efficiency', href: '/our-focus/cost-and-efficiency' },
+        { label: 'Digital Experience', href: '/our-focus/digital-experience' },
+        { label: 'AI-First Digital Engineering', href: '/our-focus/ai-first-digital-engineering' },
       ],
-      feature:{cap:'<em>AI-First</em> digital engineering that evolves at the speed of your business.', title:'AI-First Digital Engineering', desc:'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4'},
-      assessTag:'Free Assessment',
-      assess:[
-        {title:'Modernization Readiness Index', desc:'Score your modernization readiness with a prioritized roadmap.'},
-        {title:'72 Hours Codebase Assessment', desc:'Automated review of your codebase delivered in 72 hours.'},
-      ],
-    },
-    {
-      id:'how', label:'Capabilities', title:'Engineering &amp; Operations',
-      desc:'Modern engineering capabilities that move regulated enterprises faster, safer, and smarter.',
-      explore:{label:'Learn More', href:'/capabilities'},
-      items:[
-        {label:'AI Led Engineering', href:'/capabilities/ai-led-engineering'},
-        {label:'Cloud &amp; Infrastructure Engineering', href:'/capabilities/cloud-and-infrastructure-engineering'},
-        {label:'AI &amp; Data', href:'/capabilities/ai-and-data'},
-        {label:'Digital Operations &amp; Security', href:'/capabilities/digital-operations-and-security'},
-        {label:'Security &amp; Governance', href:'/capabilities/security-and-governance'},
-      ],
-      feature:{cap:'<em>Platform engineering</em> built for scale and resilience.', title:'Platform Engineering at Scale', desc:'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781206076/capabilities-feature_umennw.mp4'},
-      assessTag:'Spotlight',
-      assess:[
-        {title:'GRC Maturity', desc:'Assess governance, risk, and compliance maturity across your estate.'},
-        {title:'Guidewire Programme Health', desc:'Benchmark the health and delivery risk of your Guidewire programme.'},
+      feature: { cap: '<em>AI-First</em> digital engineering that evolves at the speed of your business.', title: 'AI-First Digital Engineering', desc: 'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4' },
+      assessTag: 'Free Assessment',
+      assess: [
+        { title: 'Modernization Readiness Index', desc: 'Score your modernization readiness with a prioritized roadmap.' },
+        { title: '72 Hours Codebase Assessment', desc: 'Automated review of your codebase delivered in 72 hours.' },
       ],
     },
     {
-      id:'deliver', label:'Solutions', title:'Global Delivery Models',
-      desc:'Flexible operating models that match your scale, speed, and talent strategy.',
-      explore:{label:'Learn More', href:'/solutions'},
-      items:[
-        {label:'Managed Programs', href:'/solutions/managed-programs'},
-        {label:'Technology Consulting', href:'/solutions/technology-consulting'},
-        {label:'AI Upskilling', href:'/solutions/ai-upskilling'},
-        {label:'GCC &amp; Nearshore', href:'/solutions/gcc-and-nearshore'},
-        {label:'Teams-as-a-Service', href:'/solutions/teams-as-a-service'},
-        {label:'Hire-Train-Deploy', href:'/solutions/ai-upskilling'},
+      id: 'how', label: 'Capabilities', title: 'Engineering &amp; Operations',
+      desc: 'Modern engineering capabilities that move regulated enterprises faster, safer, and smarter.',
+      explore: { label: 'Learn More', href: '/capabilities' },
+      items: [
+        { label: 'AI Led Engineering', href: '/capabilities/ai-led-engineering' },
+        { label: 'Cloud &amp; Infrastructure Engineering', href: '/capabilities/cloud-and-infrastructure-engineering' },
+        { label: 'AI &amp; Data', href: '/capabilities/ai-and-data' },
+        { label: 'Digital Operations &amp; Security', href: '/capabilities/digital-operations-and-security' },
+        { label: 'Security &amp; Governance', href: '/capabilities/security-and-governance' },
       ],
-      feature:{cap:'<em>The right model</em> for your scale and goals.', title:'GCC vs. Teams-as-a-Service', desc:'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205650/solutions-feature_bvxk2o.mp4'},
-      assessTag:'Compare Models',
-      assess:[
-        {title:'Operating Model Fit', desc:'Map your goals to the ideal delivery and talent model.'},
-        {title:'Nearshore ROI', desc:'Model savings and velocity gains across LATAM and offshore.'},
-      ],
-    },
-    {
-      id:'ai', label:'AI &amp; Innovation', title:'AI &amp; Innovation',
-      desc:'Products, labs, and frameworks that turn AI ambition into production reality.',
-      explore:{label:'Learn More', href:'/ai-innovation/celsior-ai-lab'},
-      items:[
-        {label:'Synthetix', href:'/ai-innovation/frameworks-accelerators/synthetix'},
-        {label:'Celsior AI Lab', href:'/ai-innovation/celsior-ai-lab'},
-        {label:'Design Lab', href:'/ai-innovation/design-lab'},
-        {label:'Centers of Excellence', href:'/ai-innovation/frameworks-accelerators'},
-        {label:'Frameworks &amp; Accelerators', href:'/ai-innovation/frameworks-accelerators'},
-      ],
-      feature:{cap:'<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title:'Synthetix in Action', desc:'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204152/ai-innovation-feature_xmhaon.mp4'},
-      assessTag:'Live Demo',
-      assess:[
-        {title:'AI Readiness Index', desc:'Benchmark your AI maturity against industry peers.'},
-        {title:'GenAI Accelerators', desc:'Ship copilots and agentic workflows in weeks, not quarters.'},
+      feature: { cap: '<em>Platform engineering</em> built for scale and resilience.', title: 'Platform Engineering at Scale', desc: 'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781206076/capabilities-feature_umennw.mp4' },
+      assessTag: 'Spotlight',
+      assess: [
+        { title: 'GRC Maturity', desc: 'Assess governance, risk, and compliance maturity across your estate.' },
+        { title: 'Guidewire Programme Health', desc: 'Benchmark the health and delivery risk of your Guidewire programme.' },
       ],
     },
     {
-      id:'industries', label:'Industries', title:'Industries We Serve',
-      desc:'Deep domain expertise across the most regulated and complex sectors.',
-      explore:{label:'Learn More', href:'/industries'},
-      items:[
-        {label:'Banking &amp; Financial Services', href:'/industries/banking-financial-services'},
-        {label:'Insurance', href:'/industries/insurance'},
-        {label:'Healthcare', href:'/industries/healthcare'},
+      id: 'deliver', label: 'Solutions', title: 'Global Delivery Models',
+      desc: 'Flexible operating models that match your scale, speed, and talent strategy.',
+      explore: { label: 'Learn More', href: '/solutions' },
+      items: [
+        { label: 'Managed Programs', href: '/solutions/managed-programs' },
+        { label: 'Technology Consulting', href: '/solutions/technology-consulting' },
+        { label: 'AI Upskilling', href: '/solutions/ai-upskilling' },
+        { label: 'GCC &amp; Nearshore', href: '/solutions/gcc-and-nearshore' },
+        { label: 'Teams-as-a-Service', href: '/solutions/teams-as-a-service' },
       ],
-      feature:{cap:'<em>Modernize</em> without disruption.', title:'Regulated Industry Playbook', desc:'How leading banks, insurers, and health systems modernize critical systems with confidence.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204851/industries-feature_paiw9p.mp4'},
-      assessTag:'Industry Brief',
-      assess:[
-        {title:'Prior Authorization', desc:'AI-driven prior authorization for faster, compliant approvals.'},
-        {title:'Risk &amp; Resilience Index', desc:'Benchmark operational resilience against sector peers.'},
-      ],
-    },
-    {
-      id:'partners', label:'Partner Ecosystem', title:'Partner Ecosystem',
-      desc:'A curated network of technology and implementation partners that amplify outcomes.',
-      explore:{label:'Learn More', href:'/partners'},
-      items:[
-        {label:'Partners', href:'/partners'},
-      ],
-      partnerLogos:[
-        {label:'Jack Henry', href:'/partners/jack-henry', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png'},
-        {label:'ServiceNow', href:'/partners/servicenow', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png'},
-        {label:'Guidewire', href:'/partners/guidewire', src:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png'},
-      ],
-      feature:{cap:'<em>Join</em> the Celsior ecosystem.', title:'Become a Partner', desc:'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205216/partner-ecosystem-feature_jz8fm1.mp4'},
-      assessTag:'Partnerships',
-      assess:[
-        {title:'Alliance Programs', desc:'Co-build and co-sell with our technology partners.'},
-        {title:'Integration Library', desc:'Pre-built accelerators across leading platforms.'},
+      feature: { cap: '<em>The right model</em> for your scale and goals.', title: 'GCC vs. Teams-as-a-Service', desc: 'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205650/solutions-feature_bvxk2o.mp4' },
+      assessTag: 'Compare Models',
+      assess: [
+        { title: 'Operating Model Fit', desc: 'Map your goals to the ideal delivery and talent model.' },
+        { title: 'Nearshore ROI', desc: 'Model savings and velocity gains across LATAM and offshore.' },
       ],
     },
     {
-      id:'about', label:'About', title:'About Celsior',
-      desc:'Engineering-first culture, global teams, and a mission built for regulated enterprises.',
-      explore:{label:'Learn More', href:'/about'},
-      items:[
-        {label:'Who we are + Our Leadership', href:'/about/who-we-are'},
-        {label:'AI-first Philosophy', href:'/about/ai-first-philosophy'},
-        {label:'Success Stories', href:'/about'},
-        {label:'Blogs', href:'/blogs'},
-        {label:'Careers', href:'/about'},
-        {label:'Events &amp; News', href:'/about'},
+      id: 'ai', label: 'AI &amp; Innovation', title: 'AI &amp; Innovation',
+      desc: 'Products, labs, and frameworks that turn AI ambition into production reality.',
+      explore: { label: 'Learn More', href: '/ai-innovation/celsior-ai-lab' },
+      items: [
+        { label: 'Synthetix', href: '/ai-innovation/frameworks-accelerators/synthetix' },
+        { label: 'Celsior AI Lab', href: '/ai-innovation/celsior-ai-lab' },
+        { label: 'Design Lab', href: '/ai-innovation/design-lab' },
+        { label: 'Frameworks &amp; Accelerators', href: '/ai-innovation/frameworks-accelerators' },
       ],
-      feature:{cap:'<em>Engineering-first</em> culture, global impact.', title:'Life at Celsior', desc:'Join a team building the future of AI-first digital engineering across the globe.', video:'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4'},
-      assessTag:'Join Us',
-      assess:[
-        {title:'Open Roles', desc:'Explore engineering and consulting opportunities worldwide.'},
-        {title:'Our Leadership', desc:'Meet the team driving Celsior\'s mission and vision.'},
+      feature: { cap: '<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title: 'Synthetix in Action', desc: 'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204152/ai-innovation-feature_xmhaon.mp4' },
+      assessTag: 'Live Demo',
+      assess: [
+        { title: 'AI Readiness Index', desc: 'Benchmark your AI maturity against industry peers.' },
+        { title: 'GenAI Accelerators', desc: 'Ship copilots and agentic workflows in weeks, not quarters.' },
+      ],
+    },
+    {
+      id: 'industries', label: 'Industries', title: 'Industries We Serve',
+      desc: 'Deep domain expertise across the most regulated and complex sectors.',
+      explore: { label: 'Learn More', href: '/industries' },
+      items: [
+        { label: 'Banking &amp; Financial Services', href: '/industries/banking-financial-services' },
+        { label: 'Insurance', href: '/industries/insurance' },
+        { label: 'Healthcare', href: '/industries/healthcare' },
+      ],
+      feature: { cap: '<em>Modernize</em> without disruption.', title: 'Regulated Industry Playbook', desc: 'How leading banks, insurers, and health systems modernize critical systems with confidence.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204851/industries-feature_paiw9p.mp4' },
+      assessTag: 'Industry Brief',
+      assess: [
+        { title: 'Prior Authorization', desc: 'AI-driven prior authorization for faster, compliant approvals.' },
+        { title: 'Risk &amp; Resilience Index', desc: 'Benchmark operational resilience against sector peers.' },
+      ],
+    },
+    {
+      id: 'partners', label: 'Partner Ecosystem', title: 'Partner Ecosystem',
+      desc: 'A curated network of technology and implementation partners that amplify outcomes.',
+      explore: { label: 'Learn More', href: '/partners' },
+      items: [
+        { label: 'Partners', href: '/partners' },
+      ],
+      partnerLogos: [
+        { label: 'Jack Henry', href: '/partners/jack-henry', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png' },
+        { label: 'ServiceNow', href: '/partners/servicenow', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png' },
+        { label: 'Guidewire', href: '/partners/guidewire', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png' },
+      ],
+      feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
+      assessTag: 'Partnerships',
+      assess: [
+        { title: 'Alliance Programs', desc: 'Co-build and co-sell with our technology partners.' },
+        { title: 'Integration Library', desc: 'Pre-built accelerators across leading platforms.' },
+      ],
+    },
+    {
+      id: 'about', label: 'About', title: 'About Celsior',
+      desc: 'Engineering-first culture, global teams, and a mission built for regulated enterprises.',
+      explore: { label: 'Learn More', href: '/about' },
+      items: [
+        { label: 'Who we are + Our Leadership', href: '/about/who-we-are' },
+        { label: 'AI-first Philosophy', href: '/about/ai-first-philosophy' },
+        { label: 'Success Stories', href: '/about' },
+        { label: 'Blogs', href: '/blogs' },
+        { label: 'Careers', href: '/about' },
+        { label: 'Events &amp; News', href: '/about' },
+      ],
+      feature: { cap: '<em>Engineering-first</em> culture, global impact.', title: 'Life at Celsior', desc: 'Join a team building the future of AI-first digital engineering across the globe.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
+      assessTag: 'Join Us',
+      assess: [
+        { title: 'Open Roles', desc: 'Explore engineering and consulting opportunities worldwide.' },
+        { title: 'Our Leadership', desc: 'Meet the team driving Celsior\'s mission and vision.' },
       ],
     },
   ];
@@ -876,15 +902,52 @@ a.nav-link{text-decoration:none;}
     'Events &amp; News': 'Conference appearances, press releases, and announcements from Celsior Technologies and Pyramid Consulting.',
   };
 
+  /* Per-option video overlay captions — swapped on hover alongside title/desc */
+  const FEATURE_CAPS = {
+    'AI Adoption': '<em>AI adoption</em> programs that move from proof of concept to production.',
+    'Risk &amp; Compliance': '<em>Risk &amp; compliance</em> engineering that satisfies regulators by design.',
+    'Cost &amp; Efficiency': '<em>Cost &amp; efficiency</em> engineering that optimizes without compromise.',
+    'Digital Experience': '<em>Digital experience</em> engineering that puts the customer journey first.',
+    'AI-First Digital Engineering': '<em>AI-First</em> digital engineering that evolves at the speed of your business.',
+    'AI Led Engineering': '<em>AI-led engineering</em> that accelerates delivery across the full lifecycle.',
+    'Cloud &amp; Infrastructure Engineering': '<em>Cloud infrastructure</em> built for regulated, high-availability environments.',
+    'AI &amp; Data': '<em>AI &amp; Data</em> engineering for governed, production-ready intelligence.',
+    'Digital Operations &amp; Security': '<em>Secure operations</em> management for complex digital environments.',
+    'Security &amp; Governance': '<em>Security &amp; governance</em> frameworks that protect and comply.',
+    'Managed Programs': '<em>Managed programs</em> with end-to-end delivery accountability.',
+    'Technology Consulting': '<em>Technology consulting</em> that translates strategy into architecture.',
+    'GCC &amp; Nearshore': '<em>Global delivery</em> models that reduce cost and accelerate programs.',
+    'Teams-as-a-Service': '<em>Scalable teams</em> with defined roles, governance, and delivery cadence.',
+    'AI Upskilling': '<em>AI upskilling</em> programs that build enterprise workforce capability.',
+    'Synthetix': '<em>Synthetix</em> orchestrates policy, claims, and risk in real time.',
+    'Celsior AI Lab': '<em>AI Lab</em> turning emerging capabilities into production-grade solutions.',
+    'Design Lab': '<em>Design Lab</em> delivering research-led UX for complex enterprise products.',
+    'Frameworks &amp; Accelerators': '<em>Accelerators</em> that compress time-to-value across engagements.',
+    'Banking &amp; Financial Services': '<em>Banking &amp; financial services</em> modernization and compliance.',
+    'Insurance': '<em>Insurance</em> digital transformation across the value chain.',
+    'Healthcare': '<em>Healthcare</em> digital transformation for payors, providers, and pharma.',
+    'Partners': '<em>Join</em> the Celsior ecosystem.',
+    'ServiceNow': '<em>ServiceNow</em> implementation and managed services for enterprises.',
+    'Guidewire': '<em>Guidewire</em> certified partnership for insurance carriers.',
+    'Jack Henry': '<em>Jack Henry</em> integration and modernization for community banking.',
+    'Who we are + Our Leadership': '<em>Engineering-first</em> culture, global impact.',
+    'AI-first Philosophy': '<em>AI-first philosophy</em> embedded in every engagement.',
+    'Success Stories': '<em>Measurable outcomes</em> across regulated industries.',
+    'Blogs': '<em>Technical perspectives</em> from Celsior practitioners.',
+    'Careers': '<em>Join a team</em> building the future of AI-first engineering.',
+    'Events &amp; News': '<em>Events &amp; news</em> from Celsior Technologies.',
+  };
+
   function buildMegaPanel(d) {
     const items = d.items.map(it => {
       const fdesc = (FEATURE_DESCS[it.label] || d.feature.desc).replace(/"/g, '&quot;');
-      return `<a class="mz-item" href="${it.href}" data-ftitle="${it.label}" data-fdesc="${fdesc}">${it.label} ${ITEM_CHEV}</a>`;
+      const fcap = (FEATURE_CAPS[it.label] || d.feature.cap).replace(/"/g, '&quot;');
+      return `<a class="mz-item" href="${it.href}" data-ftitle="${it.label}" data-fdesc="${fdesc}" data-fcap="${fcap}">${it.label} ${ITEM_CHEV}</a>`;
     }).join('');
     const pills = d.partnerLogos
-      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card mz-item" href="${p.href}" title="${p.label}" data-ftitle="${p.label}" data-fdesc="${(FEATURE_DESCS[p.label] || d.feature.desc).replace(/"/g, '&quot;')}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
+      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card mz-item" href="${p.href}" title="${p.label}" data-ftitle="${p.label}" data-fdesc="${(FEATURE_DESCS[p.label] || d.feature.desc).replace(/"/g, '&quot;')}" data-fcap="${(FEATURE_CAPS[p.label] || d.feature.cap).replace(/"/g, '&quot;')}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
       : (d.pills ? `<div class="mz-pills">${d.pills.map(p => `<a class="mz-pill" href="${d.items[0].href}"><span class="p-dot"></span>${p}</a>`).join('')}</div>` : '');
-    const assess = d.assess.map((a,i) => `
+    const assess = d.assess.map((a, i) => `
         <a class="mz-assess-card" href="${d.explore.href}">
           <div class="mz-assess-icon">${ASSESS_ICONS[i % ASSESS_ICONS.length]}</div>
           <div><div class="mz-assess-title">${a.title}</div><div class="mz-assess-desc">${a.desc}</div></div>
@@ -902,8 +965,8 @@ a.nav-link{text-decoration:none;}
       <div class="mega-zone">
         <a class="mz-feature-card" href="${d.explore.href}">
           ${d.feature.video
-            ? `<video class="mz-feature-img" autoplay muted loop playsinline preload="auto" poster="${FEATURE_IMG}"><source src="${d.feature.video}" type="video/mp4"></video>`
-            : `<img class="mz-feature-img" src="${FEATURE_IMG}" alt="${d.feature.title}" loading="lazy"/>`}
+        ? `<video class="mz-feature-img" autoplay muted loop playsinline preload="auto" poster="${FEATURE_IMG}"><source src="${d.feature.video}" type="video/mp4"></video>`
+        : `<img class="mz-feature-img" src="${FEATURE_IMG}" alt="${d.feature.title}" loading="lazy"/>`}
           <div class="mz-feature-cap">${d.feature.cap}</div>
         </a>
         <div class="mz-feature-body">
@@ -975,7 +1038,7 @@ a.nav-link{text-decoration:none;}
       /* also fall back only if literally nothing has loaded (quota/interstitial cases) */
       setTimeout(() => { if (v.readyState === 0 && v.networkState !== 2) toImage(); }, 15000);
       /* nudge playback when the menu opens (some browsers defer hidden-video autoplay) */
-      const nudge = () => { if (v.paused && !v.dataset.fbDone) v.play().catch(() => {}); };
+      const nudge = () => { if (v.paused && !v.dataset.fbDone) v.play().catch(() => { }); };
       const host = v.closest('.mega') || v.closest('[class*="mega"]') || navEl;
       host.addEventListener('mouseenter', nudge);
       document.addEventListener('visibilitychange', () => { if (!document.hidden) nudge(); });
@@ -1014,18 +1077,18 @@ a.nav-link{text-decoration:none;}
        mirrors the desktop mega menu. Original drawer link groups are
        preserved untouched. */
     const DRAWER_MEGA_MAP = {
-      'd-solve':'solve','d-how':'how','d-deliver':'deliver','d-ai':'ai',
-      'd-ind':'industries','d-part':'partners','d-about':'about'
+      'd-solve': 'solve', 'd-how': 'how', 'd-deliver': 'deliver', 'd-ai': 'ai',
+      'd-ind': 'industries', 'd-part': 'partners', 'd-about': 'about'
     };
-    Object.keys(DRAWER_MEGA_MAP).forEach(function(subId){
+    Object.keys(DRAWER_MEGA_MAP).forEach(function (subId) {
       const sub = drawerEl.querySelector('#' + subId);
       if (!sub) return;
-      const data = MEGA_DATA.find(function(m){ return m.id === DRAWER_MEGA_MAP[subId]; });
+      const data = MEGA_DATA.find(function (m) { return m.id === DRAWER_MEGA_MAP[subId]; });
       if (!data) return;
       const pillsHTML = data.partnerLogos
-        ? `<div class="drawer-partner-grid">${data.partnerLogos.map(function(p){ return `<a class="drawer-partner-card" href="${p.href}" title="${p.label}"><img class="drawer-partner-logo" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`; }).join('')}</div>`
-        : (data.pills ? `<div class="drawer-mega-pills">${data.pills.map(function(p){ return `<a href="${data.items[0].href}"><span class="p-dot"></span>${p}</a>`; }).join('')}</div>` : '');
-      const assessHTML = (data.assess || []).map(function(a,i){
+        ? `<div class="drawer-partner-grid">${data.partnerLogos.map(function (p) { return `<a class="drawer-partner-card" href="${p.href}" title="${p.label}"><img class="drawer-partner-logo" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`; }).join('')}</div>`
+        : (data.pills ? `<div class="drawer-mega-pills">${data.pills.map(function (p) { return `<a href="${data.items[0].href}"><span class="p-dot"></span>${p}</a>`; }).join('')}</div>` : '');
+      const assessHTML = (data.assess || []).map(function (a, i) {
         return `<a class="drawer-mega-card" href="${data.explore.href}">
           <div class="ic">${ASSESS_ICONS[i % ASSESS_ICONS.length]}</div>
           <div class="bd"><div class="t">${a.title}</div><div class="d">${a.desc}</div></div>
@@ -1053,10 +1116,9 @@ a.nav-link{text-decoration:none;}
   footerEl.className = 'site-footer-light';
   footerEl.id = 'siteFooterLight';
   const CF_CHEV = `<svg viewBox="0 0 12 12" fill="none"><path d="M4 2.5L7.5 6L4 9.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
-  function cfCol(head, links){
-    return `<div class="cf-col"><p class="cf-col-head">${head}</p><nav class="cf-col-links">${
-      links.map(l => `<a href="${l.href}" class="cf-col-link"><span>${l.label}</span>${CF_CHEV}</a>`).join('')
-    }</nav></div>`;
+  function cfCol(head, links) {
+    return `<div class="cf-col"><p class="cf-col-head">${head}</p><nav class="cf-col-links">${links.map(l => `<a href="${l.href}" class="cf-col-link"><span>${l.label}</span>${CF_CHEV}</a>`).join('')
+      }</nav></div>`;
   }
 
   footerEl.innerHTML = `
@@ -1093,43 +1155,43 @@ a.nav-link{text-decoration:none;}
           <a href="mailto:info@pyramidconsulting.com">info@pyramidconsulting.com</a>
         </div>
       </div>
-      ${cfCol('About',[
-        {label:'Who we are', href:'/about/who-we-are'},
-        {label:'AI first philosophy', href:'/about/ai-first-philosophy'},
-        {label:'Blogs', href:'/blogs'},
-      ])}
-      ${cfCol('Our Focus',[
-        {label:'AI-First Digital Engineering', href:'/our-focus/ai-first-digital-engineering'},
-        {label:'AI Adoption', href:'/our-focus/ai-adoption'},
-        {label:'Risk &amp; Compliance', href:'/our-focus/risk-and-compliance'},
-        {label:'Cost &amp; Efficiency', href:'/our-focus/cost-and-efficiency'},
-        {label:'Digital Experience', href:'/our-focus/digital-experience'},
-      ])}
-      ${cfCol('Capabilities',[
-        {label:'AI-Led Engineering', href:'/capabilities/ai-led-engineering'},
-        {label:'Cloud &amp; Infrastructure', href:'/capabilities/cloud-and-infrastructure-engineering'},
-        {label:'AI &amp; Data', href:'/capabilities/ai-and-data'},
-        {label:'Digital Operations &amp; Sec.', href:'/capabilities/digital-operations-and-security'},
-        {label:'Security &amp; Governance', href:'/capabilities/security-and-governance'},
-      ])}
-      ${cfCol('Solutions',[
-        {label:'Managed Programs', href:'/solutions/managed-programs'},
-        {label:'Technology Consulting', href:'/solutions/technology-consulting'},
-        {label:'GCC &amp; Nearshore', href:'/solutions/gcc-and-nearshore'},
-        {label:'Teams-as-a-Service', href:'/solutions/teams-as-a-service'},
-        {label:'AI Upskilling', href:'/solutions/ai-upskilling'},
-      ])}
-      ${cfCol('AI &amp; Innovation',[
-        {label:'Synthetix', href:'/ai-innovation/frameworks-accelerators/synthetix'},
-        {label:'Celsior AI Lab', href:'/ai-innovation/celsior-ai-lab'},
-        {label:'Design Lab', href:'/ai-innovation/design-lab'},
-        {label:'Frameworks &amp; Acc.', href:'/ai-innovation/frameworks-accelerators'},
-      ])}
-      ${cfCol('Industries',[
-        {label:'Banking &amp; Financial', href:'/industries/banking-financial-services'},
-        {label:'Insurance', href:'/industries/insurance'},
-        {label:'Healthcare', href:'/industries/healthcare'},
-      ])}
+      ${cfCol('About', [
+    { label: 'Who we are', href: '/about/who-we-are' },
+    { label: 'AI first philosophy', href: '/about/ai-first-philosophy' },
+    { label: 'Blogs', href: '/blogs' },
+  ])}
+      ${cfCol('Our Focus', [
+    { label: 'AI-First Digital Engineering', href: '/our-focus/ai-first-digital-engineering' },
+    { label: 'AI Adoption', href: '/our-focus/ai-adoption' },
+    { label: 'Risk &amp; Compliance', href: '/our-focus/risk-and-compliance' },
+    { label: 'Cost &amp; Efficiency', href: '/our-focus/cost-and-efficiency' },
+    { label: 'Digital Experience', href: '/our-focus/digital-experience' },
+  ])}
+      ${cfCol('Capabilities', [
+    { label: 'AI-Led Engineering', href: '/capabilities/ai-led-engineering' },
+    { label: 'Cloud &amp; Infrastructure', href: '/capabilities/cloud-and-infrastructure-engineering' },
+    { label: 'AI &amp; Data', href: '/capabilities/ai-and-data' },
+    { label: 'Digital Operations &amp; Sec.', href: '/capabilities/digital-operations-and-security' },
+    { label: 'Security &amp; Governance', href: '/capabilities/security-and-governance' },
+  ])}
+      ${cfCol('Solutions', [
+    { label: 'Managed Programs', href: '/solutions/managed-programs' },
+    { label: 'Technology Consulting', href: '/solutions/technology-consulting' },
+    { label: 'GCC &amp; Nearshore', href: '/solutions/gcc-and-nearshore' },
+    { label: 'Teams-as-a-Service', href: '/solutions/teams-as-a-service' },
+    { label: 'AI Upskilling', href: '/solutions/ai-upskilling' },
+  ])}
+      ${cfCol('AI &amp; Innovation', [
+    { label: 'Synthetix', href: '/ai-innovation/frameworks-accelerators/synthetix' },
+    { label: 'Celsior AI Lab', href: '/ai-innovation/celsior-ai-lab' },
+    { label: 'Design Lab', href: '/ai-innovation/design-lab' },
+    { label: 'Frameworks &amp; Acc.', href: '/ai-innovation/frameworks-accelerators' },
+  ])}
+      ${cfCol('Industries', [
+    { label: 'Banking &amp; Financial', href: '/industries/banking-financial-services' },
+    { label: 'Insurance', href: '/industries/insurance' },
+    { label: 'Healthcare', href: '/industries/healthcare' },
+  ])}
     </div>
   </div>
 
@@ -1160,7 +1222,7 @@ a.nav-link{text-decoration:none;}
     if (oldFooter) oldFooter.remove();
     document.body.appendChild(footerEl);
     // Footer entrance micro-interactions (GSAP if present, IntersectionObserver-triggered)
-    (function animateFooter(){
+    (function animateFooter() {
       if (typeof IntersectionObserver === 'undefined') return;
       const targets = footerEl.querySelectorAll('.cf-brand,.cf-top .cf-col,.cf-mid .cf-col,.cf-cta');
       if (typeof gsap === 'undefined') return;
@@ -1256,32 +1318,36 @@ a.nav-link{text-decoration:none;}
   megaRoot.addEventListener('mouseenter', cancel);
   megaRoot.addEventListener('mouseleave', sched);
 
-  /* Hover-to-preview: middle feature card swaps title/desc/CTA to the hovered left option (SP 12-Jun) */
+  /* Hover-to-preview: middle feature card swaps title/desc/cap/CTA to the hovered left option (SP 12-Jun) */
   megaRoot.querySelectorAll('.mega-panel').forEach(panel => {
     const titleEl = panel.querySelector('.mz-feature-title');
     const descEl = panel.querySelector('.mz-feature-desc');
+    const capEl = panel.querySelector('.mz-feature-cap');
     const cardEl = panel.querySelector('.mz-feature-card');
     const exploreEl = panel.querySelector('.mz-explore');
     const list = panel.querySelector('.mega-zone'); /* left column — boundary for revert (covers list + partner logos) */
     if (!titleEl || !descEl || !list) return;
     const def = {
       title: titleEl.textContent, desc: descEl.textContent,
+      cap: capEl ? capEl.innerHTML : '',
       card: cardEl && cardEl.getAttribute('href'),
       explore: exploreEl && exploreEl.getAttribute('href'),
     };
-    const swap = (t, ds, href) => {
+    const swap = (t, ds, capHTML, href) => {
       titleEl.textContent = t; descEl.textContent = ds;
+      if (capEl && capHTML) capEl.innerHTML = capHTML;
       if (cardEl && href) cardEl.setAttribute('href', href);
       if (exploreEl && href) exploreEl.setAttribute('href', href);
       titleEl.classList.remove('mz-feat-pulse'); void titleEl.offsetWidth; titleEl.classList.add('mz-feat-pulse');
       descEl.classList.remove('mz-feat-pulse'); void descEl.offsetWidth; descEl.classList.add('mz-feat-pulse');
+      if (capEl) { capEl.classList.remove('mz-feat-pulse'); void capEl.offsetWidth; capEl.classList.add('mz-feat-pulse'); }
     };
     panel.querySelectorAll('.mz-item').forEach(item => {
       item.addEventListener('mouseenter', () => {
-        swap(item.getAttribute('data-ftitle'), item.getAttribute('data-fdesc'), item.getAttribute('href'));
+        swap(item.getAttribute('data-ftitle'), item.getAttribute('data-fdesc'), item.getAttribute('data-fcap'), item.getAttribute('href'));
       });
     });
-    list.addEventListener('mouseleave', () => swap(def.title, def.desc, def.card === undefined ? null : def.card));
+    list.addEventListener('mouseleave', () => swap(def.title, def.desc, def.cap, def.card === undefined ? null : def.card));
   });
 
   bdEl.addEventListener('click', () => { if (active) killPanel(active); });
@@ -1323,7 +1389,7 @@ a.nav-link{text-decoration:none;}
      preferences" and "Do Not Sell or Share My Info" links reopen the
      modals. Analytics scripts only load after Accept.
   ─────────────────────────────────────────────────────────────────── */
-  (function consent(){
+  (function consent() {
     const CONSENT_KEY = 'cookie_consent_v1';
     const CCPA_KEY = 'ccpa_opt_out';
     const stored = localStorage.getItem(CONSENT_KEY);
@@ -1351,9 +1417,9 @@ a.nav-link{text-decoration:none;}
     `;
     document.head.appendChild(css);
 
-    function buildBanner(){
+    function buildBanner() {
       const b = document.createElement('div');
-      b.className = 'ck-banner'; b.setAttribute('role','dialog'); b.setAttribute('aria-label','Cookie consent');
+      b.className = 'ck-banner'; b.setAttribute('role', 'dialog'); b.setAttribute('aria-label', 'Cookie consent');
       b.innerHTML = `
         <p><strong>We value your privacy.</strong> We use cookies to enhance your experience, analyze traffic, and personalize content. See our <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy Policy</a>.</p>
         <div class="ck-btns">
@@ -1371,22 +1437,22 @@ a.nav-link{text-decoration:none;}
       return b;
     }
 
-    function setConsent(level){
+    function setConsent(level) {
       localStorage.setItem(CONSENT_KEY, JSON.stringify({ level, ts: Date.now() }));
       if (level === 'all' || level === 'analytics') {
         if (typeof window.__loadAnalytics === 'function') window.__loadAnalytics();
       }
     }
 
-    function openPrefs(){
-      const cur = (() => { try { return JSON.parse(localStorage.getItem(CONSENT_KEY)) || {}; } catch(_) { return {}; } })().level || 'essential';
+    function openPrefs() {
+      const cur = (() => { try { return JSON.parse(localStorage.getItem(CONSENT_KEY)) || {}; } catch (_) { return {}; } })().level || 'essential';
       const m = document.createElement('div'); m.className = 'ck-modal';
       m.innerHTML = `
         <div class="ck-modal-card" role="dialog" aria-modal="true" aria-label="Cookie preferences">
           <h3>Cookie preferences</h3>
           <p>Choose which categories of cookies we may use. You can change this at any time from the footer.</p>
           <div class="ck-row"><label>Essential <small>Required for the site to function.</small></label><span>Always on</span></div>
-          <div class="ck-row"><label for="ck-an">Analytics <small>Helps us understand site usage.</small></label><input id="ck-an" type="checkbox" ${cur==='all'||cur==='analytics'?'checked':''}></div>
+          <div class="ck-row"><label for="ck-an">Analytics <small>Helps us understand site usage.</small></label><input id="ck-an" type="checkbox" ${cur === 'all' || cur === 'analytics' ? 'checked' : ''}></div>
           <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
             <button class="ck-btn" data-act="cancel">Cancel</button>
             <button class="ck-btn primary" data-act="save">Save preferences</button>
@@ -1403,14 +1469,14 @@ a.nav-link{text-decoration:none;}
       document.body.appendChild(m);
     }
 
-    function openCcpa(){
+    function openCcpa() {
       const out = localStorage.getItem(CCPA_KEY) === '1';
       const m = document.createElement('div'); m.className = 'ck-modal';
       m.innerHTML = `
         <div class="ck-modal-card" role="dialog" aria-modal="true" aria-label="CCPA opt-out">
           <h3>Do Not Sell or Share My Personal Information</h3>
           <p>Under the California Consumer Privacy Act (CCPA/CPRA), you may opt out of the "sharing" of your personal information for cross-context behavioral advertising.</p>
-          <div class="ck-row"><label for="ck-ccpa">Opt me out of sharing <small>Applies to this browser. Disables ad personalization signals.</small></label><input id="ck-ccpa" type="checkbox" ${out?'checked':''}></div>
+          <div class="ck-row"><label for="ck-ccpa">Opt me out of sharing <small>Applies to this browser. Disables ad personalization signals.</small></label><input id="ck-ccpa" type="checkbox" ${out ? 'checked' : ''}></div>
           <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
             <button class="ck-btn" data-act="cancel">Cancel</button>
             <button class="ck-btn primary" data-act="save">Save choice</button>
@@ -1439,7 +1505,7 @@ a.nav-link{text-decoration:none;}
         if (level === 'all' || level === 'analytics') {
           if (typeof window.__loadAnalytics === 'function') window.__loadAnalytics();
         }
-      } catch (_) {}
+      } catch (_) { }
     }
 
     // Wire footer "Cookie preferences" and "Do Not Sell" links
@@ -1488,48 +1554,56 @@ a.nav-link{text-decoration:none;}
     };
 
     const ctaRules = [
-      { type: 'assessment', phrases: [
-        'assess your readiness',
-        'request ai readiness assessment',
-        'start ai readiness assessment',
-        'start assessment',
-        'modernization assessment',
-        'request assessment'
-      ] },
-      { type: 'download', phrases: [
-        'download capability brief',
-        'download guide',
-        'download the ai readiness framework',
-        'download ai readiness framework',
-        'access report',
-        'view case study',
-        'get the brief',
-        'request resource'
-      ] },
-      { type: 'partner', phrases: [
-        'partner with us',
-        'explore partnership',
-        'alliance inquiry',
-        'vendor inquiry',
-        'send inquiry'
-      ] },
-      { type: 'general', phrases: [
-        'talk to an expert',
-        'talk to a celsior expert',
-        'talk to us',
-        'talk to our practice lead',
-        'speak to our team',
-        'start the conversation',
-        'book a discovery call',
-        'schedule consultation',
-        'schedule a consultation',
-        'schedule a conversation',
-        'get in touch',
-        'get started',
-        'start your transformation',
-        'start your cloud journey',
-        'submit request'
-      ] }
+      {
+        type: 'assessment', phrases: [
+          'assess your readiness',
+          'request ai readiness assessment',
+          'start ai readiness assessment',
+          'start assessment',
+          'modernization assessment',
+          'request assessment'
+        ]
+      },
+      {
+        type: 'download', phrases: [
+          'download capability brief',
+          'download guide',
+          'download the ai readiness framework',
+          'download ai readiness framework',
+          'access report',
+          'view case study',
+          'get the brief',
+          'request resource'
+        ]
+      },
+      {
+        type: 'partner', phrases: [
+          'partner with us',
+          'explore partnership',
+          'alliance inquiry',
+          'vendor inquiry',
+          'send inquiry'
+        ]
+      },
+      {
+        type: 'general', phrases: [
+          'talk to an expert',
+          'talk to a celsior expert',
+          'talk to us',
+          'talk to our practice lead',
+          'speak to our team',
+          'start the conversation',
+          'book a discovery call',
+          'schedule consultation',
+          'schedule a consultation',
+          'schedule a conversation',
+          'get in touch',
+          'get started',
+          'start your transformation',
+          'start your cloud journey',
+          'submit request'
+        ]
+      }
     ];
 
     function normaliseText(text) {
@@ -1585,7 +1659,8 @@ a.nav-link{text-decoration:none;}
         'ks-dot',
         'ks-prev',
         'ks-next',
-        'fem-dot'
+        'fem-dot',
+        'fp-pill'
       ];
 
       if (ignoredClasses.some(c => cls.includes(c))) return null;
@@ -1804,7 +1879,7 @@ a.nav-link{text-decoration:none;}
 
     const targetUrl = '/capabilities/ai-led-engineering';
 
-    Array.from(document.querySelectorAll('a, button')).forEach(function(el) {
+    Array.from(document.querySelectorAll('a, button')).forEach(function (el) {
       const label = (el.textContent || '').replace(/\s+/g, ' ').trim().toLowerCase();
       if (label !== 'explore our approach') return;
 
@@ -1814,7 +1889,7 @@ a.nav-link{text-decoration:none;}
 
       el.setAttribute('data-celsior-no-modal', 'true');
 
-      el.addEventListener('click', function(event) {
+      el.addEventListener('click', function (event) {
         event.preventDefault();
         event.stopPropagation();
         window.location.href = targetUrl;
