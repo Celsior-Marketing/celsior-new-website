@@ -375,6 +375,8 @@ a.nav-link{text-decoration:none;}
 .mz-feature-cap{position:absolute;left:18px;right:18px;bottom:16px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.94rem;font-weight:700;line-height:1.3;}
 .mz-feature-cap em{color:#3ddc97;font-style:normal;}
 .mz-feature-body{margin-top:18px;}
+.mz-feat-pulse{animation:mzFeatPulse .32s ease;}
+@keyframes mzFeatPulse{from{opacity:.25;transform:translateY(4px);}to{opacity:1;transform:translateY(0);}}
 .mz-feature-title{font-family:var(--font-head);font-size:1.06rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
 .mz-feature-desc{font-size:.82rem;line-height:1.62;color:var(--muted);margin-bottom:18px;}
 .mz-explore{display:inline-flex;align-items:center;gap:9px;padding:11px 22px;background:linear-gradient(120deg, #0A2540 0%, #1B6FB8 50%, #4A8FD4 100%);color:#fff;font-size:.8rem;font-weight:700;border-radius:8px;transition:transform .3s var(--ease-expo),box-shadow .3s,background .2s;}
@@ -838,10 +840,49 @@ a.nav-link{text-decoration:none;}
     },
   ];
 
+  /* Per-option feature copy — the middle feature card swaps to this on hover (SP 12-Jun, mapped from Celsior-Mega Menu Content.docx) */
+  const FEATURE_DESCS = {
+    'AI Adoption': 'Structured programs that take AI initiatives from proof of concept to production at enterprise scale.',
+    'Risk &amp; Compliance': 'Technology solutions that satisfy regulatory requirements and strengthen audit readiness across regulated industries.',
+    'Cost &amp; Efficiency': 'Automation and cloud optimization that reduce operating costs without sacrificing delivery quality.',
+    'Digital Experience': 'Research-led product design and engineering that improves customer and employee experiences across every channel.',
+    'AI-First Digital Engineering': 'AI-First digital engineering platform built with intelligence and a human loop at every layer, from architecture to deployment.',
+    'AI Led Engineering': 'Faster software delivery through AI-assisted design, testing, and deployment across the full development lifecycle.',
+    'Cloud &amp; Infrastructure Engineering': 'Multi-cloud architecture, migration, and managed infrastructure built for regulated, high-availability environments.',
+    'AI &amp; Data': 'Data engineering and AI model deployment for enterprises that need governed, production-ready intelligence.',
+    'Digital Operations &amp; Security': 'Continuous monitoring, incident response, and secure operations management for complex digital environments.',
+    'Security &amp; Governance': 'Enterprise security architecture and governance frameworks that protect assets and satisfy regulatory requirements.',
+    'Managed Programs': 'End-to-end program delivery where Celsior owns accountability from planning through execution and support.',
+    'Technology Consulting': 'Strategic advisory that translates business objectives into executable technology roadmaps and architecture decisions.',
+    'GCC &amp; Nearshore': 'Global Capability Center setup and nearshore delivery models that reduce cost and accelerate digital programs.',
+    'Teams-as-a-Service': 'Pre-built, scalable engineering teams with defined roles, governance, and delivery cadence — ready to deploy.',
+    'AI Upskilling': 'Structured training programs that build enterprise workforce capability in applied AI, data, and engineering.',
+    'Synthetix': "Celsior's AI-first platform for building, running, and governing enterprise applications at speed and scale.",
+    'Celsior AI Lab': 'Applied research and rapid prototyping that turns emerging AI capabilities into production-grade enterprise solutions.',
+    'Design Lab': 'Human-centered design studio delivering research-led UX and interaction systems for complex enterprise products.',
+    'Frameworks &amp; Accelerators': 'Pre-built accelerators and delivery toolkits that compress time-to-value across Celsior engineering engagements.',
+    'Banking &amp; Financial Services': 'Technology and AI services for banks, capital markets, and fintech firms navigating modernization and compliance.',
+    'Insurance': 'End-to-end digital and AI services across policy, underwriting, claims, and distribution for carriers and MGAs.',
+    'Healthcare': 'Digital transformation and AI services for payors, providers, pharma, and medical device companies.',
+    'Partners': 'A certified ecosystem of technology alliances — ServiceNow, Guidewire, Jack Henry, AWS, and more.',
+    'ServiceNow': 'Certified implementation and managed services for enterprise workflow transformation and ITSM programs.',
+    'Guidewire': 'Certified technical partnership delivering implementation, integration, and managed services for insurance carriers.',
+    'Jack Henry': 'FIN member partnership enabling deep integration and digital modernization for community banks and credit unions.',
+    'Who we are + Our Leadership': 'A digital engineering firm built on 30 years of Pyramid Consulting heritage, serving 125+ Fortune 500 clients.',
+    'AI-first Philosophy': 'Intelligence is not a feature Celsior adds — it is how every engagement is designed, built, and delivered.',
+    'Success Stories': 'Measurable outcomes across banking, insurance, and healthcare from Celsior engineering and AI programs.',
+    'Blogs': 'Technical perspectives and industry analysis from Celsior practitioners across engineering, AI, and data.',
+    'Careers': "Engineering, consulting, and AI roles on programs that matter, across the world's most complex industries.",
+    'Events &amp; News': 'Conference appearances, press releases, and announcements from Celsior Technologies and Pyramid Consulting.',
+  };
+
   function buildMegaPanel(d) {
-    const items = d.items.map(it => `<a class="mz-item" href="${it.href}">${it.label} ${ITEM_CHEV}</a>`).join('');
+    const items = d.items.map(it => {
+      const fdesc = (FEATURE_DESCS[it.label] || d.feature.desc).replace(/"/g, '&quot;');
+      return `<a class="mz-item" href="${it.href}" data-ftitle="${it.label}" data-fdesc="${fdesc}">${it.label} ${ITEM_CHEV}</a>`;
+    }).join('');
     const pills = d.partnerLogos
-      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card" href="${p.href}" title="${p.label}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
+      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card mz-item" href="${p.href}" title="${p.label}" data-ftitle="${p.label}" data-fdesc="${(FEATURE_DESCS[p.label] || d.feature.desc).replace(/"/g, '&quot;')}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
       : (d.pills ? `<div class="mz-pills">${d.pills.map(p => `<a class="mz-pill" href="${d.items[0].href}"><span class="p-dot"></span>${p}</a>`).join('')}</div>` : '');
     const assess = d.assess.map((a,i) => `
         <a class="mz-assess-card" href="${d.explore.href}">
@@ -1214,6 +1255,35 @@ a.nav-link{text-decoration:none;}
   });
   megaRoot.addEventListener('mouseenter', cancel);
   megaRoot.addEventListener('mouseleave', sched);
+
+  /* Hover-to-preview: middle feature card swaps title/desc/CTA to the hovered left option (SP 12-Jun) */
+  megaRoot.querySelectorAll('.mega-panel').forEach(panel => {
+    const titleEl = panel.querySelector('.mz-feature-title');
+    const descEl = panel.querySelector('.mz-feature-desc');
+    const cardEl = panel.querySelector('.mz-feature-card');
+    const exploreEl = panel.querySelector('.mz-explore');
+    const list = panel.querySelector('.mega-zone'); /* left column — boundary for revert (covers list + partner logos) */
+    if (!titleEl || !descEl || !list) return;
+    const def = {
+      title: titleEl.textContent, desc: descEl.textContent,
+      card: cardEl && cardEl.getAttribute('href'),
+      explore: exploreEl && exploreEl.getAttribute('href'),
+    };
+    const swap = (t, ds, href) => {
+      titleEl.textContent = t; descEl.textContent = ds;
+      if (cardEl && href) cardEl.setAttribute('href', href);
+      if (exploreEl && href) exploreEl.setAttribute('href', href);
+      titleEl.classList.remove('mz-feat-pulse'); void titleEl.offsetWidth; titleEl.classList.add('mz-feat-pulse');
+      descEl.classList.remove('mz-feat-pulse'); void descEl.offsetWidth; descEl.classList.add('mz-feat-pulse');
+    };
+    panel.querySelectorAll('.mz-item').forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        swap(item.getAttribute('data-ftitle'), item.getAttribute('data-fdesc'), item.getAttribute('href'));
+      });
+    });
+    list.addEventListener('mouseleave', () => swap(def.title, def.desc, def.card === undefined ? null : def.card));
+  });
+
   bdEl.addEventListener('click', () => { if (active) killPanel(active); });
   document.addEventListener('keydown', e => { if (e.key === 'Escape' && active) killPanel(active); });
 
