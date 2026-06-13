@@ -3100,7 +3100,39 @@
         height: 64px
       }
     }
-  </style>
+
+/* Insurance our-solutions scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+.fem-card-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+}
+.fem-card-link:hover{
+  color:inherit;
+  text-decoration:none;
+}
+
+
+/* Insurance clickable engagement cards repair */
+.fem-card-link{
+  display:block;
+  color:inherit;
+  text-decoration:none;
+  cursor:pointer;
+}
+.fem-card-link:hover,
+.fem-card-link:focus{
+  color:inherit;
+  text-decoration:none;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -4031,14 +4063,14 @@
         <br>are costing you tomorrow.
       </h1>
       <div class="hero-btns">
-        <button type="button" data-celsior-form="general" class="btn-ghost">
+        <a href="/contact-us" class="btn-ghost">
           Book a free strategy call
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button class="btn-white">See how it work → </button>
+        </a>
+        <a href="#our-solutions" class="btn-white" onclick="event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation(); document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">See How it Works</a>
       </div>
     </div>
   </section>
@@ -5116,6 +5148,7 @@
 
 
   <section class="sol-vc pad sec-border" aria-label="Solutions Across the Insurance Value Chain">
+    <span id="our-solutions" class="page-scroll-anchor" aria-hidden="true"></span>
     <p class="eyebrow">OUR SOLUTIONS</p>
     <h2 class="sol-vc__title">Solutions Across the Insurance Value Chain</h2>
     <p class="sol-vc__sub">From distribution to settlement, Celsior delivers targeted solutions that improve efficiency,
@@ -9088,13 +9121,7 @@
         <h2 class="em-heading">Proprietary Accelerators</h2>
         <p class="em-desc">Purpose-built IP for insurance-specific challenges, ready to deploy and scale across your
           operations.</p>
-        <a data-celsior-form="general" href="#book-call" class="em-cta">Get Started
-          <svg viewBox="0 0 16 16" fill="none">
-            <line x1="2" y1="14" x2="14" y2="2" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
-            <polyline points="6,2 14,2 14,10" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
-        </a>
+        <a href="/contact-us" class="em-cta">Get Started</a>
       </div>
     </div>
 
@@ -9119,7 +9146,7 @@
           <li>Full traceability recorded in context graph</li>
           <li>Reduces false positives while catching real fraud</li>
         </ul>
-        <a data-celsior-form="general" href="#book-call" class="pa-card-cta">Request Architecture Overview</a>
+        <a data-celsior-form="general" href="/contact-us" class="pa-card-cta">Request Architecture Overview</a>
       </div>
 
       <div class="pa-card">
@@ -9141,7 +9168,7 @@
           <li>Dataset-agnostic, configurable model approach</li>
           <li>Pilots to production narrative for 2026</li>
         </ul>
-        <a data-celsior-form="general" href="#book-call" class="pa-card-cta">Request Solution Brief</a>
+        <a data-celsior-form="general" href="/contact-us" class="pa-card-cta">Request Solution Brief</a>
       </div>
     </div>
   </section>
@@ -9475,7 +9502,7 @@
     <p class="fem-desc">We adapt to your needs — from staff augmentation to full GCC setup.</p>
 
     <div class="fem-grid">
-      <article class="fem-card">
+      <a href="/solutions/teams-as-a-service" class="fem-card fem-card-link">
         <img class="fem-card__img"
           src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=900&q=80&auto=format&fit=crop"
           alt="Staff augmentation team collaborating in an office" loading="lazy">
@@ -9495,9 +9522,9 @@
             <p class="fem-card__sub">Including Transferable Talent</p>
           </div>
         </div>
-      </article>
+      </a>
 
-      <article class="fem-card">
+      <a href="/ai-innovation/frameworks-accelerators/synthetix" class="fem-card fem-card-link">
         <img class="fem-card__img"
           src="https://images.unsplash.com/photo-1591453089816-0fbb971b454c?w=900&q=80&auto=format&fit=crop"
           alt="Engineers reviewing managed capacity in a data center" loading="lazy">
@@ -9517,9 +9544,9 @@
             <p class="fem-card__sub">SLA-Based Delivery</p>
           </div>
         </div>
-      </article>
+      </a>
 
-      <article class="fem-card">
+      <a href="/solutions/ai-upskilling" class="fem-card fem-card-link">
         <img class="fem-card__img"
           src="https://images.unsplash.com/photo-1573164713988-8665fc963095?w=900&q=80&auto=format&fit=crop"
           alt="Team members upskilling around a workstation" loading="lazy">
@@ -9540,9 +9567,9 @@
             <p class="fem-card__sub">Capability Building</p>
           </div>
         </div>
-      </article>
+      </a>
 
-      <article class="fem-card">
+      <a href="/solutions/managed-programs" class="fem-card fem-card-link">
         <img class="fem-card__img"
           src="https://images.unsplash.com/photo-1551836022-deb4988cc6c0?w=900&q=80&auto=format&fit=crop"
           alt="Professional leading project-based managed services delivery" loading="lazy">
@@ -9562,9 +9589,9 @@
             <p class="fem-card__sub">End-to-End Delivery</p>
           </div>
         </div>
-      </article>
+      </a>
 
-      <article class="fem-card">
+      <a href="/capabilities/ai-led-engineering" class="fem-card fem-card-link">
         <img class="fem-card__img"
           src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781197895/WhatsApp_Image_2026-06-11_at_6.51.13_PM_bsi7sf.jpg"
           alt="Co-innovation hub team celebrating a breakthrough" loading="lazy">
@@ -9583,9 +9610,9 @@
             <p class="fem-card__sub">Joint Innovation</p>
           </div>
         </div>
-      </article>
+      </a>
 
-      <article class="fem-card">
+      <a href="/solutions/gcc-and-nearshore" class="fem-card fem-card-link">
         <img class="fem-card__img"
           src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781197896/WhatsApp_Image_2026-06-11_at_6.51.13_PM_1_hobqig.jpg"
           alt="Global capability center leadership team" loading="lazy">
@@ -9605,7 +9632,7 @@
             <p class="fem-card__sub">Global Capability Center</p>
           </div>
         </div>
-      </article>
+      </a>
     </div>
   </section>
 
@@ -11585,6 +11612,38 @@
       }
     })();
   </script>
+
+
+<script>
+/* Insurance requested CTA guard */
+document.addEventListener('click', function(event){
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const safeTargets = [
+    '#our-solutions',
+    '/contact-us',
+    '/solutions/ai-upskilling',
+    '/solutions/managed-programs',
+    '/capabilities/ai-led-engineering',
+    '/solutions/gcc-and-nearshore',
+    '/solutions/teams-as-a-service',
+    '/ai-innovation/frameworks-accelerators/synthetix'
+  ];
+
+  const href = link.getAttribute('href');
+  if (!safeTargets.includes(href)) return;
+
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+
+  if (href === '#our-solutions') {
+    event.preventDefault();
+    document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return false;
+  }
+}, true);
+</script>
 
 </body>
 

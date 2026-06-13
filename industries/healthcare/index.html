@@ -3413,7 +3413,16 @@
         height: 64px
       }
     }
-  </style>
+
+/* Healthcare segments scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -3900,14 +3909,14 @@
       <h1 class="hero-heading">Built for every layer of the healthcare ecosystem.<br> From claims to clinical care.
       </h1>
       <div class="hero-btns">
-        <button type="button" data-celsior-form="general" class="btn-ghost">
+        <a href="/contact-us" class="btn-ghost">
           Talk to Our Team
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button class="btn-white">Explore our Practice</button>
+        </a>
+        <a href="#segments-we-serve" class="btn-white" onclick="event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation(); document.getElementById('segments-we-serve')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Explore Our Practice</a>
       </div>
     </div>
   </section>
@@ -4506,7 +4515,6 @@
               <p class="seg-hero__category">PROVIDERS</p>
               <h3 class="seg-hero__title">Hospitals, Clinics &amp; Health Systems</h3>
               <p class="seg-hero__lede"><strong>Health systems and clinical organizations manage more technology systems than nearly any other enterprise category, while simultaneously operating under the tightest margin pressure in healthcare.</strong> Celsior works alongside provider organizations on EHR optimization, revenue cycle transformation, clinical workflow automation, and patient engagement modernization.</p>
-              <a class="seg-hero__readmore" href="#">Read more</a>
             </div>
             <div class="seg-hero__media">
               <img class="seg-hero__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/2b5e5fa03991ec8adf3bc48c192c10bda0e0cb42_ulho8g.avif" alt="Hospital building with health cross sign" loading="lazy">
@@ -4556,7 +4564,6 @@
               <p class="seg-hero__category">PHARMA &amp; BIO-PHARMA</p>
               <h3 class="seg-hero__title">Drug Development &amp; Commercialization</h3>
               <p class="seg-hero__lede"><strong>Pharmaceutical and bio-pharmaceutical organizations operate</strong> at the intersection of scientific discovery, regulatory compliance, and commercial execution. Celsior supports the full drug development and commercialization lifecycle — from clinical trial data management and regulatory submissions to supply chain optimization and market launch technology infrastructure.</p>
-              <a class="seg-hero__readmore" href="#">Read more</a>
             </div>
             <div class="seg-hero__media">
               <img class="seg-hero__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/8817f7a09cc13b360c056455b3c2c024c10e584b_ldbaho.avif" alt="Pharmaceutical R&D team working with molecular models" loading="lazy">
@@ -4606,7 +4613,6 @@
               <p class="seg-hero__category">MEDICAL DEVICES</p>
               <h3 class="seg-hero__title">Manufacturing, IoT &amp; Connected Device Ecosystems</h3>
               <p class="seg-hero__lede"><strong>Medical device manufacturers operate under some of the most demanding regulatory conditions in any industry, while simultaneously being expected to deliver connected, data-rich products.</strong> Celsior supports device manufacturers across the full product lifecycle — from design control and manufacturing operations to post-market surveillance and IoT connectivity.</p>
-              <a class="seg-hero__readmore" href="#">Read more</a>
             </div>
             <div class="seg-hero__media">
               <img class="seg-hero__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ed1fe7fdc7b2be280c92619ec79cb41194af3d32_frueq0.avif" alt="Medical device manufacturing facility" loading="lazy">
@@ -4656,7 +4662,6 @@
               <p class="seg-hero__category">CROS</p>
               <h3 class="seg-hero__title">Clinical Research Organizations</h3>
               <p class="seg-hero__lede"><strong>Contract research organizations manage the operational complexity of multi-site clinical trials while coordinating across sponsors, investigators, and regulatory bodies across multiple geographies.</strong> Celsior provides CROs with the technology infrastructure and specialized talent to accelerate trial timelines, improve data quality, and meet submission deadlines.</p>
-              <a class="seg-hero__readmore" href="#">Read more</a>
             </div>
             <div class="seg-hero__media">
               <img class="seg-hero__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/2c4e2de39b78a51b89be72f58a230e1c168f4209_uuvwoy.avif" alt="CRO scientists in laboratory conducting clinical research" loading="lazy">
@@ -4706,7 +4711,6 @@
               <p class="seg-hero__category">HUB COMPANIES</p>
               <h3 class="seg-hero__title">Specialized Service Providers &amp; Data Aggregators</h3>
               <p class="seg-hero__lede"><strong>Hub companies occupy a critical and often underserved position in the healthcare ecosystem — aggregating data, coordinating between Payors and Providers, and enabling specialty programs like patient support services, market access analytics, and care navigation.</strong> Celsior supports hub companies with the technology platforms and integration capabilities they need to operate at scale.</p>
-              <a class="seg-hero__readmore" href="#">Read more</a>
             </div>
             <div class="seg-hero__media">
               <img class="seg-hero__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/0ef6c52537dc463092d3edf39c9fc4737e4738b8_fvfkub.avif" alt="Healthcare data aggregation and analytics team" loading="lazy">
@@ -6077,7 +6081,7 @@ initiative
         </ul>
 
         <div class="ps-cta-row">
-          <a href="https://dev.celsiortech.us/ai-innovation/frameworks-accelerators/synthetix" class="ps-cta">Explore AI-first Digital engineering platform</a>
+          <a href="/ai-innovation/frameworks-accelerators/synthetix" class="ps-cta">Explore AI-first Digital engineering platform</a>
         </div>
       </div>
 
@@ -7234,8 +7238,7 @@ and digital product design</h2>
       </h2>
       <p class="cta-band-sub">Share where your program stands today and we will identify which frameworks apply, what a deployment looks like, and what a realistic outcome timeline is.</p>
       <div class="cta-band-btns">
-        <a data-celsior-form="general" href="#contact" class="cta-band-btn-primary cta-band-btn">Talk to Our Healthcare Team</a>
-        <a href="#" class="cta-band-btn-outline">Download Our Capabilities Overview</a>
+        <a href="/contact-us" class="cta-band-btn-primary cta-band-btn">Talk to Our Healthcare Team</a>
       </div>
     </div>
   </section>
@@ -7580,6 +7583,33 @@ and digital product design</h2>
       });
     });
   </script>
+
+<script>
+/* Healthcare requested CTA guard */
+document.addEventListener('click', function(event){
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const safeTargets = [
+    '#segments-we-serve',
+    '/contact-us',
+    '/ai-innovation/frameworks-accelerators/synthetix'
+  ];
+
+  const href = link.getAttribute('href');
+  if (!safeTargets.includes(href)) return;
+
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+
+  if (href === '#segments-we-serve') {
+    event.preventDefault();
+    document.getElementById('segments-we-serve')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return false;
+  }
+}, true);
+</script>
+
 </body>
 
 </html>
