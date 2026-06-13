@@ -3422,7 +3422,16 @@
         height: 64px
       }
     }
-  </style>
+
+/* BFS point-of-view scroll repair */
+.page-scroll-anchor{
+  display:block;
+  position:relative;
+  top:-96px;
+  visibility:hidden;
+}
+
+</style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -3909,14 +3918,14 @@
 Zero unified picture. We fix that.
       </h1>
       <div class="hero-btns">
-        <button type="button" data-celsior-form="general" class="btn-ghost">
+        <a href="/contact-us" class="btn-ghost">
           Schedule a Discovery Call
           <svg width="17" height="17" fill="none" viewBox="0 0 17 17">
             <path d="M3.5 8.5h10M9.5 5l4 3.5L9.5 12" stroke="#fff" stroke-width="1.4" stroke-linecap="round"
               stroke-linejoin="round" />
           </svg>
-        </button>
-        <button type="button" class="btn-white">Explore Our Focus Areas</button>
+        </a>
+        <a href="#our-point-of-view" class="btn-white" onclick="event.preventDefault(); event.stopPropagation(); document.getElementById('our-point-of-view')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">Explore Our Focus Areas</a>
       </div>
     </div>
   </section>
@@ -4295,6 +4304,7 @@ Zero unified picture. We fix that.
   <section class="ks-section" id="key-solutions">
     <div class="ks-header">
       <div class="ks-header-left">
+        <span id="our-point-of-view" class="page-scroll-anchor" aria-hidden="true"></span>
         <p class="ks-eyebrow">Our Point of View</p>
         <h2 class="ks-title">The forces reshaping banking and what they demand from technology partners</h2>
 
@@ -6678,8 +6688,7 @@ One integrated practice.
       </h2>
       <p class="cta-band-sub">A 30-minute working session with our banking practice leads. We will assess your modernization or transformation challenge against programs we have delivered, identify where existing assets can accelerate your timeline, and give you a frank view of where the risk sits. No pitch deck required.</p>
       <div class="cta-band-btns">
-        <a data-celsior-form="general" href="#contact" class="cta-band-btn-primary cta-band-btn">Schedule a Discovery Call</a>
-        <a data-celsior-form="resource" href="#" class="cta-band-btn-outline">Download Capabilities Deck</a>
+        <a href="/contact-us" class="cta-band-btn-primary cta-band-btn">Schedule a Discovery Call</a>
       </div>
     </div>
   </section>
@@ -7024,6 +7033,32 @@ One integrated practice.
       });
     });
   </script>
+
+<script>
+/* BFS requested CTA guard */
+document.addEventListener('click', function(event){
+  const link = event.target.closest('a');
+  if (!link) return;
+
+  const safeTargets = [
+    '#our-point-of-view',
+    '/contact-us'
+  ];
+
+  const href = link.getAttribute('href');
+  if (!safeTargets.includes(href)) return;
+
+  event.stopPropagation();
+  event.stopImmediatePropagation();
+
+  if (href === '#our-point-of-view') {
+    event.preventDefault();
+    document.getElementById('our-point-of-view')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    return false;
+  }
+}, true);
+</script>
+
 </body>
 
 </html>
