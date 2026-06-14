@@ -1,0 +1,365 @@
+{
+  "generatedAt": "2026-06-14T20:22:59.591Z",
+  "posts": [
+    {
+      "id": 32951,
+      "slug": "from-legacy-infrastructure-to-competitive-advantage-a-technology-guide-for-small-insurance-carriers",
+      "title": "From Legacy Infrastructure to Competitive Advantage: A Technology Guide for Small Insurance Carriers",
+      "excerpt": "For years, small insurance carriers measured operational maturity the same way: keep loss ratios in check, manage expenses, renew the book. Technology was infrastructure, not strategy. The policy admin system worked. The claims platform had been in place since 2011. Good enough. That calculation no longer holds. The competitive dynamics of the insurance market have [&hellip;]",
+      "date": "2026-04-21T21:10:48",
+      "link": "/blogs/from-legacy-infrastructure-to-competitive-advantage-a-technology-guide-for-small-insurance-carriers",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/04/pexels-mikhail-nilov-7736036.jpg",
+      "readingTime": 8
+    },
+    {
+      "id": 25145,
+      "slug": "breaking-down-silos-bringing-underwriting-claims-and-it-operations-together",
+      "title": "Breaking Down Silos: Bringing Underwriting, Claims, and IT Operations Together",
+      "excerpt": "For years, operational maturity in insurance was measured function by function. Underwriting had its tools. Claims had its workflows. IT had its service desk. Each function optimized in isolation, and that was considered good enough. However, as insurers face rising claims costs, tightening regulation, and competitive pressure from digitally native entrants, the requirements for operational [&hellip;]",
+      "date": "2026-04-16T11:20:45",
+      "link": "/blogs/breaking-down-silos-bringing-underwriting-claims-and-it-operations-together",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/pexels-artempodrez-5716014-scaled.jpg",
+      "readingTime": 9
+    },
+    {
+      "id": 32897,
+      "slug": "the-new-standard-for-guidewire-delivery-solving-for-velocity-in-a-continuous-release-world",
+      "title": "The New Standard for Guidewire Delivery: Solving for Velocity in a Continuous Release World",
+      "excerpt": "For years, the key to a successful Guidewire program was seen as a simple matter of resource volume: find enough certified engineers, and the project stays on track. In the era of traditional, long-cycle implementations, this &#8220;staffing-first&#8221; model was the industry standard. However, as the ecosystem evolves toward Guidewire Cloud and continuous delivery, the requirements [&hellip;]",
+      "date": "2026-04-13T11:05:15",
+      "link": "/blogs/the-new-standard-for-guidewire-delivery-solving-for-velocity-in-a-continuous-release-world",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/04/pexels-divinetechygirl-1181357-scaled.jpg",
+      "readingTime": 8
+    },
+    {
+      "id": 25139,
+      "slug": "servicenow-for-financial-services",
+      "title": "ServiceNow: One Platform to Streamline Compliance, Risk, and Service Delivery",
+      "excerpt": "The financial services sector is navigating an era of profound transformation. Regulatory complexity is escalating; customer expectations are at an all-time high and legacy technology stacks are quietly eroding the competitive advantage. The question is no longer whether to modernize operational workflows, but how to do so without disrupting the very systems that underpin trust and compliance. ServiceNow has emerged as the platform [&hellip;]",
+      "date": "2026-04-10T01:18:45",
+      "link": "/blogs/servicenow-for-financial-services",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/pexels-kampus-8441864-scaled.jpg",
+      "readingTime": 5
+    },
+    {
+      "id": 25097,
+      "slug": "modernizing-banking-and-unlocking-growth-with-jack-henry",
+      "title": "Modernizing Banking and Unlocking Growth with Jack Henry",
+      "excerpt": "Building a modernization path that works for you",
+      "date": "2025-10-29T13:01:57",
+      "link": "/blogs/modernizing-banking-and-unlocking-growth-with-jack-henry",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_102025_Jack_Henry_Blog_25_Banner-scaled.jpg",
+      "readingTime": 3
+    },
+    {
+      "id": 25096,
+      "slug": "what-you-need-to-know-about-california-sb-53-the-frontier-ai-transparency-act",
+      "title": "What you need to know about California SB 53: The Frontier AI Transparency Act",
+      "excerpt": "Advancing compliance through transparency, safety, and accountability",
+      "date": "2025-10-09T09:08:45",
+      "link": "/blogs/what-you-need-to-know-about-california-sb-53-the-frontier-ai-transparency-act",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_102025_Ai_Compliance_Banner-scaled.jpg",
+      "readingTime": 5
+    },
+    {
+      "id": 25095,
+      "slug": "the-role-of-quality-engineering-in-testing-generative-ai-applications",
+      "title": "The Role of Quality Engineering in Testing Generative AI Applications",
+      "excerpt": "Safeguarding trust in AI-driven outcomes",
+      "date": "2025-09-23T14:07:06",
+      "link": "/blogs/the-role-of-quality-engineering-in-testing-generative-ai-applications",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/Image-02-scaled.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25094,
+      "slug": "the-triumvirate-of-modernization-ai-data-and-cloud",
+      "title": "The Triumvirate of Modernization: AI, Data, and Cloud",
+      "excerpt": "Modernizing IT infrastructure with data, AI, and cloud",
+      "date": "2025-07-21T11:04:55",
+      "link": "/blogs/the-triumvirate-of-modernization-ai-data-and-cloud",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/1-02-6-scaled.jpg",
+      "readingTime": 6
+    },
+    {
+      "id": 25093,
+      "slug": "the-limitations-of-ai-and-how-hybrid-ai-can-help",
+      "title": "The Limitations of AI and How Hybrid AI Can Help",
+      "excerpt": "Exploring the &#8216;next big thing&#8217; in artificial intelligence",
+      "date": "2025-07-07T11:41:21",
+      "link": "/blogs/the-limitations-of-ai-and-how-hybrid-ai-can-help",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/1-02-7-scaled.jpg",
+      "readingTime": 7
+    },
+    {
+      "id": 25092,
+      "slug": "the-future-of-test-automation-trends-and-predictions",
+      "title": "The Future of Test Automation: Trends and Predictions",
+      "excerpt": "Is your test automation strategy ready for what&#8217;s next?",
+      "date": "2025-07-01T15:45:33",
+      "link": "/blogs/the-future-of-test-automation-trends-and-predictions",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/G_062025_Blog_Test_Automation_Banner-scaled.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25091,
+      "slug": "importance-of-site-reliability-engineering-sre-in-software-development",
+      "title": "Importance of Site Reliability Engineering (SRE) in Software Development",
+      "excerpt": "Automating operations for scalable systems",
+      "date": "2025-06-24T13:43:44",
+      "link": "/blogs/importance-of-site-reliability-engineering-sre-in-software-development",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_062025_Blog_SRE_Banner-scaled.jpg",
+      "readingTime": 5
+    },
+    {
+      "id": 25090,
+      "slug": "creating-ux-for-enterprise-software-going-beyond-pretty-interfaces",
+      "title": "Creating UX for Enterprise Software: Going Beyond Pretty Interfaces",
+      "excerpt": "Designing UX that drives enterprise impact",
+      "date": "2025-06-17T08:55:29",
+      "link": "/blogs/creating-ux-for-enterprise-software-going-beyond-pretty-interfaces",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_062025_Blog_UX-for-Enterprise_Banner-scaled.jpg",
+      "readingTime": 5
+    },
+    {
+      "id": 25088,
+      "slug": "optimizing-performance-with-application-monitoring-and-site-reliability-engineering",
+      "title": "Optimizing Performance with Application Monitoring and SRE",
+      "excerpt": "Enhancing performance and system reliability",
+      "date": "2025-06-10T08:43:49",
+      "link": "/blogs/optimizing-performance-with-application-monitoring-and-site-reliability-engineering",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/Blog_Image-02-scaled.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25087,
+      "slug": "maximizing-the-value-of-open-source-in-test-automation",
+      "title": "Maximizing the Value of Open-source in Test Automation",
+      "excerpt": "Aligning tools and frameworks for long-term success",
+      "date": "2025-06-03T08:14:15",
+      "link": "/blogs/maximizing-the-value-of-open-source-in-test-automation",
+      "image": "https://celsiortech.com/wp-content/uploads/2025/06/1-02-2-scaled-1.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25085,
+      "slug": "strengthening-data-confidence-through-etl-test-automation",
+      "title": "Strengthening Data Confidence Through ETL Test Automation",
+      "excerpt": "Streamlined ETL for trusted insights",
+      "date": "2025-05-27T15:31:34",
+      "link": "/blogs/strengthening-data-confidence-through-etl-test-automation",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/1-02-2-scaled.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25084,
+      "slug": "enhancing-ai-governance",
+      "title": "Enhancing AI Governance",
+      "excerpt": "Guiding AI toward trusted outcomes",
+      "date": "2025-05-22T16:02:11",
+      "link": "/blogs/enhancing-ai-governance",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/1-02-1-scaled.jpg",
+      "readingTime": 11
+    },
+    {
+      "id": 25083,
+      "slug": "how-to-maximize-roi-through-smarter-mobile-test-automation",
+      "title": "How to Maximize ROI Through Smarter Mobile Test Automation",
+      "excerpt": "Scaling mobile testing with smart automation",
+      "date": "2025-05-20T10:03:30",
+      "link": "/blogs/how-to-maximize-roi-through-smarter-mobile-test-automation",
+      "image": "https://celsiortech.com/wp-content/uploads/2025/05/1-02-scaled-1.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25082,
+      "slug": "explainable-ai-a-key-to-the-practical-success-of-ai-and-ml",
+      "title": "Explainable AI – A Key to the Practical Success of AI and ML",
+      "excerpt": "Building trust with explainable AI",
+      "date": "2025-05-08T12:30:19",
+      "link": "/blogs/explainable-ai-a-key-to-the-practical-success-of-ai-and-ml",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_042025_Blog_AI_ML_web_Page_Banner-scaled.png",
+      "readingTime": 4
+    },
+    {
+      "id": 25081,
+      "slug": "how-ai-powered-qe-transforms-devops-and-decision-making",
+      "title": "How AI-Powered QE Transforms DevOps and Decision-Making",
+      "excerpt": "Enabling smarter testing and faster releases",
+      "date": "2025-05-06T15:11:02",
+      "link": "/blogs/how-ai-powered-qe-transforms-devops-and-decision-making",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/Q2-02-scaled.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25079,
+      "slug": "transitioning-from-quality-assurance-to-quality-engineering",
+      "title": "Transitioning from Quality Assurance to Quality Engineering",
+      "excerpt": "Driving digital transformation and improving customer experience",
+      "date": "2025-04-29T14:08:45",
+      "link": "/blogs/transitioning-from-quality-assurance-to-quality-engineering",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/QE_series-02-scaled.jpg",
+      "readingTime": 3
+    },
+    {
+      "id": 25078,
+      "slug": "digital-transformation-with-togaf-10",
+      "title": "Digital Transformation with TOGAF 10",
+      "excerpt": "TOGAF 10 as a pivotal guide for successful digital transformation",
+      "date": "2025-04-02T10:59:41",
+      "link": "/blogs/digital-transformation-with-togaf-10",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/Image-resize-02-3-scaled.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25077,
+      "slug": "technology-trends-2025-trend-9-sustainability-becomes-a-priority",
+      "title": "Technology Trends 2025 | Trend 9 &#8211; Sustainability Becomes a Priority",
+      "excerpt": "Technology Trends 2025 | Trend 9",
+      "date": "2025-03-25T15:08:04",
+      "link": "/blogs/technology-trends-2025-trend-9-sustainability-becomes-a-priority",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_Tech-sustainability-web-2-scaled.png",
+      "readingTime": 3
+    },
+    {
+      "id": 25076,
+      "slug": "technology-trends-2025-trend-8-improved-focus-on-cyber-resilience",
+      "title": "Technology Trends 2025 | Trend 8 &#8211; Improved Focus on Cyber Resilience",
+      "excerpt": "Technology Trends 2025 | Trend 8",
+      "date": "2025-03-18T09:14:41",
+      "link": "/blogs/technology-trends-2025-trend-8-improved-focus-on-cyber-resilience",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_Improved-focus-on-cyber-resilience-web-scaled.png",
+      "readingTime": 3
+    },
+    {
+      "id": 25075,
+      "slug": "technology-trends-2025-trend-7-the-emergence-of-smart-environments-powered-by-iot-devices",
+      "title": "Technology Trends 2025 | Trend 7 &#8211; The Emergence of Smart Environments Powered by IoT Devices",
+      "excerpt": "Technology Trends 2025 | Trend 7",
+      "date": "2025-03-11T10:32:33",
+      "link": "/blogs/technology-trends-2025-trend-7-the-emergence-of-smart-environments-powered-by-iot-devices",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_IoT-devices-and-smart-environments-web-2-scaled.png",
+      "readingTime": 3
+    },
+    {
+      "id": 25074,
+      "slug": "technology-trends-2025-trend-6-edge-computing-becomes-more-prominent-powered-by-5g",
+      "title": "Technology Trends 2025 | Trend 6 &#8211; Edge Computing Becomes More Prominent, Powered by 5G",
+      "excerpt": "Technology Trends 2025 | Trend 6",
+      "date": "2025-03-04T10:40:48",
+      "link": "/blogs/technology-trends-2025-trend-6-edge-computing-becomes-more-prominent-powered-by-5g",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_Edge-computing-web-1-scaled.png",
+      "readingTime": 3
+    },
+    {
+      "id": 25072,
+      "slug": "is-serverless-architecture-really-the-future-of-enterprise-it",
+      "title": "Is Serverless Architecture Really the Future of Enterprise IT?",
+      "excerpt": "Boosting efficiency and lowering costs with serverless architecture",
+      "date": "2025-03-03T11:50:58",
+      "link": "/blogs/is-serverless-architecture-really-the-future-of-enterprise-it",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/Digital-Solutions-Blogs-Serverless-Architechture-scaled.jpg",
+      "readingTime": 5
+    },
+    {
+      "id": 25073,
+      "slug": "accelerate-test-automation-through-auto-healing-using-power-of-ai",
+      "title": "Accelerate Test Automation Through Auto-healing Using Power of AI",
+      "excerpt": "Adoption of test automation has its own challenges. A major challenge faced by the test automation engineer is increased maintenance due to ongoing changes to the application user interface (UI). Changes to the UI makes automation scripts unusable and require a significant amount of effort to fix. Due to shortening of development life cycles and [&hellip;]",
+      "date": "2025-02-25T14:38:32",
+      "link": "/blogs/accelerate-test-automation-through-auto-healing-using-power-of-ai",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_022025_Blog-Accelerate-Test-Automation_Blog-scaled.png",
+      "readingTime": 3
+    },
+    {
+      "id": 25071,
+      "slug": "technology-trends-2025-trend-5-the-rise-of-no-copy-data-architectures",
+      "title": "Technology Trends 2025 | Trend 5 – The Rise of No-copy Data Architectures",
+      "excerpt": "Technology Trends 2025 | Trend 5",
+      "date": "2025-02-24T14:36:46",
+      "link": "/blogs/technology-trends-2025-trend-5-the-rise-of-no-copy-data-architectures",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_Decentralized-and-composable-architectures-web-scaled.png",
+      "readingTime": 3
+    },
+    {
+      "id": 25070,
+      "slug": "technology-trends-2025-trend-4-industry-specific-clouds-and-verticalized-solutions",
+      "title": "Technology Trends 2025 | Trend 4 – Industry-specific Clouds and Verticalized Solutions",
+      "excerpt": "Technology Trends 2025 | Trend 4",
+      "date": "2025-02-17T09:02:46",
+      "link": "/blogs/technology-trends-2025-trend-4-industry-specific-clouds-and-verticalized-solutions",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_Industry-specific-clouds-web-2-scaled.png",
+      "readingTime": 3
+    },
+    {
+      "id": 25069,
+      "slug": "technology-trends-2025-trend-3-the-rise-of-the-ai-augmented-workforce-and-hyperautomation",
+      "title": "Technology Trends 2025 | Trend 3 &#8211; The Rise of the AI-augmented Workforce and Hyperautomation",
+      "excerpt": "Technology Trends 2025 | Trend 3",
+      "date": "2025-02-11T10:06:56",
+      "link": "/blogs/technology-trends-2025-trend-3-the-rise-of-the-ai-augmented-workforce-and-hyperautomation",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_AI-augmented-workforce-web-scaled.png",
+      "readingTime": 4
+    },
+    {
+      "id": 25068,
+      "slug": "technology-trends-2025-trend-2-the-emergence-of-autonomous-and-self-healing-systems",
+      "title": "Technology Trends 2025 | Trend 2 &#8211; The Emergence of Autonomous and Self-healing Systems",
+      "excerpt": "Technology Trends 2025 | Trend 2",
+      "date": "2025-02-04T14:50:22",
+      "link": "/blogs/technology-trends-2025-trend-2-the-emergence-of-autonomous-and-self-healing-systems",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_Autonomous-systems-web-1-scaled.png",
+      "readingTime": 4
+    },
+    {
+      "id": 25067,
+      "slug": "technology-trends-2025-trend-1-artificial-intelligence-will-become-mainstream-and-a-strategic-enabler",
+      "title": "Technology Trends 2025 | Trend 1 &#8211; Artificial Intelligence Will Become Mainstream and a Strategic Enabler",
+      "excerpt": "Technology Trends 2025 | Trend 1",
+      "date": "2025-01-28T12:05:04",
+      "link": "/blogs/technology-trends-2025-trend-1-artificial-intelligence-will-become-mainstream-and-a-strategic-enabler",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_AI-web-scaled.png",
+      "readingTime": 4
+    },
+    {
+      "id": 25066,
+      "slug": "9-technology-trends-that-will-reshape-the-world-in-2025",
+      "title": "9 Technology Trends That Will Reshape the World in 2025",
+      "excerpt": "Top Technology Trends to Watch Out for in 2025",
+      "date": "2025-01-21T11:41:04",
+      "link": "/blogs/9-technology-trends-that-will-reshape-the-world-in-2025",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_012025_Tech-trends-2025-imagery_Main-image-web-scaled.png",
+      "readingTime": 5
+    },
+    {
+      "id": 25099,
+      "slug": "4-reasons-why-your-devops-program-may-be-failing",
+      "title": "Four Reasons Why Your DevOps Program May Be Failing",
+      "excerpt": "The popularity of DevOps is driven by the ability to enable leaner and agile processes with high-quality releases and faster time-to-market.",
+      "date": "2024-10-29T14:38:04",
+      "link": "/blogs/4-reasons-why-your-devops-program-may-be-failing",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/C_102024_DevOps_Blog_YS_Page_Banner-scaled.png",
+      "readingTime": 4
+    },
+    {
+      "id": 25065,
+      "slug": "bots-as-the-future-digital-workforce-a-sector-specific-outlook",
+      "title": "Bots as the Future Digital Workforce",
+      "excerpt": "How are bots revolutionizing digital workflows and setting new benchmarks for operational excellence?",
+      "date": "2024-07-16T08:18:43",
+      "link": "/blogs/bots-as-the-future-digital-workforce-a-sector-specific-outlook",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/PCI_082024_YS_Blog-Bots-future-workforce.jpg",
+      "readingTime": 4
+    },
+    {
+      "id": 25064,
+      "slug": "digital-elevation-the-new-frontier-in-transforming-insurance-customer-experiences",
+      "title": "Digital Elevation: The New Frontier in Transforming Insurance Client Experiences",
+      "excerpt": "How digital elevation can help embrace client experience?",
+      "date": "2024-07-16T07:13:43",
+      "link": "/blogs/digital-elevation-the-new-frontier-in-transforming-insurance-customer-experiences",
+      "image": "https://celsiortech.com/wp-content/uploads/2026/03/PCI_082024_YS_Blog-Insurance-client-experience.jpg",
+      "readingTime": 3
+    }
+  ]
+}

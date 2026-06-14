@@ -1,0 +1,175 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>The Role of Quality Engineering in Testing Generative AI Applications | Celsior</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
+  <style>
+    .wp-blog-article{max-width:920px;margin:0 auto;padding:120px 24px 80px;}
+    .wp-blog-back{display:inline-block;margin-bottom:28px;color:#2563eb;font-weight:700;text-decoration:none;}
+    .wp-blog-meta{color:#64748b;font-size:14px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;margin-bottom:14px;}
+    .wp-blog-article h1{font-size:clamp(34px,5vw,58px);line-height:1.08;letter-spacing:-.04em;margin:0 0 28px;color:#0f172a;}
+    .wp-blog-hero-img{width:100%;border-radius:16px;margin:10px 0 36px;display:block;}
+    .wp-blog-content{font-size:18px;line-height:1.75;color:#374151;}
+    .wp-blog-content p{margin:0 0 22px;}
+    .wp-blog-content h2{margin:42px 0 18px;font-size:30px;line-height:1.2;color:#0f172a;}
+    .wp-blog-content h3{margin:32px 0 14px;font-size:24px;color:#0f172a;}
+    .wp-blog-content a{color:#2563eb;text-decoration:underline;}
+    .wp-blog-content img{max-width:100%;height:auto;border-radius:12px;}
+    .wp-blog-content ul,.wp-blog-content ol{margin:0 0 24px 24px;}
+  </style>
+</head>
+<body>
+  <article class="wp-blog-article">
+    <a class="wp-blog-back" href="/blogs">← Back to blogs</a>
+    <div class="wp-blog-meta">Sep 23, 2025 · 4 min read</div>
+    <h1>The Role of Quality Engineering in Testing Generative AI Applications</h1>
+    <img class="wp-blog-hero-img" src="https://celsiortech.com/wp-content/uploads/2026/03/Image-02-scaled.jpg" alt="The Role of Quality Engineering in Testing Generative AI Applications">
+    <div class="wp-blog-content">
+<p class="wp-block-paragraph">Generative AI (GenAI) is transforming the way we interact with technology, powering chatbots and tools that can generate images, voices, code, and even full documents. However, testing GenAI isn’t like testing regular software. GenAI works differently, which makes testing it a significant challenge.</p>
+
+
+
+<h3 id="h-why-testing-genai-is-challenging" class="wp-block-heading">Why testing GenAI is challenging</h3>
+
+
+
+<ul class="wp-block-list">
+<li>GenAI models inherit biases from training data, making it difficult to detect and separate learned patterns from underlying prejudice.</li>
+
+
+
+<li>Large Language Models (LLMs) can hallucinate information and can present false or misleading facts as truth.</li>
+
+
+
+<li>GenAI gives different answers to the same question, so quality engineers must define acceptable ranges and use new methods to measure quality.</li>
+
+
+
+<li>Poorly written prompts can lead to bad or unreliable results. Quality engineers are forced to check the system’s reaction to a variety of prompts.</li>
+
+
+
+<li>AI models can be manipulated or tricked into revealing sensitive information through prompt injection or adversarial attacks.</li>
+</ul>
+
+
+
+<h3 id="h-how-the-role-of-quality-engineering-is-changing" class="wp-block-heading">How the role of quality engineering is changing</h3>
+
+
+
+<p class="wp-block-paragraph">The role of <a href="https://celsiortech.com/services/intelligent-testing-automation/">quality engineering (QE)</a> in this new landscape evolves from simply verifying functionality to making sure the system is safe, fair, accurate, and trustworthy. GenAI often works alongside other systems, so testers need to evaluate not just the AI but also how it fits into the bigger picture.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>1. Defining test strategies</strong></p>
+
+
+
+<p class="wp-block-paragraph">In traditional software, QE teams define input/output pairs and expect predictable results. With GenAI, they need to move beyond this by:</p>
+
+
+
+<ul class="wp-block-list">
+<li>Designing scenario-based testing, where the focus is on verifying the appropriateness, relevance, and usefulness of outputs in different contexts.</li>
+
+
+
+<li>Establishing acceptance criteria for variability like ranges of acceptable answers or subjective measures (e.g., grammatical correctness, tone appropriateness).</li>
+
+
+
+<li>Using statistical evaluation for measuring the percentage of acceptable outputs over many runs rather than a single pass/fail result.</li>
+</ul>
+
+
+
+<p class="wp-block-paragraph"><strong>2. Test data management and augmentation</strong></p>
+
+
+
+<p class="wp-block-paragraph">Rather than just relying on available data, QE teams are now required to design, generate, and augment diverse and representative datasets for training and testing. This includes creating synthetic data to cover edge cases and reduce bias.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>3. Prompt engineering and variation testing</strong></p>
+
+
+
+<p class="wp-block-paragraph">QE teams need to master prompt engineering and design a range of prompts (including adversarial ones) to test the model&#8217;s robustness, safety, and compliance. This includes testing for prompt injection to assess how prompt changes impact output quality.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>4. Adversarial testing</strong></p>
+
+
+
+<p class="wp-block-paragraph">Simulating real-world attacks is becoming a standard practice to uncover vulnerabilities related to bias, security, and safety. QE teams need to try to &#8220;break&#8221; the AI by providing it with malicious, false, or out-of-distribution inputs.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>5. Bias detection and mitigation</strong></p>
+
+
+
+<p class="wp-block-paragraph">QE teams use specialized tools and techniques to identify and measure biases in the outputs. This involves analyzing content for unfair representations or discriminatory patterns. QE teams need to work with data scientists to mitigate such issues.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>6. Fact-checking and grounding</strong></p>
+
+
+
+<p class="wp-block-paragraph">QE must ensure the accuracy of the GenAI-generated content by cross-validating with reliable external knowledge bases. This &#8220;grounding&#8221; ensures the AI doesn&#8217;t hallucinate.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>7. Ethical AI testing and compliance</strong></p>
+
+
+
+<p class="wp-block-paragraph">QE must ensure that AI follows ethical standards and guidelines, legal regulations (like GDPR), and company policies regarding responsible AI usage. Thus, it involves testing  for content moderation, privacy violations, and unintended harmful outputs.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>8. Human-in-the-Loop (HITL) testing</strong></p>
+
+
+
+<p class="wp-block-paragraph">GenAI outputs are subjective in nature. QE must focus on designing and implementing HITL processes where human reviewers evaluate generated content, provide feedback, and help retrain or fine-tune models.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>9. Performance and scalability for AI models</strong></p>
+
+
+
+<p class="wp-block-paragraph">Although the focus shifts to output quality, traditional performance testing is still necessary. QE must ensure the GenAI application responds efficiently, handles concurrent requests, and scales effectively.</p>
+
+
+
+<p class="wp-block-paragraph"><strong>10. Monitoring and continuous improvement</strong></p>
+
+
+
+<p class="wp-block-paragraph">QE teams need to ensure that models perform per the requirements in production by setting up robust monitoring systems to track model performance, detect data drift, identify new biases, and gather user feedback for continuous improvement and retraining.</p>
+
+
+
+<h3 id="h-conclusion" class="wp-block-heading">Conclusion</h3>
+
+
+
+<p class="wp-block-paragraph">Generative AI is powerful, but with that power comes risk.</p>
+
+
+
+<p class="wp-block-paragraph">Quality engineering is key to ensuring these systems are not only smart but also fair, accurate, and safe to use. The role of QE teams is evolving fast, requiring them to work across disciplines, test beyond simple functionality, and safeguard trust in AI-driven outcomes. At Celsior, we take quality engineering further with safe,<a href="https://celsiortech.com/services/intelligent-testing-automation/"> intelligent testing automation</a> that delivers measurable business outcomes.</p>
+</div>
+  </article>
+  <script src="/shared.js"></script>
+</body>
+</html>

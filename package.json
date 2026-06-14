@@ -1,0 +1,6 @@
+{
+  "scripts": {
+    "generate:blogs": "node scripts/generate-blogs.mjs",
+    "build": "node scripts/generate-blogs.mjs"
+  }
+}
