@@ -263,7 +263,6 @@
 .ops-cost-cards > div:not([style*="position:absolute"]):hover,
 .insight-card:hover, 
 .outcome-card:hover,
-.solution-card-inner:hover,
 .drawer-mega-feature:hover,
 .drawer-mega-card:hover,
 .mz-feature-card:hover,
@@ -277,6 +276,29 @@
   border-color: transparent !important;
   border-width: 1px !important;
   border-style: solid !important;
+}
+
+
+/* ═══════════════════════ IMAGE CARD BRIGHTNESS ═════════════════════════
+   Reduces the black overlay on image cards to keep the top of the image bright
+   ════════════════════════════════════════════════════════════════════════════ */
+.solution-cards article::before,
+.pr-card-overlay,
+.oa-card-overlay,
+.blog-card-overlay,
+.ag-card-overlay,
+#agent-team .ag-card-overlay {
+  background: linear-gradient(180deg, transparent 0%, transparent 80%, rgba(6,10,20,0.98) 100%) !important;
+}
+
+.solution-cards img,
+.pr-card-bg,
+.oa-card-bg,
+.blog-card-bg,
+.ag-card-img,
+#agent-team .ag-card-img {
+  opacity: 1 !important;
+  filter: none !important;
 }
     `;
     document.head.appendChild(style);

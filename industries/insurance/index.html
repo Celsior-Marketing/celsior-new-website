@@ -2503,8 +2503,7 @@
       z-index: 1;
       pointer-events: none;
       background:
-        linear-gradient(180deg,
-          rgba(2, 8, 18, 0.04) 0%,
+        linear-gradient(180deg, transparent 0%, transparent 80%, rgba(2, 8, 18, 0.98) 100%) 0%,
           rgba(2, 8, 18, 0.18) 35%,
           rgba(2, 8, 18, 0.92) 100%);
     }
@@ -2528,8 +2527,8 @@
       width: 100%;
       height: 100%;
       object-fit: cover;
-      filter: saturate(0.88) contrast(0.96);
-      opacity: 0.85;
+      filter: none;
+      opacity:  1;
       transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.55s ease;
     }
