@@ -66,7 +66,7 @@
     /* =============================================
        BLOG HERO — clean centered, Webflow-style
     ============================================= */
-    .blog-hero {
+.blog-hero {
       padding: clamp(80px, 10vw, 140px) var(--section-pad-h) clamp(64px, 7vw, 100px);
       text-align: center;
       border-bottom: 1px solid rgba(13, 17, 39, 0.08);
@@ -156,7 +156,7 @@
        FILTER BAR — sticky Enterprise / Agency tabs
        + dropdown pills + reset + showing count
     ============================================= */
-    .filter-bar {
+.filter-bar {
       position: sticky;
       top: 0;
       z-index: 80;
@@ -1235,14 +1235,43 @@
 
     /* card stagger reveal class */
     .blog-card { opacity: 0; transform: translateY(32px); }
-
-  </style>
+</style>
 
 <style>
   /* WordPress API cards are inserted after GSAP runs, so force them visible */
   #cardGrid .blog-card {
     opacity: 1 !important;
     transform: none !important;
+  }
+</style>
+
+
+
+<style id="blog-hero-spacer-override">
+  body .blog-hero {
+    display: block !important;
+    min-height: 120px !important;
+    height: 120px !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    background: #ffffff !important;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08) !important;
+  }
+
+  body .blog-hero > * {
+    display: none !important;
+  }
+
+  body .filter-bar {
+    position: relative !important;
+    top: auto !important;
+    margin-top: 0 !important;
+    background: #ffffff !important;
+    z-index: 10 !important;
+  }
+
+  body #cardGrid {
+    padding-top: 40px !important;
   }
 </style>
 
