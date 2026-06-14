@@ -789,8 +789,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>The right model</em> for your scale and goals.', title: 'GCC vs. Teams-as-a-Service', desc: 'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205650/solutions-feature_bvxk2o.mp4' },
       assessTag: 'Pre Assessment',
       assess: [
-        { title: 'Operating Model Fit', href: '/solutions/gcc-and-nearshore', desc: 'Map your goals to the ideal delivery and talent model.' },
-        { title: 'Nearshore ROI', href: '/assessment-tools/prior-auth-roi', desc: 'Model savings and velocity gains across LATAM and offshore.' },
+        { title: '72 Hours Codebase Assessment', href: '/assessment-tools/codebase-assessment', desc: 'Automated review of your codebase delivered in 72 hours.' },
+        { title: 'GRC Maturity', href: '/assessment-tools/grc-assessment', desc: 'Assess governance, risk, and compliance maturity across your estate.' },
       ],
     },
     {
