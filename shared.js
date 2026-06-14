@@ -742,13 +742,13 @@ a.nav-link{text-decoration:none;}
     {
       id: 'solve', label: 'Our Focus', title: 'AI-First Digital Engineering',
       desc: 'We build intelligent digital products and platforms that unlock efficiency, resilience, and growth.',
-      explore: { label: 'Learn More', href: '/our-focus' },
+      explore: { label: 'Learn More', href: '/our-focus/ai-first-digital-engineering' },
       items: [
+        { label: 'AI-First Digital Engineering', href: '/our-focus/ai-first-digital-engineering' },
         { label: 'AI Adoption', href: '/our-focus/ai-adoption' },
         { label: 'Risk &amp; Compliance', href: '/our-focus/risk-and-compliance' },
         { label: 'Cost &amp; Efficiency', href: '/our-focus/cost-and-efficiency' },
         { label: 'Digital Experience', href: '/our-focus/digital-experience' },
-        { label: 'AI-First Digital Engineering', href: '/our-focus/ai-first-digital-engineering' },
       ],
       feature: { cap: '<em>AI-First</em> digital engineering that evolves at the speed of your business.', title: 'AI-First Digital Engineering', desc: 'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4' },
       assessTag: 'Free Assessment',
@@ -760,7 +760,7 @@ a.nav-link{text-decoration:none;}
     {
       id: 'how', label: 'Capabilities', title: 'Engineering &amp; Operations',
       desc: 'Modern engineering capabilities that move regulated enterprises faster, safer, and smarter.',
-      explore: { label: 'Learn More', href: '/capabilities' },
+      explore: { label: 'Learn More', href: '/capabilities/ai-led-engineering' },
       items: [
         { label: 'AI Led Engineering', href: '/capabilities/ai-led-engineering' },
         { label: 'Cloud &amp; Infrastructure Engineering', href: '/capabilities/cloud-and-infrastructure-engineering' },
@@ -778,7 +778,7 @@ a.nav-link{text-decoration:none;}
     {
       id: 'deliver', label: 'Solutions', title: 'Global Delivery Models',
       desc: 'Flexible operating models that match your scale, speed, and talent strategy.',
-      explore: { label: 'Learn More', href: '/solutions' },
+      explore: { label: 'Learn More', href: '/solutions/gcc-and-nearshore' },
       items: [
         { label: 'Managed Programs', href: '/solutions/managed-programs' },
         { label: 'Technology Consulting', href: '/solutions/technology-consulting' },
@@ -796,7 +796,7 @@ a.nav-link{text-decoration:none;}
     {
       id: 'ai', label: 'AI &amp; Innovation', title: 'AI &amp; Innovation',
       desc: 'Products, labs, and frameworks that turn AI ambition into production reality.',
-      explore: { label: 'Learn More', href: '/ai-innovation/celsior-ai-lab' },
+      explore: { label: 'Learn More', href: '/ai-innovation/frameworks-accelerators/synthetix' },
       items: [
         { label: 'Synthetix', href: '/ai-innovation/frameworks-accelerators/synthetix' },
         { label: 'Celsior AI Lab', href: '/ai-innovation/celsior-ai-lab' },
@@ -848,7 +848,7 @@ a.nav-link{text-decoration:none;}
     {
       id: 'about', label: 'About', title: 'About Celsior',
       desc: 'Engineering-first culture, global teams, and a mission built for regulated enterprises.',
-      explore: { label: 'Learn More', href: '/about' },
+      explore: { label: 'Learn More', href: '/' },
       items: [
         { label: 'Who we are + Our Leadership', href: '/about/who-we-are' },
         { label: 'AI-first Philosophy', href: '/about/ai-first-philosophy' },
@@ -857,7 +857,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Careers', href: '/about' },
         { label: 'Events &amp; News', href: '/about' },
       ],
-      feature: { cap: '<em>Engineering-first</em> culture, global impact.', title: 'Life at Celsior', desc: 'Join a team building the future of AI-first digital engineering across the globe.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
+      feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
       assessTag: 'Join Us',
       assess: [
         { title: 'Open Roles', desc: 'Explore engineering and consulting opportunities worldwide.' },
@@ -1205,8 +1205,7 @@ a.nav-link{text-decoration:none;}
       <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft privacy statement</a>
       <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web accessibility</a>
       <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy introduction</a>
-      <a href="#" data-action="ccpa-opt-out">Do Not Sell or Share My Info</a>
-      <a href="#" data-action="cookie-prefs">Cookie preferences</a>
+      <a href="#" data-action="cookie-prefs">Cookie Preferences</a>
     </nav>
 
     <div class="cf-lang">
@@ -1384,35 +1383,40 @@ a.nav-link{text-decoration:none;}
   window.__celsiorSharedDone = true;
   document.dispatchEvent(new CustomEvent('celsior:shared-ready'));
 
-  /* ─── 7. COOKIE CONSENT + CCPA OPT-OUT ────────────────────────────
+  /* ─── 7. COOKIE CONSENT ───────────────────────────────────────────
      Banner shows once per visitor (localStorage). Footer "Cookie
-     preferences" and "Do Not Sell or Share My Info" links reopen the
-     modals. Analytics scripts only load after Accept.
+     Preferences" link reopens the modal. Analytics scripts only load
+     after Accept.
   ─────────────────────────────────────────────────────────────────── */
   (function consent() {
     const CONSENT_KEY = 'cookie_consent_v1';
-    const CCPA_KEY = 'ccpa_opt_out';
     const stored = localStorage.getItem(CONSENT_KEY);
 
     const css = document.createElement('style');
     css.textContent = `
-      .ck-banner{position:fixed;left:16px;right:16px;bottom:16px;max-width:880px;margin:0 auto;background:#fff;color:#0F172A;border:1px solid #E2E8F0;border-radius:14px;box-shadow:0 18px 50px -16px rgba(15,23,42,.25);padding:18px 20px;z-index:99998;display:flex;gap:16px;align-items:center;flex-wrap:wrap;font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;}
-      .ck-banner p{margin:0;flex:1;min-width:240px;color:#334155;}
-      .ck-banner strong{color:#0F172A;}
-      .ck-banner a{color:#11224F;text-decoration:underline;}
+      .ck-banner{position:fixed;left:16px;right:16px;bottom:16px;max-width:880px;margin:0 auto;background:rgba(8,11,24,0.96);color:#e9edf6;border:1px solid rgba(255,255,255,0.08);border-radius:14px;box-shadow:0 18px 50px -16px rgba(0,0,0,0.5);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);padding:18px 20px;z-index:99998;display:flex;gap:16px;align-items:center;flex-wrap:wrap;font:14px/1.5 system-ui,-apple-system,Segoe UI,sans-serif;}
+      .ck-banner p{margin:0;flex:1;min-width:240px;color:#aab3c9;}
+      .ck-banner strong{color:#ffffff;}
+      .ck-banner a{color:#2254f4;text-decoration:underline;}
       .ck-btns{display:flex;gap:8px;flex-wrap:wrap;}
-      .ck-btn{appearance:none;border:1px solid #CBD5E1;background:#fff;color:#0F172A;padding:9px 16px;border-radius:8px;font:600 13px/1 inherit;cursor:pointer;transition:.15s;}
-      .ck-btn:hover{border-color:#11224F;color:#11224F;}
-      .ck-btn.primary{background:#11224F;border-color:#11224F;color:#fff;}
-      .ck-btn.primary:hover{background:#1d3372;border-color:#1d3372;color:#fff;}
-      .ck-modal{position:fixed;inset:0;background:rgba(15,23,42,.55);display:flex;align-items:center;justify-content:center;padding:20px;z-index:99999;}
-      .ck-modal-card{background:#fff;border-radius:16px;max-width:520px;width:100%;padding:28px;font:14px/1.55 system-ui,sans-serif;color:#0F172A;}
-      .ck-modal-card h3{margin:0 0 8px;font-size:1.15rem;}
-      .ck-modal-card p{margin:0 0 16px;color:#475569;}
-      .ck-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid #E2E8F0;}
+      .ck-btn{appearance:none;border:1px solid rgba(255,255,255,0.15);background:rgba(255,255,255,0.03);color:#e9edf6;padding:9px 16px;border-radius:8px;font:600 13px/1 inherit;cursor:pointer;transition:.15s;}
+      .ck-btn:hover{border-color:#2254f4;color:#ffffff;background:rgba(255,255,255,0.08);}
+      .ck-btn.primary{background:#2254f4;border-color:#2254f4;color:#fff;}
+      .ck-btn.primary:hover{background:#1b46d8;border-color:#1b46d8;color:#fff;}
+      .ck-modal{position:fixed;inset:0;background:rgba(5,7,16,0.8);backdrop-filter:blur(4px);-webkit-backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;z-index:99999;}
+      .ck-modal-card{background:#0b0f20;border:1px solid rgba(255,255,255,0.08);border-radius:16px;max-width:520px;width:100%;padding:28px;font:14px/1.55 system-ui,sans-serif;color:#e9edf6;box-shadow:0 24px 60px rgba(0,0,0,0.65);}
+      .ck-modal-card h3{margin:0 0 8px;font-size:1.15rem;color:#ffffff;font-weight:700;}
+      .ck-modal-card p{margin:0 0 16px;color:#aab3c9;}
+      .ck-row{display:flex;align-items:center;justify-content:space-between;padding:12px 0;border-top:1px solid rgba(255,255,255,0.08);}
       .ck-row:first-of-type{border-top:none;}
       .ck-row label{font-weight:600;}
-      .ck-row small{display:block;font-weight:400;color:#64748B;margin-top:2px;}
+      .ck-row small{display:block;font-weight:400;color:#828ca6;margin-top:2px;}
+      .ck-switch {position:relative;display:inline-block;width:38px;height:22px;}
+      .ck-switch input {opacity:0;width:0;height:0;}
+      .ck-slider {position:absolute;cursor:pointer;inset:0;background-color:rgba(255,255,255,0.12);transition:.3s;border-radius:34px;border:1px solid rgba(255,255,255,0.08);}
+      .ck-slider:before {position:absolute;content:"";height:14px;width:14px;left:3px;bottom:3px;background-color:#aab3c9;transition:.3s;border-radius:50%;}
+      .ck-switch input:checked + .ck-slider {background-color:#2254f4;}
+      .ck-switch input:checked + .ck-slider:before {transform:translateX(16px);background-color:#ffffff;}
       @media(max-width:520px){.ck-banner{padding:16px;border-radius:12px;}}
     `;
     document.head.appendChild(css);
@@ -1451,8 +1455,14 @@ a.nav-link{text-decoration:none;}
         <div class="ck-modal-card" role="dialog" aria-modal="true" aria-label="Cookie preferences">
           <h3>Cookie preferences</h3>
           <p>Choose which categories of cookies we may use. You can change this at any time from the footer.</p>
-          <div class="ck-row"><label>Essential <small>Required for the site to function.</small></label><span>Always on</span></div>
-          <div class="ck-row"><label for="ck-an">Analytics <small>Helps us understand site usage.</small></label><input id="ck-an" type="checkbox" ${cur === 'all' || cur === 'analytics' ? 'checked' : ''}></div>
+          <div class="ck-row"><label>Essential <small>Required for the site to function.</small></label><span style="font-size:0.8rem;color:#3ddc97;font-weight:600;">Always active</span></div>
+          <div class="ck-row">
+            <label for="ck-an">Analytics <small>Helps us understand site usage.</small></label>
+            <label class="ck-switch">
+              <input id="ck-an" type="checkbox" ${cur === 'all' || cur === 'analytics' ? 'checked' : ''}>
+              <span class="ck-slider"></span>
+            </label>
+          </div>
           <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
             <button class="ck-btn" data-act="cancel">Cancel</button>
             <button class="ck-btn primary" data-act="save">Save preferences</button>
@@ -1463,33 +1473,6 @@ a.nav-link{text-decoration:none;}
         if (e.target.dataset && e.target.dataset.act === 'save') {
           const on = m.querySelector('#ck-an').checked;
           setConsent(on ? 'analytics' : 'essential');
-          m.remove();
-        }
-      });
-      document.body.appendChild(m);
-    }
-
-    function openCcpa() {
-      const out = localStorage.getItem(CCPA_KEY) === '1';
-      const m = document.createElement('div'); m.className = 'ck-modal';
-      m.innerHTML = `
-        <div class="ck-modal-card" role="dialog" aria-modal="true" aria-label="CCPA opt-out">
-          <h3>Do Not Sell or Share My Personal Information</h3>
-          <p>Under the California Consumer Privacy Act (CCPA/CPRA), you may opt out of the "sharing" of your personal information for cross-context behavioral advertising.</p>
-          <div class="ck-row"><label for="ck-ccpa">Opt me out of sharing <small>Applies to this browser. Disables ad personalization signals.</small></label><input id="ck-ccpa" type="checkbox" ${out ? 'checked' : ''}></div>
-          <div style="display:flex;gap:8px;justify-content:flex-end;margin-top:16px;">
-            <button class="ck-btn" data-act="cancel">Cancel</button>
-            <button class="ck-btn primary" data-act="save">Save choice</button>
-          </div>
-        </div>`;
-      m.addEventListener('click', e => {
-        if (e.target === m || (e.target.dataset && e.target.dataset.act === 'cancel')) m.remove();
-        if (e.target.dataset && e.target.dataset.act === 'save') {
-          const on = m.querySelector('#ck-ccpa').checked;
-          if (on) localStorage.setItem(CCPA_KEY, '1'); else localStorage.removeItem(CCPA_KEY);
-          if (window.gtag && SITE_CONFIG.ga4MeasurementId) {
-            window.gtag('config', SITE_CONFIG.ga4MeasurementId, { allow_ad_personalization_signals: !on });
-          }
           m.remove();
         }
       });
@@ -1508,12 +1491,11 @@ a.nav-link{text-decoration:none;}
       } catch (_) { }
     }
 
-    // Wire footer "Cookie preferences" and "Do Not Sell" links
+    // Wire footer "Cookie Preferences" link
     document.addEventListener('click', e => {
       const t = e.target.closest && e.target.closest('[data-action]');
       if (!t) return;
       if (t.dataset.action === 'cookie-prefs') { e.preventDefault(); openPrefs(); }
-      if (t.dataset.action === 'ccpa-opt-out') { e.preventDefault(); openCcpa(); }
     });
   })();
 
