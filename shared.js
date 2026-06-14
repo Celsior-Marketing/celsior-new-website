@@ -852,10 +852,7 @@ a.nav-link{text-decoration:none;}
       items: [
         { label: 'Who we are + Our Leadership', href: '/about/who-we-are' },
         { label: 'AI-first Philosophy', href: '/about/ai-first-philosophy' },
-        { label: 'Success Stories', href: '/about' },
         { label: 'Blogs', href: '/blogs' },
-        { label: 'Careers', href: '/about' },
-        { label: 'Events &amp; News', href: '/about' },
       ],
       feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
       assessTag: 'Join Us',
