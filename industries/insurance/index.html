@@ -4055,6 +4055,106 @@
     }
   </style>
 
+
+  <style>
+    .book-call-hubspot-form .submitted-message,
+    .book-call-hubspot-form .hs_cos_wrapper_type_form .submitted-message {
+      color: #ffffff !important;
+      font-size: 20px !important;
+      line-height: 1.45 !important;
+      font-weight: 500 !important;
+      padding-top: 32px !important;
+    }
+
+    .book-call-hubspot-form .submitted-message p,
+    .book-call-hubspot-form .submitted-message span,
+    .book-call-hubspot-form .submitted-message div {
+      color: #ffffff !important;
+    }
+
+    .book-call-hubspot-form .submitted-message strong,
+    .book-call-hubspot-form .submitted-message h1,
+    .book-call-hubspot-form .submitted-message h2,
+    .book-call-hubspot-form .submitted-message h3 {
+      color: #ffffff !important;
+      font-size: 28px !important;
+      line-height: 1.2 !important;
+      font-weight: 700 !important;
+    }
+  </style>
+
+
+  <style>
+    .book-call-hubspot-form {
+      margin-top: 22px;
+    }
+
+    .book-call-hubspot-form form,
+    .book-call-hubspot-form .hs-form {
+      font-family: inherit !important;
+    }
+
+    .book-call-hubspot-form label,
+    .book-call-hubspot-form .hs-form-field label span {
+      color: #ffffff !important;
+      font-size: 13px !important;
+      font-weight: 600 !important;
+      margin-bottom: 8px !important;
+    }
+
+    .book-call-hubspot-form .hs-form-field {
+      margin-bottom: 16px !important;
+    }
+
+    .book-call-hubspot-form input,
+    .book-call-hubspot-form select,
+    .book-call-hubspot-form textarea {
+      width: 100% !important;
+      min-height: 48px !important;
+      border-radius: 10px !important;
+      border: 1px solid rgba(255,255,255,.22) !important;
+      background: rgba(255,255,255,.10) !important;
+      color: #ffffff !important;
+      font-family: inherit !important;
+      font-size: 15px !important;
+      padding: 12px 16px !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .book-call-hubspot-form textarea {
+      min-height: 92px !important;
+      resize: vertical !important;
+    }
+
+    .book-call-hubspot-form input::placeholder,
+    .book-call-hubspot-form textarea::placeholder {
+      color: rgba(255,255,255,.62) !important;
+    }
+
+    .book-call-hubspot-form input[type="submit"],
+    .book-call-hubspot-form .hs-button {
+      width: auto !important;
+      min-width: 140px !important;
+      min-height: 48px !important;
+      border-radius: 10px !important;
+      border: 0 !important;
+      background: #ffffff !important;
+      color: #13223a !important;
+      font-weight: 700 !important;
+      cursor: pointer !important;
+      padding: 12px 26px !important;
+      margin-top: 8px !important;
+    }
+
+    .book-call-hubspot-form .hs-error-msgs,
+    .book-call-hubspot-form .hs-error-msg {
+      color: #ffd7d7 !important;
+      font-size: 12px !important;
+      margin-top: 6px !important;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -11154,111 +11254,14 @@
         <p class="book-call-form-subtitle">We&apos;ve got more answers waiting for you! If your question didn&apos;t
           make the list, don&apos;t hesitate to reach out.</p>
 
-        <form class="book-call-form" id="book-call-form">
-          <div class="book-call-form-row">
-            <div class="book-call-form-group">
-              <label class="book-call-form-label">Name</label>
-              <input type="text" class="book-call-form-input" placeholder="Full Name" name="name" required>
-            </div>
-            <div class="book-call-form-group">
-              <label class="book-call-form-label">Designation</label>
-              <input type="text" class="book-call-form-input" placeholder="Enter Your Designation" name="designation">
-            </div>
-          </div>
-
-          <div class="book-call-form-row">
-            <div class="book-call-form-group">
-              <label class="book-call-form-label">Contact Number</label>
-              <input type="tel" class="book-call-form-input" placeholder="Enter Your Number*" name="phone" required>
-            </div>
-            <div class="book-call-form-group">
-              <label class="book-call-form-label">Work Email</label>
-              <input type="email" class="book-call-form-input" placeholder="Enter Your Email Address*" name="email"
-                required>
-            </div>
-          </div>
-
-          <div class="book-call-form-group full-width">
-            <label class="book-call-form-label">Budget Range</label>
-            <select class="book-call-form-select" name="budget">
-              <option value="" disabled selected>Select a Budget Range</option>
-              <option value="under-50k">Under $50,000</option>
-              <option value="50k-100k">$50,000 - $100,000</option>
-              <option value="100k-250k">$100,000 - $250,000</option>
-              <option value="250k-500k">$250,000 - $500,000</option>
-              <option value="500k-plus">$500,000+</option>
-            </select>
-          </div>
-
-          <div class="book-call-form-group full-width">
-            <label class="book-call-form-label">Describe Your Project</label>
-            <textarea class="book-call-form-textarea" placeholder="Tell us about your project requirements..."
-              name="project"></textarea>
-          </div>
-
-          <div class="book-call-form-note">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            <span>Fast 2-minute response, fully NDA-protected.</span>
-          </div>
-
-          <div class="book-call-captcha-row">
-            <div class="book-call-captcha">
-              <span id="captcha-num1">7</span> + <span id="captcha-num2">1</span> =
-              <input type="text" class="book-call-captcha-input" id="captcha-answer" placeholder="?" required>
-            </div>
-            <button type="submit" class="book-call-submit">Submit</button>
-          </div>
-        </form>
+        <div class="book-call-hubspot-form">
+          <script src="https://js.hsforms.net/forms/embed/developer/40221584.js" defer></script>
+          <div class="hs-form-html" data-region="na1" data-form-id="07ba636e-98e4-42a8-9be9-7626059dd8c4" data-portal-id="40221584"></div>
+        </div>
       </div>
     </div>
   </section>
 
-  <script>
-    // Book a Call Form - Simple captcha validation
-    (function () {
-      const form = document.getElementById('book-call-form');
-      const num1El = document.getElementById('captcha-num1');
-      const num2El = document.getElementById('captcha-num2');
-      const answerEl = document.getElementById('captcha-answer');
-
-      // Generate random captcha numbers
-      function generateCaptcha() {
-        const n1 = Math.floor(Math.random() * 10) + 1;
-        const n2 = Math.floor(Math.random() * 10) + 1;
-        num1El.textContent = n1;
-        num2El.textContent = n2;
-        return n1 + n2;
-      }
-
-      let correctAnswer = generateCaptcha();
-
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-
-        const userAnswer = parseInt(answerEl.value, 10);
-        if (userAnswer !== correctAnswer) {
-          alert('Please solve the math problem correctly.');
-          correctAnswer = generateCaptcha();
-          answerEl.value = '';
-          return;
-        }
-
-        // Collect form data
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
-
-        // For now, log the data and show success
-        console.log('Form submitted:', data);
-        alert('Thank you! We will get back to you within 2 minutes during business hours.');
-
-        // Reset form
-        form.reset();
-        correctAnswer = generateCaptcha();
-      });
-    })();
-  </script>
 
 
 

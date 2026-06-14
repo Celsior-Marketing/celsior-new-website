@@ -620,6 +620,164 @@
       }
     }
   </style>
+
+  <style>
+    .contact-hubspot-form,
+    .contact-hubspot-form form,
+    .contact-hubspot-form .hs-form {
+      font-family: inherit !important;
+    }
+
+    .contact-hubspot-form .hs-form-field {
+      margin-bottom: 16px !important;
+    }
+
+    .contact-hubspot-form label,
+    .contact-hubspot-form .hs-form-field label span {
+      color: rgba(255,255,255,.92) !important;
+      font-size: 13px !important;
+      line-height: 1.35 !important;
+      font-weight: 600 !important;
+      margin-bottom: 8px !important;
+    }
+
+    .contact-hubspot-form input,
+    .contact-hubspot-form select,
+    .contact-hubspot-form textarea {
+      width: 100% !important;
+      min-height: 46px !important;
+      border-radius: 12px !important;
+      border: 1px solid rgba(255,255,255,.20) !important;
+      background: rgba(255,255,255,.10) !important;
+      color: #ffffff !important;
+      font-family: inherit !important;
+      font-size: 15px !important;
+      line-height: 1.35 !important;
+      padding: 11px 14px !important;
+      box-shadow: none !important;
+      outline: none !important;
+    }
+
+    .contact-hubspot-form textarea {
+      min-height: 90px !important;
+      resize: vertical !important;
+    }
+
+    .contact-hubspot-form input::placeholder,
+    .contact-hubspot-form textarea::placeholder {
+      color: rgba(255,255,255,.58) !important;
+    }
+
+    .contact-hubspot-form select option {
+      color: #111827 !important;
+      background: #ffffff !important;
+    }
+
+    .contact-hubspot-form input[type="checkbox"],
+    .contact-hubspot-form input[type="radio"] {
+      width: 16px !important;
+      min-height: 16px !important;
+      height: 16px !important;
+      padding: 0 !important;
+      margin: 2px 8px 0 0 !important;
+      accent-color: #ffffff !important;
+      flex-shrink: 0 !important;
+    }
+
+    .contact-hubspot-form input[type="submit"],
+    .contact-hubspot-form .hs-button {
+      width: 100% !important;
+      min-height: 50px !important;
+      border-radius: 999px !important;
+      border: 0 !important;
+      background: #ffffff !important;
+      color: #13223a !important;
+      font-weight: 700 !important;
+      font-size: 15px !important;
+      cursor: pointer !important;
+      padding: 13px 24px !important;
+      margin-top: 4px !important;
+    }
+
+    .contact-hubspot-form .hs-error-msgs,
+    .contact-hubspot-form .hs-error-msg {
+      color: #ffd7d7 !important;
+      font-size: 12px !important;
+      margin-top: 6px !important;
+    }
+
+    .contact-consent-copy {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(255,255,255,.14);
+      color: rgba(255,255,255,.72);
+      font-size: 11.5px;
+      line-height: 1.5;
+    }
+
+    .contact-consent-copy p {
+      margin: 0 0 12px;
+    }
+
+    .contact-consent-copy label {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      color: rgba(255,255,255,.84);
+      font-size: 12px;
+      line-height: 1.4;
+      cursor: pointer;
+    }
+
+    .contact-consent-copy input {
+      width: 14px;
+      height: 14px;
+      margin-top: 2px;
+      accent-color: #ffffff;
+      flex-shrink: 0;
+    }
+  </style>
+
+
+  <style>
+    .contact-hubspot-form label,
+    .contact-hubspot-form .hs-form-field label,
+    .contact-hubspot-form .hs-form-field label span,
+    .contact-hubspot-form .hs-richtext,
+    .contact-hubspot-form .hs-richtext p,
+    .contact-hubspot-form legend,
+    .contact-hubspot-form .inputs-list label,
+    .contact-hubspot-form .inputs-list span {
+      color: #111827 !important;
+    }
+
+    .contact-hubspot-form input,
+    .contact-hubspot-form select,
+    .contact-hubspot-form textarea {
+      background: #ffffff !important;
+      color: #111827 !important;
+      border: 1px solid #d8dde8 !important;
+    }
+
+    .contact-hubspot-form input::placeholder,
+    .contact-hubspot-form textarea::placeholder {
+      color: #7b8496 !important;
+    }
+
+    .contact-consent-copy,
+    .contact-consent-copy label,
+    .contact-consent-copy span,
+    .contact-consent-copy p {
+      color: #5f6675 !important;
+    }
+
+    .contact-hubspot-form input[type="submit"],
+    .contact-hubspot-form .hs-button {
+      background: #07143f !important;
+      color: #ffffff !important;
+    }
+  </style>
+
 </head>
 
 <body>
@@ -681,7 +839,17 @@
           <h3>Send us a message</h3>
           <p>Share a few details and we'll match you with the right team.</p>
         </div>
-        <div id="hubspotForm"></div>
+        <div class="contact-hubspot-form">
+          <script src="https://js.hsforms.net/forms/embed/developer/40221584.js" defer></script>
+          <div class="hs-form-html" data-region="na1" data-form-id="14603611-2306-41db-892b-61dd59e11a31" data-portal-id="40221584"></div>
+          <div class="contact-consent-copy">
+            <p>By providing a telephone number and submitting the form, you are consenting to be contacted by SMS text message and agreeing to our Privacy Policy. Message frequency may vary. Message and data rates may apply. Reply STOP to opt out of further messaging. Reply HELP for more information.</p>
+            <label>
+              <input type="checkbox" checked>
+              <span>I agree to receive other communications from Pyramid Consulting.</span>
+            </label>
+          </div>
+        </div>
       </div>
 
     </div>
@@ -689,31 +857,5 @@
 
   <!-- Footer injected by shared.js -->
   <script src="/shared.js" defer></script>
-
-  <!-- HubSpot Forms -->
-  <script charset="utf-8" type="text/javascript" src="https://js.hsforms.net/forms/embed/v2.js"></script>
-  <script>
-    (function () {
-      function createForm() {
-        if (window.hbspt && window.hbspt.forms) {
-          window.hbspt.forms.create({
-            portalId: "40221584",
-            formId: "c295847a-5d16-41a7-aadc-c7cdadd012e6",
-            region: "na1",
-            target: "#hubspotForm"
-          });
-          return true;
-        }
-        return false;
-      }
-      if (!createForm()) {
-        var tries = 0;
-        var iv = setInterval(function () {
-          tries++;
-          if (createForm() || tries > 50) clearInterval(iv);
-        }, 100);
-      }
-    })();
-  </script>
 </body>
 </html>
