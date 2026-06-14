@@ -5544,241 +5544,349 @@
       margin-bottom: 52px;
     }
 
-
-    /* ── @property for animated gradient border ── */
-    @property --jh-g-angle {
-      syntax: '<angle>';
-      initial-value: 0deg;
-      inherits: false;
+    /* ── Leadership Tab Nav ── */
+    .leader-tabs-container {
+      display: flex;
+      gap: 32px;
+      border-bottom: 1.5px solid rgba(13,17,39,0.08);
+      padding-bottom: 0px;
+      margin-bottom: 48px;
     }
 
-    @keyframes jh-border-travel {
-      to { --jh-g-angle: 360deg; }
-    }
-
-    /* ── Accordion rows — inactive ── */
-    #jh-outcomes-acc .jh-acc-row {
-      position: relative;
-      border: 1px solid rgba(13,17,39,0.10);
-      border-radius: 16px;
-      margin-bottom: 12px;
+    .leader-tab-btn {
+      font-family: var(--font-head);
+      font-size: 16px;
+      font-weight: 600;
+      color: #71717a;
+      background: none;
+      border: none;
+      padding: 12px 4px;
       cursor: pointer;
-      background: #fff;
-      outline: none;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .leader-tab-btn:hover {
+      color: #18181b;
+    }
+
+    .leader-tab-btn.active {
+      color: #09090b;
+    }
+
+    .leader-tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: -1.5px;
+      left: 0;
+      width: 0;
+      height: 2.5px;
+      background: #09090b;
+      transition: width 0.3s ease;
+    }
+
+    .leader-tab-btn.active::after {
+      width: 100%;
+    }
+
+    /* ── Leadership Card Grid ── */
+    .leader-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    /* ── Card Container & 3D Flip Mechanics ── */
+    .leader-card-wrapper {
+      perspective: 1200px;
+      height: 480px;
+      display: none; /* Controlled by JS filtering */
+    }
+
+    .leader-card {
+      width: 100%;
+      height: 100%;
+      position: relative;
+      transform-style: preserve-3d;
+      transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+      border-radius: 18px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    }
+
+    .leader-card-inner {
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+    }
+
+    .leader-card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    /* Hover effect (only for cards that are NOT flipped) */
+    .leader-card-wrapper:hover .leader-card:not(.flipped) {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.08);
+    }
+
+    .leader-card-front, .leader-card-back {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border-radius: 18px;
+      border: 1px solid rgba(13,17,39,0.08);
       overflow: hidden;
-      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
     }
 
-    #jh-outcomes-acc .jh-acc-row:last-child { margin-bottom: 0; }
-
-    /* ── Active row — animated conic-gradient border ── */
-    #jh-outcomes-acc .jh-acc-row.active {
-      border: 3px solid transparent;
-      background:
-        linear-gradient(#fff, #fff) padding-box,
-        conic-gradient(from var(--jh-g-angle), #d4a017, #1b6fb8, #0c8a6f, #d4a017) border-box;
-      animation: jh-border-travel 6s linear infinite;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.08), 0 2px 8px rgba(0,0,0,0.04);
+    /* ── Front Side ── */
+    .leader-card-img-wrap {
+      width: 100%;
+      height: 280px;
+      overflow: hidden;
+      background: #f4f4f5;
+      position: relative;
     }
 
-    /* ── Header ── */
-    #jh-outcomes-acc .jh-acc-header {
+    .leader-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s ease;
+    }
+
+    .leader-card-wrapper:hover .leader-card-img-wrap img {
+      transform: scale(1.03);
+    }
+
+    /* Initials Placeholder */
+    .leader-initials-placeholder {
+      width: 100%;
+      height: 100%;
       display: flex;
       align-items: center;
-      padding: 22px 28px;
-      gap: 18px;
-      position: relative;
-      z-index: 2;
+      justify-content: center;
+      font-size: 64px;
+      font-weight: 800;
+      color: #fff;
+      font-family: var(--font-head);
+      letter-spacing: -1.5px;
       user-select: none;
     }
 
-    /* ── Check/square icon ── */
-    #jh-outcomes-acc .jh-acc-icon {
-      width: 26px; height: 26px;
-      border-radius: 6px;
-      background: #fff;
-      border: 1.5px solid #d4d4d8;
-      flex-shrink: 0;
-      position: relative;
-      transition: background 0.25s ease, border-color 0.25s ease;
-    }
+    /* Custom placeholder gradients */
+    .gradient-1 { background: radial-gradient(circle at top left, #2254f4, #0d1127); }
+    .gradient-2 { background: radial-gradient(circle at top left, #0c8a6f, #0d1127); }
+    .gradient-3 { background: radial-gradient(circle at top left, #d4a017, #0d1127); }
+    .gradient-4 { background: radial-gradient(circle at top left, #1b6fb8, #0d1127); }
+    .gradient-5 { background: radial-gradient(circle at top left, #2dd4bf, #0d1127); }
+    .gradient-6 { background: radial-gradient(circle at top left, #a855f7, #0d1127); }
+    .gradient-7 { background: radial-gradient(circle at top left, #ec4899, #0d1127); }
+    .gradient-8 { background: radial-gradient(circle at top left, #3b82f6, #0d1127); }
 
-    #jh-outcomes-acc .jh-acc-row.active .jh-acc-icon {
-      background: #111; border-color: #111;
-    }
-
-    #jh-outcomes-acc .jh-acc-row.active .jh-acc-icon::after {
-      content: '';
-      position: absolute;
-      left: 8px; top: 3px;
-      width: 7px; height: 12px;
-      border: solid #fff;
-      border-width: 0 2px 2px 0;
-      transform: rotate(45deg);
-    }
-
-    /* ── Row title ── */
-    #jh-outcomes-acc .jh-acc-title {
-      font-size: clamp(17px, 1.5vw, 22px);
-      font-weight: 700;
-      color: #09090b;
-      letter-spacing: -0.3px;
-      line-height: 1.25;
-      flex: 1;
-      transition: opacity 0.2s ease;
-    }
-
-    #jh-outcomes-acc .jh-acc-row.active .jh-acc-header .jh-acc-title {
-      opacity: 0; height: 0; overflow: hidden; pointer-events: none;
-    }
-
-    /* ── Arrow button — collapsed state (diagonal ↗ box) ── */
-    #jh-outcomes-acc .jh-acc-arrow {
-      width: 38px; height: 38px;
-      border: 1.5px solid rgba(13,17,39,0.15);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      color: #09090b;
-      background: #fff;
-      transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, opacity 0.2s ease;
-    }
-
-    #jh-outcomes-acc .jh-acc-row:hover:not(.active) .jh-acc-arrow {
-      background: #09090b; border-color: #09090b; color: #fff;
-    }
-
-    #jh-outcomes-acc .jh-acc-row.active .jh-acc-arrow {
-      opacity: 0; pointer-events: none;
-    }
-
-    /* ── Body (GSAP animates height) ── */
-    #jh-outcomes-acc .jh-acc-body { overflow: hidden; height: 0; }
-
-    /* ── Body grid: text left padded, image right FLUSH to card edge ── */
-    #jh-outcomes-acc .jh-acc-body-grid {
-      display: grid;
-      grid-template-columns: 1fr 1.15fr;
-      gap: 0;
-      align-items: stretch;
-      min-height: 360px;
-    }
-
-    #jh-outcomes-acc .jh-acc-body-text {
+    .leader-card-info {
+      padding: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: center;
-      padding: clamp(20px, 2.5vw, 32px) clamp(24px, 3vw, 44px) clamp(32px, 4vw, 52px) clamp(24px, 3vw, 44px);
+      justify-content: space-between;
+      flex-grow: 1;
     }
 
-    #jh-outcomes-acc .jh-acc-big-title {
-      font-size: clamp(26px, 2.8vw, 44px);
+    .leader-name {
+      font-size: 22px;
       font-weight: 700;
-      line-height: 1.06;
-      letter-spacing: -1.2px;
       color: #09090b;
-      margin: 0 0 18px;
+      margin: 0 0 6px 0;
+      line-height: 1.2;
     }
 
-    #jh-outcomes-acc .jh-acc-desc {
-      font-size: 15px;
-      line-height: 1.65;
-      color: #4b5563;
-      max-width: 460px;
-      margin: 0 0 30px;
+    .leader-role {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #71717a;
+      line-height: 1.45;
+      margin: 0;
     }
 
-    #jh-outcomes-acc .jh-acc-cta {
+    .leader-view-profile {
+      font-size: 13px;
+      font-weight: 700;
+      color: #09090b;
+      text-decoration: none;
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--teal);
-      text-decoration: none;
-      border-bottom: 1.5px solid transparent;
-      padding-bottom: 2px;
+      gap: 8px;
+      cursor: pointer;
+      transition: gap 0.25s ease;
+      margin-top: 16px;
       align-self: flex-start;
-      transition: border-color 0.2s ease, gap 0.2s ease;
     }
 
-    #jh-outcomes-acc .jh-acc-cta:hover { border-color: var(--teal); gap: 14px; }
-    #jh-outcomes-acc .jh-acc-cta svg { transition: transform 0.2s ease; }
-    #jh-outcomes-acc .jh-acc-cta:hover svg { transform: translateX(3px); }
-
-    /* ── Image: FLUSH right/top/bottom — no border-radius on inner right ── */
-    #jh-outcomes-acc .jh-acc-img {
-      position: static;
-      background: #e5e7eb;
+    .leader-view-profile svg {
+      transition: transform 0.25s ease;
     }
 
-    #jh-outcomes-acc .jh-acc-img img {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 53.5%;
+    .leader-view-profile:hover {
+      gap: 12px;
+    }
+
+    .leader-view-profile:hover svg {
+      transform: translateX(2px);
+    }
+
+    /* ── Back Side ── */
+    .leader-card-back {
+      transform: rotateY(180deg);
+      background: #0d1127;
+      color: #fff;
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .leader-card-back-info {
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
       height: 100%;
-      object-fit: cover;
-      display: block;
-      will-change: transform;
-      border-radius: 0 13px 13px 0;
-      z-index: 1;
     }
 
-    /* Hide image on collapsed rows */
-    #jh-outcomes-acc .jh-acc-img img {
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.4s ease;
+    .leader-back-name {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 4px 0;
+      line-height: 1.2;
     }
 
-    #jh-outcomes-acc .jh-acc-row.active .jh-acc-img img {
-      opacity: 1;
-      pointer-events: auto;
-      animation: jh-acc-ken 18s ease-in-out infinite alternate;
+    .leader-back-role {
+      font-size: 12.5px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.4;
+      margin: 0;
     }
 
-    @keyframes jh-acc-ken {
-      from { transform: scale(1.00); }
-      to   { transform: scale(1.05); }
+    .leader-bio-scroll {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin: 20px 0;
+      padding-right: 8px;
+      font-size: 13.5px;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      scrollbar-width: thin;
+      scrollbar-color: rgba(255,255,255,0.15) transparent;
+    }
+
+    /* Scrollbars */
+    .leader-bio-scroll::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .leader-bio-scroll::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    .leader-bio-scroll::-webkit-scrollbar-thumb {
+      background: rgba(255,255,255,0.15);
+      border-radius: 4px;
+    }
+
+    .leader-bio-scroll::-webkit-scrollbar-thumb:hover {
+      background: rgba(255,255,255,0.3);
+    }
+
+    .leader-back-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: auto;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 20px;
+    }
+
+    .leader-flip-back {
+      font-family: inherit;
+      font-size: 12.5px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.7);
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.25s ease;
+    }
+
+    .leader-flip-back:hover {
+      color: #fff;
+    }
+
+    .leader-flip-back svg {
+      transform: rotate(180deg);
+    }
+
+    .leader-linkedin-btn {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.8);
+      transition: background 0.25s ease, color 0.25s ease, transform 0.25s ease;
+      text-decoration: none;
+    }
+
+    .leader-linkedin-btn:hover {
+      background: #0077b5;
+      color: #fff;
+      transform: translateY(-2px);
     }
 
     /* ── Responsive ── */
-    @media (max-width: 860px) {
-      #jh-outcomes-acc .jh-acc-body-grid {
-        grid-template-columns: 1fr;
-        min-height: unset;
+    @media (max-width: 1024px) {
+      .leader-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
       }
-      #jh-outcomes-acc .jh-acc-img {
-        order: -1;
-        aspect-ratio: 16 / 9;
-        min-height: 200px;
+      .leader-card-wrapper {
+        height: 460px;
       }
-      #jh-outcomes-acc .jh-acc-img img {
-        position: relative;
-        width: 100%;
-        height: 100%;
-        border-radius: 13px 13px 0 0;
-        top: auto; right: auto; bottom: auto;
-        display: block;
-      }
-      #jh-outcomes-acc .jh-acc-big-title {
-        font-size: clamp(24px, 6vw, 34px);
-        letter-spacing: -0.8px;
+      .leader-card-img-wrap {
+        height: 240px;
       }
     }
 
     @media (max-width: 640px) {
-      .jh-oa-headline {
-        font-size: clamp(28px, 7.5vw, 40px);
-        letter-spacing: -0.8px;
-        margin-bottom: 14px;
+      .leader-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
       }
-      .jh-oa-intro { margin-bottom: 32px; }
-      #jh-outcomes-acc .jh-acc-header { padding: 18px 20px; gap: 14px; }
+      .leader-card-wrapper {
+        height: 450px;
+      }
+      .leader-card-img-wrap {
+        height: 230px;
+      }
+      .leader-tabs-container {
+        gap: 16px;
+        margin-bottom: 32px;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 2px;
+      }
+      .leader-tab-btn {
+        font-size: 15px;
+        padding: 10px 0;
+      }
     }
   </style>
 
@@ -5786,98 +5894,396 @@
 
     <!-- Section header -->
     <p class="eyebrow">— Our Leadership</p>
-    <h2 class="jh-oa-headline">Celsior is built on 30 years of institutional experience. The leaders behind that experience bring direct operational accountability to every client relationship. </h2>
-    <p class="jh-oa-intro">The leadership team at Celsior draws from the founding of Pyramid Consulting itself. The executives featured here co-built the enterprise that Celsior operates within. That shared means the people setting direction for Celsior's client work have seen this firm's model tested across three decades, dozens of industries, and hundreds of engagements with the largest organizations in the world. </p>
+    <h2 class="jh-oa-headline">The Leaders Behind Enterprise Transformation.</h2>
+    <p class="jh-oa-intro">Visionary leaders with deep domain expertise and a shared commitment to driving impact for our clients, people, and communities.</p>
 
-    <!-- ROW 1 — Check Fraud Reduction (default active) -->
-    <div class="jh-acc-row active" data-jh-index="0" tabindex="0" role="button" aria-expanded="true">
-      <div class="jh-acc-header">
-        <div class="jh-acc-icon" aria-hidden="true"></div>
-        <span class="jh-acc-title"><b>Sanjeev Tirath</b> Chief Executive Officer, Pyramid Consulting | Co-Founder</span>
-        <div class="jh-acc-arrow" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
-      <div class="jh-acc-body">
-        <div class="jh-acc-body-grid">
-          <div class="jh-acc-body-text">
-            <h3 class="jh-acc-big-title">Sanjeev Tirath</h3>
-            <p class="jh-acc-desc"><b>Chief Executive Officer, Pyramid Consulting | Co-Founder</b></p>
-            <p class="jh-acc-desc">As co-founder and CEO of Pyramid Consulting, Sanjeev sets the strategic direction that gives Celsior its institutional footing, overseeing a global enterprise that serves 125+ Fortune 500 companies across five continents. He co-founded Pyramid in 1996 following senior leadership roles at multiple global corporations, where he built the technical and commercial discipline that has guided the firm's growth over three decades.</p>
-          </div>
-          <div class="jh-acc-img">
-            <img
-              src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/0e839d3bb1f078567b4b0bd262dda3945b8185bb_ybnk5s.jpg"
-              alt="Financial professionals collaborating in modern office"
-              style="object-position: center 30%;"
-            >
-          </div>
-        </div>
-      </div>
+    <!-- Tab navigation -->
+    <div class="leader-tabs-container">
+      <button class="leader-tab-btn active" data-tab="founders">Founders</button>
+      <button class="leader-tab-btn" data-tab="vertical">Vertical Leaders</button>
+      <button class="leader-tab-btn" data-tab="technology">Technology Leaders</button>
     </div>
 
-    <!-- ROW 2 — Loan and Check Processing Automation -->
-    <div class="jh-acc-row" data-jh-index="1" tabindex="0" role="button" aria-expanded="false">
-      <div class="jh-acc-header">
-        <div class="jh-acc-icon" aria-hidden="true"></div>
-        <span class="jh-acc-title"><b>Ramesh Maturu</b> (President, Pyramid Consulting | Co-Founder) </span>
-        <div class="jh-acc-arrow" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
+    <!-- Cards Grid -->
+    <div class="leader-grid" id="leader-grid">
+
+      <!-- 1. Sanjeev Tirath (Founders) -->
+      <div class="leader-card-wrapper" data-category="founders">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/0e839d3bb1f078567b4b0bd262dda3945b8185bb_ybnk5s.jpg" alt="Sanjeev Tirath">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Sanjeev Tirath</h3>
+                  <p class="leader-role">CEO - Chief Executive Officer, Pyramid Consulting | Co-Founder</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Sanjeev Tirath</h4>
+                  <p class="leader-back-role">CEO - Chief Executive Officer, Pyramid Consulting | Co-Founder</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  Sanjeev Tirath is the Founder and Chief Executive Officer of Celsior's parent company, Pyramid Consulting, a global workforce and technology solutions organization serving Fortune 500 enterprises across more than 25 countries. Since founding the company in 1996, he has led its transformation into a globally recognized business built on innovation, customer success, and talent-driven growth.<br><br>A visionary entrepreneur and industry leader, Sanjeev pioneered The Pyramid Approach, integrating Talent, Technology, and Training to help organizations navigate evolving business challenges. His leadership has earned widespread recognition, including multiple appearances on Staffing Industry Analysts' Staffing 100 North America list and recognition for his commitment to innovation, workforce development, and inclusive growth. He holds a degree in Electrical Engineering from BITS Pilani.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/sanjeev-tirath-324688/?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="jh-acc-body">
-        <div class="jh-acc-body-grid">
-          <div class="jh-acc-body-text">
-            <h3 class="jh-acc-big-title">Ramesh Maturu</h3>
-            <p class="jh-acc-desc"><b>President, Pyramid Consulting | Co-Founder</b></p>
-            <p class="jh-acc-desc">CAFE is LLM-agnostic by design, supporting GPT-4, Claude, Gemini, and any model a client's architecture requires, with no vendor lock-in built into the framework. Agents are defined through YAML blueprints covering purpose, LLM, and modality, then deployed directly into PACE for governed production operation, providing the fastest available path from concept to production-ready agent.</p>
-          </div>
-          <div class="jh-acc-img">
-            <img
-              src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=900&auto=format&fit=crop&q=80"
-              alt="Banking team reviewing loan documents"
-              style="object-position: center 40%;"
-            >
+
+      <!-- 2. Namita Tirath (Founders) -->
+      <div class="leader-card-wrapper" data-category="founders">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=80" alt="Namita Tirath">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Namita Tirath</h3>
+                  <p class="leader-role">EVP, Client Relations & Business Development, Pyramid Consulting</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Namita Tirath</h4>
+                  <p class="leader-back-role">EVP, Client Relations & Business Development, Pyramid Consulting</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  A distinguished relationship builder and growth leader, Namita Tirath has played an instrumental role in shaping Pyramid Consulting’s global success story. Known for her exceptional ability to foster trusted partnerships and connect people, opportunities, and ideas, she has built an influential network that continues to drive business growth and customer success. Her leadership, strategic foresight, and unwavering focus on client value have earned her repeated recognition among the staffing industry's most influential leaders.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/namitatirath/?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+
+      <!-- 3. Ramesh Maturu (Founders) -->
+      <div class="leader-card-wrapper" data-category="founders">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&auto=format&fit=crop&q=80" alt="Ramesh Maturu">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Ramesh Maturu</h3>
+                  <p class="leader-role">President, Enterprise Solutions, Pyramid Consulting | Co-Founder</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Ramesh Maturu</h4>
+                  <p class="leader-back-role">President, Enterprise Solutions, Pyramid Consulting | Co-Founder</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  Ramesh Maturu is a seasoned technology executive whose leadership has helped shape Pyramid Consulting's evolution into a trusted enterprise solutions partner. With a deep understanding of business transformation and emerging technologies, he has been instrumental in guiding organizations through complex digital journeys while fostering a culture of innovation and excellence. Known for his thoughtful leadership and unwavering focus on delivering measurable outcomes, Ramesh continues to play a pivotal role in advancing the company's vision and long-term growth.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/rameshmaturu/?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4. Vishak Mallya (Founders) -->
+      <div class="leader-card-wrapper" data-category="founders">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=600&auto=format&fit=crop&q=80" alt="Vishak Mallya">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Vishak Mallya</h3>
+                  <p class="leader-role">COO - Chief Operating Officer, Celsior</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Vishak Mallya</h4>
+                  <p class="leader-back-role">COO - Chief Operating Officer, Celsior</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  A champion of AI-led transformation and digital innovation, Vishak Mallya serves as Chief Operating Officer of Celsior, where he is driving the next generation of enterprise solutions. With a sharp focus on emerging technologies, intelligent automation, and scalable business models, he has rapidly established a foundation for growth, operational excellence, and customer value creation. His ability to translate technological advancement into tangible business outcomes continues to position Celsior at the forefront of an evolving digital economy.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/vishakmallya/?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 5. Meiyappan Adaikkalavan (Vertical Leaders) -->
+      <div class="leader-card-wrapper" data-category="vertical">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80" alt="Meiyappan Adaikkalavan">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Meiyappan Adaikkalavan</h3>
+                  <p class="leader-role">Business Unit Head – HCLS, Celsior</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Meiyappan Adaikkalavan</h4>
+                  <p class="leader-back-role">Business Unit Head – HCLS, Celsior</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  Meiyappan Adaikkalavan leads Celsior's Healthcare and Life Sciences business, guiding strategic initiatives that help organizations navigate the evolving demands of one of the world's most dynamic industries. With extensive experience spanning healthcare, technology, and business transformation, he works closely with clients to drive innovation, improve operational effectiveness, and deliver meaningful outcomes. His leadership continues to strengthen Celsior's position as a trusted partner for organizations seeking to accelerate growth, enhance patient and stakeholder experiences, and create lasting value in a rapidly changing healthcare landscape.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/mei-adai/?skipRedirect=true?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 6. Ritesh Koul (Technology Leaders) -->
+      <div class="leader-card-wrapper" data-category="technology">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80" alt="Ritesh Koul">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Ritesh Koul</h3>
+                  <p class="leader-role">Sr. Vice President, Digital Delivery & Innovation, Celsior</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Ritesh Koul</h4>
+                  <p class="leader-back-role">Sr. Vice President, Digital Delivery & Innovation, Celsior</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  A respected technology leader and transformation strategist, Ritesh Koul is responsible for driving Celsior's digital delivery and innovation agenda. With a proven track record of leading complex enterprise initiatives, he combines strategic vision with executional excellence to deliver transformative outcomes at scale. His leadership continues to strengthen Celsior's position as a trusted partner for organizations seeking to accelerate innovation, modernize operations, and realize the full potential of digital transformation.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/ritesh-koul-b179b83/?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 7. Anurag Gupta (Technology Leaders) -->
+      <div class="leader-card-wrapper" data-category="technology">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=600&auto=format&fit=crop&q=80" alt="Anurag Gupta">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Anurag Gupta</h3>
+                  <p class="leader-role">SVP, Head of Strategy, Celsior</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Anurag Gupta</h4>
+                  <p class="leader-back-role">SVP, Head of Strategy, Celsior</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  Anurag Gupta leads strategy for Celsior, where he is responsible for shaping the organization's long-term growth agenda, market positioning, and strategic transformation initiatives. He works closely with business and technology leaders to identify emerging opportunities, strengthen competitive advantage, and accelerate innovation across the enterprise. Known for his ability to connect business vision with execution, Anurag has played a key role in advancing Celsior's evolution as a trusted digital transformation partner. His leadership continues to drive strategic alignment, sustainable growth, and value creation for clients navigating an increasingly dynamic technology landscape.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/anuragiimk/?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 8. Narasimhan C B (Technology Leaders) -->
+      <div class="leader-card-wrapper" data-category="technology">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?w=600&auto=format&fit=crop&q=80" alt="Narasimhan C B">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Narasimhan C B</h3>
+                  <p class="leader-role">VP - Practices & Solutions, Software, Celsior</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Narasimhan C B</h4>
+                  <p class="leader-back-role">VP - Practices & Solutions, Software, Celsior</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  Narasimhan C B leads Software Practices & Solutions at Celsior, where he is responsible for advancing the organization's technology capabilities and solution excellence across the software landscape. With deep expertise in enterprise architecture, application modernization, and emerging technologies, he helps organizations navigate complex transformation initiatives and accelerate innovation at scale. His leadership continues to strengthen Celsior's ability to deliver future-ready solutions that enable clients to enhance agility, drive operational efficiency, and create sustained business value.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <!-- No LinkedIn Profile rendered for Narasimhan C B -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 9. Debasish Chanda (Technology Leaders) -->
+      <div class="leader-card-wrapper" data-category="technology">
+        <div class="leader-card">
+          <div class="leader-card-inner">
+            <div class="leader-card-front">
+              <div class="leader-card-img-wrap">
+                <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&auto=format&fit=crop&q=80" alt="Debasish Chanda">
+              </div>
+              <div class="leader-card-info">
+                <div>
+                  <h3 class="leader-name">Debasish Chanda</h3>
+                  <p class="leader-role">Global Practice Lead - Digital Solutions, Pyramid Consulting</p>
+                </div>
+                <span class="leader-view-profile">View full profile
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+              </div>
+            </div>
+            <div class="leader-card-back">
+              <div class="leader-card-back-info">
+                <div>
+                  <h4 class="leader-back-name">Debasish Chanda</h4>
+                  <p class="leader-back-role">Global Practice Lead - Digital Solutions, Pyramid Consulting</p>
+                </div>
+                <div class="leader-bio-scroll">
+                  As Global Practice Lead for Digital Solutions, Debasish Chanda is instrumental in shaping Pyramid Consulting's digital transformation vision and solution strategy. He leads the development of innovative capabilities that enable organizations to navigate complexity, embrace emerging technologies, and accelerate enterprise-wide transformation. Through his deep expertise and commitment to excellence, Debasish continues to help clients unlock sustainable growth, enhance business agility, and create lasting competitive advantage in a rapidly evolving digital economy.
+                </div>
+                <div class="leader-back-footer">
+                  <button class="leader-flip-back">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" style="transform: scaleX(-1);"><path d="M2.5 7H11.5M11.5 7L8 3.5M11.5 7L8 10.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    Back to Profile
+                  </button>
+                  <a href="https://www.linkedin.com/in/debasish-chanda/?" target="_blank" rel="noopener noreferrer" class="leader-linkedin-btn" aria-label="LinkedIn Profile">
+                    <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
-
-    <!-- ROW 3 — DevOps, Cloud, and Upgrades -->
-    <div class="jh-acc-row" data-jh-index="2" tabindex="0" role="button" aria-expanded="false">
-      <div class="jh-acc-header">
-        <div class="jh-acc-icon" aria-hidden="true"></div>
-        <span class="jh-acc-title"><b>Vishak Mallya </b>(Executive Vice President & Chief Operating Officer, Celsior)</span>
-        <div class="jh-acc-arrow" aria-hidden="true">
-          <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-            <path d="M3 11L11 3M11 3H5M11 3V9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-      </div>
-      <div class="jh-acc-body">
-        <div class="jh-acc-body-grid">
-          <div class="jh-acc-body-text">
-            <h3 class="jh-acc-big-title">Vishak Mallya</h3>
-            <p class="jh-acc-desc"><b>Executive Vice President & Chief Operating Officer, Celsior</b></p>
-
-            <p class="jh-acc-desc">PACE is the runtime and governance layer that connects agent estates across Agentforce, Azure AI, and Amazon Bedrock through a single unified fabric. It provides real-time observability, unified policy enforcement, drift detection, and SLA ownership across every platform simultaneously.</p>
-          </div>
-          <div class="jh-acc-img">
-            <img
-              src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=900&auto=format&fit=crop&q=80"
-              alt="Cloud infrastructure and DevOps engineering"
-              style="object-position: center 40%;"
-            >
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
   </section>
   <!-- /PROVEN OUTCOMES ACCORDION -->
@@ -7514,66 +7920,96 @@ and outline a path to measurable transformation within 30 days.</p>
   })();
   </script>
 
-  <!-- PROVEN OUTCOMES ACCORDION JS — scoped to #jh-outcomes-acc -->
+  <!-- LEADERSHIP SECTION JS — scoped to #jh-outcomes-acc -->
   <script>
   (function () {
-    if (typeof gsap === 'undefined') return;
-    var activeIndex = 0, busy = false;
-    var rows = Array.from(document.querySelectorAll('#jh-outcomes-acc .jh-acc-row'));
-    if (!rows.length) return;
+    var activeTab = 'founders';
+    var allCards = Array.from(document.querySelectorAll('.leader-card-wrapper'));
+    var buttons = Array.from(document.querySelectorAll('.leader-tab-btn'));
 
-    // Set initial heights: first row open, rest collapsed
-    rows.forEach(function (row, i) {
-      var body = row.querySelector('.jh-acc-body');
-      if (!body) return;
-      gsap.set(body, { height: i === 0 ? 'auto' : 0 });
+    // Bind card flip actions
+    document.querySelectorAll('.leader-view-profile').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var card = btn.closest('.leader-card');
+        if (card) card.classList.add('flipped');
+      });
     });
 
-    function openRow(idx) {
-      if (idx === activeIndex || busy) return;
-      busy = true;
-      var prev = rows[activeIndex];
-      var next = rows[idx];
-      var pB = prev.querySelector('.jh-acc-body');
-      var nB = next.querySelector('.jh-acc-body');
-      var nImg = next.querySelector('.jh-acc-img img');
+    document.querySelectorAll('.leader-flip-back').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var card = btn.closest('.leader-card');
+        if (card) card.classList.remove('flipped');
+      });
+    });
 
-      // Measure target height before animating
-      gsap.set(nB, { height: 'auto' });
-      var targetH = nB.offsetHeight;
-      gsap.set(nB, { height: 0 });
+    // Initial filtering
+    filterCards(activeTab, false);
 
-      // Lock prev to numeric height before collapsing
-      var prevH = pB.offsetHeight;
-      gsap.set(pB, { height: prevH });
+    // Tab buttons event listeners
+    buttons.forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var targetTab = btn.getAttribute('data-tab');
+        if (targetTab === activeTab) return;
+        
+        buttons.forEach(function (b) { b.classList.remove('active'); });
+        btn.classList.add('active');
+        
+        activeTab = targetTab;
+        filterCards(activeTab, true);
+      });
+    });
 
-      prev.classList.remove('active');
-      prev.setAttribute('aria-expanded', 'false');
-      next.classList.add('active');
-      next.setAttribute('aria-expanded', 'true');
+    function filterCards(category, animate) {
+      // Un-flip any flipped cards first
+      document.querySelectorAll('.leader-card.flipped').forEach(function (card) {
+        card.classList.remove('flipped');
+      });
 
-      var tl = gsap.timeline({
-        onComplete: function () {
-          activeIndex = idx;
-          busy = false;
-          gsap.set(nB, { height: 'auto' });
+      var toShow = [];
+      var toHide = [];
+
+      allCards.forEach(function (card) {
+        if (card.getAttribute('data-category') === category) {
+          toShow.push(card);
+        } else {
+          toHide.push(card);
         }
       });
-      tl.to(pB, { height: 0, duration: 0.55, ease: 'power3.inOut' }, 0)
-        .to(nB, { height: targetH, duration: 0.65, ease: 'power3.out' }, 0.08);
-      if (nImg) tl.fromTo(nImg, { scale: 1.06 }, { scale: 1, duration: 0.85, ease: 'power2.out' }, 0.08);
-    }
 
-    rows.forEach(function (row, i) {
-      row.querySelector('.jh-acc-header').addEventListener('click', function (e) {
-        if (!e.target.closest('.jh-acc-cta')) openRow(i);
-      });
-      row.addEventListener('keydown', function (e) {
-        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openRow(i); }
-        if (e.key === 'ArrowDown' && i < rows.length - 1) openRow(i + 1);
-        if (e.key === 'ArrowUp' && i > 0) openRow(i - 1);
-      });
-    });
+      if (animate && typeof gsap !== 'undefined') {
+        gsap.to(toHide, {
+          opacity: 0,
+          y: 15,
+          duration: 0.25,
+          stagger: 0.04,
+          onComplete: function () {
+            toHide.forEach(function (card) { card.style.display = 'none'; });
+            toShow.forEach(function (card) {
+              card.style.display = 'block';
+              gsap.set(card, { opacity: 0, y: 15 });
+            });
+            gsap.to(toShow, {
+              opacity: 1,
+              y: 0,
+              duration: 0.4,
+              stagger: 0.06,
+              ease: 'power2.out'
+            });
+          }
+        });
+      } else {
+        toHide.forEach(function (card) { card.style.display = 'none'; });
+        toShow.forEach(function (card) {
+          card.style.display = 'block';
+          card.style.opacity = '1';
+          if (typeof gsap !== 'undefined') {
+            gsap.set(card, { y: 0 });
+          }
+        });
+      }
+    }
   })();
   </script>
 </body>
