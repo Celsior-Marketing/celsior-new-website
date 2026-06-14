@@ -246,6 +246,43 @@
 
   if (!shouldInjectNav && !shouldInjectFooter) {
     console.info('[shared.js] Existing complete nav and footer found — normalized links only.');
+  }
+
+  /* ─── 0.5. INJECT GLOBAL CARD STYLES ────────────────────────────── */
+  (function injectGlobalCardStyles() {
+    if (document.getElementById('celsior-global-cards')) return;
+    const style = document.createElement('style');
+    style.id = 'celsior-global-cards';
+    style.textContent = `
+/* ═══════════════════════ UNIFIED CARD HOVER EFFECT ═════════════════
+   Applying gradient border and shadow on hover across all content cards
+   ═══════════════════════════════════════════════════════════════════ */
+.aw-card:hover, 
+.fp-card:hover, 
+.ops-cost-card:hover, 
+.ops-cost-cards > div:not([style*="position:absolute"]):hover,
+.insight-card:hover, 
+.outcome-card:hover,
+.solution-card-inner:hover,
+.drawer-mega-feature:hover,
+.drawer-mega-card:hover,
+.mz-feature-card:hover,
+.mz-assess-card:hover {
+  background:
+    linear-gradient(#fff, #fff) padding-box,
+    linear-gradient(135deg, #f3c969 0%, #5cc8ba 55%, #6aa9ff 100%) border-box !important;
+  box-shadow: 0 18px 40px -28px rgba(11,79,143,0.25) !important;
+  z-index: 2 !important;
+  transform: translateY(-2px) !important;
+  border-color: transparent !important;
+  border-width: 1px !important;
+  border-style: solid !important;
+}
+    `;
+    document.head.appendChild(style);
+  })();
+
+  if (!shouldInjectNav && !shouldInjectFooter) {
     return;
   }
 
@@ -541,6 +578,8 @@ a.nav-link{text-decoration:none;}
 .stats-grid .stat-col:nth-child(5n+5):hover {
   background: rgba(232, 131, 74, .13);
   box-shadow: 0 14px 30px -20px rgba(232, 131, 74, .4);
+}
+
 }
 `;
   document.head.appendChild(style);

@@ -2611,6 +2611,23 @@ BRD & IaC refactor cycles</div>
                  stat tiles. Pixel-mirror of Figma Desktop-31.
        CSS tag : /* === PLATFORM OPS COST === */
        ============================================================ -->
+  <style>
+    .ops-cost-card {
+      transition: all 0.3s ease;
+      border-radius: 7px;
+      position: relative;
+      z-index: 1;
+      border: 1px solid transparent;
+    }
+    .ops-cost-card:hover {
+      background:
+        linear-gradient(#fff, #fff) padding-box,
+        linear-gradient(135deg, #f3c969 0%, #5cc8ba 55%, #6aa9ff 100%) border-box;
+      box-shadow: 0 18px 40px -28px rgba(11,79,143,0.25);
+      z-index: 2;
+      transform: translateY(-2px);
+    }
+  </style>
   <section id="platform-ops-cost" style="background:#fff;border-top:1px solid rgba(13,17,39,0.08);">
 
     <!-- Heading -->
@@ -2649,7 +2666,7 @@ BRD & IaC refactor cycles</div>
       <div style="position:absolute;top:0;bottom:0;left:66.73%;width:1px;background:#e5e7eb;"></div>
 
       <!-- ── Card 1: Slower product cycles ── -->
-      <div style="padding: 58px 38px 48px;">
+      <div class="ops-cost-card" style="padding: 58px 38px 48px;">
         <!--
         Icon btn:
           size: 50.1px
@@ -2679,7 +2696,7 @@ BRD & IaC refactor cycles</div>
       </div>
 
       <!-- ── Card 2: Compounding security exposure ── -->
-      <div style="padding: 58px 38px 48px;">
+      <div class="ops-cost-card" style="padding: 58px 38px 48px;">
         <div style="
         width: 50.1px; height: 50.1px;
         background: #0d0d0f;
@@ -2700,7 +2717,7 @@ BRD & IaC refactor cycles</div>
       </div>
 
       <!-- ── Card 3: Engineering talent attrition ── -->
-      <div style="padding: 58px 38px 48px;">
+      <div class="ops-cost-card" style="padding: 58px 38px 48px;">
         <div style="
         width: 50.1px; height: 50.1px;
         background: #0d0d0f;
@@ -3037,7 +3054,7 @@ BRD & IaC refactor cycles</div>
         Four products.
         <span class="fp-title-accent">One coherent story.</span>
       </h2>
-      <p class="fp-lede">Every gap in your AI delivery lifecycle — from the first YAML blueprint to the production audit trail — is closed by one integrated platform. No stitching. No rip-and-replace.</p>
+      <p class="fp-lede">Every gap in your AI delivery lifecycle — from the first Yet Another Markup Language (YAML) blueprint to the production audit trail — is closed by one integrated platform. No stitching. No rip-and-replace.</p>
     </div>
 
     <div class="fp-grid">
@@ -6638,7 +6655,7 @@ BRD & IaC refactor cycles</div>
       });
     });
   </script>
-  <script src="/shared.js" defer></script>
+  <script src="/shared.js?v=2" defer></script>
 
   <script>
     (function () {
