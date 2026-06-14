@@ -405,9 +405,15 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Hero_Slide_1_tt2ggs.png') center/cover no-repeat;
       transform: scale(1.06);
       transform-origin: center;
+      overflow: hidden;
+    }
+
+    .hero-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero-gt {
@@ -3781,7 +3787,11 @@
        Reusable: copy this <section class="hero"> + .hero* styles.
        ============================================================ -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781447694/Celsior_Hero_Banner_AI_Innovation_zprpuo.webm" type="video/webm" />
+      </video>
+    </div>
     <div class="hero-gt"></div>
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>

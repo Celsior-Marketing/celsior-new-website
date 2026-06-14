@@ -72,9 +72,15 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/85518dd86818afcd8bb890f92e6fb11a2c7b57dc_k1yfn5.avif') center/cover no-repeat;
       transform: scale(1.06);
       transform-origin: center;
+      overflow: hidden;
+    }
+
+    .hero-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero-gt {
@@ -3640,7 +3646,11 @@
        Reusable: copy this <section class="hero"> + .hero* styles.
        ============================================================ -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781448353/Celsior_Hero_Banner_Partner_Ecosystem_Resized_sg5x3l.webm" type="video/webm" />
+      </video>
+    </div>
     <div class="hero-gt"></div>
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>
@@ -5761,6 +5771,110 @@
 
 
   <!-- ============================================================
+       SECTION: FAQ
+       Purpose : Two-column FAQ — intro on the left, accordion of
+                 questions on the right, separated by vertical rule.
+       CSS tag : /* === FAQ === */
+       ============================================================ -->
+  <style>
+    /* === FAQ layout override: full-width heading + image/accordion flex row === */
+    .faq { padding: 0 52px 120px !important; }
+    .faq__inner { display: block !important; max-width: 1200px; margin: 0 auto; border-top: 0 !important; }
+    .faq__inner::after { display: none !important; }
+    .faq__head { padding: 80px 0 48px; }
+    .faq__head .eyebrow { margin: 0 0 20px; color: #9aa3b2; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
+    .faq__head h2 { margin: 0; color: #0d1127; font-family: 'Inter', system-ui, sans-serif; font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1.08; letter-spacing: -0.036em; font-weight: 800; }
+    .faq__row { display: flex; align-items: stretch; gap: 40px; }
+    .faq__media { flex: 0 0 38%; max-width: 38%; }
+    .faq__media img { width: 100%; height: 100%; min-height: 460px; max-height: 620px; object-fit: cover; border-radius: 14px; display: block; }
+    .faq__items { flex: 1 1 0; padding-left: 0 !important; padding-top: 0 !important; min-width: 0; }
+    @media (max-width: 1024px) {
+      .faq { padding: 0 32px 80px !important; }
+      .faq__row { flex-direction: column; gap: 32px; }
+      .faq__media, .faq__items { flex: 1 1 auto; max-width: 100%; }
+      .faq__media img { min-height: 280px; max-height: 420px; }
+      .faq__head { padding: 56px 0 32px; }
+    }
+    @media (max-width: 640px) {
+      .faq { padding: 0 20px 64px !important; }
+      .faq__head { padding: 40px 0 24px; }
+      .faq__media img { min-height: 220px; max-height: 320px; }
+    }
+  </style>
+  <section class="faq">
+    <div class="faq__inner">
+      <div class="faq__head">
+        <p class="eyebrow">FAQS</p>
+        <h2>Questions We Hear From Enterprise Buyers, Platform Vendors, and System Integrators</h2>
+      </div>
+      <div class="faq__row">
+      <div class="faq__media">
+        <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/New_Project_yzww8o.avif" alt="Two business professionals collaborating over a laptop in a modern office" loading="lazy" />
+      </div>
+      <div class="faq__items">
+        <div class="faq__item">
+          <button class="faq__trigger" type="button" aria-expanded="false">
+            <span class="faq__q">What makes Celsior different from a standard Jack Henry implementation partner?</span>
+            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          </button>
+          <div class="faq__body">
+            <div class="faq__body-wrap">
+            <p>Celsior is a Jack Henry Fintech Integration Network member with direct jXchange API access. That means we build through the core, not around it. Combined with a retired Jack Henry Banking SVP on staff and 100+ consultants active inside Jack Henry programs, our delivery depth goes well beyond what a generalist integrator can offer.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__trigger" type="button" aria-expanded="false">
+            <span class="faq__q">Which Jack Henry platforms and divisions does Celsior work across?</span>
+            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          </button>
+          <div class="faq__body">
+            <div class="faq__body-wrap">
+            <p>We deliver programs across Complementary Solutions, Bank Solutions, and Payment Solutions. Our work spans SilverLake, Banno, jXchange, ACH processing, and lending operations, across both in-house and outsourced environments.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__trigger" type="button" aria-expanded="false">
+            <span class="faq__q">Can Celsior help us connect third-party fintech tools to our Jack Henry core?</span>
+            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          </button>
+          <div class="faq__body">
+            <div class="faq__body-wrap">
+            <p>Yes. Using direct jXchange API access, we connect external fintech solutions, digital banking platforms, and third-party tools to your core through a governed integration layer that preserves data integrity and eliminates the reconciliation problems that workarounds typically create.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__trigger" type="button" aria-expanded="false">
+            <span class="faq__q">Do you support cloud data migrations for Jack Henry institutions?</span>
+            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          </button>
+          <div class="faq__body">
+            <div class="faq__body-wrap">
+            <p>We implement Medallion architecture on GCP, Azure, and AWS, creating a unified financial data layer across accounts, customers, and households. This supports BI reporting, regulatory compliance, and predictive analytics without disrupting your existing Jack Henry environment during the transition.</p>
+            </div>
+          </div>
+        </div>
+        <div class="faq__item">
+          <button class="faq__trigger" type="button" aria-expanded="false">
+            <span class="faq__q">What happens during the free Integration Audit?</span>
+            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
+          </button>
+          <div class="faq__body">
+            <div class="faq__body-wrap">
+            <p>A Celsior Jack Henry architect reviews your current integration layer, workflow dependencies, and compliance posture in a focused 20-minute session. You leave with a clear picture of where your data connections stand, where the gaps are, and what a realistic modernization path looks like.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- ============================================================
        SECTION: CTA BANNER
        Purpose : Closing call-to-action band with pull-quote + button.
        CSS tag : /* === CTA BANNER === */
@@ -5921,111 +6035,6 @@ institution's growth. 
       
     </div>
   </section>
-
-
-
-  <!-- ============================================================
-       SECTION: FAQ
-       Purpose : Two-column FAQ — intro on the left, accordion of
-                 questions on the right, separated by vertical rule.
-       CSS tag : /* === FAQ === */
-       ============================================================ -->
-  <style>
-    /* === FAQ layout override: full-width heading + image/accordion flex row === */
-    .faq { padding: 0 52px 120px !important; }
-    .faq__inner { display: block !important; max-width: 1200px; margin: 0 auto; border-top: 0 !important; }
-    .faq__inner::after { display: none !important; }
-    .faq__head { padding: 80px 0 48px; }
-    .faq__head .eyebrow { margin: 0 0 20px; color: #9aa3b2; font-size: 0.78rem; letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600; }
-    .faq__head h2 { margin: 0; color: #0d1127; font-family: 'Inter', system-ui, sans-serif; font-size: clamp(1.9rem, 4vw, 3.4rem); line-height: 1.08; letter-spacing: -0.036em; font-weight: 800; }
-    .faq__row { display: flex; align-items: stretch; gap: 40px; }
-    .faq__media { flex: 0 0 38%; max-width: 38%; }
-    .faq__media img { width: 100%; height: 100%; min-height: 460px; max-height: 620px; object-fit: cover; border-radius: 14px; display: block; }
-    .faq__items { flex: 1 1 0; padding-left: 0 !important; padding-top: 0 !important; min-width: 0; }
-    @media (max-width: 1024px) {
-      .faq { padding: 0 32px 80px !important; }
-      .faq__row { flex-direction: column; gap: 32px; }
-      .faq__media, .faq__items { flex: 1 1 auto; max-width: 100%; }
-      .faq__media img { min-height: 280px; max-height: 420px; }
-      .faq__head { padding: 56px 0 32px; }
-    }
-    @media (max-width: 640px) {
-      .faq { padding: 0 20px 64px !important; }
-      .faq__head { padding: 40px 0 24px; }
-      .faq__media img { min-height: 220px; max-height: 320px; }
-    }
-  </style>
-  <section class="faq">
-    <div class="faq__inner">
-      <div class="faq__head">
-        <p class="eyebrow">FAQS</p>
-        <h2>Questions We Hear From Enterprise Buyers, Platform Vendors, and System Integrators</h2>
-      </div>
-      <div class="faq__row">
-      <div class="faq__media">
-        <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/New_Project_yzww8o.avif" alt="Two business professionals collaborating over a laptop in a modern office" loading="lazy" />
-      </div>
-      <div class="faq__items">
-        <div class="faq__item">
-          <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">What makes Celsior different from a standard Jack Henry implementation partner?</span>
-            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-          </button>
-          <div class="faq__body">
-            <div class="faq__body-wrap">
-            <p>Celsior is a Jack Henry Fintech Integration Network member with direct jXchange API access. That means we build through the core, not around it. Combined with a retired Jack Henry Banking SVP on staff and 100+ consultants active inside Jack Henry programs, our delivery depth goes well beyond what a generalist integrator can offer.</p>
-            </div>
-          </div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">Which Jack Henry platforms and divisions does Celsior work across?</span>
-            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-          </button>
-          <div class="faq__body">
-            <div class="faq__body-wrap">
-            <p>We deliver programs across Complementary Solutions, Bank Solutions, and Payment Solutions. Our work spans SilverLake, Banno, jXchange, ACH processing, and lending operations, across both in-house and outsourced environments.</p>
-            </div>
-          </div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">Can Celsior help us connect third-party fintech tools to our Jack Henry core?</span>
-            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-          </button>
-          <div class="faq__body">
-            <div class="faq__body-wrap">
-            <p>Yes. Using direct jXchange API access, we connect external fintech solutions, digital banking platforms, and third-party tools to your core through a governed integration layer that preserves data integrity and eliminates the reconciliation problems that workarounds typically create.</p>
-            </div>
-          </div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">Do you support cloud data migrations for Jack Henry institutions?</span>
-            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-          </button>
-          <div class="faq__body">
-            <div class="faq__body-wrap">
-            <p>We implement Medallion architecture on GCP, Azure, and AWS, creating a unified financial data layer across accounts, customers, and households. This supports BI reporting, regulatory compliance, and predictive analytics without disrupting your existing Jack Henry environment during the transition.</p>
-            </div>
-          </div>
-        </div>
-        <div class="faq__item">
-          <button class="faq__trigger" type="button" aria-expanded="false">
-            <span class="faq__q">What happens during the free Integration Audit?</span>
-            <span class="faq__arrow" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg></span>
-          </button>
-          <div class="faq__body">
-            <div class="faq__body-wrap">
-            <p>A Celsior Jack Henry architect reviews your current integration layer, workflow dependencies, and compliance posture in a focused 20-minute session. You leave with a clear picture of where your data connections stand, where the gaps are, and what a realistic modernization path looks like.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      </div>
-    </div>
-  </section>
-
 
 
   <script>

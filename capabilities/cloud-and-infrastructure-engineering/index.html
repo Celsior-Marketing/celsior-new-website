@@ -62,9 +62,15 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      background: url('https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Cloud-Infra-Engg_nsbul8.jpg') center/cover no-repeat;
       transform: scale(1.06);
       transform-origin: center;
+      overflow: hidden;
+    }
+
+    .hero-bg video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
     }
 
     .hero-gt {
@@ -3010,7 +3016,11 @@
        Reusable: copy this <section class="hero"> + .hero* styles.
        ============================================================ -->
   <section class="hero">
-    <div class="hero-bg"></div>
+    <div class="hero-bg">
+      <video autoplay muted loop playsinline preload="auto">
+        <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781447011/Celsior_Hero_Banner_Capabilities_Resized_bczs1u.webm" type="video/webm" />
+      </video>
+    </div>
     <div class="hero-gt"></div>
     <div class="hero-gl"></div>
     <div class="hero-gb"></div>
@@ -3227,7 +3237,7 @@
           <h3 class="acc-big-title">Building multi-cloud strategies that reduce vendor lock-in</h3>
           <p class="acc-desc">Organizations need flexibility across AWS, Azure, and Google Cloud without sacrificing operational simplicity. Here's how to architect for portability...</p>
           <a class="acc-readmore" href="#">
-            Read more
+            More
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -3252,7 +3262,7 @@
           <h3 class="acc-big-title">Cloud FinOps: From cost tracking to strategic optimization</h3>
           <p class="acc-desc">Most organizations track cloud spending but few optimize it strategically. Our framework connects usage patterns to business outcomes...</p>
           <a class="acc-readmore" href="#">
-            Read more
+            More
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
@@ -3277,7 +3287,7 @@
           <h3 class="acc-big-title">How SRE practices reduce incidents by 60%</h3>
           <p class="acc-desc">Site Reliability Engineering bridges development and operations. One healthcare provider used SRE to cut incident response from hours to minutes...</p>
           <a class="acc-readmore" href="#">
-            Read more
+            More
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
               <path d="M3.5 5l3.5 3.5L10.5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
