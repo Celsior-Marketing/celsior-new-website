@@ -753,8 +753,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>AI-First</em> digital engineering that evolves at the speed of your business.', title: 'AI-First Digital Engineering', desc: 'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4' },
       assessTag: 'Free Assessment',
       assess: [
-        { title: 'Modernization Readiness Index', desc: 'Score your modernization readiness with a prioritized roadmap.' },
-        { title: '72 Hours Codebase Assessment', desc: 'Automated review of your codebase delivered in 72 hours.' },
+        { title: 'Modernization Readiness Index', href: '/assessment-tools/modernization-readiness', desc: 'Score your modernization readiness with a prioritized roadmap.' },
+        { title: '72 Hours Codebase Assessment', href: '/assessment-tools/codebase-assessment', desc: 'Automated review of your codebase delivered in 72 hours.' },
       ],
     },
     {
@@ -771,8 +771,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>Platform engineering</em> built for scale and resilience.', title: 'Platform Engineering at Scale', desc: 'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781206076/capabilities-feature_umennw.mp4' },
       assessTag: 'Spotlight',
       assess: [
-        { title: 'GRC Maturity', desc: 'Assess governance, risk, and compliance maturity across your estate.' },
-        { title: 'Guidewire Programme Health', desc: 'Benchmark the health and delivery risk of your Guidewire programme.' },
+        { title: 'GRC Maturity', href: '/assessment-tools/grc-assessment', desc: 'Assess governance, risk, and compliance maturity across your estate.' },
+        { title: 'Guidewire Programme Health', href: '/assessment-tools/guidewire-programme-health', desc: 'Benchmark the health and delivery risk of your Guidewire programme.' },
       ],
     },
     {
@@ -789,8 +789,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>The right model</em> for your scale and goals.', title: 'GCC vs. Teams-as-a-Service', desc: 'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205650/solutions-feature_bvxk2o.mp4' },
       assessTag: 'Compare Models',
       assess: [
-        { title: 'Operating Model Fit', desc: 'Map your goals to the ideal delivery and talent model.' },
-        { title: 'Nearshore ROI', desc: 'Model savings and velocity gains across LATAM and offshore.' },
+        { title: 'Operating Model Fit', href: '/solutions/gcc-and-nearshore', desc: 'Map your goals to the ideal delivery and talent model.' },
+        { title: 'Nearshore ROI', href: '/assessment-tools/prior-auth-roi', desc: 'Model savings and velocity gains across LATAM and offshore.' },
       ],
     },
     {
@@ -806,8 +806,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title: 'Synthetix in Action', desc: 'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204152/ai-innovation-feature_xmhaon.mp4' },
       assessTag: 'Live Demo',
       assess: [
-        { title: 'AI Readiness Index', desc: 'Benchmark your AI maturity against industry peers.' },
-        { title: 'GenAI Accelerators', desc: 'Ship copilots and agentic workflows in weeks, not quarters.' },
+        { title: 'AI Readiness Index', href: 'https://ai.celsiortech.us/', desc: 'Benchmark your AI maturity against industry peers.' },
+        { title: 'GenAI Accelerators', href: '/ai-innovation/frameworks-accelerators', desc: 'Ship copilots and agentic workflows in weeks, not quarters.' },
       ],
     },
     {
@@ -822,8 +822,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>Modernize</em> without disruption.', title: 'Regulated Industry Playbook', desc: 'How leading banks, insurers, and health systems modernize critical systems with confidence.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204851/industries-feature_paiw9p.mp4' },
       assessTag: 'Industry Brief',
       assess: [
-        { title: 'Prior Authorization', desc: 'AI-driven prior authorization for faster, compliant approvals.' },
-        { title: 'Risk &amp; Resilience Index', desc: 'Benchmark operational resilience against sector peers.' },
+        { title: 'Prior Authorization', href: '/assessment-tools/prior-auth-roi', desc: 'AI-driven prior authorization for faster, compliant approvals.' },
+        { title: 'Risk &amp; Resilience Index', href: '/our-focus/risk-and-compliance', desc: 'Benchmark operational resilience against sector peers.' },
       ],
     },
     {
@@ -841,8 +841,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
       assessTag: 'Partnerships',
       assess: [
-        { title: 'Alliance Programs', desc: 'Co-build and co-sell with our technology partners.' },
-        { title: 'Integration Library', desc: 'Pre-built accelerators across leading platforms.' },
+        { title: 'Alliance Programs', href: '/partners', desc: 'Co-build and co-sell with our technology partners.' },
+        { title: 'Integration Library', href: '/ai-innovation/frameworks-accelerators', desc: 'Pre-built accelerators across leading platforms.' },
       ],
     },
     {
@@ -857,8 +857,8 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
       assessTag: 'Join Us',
       assess: [
-        { title: 'Open Roles', desc: 'Explore engineering and consulting opportunities worldwide.' },
-        { title: 'Our Leadership', desc: 'Meet the team driving Celsior\'s mission and vision.' },
+        { title: 'Open Roles', href: 'https://pyramidci.com/career-overview/', desc: 'Explore engineering and consulting opportunities worldwide.' },
+        { title: 'Our Leadership', href: '/about/who-we-are#leadership', desc: 'Meet the team driving Celsior\'s mission and vision.' },
       ],
     },
   ];
@@ -945,7 +945,7 @@ a.nav-link{text-decoration:none;}
       ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card mz-item" href="${p.href}" title="${p.label}" data-ftitle="${p.label}" data-fdesc="${(FEATURE_DESCS[p.label] || d.feature.desc).replace(/"/g, '&quot;')}" data-fcap="${(FEATURE_CAPS[p.label] || d.feature.cap).replace(/"/g, '&quot;')}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
       : (d.pills ? `<div class="mz-pills">${d.pills.map(p => `<a class="mz-pill" href="${d.items[0].href}"><span class="p-dot"></span>${p}</a>`).join('')}</div>` : '');
     const assess = d.assess.map((a, i) => `
-        <a class="mz-assess-card" href="${d.explore.href}">
+        <a class="mz-assess-card" href="${a.href || d.explore.href}">
           <div class="mz-assess-icon">${ASSESS_ICONS[i % ASSESS_ICONS.length]}</div>
           <div><div class="mz-assess-title">${a.title}</div><div class="mz-assess-desc">${a.desc}</div></div>
         </a>`).join('');
@@ -1597,6 +1597,9 @@ a.nav-link{text-decoration:none;}
       if (!el) return null;
 
       // Explicit override always wins.
+      // HubSpot modal temporarily disabled site-wide.
+      // To re-enable later, remove this return.
+      return;
       // Usage: data-celsior-form="general|assessment|ai|resource"
       if (el.dataset && el.dataset.celsiorForm) return el.dataset.celsiorForm;
 
