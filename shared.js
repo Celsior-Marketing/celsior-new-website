@@ -813,7 +813,7 @@ a.nav-link{text-decoration:none;}
     {
       id: 'industries', label: 'Industries', title: 'Industries We Serve',
       desc: 'Deep domain expertise across the most regulated and complex sectors.',
-      explore: { label: 'Learn More', href: '/industries' },
+      explore: { label: 'Learn More', href: '/blogs' },
       items: [
         { label: 'Banking &amp; Financial Services', href: '/industries/banking-financial-services' },
         { label: 'Insurance', href: '/industries/insurance' },
