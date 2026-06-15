@@ -18,6 +18,36 @@
       "source": "/ai-innovation/ai-innovation/frameworks-accelerators/synthetix",
       "destination": "/ai-innovation/synthetix",
       "permanent": true
+    },
+    {
+      "source": "/frameworks-accelerators",
+      "destination": "/ai-innovation/frameworks-accelerators",
+      "permanent": true
+    },
+    {
+      "source": "/frameworks-accelerators/",
+      "destination": "/ai-innovation/frameworks-accelerators",
+      "permanent": true
+    },
+    {
+      "source": "/frameworks-accelerators/synthetix",
+      "destination": "/ai-innovation/synthetix",
+      "permanent": true
+    },
+    {
+      "source": "/frameworks-accelerators/synthetix/",
+      "destination": "/ai-innovation/synthetix",
+      "permanent": true
+    },
+    {
+      "source": "/partner-ecosystem",
+      "destination": "/partners",
+      "permanent": true
+    },
+    {
+      "source": "/partner-ecosystem/",
+      "destination": "/partners",
+      "permanent": true
     }
   ]
 }
