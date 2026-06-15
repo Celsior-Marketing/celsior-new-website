@@ -416,7 +416,7 @@ a.nav-link{text-decoration:none;}
 .partner-logo-grid .partner-logo-card:last-child:nth-child(odd){grid-column:1 / -1;}
 .partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:56px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
 .partner-logo-card:hover{transform:translateY(-1px);border-color:rgba(32,86,255,.28);box-shadow:0 10px 24px rgba(20,30,70,.10);}
-.partner-logo-img{max-width:100%;max-height:28px;width:auto;height:auto;object-fit:contain;display:block;}
+.partner-logo-img{max-width:100%;max-height:35px;width:auto;height:auto;object-fit:contain;display:block;}
 .drawer-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
 .drawer-partner-card{display:flex;align-items:center;justify-content:center;min-height:48px;padding:9px 10px;background:#fff;border:1px solid var(--border);border-radius:9px;text-decoration:none;overflow:hidden;}
 .drawer-partner-logo{max-width:100%;max-height:24px;width:auto;height:auto;object-fit:contain;display:block;}
@@ -891,7 +891,7 @@ a.nav-link{text-decoration:none;}
       desc: 'A curated network of technology and implementation partners that amplify outcomes.',
       explore: { label: 'Learn More', href: '/partners' },
       items: [
-        { label: 'Partners', href: '/partners' },
+        { label: 'Partner Network', href: '/partners' },
       ],
       partnerLogos: [
         { label: 'Jack Henry', href: '/partners/jack-henry', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png' },
