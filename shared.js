@@ -344,6 +344,15 @@ a{text-decoration:none;color:inherit;}ul{list-style:none;}
 #navbar.scrolled .nav-item.active>.nav-link{color:var(--accent);background:var(--accent-lt);}
 .nav-item.nav-current>.nav-link{color:var(--white) !important;background:rgba(255,255,255,.15) !important;}
 #navbar.scrolled .nav-item.nav-current>.nav-link{color:var(--accent) !important;background:var(--accent-lt) !important;}
+/* Open mega-panel: give the (possibly transparent) navbar the light treatment so tab text stays visible on the near-white panel */
+#navbar.menu-open{background:rgba(255,255,255,.96);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);box-shadow:0 2px 28px rgba(15,20,80,.07);}
+#navbar.menu-open .logo-img{filter:brightness(0);}
+#navbar.menu-open .nav-link{color:var(--ink-mid);}
+#navbar.menu-open .nav-link:hover{color:var(--accent);background:var(--accent-lt);}
+#navbar.menu-open .nav-item.active>.nav-link{color:var(--accent);background:var(--accent-lt);}
+#navbar.menu-open .nav-item.nav-current>.nav-link{color:var(--accent) !important;background:var(--accent-lt) !important;}
+#navbar.menu-open .btn-nav-solid{background:var(--btn-gradient);color:var(--white);border-color:transparent;}
+#navbar.menu-open .ham-line{background:var(--ink);}
 a.nav-link{text-decoration:none;}
 .chevron{width:11px;height:11px;opacity:.5;transition:transform .25s var(--ease-expo),opacity .2s;flex-shrink:0;}
 .nav-item.active>.nav-link .chevron{transform:rotate(180deg);opacity:1;}
@@ -1329,6 +1338,7 @@ a.nav-link{text-decoration:none;}
     if (!panel) return;
     panel.classList.add('open');
     bdEl.classList.add('on');
+    if (navEl) navEl.classList.add('menu-open');
     if (typeof gsap !== 'undefined') {
       gsap.killTweensOf(panel);
       gsap.to(panel, { opacity: 1, y: 0, duration: 0.36, ease: 'power3.out' });
@@ -1350,6 +1360,7 @@ a.nav-link{text-decoration:none;}
     }
     navItemEls.forEach(li => li.classList.remove('active'));
     bdEl.classList.remove('on');
+    if (navEl) navEl.classList.remove('menu-open');
     active = null;
   }
 
