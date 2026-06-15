@@ -1212,15 +1212,19 @@ a.nav-link{text-decoration:none;}
         <p class="cf-col-head" style="margin:34px 0 14px;">Contact</p>
         <div class="cf-contact-line">
           <svg viewBox="0 0 24 24" fill="none"><path d="M12 21s7-6.3 7-11a7 7 0 1 0-14 0c0 4.7 7 11 7 11z" stroke="currentColor" stroke-width="1.6"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg>
-          <span>Pyramid Consulting, Inc.<br/>1000 Parkwood Circle, Suite 100<br/>Atlanta, GA 30339, USA</span>
+          <span>Celsior Technologies<br/>3060 Kimball Bridge Road, Suite 200<br/>Alpharetta, GA 30022, USA</span>
         </div>
         <div class="cf-contact-line">
           <svg viewBox="0 0 24 24" fill="none"><path d="M5 4h3l2 5-2.5 1.5a11 11 0 0 0 5 5L19 16l1 4v0a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          <a href="tel:+14045550198">+1 (404) 555-0198</a>
+          <a href="tel:+16785143500">678-514-3500</a>
+        </div>
+        <div class="cf-contact-line">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6 9V3h12v6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M6 14h12v7H6z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M17 12h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          <a href="tel:+16789354489">678-935-4489</a>
         </div>
         <div class="cf-contact-line">
           <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2" stroke="currentColor" stroke-width="1.6"/><path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
-          <a href="mailto:info@pyramidconsulting.com">info@pyramidconsulting.com</a>
+          <a href="mailto:info@celsiortech.com">info@celsiortech.com</a>
         </div>
       </div>
       ${cfCol('About', [
