@@ -780,7 +780,7 @@ a.nav-link{text-decoration:none;}
         <div class="drawer-sub-group">
           <a href="/about/who-we-are">Who we are + Our Leadership</a>
           <a href="/about/ai-first-philosophy">AI-first Philosophy</a>
-          <a href="/about">Success Stories</a>
+          <a href="/success-stories">Success Stories</a>
           <a href="/blogs">Blogs</a>
           <a href="/about">Careers</a>
           <a href="/about">Events &amp; News</a>
