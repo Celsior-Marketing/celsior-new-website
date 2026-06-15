@@ -2,5 +2,22 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "outputDirectory": ".",
-  "buildCommand": "npm run build"
+  "buildCommand": "npm run build",
+  "redirects": [
+    {
+      "source": "/ai-innovation/frameworks-accelerators/synthetix",
+      "destination": "/ai-innovation/synthetix",
+      "permanent": true
+    },
+    {
+      "source": "/ai-innovation/frameworks-accelerators/synthetix/",
+      "destination": "/ai-innovation/synthetix",
+      "permanent": true
+    },
+    {
+      "source": "/ai-innovation/ai-innovation/frameworks-accelerators/synthetix",
+      "destination": "/ai-innovation/synthetix",
+      "permanent": true
+    }
+  ]
 }

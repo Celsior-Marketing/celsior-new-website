@@ -733,7 +733,7 @@ a.nav-link{text-decoration:none;}
 
         <div class="drawer-sub-group">
           <div class="drawer-sub-head">Products</div>
-          <a href="/ai-innovation/frameworks-accelerators/synthetix">Synthetix</a>
+          <a href="/ai-innovation/synthetix">Synthetix</a>
           <a href="/ai-innovation/celsior-ai-lab">Celsior AI Lab</a>
           <a href="/ai-innovation/design-lab">Design Lab</a>
         </div>
@@ -856,9 +856,9 @@ a.nav-link{text-decoration:none;}
     {
       id: 'ai', label: 'AI &amp; Innovation', title: 'AI &amp; Innovation',
       desc: 'Products, labs, and frameworks that turn AI ambition into production reality.',
-      explore: { label: 'Learn More', href: '/ai-innovation/frameworks-accelerators/synthetix' },
+      explore: { label: 'Learn More', href: '/ai-innovation/synthetix' },
       items: [
-        { label: 'Synthetix', href: '/ai-innovation/frameworks-accelerators/synthetix' },
+        { label: 'Synthetix', href: '/ai-innovation/synthetix' },
         { label: 'Celsior AI Lab', href: '/ai-innovation/celsior-ai-lab' },
         { label: 'Design Lab', href: '/ai-innovation/design-lab' },
         { label: 'Frameworks &amp; Accelerators', href: '/ai-innovation/frameworks-accelerators' },
@@ -1241,7 +1241,7 @@ a.nav-link{text-decoration:none;}
     { label: 'AI Upskilling', href: '/solutions/ai-upskilling' },
   ])}
       ${cfCol('AI &amp; Innovation', [
-    { label: 'Synthetix', href: '/ai-innovation/frameworks-accelerators/synthetix' },
+    { label: 'Synthetix', href: '/ai-innovation/synthetix' },
     { label: 'Celsior AI Lab', href: '/ai-innovation/celsior-ai-lab' },
     { label: 'Design Lab', href: '/ai-innovation/design-lab' },
     { label: 'Frameworks &amp; Acc.', href: '/ai-innovation/frameworks-accelerators' },
