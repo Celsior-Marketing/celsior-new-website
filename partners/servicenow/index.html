@@ -1669,6 +1669,15 @@
         55px 35px 65px 0px rgba(0, 0, 0, 0.09),
         123px 78px 87px 0px rgba(0, 0, 0, 0.05);
     }
+    .ops-cost-cards > div:not([style*="position:absolute"]) {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .ops-cost-cards > div:not([style*="position:absolute"]):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(20, 30, 70, 0.12);
+      position: relative;
+      z-index: 1;
+    }
 
     /* ═══════════════════════════════════════════════════
    UNIFORM SECTION SPACING
@@ -3948,7 +3957,7 @@
     <p class="eyebrow">THE REAL COST OF PLATFORM DRIFT </p>
     <h2
       style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
-      You can't run a cost-effective service operation when your ServiceNow instance is configured for a business you no longer are. </h2>
+      You cannot operate efficiently when your ServiceNow environment reflects the business you were, rather than the business <br>you are today. </h2>
 
     <!-- Body -->
     <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">The problem is rarely the license. It is the widening space between what your ServiceNow platform can deliver and what your teams actually use. That space grows with every deferred upgrade, every undocumented workflow, and every configuration decision made without a governance standard behind it. </p>
@@ -4673,7 +4682,7 @@
             <p class="acc-para"><strong>Positioning:</strong> A decade of delivery across the full InsuranceSuite, with 8+ Fortune 500 carriers and a Guidewire Center of Excellence behind every engagement.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Implementation, configuration, and cloud upgrade support across PolicyCenter, BillingCenter, and ClaimsCenter.</p>
             <p class="acc-para"><strong>Proprietary QA</strong> automation accelerators purpose-built for Guidewire Cloud's quarterly release cycle. Production support, data services, and AI-assisted test script generation for mid-to-large P&amp;C carriers.</p>
-            <a class="acc-readmore" href="#">Explore Guidewire Practice</a>
+            <a class="acc-readmore" href="/partners/guidewire">Explore Guidewire Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Guidewire practice">
@@ -4699,7 +4708,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Untitled_design_33_htf6nu.png" alt="Jack Henry">
             <p class="acc-para"><strong>Positioning:</strong> Direct jXchange API access as a Fintech Integration Network member, backed by a team with former Jack Henry Banking leadership on staff.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Core banking modernization with fintech extensions covering CRM, fraud detection, payments, and compliance workflows. KYC, AML, and regulatory reporting automation built into every layer of the transformation. Unified, real-time customer data across apps and financial institutions to support BI, analytics, and personalized digital services.</p>
-            <a class="acc-readmore" href="#">Explore Jack Henry Practice</a>
+            <a class="acc-readmore" href="/partners/jack-henry">Explore Jack Henry Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Jack Henry practice">
@@ -4725,7 +4734,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/5_nipjvi.png" alt="ServiceNow">
             <p class="acc-para"><strong>Positioning:</strong> A ServiceNow FinTech Network Partner with a dedicated CoE covering ITSM, managed operations, and compliance automation for financial services organizations.</p>
             <p class="acc-para"><strong>Capabilities:</strong> ITSM implementation and ongoing managed SNOW operations for financial services and insurance. Incident and change management with structured governance cadences and audit-ready reporting. Workflow automation that removes manual hand-offs across IT operations, risk, and compliance functions.</p>
-            <a class="acc-readmore" href="#">Explore ServiceNow Practice</a>
+            <a class="acc-readmore" href="/partners/servicenow">Explore ServiceNow Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="ServiceNow practice">
@@ -4751,7 +4760,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/22_qilo7h.png" alt="Dynatrace">
             <p class="acc-para"><strong>Positioning:</strong> A Services-Endorsed Dynatrace Partner delivering full-stack observability and AIOps across complex, cloud-native enterprise environments.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Real-time application performance monitoring with intelligent log analysis and pattern detection. AIOps-driven incident detection with automated root-cause identification and alerting. Observability coverage across AWS, Azure, and GCP for organizations in active cloud modernization programs.</p>
-            <a class="acc-readmore" href="#">Contact Us About Dynatrace</a>
+            <a class="acc-readmore" href="/contact-us">Contact Us About Dynatrace</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Dynatrace practice">
@@ -4872,7 +4881,7 @@
       position: absolute;
       top: clamp(32px, 7%, 112px);
       left: clamp(24px, 5.5vw, 80px);
-      width: clamp(320px, 52%, 1140px);
+      width: clamp(320px, 62%, 1140px);
       z-index: 2;
       margin-top: -5%;
     }
@@ -5177,28 +5186,28 @@
       <div class="fi-outcome-cards">
         <article class="fi-outcome-card fi-outcome-card--green" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="195" data-suffix="+">195</span><span>%</span></strong>
-          <p>ROI OVER 3 YEARS FROM MODERNIZING ITSM</p>
+          <p>ROI over 3 years from modernizing ITSM</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>
         </article>
         <article class="fi-outcome-card fi-outcome-card--blue" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="20" data-suffix="+">20</span><span>%</span></strong>
-          <p>INCREASE IN IT TEAM PRODUCTIVITY</p>
+          <p>Increase in IT team productivity</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>
         </article>
         <article class="fi-outcome-card fi-outcome-card--gold" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="5" data-format="comma">5</span><span>+</span></strong>
-          <p>YEARS OPERATING THE SERVICENOW CENTER OF EXCELLENCE </p>
+          <p>Years operating the ServiceNow Center of Excellence </p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>
         </article>
         <article class="fi-outcome-card fi-outcome-card--dark" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="30" data-suffix="%">30</span><span>+</span></strong>
-          <p>YEARS OF BFSI AND REGULATED INDUSTRY DELIVERY </p>
+          <p>Years of BFSI and regulated industry delivery </p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>

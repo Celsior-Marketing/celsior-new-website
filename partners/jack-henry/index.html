@@ -1669,6 +1669,15 @@
         55px 35px 65px 0px rgba(0, 0, 0, 0.09),
         123px 78px 87px 0px rgba(0, 0, 0, 0.05);
     }
+    .ops-cost-cards > div:not([style*="position:absolute"]) {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .ops-cost-cards > div:not([style*="position:absolute"]):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(20, 30, 70, 0.12);
+      position: relative;
+      z-index: 1;
+    }
 
     /* ═══════════════════════════════════════════════════
    UNIFORM SECTION SPACING
@@ -3949,8 +3958,8 @@
     <!-- Heading -->
     <p class="eyebrow">THE REAL BOTTLENECK</p>
     <h2
-      style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1048px;margin-bottom:32px;">
-      You can't grow deposits when your Jack Henry core and your fintech stack don't speak the same language.</h2>
+      style="font-size:55px;font-weight:700;letter-spacing:-1px;line-height:55px;color:#09090b;max-width:1200px;margin-bottom:32px;">
+      You can't grow deposits when your Jack Henry core<br>and your fintech stack don't speak the same language.</h2>
 
     <!-- Body -->
     <p style="font-size:16px;color:#3f3f46;line-height:23px;max-width:1195px;margin-bottom:36px;">The bottleneck isn't your core banking platform. It's the gap between Jack Henry's powerful data layer and the fintech ecosystem your institution needs to access. Fewer than 8 percent of U.S. fintechs integrate directly with Jack Henry. Most financial institutions work around this gap, not through it.</p>
@@ -4055,7 +4064,7 @@
         <h3
           style="font-size:24px;font-weight:600;letter-spacing:-0.2088px;color:#000;white-space:nowrap;margin-bottom:16px;">
           Transformation Timelines That Keep Slipping</h3>
-        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;">Cloud migrations, compliance initiatives, and digital banking rollouts stall when the integration layer between Jack Henry's core and modern technology isn't designed correctly from the start.</p>
+        <p style="font-size:16px;font-weight:400;color:#000;line-height:23px;text-wrap:pretty;">Cloud migrations, compliance initiatives, and digital banking rollouts stall when the integration layer between Jack Henry's core and modern technology isn't designed correctly from the start.</p>
       </div>
 
     </div><!-- /card-frame -->
@@ -5094,7 +5103,7 @@
             <p class="acc-para"><strong>Positioning:</strong> A decade of delivery across the full InsuranceSuite, with 8+ Fortune 500 carriers and a Guidewire Center of Excellence behind every engagement.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Implementation, configuration, and cloud upgrade support across PolicyCenter, BillingCenter, and ClaimsCenter.</p>
             <p class="acc-para"><strong>Proprietary QA</strong> automation accelerators purpose-built for Guidewire Cloud's quarterly release cycle. Production support, data services, and AI-assisted test script generation for mid-to-large P&amp;C carriers.</p>
-            <a class="acc-readmore" href="#">Explore Guidewire Practice</a>
+            <a class="acc-readmore" href="/partners/guidewire">Explore Guidewire Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Guidewire practice">
@@ -5120,7 +5129,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Untitled_design_33_htf6nu.png" alt="Jack Henry">
             <p class="acc-para"><strong>Positioning:</strong> Direct jXchange API access as a Fintech Integration Network member, backed by a team with former Jack Henry Banking leadership on staff.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Core banking modernization with fintech extensions covering CRM, fraud detection, payments, and compliance workflows. KYC, AML, and regulatory reporting automation built into every layer of the transformation. Unified, real-time customer data across apps and financial institutions to support BI, analytics, and personalized digital services.</p>
-            <a class="acc-readmore" href="#">Explore Jack Henry Practice</a>
+            <a class="acc-readmore" href="/partners/jack-henry">Explore Jack Henry Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Jack Henry practice">
@@ -5146,7 +5155,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/5_nipjvi.png" alt="ServiceNow">
             <p class="acc-para"><strong>Positioning:</strong> A ServiceNow FinTech Network Partner with a dedicated CoE covering ITSM, managed operations, and compliance automation for financial services organizations.</p>
             <p class="acc-para"><strong>Capabilities:</strong> ITSM implementation and ongoing managed SNOW operations for financial services and insurance. Incident and change management with structured governance cadences and audit-ready reporting. Workflow automation that removes manual hand-offs across IT operations, risk, and compliance functions.</p>
-            <a class="acc-readmore" href="#">Explore ServiceNow Practice</a>
+            <a class="acc-readmore" href="/partners/servicenow">Explore ServiceNow Practice</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="ServiceNow practice">
@@ -5172,7 +5181,7 @@
             <img class="acc-brand-logo" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/22_qilo7h.png" alt="Dynatrace">
             <p class="acc-para"><strong>Positioning:</strong> A Services-Endorsed Dynatrace Partner delivering full-stack observability and AIOps across complex, cloud-native enterprise environments.</p>
             <p class="acc-para"><strong>Capabilities:</strong> Real-time application performance monitoring with intelligent log analysis and pattern detection. AIOps-driven incident detection with automated root-cause identification and alerting. Observability coverage across AWS, Azure, and GCP for organizations in active cloud modernization programs.</p>
-            <a class="acc-readmore" href="#">Contact Us About Dynatrace</a>
+            <a class="acc-readmore" href="/contact-us">Contact Us About Dynatrace</a>
           </div>
           <div class="acc-img2">
             <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/202eaa4eb1b7ce8d31a6beb424ac18602955c813_qrtqna.jpg" alt="Dynatrace practice">
@@ -5597,7 +5606,7 @@
         <article class="fi-outcome-card fi-outcome-card--green" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="5" data-suffix="+">0</span><span>+</span></strong>
           <p class="fi-stat-label" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin:0 0 4px;">Years inside Jack Henry</p>
-          <p>Five or more years delivering programs across Jack Henry's Complementary Solutions, Bank Solutions, and Payment Solutions divisions, with 100+ consultants engaged on active programs.</p>
+          <p>Five years of specialized delivery across Jack Henry platforms, supporting modernization, integration, and transformation.</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>
@@ -5605,14 +5614,14 @@
         <article class="fi-outcome-card fi-outcome-card--blue" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="30" data-suffix="+">0</span><span>+</span></strong>
           <p class="fi-stat-label" style="font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;opacity:.85;margin:0 0 4px;">Years of BFSI delivery</p>
-          <p>Three decades of financial services technology delivery across banking, payments, lending, and compliance, serving 50+ institutions in 25+ countries with a global delivery model spanning the US, Mexico, and India.</p>
+          <p>Three decades of financial services expertise spanning banking, payments, lending, compliance, and technology transformation.</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>
         </article>
         <article class="fi-outcome-card fi-outcome-card--gold" data-fi-stat-card>
           <strong><span class="fi-stat-num" data-target="9000" data-format="comma">0</span><span>+</span></strong>
-          <p>Jack Henry's technology platforms power more than 9,000 banks and credit unions across the USA.</p>
+          <p>Jack Henry technology powers more than 9,000 banks and credit unions across the United States, making it one of the industry's most established and widely adopted banking technology ecosystems.</p>
           <div class="fi-outcome-card-arrow" aria-hidden="true">
             <svg viewBox="0 0 18 18" fill="none"><path d="M3.5 9h11M10 5l4.5 4L10 13" stroke="#000" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" /></svg>
           </div>

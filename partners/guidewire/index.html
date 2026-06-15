@@ -1669,6 +1669,15 @@
         55px 35px 65px 0px rgba(0, 0, 0, 0.09),
         123px 78px 87px 0px rgba(0, 0, 0, 0.05);
     }
+    .ops-cost-cards > div:not([style*="position:absolute"]) {
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+    .ops-cost-cards > div:not([style*="position:absolute"]):hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 34px rgba(20, 30, 70, 0.12);
+      position: relative;
+      z-index: 1;
+    }
 
     /* ═══════════════════════════════════════════════════
    UNIFORM SECTION SPACING

@@ -414,12 +414,12 @@ a.nav-link{text-decoration:none;}
 .mz-pills{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px;}
 .partner-logo-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:16px;}
 .partner-logo-grid .partner-logo-card:last-child:nth-child(odd){grid-column:1 / -1;}
-.partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:56px;padding:10px 14px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
+.partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:66px;padding:12px 16px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
 .partner-logo-card:hover{transform:translateY(-1px);border-color:rgba(32,86,255,.28);box-shadow:0 10px 24px rgba(20,30,70,.10);}
-.partner-logo-img{max-width:100%;max-height:35px;width:auto;height:auto;object-fit:contain;display:block;}
+.partner-logo-img{max-width:100%;max-height:48px;width:auto;height:auto;object-fit:contain;display:block;}
 .drawer-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
-.drawer-partner-card{display:flex;align-items:center;justify-content:center;min-height:48px;padding:9px 10px;background:#fff;border:1px solid var(--border);border-radius:9px;text-decoration:none;overflow:hidden;}
-.drawer-partner-logo{max-width:100%;max-height:24px;width:auto;height:auto;object-fit:contain;display:block;}
+.drawer-partner-card{display:flex;align-items:center;justify-content:center;min-height:58px;padding:11px 12px;background:#fff;border:1px solid var(--border);border-radius:9px;text-decoration:none;overflow:hidden;}
+.drawer-partner-logo{max-width:100%;max-height:32px;width:auto;height:auto;object-fit:contain;display:block;}
 
 .mz-pill{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:8px;border:1px solid var(--border);font-size:.74rem;font-weight:600;color:var(--ink-mid);background:#fff;transition:border-color .2s,color .2s,transform .25s var(--ease-expo);}
 .mz-pill:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);}
@@ -640,7 +640,7 @@ a.nav-link{text-decoration:none;}
     { key: 'deliver', label: 'Solutions', href: '/solutions' },
     { key: 'ai', label: 'AI &amp; Innovation', href: '/ai-innovation/celsior-ai-lab' },
     { key: 'industries', label: 'Industries', href: '/industries' },
-    { key: 'partners', label: 'Partner Ecosystem', href: '/partners' },
+    { key: 'partners', label: 'Partner Network', href: '/partners' },
     { key: 'about', label: 'About', href: '/about' },
   ];
 
@@ -762,11 +762,11 @@ a.nav-link{text-decoration:none;}
 
     <!-- ── PARTNER ECOSYSTEM ──────────────────────────────────── -->
     <div class="drawer-item">
-      <div class="drawer-link" data-drawer-toggle="d-part">Partner Ecosystem<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+      <div class="drawer-link" data-drawer-toggle="d-part">Partner Network<svg class="drawer-chevron" viewBox="0 0 16 16" fill="none"><path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
       <div class="drawer-sub" id="d-part">
 
         <div class="drawer-sub-group">
-          <a href="/partners">Partners</a>
+          <a href="/partners">Partner Network</a>
         </div>
 
       </div>
@@ -887,7 +887,7 @@ a.nav-link{text-decoration:none;}
       ],
     },
     {
-      id: 'partners', label: 'Partner Ecosystem', title: 'Partner Ecosystem',
+      id: 'partners', label: 'Partner Network', title: 'Partner Network',
       desc: 'A curated network of technology and implementation partners that amplify outcomes.',
       explore: { label: 'Learn More', href: '/partners' },
       items: [
