@@ -141,13 +141,13 @@
      skip injection, and intercept clicks as a second safety net.
   ─────────────────────────────────────────────────────────────────── */
   const LEGACY_LINK_MAP = {
-    'what-we-solve.html': 'Our_Focus.html',
-    'how-we-do-it.html': 'Capabilities.html',
-    'how-we-deliver.html': 'Solutions.html',
-    'our_focus.html': 'Our_Focus.html',
-    'capabilties.html': 'Capabilities.html',
-    'capabilities.html': 'Capabilities.html',
-    'solutions.html': 'Solutions.html',
+    'what-we-solve.html': '/our-focus',
+    'how-we-do-it.html': '/capabilities',
+    'how-we-deliver.html': '/solutions',
+    'our_focus.html': '/our-focus',
+    'capabilties.html': '/capabilities',
+    'capabilities.html': '/capabilities',
+    'solutions.html': '/solutions',
   };
 
   function normalizeLegacyHref(rawHref) {
@@ -159,6 +159,7 @@
       const replacement = LEGACY_LINK_MAP[file];
       if (!replacement) return rawHref;
       const folder = url.pathname.slice(0, Math.max(0, url.pathname.lastIndexOf('/') + 1));
+      if (replacement.startsWith('/')) return `${replacement}${url.search}${url.hash}`;
       return `${folder}${replacement}${url.search}${url.hash}`;
     } catch (_) {
       const clean = rawHref.split('#')[0].split('?')[0].split('/').pop().toLowerCase();
