@@ -1,0 +1,2 @@
+Celsior staging deployment test.
+If this file is visible on dev.celsiortech.com, GitHub Actions FTP deploy is working.
