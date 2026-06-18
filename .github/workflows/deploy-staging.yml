@@ -1,0 +1,49 @@
+name: Deploy to cPanel Staging
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-staging:
+    name: Deploy staging site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Confirm staging-only deployment
+        run: |
+          echo "This workflow deploys to staging only: dev.celsiortech.com"
+          echo "Production is not touched."
+
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Prepare deploy folder
+        run: |
+          mkdir -p .deploy
+          rsync -av \
+            --exclude='.git' \
+            --exclude='.github' \
+            --exclude='.DS_Store' \
+            --exclude='node_modules' \
+            --exclude='audits' \
+            --exclude='.deploy' \
+            ./ .deploy/
+
+      - name: Install FTP deploy tool
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y lftp
+
+      - name: Deploy to cPanel staging via FTP
+        env:
+          FTP_SERVER: ${{ secrets.CPANEL_FTP_SERVER }}
+          FTP_USERNAME: ${{ secrets.CPANEL_FTP_USERNAME }}
+          FTP_PASSWORD: ${{ secrets.CPANEL_FTP_PASSWORD }}
+        run: |
+          lftp -c "
+          set ftp:ssl-allow true
+          set ssl:verify-certificate no
+          open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\"
+          mirror -R --verbose --parallel=2 .deploy /
+          bye
+          "
