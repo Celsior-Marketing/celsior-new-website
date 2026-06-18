@@ -1,0 +1,47 @@
+# Celsior static site on Apache/cPanel
+DirectoryIndex index.html
+Options -Indexes
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+
+# ------------------------------------------------------------
+# Legacy URL redirects from previous/static/Vercel routes
+# ------------------------------------------------------------
+
+RewriteRule ^ai-innovation/frameworks-accelerators/synthetix/?$ /ai-innovation/synthetix [R=301,L]
+RewriteRule ^ai-innovation/ai-innovation/frameworks-accelerators/synthetix/?$ /ai-innovation/synthetix [R=301,L]
+
+RewriteRule ^frameworks-accelerators/synthetix/?$ /ai-innovation/synthetix [R=301,L]
+RewriteRule ^frameworks-accelerators/?$ /ai-innovation/frameworks-accelerators [R=301,L]
+
+RewriteRule ^partner-ecosystem/?$ /partners [R=301,L]
+
+# ------------------------------------------------------------
+# Clean .html URLs
+# Example: /about.html -> /about
+# ------------------------------------------------------------
+
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L]
+
+# ------------------------------------------------------------
+# Serve extensionless .html files if they exist
+# Example: /some-page -> /some-page.html
+# ------------------------------------------------------------
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+)$ $1.html [L]
+
+# ------------------------------------------------------------
+# Serve folder-based pages cleanly
+# Example: /contact-us -> /contact-us/index.html
+# ------------------------------------------------------------
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{DOCUMENT_ROOT}/$1/index.html -f
+RewriteRule ^(.+)$ $1/index.html [L]
+
+</IfModule>
