@@ -4971,6 +4971,8 @@
       gap: 0 clamp(24px, 3vw, 48px);
       align-items: start;
       padding: clamp(36px, 4.5vw, 60px) 0;
+      /* right buffer so the hover x-drift of the title/copy never spills past the row box edge */
+      padding-right: clamp(20px, 2.2vw, 36px);
       border-bottom: 1px solid rgba(13, 17, 39, 0.10);
       position: relative;
       /* NO overflow:hidden — keeps number visible during scale animation */
@@ -6310,12 +6312,7 @@
     <p class="jh-oa-intro">Visionary leaders with deep domain expertise and a shared commitment to driving impact for
       our clients, people, and communities.</p>
 
-    <!-- Tab navigation -->
-    <div class="leader-tabs-container">
-      <button class="leader-tab-btn active" data-tab="founders">Founders</button>
-      <button class="leader-tab-btn" data-tab="vertical">Vertical Leaders</button>
-      <button class="leader-tab-btn" data-tab="technology">Technology Leaders</button>
-    </div>
+    <!-- Tab navigation removed for now (showing Founders only) -->
 
     <!-- Cards Grid -->
     <div class="leader-grid" id="leader-grid">
@@ -6332,7 +6329,7 @@
               <div class="leader-card-info">
                 <div>
                   <h3 class="leader-name">Sanjeev Tirath</h3>
-                  <p class="leader-role">CEO - Chief Executive Officer, Pyramid Consulting | Co-Founder</p>
+                  <p class="leader-role">CEO & Founder, Pyramid Consulting</p>
                 </div>
                 <span class="leader-view-profile">View full profile
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -6346,19 +6343,21 @@
               <div class="leader-card-back-info">
                 <div>
                   <h4 class="leader-back-name">Sanjeev Tirath</h4>
-                  <p class="leader-back-role">CEO - Chief Executive Officer, Pyramid Consulting | Co-Founder</p>
+                  <p class="leader-back-role">CEO & Founder, Pyramid Consulting</p>
                 </div>
                 <div class="leader-bio-scroll">
                   Sanjeev Tirath is the Founder and Chief Executive Officer of Celsior's parent company, Pyramid
                   Consulting, a global workforce and technology solutions organization serving Fortune 500 enterprises
                   across more than 25 countries. Since founding the company in 1996, he has led its transformation into
-                  a globally recognized business built on innovation, customer success, and talent-driven
-                  growth.<br><br>A visionary entrepreneur and industry leader, Sanjeev pioneered The Pyramid Approach,
-                  integrating Talent, Technology, and Training to help organizations navigate evolving business
-                  challenges. His leadership has earned widespread recognition, including multiple appearances on
-                  Staffing Industry Analysts' Staffing 100 North America list and recognition for his commitment to
-                  innovation, workforce development, and inclusive growth. He holds a degree in Electrical Engineering
-                  from BITS Pilani.
+                  a globally recognized business built on innovation, customer success, and talent-driven growth. A
+                  visionary entrepreneur and industry leader, Sanjeev pioneered The Pyramid Approach—an integrated model
+                  that brings together Talent, Technology, and Training to help organizations address evolving business
+                  challenges and accelerate growth. Under his leadership, the organization has earned widespread
+                  recognition for innovation, workforce development, and inclusive growth, including multiple appearances
+                  on Staffing Industry Analysts' Staffing 100 North America list.<br><br>Sanjeev holds a degree in
+                  Electrical Engineering from BITS Pilani and remains deeply committed to community impact. He is
+                  actively involved in initiatives focused on advancing education, empowering communities, and creating
+                  opportunities for sustainable social development.
                 </div>
                 <div class="leader-back-footer">
                   <button class="leader-flip-back">
@@ -6394,7 +6393,7 @@
               <div class="leader-card-info">
                 <div>
                   <h3 class="leader-name">Namita Tirath</h3>
-                  <p class="leader-role">EVP, Client Relations & Business Development, Pyramid Consulting</p>
+                  <p class="leader-role">Chief Customer Officer & Co-Founder, Pyramid Consulting</p>
                 </div>
                 <span class="leader-view-profile">View full profile
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -6408,15 +6407,20 @@
               <div class="leader-card-back-info">
                 <div>
                   <h4 class="leader-back-name">Namita Tirath</h4>
-                  <p class="leader-back-role">EVP, Client Relations & Business Development, Pyramid Consulting</p>
+                  <p class="leader-back-role">Chief Customer Officer & Co-Founder, Pyramid Consulting</p>
                 </div>
                 <div class="leader-bio-scroll">
-                  A distinguished relationship builder and growth leader, Namita Tirath has played an instrumental role
-                  in shaping Pyramid Consulting’s global success story. Known for her exceptional ability to foster
-                  trusted partnerships and connect people, opportunities, and ideas, she has built an influential
-                  network that continues to drive business growth and customer success. Her leadership, strategic
-                  foresight, and unwavering focus on client value have earned her repeated recognition among the
-                  staffing industry's most influential leaders.
+                  A distinguished relationship builder and growth leader, Namita Tirath has played a pivotal role in
+                  shaping Pyramid Consulting's global success and market presence. Renowned for her ability to cultivate
+                  trusted partnerships and bring together people, opportunities, and ideas, she has built a powerful
+                  network that continues to fuel business growth, innovation, and customer success. With a digital-first
+                  perspective and keen understanding of evolving market dynamics, she helps organizations align talent
+                  and innovation strategies to accelerate transformation and achieve sustainable growth. At Pyramid
+                  Consulting, Namita heads new business development and strengthens strategic client relationships,
+                  helping organizations unlock growth through the right combination of talent, technology, and
+                  innovation. She is passionate about building long-term partnerships that empower clients to accelerate
+                  transformation, embrace emerging technologies, and achieve sustainable success in an increasingly
+                  dynamic marketplace.
                 </div>
                 <div class="leader-back-footer">
                   <button class="leader-flip-back">
@@ -6452,7 +6456,7 @@
               <div class="leader-card-info">
                 <div>
                   <h3 class="leader-name">Ramesh Maturu</h3>
-                  <p class="leader-role">President, Enterprise Solutions, Pyramid Consulting | Co-Founder</p>
+                  <p class="leader-role">President & Founder, Pyramid Consulting</p>
                 </div>
                 <span class="leader-view-profile">View full profile
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -6466,7 +6470,7 @@
               <div class="leader-card-back-info">
                 <div>
                   <h4 class="leader-back-name">Ramesh Maturu</h4>
-                  <p class="leader-back-role">President, Enterprise Solutions, Pyramid Consulting | Co-Founder</p>
+                  <p class="leader-back-role">President & Founder, Pyramid Consulting</p>
                 </div>
                 <div class="leader-bio-scroll">
                   Ramesh Maturu is a seasoned technology executive whose leadership has helped shape Pyramid
@@ -6510,7 +6514,7 @@
               <div class="leader-card-info">
                 <div>
                   <h3 class="leader-name">Vishak Mallya</h3>
-                  <p class="leader-role">COO - Chief Operating Officer, Celsior</p>
+                  <p class="leader-role">Chief Operating Officer, Celsior</p>
                 </div>
                 <span class="leader-view-profile">View full profile
                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
@@ -6524,15 +6528,17 @@
               <div class="leader-card-back-info">
                 <div>
                   <h4 class="leader-back-name">Vishak Mallya</h4>
-                  <p class="leader-back-role">COO - Chief Operating Officer, Celsior</p>
+                  <p class="leader-back-role">Chief Operating Officer, Celsior</p>
                 </div>
                 <div class="leader-bio-scroll">
                   A champion of AI-led transformation and digital innovation, Vishak Mallya serves as Chief Operating
-                  Officer of Celsior, where he is driving the next generation of enterprise solutions. With a sharp
-                  focus on emerging technologies, intelligent automation, and scalable business models, he has rapidly
-                  established a foundation for growth, operational excellence, and customer value creation. His ability
-                  to translate technological advancement into tangible business outcomes continues to position Celsior
-                  at the forefront of an evolving digital economy.
+                  Officer of Celsior, an AI-first digital engineering company helping enterprises modernize, innovate,
+                  and scale in an increasingly intelligent world. With a sharp focus on emerging technologies,
+                  intelligent automation, and next-generation engineering solutions, he is driving the company's vision
+                  of delivering measurable business outcomes through AI-powered transformation.<br><br>Known for his
+                  ability to translate technological advancements into real-world impact, Vishak has built a strong
+                  foundation for growth, operational excellence, and customer value creation, positioning Celsior at the
+                  forefront of the evolving digital and AI economy.
                 </div>
                 <div class="leader-back-footer">
                   <button class="leader-flip-back">
@@ -6556,7 +6562,9 @@
         </div>
       </div>
 
-      <!-- 5. Meiyappan Adaikkalavan (Vertical Leaders) -->
+      <!-- ===== HIDDEN FOR NOW: non-founder leaders (Vertical + Technology) =====
+           Restore by deleting this opening line and the closing marker below.
+       5. Meiyappan Adaikkalavan (Vertical Leaders)
       <div class="leader-card-wrapper" data-category="vertical">
         <div class="leader-card">
           <div class="leader-card-inner">
@@ -6615,7 +6623,7 @@
         </div>
       </div>
 
-      <!-- 6. Ritesh Koul (Technology Leaders) -->
+       6. Ritesh Koul (Technology Leaders)
       <div class="leader-card-wrapper" data-category="technology">
         <div class="leader-card">
           <div class="leader-card-inner">
@@ -6673,7 +6681,7 @@
         </div>
       </div>
 
-      <!-- 7. Anurag Gupta (Technology Leaders) -->
+       7. Anurag Gupta (Technology Leaders)
       <div class="leader-card-wrapper" data-category="technology">
         <div class="leader-card">
           <div class="leader-card-inner">
@@ -6733,7 +6741,7 @@
         </div>
       </div>
 
-      <!-- 8. Narasimhan C B (Technology Leaders) -->
+       8. Narasimhan C B (Technology Leaders)
       <div class="leader-card-wrapper" data-category="technology">
         <div class="leader-card">
           <div class="leader-card-inner">
@@ -6777,7 +6785,7 @@
                     </svg>
                     Back to Profile
                   </button>
-                  <!-- No LinkedIn Profile rendered for Narasimhan C B -->
+                   No LinkedIn Profile rendered for Narasimhan C B
                 </div>
               </div>
             </div>
@@ -6785,7 +6793,7 @@
         </div>
       </div>
 
-      <!-- 9. Debasish Chanda (Technology Leaders) -->
+       9. Debasish Chanda (Technology Leaders)
       <div class="leader-card-wrapper" data-category="technology">
         <div class="leader-card">
           <div class="leader-card-inner">
@@ -6842,6 +6850,7 @@
           </div>
         </div>
       </div>
+      ===== /HIDDEN ===== -->
 
     </div>
 
