@@ -5975,19 +5975,19 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 32px;
+      /* cards are content-height (driven by the front face); don't stretch */
+      align-items: start;
     }
 
     /* ── Card Container & 3D Flip Mechanics ── */
     .leader-card-wrapper {
       perspective: 1200px;
-      height: 440px;
       display: none;
       /* Controlled by JS filtering */
     }
 
     .leader-card {
       width: 100%;
-      height: 100%;
       position: relative;
       transform-style: preserve-3d;
       transition: transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
@@ -5997,7 +5997,7 @@
 
     .leader-card-inner {
       width: 100%;
-      height: 100%;
+      position: relative;
       transform-style: preserve-3d;
     }
 
@@ -6013,10 +6013,7 @@
 
     .leader-card-front,
     .leader-card-back {
-      position: absolute;
-      inset: 0;
       width: 100%;
-      height: 100%;
       backface-visibility: hidden;
       border-radius: 18px;
       border: 1px solid rgba(13, 17, 39, 0.08);
@@ -6026,10 +6023,15 @@
       background: #fff;
     }
 
+    /* Front is in normal flow and defines the card height; back overlays it */
+    .leader-card-front {
+      position: relative;
+    }
+
     /* ── Front Side ── */
     .leader-card-img-wrap {
       width: 100%;
-      height: 280px;
+      aspect-ratio: 4 / 3;
       overflow: hidden;
       background: #f4f4f5;
       position: relative;
@@ -6099,8 +6101,6 @@
       padding: 24px;
       display: flex;
       flex-direction: column;
-      justify-content: space-between;
-      flex-grow: 1;
     }
 
     .leader-name {
@@ -6117,6 +6117,8 @@
       color: #71717a;
       line-height: 1.45;
       margin: 0;
+      /* reserve ~2 lines so 1- and 2-line roles keep cards the same height */
+      min-height: 2.9em;
     }
 
     .leader-view-profile {
@@ -6147,6 +6149,9 @@
 
     /* ── Back Side ── */
     .leader-card-back {
+      position: absolute;
+      inset: 0;
+      height: 100%;
       transform: rotateY(180deg);
       background: #0d1127;
       color: #fff;
@@ -6263,28 +6268,12 @@
         grid-template-columns: repeat(2, 1fr);
         gap: 24px;
       }
-
-      .leader-card-wrapper {
-        height: 420px;
-      }
-
-      .leader-card-img-wrap {
-        height: 240px;
-      }
     }
 
     @media (max-width: 640px) {
       .leader-grid {
         grid-template-columns: 1fr;
         gap: 24px;
-      }
-
-      .leader-card-wrapper {
-        height: 410px;
-      }
-
-      .leader-card-img-wrap {
-        height: 230px;
       }
 
       .leader-tabs-container {
