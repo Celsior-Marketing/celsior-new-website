@@ -290,6 +290,12 @@
   background: linear-gradient(180deg, transparent 0%, transparent 80%, rgba(6,10,20,0.98) 100%) !important;
 }
 
+/* "See the latest" blog cards often sit on light photos — darken their overlay site-wide
+   so the white title/body stays readable (overrides the rule above for blog cards only) */
+.blog-card-overlay {
+  background: linear-gradient(180deg, rgba(9,12,24,0.50) 0%, rgba(9,12,24,0.72) 48%, rgba(9,12,24,0.96) 100%) !important;
+}
+
 .solution-cards img,
 .pr-card-bg,
 .oa-card-bg,
