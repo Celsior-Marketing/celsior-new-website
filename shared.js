@@ -933,7 +933,6 @@ a.nav-link{text-decoration:none;}
       feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
       assessTag: 'Join Us',
       assess: [
-        { title: 'Open Roles', href: 'https://pyramidci.com/career-overview/', desc: 'Explore engineering and consulting opportunities worldwide.' },
         { title: 'Our Leadership', href: '/about/who-we-are#leadership', desc: 'Meet the team driving Celsior\'s mission and vision.' },
       ],
     },
