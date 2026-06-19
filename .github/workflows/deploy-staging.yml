@@ -14,7 +14,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Strips out unnecessary local/git folders before uploading
       - name: Prepare deploy folder
         run: |
           mkdir -p .deploy
@@ -40,6 +39,6 @@ jobs:
           set ftp:ssl-allow true
           set ssl:verify-certificate no
           open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\"
-          mirror -R --verbose --parallel=2 .deploy /celsiortech.com/
+          mirror -R --verbose --parallel=2 .deploy ./celsiortech.com/
           bye
           "
