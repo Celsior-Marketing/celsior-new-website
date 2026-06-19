@@ -342,13 +342,31 @@
       border-radius: 12px;
       transition: background .35s ease, transform .35s ease;
     }
+
     /* Pastel homepage colours on hover, varied per stat (SP 12-Jun) */
-    .stats-grid .stat-col:hover { transform: translateY(-3px); }
-    .stats-grid .stat-col:nth-child(1):hover { background: rgba(18, 186, 160, .12); }
-    .stats-grid .stat-col:nth-child(2):hover { background: rgba(34, 84, 244, .10); }
-    .stats-grid .stat-col:nth-child(3):hover { background: rgba(212, 160, 23, .14); }
-    .stats-grid .stat-col:nth-child(4):hover { background: rgba(124, 58, 237, .11); }
-    .stats-grid .stat-col:nth-child(5):hover { background: rgba(232, 131, 74, .13); }
+    .stats-grid .stat-col:hover {
+      transform: translateY(-3px);
+    }
+
+    .stats-grid .stat-col:nth-child(1):hover {
+      background: rgba(18, 186, 160, .12);
+    }
+
+    .stats-grid .stat-col:nth-child(2):hover {
+      background: rgba(34, 84, 244, .10);
+    }
+
+    .stats-grid .stat-col:nth-child(3):hover {
+      background: rgba(212, 160, 23, .14);
+    }
+
+    .stats-grid .stat-col:nth-child(4):hover {
+      background: rgba(124, 58, 237, .11);
+    }
+
+    .stats-grid .stat-col:nth-child(5):hover {
+      background: rgba(232, 131, 74, .13);
+    }
 
     .stat-num {
       font-size: clamp(32px, 4vw, 44px);
@@ -2504,8 +2522,8 @@
       pointer-events: none;
       background:
         linear-gradient(180deg, transparent 0%, transparent 80%, rgba(2, 8, 18, 0.98) 100%) 0%,
-          rgba(2, 8, 18, 0.18) 35%,
-          rgba(2, 8, 18, 0.92) 100%);
+        rgba(2, 8, 18, 0.18) 35%,
+        rgba(2, 8, 18, 0.92) 100%);
     }
 
     /* Subtle top gloss */
@@ -2528,7 +2546,7 @@
       height: 100%;
       object-fit: cover;
       filter: none;
-      opacity:  1;
+      opacity: 1;
       transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.55s ease;
     }
@@ -3116,38 +3134,40 @@
       }
     }
 
-/* Insurance our-solutions scroll repair */
-.page-scroll-anchor{
-  display:block;
-  position:relative;
-  top:-96px;
-  visibility:hidden;
-}
-.fem-card-link{
-  display:block;
-  color:inherit;
-  text-decoration:none;
-}
-.fem-card-link:hover{
-  color:inherit;
-  text-decoration:none;
-}
+    /* Insurance our-solutions scroll repair */
+    .page-scroll-anchor {
+      display: block;
+      position: relative;
+      top: -96px;
+      visibility: hidden;
+    }
+
+    .fem-card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .fem-card-link:hover {
+      color: inherit;
+      text-decoration: none;
+    }
 
 
-/* Insurance clickable engagement cards repair */
-.fem-card-link{
-  display:block;
-  color:inherit;
-  text-decoration:none;
-  cursor:pointer;
-}
-.fem-card-link:hover,
-.fem-card-link:focus{
-  color:inherit;
-  text-decoration:none;
-}
+    /* Insurance clickable engagement cards repair */
+    .fem-card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-</style>
+    .fem-card-link:hover,
+    .fem-card-link:focus {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
@@ -4112,8 +4132,8 @@
       width: 100% !important;
       min-height: 48px !important;
       border-radius: 10px !important;
-      border: 1px solid rgba(255,255,255,.22) !important;
-      background: rgba(255,255,255,.10) !important;
+      border: 1px solid rgba(255, 255, 255, .22) !important;
+      background: rgba(255, 255, 255, .10) !important;
       color: #ffffff !important;
       font-family: inherit !important;
       font-size: 15px !important;
@@ -4129,7 +4149,7 @@
 
     .book-call-hubspot-form input::placeholder,
     .book-call-hubspot-form textarea::placeholder {
-      color: rgba(255,255,255,.62) !important;
+      color: rgba(255, 255, 255, .62) !important;
     }
 
     .book-call-hubspot-form input[type="submit"],
@@ -4170,8 +4190,12 @@
   <section class="hero">
     <div class="hero-bg">
       <video id="hero-video" autoplay muted loop playsinline preload="auto">
-        <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_webm/v1781810984/Insurance_Banner_tnuqmh.webm" type="video/webm" />
-        <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_mp4/v1781810984/Insurance_Banner_tnuqmh.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_webm/v1781810984/Insurance_Banner_tnuqmh.webm"
+          type="video/webm" />
+        <source
+          src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_mp4/v1781810984/Insurance_Banner_tnuqmh.mp4"
+          type="video/mp4" />
       </video>
     </div>
     <div class="hero-gt"></div>
@@ -4179,7 +4203,7 @@
     <div class="hero-gb"></div>
     <div class="hero-content">
 
-      <h1 class="hero-heading">Your legacy systems
+      <h1 class="hero-heading">Your legacy systemss
         <br>are costing you tomorrow.
       </h1>
       <div class="hero-btns">
@@ -4190,7 +4214,9 @@
               stroke-linejoin="round" />
           </svg>
         </a>
-        <a href="#our-solutions" class="btn-white" onclick="event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation(); document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">See How it Works</a>
+        <a href="#our-solutions" class="btn-white"
+          onclick="event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation(); document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">See
+          How it Works</a>
       </div>
     </div>
   </section>
@@ -4539,14 +4565,17 @@
       background: linear-gradient(135deg, #16c0a4 0%, #0f9c84 60%, #0c8a6f 100%);
       box-shadow: 0 18px 36px -16px rgba(18, 186, 160, .55);
     }
+
     .sol-vc__tab.is-active[data-sv-tab="2"] {
       background: linear-gradient(135deg, #e0a92a 0%, #c99010 60%, #b8870f 100%);
       box-shadow: 0 18px 36px -16px rgba(212, 160, 23, .50);
     }
+
     .sol-vc__tab.is-active[data-sv-tab="3"] {
       background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 60%, #6d28d9 100%);
       box-shadow: 0 18px 36px -16px rgba(124, 58, 237, .50);
     }
+
     .sol-vc__tab.is-active[data-sv-tab="4"] {
       background: linear-gradient(135deg, #ef9248 0%, #e8834a 55%, #c2602b 100%);
       box-shadow: 0 18px 36px -16px rgba(232, 131, 74, .50);
@@ -6008,7 +6037,9 @@
 
   <section class="gwx" aria-label="Guidewire expertise">
     <div class="gwx-banner">
-      <img class="gwx-banner__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781200292/94c96601e0bdbadc95494e90484cd5968ed6b8f7_1_xpqnnp.jpg" alt="Guidewire delivery team" loading="lazy">
+      <img class="gwx-banner__img"
+        src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781200292/94c96601e0bdbadc95494e90484cd5968ed6b8f7_1_xpqnnp.jpg"
+        alt="Guidewire delivery team" loading="lazy">
       <div class="gwx-banner__overlay"></div>
       <h2>Unmatched Guidewire Expertise</h2>
     </div>
@@ -6424,14 +6455,19 @@
       padding: 24px 28px;
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     /* Pastel homepage tint on cursor movement (SP 12-Jun) */
-    .gw-lists-row > .gw-list-card:hover { transform: translateY(-4px); }
-    .gw-lists-row > .gw-list-card:nth-child(1):hover {
+    .gw-lists-row>.gw-list-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .gw-lists-row>.gw-list-card:nth-child(1):hover {
       background: linear-gradient(180deg, rgba(18, 186, 160, .12), rgba(18, 186, 160, .04));
       border-color: rgba(18, 186, 160, .45);
       box-shadow: 0 18px 40px -24px rgba(18, 186, 160, .5);
     }
-    .gw-lists-row > .gw-list-card:nth-child(2):hover {
+
+    .gw-lists-row>.gw-list-card:nth-child(2):hover {
       background: linear-gradient(180deg, rgba(34, 84, 244, .10), rgba(34, 84, 244, .035));
       border-color: rgba(34, 84, 244, .38);
       box-shadow: 0 18px 40px -24px rgba(34, 84, 244, .5);
@@ -6441,6 +6477,7 @@
     .gw-integrations-card {
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     .gw-integrations-card:hover {
       transform: translateY(-4px);
       background: linear-gradient(180deg, rgba(245, 158, 11, .10), rgba(245, 158, 11, .03));
@@ -6451,6 +6488,7 @@
     .gw-tech-card {
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     .gw-tech-card:hover {
       transform: translateY(-4px);
       background: linear-gradient(180deg, rgba(139, 92, 246, .10), rgba(139, 92, 246, .03));
@@ -6461,6 +6499,7 @@
     .gw-expertise-card {
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     .gw-expertise-card:hover {
       transform: translateY(-4px);
       background: linear-gradient(180deg, rgba(6, 182, 212, .10), rgba(6, 182, 212, .03));
@@ -9523,8 +9562,15 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
-    .fem-grid::-webkit-scrollbar { display: none; }
-    .fem-grid .fem-card { flex: 0 0 calc((100% - 66px)/4); scroll-snap-align: start; }
+
+    .fem-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .fem-grid .fem-card {
+      flex: 0 0 calc((100% - 66px)/4);
+      scroll-snap-align: start;
+    }
 
     .fem-card {
       position: relative;
@@ -9836,36 +9882,36 @@
 
   <script>
     /* fem-carousel: forever auto-slide the engagement model cards (4 visible) */
-    (function(){
+    (function () {
       var track = document.querySelector('#flexible-engagement-models .fem-grid');
-      if(!track) return;
+      if (!track) return;
       var cards = track.querySelectorAll('.fem-card');
-      if(cards.length < 5) return;
+      if (cards.length < 5) return;
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var i = 0, timer = null;
-      function go(n){
+      function go(n) {
         i = (n + cards.length) % cards.length;
         track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
       }
-      function tick(){ if(!document.hidden) go(i + 1); }
-      function start(){ if(!timer) timer = setInterval(tick, 5000); }
-      function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+      function tick() { if (!document.hidden) go(i + 1); }
+      function start() { if (!timer) timer = setInterval(tick, 5000); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
       var st;
-      track.addEventListener('scroll', function(){
+      track.addEventListener('scroll', function () {
         clearTimeout(st);
-        st = setTimeout(function(){
+        st = setTimeout(function () {
           var best = 0, bd = 1e9;
-          cards.forEach(function(card, idx){
+          cards.forEach(function (card, idx) {
             var d = Math.abs((card.offsetLeft - track.offsetLeft) - track.scrollLeft);
-            if(d < bd){ bd = d; best = idx; }
+            if (d < bd) { bd = d; best = idx; }
           });
           i = best;
         }, 120);
-      }, { passive:true });
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){
-          es.forEach(function(e){ e.isIntersecting ? start() : stop(); });
-        }, { threshold:0.05 }).observe(track);
+      }, { passive: true });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+        }, { threshold: 0.05 }).observe(track);
       } else { start(); }
     })();
   </script>
@@ -10209,10 +10255,13 @@
               <span class="ks-slide__stat">&lt; 2 min</span>
               <span class="ks-slide__tag">POLICY ISSUANCE</span>
             </div>
-            <p class="ks-slide__body">Enabled issuance of Life and Medicare policies in under two minutes, streamlining customer experience and operational efficiency.</p>
+            <p class="ks-slide__body">Enabled issuance of Life and Medicare policies in under two minutes, streamlining
+              customer experience and operational efficiency.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1000&q=80&auto=format&fit=crop" alt="Policy issuance approval" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1000&q=80&auto=format&fit=crop"
+              alt="Policy issuance approval" loading="lazy">
           </div>
         </article>
 
@@ -10223,10 +10272,13 @@
               <span class="ks-slide__stat">360&deg;</span>
               <span class="ks-slide__tag">SALES VISIBILITY</span>
             </div>
-            <p class="ks-slide__body">Provided actionable insights empowering agents with clear, data-driven perspectives for better sales outcomes.</p>
+            <p class="ks-slide__body">Provided actionable insights empowering agents with clear, data-driven
+              perspectives for better sales outcomes.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80&auto=format&fit=crop" alt="Sales analytics dashboard" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80&auto=format&fit=crop"
+              alt="Sales analytics dashboard" loading="lazy">
           </div>
         </article>
 
@@ -10237,10 +10289,13 @@
               <span class="ks-slide__stat">75&ndash;100%</span>
               <span class="ks-slide__tag">AUTOMATION COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Leveraged extensive UI and API automation to ensure robust code coverage insights across insurance platforms.</p>
+            <p class="ks-slide__body">Leveraged extensive UI and API automation to ensure robust code coverage insights
+              across insurance platforms.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1000&q=80&auto=format&fit=crop" alt="Test automation in progress" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1000&q=80&auto=format&fit=crop"
+              alt="Test automation in progress" loading="lazy">
           </div>
         </article>
 
@@ -10251,10 +10306,13 @@
               <span class="ks-slide__stat">&uarr; Accuracy</span>
               <span class="ks-slide__tag">DATA QUALITY</span>
             </div>
-            <p class="ks-slide__body">Improved data accuracy for more reliable decision-making across policy, claims, and underwriting operations.</p>
+            <p class="ks-slide__body">Improved data accuracy for more reliable decision-making across policy, claims,
+              and underwriting operations.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000&q=80&auto=format&fit=crop" alt="Data quality review" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000&q=80&auto=format&fit=crop"
+              alt="Data quality review" loading="lazy">
           </div>
         </article>
 
@@ -10265,10 +10323,13 @@
               <span class="ks-slide__stat">Unified</span>
               <span class="ks-slide__tag">ECOSYSTEM</span>
             </div>
-            <p class="ks-slide__body">Multi-tool integration for secure signing, address verification, and medical and claim history checks.</p>
+            <p class="ks-slide__body">Multi-tool integration for secure signing, address verification, and medical and
+              claim history checks.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1000&q=80&auto=format&fit=crop" alt="Integrated tool ecosystem" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1000&q=80&auto=format&fit=crop"
+              alt="Integrated tool ecosystem" loading="lazy">
           </div>
         </article>
 
@@ -10279,10 +10340,13 @@
               <span class="ks-slide__stat">&darr; Errors</span>
               <span class="ks-slide__tag">COMMISSION OPS</span>
             </div>
-            <p class="ks-slide__body">Simplified commission tracking to improve agent satisfaction and reduce errors across producer networks.</p>
+            <p class="ks-slide__body">Simplified commission tracking to improve agent satisfaction and reduce errors
+              across producer networks.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&q=80&auto=format&fit=crop" alt="Agents reviewing commissions" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&q=80&auto=format&fit=crop"
+              alt="Agents reviewing commissions" loading="lazy">
           </div>
         </article>
 
@@ -10293,10 +10357,13 @@
               <span class="ks-slide__stat">Multi-LOB</span>
               <span class="ks-slide__tag">PRODUCT COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Ensured consistent management and maintenance of diverse insurance products across commercial lines.</p>
+            <p class="ks-slide__body">Ensured consistent management and maintenance of diverse insurance products across
+              commercial lines.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1000&q=80&auto=format&fit=crop" alt="Commercial product planning" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1000&q=80&auto=format&fit=crop"
+              alt="Commercial product planning" loading="lazy">
           </div>
         </article>
 
@@ -10307,10 +10374,13 @@
               <span class="ks-slide__stat">Real-time</span>
               <span class="ks-slide__tag">TRADING INTELLIGENCE</span>
             </div>
-            <p class="ks-slide__body">Created investment &amp; hedging applications for trading and related collateral management and valuation systems.</p>
+            <p class="ks-slide__body">Created investment &amp; hedging applications for trading and related collateral
+              management and valuation systems.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1000&q=80&auto=format&fit=crop" alt="Trading and investment charts" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1000&q=80&auto=format&fit=crop"
+              alt="Trading and investment charts" loading="lazy">
           </div>
         </article>
 
@@ -10321,10 +10391,13 @@
               <span class="ks-slide__stat">L1&ndash;L3</span>
               <span class="ks-slide__tag">SUPPORT COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Built Enterprise Data Warehouse to process business data and leverage it for operational, reporting, and analytical purposes.</p>
+            <p class="ks-slide__body">Built Enterprise Data Warehouse to process business data and leverage it for
+              operational, reporting, and analytical purposes.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1000&q=80&auto=format&fit=crop" alt="Enterprise data warehouse servers" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1000&q=80&auto=format&fit=crop"
+              alt="Enterprise data warehouse servers" loading="lazy">
           </div>
         </article>
 
@@ -10335,10 +10408,13 @@
               <span class="ks-slide__stat">&lt; 2 Wks</span>
               <span class="ks-slide__tag">NEW PRODUCT LAUNCH</span>
             </div>
-            <p class="ks-slide__body">Delivered a modular, customized solution enabling new product launches in under two weeks &mdash; dramatically accelerating time to market.</p>
+            <p class="ks-slide__body">Delivered a modular, customized solution enabling new product launches in under
+              two weeks &mdash; dramatically accelerating time to market.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80&auto=format&fit=crop" alt="Product launch planning" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80&auto=format&fit=crop"
+              alt="Product launch planning" loading="lazy">
           </div>
         </article>
 
@@ -10349,10 +10425,13 @@
               <span class="ks-slide__stat">Full Suite</span>
               <span class="ks-slide__tag">APPLICATION COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Created comprehensive insurance applications for Agents, Policy Management, Policy Holders, and Claims processing.</p>
+            <p class="ks-slide__body">Created comprehensive insurance applications for Agents, Policy Management, Policy
+              Holders, and Claims processing.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1000&q=80&auto=format&fit=crop" alt="Insurance application suite" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1000&q=80&auto=format&fit=crop"
+              alt="Insurance application suite" loading="lazy">
           </div>
         </article>
 
@@ -10363,10 +10442,13 @@
               <span class="ks-slide__stat">&uarr; Efficiency</span>
               <span class="ks-slide__tag">SALES OPERATIONS</span>
             </div>
-            <p class="ks-slide__body">Streamlined sales operations to boost efficiency in the sales workflow with automation and integration.</p>
+            <p class="ks-slide__body">Streamlined sales operations to boost efficiency in the sales workflow with
+              automation and integration.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1000&q=80&auto=format&fit=crop" alt="Automated sales workflow" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1000&q=80&auto=format&fit=crop"
+              alt="Automated sales workflow" loading="lazy">
           </div>
         </article>
 
@@ -11272,7 +11354,8 @@
 
         <div class="book-call-hubspot-form">
           <script src="https://js.hsforms.net/forms/embed/developer/40221584.js" defer></script>
-          <div class="hs-form-html" data-region="na1" data-form-id="07ba636e-98e4-42a8-9be9-7626059dd8c4" data-portal-id="40221584"></div>
+          <div class="hs-form-html" data-region="na1" data-form-id="07ba636e-98e4-42a8-9be9-7626059dd8c4"
+            data-portal-id="40221584"></div>
         </div>
       </div>
     </div>
@@ -11715,36 +11798,36 @@
   </script>
 
 
-<script>
-/* Insurance requested CTA guard */
-document.addEventListener('click', function(event){
-  const link = event.target.closest('a');
-  if (!link) return;
+  <script>
+    /* Insurance requested CTA guard */
+    document.addEventListener('click', function (event) {
+      const link = event.target.closest('a');
+      if (!link) return;
 
-  const safeTargets = [
-    '#our-solutions',
-    '/contact-us',
-    '/solutions/ai-upskilling',
-    '/solutions/managed-programs',
-    '/capabilities/ai-led-engineering',
-    '/solutions/gcc-and-nearshore',
-    '/solutions/teams-as-a-service',
-    '/ai-innovation/synthetix'
-  ];
+      const safeTargets = [
+        '#our-solutions',
+        '/contact-us',
+        '/solutions/ai-upskilling',
+        '/solutions/managed-programs',
+        '/capabilities/ai-led-engineering',
+        '/solutions/gcc-and-nearshore',
+        '/solutions/teams-as-a-service',
+        '/ai-innovation/synthetix'
+      ];
 
-  const href = link.getAttribute('href');
-  if (!safeTargets.includes(href)) return;
+      const href = link.getAttribute('href');
+      if (!safeTargets.includes(href)) return;
 
-  event.stopPropagation();
-  event.stopImmediatePropagation();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
 
-  if (href === '#our-solutions') {
-    event.preventDefault();
-    document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    return false;
-  }
-}, true);
-</script>
+      if (href === '#our-solutions') {
+        event.preventDefault();
+        document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return false;
+      }
+    }, true);
+  </script>
 
 </body>
 
