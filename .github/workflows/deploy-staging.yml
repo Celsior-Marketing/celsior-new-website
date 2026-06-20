@@ -47,6 +47,6 @@ jobs:
           set ftp:ssl-allow true
           set ssl:verify-certificate no
           open -u \"$FTP_USERNAME\",\"$FTP_PASSWORD\" \"$FTP_SERVER\"
-          mirror -R --verbose --parallel=2 .deploy /
+          mirror -R --verbose --parallel=2 --transfer-all .deploy /
           bye
           "
