@@ -966,22 +966,18 @@
       position: relative;
       max-width: 1440px;
       margin: 0 auto;
-      /* height = tallest card; heading floats in whitespace above short cards */
-      min-height: clamp(500px, 88vh, 900px);
-      padding: 0 clamp(24px, 5.5vw, 80px);
+      padding: clamp(56px, 7vw, 112px) clamp(24px, 5.5vw, 80px) clamp(48px, 6vw, 88px);
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      /* cards anchor to bottom */
+      gap: clamp(32px, 4vw, 56px);
     }
 
-    /* ── Heading: absolutely positioned over top-left whitespace ── */
+    /* ── Heading: in flow above cards ── */
     .outcomes__heading {
-      position: absolute;
-      top: clamp(32px, 7%, 112px);
-      left: clamp(24px, 5.5vw, 80px);
-      width: clamp(280px, 32%, 460px);
-      z-index: 2;
+      position: static;
+      width: 100%;
+      max-width: 720px;
+      z-index: auto;
     }
 
     .outcomes__heading .eyebrow {
@@ -1108,7 +1104,7 @@
 
     /* ── Exact Figma gradients — from design spec ── */
     .outcome-card--green {
-      height: clamp(180px, 37vh, 354px);
+      min-height: clamp(360px, 48vh, 480px);
       padding: clamp(20px, 3vh, 48px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: complex multi-radial — teal top, deep forest bottom-left */
       background:
@@ -1118,14 +1114,14 @@
     }
 
     .outcome-card--blue {
-      height: clamp(230px, 48vh, 463px);
+      min-height: clamp(400px, 54vh, 520px);
       padding: clamp(20px, 2.6vh, 36px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: linear-gradient(to top) — bright blue at bottom, deep navy at top */
       background: linear-gradient(to top, #0e62c2 21.4%, #004080 66.1%);
     }
 
     .outcome-card--gold {
-      height: clamp(320px, 67vh, 652px);
+      min-height: clamp(440px, 60vh, 560px);
       padding: clamp(20px, 3vh, 40px) clamp(14px, 2vw, 28px) 24px;
       color: #000;
       /* Figma: linear-gradient(to top) — bright yellow-gold at bottom, amber at top */
@@ -1133,7 +1129,7 @@
     }
 
     .outcome-card--dark {
-      height: clamp(420px, 86vh, 847px);
+      min-height: clamp(480px, 66vh, 600px);
       padding: clamp(20px, 3vh, 40px) clamp(16px, 2.4vw, 32px) 24px;
       /* Figma: radial — near-black core, dark steel edges */
       background: radial-gradient(ellipse 72% 62% at 50% 38%,
@@ -1194,7 +1190,7 @@
     /* Descriptions */
     .outcome-card p {
       max-width: 240px;
-      margin: clamp(12px, 2vh, 32px) 0 0;
+      margin: clamp(12px, 2vh, 32px) 0 clamp(14px, 2vh, 22px);
       font-size: 16px;
       line-height: 23px;
       font-weight: 500;
@@ -1204,11 +1200,11 @@
       color: #000;
     }
 
-    /* ── Arrow button — absolute bottom-right ── */
+    /* ── Arrow button — flows at the bottom-right so it always stays
+         below the text and never overlaps it at any zoom level ── */
     .outcome-card-arrow {
-      position: absolute;
-      bottom: clamp(16px, 2.5vh, 28px);
-      right: clamp(16px, 1.8vw, 24px);
+      margin-top: auto;
+      align-self: flex-end;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -3248,16 +3244,20 @@
         padding-top: 80px !important;
       }
 
-      /* Outcomes: restore absolute heading + 4-col cards */
+      /* Outcomes: heading in flow above a balanced 4-col card row */
       .outcomes {
-        min-height: clamp(500px, 88vh, 900px) !important;
+        min-height: 0 !important;
         display: flex !important;
         flex-direction: column !important;
-        justify-content: flex-end !important;
+        justify-content: flex-start !important;
+        gap: clamp(32px, 4vw, 56px) !important;
+        padding: clamp(56px, 7vw, 112px) clamp(24px, 5.5vw, 80px) clamp(48px, 6vw, 88px) !important;
       }
 
       .outcomes__heading {
-        position: absolute !important;
+        position: static !important;
+        width: 100% !important;
+        max-width: 720px !important;
       }
 
       .outcome-cards {
@@ -3266,19 +3266,23 @@
       }
 
       .outcome-card--green {
-        height: clamp(180px, 37vh, 354px) !important;
+        min-height: clamp(360px, 48vh, 480px) !important;
+        height: auto !important;
       }
 
       .outcome-card--blue {
-        height: clamp(230px, 48vh, 463px) !important;
+        min-height: clamp(400px, 54vh, 520px) !important;
+        height: auto !important;
       }
 
       .outcome-card--gold {
-        height: clamp(320px, 67vh, 652px) !important;
+        min-height: clamp(440px, 60vh, 560px) !important;
+        height: auto !important;
       }
 
       .outcome-card--dark {
-        height: clamp(420px, 86vh, 847px) !important;
+        min-height: clamp(480px, 66vh, 600px) !important;
+        height: auto !important;
       }
     }
 
