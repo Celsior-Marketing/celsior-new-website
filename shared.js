@@ -1337,10 +1337,14 @@ a.nav-link{text-decoration:none;}
   // Desktop mega menu
   const navItemEls = navEl.querySelectorAll('.nav-item[data-menu]');
   const bdEl = backdropEl;
-  let active = null, timer = null;
+  let active = null, timer = null, openTimer = null;
+  // Hover-intent: cursor must dwell this long on a tab before its panel opens
+  // (prevents the menu firing when the cursor merely brushes past). SP 21-Jun
+  const HOVER_INTENT = 140;
 
   function openPanel(id) {
     clearTimeout(timer);
+    clearTimeout(openTimer);
     if (active === id) return;
     if (active) killPanel(active, true);
     active = id;
@@ -1376,16 +1380,25 @@ a.nav-link{text-decoration:none;}
   }
 
   const sched = () => { timer = setTimeout(() => { if (active) killPanel(active); }, 150); };
-  const cancel = () => clearTimeout(timer);
+  const cancel = () => { clearTimeout(timer); };
 
   navItemEls.forEach(li => {
-    li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
-    li.addEventListener('mouseleave', sched);
+    li.addEventListener('mouseenter', () => {
+      clearTimeout(timer);      // cancel any pending close
+      clearTimeout(openTimer);  // reset any pending open
+      const id = li.dataset.menu;
+      // A panel is already open → switch instantly. Otherwise require brief
+      // hover intent so a passing cursor doesn't pop the menu.
+      if (active) openPanel(id);
+      else openTimer = setTimeout(() => openPanel(id), HOVER_INTENT);
+    });
+    li.addEventListener('mouseleave', () => { clearTimeout(openTimer); sched(); });
     /* Click opens the mega-menu only — tabs no longer navigate to a page (SP 12-Jun) */
     const trigger = li.querySelector('.nav-link');
     if (trigger) {
       const toggle = e => {
         e.preventDefault();
+        clearTimeout(openTimer);  // click = explicit intent, open now
         if (active === li.dataset.menu) killPanel(li.dataset.menu);
         else openPanel(li.dataset.menu);
       };
