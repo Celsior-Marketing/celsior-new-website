@@ -4076,8 +4076,8 @@
       bg:'#f0fdf4', titleC:'#14532d', descC:'#4a7a5a', statC:'#14532d', lblC:'#5a9a6a',
       ctaBg:'rgba(20,83,45,.88)', ctaC:'#fff', ctaBorder:'',
       shadow:'0 22px 44px rgba(0,0,0,.32)',
-      footBg:'#1a2a1a', footR:'120px 120px 0 0', foot:'dashboard',
-      imgs:{dash:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/dashboard_qni0pr.png'},
+      footBg:'#1a2a1a', footR:'120px 120px 0 0', foot:'cover',
+      imgs:{cover:'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781970942/healthcare_p84me6.jpg'},
     },
     {
       chip:'Banking & Financial Services',
@@ -4088,9 +4088,8 @@
       bg:'#fff9e6', titleC:'#111', descC:'#666', statC:'#111', lblC:'#999',
       ctaBg:'rgba(0,0,0,.82)', ctaC:'#fff', ctaBorder:'',
       shadow:'0 28px 56px rgba(0,0,0,.52)',
-      footBg:'#18181a', footR:'130px 130px 0 0', foot:'phones',
-      imgs:{p1:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/app_screen_left_3_yqug1b.png',
-            p2:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/app_screen_right_temwuw.png'},
+      footBg:'#18181a', footR:'130px 130px 0 0', foot:'cover',
+      imgs:{cover:'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781970942/banking_d0xbc5.jpg'},
     },
     {
       chip:'Insurance',
@@ -4101,8 +4100,8 @@
       bg:'#e0fcfa', titleC:'#0f2f3a', descC:'#4a7a8a', statC:'#0f2f3a', lblC:'#6aaabb',
       ctaBg:'rgba(14,46,58,.85)', ctaC:'#fff', ctaBorder:'',
       shadow:'0 22px 44px rgba(0,0,0,.35)',
-      footBg:'transparent', footR:'0', foot:'shield',
-      imgs:{shield:'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Shield_iarrdm.png'},
+      footBg:'transparent', footR:'0', foot:'cover',
+      imgs:{cover:'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781970942/insurance_cuk9nd.jpg'},
     },
   ];
   const N = DATA.length;
@@ -4177,6 +4176,10 @@
           <div style="width:335px;height:185px;border-radius:10px 10px 0 0;overflow:hidden;box-shadow:-4px -4px 18px rgba(0,0,0,.42);transform:rotate(2deg);">
             <img src="${d.imgs.dash}" style="width:95%;height:95%;margin:2.5%;object-fit:cover;display:block;" draggable="false"/>
           </div></div></div>`;
+    if(d.foot==='cover') return `
+      <div style="flex:1 1 auto;min-height:0;margin:14px -34px 0;overflow:hidden;">
+        <img src="${d.imgs.cover}" style="width:100%;height:100%;object-fit:cover;display:block;" draggable="false"/>
+      </div>`;
     if(d.foot==='wordmark') return `
       <div class="c-foot" style="display:flex;align-items:center;justify-content:center;background:transparent;">
         <span style="font-size:${d.wordmarkSz};font-weight:900;color:${d.wordmarkC};letter-spacing:-3px;user-select:none;line-height:1;">${d.wordmark}</span>
