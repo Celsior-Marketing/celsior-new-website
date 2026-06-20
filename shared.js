@@ -1201,10 +1201,11 @@ a.nav-link{text-decoration:none;}
         <p class="cf-tagline">AI-first digital engineering partner for regulated industries—modernizing critical systems, operationalizing AI, and building resilience at scale.</p>
         <p class="cf-sub-head">Stay informed</p>
         <p class="cf-sub-desc">Insights on AI, compliance, and operational resilience delivered to your inbox.</p>
-        <div class="cf-subscribe">
-          <input type="email" placeholder="Enter your work email" autocomplete="email"/>
-          <button type="button">Subscribe</button>
-        </div>
+        <form class="cf-subscribe" data-celsior-newsletter-form novalidate>
+          <input type="email" name="email" placeholder="Enter your work email" autocomplete="email" aria-label="Work email for newsletter subscription" required/>
+          <button type="submit">Subscribe</button>
+        </form>
+        <p class="cf-subscribe-status" data-celsior-newsletter-status aria-live="polite"></p>
         <p class="cf-connect">Connect with us</p>
         <div class="cf-social">
           <a href="https://www.linkedin.com/company/celsior-technologies/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -1579,6 +1580,65 @@ a.nav-link{text-decoration:none;}
     });
   })();
 
+
+  function initCelsiorNewsletterSubscribe() {
+    const form = document.querySelector('[data-celsior-newsletter-form]');
+    const status = document.querySelector('[data-celsior-newsletter-status]');
+    if (!form || form.dataset.ready === 'true') return;
+    form.dataset.ready = 'true';
+
+    const input = form.querySelector('input[type="email"]');
+    const button = form.querySelector('button[type="submit"]');
+    const portalId = '40221584';
+    const formId = 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8';
+    const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
+
+    function setStatus(message, isError) {
+      if (!status) return;
+      status.textContent = message || '';
+      status.classList.toggle('is-error', Boolean(isError));
+      status.classList.toggle('is-success', Boolean(message && !isError));
+    }
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+      const email = (input && input.value || '').trim();
+
+      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
+        setStatus('Please enter a valid work email.', true);
+        input && input.focus();
+        return;
+      }
+
+      setStatus('Subscribing...', false);
+      if (button) button.disabled = true;
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            fields: [{ name: 'email', value: email }],
+            context: {
+              pageUri: window.location.href,
+              pageName: document.title || 'Celsior website footer'
+            }
+          })
+        });
+
+        if (!response.ok) throw new Error(`HubSpot submission failed: ${response.status}`);
+
+        form.reset();
+        setStatus('Thank you for subscribing.', false);
+      } catch (error) {
+        setStatus('Something went wrong. Please try again.', true);
+      } finally {
+        if (button) button.disabled = false;
+      }
+    });
+  }
+
+
   /* ─── HUBSPOT CTA MODAL SYSTEM ──────────────────────────────────────
      Restored from prior working shared.js.
      Keeps CTA/form behavior centralized while preserving current nav,
@@ -1933,6 +1993,7 @@ a.nav-link{text-decoration:none;}
     });
   }
 
+  initCelsiorNewsletterSubscribe();
   initCelsiorHubspotModals();
 
 
