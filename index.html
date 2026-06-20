@@ -595,17 +595,17 @@
         </video>
       </div>
       <div class="hero-slide" id="heroSlide1" data-index="1">
-        <video autoplay muted loop playsinline preload="auto">
+        <video muted loop playsinline preload="none">
           <source src="https://www.pexels.com/download/video/18069232/" type="video/mp4" />
         </video>
       </div>
       <div class="hero-slide" id="heroSlide2" data-index="2">
-        <video autoplay muted loop playsinline preload="auto">
+        <video muted loop playsinline preload="none">
           <source src="https://www.pexels.com/download/video/18069804/" type="video/mp4" />
         </video>
       </div>
       <div class="hero-slide" id="heroSlide3" data-index="3">
-        <video autoplay muted loop playsinline preload="auto">
+        <video muted loop playsinline preload="none">
           <source src="https://www.pexels.com/download/video/30064776/" type="video/mp4" />
         </video>
       </div>
@@ -7005,6 +7005,15 @@
       const fadedEl = document.getElementById('hlFaded');
       const ctaSecEl = document.getElementById('heroCtaSecondary');
 
+      function preloadHeroVideo(index) {
+        const slide = slideEls[((index % SLIDES.length) + SLIDES.length) % SLIDES.length];
+        const vid = slide?.querySelector('video');
+        if (!vid || vid.dataset.preloadStarted === 'true') return;
+        vid.dataset.preloadStarted = 'true';
+        vid.preload = 'auto';
+        try { vid.load(); } catch (e) { }
+      }
+
       function goTo(idx, instant) {
         if (idx === current && !instant) return;
         prev = current;
@@ -7024,11 +7033,14 @@
         }
         const curVid = slideEls[current].querySelector('video');
         if (curVid) {
+          curVid.preload = 'auto';
+          try { curVid.load(); } catch (e) { }
           try { curVid.currentTime = 0; } catch (e) { }
           curVid.muted = true; curVid.playsInline = true;
           const playPromise = curVid.play();
           if (playPromise && playPromise.catch) playPromise.catch(() => { });
         }
+        preloadHeroVideo(current + 1);
 
         if (!instant) {
           const med = slideEls[current].querySelector('video,.hs-img');
