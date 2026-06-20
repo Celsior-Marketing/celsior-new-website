@@ -329,8 +329,8 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: clamp(16px, 2vw, 32px);
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(24px, 3vw, 56px);
       align-items: flex-start;
     }
 
@@ -3174,10 +3174,10 @@
     /* ── TIER 1 | ≥ 1140px — Full desktop layout ── */
     @media (min-width: 1140px) {
 
-      /* Stats: hold 5-col */
+      /* Stats: 4-col, spread full width */
       .stats-grid {
-        grid-template-columns: repeat(5, 1fr) !important;
-        gap: clamp(20px, 2.5vw, 40px) !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: clamp(28px, 4vw, 72px) !important;
       }
 
       .stat-col {
@@ -5317,10 +5317,6 @@
       <div class="stat-col">
         <div class="stat-num">25–30%</div>
         <div class="stat-desc">Testing cycle reduction</div>
-      </div>
-      <div class="stat-col">
-        <div class="stat-num">25–30%</div>
-        <div class="stat-desc">Deployment speed gain</div>
       </div>
       <div class="stat-col">
         <div class="stat-num">900%+</div>
