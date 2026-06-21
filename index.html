@@ -6525,7 +6525,7 @@
       let isDragging = false, startX = 0, scrollLeft = 0, moved = false;
       wrap.addEventListener('mousedown', e => { isDragging = true; moved = false; wrap.classList.add('is-dragging'); startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft; });
       window.addEventListener('mouseup', () => { isDragging = false; wrap.classList.remove('is-dragging'); });
-      wrap.addEventListener('mousemove', e => { if (!isDragging) return; e.preventDefault(); moved = true; const x = e.pageX - wrap.offsetLeft; wrap.scrollLeft = scrollLeft - (x - startX) * 1.1; });
+      wrap.addEventListener('mousemove', e => { if (!isDragging) return; e.preventDefault(); const x = e.pageX - wrap.offsetLeft; if (Math.abs(x - startX) > 5) { moved = true; } wrap.scrollLeft = scrollLeft - (x - startX) * 1.1; });
       wrap.querySelectorAll('a').forEach(a => { a.addEventListener('click', e => { if (moved) e.preventDefault(); }); });
       let tStartX = 0, tScrollLeft = 0;
       wrap.addEventListener('touchstart', e => { tStartX = e.touches[0].pageX; tScrollLeft = wrap.scrollLeft; }, { passive: true });
@@ -6826,7 +6826,7 @@
         alt="Celsior" />
       <p class="cta-band-text" data-text="Most modernization efforts begin with understanding the environment.">Most
         modernization efforts begin with<br>understanding the environment.</p>
-      <a href="#contact" class="cta-band-btn">Start the conversation</a>
+      <a href="/contact-us" class="cta-band-btn">Start the conversation</a>
     </div>
   </section>
 
@@ -6924,6 +6924,7 @@
       const el = document.querySelector('.cta-band-text');
       if (!el) return;
       el.setAttribute('data-text', el.textContent);
+      /*
       function glitch() {
         const chars = '!<>-_\\/[]{}—=+*^?#________'; const original = el.innerHTML;
         const tl = gsap.timeline({ onComplete: () => { el.innerHTML = original; gsap.delayedCall(gsap.utils.random(2.5, 5), glitch); } });
@@ -6934,6 +6935,7 @@
           .to(el, { duration: 0.06, onStart() { el.innerHTML = original; el.style.textShadow = ''; el.style.transform = ''; el.style.clipPath = ''; } });
       }
       gsap.delayedCall(1.4, glitch);
+      */
     })();
   </script>
 

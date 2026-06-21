@@ -1281,17 +1281,11 @@ a.nav-link{text-decoration:none;}
       <a href="/assets/legal/ccpa-cra-v1-3-072024.pdf" target="_blank" rel="noopener">CCPA/CPRA</a>
       <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy</a>
       <a href="/assets/legal/pci-072025-reasonable-accomodation-policy.pdf" target="_blank" rel="noopener">Reasonable Accommodation Policy</a>
-      <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft privacy statement</a>
-      <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web accessibility</a>
-      <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy introduction</a>
+      <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft Privacy Statement</a>
+      <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web Accessibility</a>
+      <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy Introduction</a>
       <a href="#" data-action="cookie-prefs">Cookie Preferences</a>
     </nav>
-
-    <div class="cf-lang">
-      <svg class="cf-globe" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
-      <span>English</span>
-      <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
   </div>`;
 
 
