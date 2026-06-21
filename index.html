@@ -744,6 +744,14 @@
       <div class="carousel-fade carousel-fade--left"></div>
       <div class="carousel-fade carousel-fade--right"></div>
     </div>
+    
+    <div class="sc-drag-indicator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 16l-4-4m0 0l4-4m-4 4h16m-4-4l4 4m0 0l-4 4" />
+      </svg>
+      DRAG TO EXPLORE
+    </div>
+
     <div class="showcase-tagline">
       <p>Start Where Your Priority Is</p>
       <p class="showcase-subtagline">Tailored insights for every leader, every team, every goal.</p>
@@ -845,6 +853,31 @@
       position: relative;
       width: 100%;
       overflow: hidden;
+    }
+
+    .sc-drag-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: var(--muted, #7b82a0);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .sc-drag-indicator svg {
+      width: 24px;
+      height: 24px;
+      animation: sc-drag-pulse 3s infinite ease-in-out;
+    }
+    @keyframes sc-drag-pulse {
+      0%, 100% { opacity: 0.5; transform: translateX(0); }
+      25% { opacity: 1; transform: translateX(-4px); }
+      75% { opacity: 1; transform: translateX(4px); }
     }
 
     .carousel-track {
@@ -3356,7 +3389,7 @@
         <div class="fc-scene">
           <div class="fc-card" tabindex="0">
             <div class="fc-front">
-              <img src="https://i.pinimg.com/236x/b3/1b/79/b31b795a1109c73f147236ea2e73e1a8.jpg" alt="Synthetix"
+              <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/v1781973136/Picture6_iwdawi.jpg" alt="Synthetix"
                 class="fc-img" />
               <div class="fc-glass-header">
                 <span class="fc-tag">AI Powered Delivery</span>
@@ -7075,15 +7108,16 @@
         if (fillEl) { fillEl.style.transition = 'none'; fillEl.style.width = '0%'; }
         clearTimeout(timer);
         if (!AUTOPLAY) return;
-        // Animate the progress bar across AUTOPLAY_MS
+        // Animate the progress bar across durationMs
+        const durationMs = current === 0 ? AUTOPLAY_MS + 2000 : AUTOPLAY_MS;
         if (fillEl) {
           requestAnimationFrame(() => {
-            fillEl.style.transition = `width ${AUTOPLAY_MS}ms linear`;
+            fillEl.style.transition = `width ${durationMs}ms linear`;
             fillEl.style.width = '100%';
           });
         }
         // Schedule the next slide (loops via modulo in goTo)
-        timer = setTimeout(() => { goTo(current + 1); }, AUTOPLAY_MS);
+        timer = setTimeout(() => { goTo(current + 1); }, durationMs);
       }
 
       // Restarts the autoplay countdown after manual interaction

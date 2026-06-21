@@ -617,6 +617,13 @@ a.nav-link{text-decoration:none;}
   box-shadow: 0 14px 30px -20px rgba(232, 131, 74, .4);
 }
 
+@media (max-width: 1139px) {
+  .stats-grid .stat-col {
+    align-items: center !important;
+    text-align: center !important;
+  }
+}
+
 }
 `;
   document.head.appendChild(style);
