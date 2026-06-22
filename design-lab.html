@@ -3076,9 +3076,10 @@
       /* Outcomes: restore absolute heading + 4-col cards */
       .outcomes {
         min-height: clamp(500px, 88vh, 900px) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-end !important;
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: clamp(6px, 1vw, 14px) !important;
+        align-items: end !important;
       }
 
       .outcomes__heading {
@@ -3086,8 +3087,7 @@
       }
 
       .outcome-cards {
-        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-        align-items: end !important;
+        display: contents !important;
       }
 
       .outcome-card--green {
