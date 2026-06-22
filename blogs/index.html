@@ -1998,17 +1998,13 @@
     border-color: #0f172a;
   }
   #filterBar { display: none !important; }
+  #wpCleanFilters .wp-filter-buttons { display: none !important; }
 </style>
 
 <script>
 (function () {
   const FILTERS = [
-    ["all", "All"],
-    ["artificial-intelligence", "AI"],
-    ["insurance", "Insurance"],
-    ["banking-financial-services", "Banking"],
-    ["technology", "Technology"],
-    ["quality-engineering", "Quality Engineering"]
+    ["all", "All"]
   ];
 
   function installCleanFilters() {
