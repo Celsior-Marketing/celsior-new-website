@@ -814,7 +814,7 @@ a.nav-link{text-decoration:none;}
 
 `;
 
-  const FEATURE_IMG = 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
+  const FEATURE_IMG = 'https://res.cloudinary.com/dyhze7fmf/image/upload/f_auto,q_auto:good,w_1600/celsior-new-website/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
   const ITEM_CHEV = `<svg viewBox="0 0 12 12" fill="none"><path d="M4 2.5L7.5 6L4 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const IC_DOC = `<svg viewBox="0 0 24 24" fill="none"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const IC_CHART = `<svg viewBox="0 0 24 24" fill="none"><path d="M5 4v15a1 1 0 0 0 1 1h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 14l3-3 2.5 2.5L19 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
