@@ -833,7 +833,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Cost &amp; Efficiency', href: '/our-focus/cost-and-efficiency' },
         { label: 'Digital Experience', href: '/our-focus/digital-experience' },
       ],
-      feature: { cap: '<em>AI-First</em> digital engineering that evolves at the speed of your business.', title: 'AI-First Digital Engineering', desc: 'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4' },
+      feature: { cap: '<em>AI-First</em> digital engineering that evolves at the speed of your business.', title: 'AI-First Digital Engineering', desc: 'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781203449/our-focus-feature_awakwx.mp4' },
       assessTag: 'Pre Assessment',
       assess: [
         { title: 'Modernization Readiness Index', href: '/assessment-tools/modernization-readiness', desc: 'Score your modernization readiness with a prioritized roadmap.' },
@@ -851,7 +851,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Digital Operations &amp; Security', href: '/capabilities/digital-operations-and-security' },
         { label: 'Security &amp; Governance', href: '/capabilities/security-and-governance' },
       ],
-      feature: { cap: '<em>Platform engineering</em> built for scale and resilience.', title: 'Platform Engineering at Scale', desc: 'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781206076/capabilities-feature_umennw.mp4' },
+      feature: { cap: '<em>Platform engineering</em> built for scale and resilience.', title: 'Platform Engineering at Scale', desc: 'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781206076/capabilities-feature_umennw.mp4' },
       assessTag: 'Pre Assessment',
       assess: [
         { title: 'GRC Maturity', href: '/assessment-tools/grc-assessment', desc: 'Assess governance, risk, and compliance maturity across your estate.' },
@@ -869,7 +869,7 @@ a.nav-link{text-decoration:none;}
         { label: 'GCC &amp; Nearshore', href: '/solutions/gcc-and-nearshore' },
         { label: 'Teams-as-a-Service', href: '/solutions/teams-as-a-service' },
       ],
-      feature: { cap: '<em>The right model</em> for your scale and goals.', title: 'GCC vs. Teams-as-a-Service', desc: 'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205650/solutions-feature_bvxk2o.mp4' },
+      feature: { cap: '<em>The right model</em> for your scale and goals.', title: 'GCC vs. Teams-as-a-Service', desc: 'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781205650/solutions-feature_bvxk2o.mp4' },
       assessTag: 'Pre Assessment',
       assess: [
         { title: '72 Hours Codebase Assessment', href: '/assessment-tools/codebase-assessment', desc: 'Automated review of your codebase delivered in 72 hours.' },
@@ -886,7 +886,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Design Lab', href: '/ai-innovation/design-lab' },
         { label: 'Frameworks &amp; Accelerators', href: '/ai-innovation/frameworks-accelerators' },
       ],
-      feature: { cap: '<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title: 'Synthetix in Action', desc: 'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204152/ai-innovation-feature_xmhaon.mp4' },
+      feature: { cap: '<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title: 'Synthetix in Action', desc: 'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781204152/ai-innovation-feature_xmhaon.mp4' },
       assessTag: 'Live Demo',
       assess: [
         { title: 'AI Readiness Index', href: 'https://ai.celsiortech.us/', desc: 'Benchmark your AI maturity against industry peers.' },
@@ -902,7 +902,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Insurance', href: '/industries/insurance' },
         { label: 'Healthcare', href: '/industries/healthcare' },
       ],
-      feature: { cap: '<em>Modernize</em> without disruption.', title: 'Regulated Industry Playbook', desc: 'How leading banks, insurers, and health systems modernize critical systems with confidence.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204851/industries-feature_paiw9p.mp4' },
+      feature: { cap: '<em>Modernize</em> without disruption.', title: 'Regulated Industry Playbook', desc: 'How leading banks, insurers, and health systems modernize critical systems with confidence.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781204851/industries-feature_paiw9p.mp4' },
       assessTag: 'Industry Brief',
       assess: [
         { title: 'Prior Authorization', href: '/assessment-tools/prior-auth-roi', desc: 'AI-driven prior authorization for faster, compliant approvals.' },
@@ -921,7 +921,7 @@ a.nav-link{text-decoration:none;}
         { label: 'ServiceNow', href: '/partners/servicenow', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png' },
         { label: 'Guidewire', href: '/partners/guidewire', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png' },
       ],
-      feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
+      feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
       assessTag: 'Partnerships',
       assess: [
         { title: 'Alliance Programs', href: '/partners', desc: 'Co-build and co-sell with our technology partners.' },
@@ -937,7 +937,7 @@ a.nav-link{text-decoration:none;}
         { label: 'AI-first Philosophy', href: '/about/ai-first-philosophy' },
         { label: 'Blogs', href: '/blogs' },
       ],
-      feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
+      feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781203709/about-feature_sgqog4.mp4' },
       assessTag: 'Join Us',
       assess: [
         { title: 'Open Roles', href: 'https://pyramidci.com/career-overview/', desc: 'Explore engineering and consulting opportunities worldwide.' },
