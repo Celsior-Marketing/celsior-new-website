@@ -4235,7 +4235,7 @@
     /* ── Single stat column ── */
     .wst-col {
       position: relative;
-      padding: clamp(36px, 4.2vw, 56px) clamp(24px, 2.8vw, 36px) clamp(40px, 4.8vw, 64px);
+      padding: clamp(36px, 4.2vw, 56px) clamp(16px, 1.6vw, 22px) clamp(40px, 4.8vw, 64px);
       border-right: 1px solid #f3f4f6;
       overflow: hidden;
       cursor: default;
@@ -4313,6 +4313,13 @@
       position: relative;
       z-index: 1;
       font-variant-numeric: tabular-nums;
+    }
+
+    /* Unit word (e.g. "years") — sized down so "30 years" fits the column
+       like the other stats and never gets clipped by the divider at any width. */
+    .wst-unit {
+      font-size: 0.68em;
+      font-weight: 700;
     }
 
     /* AI badge */
@@ -4469,7 +4476,7 @@
         <div class="wst-col wc-amber" data-wst-col>
           <div class="wst-ghost" aria-hidden="true">30</div>
           <div class="wst-num">
-            <span class="wst-val" data-target="30">0</span><span>&nbsp;years</span>
+            <span class="wst-val" data-target="30">0</span><span class="wst-unit">&nbsp;years</span>
           </div>
           <p class="wst-desc">of Pyramid heritage behind Celsior</p>
         </div>
