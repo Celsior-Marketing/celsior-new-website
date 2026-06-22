@@ -3009,6 +3009,13 @@
   }
 
   </style>
+<style data-barfix="outcomes">
+/* Outcomes bar-graph desktop layout fix — force 4-col grid on desktop */
+@media (min-width:1140px){
+  .outcomes{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:clamp(6px,1vw,14px) !important;align-items:end !important;}
+  .outcomes .outcome-cards{display:contents !important;}
+}
+</style>
 </head>
 <body>
 
