@@ -382,7 +382,7 @@ a.nav-link{text-decoration:none;}
 .mobile-drawer{position:fixed;inset:0;z-index:999;display:flex;pointer-events:none;}
 .drawer-backdrop{position:absolute;inset:0;background:rgba(7,9,20,.55);opacity:0;transition:opacity .35s ease;}
 .drawer-panel{position:absolute;top:0;right:0;width:min(360px,88vw);height:100%;background:var(--white);box-shadow:-20px 0 60px rgba(15,20,80,.18);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s var(--ease-expo);overflow-y:auto;-webkit-overflow-scrolling:touch;}
-.mobile-drawer.open{pointer-events:auto;}
+.mobile-drawer.open{pointer-events:auto;z-index:1001;}
 .mobile-drawer.open .drawer-backdrop{opacity:1;}
 .mobile-drawer.open .drawer-panel{transform:translateX(0);}
 .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);flex-shrink:0;}
@@ -1289,7 +1289,7 @@ a.nav-link{text-decoration:none;}
       <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy</a>
       <a href="/assets/legal/pci-072025-reasonable-accomodation-policy.pdf" target="_blank" rel="noopener">Reasonable Accommodation Policy</a>
       <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft Privacy Statement</a>
-      <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web Accessibility</a>
+      <!-- <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web Accessibility</a> -->
       <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy Introduction</a>
       <a href="#" data-action="cookie-prefs">Cookie Preferences</a>
     </nav>
