@@ -3,14 +3,60 @@ DirectoryIndex index.html
 Options -Indexes
 
 # ------------------------------------------------------------
-# Staging: never cache HTML pages (prevents stale snapshots)
+# Static-site cache policy
+# HTML gets a short cache. Static assets get long cache.
 # ------------------------------------------------------------
 <IfModule mod_headers.c>
-  <FilesMatch "\.html$">
-    Header set Cache-Control "no-cache, no-store, must-revalidate"
-    Header set Pragma "no-cache"
-    Header set Expires "0"
+  <FilesMatch "\.(html)$">
+    Header set Cache-Control "public, max-age=300, must-revalidate"
+    Header unset Pragma
   </FilesMatch>
+
+  <FilesMatch "\.(css|js|mjs)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header unset Pragma
+  </FilesMatch>
+
+  <FilesMatch "\.(jpg|jpeg|png|gif|webp|avif|svg|ico|mp4|webm|woff|woff2|ttf|otf|pdf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header unset Pragma
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html A300
+  ExpiresByType text/css A31557600
+  ExpiresByType text/javascript A31557600
+  ExpiresByType application/javascript A31557600
+  ExpiresByType image/jpg A31557600
+  ExpiresByType image/jpeg A31557600
+  ExpiresByType image/png A31557600
+  ExpiresByType image/gif A31557600
+  ExpiresByType image/webp A31557600
+  ExpiresByType image/avif A31557600
+  ExpiresByType image/svg+xml A31557600
+  ExpiresByType video/mp4 A31557600
+  ExpiresByType video/webm A31557600
+  ExpiresByType font/woff A31557600
+  ExpiresByType font/woff2 A31557600
+  ExpiresByType application/font-woff A31557600
+  ExpiresByType application/font-woff2 A31557600
+</IfModule>
+
+# ------------------------------------------------------------
+# Compression for static site
+# Note: applies only if server-level mod_deflate is enabled.
+# ------------------------------------------------------------
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html
+  AddOutputFilterByType DEFLATE text/plain
+  AddOutputFilterByType DEFLATE text/css
+  AddOutputFilterByType DEFLATE text/javascript
+  AddOutputFilterByType DEFLATE application/javascript
+  AddOutputFilterByType DEFLATE application/json
+  AddOutputFilterByType DEFLATE application/xml
+  AddOutputFilterByType DEFLATE image/svg+xml
 </IfModule>
 
 <IfModule mod_rewrite.c>
