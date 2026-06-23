@@ -206,7 +206,7 @@
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .stat-col:last-child {
@@ -806,22 +806,24 @@
       position: relative;
       max-width: 1440px;
       margin: 0 auto;
-      /* height = tallest card; heading floats in whitespace above short cards */
       min-height: clamp(500px, 88vh, 900px);
-      padding: 0 clamp(24px, 5.5vw, 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      /* cards anchor to bottom */
+      padding: clamp(32px, 7%, 112px) clamp(24px, 5.5vw, 80px) 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(6px, 1vw, 14px);
+      align-items: end;
     }
 
     /* ── Heading: absolutely positioned over top-left whitespace ── */
     .outcomes__heading {
-      position: absolute;
-      top: clamp(32px, 7%, 112px);
-      left: clamp(24px, 5.5vw, 80px);
-      width: clamp(300px, 40%, 580px);
+      grid-column: 1 / 3;
+      grid-row: 1;
+      align-self: start;
+      position: relative;
+      width: auto;
+      max-width: 460px;
       z-index: 2;
+      margin-bottom: 40px;
     }
 
     .outcomes__heading .eyebrow {
@@ -849,14 +851,7 @@
 
     /* ── Cards: 4-col grid, bottom-aligned, full section width ── */
     .outcome-cards {
-      position: static;
-      inset: auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      align-items: end;
-      /* stagger — shortest left, tallest right */
-      gap: clamp(6px, 1vw, 14px);
+      display: contents;
     }
 
     /* Base card */
@@ -932,6 +927,8 @@
 
     /* ── Exact Figma gradients — from design spec ── */
     .outcome-card--green {
+      grid-column: 1;
+      grid-row: 2;
       height: clamp(180px, 37vh, 354px);
       padding: clamp(20px, 3vh, 48px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: complex multi-radial — teal top, deep forest bottom-left */
@@ -942,6 +939,8 @@
     }
 
     .outcome-card--blue {
+      grid-column: 2;
+      grid-row: 2;
       height: clamp(230px, 48vh, 463px);
       padding: clamp(20px, 2.6vh, 36px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: linear-gradient(to top) — bright blue at bottom, deep navy at top */
@@ -949,6 +948,8 @@
     }
 
     .outcome-card--gold {
+      grid-column: 3;
+      grid-row: 1 / 3;
       height: clamp(320px, 67vh, 652px);
       padding: clamp(20px, 3vh, 40px) clamp(14px, 2vw, 28px) 24px;
       color: #000;
@@ -957,6 +958,8 @@
     }
 
     .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
       height: clamp(420px, 86vh, 847px);
       padding: clamp(20px, 3vh, 40px) clamp(16px, 2.4vw, 32px) 24px;
       /* Figma: radial — near-black core, dark steel edges */
@@ -1074,6 +1077,8 @@
       .outcome-card--blue,
       .outcome-card--gold,
       .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
         height: clamp(240px, 38vw, 340px);
         padding: 28px 22px 24px;
       }
@@ -3046,9 +3051,10 @@
       /* Outcomes: restore absolute heading + 4-col cards */
       .outcomes {
         min-height: clamp(500px, 88vh, 900px) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-end !important;
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: clamp(6px, 1vw, 14px) !important;
+        align-items: end !important;
       }
 
       .outcomes__heading {
@@ -3056,8 +3062,7 @@
       }
 
       .outcome-cards {
-        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-        align-items: end !important;
+        display: contents !important;
       }
 
       .outcome-card--green {
@@ -3280,6 +3285,17 @@
       margin-bottom: 16px;
     }
   </style>
+<style data-barfix="outcomes">
+/* Outcomes bar-graph desktop layout fix — force 4-col grid on desktop */
+@media (min-width:1140px){
+  .outcomes{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:clamp(6px,1vw,14px) !important;align-items:end !important;}
+  .outcomes .outcome-cards{display:contents !important;}
+  /* Heading: in-flow (cols 1-2, row 1) so it never overlaps the bars; fills its
+     2 columns and wraps onto 2 responsive lines at any width/zoom. */
+  .outcomes .outcomes__heading{position:relative !important;inset:auto !important;grid-column:1 / 3 !important;grid-row:1 !important;align-self:start !important;justify-self:stretch !important;width:100% !important;max-width:none !important;z-index:2 !important;}
+  .outcomes .outcomes__heading h2{width:100% !important;max-width:none !important;text-wrap:pretty;}
+}
+</style>
 </head>
 
 <body>
@@ -3529,7 +3545,7 @@ engineered as <span
     <section class="outcomes" aria-label="Outcomes">
       <div class="outcomes__heading">
         <p class="eyebrow">WHY AI-FIRST ENGINEERING?</p>
-        <h2>Outcomes that move AI from pilot to production </h2>
+        <h2>Outcomes that move AI<br>from pilot to production</h2>
         <p>Most enterprises are not short on AI activity. They are short on AI outcomes. Adoption is not the bottleneck. Governance, data readiness, and workflow integration are. These figures, define the gap Celsior was built to close. </p>
       </div>
       <div class="outcome-cards">
@@ -3677,32 +3693,40 @@ architecture for enterprise AI. </h2>
     <section class="partners" aria-label="Partner ecosystem">
       <div class="partners__track">
         <div class="partners__group">
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Dynatrace_1_t3ayxc.png"
-            alt="Dynatrace" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png"
-            alt="ServiceNow" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Boomi_1_kvrpcd.png" alt="Boomi"
-            loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/GuideWire_logo_color_1_whi7lu.png"
             alt="GuideWire" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/RingCentral_1_zjcj4f.png"
-            alt="RingCentral" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Informatica_1_gkhjs0.png"
-            alt="Informatica" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png"
+            alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png"
+            alt="Jack Henry" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Boomi_1_kvrpcd.png" alt="Boomi"
+            loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/13_gbjllz.png"
+            alt="Azure" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
         <div class="partners__group" aria-hidden="true">
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Dynatrace_1_t3ayxc.png" alt=""
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png" alt=""
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Boomi_1_kvrpcd.png" alt=""
-            loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/GuideWire_logo_color_1_whi7lu.png"
-            alt="" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/RingCentral_1_zjcj4f.png" alt=""
+            alt="GuideWire" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png"
+            alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png"
+            alt="Jack Henry" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Boomi_1_kvrpcd.png" alt="Boomi"
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Informatica_1_gkhjs0.png" alt=""
-            loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/13_gbjllz.png"
+            alt="Azure" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
       </div>
     </section>
@@ -3770,7 +3794,7 @@ architecture for enterprise AI. </h2>
           style="font-size:40px;font-weight:700;color:#111827;line-height:50px;max-width:900px;letter-spacing:-0.24px;">
           Thinking on AI adoption and enterprise governance </h2>
       </div>
-      <a href="#"
+      <a href="/blogs/"
         style="font-size:14px;font-weight:600;color:var(--teal);display:flex;align-items:center;gap:6px;white-space:nowrap;margin-left:24px;padding-bottom:4px;">All
         insights <svg width="14" height="14" fill="none" viewBox="0 0 14 14">
           <path d="M2 7h10M8 4l4 3-4 3" stroke="#0d4f45" stroke-width="1.4" stroke-linecap="round"
@@ -3787,7 +3811,7 @@ architecture for enterprise AI. </h2>
         <div class="insight-body">
           <h4 class="insight-title">Why 96% of AI initiatives never reach production scale </h4>
           <p class="insight-desc">The gap between pilot success and enterprise deployment isn't technical capability—it's governance architecture. Here's what the 4% do differently. </p>
-          <div class="insight-foot"><span>6 min read</span><a href="/blogs" class="insight-readlink">Read <svg width="12"
+          <div class="insight-foot"><span>6 min read</span><a href="/blogs/" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -3804,7 +3828,7 @@ architecture for enterprise AI. </h2>
           <h4 class="insight-title">The EU AI Act and human-in-the-loop <br>requirements </h4>
           <p class="insight-desc">Regulatory frameworks are codifying what responsible AI deployment requires: documented human oversight at critical decision points. What compliance looks like in practice.
 </p>
-          <div class="insight-foot"><span>8 min read</span><a href="/blogs" class="insight-readlink">Read <svg width="12"
+          <div class="insight-foot"><span>8 min read</span><a href="/blogs/" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -3821,7 +3845,7 @@ architecture for enterprise AI. </h2>
           <h4 class="insight-title">From 12 months to 90 days: accelerating agent development </h4>
           <p class="insight-desc">Traditional AI development cycles treat governance as post-deployment work. Blueprint-driven approaches with embedded compliance compress timelines without cutting corners.
 </p>
-          <div class="insight-foot"><span>5 min read</span><a href="/blogs" class="insight-readlink">Read <svg width="12"
+          <div class="insight-foot"><span>5 min read</span><a href="/blogs/" class="insight-readlink">Read <svg width="12"
                 height="12" fill="none" viewBox="0 0 12 12">
                 <path d="M2 6h8M7 4l3 2-3 2" stroke="#0d4f45" stroke-width="1.3" stroke-linecap="round"
                   stroke-linejoin="round" />
@@ -3841,7 +3865,7 @@ architecture for enterprise AI. </h2>
         <p>Covering ROI, risk, timelines, and delivery model — the
 questions that matter to decision-makers, answered
 directly.</p>
-        <a data-celsior-form="general" href="#">Speak to our team <span aria-hidden="true">→</span></a>
+        <a href="/contact-us/">Speak to our team <span aria-hidden="true">→</span></a>
       </div>
       <div class="faq__items">
         <div class="faq__item">
@@ -4145,6 +4169,7 @@ directly.</p>
       gsap.from('.cta-band-btn', { opacity: 0, y: 18, duration: 0.7, ease: 'power3.out', delay: 0.26, scrollTrigger: { trigger: '#ctaBand', start: 'top 82%', once: true } });
       const el = document.querySelector('.cta-band-text');
       if (!el) return;
+      /*
       function glitch() {
         const chars = '!<>-_\\/[]{}—=+*^?#________';
         const original = el.innerHTML;
@@ -4156,6 +4181,7 @@ directly.</p>
           .to(el, { duration: 0.06, onStart() { el.innerHTML = original; el.style.textShadow = ''; el.style.transform = ''; el.style.clipPath = ''; } });
       }
       gsap.delayedCall(1.4, glitch);
+      */
     })();
   </script>
   <script>

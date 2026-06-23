@@ -185,7 +185,7 @@
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .stat-col:last-child {
@@ -783,22 +783,24 @@
       position: relative;
       max-width: 1440px;
       margin: 0 auto;
-      /* height = tallest card; heading floats in whitespace above short cards */
       min-height: clamp(500px, 88vh, 900px);
-      padding: 0 clamp(24px, 5.5vw, 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      /* cards anchor to bottom */
+      padding: clamp(32px, 7%, 112px) clamp(24px, 5.5vw, 80px) 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(6px, 1vw, 14px);
+      align-items: end;
     }
 
     /* ── Heading: absolutely positioned over top-left whitespace ── */
     .outcomes__heading {
-      position: absolute;
-      top: clamp(32px, 7%, 112px);
-      left: clamp(24px, 5.5vw, 80px);
-      width: clamp(280px, 32%, 460px);
+      grid-column: 1 / 3;
+      grid-row: 1;
+      align-self: start;
+      position: relative;
+      width: auto;
+      max-width: 460px;
       z-index: 2;
+      margin-bottom: 40px;
     }
 
     .outcomes__heading .eyebrow {
@@ -826,14 +828,7 @@
 
     /* ── Cards: 4-col grid, bottom-aligned, full section width ── */
     .outcome-cards {
-      position: static;
-      inset: auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      align-items: end;
-      /* stagger — shortest left, tallest right */
-      gap: clamp(6px, 1vw, 14px);
+      display: contents;
     }
 
     /* Base card */
@@ -924,6 +919,8 @@
 
     /* ── Exact Figma gradients — from design spec ── */
     .outcome-card--green {
+      grid-column: 1;
+      grid-row: 2;
       height: clamp(180px, 37vh, 354px);
       padding: clamp(20px, 3vh, 48px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: complex multi-radial — teal top, deep forest bottom-left */
@@ -934,6 +931,8 @@
     }
 
     .outcome-card--blue {
+      grid-column: 2;
+      grid-row: 2;
       height: clamp(230px, 48vh, 463px);
       padding: clamp(20px, 2.6vh, 36px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: linear-gradient(to top) — bright blue at bottom, deep navy at top */
@@ -941,6 +940,8 @@
     }
 
     .outcome-card--gold {
+      grid-column: 3;
+      grid-row: 1 / 3;
       height: clamp(320px, 67vh, 652px);
       padding: clamp(20px, 3vh, 40px) clamp(14px, 2vw, 28px) 24px;
       color: #000;
@@ -949,6 +950,8 @@
     }
 
     .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
       height: clamp(420px, 86vh, 847px);
       padding: clamp(20px, 3vh, 40px) clamp(16px, 2.4vw, 32px) 24px;
       /* Figma: radial — near-black core, dark steel edges */
@@ -1066,6 +1069,8 @@
       .outcome-card--blue,
       .outcome-card--gold,
       .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
         height: clamp(240px, 38vw, 340px);
         padding: 28px 22px 24px;
       }
@@ -2999,6 +3004,13 @@
   }
 
   </style>
+<style data-barfix="outcomes">
+/* Outcomes bar-graph desktop layout fix — force 4-col grid on desktop */
+@media (min-width:1140px){
+  .outcomes{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:clamp(6px,1vw,14px) !important;align-items:end !important;}
+  .outcomes .outcome-cards{display:contents !important;}
+}
+</style>
 </head>
 <body>
 
@@ -3308,32 +3320,40 @@
     <section class="partners" aria-label="Partner ecosystem">
       <div class="partners__track">
         <div class="partners__group">
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/14_wd7mko.png"
-            alt="Databricks" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/GuideWire_logo_color_1_whi7lu.png"
+            alt="GuideWire" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png"
+            alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png"
+            alt="Jack Henry" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Boomi_1_kvrpcd.png" alt="Boomi"
+            loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/13_gbjllz.png"
             alt="Azure" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/12_wodhyv.png" alt="AWS"
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/15_uhzy5y.png"
-            alt="Tableu" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/16_m0nka2.png"
-            alt="PowerBi" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/17_yhutdj.png"
-            alt="Spark" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
         <div class="partners__group" aria-hidden="true">
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/14_wd7mko.png" alt="Databricks"
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/GuideWire_logo_color_1_whi7lu.png"
+            alt="GuideWire" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png"
+            alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png"
+            alt="Jack Henry" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Boomi_1_kvrpcd.png" alt="Boomi"
             loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/13_gbjllz.png" alt="Azure"
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/12_wodhyv.png" alt="AWS"
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/15_uhzy5y.png"
-            alt="Tableu" loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/16_m0nka2.png" alt="PowerBi"
-            loading="lazy" />
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/17_yhutdj.png" alt="Spark"
-            loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/12_wodhyv.png"
+            alt="AWS" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/17_hpq0sv.png"
+            alt="Microsoft" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/13_gbjllz.png"
+            alt="Azure" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Google_Cloud_logo.svg_cyeo26.png"
+            alt="Google Cloud" loading="lazy" />
         </div>
       </div>
     </section>
@@ -3476,7 +3496,7 @@
     <div class="insight-cards">
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/7_vmwgl8.png" alt="" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/f_auto,q_auto:good,w_1600/celsior-new-website/7_vmwgl8.png" alt="" />
           <div class="insight-img-grad"></div>
           <span class="insight-tag">Data architecture diagram</span>
         </div>
@@ -3492,7 +3512,7 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/8_tdax9f.png" alt="" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/f_auto,q_auto:good,w_1600/celsior-new-website/8_tdax9f.png" alt="" />
           <div class="insight-img-grad"></div>
           <span class="insight-tag">Dashboard screenshots</span>
         </div>
@@ -3508,7 +3528,7 @@
       </div>
       <div class="insight-card">
         <div class="insight-img">
-          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/9_kwym5i.png" alt="" style="top:0;" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/f_auto,q_auto:good,w_1600/celsior-new-website/9_kwym5i.png" alt="" style="top:0;" />
           <div class="insight-img-grad"></div>
           <span class="insight-tag">Engineering Leadership</span>
         </div>
@@ -3617,7 +3637,7 @@
               </svg></span>
           </button>
           <div class="faq__body">
-            <p> Yes. We're platform-agnostic and integrate with your current hyperscaler partnerships (AWS, Azure, Google Cloud), data platforms (Snowflake, Databricks), BI tools (Power BI, Tableau, Qlik), and ETL tools (Informatica, Talend, MuleSoft). We extend rather than replace your existing technology. </p>
+            <p> Yes. We're platform-agnostic and integrate with your current hyperscaler partnerships (AWS, Azure, Google Cloud), data platforms (Snowflake, Databricks), BI tools (Power BI, Tableau, Qlik), and ETL tools (Talend, MuleSoft). We extend rather than replace your existing technology. </p>
           </div>
         </div>
         <div class="faq__item">
@@ -3953,6 +3973,7 @@
       gsap.from('.cta-band-btn', { opacity: 0, y: 18, duration: 0.7, ease: 'power3.out', delay: 0.26, scrollTrigger: { trigger: '#ctaBand', start: 'top 82%', once: true } });
       const el = document.querySelector('.cta-band-text');
       if (!el) return;
+      /*
       function glitch() {
         const chars = '!<>-_\\/[]{}—=+*^?#________';
         const original = el.innerHTML;
@@ -3964,6 +3985,7 @@
           .to(el, { duration: 0.06, onStart() { el.innerHTML = original; el.style.textShadow = ''; el.style.transform = ''; el.style.clipPath = ''; } });
       }
       gsap.delayedCall(1.4, glitch);
+      */
     })();
   </script>
   <script>

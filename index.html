@@ -605,7 +605,7 @@
        ╚══════════════════════════════════════════════════════════╝
        Runs synchronously so nav+footer are in DOM before any
        inline script below sees the page.                       -->
-  <script src="/shared.js" defer></script>
+  <script src="/shared.js?v=4fdd4f7" defer></script>
 
   <!-- ══════════════════════════════════════════════════════════
      HERO SLIDER
@@ -631,7 +631,8 @@
       </div>
       <div class="hero-slide" id="heroSlide3" data-index="3">
         <video muted loop playsinline preload="none">
-          <source src="/assets/videos/home-hero-30064776-1080p.mp4" type="video/mp4" />
+          <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_webm/v1781810984/Insurance_Banner_tnuqmh.webm" type="video/webm" />
+          <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_mp4/v1781810984/Insurance_Banner_tnuqmh.mp4" type="video/mp4" />
         </video>
       </div>
     </div>
@@ -768,6 +769,14 @@
       <div class="carousel-fade carousel-fade--left"></div>
       <div class="carousel-fade carousel-fade--right"></div>
     </div>
+    
+    <div class="sc-drag-indicator">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M8 16l-4-4m0 0l4-4m-4 4h16m-4-4l4 4m0 0l-4 4" />
+      </svg>
+      DRAG TO EXPLORE
+    </div>
+
     <div class="showcase-tagline">
       <p>Start Where Your Priority Is</p>
       <p class="showcase-subtagline">Tailored insights for every leader, every team, every goal.</p>
@@ -869,6 +878,31 @@
       position: relative;
       width: 100%;
       overflow: hidden;
+    }
+
+    .sc-drag-indicator {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 24px;
+      margin-bottom: 8px;
+      color: var(--muted, #7b82a0);
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .sc-drag-indicator svg {
+      width: 24px;
+      height: 24px;
+      animation: sc-drag-pulse 3s infinite ease-in-out;
+    }
+    @keyframes sc-drag-pulse {
+      0%, 100% { opacity: 0.5; transform: translateX(0); }
+      25% { opacity: 1; transform: translateX(-4px); }
+      75% { opacity: 1; transform: translateX(4px); }
     }
 
     .carousel-track {
@@ -2300,8 +2334,8 @@
     }
 
     #celsior-wrapper .hero-title .cw-blue {
-      color: #8AB4FC;
-      text-shadow: 0 0 24px rgba(138, 180, 252, 0.28);
+      color: #F3D25F;
+      text-shadow: 0 0 24px rgba(243, 210, 95, 0.28);
     }
 
     #celsior-wrapper .sec-heading .cw-mustard {
@@ -2360,7 +2394,7 @@
 
       <!-- 1. HERO -->
       <section id="sec-hero">
-        <h1 class="hero-title">From systems that <br>hold your business back, <br> to <span class="cw-blue">AI</span> <br>that moves it forward.</h1>
+        <h1 class="hero-title">From systems <br>holding your business back, <br> to <span class="cw-blue">AI</span> <br>that moves it forward.</h1>
         <p class="hero-scroll-hint">Scroll to explore</p>
       </section>
 
@@ -3416,7 +3450,7 @@
           <div class="fc-card" tabindex="0">
             <div class="fc-front">
               <img
-                src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/remove_all_the_202604120051_qtgesq.jpg"
+                src="https://res.cloudinary.com/dyhze7fmf/image/upload/f_auto,q_auto:good,w_1600/celsior-new-website/remove_all_the_202604120051_qtgesq.jpg"
                 alt="CAFÉ" class="fc-img" />
               <div class="fc-glass-header">
                 <span class="fc-tag">AI Platform</span>
@@ -5196,7 +5230,7 @@
       <div class="eco-logos-strip">
         <div class="eco-logos-inner" id="ecoLogos">
           <div class="eco-logo-item"><img
-              src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/Untitled_design_33_htf6nu.png"
+              src="https://res.cloudinary.com/dyhze7fmf/image/upload/f_auto,q_auto:good,w_1600/celsior-new-website/Untitled_design_33_htf6nu.png"
               alt="Google Cloud Platform" /></div>
           <div class="eco-logo-item"><img
               src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/6_ufufyx.png"
@@ -6549,7 +6583,7 @@
       let isDragging = false, startX = 0, scrollLeft = 0, moved = false;
       wrap.addEventListener('mousedown', e => { isDragging = true; moved = false; wrap.classList.add('is-dragging'); startX = e.pageX - wrap.offsetLeft; scrollLeft = wrap.scrollLeft; });
       window.addEventListener('mouseup', () => { isDragging = false; wrap.classList.remove('is-dragging'); });
-      wrap.addEventListener('mousemove', e => { if (!isDragging) return; e.preventDefault(); moved = true; const x = e.pageX - wrap.offsetLeft; wrap.scrollLeft = scrollLeft - (x - startX) * 1.1; });
+      wrap.addEventListener('mousemove', e => { if (!isDragging) return; e.preventDefault(); const x = e.pageX - wrap.offsetLeft; if (Math.abs(x - startX) > 5) { moved = true; } wrap.scrollLeft = scrollLeft - (x - startX) * 1.1; });
       wrap.querySelectorAll('a').forEach(a => { a.addEventListener('click', e => { if (moved) e.preventDefault(); }); });
       let tStartX = 0, tScrollLeft = 0;
       wrap.addEventListener('touchstart', e => { tStartX = e.touches[0].pageX; tScrollLeft = wrap.scrollLeft; }, { passive: true });
@@ -6850,7 +6884,7 @@
         alt="Celsior" />
       <p class="cta-band-text" data-text="Most modernization efforts begin with understanding the environment.">Most
         modernization efforts begin with<br>understanding the environment.</p>
-      <a href="#contact" class="cta-band-btn">Start the conversation</a>
+      <a href="/contact-us" class="cta-band-btn">Start the conversation</a>
     </div>
   </section>
 
@@ -6948,6 +6982,7 @@
       const el = document.querySelector('.cta-band-text');
       if (!el) return;
       el.setAttribute('data-text', el.textContent);
+      /*
       function glitch() {
         const chars = '!<>-_\\/[]{}—=+*^?#________'; const original = el.innerHTML;
         const tl = gsap.timeline({ onComplete: () => { el.innerHTML = original; gsap.delayedCall(gsap.utils.random(2.5, 5), glitch); } });
@@ -6958,6 +6993,7 @@
           .to(el, { duration: 0.06, onStart() { el.innerHTML = original; el.style.textShadow = ''; el.style.transform = ''; el.style.clipPath = ''; } });
       }
       gsap.delayedCall(1.4, glitch);
+      */
     })();
   </script>
 
@@ -7030,15 +7066,6 @@
       const fadedEl = document.getElementById('hlFaded');
       const ctaSecEl = document.getElementById('heroCtaSecondary');
 
-      function preloadHeroVideo(index) {
-        const slide = slideEls[((index % SLIDES.length) + SLIDES.length) % SLIDES.length];
-        const vid = slide?.querySelector('video');
-        if (!vid || vid.dataset.preloadStarted === 'true') return;
-        vid.dataset.preloadStarted = 'true';
-        vid.preload = 'auto';
-        try { vid.load(); } catch (e) { }
-      }
-
       function goTo(idx, instant) {
         if (idx === current && !instant) return;
         prev = current;
@@ -7058,14 +7085,11 @@
         }
         const curVid = slideEls[current].querySelector('video');
         if (curVid) {
-          curVid.preload = 'auto';
-          try { curVid.load(); } catch (e) { }
           try { curVid.currentTime = 0; } catch (e) { }
           curVid.muted = true; curVid.playsInline = true;
           const playPromise = curVid.play();
           if (playPromise && playPromise.catch) playPromise.catch(() => { });
         }
-        preloadHeroVideo(current + 1);
 
         if (!instant) {
           const med = slideEls[current].querySelector('video,.hs-img');
@@ -7109,15 +7133,16 @@
         if (fillEl) { fillEl.style.transition = 'none'; fillEl.style.width = '0%'; }
         clearTimeout(timer);
         if (!AUTOPLAY) return;
-        // Animate the progress bar across AUTOPLAY_MS
+        // Animate the progress bar across durationMs
+        const durationMs = current === 0 ? AUTOPLAY_MS + 2000 : AUTOPLAY_MS;
         if (fillEl) {
           requestAnimationFrame(() => {
-            fillEl.style.transition = `width ${AUTOPLAY_MS}ms linear`;
+            fillEl.style.transition = `width ${durationMs}ms linear`;
             fillEl.style.width = '100%';
           });
         }
         // Schedule the next slide (loops via modulo in goTo)
-        timer = setTimeout(() => { goTo(current + 1); }, AUTOPLAY_MS);
+        timer = setTimeout(() => { goTo(current + 1); }, durationMs);
       }
 
       // Restarts the autoplay countdown after manual interaction

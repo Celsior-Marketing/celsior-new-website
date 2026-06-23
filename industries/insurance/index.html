@@ -329,9 +329,9 @@
 
     .stats-grid {
       display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: clamp(16px, 2vw, 32px);
-      align-items: flex-start;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(24px, 3vw, 56px);
+      align-items: stretch;
     }
 
     .stat-col {
@@ -342,13 +342,31 @@
       border-radius: 12px;
       transition: background .35s ease, transform .35s ease;
     }
+
     /* Pastel homepage colours on hover, varied per stat (SP 12-Jun) */
-    .stats-grid .stat-col:hover { transform: translateY(-3px); }
-    .stats-grid .stat-col:nth-child(1):hover { background: rgba(18, 186, 160, .12); }
-    .stats-grid .stat-col:nth-child(2):hover { background: rgba(34, 84, 244, .10); }
-    .stats-grid .stat-col:nth-child(3):hover { background: rgba(212, 160, 23, .14); }
-    .stats-grid .stat-col:nth-child(4):hover { background: rgba(124, 58, 237, .11); }
-    .stats-grid .stat-col:nth-child(5):hover { background: rgba(232, 131, 74, .13); }
+    .stats-grid .stat-col:hover {
+      transform: translateY(-3px);
+    }
+
+    .stats-grid .stat-col:nth-child(1):hover {
+      background: rgba(18, 186, 160, .12);
+    }
+
+    .stats-grid .stat-col:nth-child(2):hover {
+      background: rgba(34, 84, 244, .10);
+    }
+
+    .stats-grid .stat-col:nth-child(3):hover {
+      background: rgba(212, 160, 23, .14);
+    }
+
+    .stats-grid .stat-col:nth-child(4):hover {
+      background: rgba(124, 58, 237, .11);
+    }
+
+    .stats-grid .stat-col:nth-child(5):hover {
+      background: rgba(232, 131, 74, .13);
+    }
 
     .stat-num {
       font-size: clamp(32px, 4vw, 44px);
@@ -948,22 +966,24 @@
       position: relative;
       max-width: 1440px;
       margin: 0 auto;
-      /* height = tallest card; heading floats in whitespace above short cards */
       min-height: clamp(500px, 88vh, 900px);
-      padding: 0 clamp(24px, 5.5vw, 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      /* cards anchor to bottom */
+      padding: clamp(32px, 7%, 112px) clamp(24px, 5.5vw, 80px) 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(6px, 1vw, 14px);
+      align-items: end;
     }
 
     /* ── Heading: absolutely positioned over top-left whitespace ── */
     .outcomes__heading {
-      position: absolute;
-      top: clamp(32px, 7%, 112px);
-      left: clamp(24px, 5.5vw, 80px);
-      width: clamp(280px, 32%, 460px);
+      grid-column: 1 / 3;
+      grid-row: 1;
+      align-self: start;
+      position: relative;
+      width: auto;
+      max-width: 460px;
       z-index: 2;
+      margin-bottom: 40px;
     }
 
     .outcomes__heading .eyebrow {
@@ -992,14 +1012,7 @@
 
     /* ── Cards: 4-col grid, bottom-aligned, full section width ── */
     .outcome-cards {
-      position: static;
-      inset: auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      align-items: end;
-      /* stagger — shortest left, tallest right */
-      gap: clamp(6px, 1vw, 14px);
+      display: contents;
     }
 
     /* Base card */
@@ -1090,7 +1103,9 @@
 
     /* ── Exact Figma gradients — from design spec ── */
     .outcome-card--green {
-      height: clamp(180px, 37vh, 354px);
+      grid-column: 1;
+      grid-row: 2;
+      min-height: clamp(180px, 37vh, 354px);
       padding: clamp(20px, 3vh, 48px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: complex multi-radial — teal top, deep forest bottom-left */
       background:
@@ -1100,14 +1115,18 @@
     }
 
     .outcome-card--blue {
-      height: clamp(230px, 48vh, 463px);
+      grid-column: 2;
+      grid-row: 2;
+      min-height: clamp(280px, 56vh, 540px);
       padding: clamp(20px, 2.6vh, 36px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: linear-gradient(to top) — bright blue at bottom, deep navy at top */
       background: linear-gradient(to top, #0e62c2 21.4%, #004080 66.1%);
     }
 
     .outcome-card--gold {
-      height: clamp(320px, 67vh, 652px);
+      grid-column: 3;
+      grid-row: 1 / 3;
+      min-height: clamp(320px, 67vh, 652px);
       padding: clamp(20px, 3vh, 40px) clamp(14px, 2vw, 28px) 24px;
       color: #000;
       /* Figma: linear-gradient(to top) — bright yellow-gold at bottom, amber at top */
@@ -1115,7 +1134,9 @@
     }
 
     .outcome-card--dark {
-      height: clamp(420px, 86vh, 847px);
+      grid-column: 4;
+      grid-row: 1 / 3;
+      min-height: clamp(420px, 86vh, 847px);
       padding: clamp(20px, 3vh, 40px) clamp(16px, 2.4vw, 32px) 24px;
       /* Figma: radial — near-black core, dark steel edges */
       background: radial-gradient(ellipse 72% 62% at 50% 38%,
@@ -1176,7 +1197,7 @@
     /* Descriptions */
     .outcome-card p {
       max-width: 240px;
-      margin: clamp(12px, 2vh, 32px) 0 0;
+      margin: clamp(12px, 2vh, 32px) 0 clamp(14px, 2vh, 22px);
       font-size: 16px;
       line-height: 23px;
       font-weight: 500;
@@ -1186,11 +1207,11 @@
       color: #000;
     }
 
-    /* ── Arrow button — absolute bottom-right ── */
+    /* ── Arrow button — flows at the bottom-right so it always stays
+         below the text and never overlaps it at any zoom level ── */
     .outcome-card-arrow {
-      position: absolute;
-      bottom: clamp(16px, 2.5vh, 28px);
-      right: clamp(16px, 1.8vw, 24px);
+      margin-top: auto;
+      align-self: flex-end;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1244,7 +1265,9 @@
       }
 
       .outcome-cards {
+        display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
         align-items: stretch;
       }
 
@@ -1252,6 +1275,8 @@
       .outcome-card--blue,
       .outcome-card--gold,
       .outcome-card--dark {
+        grid-column: auto;
+        grid-row: auto;
         height: clamp(240px, 38vw, 340px);
         padding: 28px 22px 24px;
       }
@@ -1264,6 +1289,8 @@
       .outcome-card--blue,
       .outcome-card--gold,
       .outcome-card--dark {
+        grid-column: auto !important;
+        grid-row: auto !important;
         height: clamp(140px, 42vw, 180px) !important;
         padding: 12px 10px 10px !important;
       }
@@ -2504,8 +2531,8 @@
       pointer-events: none;
       background:
         linear-gradient(180deg, transparent 0%, transparent 80%, rgba(2, 8, 18, 0.98) 100%) 0%,
-          rgba(2, 8, 18, 0.18) 35%,
-          rgba(2, 8, 18, 0.92) 100%);
+        rgba(2, 8, 18, 0.18) 35%,
+        rgba(2, 8, 18, 0.92) 100%);
     }
 
     /* Subtle top gloss */
@@ -2528,7 +2555,7 @@
       height: 100%;
       object-fit: cover;
       filter: none;
-      opacity:  1;
+      opacity: 1;
       transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
         opacity 0.55s ease;
     }
@@ -3116,48 +3143,50 @@
       }
     }
 
-/* Insurance our-solutions scroll repair */
-.page-scroll-anchor{
-  display:block;
-  position:relative;
-  top:-96px;
-  visibility:hidden;
-}
-.fem-card-link{
-  display:block;
-  color:inherit;
-  text-decoration:none;
-}
-.fem-card-link:hover{
-  color:inherit;
-  text-decoration:none;
-}
+    /* Insurance our-solutions scroll repair */
+    .page-scroll-anchor {
+      display: block;
+      position: relative;
+      top: -96px;
+      visibility: hidden;
+    }
+
+    .fem-card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .fem-card-link:hover {
+      color: inherit;
+      text-decoration: none;
+    }
 
 
-/* Insurance clickable engagement cards repair */
-.fem-card-link{
-  display:block;
-  color:inherit;
-  text-decoration:none;
-  cursor:pointer;
-}
-.fem-card-link:hover,
-.fem-card-link:focus{
-  color:inherit;
-  text-decoration:none;
-}
+    /* Insurance clickable engagement cards repair */
+    .fem-card-link {
+      display: block;
+      color: inherit;
+      text-decoration: none;
+      cursor: pointer;
+    }
 
-</style>
+    .fem-card-link:hover,
+    .fem-card-link:focus {
+      color: inherit;
+      text-decoration: none;
+    }
+  </style>
 
   <!-- ═══ RESPONSIVE SYSTEM — same approved 3-tier breakpoints ═══ -->
   <style>
     /* ── TIER 1 | ≥ 1140px — Full desktop layout ── */
     @media (min-width: 1140px) {
 
-      /* Stats: hold 5-col */
+      /* Stats: 4-col, spread full width */
       .stats-grid {
-        grid-template-columns: repeat(5, 1fr) !important;
-        gap: clamp(20px, 2.5vw, 40px) !important;
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: clamp(28px, 4vw, 72px) !important;
       }
 
       .stat-col {
@@ -3228,37 +3257,48 @@
         padding-top: 80px !important;
       }
 
-      /* Outcomes: restore absolute heading + 4-col cards */
+      /* Outcomes: floating top-left heading + tall staircase cards (Figma design) */
       .outcomes {
-        min-height: clamp(500px, 88vh, 900px) !important;
+        min-height: clamp(560px, 92vh, 940px) !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: flex-end !important;
+        padding: 0 clamp(24px, 5.5vw, 80px) !important;
       }
 
       .outcomes__heading {
         position: absolute !important;
+        top: clamp(32px, 7%, 112px) !important;
+        left: clamp(24px, 5.5vw, 80px) !important;
+        width: clamp(280px, 32%, 460px) !important;
       }
 
       .outcome-cards {
+        display: grid !important;
         grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: clamp(6px, 1vw, 14px) !important;
+        width: 100% !important;
         align-items: end !important;
       }
 
       .outcome-card--green {
-        height: clamp(180px, 37vh, 354px) !important;
+        min-height: clamp(180px, 37vh, 354px) !important;
+        height: auto !important;
       }
 
       .outcome-card--blue {
-        height: clamp(230px, 48vh, 463px) !important;
+        min-height: clamp(280px, 56vh, 540px) !important;
+        height: auto !important;
       }
 
       .outcome-card--gold {
-        height: clamp(320px, 67vh, 652px) !important;
+        min-height: clamp(320px, 67vh, 652px) !important;
+        height: auto !important;
       }
 
       .outcome-card--dark {
-        height: clamp(420px, 86vh, 847px) !important;
+        min-height: clamp(420px, 86vh, 847px) !important;
+        height: auto !important;
       }
     }
 
@@ -4112,8 +4152,8 @@
       width: 100% !important;
       min-height: 48px !important;
       border-radius: 10px !important;
-      border: 1px solid rgba(255,255,255,.22) !important;
-      background: rgba(255,255,255,.10) !important;
+      border: 1px solid rgba(255, 255, 255, .22) !important;
+      background: rgba(255, 255, 255, .10) !important;
       color: #ffffff !important;
       font-family: inherit !important;
       font-size: 15px !important;
@@ -4129,7 +4169,7 @@
 
     .book-call-hubspot-form input::placeholder,
     .book-call-hubspot-form textarea::placeholder {
-      color: rgba(255,255,255,.62) !important;
+      color: rgba(255, 255, 255, .62) !important;
     }
 
     .book-call-hubspot-form input[type="submit"],
@@ -4155,8 +4195,19 @@
     }
   </style>
 
-</head>
 
+
+<style data-barfix="outcomes">
+/* Outcomes bar-graph desktop layout fix — force 4-col grid on desktop */
+@media (min-width:1140px){
+  .outcomes{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:clamp(6px,1vw,14px) !important;align-items:end !important;}
+  .outcomes .outcome-cards{display:contents !important;}
+  /* Heading: in-flow (cols 1-2, row 1) so it never overlaps the bars; fills its
+     2 columns and balances onto 2 responsive lines at any width/zoom. */
+  .outcomes .outcomes__heading{position:relative !important;inset:auto !important;grid-column:1 / 3 !important;grid-row:1 !important;align-self:start !important;justify-self:stretch !important;width:100% !important;max-width:none !important;z-index:2 !important;}
+  .outcomes .outcomes__heading h2{width:100% !important;max-width:none !important;text-wrap:pretty;}
+}
+</style>
 <body>
 
 
@@ -4170,8 +4221,12 @@
   <section class="hero">
     <div class="hero-bg">
       <video id="hero-video" autoplay muted loop playsinline preload="auto">
-        <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_webm/v1781810984/Insurance_Banner_tnuqmh.webm" type="video/webm" />
-        <source src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_mp4/v1781810984/Insurance_Banner_tnuqmh.mp4" type="video/mp4" />
+        <source
+          src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_webm/v1781810984/Insurance_Banner_tnuqmh.webm"
+          type="video/webm" />
+        <source
+          src="https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_mp4/v1781810984/Insurance_Banner_tnuqmh.mp4"
+          type="video/mp4" />
       </video>
     </div>
     <div class="hero-gt"></div>
@@ -4190,7 +4245,9 @@
               stroke-linejoin="round" />
           </svg>
         </a>
-        <a href="#our-solutions" class="btn-white" onclick="event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation(); document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">See How it Works</a>
+        <a href="#our-solutions" class="btn-white"
+          onclick="event.preventDefault(); event.stopPropagation(); event.stopImmediatePropagation(); document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' }); return false;">See
+          How it Works</a>
       </div>
     </div>
   </section>
@@ -4539,17 +4596,20 @@
       background: linear-gradient(135deg, #16c0a4 0%, #0f9c84 60%, #0c8a6f 100%);
       box-shadow: 0 18px 36px -16px rgba(18, 186, 160, .55);
     }
+
     .sol-vc__tab.is-active[data-sv-tab="2"] {
       background: linear-gradient(135deg, #e0a92a 0%, #c99010 60%, #b8870f 100%);
       box-shadow: 0 18px 36px -16px rgba(212, 160, 23, .50);
     }
+
     .sol-vc__tab.is-active[data-sv-tab="3"] {
       background: linear-gradient(135deg, #8b5cf6 0%, #7c3aed 60%, #6d28d9 100%);
       box-shadow: 0 18px 36px -16px rgba(124, 58, 237, .50);
     }
+
     .sol-vc__tab.is-active[data-sv-tab="4"] {
-      background: linear-gradient(135deg, #ef9248 0%, #e8834a 55%, #c2602b 100%);
-      box-shadow: 0 18px 36px -16px rgba(232, 131, 74, .50);
+      background: linear-gradient(135deg, #0A2540 0%, #1B6FB8 50%, #4A8FD4 100%);
+      box-shadow: 0 18px 36px -16px rgba(10, 37, 64, .55);
     }
 
     .sol-vc__tab.is-active .sol-vc__tab-ic {
@@ -5290,10 +5350,6 @@
         <div class="stat-desc">Testing cycle reduction</div>
       </div>
       <div class="stat-col">
-        <div class="stat-num">25–30%</div>
-        <div class="stat-desc">Deployment speed gain</div>
-      </div>
-      <div class="stat-col">
         <div class="stat-num">900%+</div>
         <div class="stat-desc">WCAG test cases automated</div>
       </div>
@@ -5406,7 +5462,8 @@
 
           <!-- Right media (image swaps with tab) -->
           <div class="sol-vc__media" data-sv-media>
-            <img id="solVcImg" src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_zdxpzl.png"
+            <img id="solVcImg"
+              src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973144/Picture9_zekoca.jpg"
               alt="Solution illustration" />
           </div>
         </div>
@@ -5665,11 +5722,11 @@
       const mediaWrap = root.querySelector('[data-sv-media]');
       const card = root.querySelector('.sol-vc__card');
       const imgs = [
-        'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_zdxpzl.png',
-        'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_rma1qe.png',
-        'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/27_jxql4s.png',
-        'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/28_zvt2yp.png',
-        'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_zdxpzl.png'
+        'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973144/Picture9_zekoca.jpg',
+        'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973147/Picture10_ik97zh.jpg',
+        'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973148/Picture11_ynaxol.jpg',
+        'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973176/Picture12_qbbbzg.jpg',
+        'https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973177/Picture13_uc8tx5.jpg'
       ];
       imgs.forEach(s => { const i = new Image(); i.src = s; });
 
@@ -6008,7 +6065,9 @@
 
   <section class="gwx" aria-label="Guidewire expertise">
     <div class="gwx-banner">
-      <img class="gwx-banner__img" src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781200292/94c96601e0bdbadc95494e90484cd5968ed6b8f7_1_xpqnnp.jpg" alt="Guidewire delivery team" loading="lazy">
+      <img class="gwx-banner__img"
+        src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781200292/94c96601e0bdbadc95494e90484cd5968ed6b8f7_1_xpqnnp.jpg"
+        alt="Guidewire delivery team" loading="lazy">
       <div class="gwx-banner__overlay"></div>
       <h2>Unmatched Guidewire Expertise</h2>
     </div>
@@ -6024,7 +6083,7 @@
     <div class="gwx-cards">
       <article class="gwx-card">
         <img class="gwx-card__img"
-          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177071/cheerful-colleagues-working-together-in-data-cente-2026-03-19-02-08-18-utc_1_wsmrcj.png"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973135/Picture5_hs9ovf.jpg"
           alt="Guidewire PolicyCenter delivery team" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
@@ -6036,7 +6095,7 @@
       </article>
       <article class="gwx-card">
         <img class="gwx-card__img"
-          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177075/How_Celsior_s_Managed_SNOW_Operations_model_cdw2r0.png"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973136/Picture6_iwdawi.jpg"
           alt="ClaimCenter settlement operations" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
@@ -6048,7 +6107,7 @@
       </article>
       <article class="gwx-card">
         <img class="gwx-card__img"
-          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177107/solar-panels-plant-manager-shows-employees-factory-2026-01-11-10-56-15-utc_1_vzguge.png"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973142/Picture7_bgv2db.jpg"
           alt="BillingCenter transaction processing" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
@@ -6060,7 +6119,7 @@
       </article>
       <article class="gwx-card">
         <img class="gwx-card__img"
-          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177071/business-professionals-collaborate-around-table-wi-2026-03-19-02-02-22-utc_1_mv87i9.png"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973143/Picture8_rmvuy3.jpg"
           alt="Guidewire cloud migration team" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
@@ -6424,14 +6483,19 @@
       padding: 24px 28px;
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     /* Pastel homepage tint on cursor movement (SP 12-Jun) */
-    .gw-lists-row > .gw-list-card:hover { transform: translateY(-4px); }
-    .gw-lists-row > .gw-list-card:nth-child(1):hover {
+    .gw-lists-row>.gw-list-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .gw-lists-row>.gw-list-card:nth-child(1):hover {
       background: linear-gradient(180deg, rgba(18, 186, 160, .12), rgba(18, 186, 160, .04));
       border-color: rgba(18, 186, 160, .45);
       box-shadow: 0 18px 40px -24px rgba(18, 186, 160, .5);
     }
-    .gw-lists-row > .gw-list-card:nth-child(2):hover {
+
+    .gw-lists-row>.gw-list-card:nth-child(2):hover {
       background: linear-gradient(180deg, rgba(34, 84, 244, .10), rgba(34, 84, 244, .035));
       border-color: rgba(34, 84, 244, .38);
       box-shadow: 0 18px 40px -24px rgba(34, 84, 244, .5);
@@ -6441,6 +6505,7 @@
     .gw-integrations-card {
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     .gw-integrations-card:hover {
       transform: translateY(-4px);
       background: linear-gradient(180deg, rgba(245, 158, 11, .10), rgba(245, 158, 11, .03));
@@ -6451,6 +6516,7 @@
     .gw-tech-card {
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     .gw-tech-card:hover {
       transform: translateY(-4px);
       background: linear-gradient(180deg, rgba(139, 92, 246, .10), rgba(139, 92, 246, .03));
@@ -6461,6 +6527,7 @@
     .gw-expertise-card {
       transition: background .4s ease, border-color .4s ease, transform .4s ease, box-shadow .4s ease;
     }
+
     .gw-expertise-card:hover {
       transform: translateY(-4px);
       background: linear-gradient(180deg, rgba(6, 182, 212, .10), rgba(6, 182, 212, .03));
@@ -7025,7 +7092,7 @@
     <div class="gwx-cards">
       <article class="gwx-card">
         <img class="gwx-card__img"
-          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177071/cheerful-colleagues-working-together-in-data-cente-2026-03-19-02-08-18-utc_1_wsmrcj.png"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973180/Picture15_o0ucbx.jpg"
           alt="Duck Creek Policy — product launch team" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
@@ -7049,7 +7116,7 @@
       </article>
       <article class="gwx-card">
         <img class="gwx-card__img"
-          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781177107/solar-panels-plant-manager-shows-employees-factory-2026-01-11-10-56-15-utc_1_vzguge.png"
+          src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1781973178/Picture14_hp1xzv.jpg"
           alt="Duck Creek Billing — real-time billing" loading="lazy">
         <div class="gwx-card__overlay"></div>
         <div class="gwx-card__body">
@@ -7823,7 +7890,7 @@
     <section class="outcomes" aria-label="Outcomes">
       <div class="outcomes__heading">
         <p class="eyebrow">WHY 2026</p>
-        <h2>The window to modernize is closing fast</h2>
+        <h2>The window to modernize<br>is closing fast</h2>
         <p>Every quarter you delay modernization is revenue lost to faster competitors.</p>
       </div>
       <div class="outcome-cards">
@@ -8190,7 +8257,7 @@
     <!-- Hero Image -->
     <div class="wws-hero-wrap">
       <img class="wws-hero-img"
-        src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/baa9fb482dd27f1ffa612aa3b37a04fd3b4b01e8_r0dwav.jpg"
+        src="https://res.cloudinary.com/dyhze7fmf/image/upload/q_auto/f_auto/v1782062105/Insurance_page-_high_res_pic_huupn8.jpg"
         alt="Team collaboration meeting">
     </div>
 
@@ -9523,8 +9590,15 @@
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
-    .fem-grid::-webkit-scrollbar { display: none; }
-    .fem-grid .fem-card { flex: 0 0 calc((100% - 66px)/4); scroll-snap-align: start; }
+
+    .fem-grid::-webkit-scrollbar {
+      display: none;
+    }
+
+    .fem-grid .fem-card {
+      flex: 0 0 calc((100% - 66px)/4);
+      scroll-snap-align: start;
+    }
 
     .fem-card {
       position: relative;
@@ -9836,36 +9910,36 @@
 
   <script>
     /* fem-carousel: forever auto-slide the engagement model cards (4 visible) */
-    (function(){
+    (function () {
       var track = document.querySelector('#flexible-engagement-models .fem-grid');
-      if(!track) return;
+      if (!track) return;
       var cards = track.querySelectorAll('.fem-card');
-      if(cards.length < 5) return;
+      if (cards.length < 5) return;
       var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       var i = 0, timer = null;
-      function go(n){
+      function go(n) {
         i = (n + cards.length) % cards.length;
         track.scrollTo({ left: cards[i].offsetLeft - track.offsetLeft, behavior: reduce ? 'auto' : 'smooth' });
       }
-      function tick(){ if(!document.hidden) go(i + 1); }
-      function start(){ if(!timer) timer = setInterval(tick, 5000); }
-      function stop(){ if(timer){ clearInterval(timer); timer = null; } }
+      function tick() { if (!document.hidden) go(i + 1); }
+      function start() { if (!timer) timer = setInterval(tick, 5000); }
+      function stop() { if (timer) { clearInterval(timer); timer = null; } }
       var st;
-      track.addEventListener('scroll', function(){
+      track.addEventListener('scroll', function () {
         clearTimeout(st);
-        st = setTimeout(function(){
+        st = setTimeout(function () {
           var best = 0, bd = 1e9;
-          cards.forEach(function(card, idx){
+          cards.forEach(function (card, idx) {
             var d = Math.abs((card.offsetLeft - track.offsetLeft) - track.scrollLeft);
-            if(d < bd){ bd = d; best = idx; }
+            if (d < bd) { bd = d; best = idx; }
           });
           i = best;
         }, 120);
-      }, { passive:true });
-      if('IntersectionObserver' in window){
-        new IntersectionObserver(function(es){
-          es.forEach(function(e){ e.isIntersecting ? start() : stop(); });
-        }, { threshold:0.05 }).observe(track);
+      }, { passive: true });
+      if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (es) {
+          es.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+        }, { threshold: 0.05 }).observe(track);
       } else { start(); }
     })();
   </script>
@@ -10209,10 +10283,13 @@
               <span class="ks-slide__stat">&lt; 2 min</span>
               <span class="ks-slide__tag">POLICY ISSUANCE</span>
             </div>
-            <p class="ks-slide__body">Enabled issuance of Life and Medicare policies in under two minutes, streamlining customer experience and operational efficiency.</p>
+            <p class="ks-slide__body">Enabled issuance of Life and Medicare policies in under two minutes, streamlining
+              customer experience and operational efficiency.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1000&q=80&auto=format&fit=crop" alt="Policy issuance approval" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=1000&q=80&auto=format&fit=crop"
+              alt="Policy issuance approval" loading="lazy">
           </div>
         </article>
 
@@ -10223,10 +10300,13 @@
               <span class="ks-slide__stat">360&deg;</span>
               <span class="ks-slide__tag">SALES VISIBILITY</span>
             </div>
-            <p class="ks-slide__body">Provided actionable insights empowering agents with clear, data-driven perspectives for better sales outcomes.</p>
+            <p class="ks-slide__body">Provided actionable insights empowering agents with clear, data-driven
+              perspectives for better sales outcomes.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80&auto=format&fit=crop" alt="Sales analytics dashboard" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1000&q=80&auto=format&fit=crop"
+              alt="Sales analytics dashboard" loading="lazy">
           </div>
         </article>
 
@@ -10237,10 +10317,13 @@
               <span class="ks-slide__stat">75&ndash;100%</span>
               <span class="ks-slide__tag">AUTOMATION COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Leveraged extensive UI and API automation to ensure robust code coverage insights across insurance platforms.</p>
+            <p class="ks-slide__body">Leveraged extensive UI and API automation to ensure robust code coverage insights
+              across insurance platforms.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1000&q=80&auto=format&fit=crop" alt="Test automation in progress" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=1000&q=80&auto=format&fit=crop"
+              alt="Test automation in progress" loading="lazy">
           </div>
         </article>
 
@@ -10251,10 +10334,13 @@
               <span class="ks-slide__stat">&uarr; Accuracy</span>
               <span class="ks-slide__tag">DATA QUALITY</span>
             </div>
-            <p class="ks-slide__body">Improved data accuracy for more reliable decision-making across policy, claims, and underwriting operations.</p>
+            <p class="ks-slide__body">Improved data accuracy for more reliable decision-making across policy, claims,
+              and underwriting operations.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000&q=80&auto=format&fit=crop" alt="Data quality review" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=1000&q=80&auto=format&fit=crop"
+              alt="Data quality review" loading="lazy">
           </div>
         </article>
 
@@ -10265,10 +10351,13 @@
               <span class="ks-slide__stat">Unified</span>
               <span class="ks-slide__tag">ECOSYSTEM</span>
             </div>
-            <p class="ks-slide__body">Multi-tool integration for secure signing, address verification, and medical and claim history checks.</p>
+            <p class="ks-slide__body">Multi-tool integration for secure signing, address verification, and medical and
+              claim history checks.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1000&q=80&auto=format&fit=crop" alt="Integrated tool ecosystem" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1558346490-a72e53ae2d4f?w=1000&q=80&auto=format&fit=crop"
+              alt="Integrated tool ecosystem" loading="lazy">
           </div>
         </article>
 
@@ -10279,10 +10368,13 @@
               <span class="ks-slide__stat">&darr; Errors</span>
               <span class="ks-slide__tag">COMMISSION OPS</span>
             </div>
-            <p class="ks-slide__body">Simplified commission tracking to improve agent satisfaction and reduce errors across producer networks.</p>
+            <p class="ks-slide__body">Simplified commission tracking to improve agent satisfaction and reduce errors
+              across producer networks.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&q=80&auto=format&fit=crop" alt="Agents reviewing commissions" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1556761175-5973dc0f32e7?w=1000&q=80&auto=format&fit=crop"
+              alt="Agents reviewing commissions" loading="lazy">
           </div>
         </article>
 
@@ -10293,10 +10385,13 @@
               <span class="ks-slide__stat">Multi-LOB</span>
               <span class="ks-slide__tag">PRODUCT COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Ensured consistent management and maintenance of diverse insurance products across commercial lines.</p>
+            <p class="ks-slide__body">Ensured consistent management and maintenance of diverse insurance products across
+              commercial lines.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1000&q=80&auto=format&fit=crop" alt="Commercial product planning" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?w=1000&q=80&auto=format&fit=crop"
+              alt="Commercial product planning" loading="lazy">
           </div>
         </article>
 
@@ -10307,10 +10402,13 @@
               <span class="ks-slide__stat">Real-time</span>
               <span class="ks-slide__tag">TRADING INTELLIGENCE</span>
             </div>
-            <p class="ks-slide__body">Created investment &amp; hedging applications for trading and related collateral management and valuation systems.</p>
+            <p class="ks-slide__body">Created investment &amp; hedging applications for trading and related collateral
+              management and valuation systems.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1000&q=80&auto=format&fit=crop" alt="Trading and investment charts" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1000&q=80&auto=format&fit=crop"
+              alt="Trading and investment charts" loading="lazy">
           </div>
         </article>
 
@@ -10321,10 +10419,13 @@
               <span class="ks-slide__stat">L1&ndash;L3</span>
               <span class="ks-slide__tag">SUPPORT COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Built Enterprise Data Warehouse to process business data and leverage it for operational, reporting, and analytical purposes.</p>
+            <p class="ks-slide__body">Built Enterprise Data Warehouse to process business data and leverage it for
+              operational, reporting, and analytical purposes.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1000&q=80&auto=format&fit=crop" alt="Enterprise data warehouse servers" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1000&q=80&auto=format&fit=crop"
+              alt="Enterprise data warehouse servers" loading="lazy">
           </div>
         </article>
 
@@ -10335,10 +10436,13 @@
               <span class="ks-slide__stat">&lt; 2 Wks</span>
               <span class="ks-slide__tag">NEW PRODUCT LAUNCH</span>
             </div>
-            <p class="ks-slide__body">Delivered a modular, customized solution enabling new product launches in under two weeks &mdash; dramatically accelerating time to market.</p>
+            <p class="ks-slide__body">Delivered a modular, customized solution enabling new product launches in under
+              two weeks &mdash; dramatically accelerating time to market.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80&auto=format&fit=crop" alt="Product launch planning" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1000&q=80&auto=format&fit=crop"
+              alt="Product launch planning" loading="lazy">
           </div>
         </article>
 
@@ -10349,10 +10453,13 @@
               <span class="ks-slide__stat">Full Suite</span>
               <span class="ks-slide__tag">APPLICATION COVERAGE</span>
             </div>
-            <p class="ks-slide__body">Created comprehensive insurance applications for Agents, Policy Management, Policy Holders, and Claims processing.</p>
+            <p class="ks-slide__body">Created comprehensive insurance applications for Agents, Policy Management, Policy
+              Holders, and Claims processing.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1000&q=80&auto=format&fit=crop" alt="Insurance application suite" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1551650975-87deedd944c3?w=1000&q=80&auto=format&fit=crop"
+              alt="Insurance application suite" loading="lazy">
           </div>
         </article>
 
@@ -10363,10 +10470,13 @@
               <span class="ks-slide__stat">&uarr; Efficiency</span>
               <span class="ks-slide__tag">SALES OPERATIONS</span>
             </div>
-            <p class="ks-slide__body">Streamlined sales operations to boost efficiency in the sales workflow with automation and integration.</p>
+            <p class="ks-slide__body">Streamlined sales operations to boost efficiency in the sales workflow with
+              automation and integration.</p>
           </div>
           <div class="ks-slide__right">
-            <img class="ks-slide__img" src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1000&q=80&auto=format&fit=crop" alt="Automated sales workflow" loading="lazy">
+            <img class="ks-slide__img"
+              src="https://images.unsplash.com/photo-1556155092-490a1ba16284?w=1000&q=80&auto=format&fit=crop"
+              alt="Automated sales workflow" loading="lazy">
           </div>
         </article>
 
@@ -11272,7 +11382,8 @@
 
         <div class="book-call-hubspot-form">
           <script src="https://js.hsforms.net/forms/embed/developer/40221584.js" defer></script>
-          <div class="hs-form-html" data-region="na1" data-form-id="07ba636e-98e4-42a8-9be9-7626059dd8c4" data-portal-id="40221584"></div>
+          <div class="hs-form-html" data-region="na1" data-form-id="07ba636e-98e4-42a8-9be9-7626059dd8c4"
+            data-portal-id="40221584"></div>
         </div>
       </div>
     </div>
@@ -11491,6 +11602,7 @@
       gsap.from('.cta-band-btn', { opacity: 0, y: 18, duration: 0.7, ease: 'power3.out', delay: 0.26, scrollTrigger: { trigger: '#ctaBand', start: 'top 82%', once: true } });
       const el = document.querySelector('.cta-band-text');
       if (!el) return;
+      /*
       function glitch() {
         const chars = '!<>-_\\/[]{}—=+*^?#________';
         const original = el.innerHTML;
@@ -11502,6 +11614,7 @@
           .to(el, { duration: 0.06, onStart() { el.innerHTML = original; el.style.textShadow = ''; el.style.transform = ''; el.style.clipPath = ''; } });
       }
       gsap.delayedCall(1.4, glitch);
+      */
     })();
   </script>
   <script>
@@ -11715,36 +11828,36 @@
   </script>
 
 
-<script>
-/* Insurance requested CTA guard */
-document.addEventListener('click', function(event){
-  const link = event.target.closest('a');
-  if (!link) return;
+  <script>
+    /* Insurance requested CTA guard */
+    document.addEventListener('click', function (event) {
+      const link = event.target.closest('a');
+      if (!link) return;
 
-  const safeTargets = [
-    '#our-solutions',
-    '/contact-us',
-    '/solutions/ai-upskilling',
-    '/solutions/managed-programs',
-    '/capabilities/ai-led-engineering',
-    '/solutions/gcc-and-nearshore',
-    '/solutions/teams-as-a-service',
-    '/ai-innovation/synthetix'
-  ];
+      const safeTargets = [
+        '#our-solutions',
+        '/contact-us',
+        '/solutions/ai-upskilling',
+        '/solutions/managed-programs',
+        '/capabilities/ai-led-engineering',
+        '/solutions/gcc-and-nearshore',
+        '/solutions/teams-as-a-service',
+        '/ai-innovation/synthetix'
+      ];
 
-  const href = link.getAttribute('href');
-  if (!safeTargets.includes(href)) return;
+      const href = link.getAttribute('href');
+      if (!safeTargets.includes(href)) return;
 
-  event.stopPropagation();
-  event.stopImmediatePropagation();
+      event.stopPropagation();
+      event.stopImmediatePropagation();
 
-  if (href === '#our-solutions') {
-    event.preventDefault();
-    document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    return false;
-  }
-}, true);
-</script>
+      if (href === '#our-solutions') {
+        event.preventDefault();
+        document.getElementById('our-solutions')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        return false;
+      }
+    }, true);
+  </script>
 
 </body>
 

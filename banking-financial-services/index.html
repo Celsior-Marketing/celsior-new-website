@@ -65,22 +65,24 @@
       position: relative;
       max-width: 1440px;
       margin: 0 auto;
-      /* height = tallest card; heading floats in whitespace above short cards */
       min-height: clamp(500px, 88vh, 900px);
-      padding: 0 clamp(24px, 5.5vw, 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      /* cards anchor to bottom */
+      padding: clamp(32px, 7%, 112px) clamp(24px, 5.5vw, 80px) 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(6px, 1vw, 14px);
+      align-items: end;
     }
 
     /* ── Heading: absolutely positioned over top-left whitespace ── */
     .outcomes__heading {
-      position: absolute;
-      top: clamp(32px, 7%, 112px);
-      left: clamp(24px, 5.5vw, 80px);
-      width: clamp(280px, 32%, 460px);
+      grid-column: 1 / 3;
+      grid-row: 1;
+      align-self: start;
+      position: relative;
+      width: auto;
+      max-width: 460px;
       z-index: 2;
+      margin-bottom: 40px;
     }
 
     .outcomes__heading .eyebrow {
@@ -108,14 +110,7 @@
 
     /* ── Cards: 4-col grid, bottom-aligned, full section width ── */
     .outcome-cards {
-      position: static;
-      inset: auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      align-items: end;
-      /* stagger — shortest left, tallest right */
-      gap: clamp(6px, 1vw, 14px);
+      display: contents;
     }
 
     /* Base card */
@@ -206,6 +201,8 @@
 
     /* ── Exact Figma gradients — from design spec ── */
     .outcome-card--green {
+      grid-column: 1;
+      grid-row: 2;
       height: clamp(180px, 37vh, 354px);
       padding: clamp(20px, 3vh, 48px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: complex multi-radial — teal top, deep forest bottom-left */
@@ -216,6 +213,8 @@
     }
 
     .outcome-card--blue {
+      grid-column: 2;
+      grid-row: 2;
       height: clamp(230px, 48vh, 463px);
       padding: clamp(20px, 2.6vh, 36px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: linear-gradient(to top) — bright blue at bottom, deep navy at top */
@@ -223,6 +222,8 @@
     }
 
     .outcome-card--gold {
+      grid-column: 3;
+      grid-row: 1 / 3;
       height: clamp(320px, 67vh, 652px);
       padding: clamp(20px, 3vh, 40px) clamp(14px, 2vw, 28px) 24px;
       color: #000;
@@ -231,6 +232,8 @@
     }
 
     .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
       height: clamp(420px, 86vh, 847px);
       padding: clamp(20px, 3vh, 40px) clamp(16px, 2.4vw, 32px) 24px;
       /* Figma: radial — near-black core, dark steel edges */
@@ -348,6 +351,8 @@
       .outcome-card--blue,
       .outcome-card--gold,
       .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
         height: clamp(240px, 38vw, 340px);
         padding: 28px 22px 24px;
       }
@@ -535,7 +540,7 @@
       grid-template-columns: repeat(4, 1fr);
       border-bottom: 1px solid var(--border);
       margin-bottom: 28px;
-      align-items: flex-start;
+      align-items: stretch;
       justify-content: flex-start;
     }
 
@@ -544,7 +549,7 @@
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
     }
 
     .stat-col:last-child {
@@ -1258,22 +1263,24 @@
       position: relative;
       max-width: 1440px;
       margin: 0 auto;
-      /* height = tallest card; heading floats in whitespace above short cards */
       min-height: clamp(500px, 88vh, 900px);
-      padding: 0 clamp(24px, 5.5vw, 80px);
-      display: flex;
-      flex-direction: column;
-      justify-content: flex-end;
-      /* cards anchor to bottom */
+      padding: clamp(32px, 7%, 112px) clamp(24px, 5.5vw, 80px) 0;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: clamp(6px, 1vw, 14px);
+      align-items: end;
     }
 
     /* ── Heading: absolutely positioned over top-left whitespace ── */
     .outcomes__heading {
-      position: absolute;
-      top: clamp(32px, 7%, 112px);
-      left: clamp(24px, 5.5vw, 80px);
-      width: clamp(280px, 32%, 460px);
+      grid-column: 1 / 3;
+      grid-row: 1;
+      align-self: start;
+      position: relative;
+      width: auto;
+      max-width: 460px;
       z-index: 2;
+      margin-bottom: 40px;
     }
 
     .outcomes__heading .eyebrow {
@@ -1301,14 +1308,7 @@
 
     /* ── Cards: 4-col grid, bottom-aligned, full section width ── */
     .outcome-cards {
-      position: static;
-      inset: auto;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
-      align-items: end;
-      /* stagger — shortest left, tallest right */
-      gap: clamp(6px, 1vw, 14px);
+      display: contents;
     }
 
     /* Base card */
@@ -1399,6 +1399,8 @@
 
     /* ── Exact Figma gradients — from design spec ── */
     .outcome-card--green {
+      grid-column: 1;
+      grid-row: 2;
       height: clamp(180px, 37vh, 354px);
       padding: clamp(20px, 3vh, 48px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: complex multi-radial — teal top, deep forest bottom-left */
@@ -1409,6 +1411,8 @@
     }
 
     .outcome-card--blue {
+      grid-column: 2;
+      grid-row: 2;
       height: clamp(230px, 48vh, 463px);
       padding: clamp(20px, 2.6vh, 36px) clamp(14px, 1.8vw, 24px) 24px;
       /* Figma: linear-gradient(to top) — bright blue at bottom, deep navy at top */
@@ -1416,6 +1420,8 @@
     }
 
     .outcome-card--gold {
+      grid-column: 3;
+      grid-row: 1 / 3;
       height: clamp(320px, 67vh, 652px);
       padding: clamp(20px, 3vh, 40px) clamp(14px, 2vw, 28px) 24px;
       color: #000;
@@ -1424,6 +1430,8 @@
     }
 
     .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
       height: clamp(420px, 86vh, 847px);
       padding: clamp(20px, 3vh, 40px) clamp(16px, 2.4vw, 32px) 24px;
       /* Figma: radial — near-black core, dark steel edges */
@@ -1541,6 +1549,8 @@
       .outcome-card--blue,
       .outcome-card--gold,
       .outcome-card--dark {
+      grid-column: 4;
+      grid-row: 1 / 3;
         height: clamp(240px, 38vw, 340px);
         padding: 28px 22px 24px;
       }
@@ -3521,9 +3531,10 @@
       /* Outcomes: restore absolute heading + 4-col cards */
       .outcomes {
         min-height: clamp(500px, 88vh, 900px) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: flex-end !important;
+        display: grid !important;
+        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+        gap: clamp(6px, 1vw, 14px) !important;
+        align-items: end !important;
       }
 
       .outcomes__heading {
@@ -3531,8 +3542,7 @@
       }
 
       .outcome-cards {
-        grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
-        align-items: end !important;
+        display: contents !important;
       }
 
       .outcome-card--green {
@@ -3890,6 +3900,13 @@
       }
     }
   </style>
+<style data-barfix="outcomes">
+/* Outcomes bar-graph desktop layout fix — force 4-col grid on desktop */
+@media (min-width:1140px){
+  .outcomes{display:grid !important;grid-template-columns:repeat(4,minmax(0,1fr)) !important;gap:clamp(6px,1vw,14px) !important;align-items:end !important;}
+  .outcomes .outcome-cards{display:contents !important;}
+}
+</style>
 </head>
 
 <body>
@@ -6602,6 +6619,8 @@ One integrated practice.
             alt="Microsoft Azure" loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png"
             alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png"
+            alt="Jack Henry" loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/28_nno5xk.png"
             alt="PEGA" loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png" alt="Jack Henry"
@@ -6617,6 +6636,8 @@ One integrated practice.
             alt="Microsoft Azure" loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/ServiceNow_1_plissc.png"
             alt="ServiceNow" loading="lazy" />
+          <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png"
+            alt="Jack Henry" loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/28_nno5xk.png"
             alt="PEGA" loading="lazy" />
           <img src="https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png" alt="Jack Henry"
@@ -7062,6 +7083,7 @@ One integrated practice.
       gsap.from('.cta-band-btn', { opacity: 0, y: 18, duration: 0.7, ease: 'power3.out', delay: 0.26, scrollTrigger: { trigger: '#ctaBand', start: 'top 82%', once: true } });
       const el = document.querySelector('.cta-band-text');
       if (!el) return;
+      /*
       function glitch() {
         const chars = '!<>-_\\/[]{}—=+*^?#________';
         const original = el.innerHTML;
@@ -7073,6 +7095,7 @@ One integrated practice.
           .to(el, { duration: 0.06, onStart() { el.innerHTML = original; el.style.textShadow = ''; el.style.transform = ''; el.style.clipPath = ''; } });
       }
       gsap.delayedCall(1.4, glitch);
+      */
     })();
   </script>
   <script>

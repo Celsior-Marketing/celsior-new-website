@@ -382,7 +382,7 @@ a.nav-link{text-decoration:none;}
 .mobile-drawer{position:fixed;inset:0;z-index:999;display:flex;pointer-events:none;}
 .drawer-backdrop{position:absolute;inset:0;background:rgba(7,9,20,.55);opacity:0;transition:opacity .35s ease;}
 .drawer-panel{position:absolute;top:0;right:0;width:min(360px,88vw);height:100%;background:var(--white);box-shadow:-20px 0 60px rgba(15,20,80,.18);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s var(--ease-expo);overflow-y:auto;-webkit-overflow-scrolling:touch;}
-.mobile-drawer.open{pointer-events:auto;}
+.mobile-drawer.open{pointer-events:auto;z-index:1001;}
 .mobile-drawer.open .drawer-backdrop{opacity:1;}
 .mobile-drawer.open .drawer-panel{transform:translateX(0);}
 .drawer-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);flex-shrink:0;}
@@ -497,6 +497,9 @@ a.nav-link{text-decoration:none;}
 .cf-subscribe input:focus{border-color:var(--cf-accent);background:rgba(255,255,255,.07);}
 .cf-subscribe button{padding:0 20px;background:var(--cf-accent);border:none;border-radius:0 8px 8px 0;font-family:inherit;font-size:.8rem;font-weight:700;color:#fff;cursor:pointer;white-space:nowrap;transition:background .2s;}
 .cf-subscribe button:hover{background:#1d3372;}
+.cf-newsletter-hubspot-hidden{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;opacity:0!important;pointer-events:none!important;}
+.cf-newsletter-status{margin:8px 0 0 0;font-size:.78rem;line-height:1.4;color:var(--cf-mid);min-height:1em;}
+
 .cf-connect{font-size:.98rem;font-weight:700;color:var(--cf-ink);margin-top:32px;}
 .cf-social{display:flex;gap:10px;margin-top:15px;}
 .cf-social a{width:38px;height:38px;border-radius:9px;border:1px solid var(--cf-border2);background:rgba(255,255,255,.03);display:grid;place-items:center;color:var(--cf-mid);transition:background .22s,color .22s,transform .22s cubic-bezier(.16,1,.3,1),border-color .22s;}
@@ -542,7 +545,7 @@ a.nav-link{text-decoration:none;}
 ─────────────────────────────────────────────────────────────────── */
 .drawer-mega{padding:14px 20px 18px;display:flex;flex-direction:column;gap:14px;}
 .drawer-mega-feature{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#0b1020;aspect-ratio:16/9;box-shadow:0 10px 28px rgba(15,20,80,.14);}
-.drawer-mega-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.drawer-mega-feature img,.drawer-mega-feature video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .drawer-mega-feature::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,11,26,.85),rgba(7,11,26,.15) 60%,transparent);}
 .drawer-mega-cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.82rem;font-weight:700;line-height:1.3;}
 .drawer-mega-cap em{color:#3ddc97;font-style:normal;}
@@ -615,6 +618,13 @@ a.nav-link{text-decoration:none;}
 .stats-grid .stat-col:nth-child(5n+5):hover {
   background: rgba(232, 131, 74, .13);
   box-shadow: 0 14px 30px -20px rgba(232, 131, 74, .4);
+}
+
+@media (max-width: 1139px) {
+  .stats-grid .stat-col {
+    align-items: center !important;
+    text-align: center !important;
+  }
 }
 
 }
@@ -807,7 +817,7 @@ a.nav-link{text-decoration:none;}
 
 `;
 
-  const FEATURE_IMG = 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
+  const FEATURE_IMG = 'https://res.cloudinary.com/dyhze7fmf/image/upload/f_auto,q_auto:good,w_1600/celsior-new-website/fd85d9f6b205b835d020b87cf50dfc5490c63510_ntepey.png';
   const ITEM_CHEV = `<svg viewBox="0 0 12 12" fill="none"><path d="M4 2.5L7.5 6L4 9.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const IC_DOC = `<svg viewBox="0 0 24 24" fill="none"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8l-5-5z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/><path d="M14 3v5h5M9 13h6M9 16.5h4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
   const IC_CHART = `<svg viewBox="0 0 24 24" fill="none"><path d="M5 4v15a1 1 0 0 0 1 1h14" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/><path d="M9 14l3-3 2.5 2.5L19 8" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>`;
@@ -826,7 +836,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Cost &amp; Efficiency', href: '/our-focus/cost-and-efficiency' },
         { label: 'Digital Experience', href: '/our-focus/digital-experience' },
       ],
-      feature: { cap: '<em>AI-First</em> digital engineering that evolves at the speed of your business.', title: 'AI-First Digital Engineering', desc: 'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203449/our-focus-feature_awakwx.mp4' },
+      feature: { cap: '<em>AI-First</em> digital engineering that evolves at the speed of your business.', title: 'AI-First Digital Engineering', desc: 'Build intelligent products, automate workflows, and modernize technology platforms with AI-driven engineering solutions.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781203449/our-focus-feature_awakwx.mp4' },
       assessTag: 'Pre Assessment',
       assess: [
         { title: 'Modernization Readiness Index', href: '/assessment-tools/modernization-readiness', desc: 'Score your modernization readiness with a prioritized roadmap.' },
@@ -844,7 +854,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Digital Operations &amp; Security', href: '/capabilities/digital-operations-and-security' },
         { label: 'Security &amp; Governance', href: '/capabilities/security-and-governance' },
       ],
-      feature: { cap: '<em>Platform engineering</em> built for scale and resilience.', title: 'Platform Engineering at Scale', desc: 'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781206076/capabilities-feature_umennw.mp4' },
+      feature: { cap: '<em>Platform engineering</em> built for scale and resilience.', title: 'Platform Engineering at Scale', desc: 'Golden paths for global banks with 200+ engineering teams, delivered with governance built in from day one.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781206076/capabilities-feature_umennw.mp4' },
       assessTag: 'Pre Assessment',
       assess: [
         { title: 'GRC Maturity', href: '/assessment-tools/grc-assessment', desc: 'Assess governance, risk, and compliance maturity across your estate.' },
@@ -862,7 +872,7 @@ a.nav-link{text-decoration:none;}
         { label: 'GCC &amp; Nearshore', href: '/solutions/gcc-and-nearshore' },
         { label: 'Teams-as-a-Service', href: '/solutions/teams-as-a-service' },
       ],
-      feature: { cap: '<em>The right model</em> for your scale and goals.', title: 'GCC vs. Teams-as-a-Service', desc: 'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205650/solutions-feature_bvxk2o.mp4' },
+      feature: { cap: '<em>The right model</em> for your scale and goals.', title: 'GCC vs. Teams-as-a-Service', desc: 'Compare cost, control, and speed side by side to find the right operating model for your enterprise.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781205650/solutions-feature_bvxk2o.mp4' },
       assessTag: 'Pre Assessment',
       assess: [
         { title: '72 Hours Codebase Assessment', href: '/assessment-tools/codebase-assessment', desc: 'Automated review of your codebase delivered in 72 hours.' },
@@ -879,7 +889,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Design Lab', href: '/ai-innovation/design-lab' },
         { label: 'Frameworks &amp; Accelerators', href: '/ai-innovation/frameworks-accelerators' },
       ],
-      feature: { cap: '<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title: 'Synthetix in Action', desc: 'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204152/ai-innovation-feature_xmhaon.mp4' },
+      feature: { cap: '<em>Synthetix</em> orchestrates policy, claims, and risk in real time.', title: 'Synthetix in Action', desc: 'See how our AI orchestration layer connects critical systems with enterprise-grade governance.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781204152/ai-innovation-feature_xmhaon.mp4' },
       assessTag: 'Live Demo',
       assess: [
         { title: 'AI Readiness Index', href: 'https://ai.celsiortech.us/', desc: 'Benchmark your AI maturity against industry peers.' },
@@ -895,7 +905,7 @@ a.nav-link{text-decoration:none;}
         { label: 'Insurance', href: '/industries/insurance' },
         { label: 'Healthcare', href: '/industries/healthcare' },
       ],
-      feature: { cap: '<em>Modernize</em> without disruption.', title: 'Regulated Industry Playbook', desc: 'How leading banks, insurers, and health systems modernize critical systems with confidence.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781204851/industries-feature_paiw9p.mp4' },
+      feature: { cap: '<em>Modernize</em> without disruption.', title: 'Regulated Industry Playbook', desc: 'How leading banks, insurers, and health systems modernize critical systems with confidence.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781204851/industries-feature_paiw9p.mp4' },
       assessTag: 'Industry Brief',
       assess: [
         { title: 'Prior Authorization', href: '/assessment-tools/prior-auth-roi', desc: 'AI-driven prior authorization for faster, compliant approvals.' },
@@ -914,7 +924,7 @@ a.nav-link{text-decoration:none;}
         { label: 'ServiceNow', href: '/partners/servicenow', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png' },
         { label: 'Guidewire', href: '/partners/guidewire', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png' },
       ],
-      feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
+      feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
       assessTag: 'Partnerships',
       assess: [
         { title: 'Alliance Programs', href: '/partners', desc: 'Co-build and co-sell with our technology partners.' },
@@ -930,9 +940,10 @@ a.nav-link{text-decoration:none;}
         { label: 'AI-first Philosophy', href: '/about/ai-first-philosophy' },
         { label: 'Blogs', href: '/blogs' },
       ],
-      feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/q_auto/f_auto/v1781203709/about-feature_sgqog4.mp4' },
+      feature: { cap: '<em>Who We Are</em> — Engineering excellence and global collaboration.', title: 'Who We Are', desc: 'Building AI-first digital enterprises through engineering excellence, innovation, and global collaboration.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781203709/about-feature_sgqog4.mp4' },
       assessTag: 'Join Us',
       assess: [
+        { title: 'Open Roles', href: 'https://pyramidci.com/career-overview/', desc: 'Explore engineering and consulting opportunities worldwide.' },
         { title: 'Our Leadership', href: '/about/who-we-are#leadership', desc: 'Meet the team driving Celsior\'s mission and vision.' },
       ],
     },
@@ -1170,7 +1181,9 @@ a.nav-link{text-decoration:none;}
       mega.className = 'drawer-mega';
       mega.innerHTML = `
         <a class="drawer-mega-feature" href="${data.explore.href}" aria-label="${data.feature.title}">
-          <img src="${FEATURE_IMG}" alt="${data.feature.title}" loading="lazy"/>
+          ${data.feature.video
+            ? `<video class="drawer-mega-feature-video" autoplay muted loop playsinline preload="auto" poster="${FEATURE_IMG}"><source src="${data.feature.video}" type="video/mp4"></video>`
+            : `<img src="${FEATURE_IMG}" alt="${data.feature.title}" loading="lazy"/>`}
           <div class="drawer-mega-cap">${data.feature.cap}</div>
         </a>
         <a class="drawer-mega-explore" href="${data.explore.href}">${data.explore.label} ${ARROW_SVG}</a>
@@ -1179,6 +1192,36 @@ a.nav-link{text-decoration:none;}
         <div class="drawer-mega-assess">${assessHTML}</div>
       `;
       sub.appendChild(mega);
+    });
+
+    /* Video fallback + nudge for mobile drawer videos */
+    drawerEl.querySelectorAll('video.drawer-mega-feature-video').forEach(function (v) {
+      var toImage = function () {
+        if (v.dataset.fbDone) return;
+        v.dataset.fbDone = '1';
+        var img = document.createElement('img');
+        img.src = v.getAttribute('poster');
+        img.alt = '';
+        v.replaceWith(img);
+      };
+      v.addEventListener('error', toImage);
+      var src = v.querySelector('source');
+      if (src) src.addEventListener('error', toImage);
+      setTimeout(function () { if (v.readyState === 0 && v.networkState !== 2) toImage(); }, 15000);
+    });
+
+    /* Nudge drawer videos to play when their section expands */
+    drawerEl.querySelectorAll('[data-drawer-toggle]').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var subId = toggle.getAttribute('data-drawer-toggle');
+        var sub = drawerEl.querySelector('#' + subId);
+        if (!sub) return;
+        setTimeout(function () {
+          sub.querySelectorAll('video.drawer-mega-feature-video').forEach(function (v) {
+            if (v.paused && !v.dataset.fbDone) v.play().catch(function () {});
+          });
+        }, 100);
+      });
     });
   }
 
@@ -1201,11 +1244,17 @@ a.nav-link{text-decoration:none;}
         <p class="cf-tagline">AI-first digital engineering partner for regulated industries—modernizing critical systems, operationalizing AI, and building resilience at scale.</p>
         <p class="cf-sub-head">Stay informed</p>
         <p class="cf-sub-desc">Insights on AI, compliance, and operational resilience delivered to your inbox.</p>
-        <form class="cf-subscribe" data-celsior-newsletter-form novalidate>
-          <input type="email" name="email" placeholder="Enter your work email" autocomplete="email" aria-label="Work email for newsletter subscription" required/>
+        <!-- Visible footer newsletter UI. Keep this original compact design; HubSpot capture runs through the hidden form below. -->
+        <form class="cf-subscribe cf-newsletter-ui" aria-label="Newsletter subscription form">
+          <input class="cf-newsletter-email" type="email" placeholder="Enter your work email" autocomplete="email" required/>
           <button type="submit">Subscribe</button>
         </form>
-        <p class="cf-subscribe-status" data-celsior-newsletter-status aria-live="polite"></p>
+        <div
+          class="celsior-footer-newsletter-form cf-newsletter-hubspot-hidden"
+          aria-hidden="true"
+          data-form-id="d01bacd7-cff8-4a16-a801-4c3c6aa0b9b8"
+          data-portal-id="40221584"></div>
+        <p class="cf-newsletter-status" aria-live="polite"></p>
         <p class="cf-connect">Connect with us</p>
         <div class="cf-social">
           <a href="https://www.linkedin.com/company/celsior-technologies/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -1281,17 +1330,11 @@ a.nav-link{text-decoration:none;}
       <a href="/assets/legal/ccpa-cra-v1-3-072024.pdf" target="_blank" rel="noopener">CCPA/CPRA</a>
       <a href="/assets/legal/web-privacy-policy.pdf" target="_blank" rel="noopener">Privacy</a>
       <a href="/assets/legal/pci-072025-reasonable-accomodation-policy.pdf" target="_blank" rel="noopener">Reasonable Accommodation Policy</a>
-      <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft privacy statement</a>
-      <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web accessibility</a>
-      <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy introduction</a>
+      <a href="https://www.microsoft.com/en-us/privacy/privacystatement" target="_blank" rel="noopener">Microsoft Privacy Statement</a>
+      <!-- <a href="/assets/legal/web-accessibility-v1-2-072024.pdf" target="_blank" rel="noopener">Web Accessibility</a> -->
+      <a href="/assets/legal/privacy-policy-introduction-v2-072024.pdf" target="_blank" rel="noopener">Privacy Introduction</a>
       <a href="#" data-action="cookie-prefs">Cookie Preferences</a>
     </nav>
-
-    <div class="cf-lang">
-      <svg class="cf-globe" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M3 12h18M12 3c2.5 2.7 2.5 15.3 0 18M12 3c-2.5 2.7-2.5 15.3 0 18" stroke="currentColor" stroke-width="1.6"/></svg>
-      <span>English</span>
-      <svg viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-    </div>
   </div>`;
 
 
@@ -1337,10 +1380,14 @@ a.nav-link{text-decoration:none;}
   // Desktop mega menu
   const navItemEls = navEl.querySelectorAll('.nav-item[data-menu]');
   const bdEl = backdropEl;
-  let active = null, timer = null;
+  let active = null, timer = null, openTimer = null;
+  // Hover-intent: cursor must dwell this long on a tab before its panel opens
+  // (prevents the menu firing when the cursor merely brushes past). SP 21-Jun
+  const HOVER_INTENT = 140;
 
   function openPanel(id) {
     clearTimeout(timer);
+    clearTimeout(openTimer);
     if (active === id) return;
     if (active) killPanel(active, true);
     active = id;
@@ -1376,16 +1423,25 @@ a.nav-link{text-decoration:none;}
   }
 
   const sched = () => { timer = setTimeout(() => { if (active) killPanel(active); }, 150); };
-  const cancel = () => clearTimeout(timer);
+  const cancel = () => { clearTimeout(timer); };
 
   navItemEls.forEach(li => {
-    li.addEventListener('mouseenter', () => openPanel(li.dataset.menu));
-    li.addEventListener('mouseleave', sched);
+    li.addEventListener('mouseenter', () => {
+      clearTimeout(timer);      // cancel any pending close
+      clearTimeout(openTimer);  // reset any pending open
+      const id = li.dataset.menu;
+      // A panel is already open → switch instantly. Otherwise require brief
+      // hover intent so a passing cursor doesn't pop the menu.
+      if (active) openPanel(id);
+      else openTimer = setTimeout(() => openPanel(id), HOVER_INTENT);
+    });
+    li.addEventListener('mouseleave', () => { clearTimeout(openTimer); sched(); });
     /* Click opens the mega-menu only — tabs no longer navigate to a page (SP 12-Jun) */
     const trigger = li.querySelector('.nav-link');
     if (trigger) {
       const toggle = e => {
         e.preventDefault();
+        clearTimeout(openTimer);  // click = explicit intent, open now
         if (active === li.dataset.menu) killPanel(li.dataset.menu);
         else openPanel(li.dataset.menu);
       };
@@ -1579,65 +1635,6 @@ a.nav-link{text-decoration:none;}
       if (t.dataset.action === 'cookie-prefs') { e.preventDefault(); openPrefs(); }
     });
   })();
-
-
-  function initCelsiorNewsletterSubscribe() {
-    const form = document.querySelector('[data-celsior-newsletter-form]');
-    const status = document.querySelector('[data-celsior-newsletter-status]');
-    if (!form || form.dataset.ready === 'true') return;
-    form.dataset.ready = 'true';
-
-    const input = form.querySelector('input[type="email"]');
-    const button = form.querySelector('button[type="submit"]');
-    const portalId = '40221584';
-    const formId = 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8';
-    const endpoint = `https://api.hsforms.com/submissions/v3/integration/submit/${portalId}/${formId}`;
-
-    function setStatus(message, isError) {
-      if (!status) return;
-      status.textContent = message || '';
-      status.classList.toggle('is-error', Boolean(isError));
-      status.classList.toggle('is-success', Boolean(message && !isError));
-    }
-
-    form.addEventListener('submit', async (event) => {
-      event.preventDefault();
-      const email = (input && input.value || '').trim();
-
-      if (!email || !/^\S+@\S+\.\S+$/.test(email)) {
-        setStatus('Please enter a valid work email.', true);
-        input && input.focus();
-        return;
-      }
-
-      setStatus('Subscribing...', false);
-      if (button) button.disabled = true;
-
-      try {
-        const response = await fetch(endpoint, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({
-            fields: [{ name: 'email', value: email }],
-            context: {
-              pageUri: window.location.href,
-              pageName: document.title || 'Celsior website footer'
-            }
-          })
-        });
-
-        if (!response.ok) throw new Error(`HubSpot submission failed: ${response.status}`);
-
-        form.reset();
-        setStatus('Thank you for subscribing.', false);
-      } catch (error) {
-        setStatus('Something went wrong. Please try again.', true);
-      } finally {
-        if (button) button.disabled = false;
-      }
-    });
-  }
-
 
   /* ─── HUBSPOT CTA MODAL SYSTEM ──────────────────────────────────────
      Restored from prior working shared.js.
@@ -1993,9 +1990,78 @@ a.nav-link{text-decoration:none;}
     });
   }
 
-  initCelsiorNewsletterSubscribe();
   initCelsiorHubspotModals();
 
+  /* ─── FOOTER NEWSLETTER HUBSPOT FORM ─────────────────────────────────
+   * Keeps the original compact footer design visible and submits directly to HubSpot.
+   * Do not replace the visible footer form with HubSpot-rendered markup; that breaks the footer layout.
+   */
+  function initCelsiorFooterNewsletterForm() {
+    const visibleForm = document.querySelector('.cf-newsletter-ui');
+    const visibleEmail = document.querySelector('.cf-newsletter-email');
+    const hubspotMeta = document.querySelector('.celsior-footer-newsletter-form');
+    const status = document.querySelector('.cf-newsletter-status');
+
+    if (!visibleForm || !visibleEmail || !hubspotMeta) return;
+
+    const portalId = hubspotMeta.getAttribute('data-portal-id') || '40221584';
+    const formId = hubspotMeta.getAttribute('data-form-id') || 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8';
+    const endpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId;
+
+    visibleForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      const email = visibleEmail.value.trim();
+      if (!email) return;
+
+      const submitButton = visibleForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : '';
+
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+      }
+
+      if (status) status.textContent = '';
+
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fields: [
+              {
+                name: 'email',
+                value: email
+              }
+            ],
+            context: {
+              pageUri: window.location.href,
+              pageName: document.title || 'Celsior footer newsletter'
+            }
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('HubSpot submission failed');
+        }
+
+        visibleEmail.value = '';
+        if (status) status.textContent = 'Thank you for subscribing.';
+      } catch (error) {
+        if (status) status.textContent = 'Could not submit right now. Please try again.';
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText || 'Subscribe';
+        }
+      }
+    });
+  }
+
+  initCelsiorFooterNewsletterForm();
 
 
   /* ─── AI-FIRST PAGE CTA FALLBACK ───────────────────────────────────── */
