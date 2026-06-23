@@ -4229,7 +4229,7 @@
 
     .wst-cols {
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(3, 1fr);
     }
 
     /* ── Single stat column ── */
@@ -4399,11 +4399,6 @@
       .wst-col:nth-child(3) {
         border-top: 1px solid #f3f4f6;
       }
-
-      .wst-col:nth-child(4) {
-        border-top: 1px solid #f3f4f6;
-        border-right: none;
-      }
     }
 
     @media (max-width: 520px) {
@@ -4463,16 +4458,7 @@
           <p class="wst-desc">Fortune 500 companies served</p>
         </div>
 
-        <!-- Col 2: Consultants -->
-        <div class="wst-col wc-slate" data-wst-col>
-          <div class="wst-ghost" aria-hidden="true">6,500</div>
-          <div class="wst-num">
-            <span class="wst-val" data-target="6500">0</span><span>+</span>
-          </div>
-          <p class="wst-desc">Consultants engaged across 25+ countries</p>
-        </div>
-
-        <!-- Col 3: Years -->
+        <!-- Col 2: Years -->
         <div class="wst-col wc-amber" data-wst-col>
           <div class="wst-ghost" aria-hidden="true">30</div>
           <div class="wst-num">
@@ -4481,7 +4467,7 @@
           <p class="wst-desc">of Pyramid heritage behind Celsior</p>
         </div>
 
-        <!-- Col 4: AI Accelerators -->
+        <!-- Col 3: AI Accelerators -->
         <div class="wst-col wc-purple" data-wst-col>
           <div class="wst-ghost" aria-hidden="true">Several</div>
           <div class="wst-num">Several</div>
