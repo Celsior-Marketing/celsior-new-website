@@ -545,7 +545,7 @@ a.nav-link{text-decoration:none;}
 ─────────────────────────────────────────────────────────────────── */
 .drawer-mega{padding:14px 20px 18px;display:flex;flex-direction:column;gap:14px;}
 .drawer-mega-feature{position:relative;display:block;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:#0b1020;aspect-ratio:16/9;box-shadow:0 10px 28px rgba(15,20,80,.14);}
-.drawer-mega-feature img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+.drawer-mega-feature img,.drawer-mega-feature video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
 .drawer-mega-feature::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(7,11,26,.85),rgba(7,11,26,.15) 60%,transparent);}
 .drawer-mega-cap{position:absolute;left:14px;right:14px;bottom:12px;z-index:2;color:#fff;font-family:var(--font-head);font-size:.82rem;font-weight:700;line-height:1.3;}
 .drawer-mega-cap em{color:#3ddc97;font-style:normal;}
@@ -1181,7 +1181,9 @@ a.nav-link{text-decoration:none;}
       mega.className = 'drawer-mega';
       mega.innerHTML = `
         <a class="drawer-mega-feature" href="${data.explore.href}" aria-label="${data.feature.title}">
-          <img src="${FEATURE_IMG}" alt="${data.feature.title}" loading="lazy"/>
+          ${data.feature.video
+            ? `<video class="drawer-mega-feature-video" autoplay muted loop playsinline preload="auto" poster="${FEATURE_IMG}"><source src="${data.feature.video}" type="video/mp4"></video>`
+            : `<img src="${FEATURE_IMG}" alt="${data.feature.title}" loading="lazy"/>`}
           <div class="drawer-mega-cap">${data.feature.cap}</div>
         </a>
         <a class="drawer-mega-explore" href="${data.explore.href}">${data.explore.label} ${ARROW_SVG}</a>
@@ -1190,6 +1192,36 @@ a.nav-link{text-decoration:none;}
         <div class="drawer-mega-assess">${assessHTML}</div>
       `;
       sub.appendChild(mega);
+    });
+
+    /* Video fallback + nudge for mobile drawer videos */
+    drawerEl.querySelectorAll('video.drawer-mega-feature-video').forEach(function (v) {
+      var toImage = function () {
+        if (v.dataset.fbDone) return;
+        v.dataset.fbDone = '1';
+        var img = document.createElement('img');
+        img.src = v.getAttribute('poster');
+        img.alt = '';
+        v.replaceWith(img);
+      };
+      v.addEventListener('error', toImage);
+      var src = v.querySelector('source');
+      if (src) src.addEventListener('error', toImage);
+      setTimeout(function () { if (v.readyState === 0 && v.networkState !== 2) toImage(); }, 15000);
+    });
+
+    /* Nudge drawer videos to play when their section expands */
+    drawerEl.querySelectorAll('[data-drawer-toggle]').forEach(function (toggle) {
+      toggle.addEventListener('click', function () {
+        var subId = toggle.getAttribute('data-drawer-toggle');
+        var sub = drawerEl.querySelector('#' + subId);
+        if (!sub) return;
+        setTimeout(function () {
+          sub.querySelectorAll('video.drawer-mega-feature-video').forEach(function (v) {
+            if (v.paused && !v.dataset.fbDone) v.play().catch(function () {});
+          });
+        }, 100);
+      });
     });
   }
 
