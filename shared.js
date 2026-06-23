@@ -1048,7 +1048,7 @@ a.nav-link{text-decoration:none;}
       <div class="mega-zone">
         <a class="mz-feature-card" href="${d.explore.href}">
           ${d.feature.video
-        ? `<video class="mz-feature-img" muted loop playsinline preload="none" poster="${FEATURE_IMG}" data-lazy-video="true"><source data-src="${d.feature.video}" type="video/mp4"></video>`
+        ? `<video class="mz-feature-img" autoplay muted loop playsinline preload="auto" poster="${FEATURE_IMG}"><source src="${d.feature.video}" type="video/mp4"></video>`
         : `<img class="mz-feature-img" src="${FEATURE_IMG}" alt="${d.feature.title}" loading="lazy"/>`}
           <div class="mz-feature-cap">${d.feature.cap}</div>
         </a>
@@ -1104,19 +1104,6 @@ a.nav-link{text-decoration:none;}
       </button>`;
     document.body.insertBefore(navEl, document.body.firstChild);
 
-    function celsiorLoadLazyVideo(v) {
-      if (!v || v.dataset.lazyLoaded === "true") return;
-      var sources = v.querySelectorAll("source[data-src]");
-      sources.forEach(function (source) {
-        source.src = source.dataset.src;
-        source.removeAttribute("data-src");
-      });
-      if (sources.length) {
-        v.load();
-      }
-      v.dataset.lazyLoaded = "true";
-    }
-
     /* Feature video fallback — if the video fails to load, show the image instead */
     navEl.querySelectorAll('video.mz-feature-img').forEach(v => {
       const toImage = () => {
@@ -1134,10 +1121,7 @@ a.nav-link{text-decoration:none;}
       /* also fall back only if literally nothing has loaded (quota/interstitial cases) */
       setTimeout(() => { if (v.readyState === 0 && v.networkState !== 2) toImage(); }, 15000);
       /* nudge playback when the menu opens (some browsers defer hidden-video autoplay) */
-      const nudge = () => {
-        celsiorLoadLazyVideo(v);
-        if (v.paused && !v.dataset.fbDone) v.play().catch(() => { });
-      };
+      const nudge = () => { if (v.paused && !v.dataset.fbDone) v.play().catch(() => { }); };
       const host = v.closest('.mega') || v.closest('[class*="mega"]') || navEl;
       host.addEventListener('mouseenter', nudge);
       document.addEventListener('visibilitychange', () => { if (!document.hidden) nudge(); });
@@ -1198,7 +1182,7 @@ a.nav-link{text-decoration:none;}
       mega.innerHTML = `
         <a class="drawer-mega-feature" href="${data.explore.href}" aria-label="${data.feature.title}">
           ${data.feature.video
-            ? `<video class="drawer-mega-feature-video" muted loop playsinline preload="none" poster="${FEATURE_IMG}" data-lazy-video="true"><source data-src="${data.feature.video}" type="video/mp4"></video>`
+            ? `<video class="drawer-mega-feature-video" autoplay muted loop playsinline preload="auto" poster="${FEATURE_IMG}"><source src="${data.feature.video}" type="video/mp4"></video>`
             : `<img src="${FEATURE_IMG}" alt="${data.feature.title}" loading="lazy"/>`}
           <div class="drawer-mega-cap">${data.feature.cap}</div>
         </a>
@@ -1234,7 +1218,6 @@ a.nav-link{text-decoration:none;}
         if (!sub) return;
         setTimeout(function () {
           sub.querySelectorAll('video.drawer-mega-feature-video').forEach(function (v) {
-            celsiorLoadLazyVideo(v);
             if (v.paused && !v.dataset.fbDone) v.play().catch(function () {});
           });
         }, 100);
