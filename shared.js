@@ -1218,9 +1218,8 @@ a.nav-link{text-decoration:none;}
           <button type="submit">Subscribe</button>
         </form>
         <div
-          class="hs-form-html celsior-footer-newsletter-form cf-newsletter-hubspot-hidden"
+          class="celsior-footer-newsletter-form cf-newsletter-hubspot-hidden"
           aria-hidden="true"
-          data-region="na1"
           data-form-id="d01bacd7-cff8-4a16-a801-4c3c6aa0b9b8"
           data-portal-id="40221584"></div>
         <p class="cf-newsletter-status" aria-live="polite"></p>
@@ -1962,65 +1961,76 @@ a.nav-link{text-decoration:none;}
   initCelsiorHubspotModals();
 
   /* ─── FOOTER NEWSLETTER HUBSPOT FORM ─────────────────────────────────
-   * Keeps the original compact footer design visible while submitting to HubSpot through a hidden form.
-   * Do not replace the visible form with HubSpot-rendered markup; that breaks the footer layout.
+   * Keeps the original compact footer design visible and submits directly to HubSpot.
+   * Do not replace the visible footer form with HubSpot-rendered markup; that breaks the footer layout.
    */
   function initCelsiorFooterNewsletterForm() {
     const visibleForm = document.querySelector('.cf-newsletter-ui');
     const visibleEmail = document.querySelector('.cf-newsletter-email');
-    const hiddenHubspotForm = document.querySelector('.celsior-footer-newsletter-form');
+    const hubspotMeta = document.querySelector('.celsior-footer-newsletter-form');
     const status = document.querySelector('.cf-newsletter-status');
 
-    if (!visibleForm || !visibleEmail || !hiddenHubspotForm) return;
+    if (!visibleForm || !visibleEmail || !hubspotMeta) return;
 
-    const scriptSrc = 'https://js.hsforms.net/forms/embed/developer/40221584.js';
+    const portalId = hubspotMeta.getAttribute('data-portal-id') || '40221584';
+    const formId = hubspotMeta.getAttribute('data-form-id') || 'd01bacd7-cff8-4a16-a801-4c3c6aa0b9b8';
+    const endpoint = 'https://api.hsforms.com/submissions/v3/integration/submit/' + portalId + '/' + formId;
 
-    if (!document.querySelector('script[src="' + scriptSrc + '"]')) {
-      const script = document.createElement('script');
-      script.src = scriptSrc;
-      script.defer = true;
-      document.head.appendChild(script);
-    }
-
-    visibleForm.addEventListener('submit', function (event) {
+    visibleForm.addEventListener('submit', async function (event) {
       event.preventDefault();
 
       const email = visibleEmail.value.trim();
       if (!email) return;
 
-      let attempts = 0;
+      const submitButton = visibleForm.querySelector('button[type="submit"]');
+      const originalButtonText = submitButton ? submitButton.textContent : '';
 
-      function submitHiddenHubspotForm() {
-        attempts += 1;
+      if (submitButton) {
+        submitButton.disabled = true;
+        submitButton.textContent = 'Submitting...';
+      }
 
-        const hsEmail = hiddenHubspotForm.querySelector('input[type="email"], input[name="email"]');
-        const hsSubmit = hiddenHubspotForm.querySelector('input[type="submit"], button[type="submit"]');
+      if (status) status.textContent = '';
 
-        if ((!hsEmail || !hsSubmit) && attempts < 20) {
-          window.setTimeout(submitHiddenHubspotForm, 250);
-          return;
+      try {
+        const response = await fetch(endpoint, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            fields: [
+              {
+                name: 'email',
+                value: email
+              }
+            ],
+            context: {
+              pageUri: window.location.href,
+              pageName: document.title || 'Celsior footer newsletter'
+            }
+          })
+        });
+
+        if (!response.ok) {
+          throw new Error('HubSpot submission failed');
         }
-
-        if (!hsEmail || !hsSubmit) {
-          if (status) status.textContent = 'Please try again in a moment.';
-          return;
-        }
-
-        hsEmail.value = email;
-        hsEmail.dispatchEvent(new Event('input', { bubbles: true }));
-        hsEmail.dispatchEvent(new Event('change', { bubbles: true }));
-
-        hsSubmit.click();
 
         visibleEmail.value = '';
         if (status) status.textContent = 'Thank you for subscribing.';
+      } catch (error) {
+        if (status) status.textContent = 'Could not submit right now. Please try again.';
+      } finally {
+        if (submitButton) {
+          submitButton.disabled = false;
+          submitButton.textContent = originalButtonText || 'Subscribe';
+        }
       }
-
-      submitHiddenHubspotForm();
     });
   }
 
   initCelsiorFooterNewsletterForm();
+
 
   /* ─── AI-FIRST PAGE CTA FALLBACK ───────────────────────────────────── */
   function forceAiFirstExploreCtaRedirect() {
