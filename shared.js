@@ -1117,33 +1117,6 @@ a.nav-link{text-decoration:none;}
       v.dataset.lazyLoaded = "true";
     }
 
-    function celsiorPlayVisibleLazyMegaVideos(root) {
-      var scope = root || document;
-      var videos = scope.querySelectorAll('video[data-lazy-video="true"]');
-
-      videos.forEach(function (v) {
-        var rect = v.getBoundingClientRect();
-        var isVisible = rect.width > 0 && rect.height > 0;
-
-        if (!isVisible) return;
-
-        celsiorLoadLazyVideo(v);
-        v.play().catch(function () {});
-      });
-    }
-
-    ['mouseenter', 'mouseover', 'focusin', 'click', 'touchstart'].forEach(function (evt) {
-      document.addEventListener(evt, function (e) {
-        if (!e.target.closest || !e.target.closest('.nav-shell')) return;
-        setTimeout(function () {
-          celsiorPlayVisibleLazyMegaVideos(document);
-        }, 60);
-        setTimeout(function () {
-          celsiorPlayVisibleLazyMegaVideos(document);
-        }, 250);
-      }, true);
-    });
-
     /* Feature video fallback — if the video fails to load, show the image instead */
     navEl.querySelectorAll('video.mz-feature-img').forEach(v => {
       const toImage = () => {
