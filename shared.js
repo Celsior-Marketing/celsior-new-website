@@ -497,6 +497,9 @@ a.nav-link{text-decoration:none;}
 .cf-subscribe input:focus{border-color:var(--cf-accent);background:rgba(255,255,255,.07);}
 .cf-subscribe button{padding:0 20px;background:var(--cf-accent);border:none;border-radius:0 8px 8px 0;font-family:inherit;font-size:.8rem;font-weight:700;color:#fff;cursor:pointer;white-space:nowrap;transition:background .2s;}
 .cf-subscribe button:hover{background:#1d3372;}
+.cf-newsletter-hubspot-hidden{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden!important;clip:rect(0,0,0,0)!important;white-space:nowrap!important;opacity:0!important;pointer-events:none!important;}
+.cf-newsletter-status{margin:8px 0 0 0;font-size:.78rem;line-height:1.4;color:var(--cf-mid);min-height:1em;}
+
 .cf-connect{font-size:.98rem;font-weight:700;color:var(--cf-ink);margin-top:32px;}
 .cf-social{display:flex;gap:10px;margin-top:15px;}
 .cf-social a{width:38px;height:38px;border-radius:9px;border:1px solid var(--cf-border2);background:rgba(255,255,255,.03);display:grid;place-items:center;color:var(--cf-mid);transition:background .22s,color .22s,transform .22s cubic-bezier(.16,1,.3,1),border-color .22s;}
@@ -1209,10 +1212,18 @@ a.nav-link{text-decoration:none;}
         <p class="cf-tagline">AI-first digital engineering partner for regulated industries—modernizing critical systems, operationalizing AI, and building resilience at scale.</p>
         <p class="cf-sub-head">Stay informed</p>
         <p class="cf-sub-desc">Insights on AI, compliance, and operational resilience delivered to your inbox.</p>
-        <div class="cf-subscribe">
-          <input type="email" placeholder="Enter your work email" autocomplete="email"/>
-          <button type="button">Subscribe</button>
-        </div>
+        <!-- Visible footer newsletter UI. Keep this original compact design; HubSpot capture runs through the hidden form below. -->
+        <form class="cf-subscribe cf-newsletter-ui" aria-label="Newsletter subscription form">
+          <input class="cf-newsletter-email" type="email" placeholder="Enter your work email" autocomplete="email" required/>
+          <button type="submit">Subscribe</button>
+        </form>
+        <div
+          class="hs-form-html celsior-footer-newsletter-form cf-newsletter-hubspot-hidden"
+          aria-hidden="true"
+          data-region="na1"
+          data-form-id="d01bacd7-cff8-4a16-a801-4c3c6aa0b9b8"
+          data-portal-id="40221584"></div>
+        <p class="cf-newsletter-status" aria-live="polite"></p>
         <p class="cf-connect">Connect with us</p>
         <div class="cf-social">
           <a href="https://www.linkedin.com/company/celsior-technologies/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
@@ -1950,7 +1961,66 @@ a.nav-link{text-decoration:none;}
 
   initCelsiorHubspotModals();
 
+  /* ─── FOOTER NEWSLETTER HUBSPOT FORM ─────────────────────────────────
+   * Keeps the original compact footer design visible while submitting to HubSpot through a hidden form.
+   * Do not replace the visible form with HubSpot-rendered markup; that breaks the footer layout.
+   */
+  function initCelsiorFooterNewsletterForm() {
+    const visibleForm = document.querySelector('.cf-newsletter-ui');
+    const visibleEmail = document.querySelector('.cf-newsletter-email');
+    const hiddenHubspotForm = document.querySelector('.celsior-footer-newsletter-form');
+    const status = document.querySelector('.cf-newsletter-status');
 
+    if (!visibleForm || !visibleEmail || !hiddenHubspotForm) return;
+
+    const scriptSrc = 'https://js.hsforms.net/forms/embed/developer/40221584.js';
+
+    if (!document.querySelector('script[src="' + scriptSrc + '"]')) {
+      const script = document.createElement('script');
+      script.src = scriptSrc;
+      script.defer = true;
+      document.head.appendChild(script);
+    }
+
+    visibleForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      const email = visibleEmail.value.trim();
+      if (!email) return;
+
+      let attempts = 0;
+
+      function submitHiddenHubspotForm() {
+        attempts += 1;
+
+        const hsEmail = hiddenHubspotForm.querySelector('input[type="email"], input[name="email"]');
+        const hsSubmit = hiddenHubspotForm.querySelector('input[type="submit"], button[type="submit"]');
+
+        if ((!hsEmail || !hsSubmit) && attempts < 20) {
+          window.setTimeout(submitHiddenHubspotForm, 250);
+          return;
+        }
+
+        if (!hsEmail || !hsSubmit) {
+          if (status) status.textContent = 'Please try again in a moment.';
+          return;
+        }
+
+        hsEmail.value = email;
+        hsEmail.dispatchEvent(new Event('input', { bubbles: true }));
+        hsEmail.dispatchEvent(new Event('change', { bubbles: true }));
+
+        hsSubmit.click();
+
+        visibleEmail.value = '';
+        if (status) status.textContent = 'Thank you for subscribing.';
+      }
+
+      submitHiddenHubspotForm();
+    });
+  }
+
+  initCelsiorFooterNewsletterForm();
 
   /* ─── AI-FIRST PAGE CTA FALLBACK ───────────────────────────────────── */
   function forceAiFirstExploreCtaRedirect() {
