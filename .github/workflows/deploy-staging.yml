@@ -3,7 +3,7 @@ name: Deploy to cPanel Staging
 on:
   push:
     branches:
-      - dev  # ⚡ Auto-deploys to staging (dev.celsiortech.com) on every push/merge to dev
+      - main  # ⚡ Auto-deploys to staging (dev.celsiortech.com) on every push/merge to dev
   workflow_dispatch:  # Still allows manual runs from the Actions tab
 
 jobs:
