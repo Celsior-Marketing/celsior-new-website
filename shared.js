@@ -1,3 +1,33 @@
+/* CELSIOR_ANALYTICS_TRACKING_BLOCK
+ * GA4 + Microsoft Clarity tracking for production only.
+ * Runs only on celsiortech.com / www.celsiortech.com to keep dev data clean.
+ */
+(function () {
+  var allowedHosts = ["celsiortech.com", "www.celsiortech.com"];
+  if (allowedHosts.indexOf(window.location.hostname) === -1) return;
+
+  // Google Analytics 4
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ window.dataLayer.push(arguments); }
+  window.gtag = window.gtag || gtag;
+
+  var gaScript = document.createElement("script");
+  gaScript.async = true;
+  gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-ERKH1G4MZT";
+  document.head.appendChild(gaScript);
+
+  gtag("js", new Date());
+  gtag("config", "G-ERKH1G4MZT");
+
+  // Microsoft Clarity
+  (function(c,l,a,r,i,t,y){
+      c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+      t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+      y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+  })(window, document, "clarity", "script", "xc3270o91n");
+})();
+
+
 /**
  * shared.js — Celsior site-wide nav + footer injector
  * Include this script on EVERY page (load with `defer`). Active nav item
