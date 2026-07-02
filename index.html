@@ -3362,16 +3362,24 @@
       gsap.from('#outerOval', { strokeDashoffset: ovalPerim, strokeDasharray: `${ovalPerim} ${ovalPerim}`, duration: 2.7, ease: 'power2.out', delay: 0.18, scrollTrigger: { trigger: '#orbitWrap', start: 'top 80%', once: true } });
       gsap.from('#outerOval2', { strokeDashoffset: ovalPerim, strokeDasharray: `${ovalPerim} ${ovalPerim}`, duration: 2.7, ease: 'power2.out', delay: 0.32, scrollTrigger: { trigger: '#orbitWrap', start: 'top 80%', once: true } });
       gsap.from('#orbitEyebrow', { opacity: 0, y: 28, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: '#orbitWrap', start: 'top 84%', once: true } });
-      const THRESHOLD = 0.008, SLIDE_PROGRESS_END = N / SCROLL_MULT;
+      const THRESHOLD = 0.008;
       ScrollTrigger.create({
-        trigger: '#orbitWrap', start: 'top top', end: `+=${Math.round(window.innerHeight * SCROLL_MULT)}`, pin: '#orbitStage', scrub: 2, anticipatePin: 1,
+        trigger: '#orbitWrap', start: 'top top', end: `+=${Math.round(window.innerHeight * SCROLL_MULT)}`, pin: '#orbitStage', scrub: 1.2, anticipatePin: 1,
         onUpdate(self) {
           const p = self.progress;
           const dir = p >= lastProgress ? 1 : -1;
           lastProgress = p;
           placeMarkers(-Math.PI / 2 + p * Math.PI * 4);
-          const slideP = Math.min(p / SLIDE_PROGRESS_END, 1), rawIdx = slideP * N, idx = Math.min(Math.floor(rawIdx), N - 1), frac = rawIdx - Math.floor(rawIdx), isStable = frac > THRESHOLD && frac < (1 - THRESHOLD);
-          if (isStable && idx !== activeIdx && idx < N) goTo(idx, dir);
+
+          // Spread the four centre text states evenly across the full pinned scroll.
+          // Previous logic completed all text changes by ~61.5% progress, causing
+          // the last state to remain active for too long, especially on iOS/Safari.
+          const rawIdx = Math.min(p * N, N - 0.0001);
+          const idx = Math.floor(rawIdx);
+          const frac = rawIdx - idx;
+          const isStable = frac > THRESHOLD && frac < (1 - THRESHOLD);
+
+          if (isStable && idx !== activeIdx) goTo(idx, dir);
         }
       });
     })();
