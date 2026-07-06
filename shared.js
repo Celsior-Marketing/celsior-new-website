@@ -950,9 +950,9 @@ a.nav-link{text-decoration:none;}
         { label: 'Partner Network', href: '/partners' },
       ],
       partnerLogos: [
-        { label: 'Jack Henry', href: '/partners/jack-henry', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png' },
-        { label: 'ServiceNow', href: '/partners/servicenow', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png' },
-        { label: 'Guidewire', href: '/partners/guidewire', src: '/assets/images/partners/GW_COE.svg', className: 'mega-logo--gw-coe' },
+        { label: 'Jack Henry', href: '/jack-henry', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png' },
+        { label: 'ServiceNow', href: '/servicenow', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png' },
+        { label: 'Guidewire', href: '/guidewire', src: '/assets/images/partners/GW_COE.svg', className: 'mega-logo--gw-coe' },
       ],
       feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
       assessTag: 'Partnerships',
