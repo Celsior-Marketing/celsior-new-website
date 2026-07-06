@@ -462,7 +462,7 @@ a.nav-link{text-decoration:none;}
 .partner-logo-grid .partner-logo-card:last-child:nth-child(odd){grid-column:1 / -1;}
 .partner-logo-card{display:flex;align-items:center;justify-content:center;min-height:66px;padding:12px 16px;background:#fff;border:1px solid var(--border);border-radius:10px;text-decoration:none;transition:transform .18s,border-color .18s,box-shadow .18s;overflow:hidden;}
 .partner-logo-card:hover{transform:translateY(-1px);border-color:rgba(32,86,255,.28);box-shadow:0 10px 24px rgba(20,30,70,.10);}
-.partner-logo-img{max-width:100%;max-height:48px;width:auto;height:auto;object-fit:contain;display:block;}
+.partner-logo-img{max-width:100%;max-height:48px;width:auto;height:auto;object-fit:contain;display:block;}.partner-logo-img.mega-logo--gw-coe{max-width:150px;max-height:30px;width:auto;height:auto;object-fit:contain;margin:0 auto;}
 .drawer-partner-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:10px;}
 .drawer-partner-card{display:flex;align-items:center;justify-content:center;min-height:58px;padding:11px 12px;background:#fff;border:1px solid var(--border);border-radius:9px;text-decoration:none;overflow:hidden;}
 .drawer-partner-logo{max-width:100%;max-height:32px;width:auto;height:auto;object-fit:contain;display:block;}
@@ -952,7 +952,7 @@ a.nav-link{text-decoration:none;}
       partnerLogos: [
         { label: 'Jack Henry', href: '/partners/jack-henry', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/25_qqbbin.png' },
         { label: 'ServiceNow', href: '/partners/servicenow', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/26_pr8qv6.png' },
-        { label: 'Guidewire', href: '/partners/guidewire', src: 'https://res.cloudinary.com/dyhze7fmf/image/upload/celsior-new-website/LOGOS_2_rne95i.png' },
+        { label: 'Guidewire', href: '/partners/guidewire', src: '/assets/images/partners/GW_COE.svg', className: 'mega-logo--gw-coe' },
       ],
       feature: { cap: '<em>Join</em> the Celsior ecosystem.', title: 'Become a Partner', desc: 'Partner with Celsior to deliver AI-first transformation for regulated enterprises worldwide.', video: 'https://res.cloudinary.com/dyhze7fmf/video/upload/f_mp4,q_auto:good,w_720/v1781205216/partner-ecosystem-feature_jz8fm1.mp4' },
       assessTag: 'Partnerships',
@@ -1058,7 +1058,7 @@ a.nav-link{text-decoration:none;}
       return `<a class="mz-item" href="${it.href}" data-ftitle="${it.label}" data-fdesc="${fdesc}" data-fcap="${fcap}">${it.label} ${ITEM_CHEV}</a>`;
     }).join('');
     const pills = d.partnerLogos
-      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card mz-item" href="${p.href}" title="${p.label}" data-ftitle="${p.label}" data-fdesc="${(FEATURE_DESCS[p.label] || d.feature.desc).replace(/"/g, '&quot;')}" data-fcap="${(FEATURE_CAPS[p.label] || d.feature.cap).replace(/"/g, '&quot;')}"><img class="partner-logo-img" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
+      ? `<div class="partner-logo-grid">${d.partnerLogos.map(p => `<a class="partner-logo-card mz-item" href="${p.href}" title="${p.label}" data-ftitle="${p.label}" data-fdesc="${(FEATURE_DESCS[p.label] || d.feature.desc).replace(/"/g, '&quot;')}" data-fcap="${(FEATURE_CAPS[p.label] || d.feature.cap).replace(/"/g, '&quot;')}"><img class="partner-logo-img${p.className ? ` ${p.className}` : ``}" src="${p.src}" alt="${p.label}" loading="lazy"/></a>`).join('')}</div>`
       : (d.pills ? `<div class="mz-pills">${d.pills.map(p => `<a class="mz-pill" href="${d.items[0].href}"><span class="p-dot"></span>${p}</a>`).join('')}</div>` : '');
     const assess = d.assess.map((a, i) => `
         <a class="mz-assess-card" href="${a.href || d.explore.href}">
