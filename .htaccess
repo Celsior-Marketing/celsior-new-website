@@ -1,3 +1,12 @@
+# ------------------------------------------------------------
+# Dev preview protection: prevent public crawling/indexing
+# Password file lives on cPanel server, not in GitHub.
+# ------------------------------------------------------------
+AuthType Basic
+AuthName "Celsior Dev Preview"
+AuthUserFile /home/pyrabwug/.htpasswds/dev-celsiortech-passwd
+Require valid-user
+
 # Celsior static site on Apache/cPanel
 DirectoryIndex index.html
 Options -Indexes
