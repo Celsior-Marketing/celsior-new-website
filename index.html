@@ -3330,7 +3330,9 @@
       function circleAt(t) { return { x: CX + R * Math.cos(t), y: CY + R * Math.sin(t), ang: 180 + t * (180 / Math.PI) }; }
       const wrap = document.getElementById('orbitWrap'), markers = ['om0', 'om1', 'om2', 'om3'].map(id => document.getElementById(id)), slides = Array.from(document.querySelectorAll('.os-slide')), N = slides.length;
       const bgImgs = ['obg0', 'obg1', 'obg2', 'obg3'].map(id => document.getElementById(id));
-      const SCROLL_MULT = N + 2.5; wrap.style.height = `${Math.round(window.innerHeight * SCROLL_MULT)}px`;
+      const SCROLL_MULT = N + 1.25; wrap.style.height = `${Math.round(window.innerHeight * SCROLL_MULT)}px`;
+      const STORY_PROGRESS = isMobile ? 0.80 : 0.86;
+      const ORBIT_SCRUB = isMobile ? 0.45 : 0.6;
       function placeMarkers(t) { markers.forEach((m, i) => { const { x, y, ang } = circleAt(t + i * (Math.PI / 2)); m.setAttribute('transform', `translate(${x},${y}) rotate(${ang})`); }); }
       let activeIdx = -1; const tweens = new Array(N).fill(null);
       let lastProgress = 0;
@@ -3364,17 +3366,18 @@
       gsap.from('#orbitEyebrow', { opacity: 0, y: 28, duration: 1.1, ease: 'power3.out', scrollTrigger: { trigger: '#orbitWrap', start: 'top 84%', once: true } });
       const THRESHOLD = 0.008;
       ScrollTrigger.create({
-        trigger: '#orbitWrap', start: 'top top', end: `+=${Math.round(window.innerHeight * SCROLL_MULT)}`, pin: '#orbitStage', scrub: 1.2, anticipatePin: 1,
+        trigger: '#orbitWrap', start: 'top top', end: `+=${Math.round(window.innerHeight * SCROLL_MULT)}`, pin: '#orbitStage', scrub: ORBIT_SCRUB, anticipatePin: 1,
         onUpdate(self) {
           const p = self.progress;
           const dir = p >= lastProgress ? 1 : -1;
           lastProgress = p;
           placeMarkers(-Math.PI / 2 + p * Math.PI * 4);
 
-          // Spread the four centre text states evenly across the full pinned scroll.
-          // Previous logic completed all text changes by ~61.5% progress, causing
-          // the last state to remain active for too long, especially on iOS/Safari.
-          const rawIdx = Math.min(p * N, N - 0.0001);
+          // Spread the four centre text states across the storytelling portion,
+          // then hold the final state briefly before the pinned section releases.
+          // This keeps all four states balanced while avoiding an abrupt final exit.
+          const storyP = Math.min(p / STORY_PROGRESS, 1);
+          const rawIdx = Math.min(storyP * N, N - 0.0001);
           const idx = Math.floor(rawIdx);
           const frac = rawIdx - idx;
           const isStable = frac > THRESHOLD && frac < (1 - THRESHOLD);
