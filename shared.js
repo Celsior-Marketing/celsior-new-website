@@ -50,7 +50,7 @@
      Leave any value as '' to disable that integration. See SETUP.md.
   ─────────────────────────────────────────────────────────────────── */
   const SITE_CONFIG = (window.SITE_CONFIG = Object.assign({
-    favicon: '/favicon.png',
+    favicon: '/favicon-20260708.png',
     siteName: 'Pyramid Consulting',
     defaultDescription: 'AI-first digital engineering partner for regulated industries — modernizing critical systems, operationalizing AI, and building resilience at scale.',
     defaultOgImage: '',           // optional absolute URL
