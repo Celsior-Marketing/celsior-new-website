@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 
-const WP_API_BASE = process.env.WP_API_BASE || "https://celsiortech.com/wp-json/wp/v2";
+const WP_API_BASE = process.env.WP_API_BASE || "https://cms.celsiortech.com/wp-json/wp/v2";
 const OUT_DIR = path.join(process.cwd(), "blogs");
 
 function stripHtml(html = "") {
