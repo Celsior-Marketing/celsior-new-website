@@ -1780,7 +1780,7 @@
     grid.innerHTML = '<p style="grid-column:1/-1;padding:60px 0;color:#6b7280;">Loading Celsior insights...</p>';
     if (showMore) showMore.closest(".show-more-wrap").style.display = "none";
 
-    const res = await fetch("/blogs/blog-data.json", { cache: "no-cache" });
+    const res = await fetch("/blogs/blog-data.json?v=" + Date.now(), { cache: "no-cache" });
     if (!res.ok) throw new Error("Generated blog data missing");
 
     const data = await res.json();
