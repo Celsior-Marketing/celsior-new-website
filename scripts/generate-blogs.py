@@ -12,9 +12,13 @@ ROOT = Path.cwd()
 OUT_DIR = ROOT / "blogs"
 
 def fetch_posts():
-    url = WP_API_BASE + "/posts?_embed&per_page=100&orderby=date&order=desc"
+    url = WP_API_BASE + "/posts?_embed&per_page=100&orderby=date&order=desc&_cb=" + datetime.utcnow().strftime("%Y%m%d%H%M%S")
     print("Fetching WordPress posts:", url)
-    req = urllib.request.Request(url, headers={"User-Agent": "CelsiorStaticBlogGenerator/1.0"})
+    req = urllib.request.Request(url, headers={
+        "User-Agent": "CelsiorStaticBlogGenerator/1.0",
+        "Cache-Control": "no-cache",
+        "Pragma": "no-cache"
+    })
     with urllib.request.urlopen(req, timeout=60) as response:
         return json.loads(response.read().decode("utf-8"))
 
