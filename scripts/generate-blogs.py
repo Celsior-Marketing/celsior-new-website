@@ -1,19 +1,34 @@
 #!/usr/bin/env python3
 
 import json
+import os
 import re
 import html
 import urllib.request
+import urllib.parse
 from pathlib import Path
 from datetime import datetime
 
 WP_API_BASE = "https://cms.celsiortech.com/wp-json/wp/v2"
+CMS_TOKEN_FILE = Path("/home/pyrabwug/.celsior-cms-api-token")
+
+def cms_token():
+    token = os.environ.get("CELSIOR_CMS_TOKEN", "").strip()
+    if token:
+        return token
+    try:
+        return CMS_TOKEN_FILE.read_text().strip()
+    except Exception:
+        return ""
+
 ROOT = Path.cwd()
 OUT_DIR = ROOT / "blogs"
 
 def fetch_posts():
-    url = WP_API_BASE + "/posts?_embed&per_page=100&orderby=date&order=desc&_cb=" + datetime.utcnow().strftime("%Y%m%d%H%M%S")
-    print("Fetching WordPress posts:", url)
+    token = cms_token()
+    token_part = "&celsior_cms_token=" + urllib.parse.quote(token) if token else ""
+    url = WP_API_BASE + "/posts?_embed&per_page=100&orderby=date&order=desc&_cb=" + datetime.utcnow().strftime("%Y%m%d%H%M%S") + token_part
+    print("Fetching WordPress posts:", url.replace(token_part, "&celsior_cms_token=***") if token_part else url)
     req = urllib.request.Request(url, headers={
         "User-Agent": "CelsiorStaticBlogGenerator/1.0",
         "Cache-Control": "no-cache",
